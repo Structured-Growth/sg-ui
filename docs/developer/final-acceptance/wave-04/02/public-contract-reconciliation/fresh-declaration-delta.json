@@ -1,0 +1,118 @@
+{
+  "status": "pass",
+  "oldInventory": "docs/developer/final-acceptance/wave-04/coordinator/validation/public-contract-current-review/public-contracts.json",
+  "newInventory": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation/fresh-declarations-01/public-contracts.json",
+  "oldSha256": "82ede56de4a678e39963abdee53202e0cf38d4ea6535e3e02d768c061b4a9d37",
+  "newSha256": "21f5d28dfb740b7d74969da368fa9cfc6c99119c749c3314fe56ee10e75ae904",
+  "oldCounts": {
+    "contracts": 480,
+    "routes": 238,
+    "declarations": 443
+  },
+  "newCounts": {
+    "contracts": 480,
+    "routes": 238,
+    "declarations": 445
+  },
+  "addedPublicIdentities": [],
+  "removedPublicIdentities": [],
+  "changedResolvedPublicShapes": [],
+  "emittedDeclarationAdded": [
+    "dist/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.d.ts",
+    "dist/experimental/DateRangeSelector/RangeAdjustmentControls.d.ts"
+  ],
+  "emittedDeclarationRemoved": [],
+  "emittedDeclarationChanged": [
+    "dist/components/PageRichTextEditorSection/lexical/editorConfig.d.ts",
+    "dist/components/IconPanelNavigation/IconPanelNavigation.d.ts",
+    "dist/components/InstructorClassCard/InstructorClassCard.d.ts",
+    "dist/experimental/DateRangeSelector/DateRangeSelector.d.ts"
+  ],
+  "shapeComparison": "All resolved fields/callbacks/parameters/models/ref types/deprecated tags and route aliases compared. Declaration source text/location/JSDoc containers excluded; retained separately in each full inventory.",
+  "committedReference": "debc3d2ba565f14776e09911c185152b0a5b342c",
+  "compiledSourceManifest": {
+    "path": "docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/shared-native-01/source-before-build.json",
+    "sha256": "ac3227ac958746fc7bd2e5e70d8b30e4119c4f29cc4eea3db0e641cfbd2549cc"
+  },
+  "workingCandidateSourceDeltas": [
+    {
+      "path": "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.module.css",
+      "committedSha256": "c3219ad8d95a2c4091738dfbc1e951a9c900defd2ca5978bd468d1ded0af3336",
+      "compiledCandidateSha256": "49dd0370adf800cd3b9666898d54926f1596d42c7418c136bafeba554ba64d25"
+    },
+    {
+      "path": "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.test.tsx",
+      "committedSha256": "e7350808042a40bbd10f8a62ea40956e5eee81dddf6645a64411ceac703f4f4f",
+      "compiledCandidateSha256": "d0865fdd5b7fe54ace45da1f818366bae6242b1c8f234c73dbf9ce532c3690d2"
+    },
+    {
+      "path": "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.tsx",
+      "committedSha256": "6c811471a9fe33d7ff70f07522cae759fd1edbfc147c22a89bd4d85c0de78034",
+      "compiledCandidateSha256": "258411ea0268807be7a3ac841e08ce946eb5dfc73ce42d52654a04667b5fa3e0"
+    },
+    {
+      "path": "packages/ui/src/components/IconPanelNavigation/PanelResizeHandle.tsx",
+      "committedSha256": "ee254813fd260d7b9e3a5270a4072606bb8cd1d373b15952506c4854d5e08873",
+      "compiledCandidateSha256": "9253a0def778ee348d0269b62b2f945e415a5a5838f019742798fc397b351fd6"
+    },
+    {
+      "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts",
+      "committedSha256": "04f602901da068b508109399704df42ecef59b359a2abfddb9b7ecadcc3b1b80",
+      "compiledCandidateSha256": "c7dc281a12707d791cd7551ead4a914e08764218f71b4e715e85bb1279e512d1"
+    },
+    {
+      "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx",
+      "committedSha256": "31c8e90cba0d0ab91a59ca02822f6970639ae94b8d486784486a92068658dce2",
+      "compiledCandidateSha256": "23fab30cff08b549c015f617b61d1ffa96b48c365074073abdeadd0290086fdf"
+    },
+    {
+      "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.test.tsx",
+      "committedSha256": null,
+      "compiledCandidateSha256": "459b6b9958c3df54807c37068c64a98bc0452cbcb49d3c979321f0d2f0926949"
+    },
+    {
+      "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.tsx",
+      "committedSha256": null,
+      "compiledCandidateSha256": "726bc1859b3e1ad458b70fab1e6b3a8cd9747e06f8e948dcec4b5818e0883ac7"
+    },
+    {
+      "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css",
+      "committedSha256": "1517b9831227350371747286df138b975f1c5774ec93e64af6a7de4a10ebc4dd",
+      "compiledCandidateSha256": "dc97e89530b432ecc82a45c9820913133ae70f94add19909a519f5acbc049c57"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css",
+      "committedSha256": "26bac6769ea6726bc3c2fa55b453ac7400c2a9964dfbbb10205d3ce20fe6a167",
+      "compiledCandidateSha256": "fed51be5a7dce55b7f4f0d0abd9db19aba8131710e9c5c3391155ad65e9a0f3b"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "committedSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "compiledCandidateSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/RangeAdjustmentControls.test.tsx",
+      "committedSha256": null,
+      "compiledCandidateSha256": "76f6eb217ac9af528a8924c96258cf59b3b279fc61711dfbf4584f7a39900744"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/RangeAdjustmentControls.tsx",
+      "committedSha256": null,
+      "compiledCandidateSha256": "684be29623544c428e995d532c27278317b5bed09ebcc3a5f0726f0ca2275258"
+    },
+    {
+      "path": "packages/ui/src/experimental/List/List.module.css",
+      "committedSha256": "265b37711f9a11952006706d311e85bf2e9adceee0ce03418cd8f7a6b15937a4",
+      "compiledCandidateSha256": "57445e72515e8b1e771e3393c9f919c36a696687c10e663a902be5022e6deed3"
+    },
+    {
+      "path": "packages/ui/src/experimental/Navigation/Navigation.module.css",
+      "committedSha256": "500062dd46338240136c4366503e032a30c43b8218e028330e69e6262569bd34",
+      "compiledCandidateSha256": "a3408608468c6d1aaf9e490c51919ff0a182270bf823144db741666373345803"
+    }
+  ],
+  "limits": [
+    "Public signature equality does not claim unchanged runtime behavior; X08/D15 native validation is separately owned.",
+    "New helper declarations are not public contracts unless reachable from declared package export routes."
+  ]
+}

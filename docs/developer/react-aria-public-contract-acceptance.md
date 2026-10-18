@@ -52,6 +52,11 @@ native error is used only when errorMessage is nullish; an explicit empty host
 errorMessage suppresses that saved text. This precedence is distinct from validity
 and should not be generalized to date/time fields.
 
+DataToolbar view controls are presence-based: omitted showViewModeToggle uses
+Boolean(viewMode && onViewModeChange). Explicit false/true controls visibility;
+a missing callback still disables the actions. The source expression, rather than
+optional prop syntax, defines this default. See [the toolbar contract](react-aria-data-toolbar.md).
+
 ## Installed declaration proof
 
 `packages/ui/scripts/acceptance-installed-types.mjs` reads an existing isolated
@@ -111,7 +116,7 @@ node packages/ui/scripts/public-contract-inventory.mjs \
   --package packages/ui --output /absolute/new-public-inventory
 node packages/ui/scripts/verify-contract-migrations.mjs \
   --inventory /absolute/new-public-inventory/public-contracts.json \
-  --repo . --output /absolute/new-migration-receipt.json
+  --repo . --source-ref HEAD --output /absolute/new-migration-receipt.json
 ```
 
 The generator expands wildcard exports, resolves aliases and inherited native
@@ -121,10 +126,16 @@ retained as an issue. The generated declaration manifest hashes every current ty
 file; optional props remain separate from source-backed runtime defaults.
 
 The migration gate requires all absent baseline names to have existing public
-replacement exports and a consumer guide. It also checks the five recorded changed
-default bindings against exact source hashes and current declared props. Its map is
-bounded: historical upstream inherited props and final release-range markers still
-require their separate evidence. Source changes invalidate the relevant default
+replacement exports and a consumer guide. It also checks six changed default
+bindings against exact source hashes, named
+implementation owners and current declared props. Five calendar defaults changed
+since the saved owned snapshot; omitted AppDataGrid selection changed from absent
+to enabled relative to the initial extraction. Pass `selection={false}` to retain
+that earlier presentation. The separate locked-type evidence resolves 38 captured
+analysis contracts and 740 inherited styling mappings; it does not promise every
+upstream prop remains compatible. `--source-ref` pins the source check to a Git
+commit, keeping uncommitted candidate changes separate. Source changes invalidate
+the relevant default
 row until reviewed. The gate neither publishes nor changes library versions.
 
 The [public boundary index](react-aria-public-boundary-index.md) defines naming,
@@ -133,5 +144,33 @@ boundaries and 96 icon contracts. Its JSON retains naming-union alternatives and
 aliases. InstructorClassCard.className is course-name content, not a CSS hook.
 The current inventory resolved 480 contracts on 238 public routes with no
 unresolved top-level types. The migration guard verified 12 removed-name mappings
-and five changed defaults. These are declaration/source checks; the separate
+and five changed defaults in that historical receipt. The maintained map now also
+tracks the extraction-to-owned grid selection default, for six total. These are
+declaration/source checks; the separate
 installed-consumer receipts provide runtime and hydration evidence.
+
+
+## Frozen contract reconciliation
+
+The [per-contract join](final-acceptance/wave-04/02/public-contract-reconciliation/contract-join.json)
+links the 38 recovered boundary/model/event analysis contracts and all 740 styling
+rows to their resolved owned declarations, callback signatures, models, deprecated
+tags, route identities and specific migration guides. It also updates all 266
+baseline symbol dispositions, including the twelve absent names and the surviving
+`MenuItem` name's runtime-component-to-record-type change. A same-name alias or
+same type spelling is not a promise of upstream runtime compatibility.
+
+The [source initializer comparison](final-acceptance/wave-04/02/public-contract-reconciliation/direct-default-drift.json)
+checks the saved 214 public-default candidates against committed source: 209 keep
+the same initializer expression and five calendar bindings changed. The separate
+grid selection row compares the initial extraction. Reference, context and
+controlled-state expressions remain conditional ownership rules, not inferred
+constant values. The original derived-expression queue is retained as source
+candidates; it is not relabeled as hundreds of fixed public defaults.
+
+The [release-impact record](final-acceptance/wave-04/02/public-contract-reconciliation/release-impact.json)
+preserves actual commit history and distinguishes source-family major markers
+from exact default-change commits. The originally unmarked nearest-endpoint and
+independent-calendar changes need the actual reconciliation integration marker;
+a suggested footer is not counted as committed release evidence. Publication,
+version calculation and future approved promotion to main remain separate.

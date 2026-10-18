@@ -1,0 +1,18 @@
+{
+  "status": "B05 source/tool/docs freeze; fresh declaration admission pending",
+  "capturedAt": "2026-10-18T01:27:48.104562+00:00",
+  "head": "debc3d2ba565f14776e09911c185152b0a5b342c",
+  "files": {
+    "packages/ui/scripts/public-migration-map.json": "ba43a35fb00c3ddb966835ab17723e6831034f7dec9a1782cead2870991f81f0",
+    "packages/ui/scripts/verify-contract-migrations.mjs": "ca9ece93143c9495e9caf25d0f26a94d6efef93beb7e49e92d0fb97cbc7fbec9",
+    "packages/ui/scripts/verify-contract-migrations.test.mjs": "c8e3204b5ead040151466c1992196f2b507492dbb13e5d3268ca30622a4992c4",
+    "docs/developer/react-aria-public-contracts.md": "f289ad590fd1885c489ad622e028e38b146b653aefe418d4ad5e7d4c675c5268",
+    "docs/developer/react-aria-public-contract-acceptance.md": "82e2ba566f68dd621ec77e57a30642ceeba65ad73ec64b4d164b39e6b8acbf87",
+    "docs/developer/react-aria-data-toolbar.md": "160bacb6dac43e61f914a6bdfa596e44c125a86e56d68ee247587d516d70abfb"
+  },
+  "sourceChangesDuringCoordinatedBuild": "None authorized; only artifact receipts are written.",
+  "requiredRemaining": [
+    "05 coordinated built declaration admission",
+    "Actual integration commit message validation; proposed footer not counted"
+  ]
+}

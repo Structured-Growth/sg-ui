@@ -14,7 +14,10 @@ callback observes it. Opening search focuses its named input; Clear and close or
 Escape requests empty text, closes the field and returns trigger focus. Search
 stays open while interacting with toolbar controls. Missing action callbacks
 disable the corresponding action. View actions request cards/list and the host
-owns the selected mode.
+owns the selected mode. When showViewModeToggle is omitted, view controls appear
+only if both viewMode and onViewModeChange are supplied. An explicit false hides
+them; an explicit true shows them, while a missing callback still disables the
+view actions. This is a presence-based default, not a fixed true/false value.
 
 Column labels, filter options, sort options and selection choices are host-owned
 translated content. They render literally; the library does not invent translation

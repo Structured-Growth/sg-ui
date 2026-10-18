@@ -1,0 +1,4310 @@
+{
+  "head": "98f1f9b022da273e7a95edf0a82b18e773e2b384",
+  "rows": [
+    {
+      "id": "D004",
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+      "owner": "Grid",
+      "publicOwner": "AppDataGrid",
+      "prop": "selection",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "selection",
+          "expression": "true",
+          "owner": "Grid",
+          "line": 35
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "52b7748e0e039295ac31db6318d934884d1a36b402a5cbcadab9ddd31a8a8b6e",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D005",
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+      "owner": "Grid",
+      "publicOwner": "AppDataGrid",
+      "prop": "hideFooter",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "hideFooter",
+          "expression": "false",
+          "owner": "Grid",
+          "line": 35
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "52b7748e0e039295ac31db6318d934884d1a36b402a5cbcadab9ddd31a8a8b6e",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D019",
+      "file": "packages/ui/src/components/AppDataGrid/createActionMenuColumn.ts",
+      "owner": "createActionMenuColumn",
+      "prop": "headerName",
+      "before": "\"Action\"",
+      "currentMatches": [
+        {
+          "name": "headerName",
+          "expression": "\"Action\"",
+          "owner": "createActionMenuColumn",
+          "line": 13
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "05710e5771d036bf013295ee2559162bc0872148ce72c0acd6b4970819ab61de",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D100",
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+      "owner": "OwnedGridRowSubHeader",
+      "prop": "expanded",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "expanded",
+          "expression": "true",
+          "owner": "OwnedGridRowSubHeader",
+          "line": 95
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "d8914b3ed6ffcd7e87b4951821758ee788cb46ceed6e1fc7902770d7f032f1ec",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D101",
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+      "owner": "OwnedGridRowSubHeader",
+      "prop": "titleVariant",
+      "before": "\"body2\"",
+      "currentMatches": [
+        {
+          "name": "titleVariant",
+          "expression": "\"body2\"",
+          "owner": "OwnedGridRowSubHeader",
+          "line": 95
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "d8914b3ed6ffcd7e87b4951821758ee788cb46ceed6e1fc7902770d7f032f1ec",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D106",
+      "file": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+      "owner": "useDataGridRowDnd",
+      "prop": "rowSelector",
+      "before": "DEFAULT_ROW_SELECTOR",
+      "currentMatches": [
+        {
+          "name": "rowSelector",
+          "expression": "DEFAULT_ROW_SELECTOR",
+          "owner": "useDataGridRowDnd",
+          "line": 19
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "88828425448aa70e650f4985b6701e0ebfcea042578c09481725b8583177dc75",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D108",
+      "file": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx",
+      "owner": "ReadyShell",
+      "publicOwner": "AppDataGridShell",
+      "prop": "selection",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "selection",
+          "expression": "true",
+          "owner": "ReadyShell",
+          "line": 49
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "07c3d004b9b26d1e9e79cbbb281bb542fc2d8cc1f88eca922033cc232cee2d7a",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D109",
+      "file": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx",
+      "owner": "ReadyShell",
+      "publicOwner": "AppDataGridShell",
+      "prop": "mode",
+      "before": "\"client\"",
+      "currentMatches": [
+        {
+          "name": "mode",
+          "expression": "\"client\"",
+          "owner": "ReadyShell",
+          "line": 49
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "07c3d004b9b26d1e9e79cbbb281bb542fc2d8cc1f88eca922033cc232cee2d7a",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D140",
+      "file": "packages/ui/src/components/AppModal/AppModal.tsx",
+      "owner": "AppModal",
+      "prop": "disableEscapeKeyDown",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "disableEscapeKeyDown",
+          "expression": "false",
+          "owner": "AppModal",
+          "line": 45
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "dcd13c1bf1101e33a2f4fc379150cc74cd74616ba2eabd0a6d08ba0971f73873",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D141",
+      "file": "packages/ui/src/components/AppModal/AppModal.tsx",
+      "owner": "AppModal",
+      "prop": "showCloseButton",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "showCloseButton",
+          "expression": "false",
+          "owner": "AppModal",
+          "line": 45
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "dcd13c1bf1101e33a2f4fc379150cc74cd74616ba2eabd0a6d08ba0971f73873",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D142",
+      "file": "packages/ui/src/components/AppModal/AppModal.tsx",
+      "owner": "AppModal",
+      "prop": "size",
+      "before": "\"sm\"",
+      "currentMatches": [
+        {
+          "name": "size",
+          "expression": "\"sm\"",
+          "owner": "AppModal",
+          "line": 46
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "dcd13c1bf1101e33a2f4fc379150cc74cd74616ba2eabd0a6d08ba0971f73873",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D143",
+      "file": "packages/ui/src/components/AppModal/AppModal.tsx",
+      "owner": "AppModal",
+      "prop": "heightMode",
+      "before": "\"auto\"",
+      "currentMatches": [
+        {
+          "name": "heightMode",
+          "expression": "\"auto\"",
+          "owner": "AppModal",
+          "line": 46
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "dcd13c1bf1101e33a2f4fc379150cc74cd74616ba2eabd0a6d08ba0971f73873",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D144",
+      "file": "packages/ui/src/components/AppModal/AppModal.tsx",
+      "owner": "AppModal",
+      "prop": "disableBackdropClose",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "disableBackdropClose",
+          "expression": "false",
+          "owner": "AppModal",
+          "line": 46
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "dcd13c1bf1101e33a2f4fc379150cc74cd74616ba2eabd0a6d08ba0971f73873",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D151",
+      "file": "packages/ui/src/components/AppPageHeader/AppPageHeader.tsx",
+      "owner": "AppPageHeader",
+      "prop": "breadcrumbs",
+      "before": "[]",
+      "currentMatches": [
+        {
+          "name": "breadcrumbs",
+          "expression": "[]",
+          "owner": "AppPageHeader",
+          "line": 28
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "acd5a39c2187d834f830d5a28633d89e9c891224ef6e68cdf48143488272969b",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D152",
+      "file": "packages/ui/src/components/AppPageHeader/AppPageHeader.tsx",
+      "owner": "AppPageHeader",
+      "prop": "metaItems",
+      "before": "[]",
+      "currentMatches": [
+        {
+          "name": "metaItems",
+          "expression": "[]",
+          "owner": "AppPageHeader",
+          "line": 28
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "acd5a39c2187d834f830d5a28633d89e9c891224ef6e68cdf48143488272969b",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D153",
+      "file": "packages/ui/src/components/AppPageHeader/AppPageHeader.tsx",
+      "owner": "AppPageHeader",
+      "prop": "moreMenuItems",
+      "before": "[]",
+      "currentMatches": [
+        {
+          "name": "moreMenuItems",
+          "expression": "[]",
+          "owner": "AppPageHeader",
+          "line": 28
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "acd5a39c2187d834f830d5a28633d89e9c891224ef6e68cdf48143488272969b",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D154",
+      "file": "packages/ui/src/components/AppPageHeader/AppPageHeader.tsx",
+      "owner": "AppPageHeader",
+      "prop": "hierarchy",
+      "before": "\"subpage\"",
+      "currentMatches": [
+        {
+          "name": "hierarchy",
+          "expression": "\"subpage\"",
+          "owner": "AppPageHeader",
+          "line": 28
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "acd5a39c2187d834f830d5a28633d89e9c891224ef6e68cdf48143488272969b",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D155",
+      "file": "packages/ui/src/components/AppPageHeader/AppPageHeader.tsx",
+      "owner": "AppPageHeader",
+      "prop": "headingLevel",
+      "before": "1",
+      "currentMatches": [
+        {
+          "name": "headingLevel",
+          "expression": "1",
+          "owner": "AppPageHeader",
+          "line": 28
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "acd5a39c2187d834f830d5a28633d89e9c891224ef6e68cdf48143488272969b",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D157",
+      "file": "packages/ui/src/components/AppPageTabs/AppPageTabs.tsx",
+      "owner": "AppPageTabs",
+      "prop": "density",
+      "before": "\"default\"",
+      "currentMatches": [
+        {
+          "name": "density",
+          "expression": "\"default\"",
+          "owner": "AppPageTabs",
+          "line": 31
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "ba0336b35914bc396df657241064011a5aec811bef0deb3c016064c68d8d39d5",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D160",
+      "file": "packages/ui/src/components/Button/Button.tsx",
+      "owner": "Button",
+      "prop": "variant",
+      "before": "\"filled\"",
+      "currentMatches": [
+        {
+          "name": "variant",
+          "expression": "\"filled\"",
+          "owner": "Button",
+          "line": 26
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D161",
+      "file": "packages/ui/src/components/Button/Button.tsx",
+      "owner": "Button",
+      "prop": "tone",
+      "before": "\"primary\"",
+      "currentMatches": [
+        {
+          "name": "tone",
+          "expression": "\"primary\"",
+          "owner": "Button",
+          "line": 26
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D162",
+      "file": "packages/ui/src/components/Button/Button.tsx",
+      "owner": "Button",
+      "prop": "loading",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "loading",
+          "expression": "false",
+          "owner": "Button",
+          "line": 26
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D163",
+      "file": "packages/ui/src/components/Button/Button.tsx",
+      "owner": "Button",
+      "prop": "type",
+      "before": "\"button\"",
+      "currentMatches": [
+        {
+          "name": "type",
+          "expression": "\"button\"",
+          "owner": "Button",
+          "line": 27
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D164",
+      "file": "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx",
+      "owner": "CardCollectionWithFooter",
+      "prop": "loading",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "loading",
+          "expression": "false",
+          "owner": "CardCollectionWithFooter",
+          "line": 27
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "35bb650aa020bc4601f0a1b21b072fdee8db0dba72bac56f569b23dc9523dd74",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D168",
+      "file": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx",
+      "owner": "ClassCardFrame",
+      "prop": "width",
+      "before": "STANDARD_CLASS_CARD_WIDTH",
+      "currentMatches": [
+        {
+          "name": "width",
+          "expression": "STANDARD_CLASS_CARD_WIDTH",
+          "owner": "ClassCardFrame",
+          "line": 13
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "4058aa22528e8a289d916b3c77c470177280f1ea91ec8dd08398c63579ae7d42",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D169",
+      "file": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "owner": "ColumnsLayoutModal",
+      "prop": "defaultPreset",
+      "before": "\"twoEqual\"",
+      "currentMatches": [
+        {
+          "name": "defaultPreset",
+          "expression": "\"twoEqual\"",
+          "owner": "ColumnsLayoutModal",
+          "line": 25
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "19c4373f121084952b9e7316b50221e2f10bedf4f34a1bd680287a22a119c5c7",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D170",
+      "file": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+      "owner": "ContentEditorChrome",
+      "prop": "titleReadOnly",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "titleReadOnly",
+          "expression": "false",
+          "owner": "ContentEditorChrome",
+          "line": 42
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "9806b5dd1349a4961916fb15c179effc8d7737930d5581822b5169ea41b046b5",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D171",
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.tsx",
+      "owner": "DataToolbar",
+      "prop": "showRefreshButton",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showRefreshButton",
+          "expression": "true",
+          "owner": "DataToolbar",
+          "line": 57
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "1e8da8b7b9641714f9ab0d1dc2241a6bd7880542b01bf5c0f8e9171eeb907256",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D172",
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.tsx",
+      "owner": "DataToolbar",
+      "prop": "showColumnsButton",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showColumnsButton",
+          "expression": "true",
+          "owner": "DataToolbar",
+          "line": 58
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "1e8da8b7b9641714f9ab0d1dc2241a6bd7880542b01bf5c0f8e9171eeb907256",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D173",
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.tsx",
+      "owner": "DataToolbar",
+      "prop": "showSortButton",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showSortButton",
+          "expression": "true",
+          "owner": "DataToolbar",
+          "line": 58
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "1e8da8b7b9641714f9ab0d1dc2241a6bd7880542b01bf5c0f8e9171eeb907256",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D174",
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.tsx",
+      "owner": "DataToolbar",
+      "prop": "showFilterButton",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showFilterButton",
+          "expression": "true",
+          "owner": "DataToolbar",
+          "line": 58
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "1e8da8b7b9641714f9ab0d1dc2241a6bd7880542b01bf5c0f8e9171eeb907256",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D175",
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.tsx",
+      "owner": "DataToolbar",
+      "prop": "showSearchButton",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showSearchButton",
+          "expression": "true",
+          "owner": "DataToolbar",
+          "line": 58
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "1e8da8b7b9641714f9ab0d1dc2241a6bd7880542b01bf5c0f8e9171eeb907256",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D181",
+      "file": "packages/ui/src/components/DataToolbar/buildColumnOptions.ts",
+      "owner": "buildDataToolbarColumnOptions",
+      "prop": "includeInferredFields",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "includeInferredFields",
+          "expression": "false",
+          "owner": "<callback>",
+          "line": 21
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": false,
+      "currentSourceSha256": "ddee77ff3511abf8bac19b395d824e34dd5da5bea816586f6def0271115436ac",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D199",
+      "file": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "owner": "DocumentEditorToolbar",
+      "prop": "zoomValue",
+      "before": "100",
+      "currentMatches": [
+        {
+          "name": "zoomValue",
+          "expression": "100",
+          "owner": "DocumentEditorToolbar",
+          "line": 48
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D200",
+      "file": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "owner": "DocumentEditorToolbar",
+      "prop": "showZoomControls",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showZoomControls",
+          "expression": "true",
+          "owner": "DocumentEditorToolbar",
+          "line": 49
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D201",
+      "file": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "owner": "DocumentEditorToolbar",
+      "prop": "showAlignmentControls",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showAlignmentControls",
+          "expression": "true",
+          "owner": "DocumentEditorToolbar",
+          "line": 49
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D202",
+      "file": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "owner": "DocumentEditorToolbar",
+      "prop": "showCustomComponentAction",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "showCustomComponentAction",
+          "expression": "false",
+          "owner": "DocumentEditorToolbar",
+          "line": 50
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D205",
+      "file": "packages/ui/src/components/EditableTitleField/EditableTitleField.tsx",
+      "owner": "EditableTitleField",
+      "prop": "variant",
+      "before": "\"h4\"",
+      "currentMatches": [
+        {
+          "name": "variant",
+          "expression": "\"h4\"",
+          "owner": "EditableTitleField",
+          "line": 19
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "74973d5e6c202e90b80e61ca6ffeeea55e6056fcb4e8b7f6528c9793b8a2df5c",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D206",
+      "file": "packages/ui/src/components/EditableTitleField/EditableTitleField.tsx",
+      "owner": "EditableTitleField",
+      "prop": "minWidth",
+      "before": "280",
+      "currentMatches": [
+        {
+          "name": "minWidth",
+          "expression": "280",
+          "owner": "EditableTitleField",
+          "line": 19
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "74973d5e6c202e90b80e61ca6ffeeea55e6056fcb4e8b7f6528c9793b8a2df5c",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D207",
+      "file": "packages/ui/src/components/EditableTitleField/EditableTitleField.tsx",
+      "owner": "EditableTitleField",
+      "prop": "readOnly",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "readOnly",
+          "expression": "false",
+          "owner": "EditableTitleField",
+          "line": 19
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "74973d5e6c202e90b80e61ca6ffeeea55e6056fcb4e8b7f6528c9793b8a2df5c",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D208",
+      "file": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "owner": "ExperiencePageNavigator",
+      "prop": "readOnly",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "readOnly",
+          "expression": "false",
+          "owner": "ExperiencePageNavigator",
+          "line": 42
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "f8fd457f8cdc85e1521872ee23de4d92e20df5263b9e3eb1faf3c3ae5501c668",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D218",
+      "file": "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.tsx",
+      "owner": "IconPanelNavigation",
+      "prop": "defaultActiveId",
+      "before": "null",
+      "currentMatches": [
+        {
+          "name": "defaultActiveId",
+          "expression": "null",
+          "owner": "IconPanelNavigation",
+          "line": 47
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "6c811471a9fe33d7ff70f07522cae759fd1edbfc147c22a89bd4d85c0de78034",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D219",
+      "file": "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.tsx",
+      "owner": "IconPanelNavigation",
+      "prop": "side",
+      "before": "\"start\"",
+      "currentMatches": [
+        {
+          "name": "side",
+          "expression": "\"start\"",
+          "owner": "IconPanelNavigation",
+          "line": 47
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "6c811471a9fe33d7ff70f07522cae759fd1edbfc147c22a89bd4d85c0de78034",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D220",
+      "file": "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.tsx",
+      "owner": "IconPanelNavigation",
+      "prop": "panelWidth",
+      "before": "\"20rem\"",
+      "currentMatches": [
+        {
+          "name": "panelWidth",
+          "expression": "\"20rem\"",
+          "owner": "IconPanelNavigation",
+          "line": 47
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "6c811471a9fe33d7ff70f07522cae759fd1edbfc147c22a89bd4d85c0de78034",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D224",
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "owner": "ImageUploadModal",
+      "prop": "uploading",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "uploading",
+          "expression": "false",
+          "owner": "ImageUploadModal",
+          "line": 25
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "4ef979f654b81adbfc13cf8c0aef1a92f9a488ae8537724e1a87122d499336b6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D225",
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "owner": "ImageUploadModal",
+      "prop": "errorMessage",
+      "before": "null",
+      "currentMatches": [
+        {
+          "name": "errorMessage",
+          "expression": "null",
+          "owner": "ImageUploadModal",
+          "line": 25
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "4ef979f654b81adbfc13cf8c0aef1a92f9a488ae8537724e1a87122d499336b6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D226",
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "owner": "ImageUploadModal",
+      "prop": "enableAltText",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "enableAltText",
+          "expression": "false",
+          "owner": "ImageUploadModal",
+          "line": 26
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "4ef979f654b81adbfc13cf8c0aef1a92f9a488ae8537724e1a87122d499336b6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D229",
+      "file": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "owner": "InsertContentMenuControl",
+      "prop": "disabled",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "disabled",
+          "expression": "false",
+          "owner": "InsertContentMenuControl",
+          "line": 23
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "327506bd28002617c84b95e511ca2e8d17260d7e0f0eac07c62615968b4c0467",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D233",
+      "file": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+      "owner": "LearnerClassesDataGrid",
+      "prop": "getRowLabel",
+      "before": "row => row.courseName",
+      "currentMatches": [
+        {
+          "name": "getRowLabel",
+          "expression": "row => row.courseName",
+          "owner": "LearnerClassesDataGrid",
+          "line": 79
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "825d8a1d9de34de220997e0afe1ccefc63e03f72366af7cf58c9b37489db1c99",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D235",
+      "file": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "owner": "LinkUrlModal",
+      "prop": "initialDisplayText",
+      "before": "\"\"",
+      "currentMatches": [
+        {
+          "name": "initialDisplayText",
+          "expression": "\"\"",
+          "owner": "LinkUrlModal",
+          "line": 23
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "8d68877da83015915608e0c60b26b10c9d755694d54243acb03b7e14b58f0965",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D236",
+      "file": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "owner": "LinkUrlModal",
+      "prop": "initialUrl",
+      "before": "\"\"",
+      "currentMatches": [
+        {
+          "name": "initialUrl",
+          "expression": "\"\"",
+          "owner": "LinkUrlModal",
+          "line": 23
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "8d68877da83015915608e0c60b26b10c9d755694d54243acb03b7e14b58f0965",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D237",
+      "file": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "owner": "LinkUrlModal",
+      "prop": "allowedProtocols",
+      "before": "DEFAULT_LINK_PROTOCOLS",
+      "currentMatches": [
+        {
+          "name": "allowedProtocols",
+          "expression": "DEFAULT_LINK_PROTOCOLS",
+          "owner": "LinkUrlModal",
+          "line": 24
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "8d68877da83015915608e0c60b26b10c9d755694d54243acb03b7e14b58f0965",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D238",
+      "file": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "owner": "LinkUrlModal",
+      "prop": "allowRelativeUrls",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "allowRelativeUrls",
+          "expression": "true",
+          "owner": "LinkUrlModal",
+          "line": 24
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "8d68877da83015915608e0c60b26b10c9d755694d54243acb03b7e14b58f0965",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D243",
+      "file": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "owner": "PageRichTextEditorSection",
+      "prop": "toolPreset",
+      "before": "\"base\"",
+      "currentMatches": [
+        {
+          "name": "toolPreset",
+          "expression": "\"base\"",
+          "owner": "PageRichTextEditorSection",
+          "line": 374
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "2460d5e8f5e90aa33b31567d5af457fb44661ebf182d7984721abec87d988b58",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D244",
+      "file": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "owner": "PageRichTextEditorSection",
+      "prop": "readOnly",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "readOnly",
+          "expression": "false",
+          "owner": "PageRichTextEditorSection",
+          "line": 381
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "2460d5e8f5e90aa33b31567d5af457fb44661ebf182d7984721abec87d988b58",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D265",
+      "file": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "owner": "RichTextFormattingToolbar",
+      "prop": "headingValue",
+      "before": "\"Normal\"",
+      "currentMatches": [
+        {
+          "name": "headingValue",
+          "expression": "\"Normal\"",
+          "owner": "RichTextFormattingToolbar",
+          "line": 123
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D266",
+      "file": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "owner": "RichTextFormattingToolbar",
+      "prop": "showFontFamilySelector",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showFontFamilySelector",
+          "expression": "true",
+          "owner": "RichTextFormattingToolbar",
+          "line": 125
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D267",
+      "file": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "owner": "RichTextFormattingToolbar",
+      "prop": "fontFamilyValue",
+      "before": "\"Arial\"",
+      "currentMatches": [
+        {
+          "name": "fontFamilyValue",
+          "expression": "\"Arial\"",
+          "owner": "RichTextFormattingToolbar",
+          "line": 126
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D268",
+      "file": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "owner": "RichTextFormattingToolbar",
+      "prop": "showFontSizeControls",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showFontSizeControls",
+          "expression": "true",
+          "owner": "RichTextFormattingToolbar",
+          "line": 128
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D269",
+      "file": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "owner": "RichTextFormattingToolbar",
+      "prop": "fontSizeValue",
+      "before": "15",
+      "currentMatches": [
+        {
+          "name": "fontSizeValue",
+          "expression": "15",
+          "owner": "RichTextFormattingToolbar",
+          "line": 129
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D270",
+      "file": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "owner": "RichTextFormattingToolbar",
+      "prop": "boldActive",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "boldActive",
+          "expression": "false",
+          "owner": "RichTextFormattingToolbar",
+          "line": 135
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D271",
+      "file": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "owner": "RichTextFormattingToolbar",
+      "prop": "italicActive",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "italicActive",
+          "expression": "false",
+          "owner": "RichTextFormattingToolbar",
+          "line": 137
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D272",
+      "file": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "owner": "RichTextFormattingToolbar",
+      "prop": "underlineActive",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "underlineActive",
+          "expression": "false",
+          "owner": "RichTextFormattingToolbar",
+          "line": 139
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D273",
+      "file": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "owner": "RichTextFormattingToolbar",
+      "prop": "codeActive",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "codeActive",
+          "expression": "false",
+          "owner": "RichTextFormattingToolbar",
+          "line": 141
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D274",
+      "file": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "owner": "RichTextFormattingToolbar",
+      "prop": "alignmentValue",
+      "before": "\"left\"",
+      "currentMatches": [
+        {
+          "name": "alignmentValue",
+          "expression": "\"left\"",
+          "owner": "RichTextFormattingToolbar",
+          "line": 159
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D275",
+      "file": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "owner": "RichTextFormattingToolbar",
+      "prop": "disableContainerPadding",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "disableContainerPadding",
+          "expression": "false",
+          "owner": "RichTextFormattingToolbar",
+          "line": 169
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D320",
+      "file": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "owner": "TextAlignMenuControl",
+      "prop": "value",
+      "before": "\"left\"",
+      "currentMatches": [
+        {
+          "name": "value",
+          "expression": "\"left\"",
+          "owner": "TextAlignMenuControl",
+          "line": 47
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e692f8ae17c2b09babf5ea79fbe60d3d525da8b652ff4abbebbbdb121e2e7837",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D321",
+      "file": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "owner": "TextAlignMenuControl",
+      "prop": "disabled",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "disabled",
+          "expression": "false",
+          "owner": "TextAlignMenuControl",
+          "line": 47
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e692f8ae17c2b09babf5ea79fbe60d3d525da8b652ff4abbebbbdb121e2e7837",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D322",
+      "file": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "owner": "TextAlignMenuControl",
+      "prop": "canOutdent",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "canOutdent",
+          "expression": "true",
+          "owner": "TextAlignMenuControl",
+          "line": 47
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e692f8ae17c2b09babf5ea79fbe60d3d525da8b652ff4abbebbbdb121e2e7837",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D323",
+      "file": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "owner": "TextAlignMenuControl",
+      "prop": "canIndent",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "canIndent",
+          "expression": "true",
+          "owner": "TextAlignMenuControl",
+          "line": 47
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e692f8ae17c2b09babf5ea79fbe60d3d525da8b652ff4abbebbbdb121e2e7837",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D324",
+      "file": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "owner": "TextColorPickerControl",
+      "prop": "value",
+      "before": "\"#000000\"",
+      "currentMatches": [
+        {
+          "name": "value",
+          "expression": "\"#000000\"",
+          "owner": "TextColorPickerControl",
+          "line": 33
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "8b774497851c912e240030d4cc07fe77cab81533a1bfd8b4082053c35336caff",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D325",
+      "file": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "owner": "TextColorPickerControl",
+      "prop": "disabled",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "disabled",
+          "expression": "false",
+          "owner": "TextColorPickerControl",
+          "line": 34
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "8b774497851c912e240030d4cc07fe77cab81533a1bfd8b4082053c35336caff",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D326",
+      "file": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "owner": "TextColorPickerControl",
+      "prop": "mode",
+      "before": "\"foreground\"",
+      "currentMatches": [
+        {
+          "name": "mode",
+          "expression": "\"foreground\"",
+          "owner": "TextColorPickerControl",
+          "line": 34
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "8b774497851c912e240030d4cc07fe77cab81533a1bfd8b4082053c35336caff",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D329",
+      "file": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "owner": "TextStyleMenuControl",
+      "prop": "disabled",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "disabled",
+          "expression": "false",
+          "owner": "TextStyleMenuControl",
+          "line": 33
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "7e95472cca2d25a816ed88fc751f7b8582543050448b97ac593b0518e5ab2428",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D330",
+      "file": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx",
+      "owner": "AsyncMultiSelect",
+      "prop": "defaultValue",
+      "before": "[]",
+      "currentMatches": [
+        {
+          "name": "defaultValue",
+          "expression": "[]",
+          "owner": "AsyncMultiSelect",
+          "line": 36
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "a8be9002729d1e24b21b2596bbded3b8c99f4d089fe77ec8aec0e3ae940ebbf8",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D333",
+      "file": "packages/ui/src/experimental/Avatar/Avatar.tsx",
+      "owner": "Avatar",
+      "prop": "size",
+      "before": "\"medium\"",
+      "currentMatches": [
+        {
+          "name": "size",
+          "expression": "\"medium\"",
+          "owner": "Avatar",
+          "line": 27
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "ca0185286a915d55bc1d28db61a186b4f0d63f9bbd14c6e84833a92043e561a0",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D334",
+      "file": "packages/ui/src/experimental/Avatar/Avatar.tsx",
+      "owner": "Avatar",
+      "prop": "shape",
+      "before": "\"circle\"",
+      "currentMatches": [
+        {
+          "name": "shape",
+          "expression": "\"circle\"",
+          "owner": "Avatar",
+          "line": 27
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "ca0185286a915d55bc1d28db61a186b4f0d63f9bbd14c6e84833a92043e561a0",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D335",
+      "file": "packages/ui/src/experimental/Badge/Badge.tsx",
+      "owner": "Badge",
+      "prop": "tone",
+      "before": "\"primary\"",
+      "currentMatches": [
+        {
+          "name": "tone",
+          "expression": "\"primary\"",
+          "owner": "Badge",
+          "line": 18
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e018936847634af828d5ee61adeec644305a9ff7fd03bd94ae074a68270cf550",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D336",
+      "file": "packages/ui/src/experimental/Box/Box.tsx",
+      "owner": "Box",
+      "prop": "as",
+      "before": "\"div\"",
+      "currentMatches": [
+        {
+          "name": "as",
+          "expression": "\"div\"",
+          "owner": "Box",
+          "line": 12
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "cf368c6747469a418970c4e356ffd8a6ca6085f1fe510212cd32586bd9d74936",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D337",
+      "file": "packages/ui/src/experimental/Box/Box.tsx",
+      "owner": "Box",
+      "prop": "padding",
+      "before": "0",
+      "currentMatches": [
+        {
+          "name": "padding",
+          "expression": "0",
+          "owner": "Box",
+          "line": 12
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "cf368c6747469a418970c4e356ffd8a6ca6085f1fe510212cd32586bd9d74936",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D339",
+      "file": "packages/ui/src/experimental/ButtonGroup/ButtonGroup.tsx",
+      "owner": "ButtonGroup",
+      "prop": "orientation",
+      "before": "\"horizontal\"",
+      "currentMatches": [
+        {
+          "name": "orientation",
+          "expression": "\"horizontal\"",
+          "owner": "ButtonGroup",
+          "line": 8
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "a3b9fa187d01bf2767210fee81036637849b845192323798bcbf71f685d084a4",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D340",
+      "file": "packages/ui/src/experimental/ButtonGroup/ButtonGroup.tsx",
+      "owner": "ButtonGroup",
+      "prop": "joined",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "joined",
+          "expression": "false",
+          "owner": "ButtonGroup",
+          "line": 8
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "a3b9fa187d01bf2767210fee81036637849b845192323798bcbf71f685d084a4",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D341",
+      "file": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "owner": "Calendar",
+      "publicOwner": "Calendar",
+      "prop": "showTitle",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "showTitle",
+          "expression": "false",
+          "owner": "Calendar",
+          "line": 52
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "014087f32659335ffa19d1170b9c067467a411e7204813241fa99c76f681946a",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D342",
+      "file": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "owner": "Calendar",
+      "publicOwner": "Calendar",
+      "prop": "navigation",
+      "before": "\"arrows\"",
+      "currentMatches": [
+        {
+          "name": "navigation",
+          "expression": "\"period\"",
+          "owner": "Calendar",
+          "line": 52
+        }
+      ],
+      "status": "changed-initializer",
+      "matchingOwner": true,
+      "currentSourceSha256": "014087f32659335ffa19d1170b9c067467a411e7204813241fa99c76f681946a",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D343",
+      "file": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "owner": "Calendar",
+      "publicOwner": "Calendar",
+      "prop": "unavailable",
+      "before": "[]",
+      "currentMatches": [
+        {
+          "name": "unavailable",
+          "expression": "[]",
+          "owner": "Calendar",
+          "line": 52
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "014087f32659335ffa19d1170b9c067467a411e7204813241fa99c76f681946a",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D344",
+      "file": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "owner": "Calendar",
+      "publicOwner": "Calendar",
+      "prop": "months",
+      "before": "1",
+      "currentMatches": [
+        {
+          "name": "months",
+          "expression": "1",
+          "owner": "Calendar",
+          "line": 52
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "014087f32659335ffa19d1170b9c067467a411e7204813241fa99c76f681946a",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D347",
+      "file": "packages/ui/src/experimental/Card/Card.tsx",
+      "owner": "Card",
+      "prop": "as",
+      "before": "\"article\"",
+      "currentMatches": [
+        {
+          "name": "as",
+          "expression": "\"article\"",
+          "owner": "Card",
+          "line": 5
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "ee944cdd063054be8d629e1134578763103c7d35c8a48ae0db731d29069520e3",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D348",
+      "file": "packages/ui/src/experimental/Card/Card.tsx",
+      "owner": "Card",
+      "prop": "variant",
+      "before": "\"outlined\"",
+      "currentMatches": [
+        {
+          "name": "variant",
+          "expression": "\"outlined\"",
+          "owner": "Card",
+          "line": 5
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "ee944cdd063054be8d629e1134578763103c7d35c8a48ae0db731d29069520e3",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D349",
+      "file": "packages/ui/src/experimental/Card/Card.tsx",
+      "owner": "CardContent",
+      "prop": "padding",
+      "before": "4",
+      "currentMatches": [
+        {
+          "name": "padding",
+          "expression": "4",
+          "owner": "CardContent",
+          "line": 9
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "ee944cdd063054be8d629e1134578763103c7d35c8a48ae0db731d29069520e3",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D353",
+      "file": "packages/ui/src/experimental/Chip/Chip.tsx",
+      "owner": "Chip",
+      "prop": "tone",
+      "before": "\"neutral\"",
+      "currentMatches": [
+        {
+          "name": "tone",
+          "expression": "\"neutral\"",
+          "owner": "Chip",
+          "line": 18
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "fd3278941d4a3e1e8f1ad412f609f58429e35100237b68d0eee13905f8ef6424",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D354",
+      "file": "packages/ui/src/experimental/Chip/Chip.tsx",
+      "owner": "Chip",
+      "prop": "variant",
+      "before": "\"filled\"",
+      "currentMatches": [
+        {
+          "name": "variant",
+          "expression": "\"filled\"",
+          "owner": "Chip",
+          "line": 18
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "fd3278941d4a3e1e8f1ad412f609f58429e35100237b68d0eee13905f8ef6424",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D355",
+      "file": "packages/ui/src/experimental/Collapse/Collapse.tsx",
+      "owner": "Collapse",
+      "prop": "unmountOnCollapse",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "unmountOnCollapse",
+          "expression": "false",
+          "owner": "Collapse",
+          "line": 7
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "6834e785be9e42c52b343b575b87350673dac2f09ede105c79dd69202006c27c",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D356",
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "owner": "DataGrid",
+      "prop": "mode",
+      "before": "\"client\"",
+      "currentMatches": [
+        {
+          "name": "mode",
+          "expression": "\"client\"",
+          "owner": "DataGrid",
+          "line": 20
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "c320eec3c58bd792ab14a3cc0d4493ce9cbf7f233c90e6f07869394300e03beb",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D374",
+      "file": "packages/ui/src/experimental/DateField/DateField.tsx",
+      "owner": "SegmentedDateField",
+      "publicOwner": "DateField",
+      "prop": "kind",
+      "before": "\"date\"",
+      "currentMatches": [
+        {
+          "name": "kind",
+          "expression": "\"date\"",
+          "owner": "SegmentedDateField",
+          "line": 31
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "61e0b2bc4ea79398b4eb8a42ffcc305b54e1be283f4982a2af5ec152082a527f",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D381",
+      "file": "packages/ui/src/experimental/DateField/TextDateField.tsx",
+      "owner": "TextDateField",
+      "publicOwner": "DateField",
+      "prop": "defaultValue",
+      "before": "null",
+      "currentMatches": [
+        {
+          "name": "defaultValue",
+          "expression": "null",
+          "owner": "TextDateField",
+          "line": 13
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "ef2fb99bb34f5344a84f496aaa56595389a61722a17657738ff2e1e7681f4a0d",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D387",
+      "file": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "owner": "DatePicker",
+      "prop": "defaultValue",
+      "before": "null",
+      "currentMatches": [
+        {
+          "name": "defaultValue",
+          "expression": "null",
+          "owner": "DatePicker",
+          "line": 36
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "2bd44e9f0237d7501e146adb0397b57baece05aa46fb986fce781fc0e4b3df53",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D388",
+      "file": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "owner": "DatePicker",
+      "prop": "showTitle",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "showTitle",
+          "expression": "false",
+          "owner": "DatePicker",
+          "line": 36
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "2bd44e9f0237d7501e146adb0397b57baece05aa46fb986fce781fc0e4b3df53",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D389",
+      "file": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "owner": "DatePicker",
+      "prop": "entryMode",
+      "before": "\"text\"",
+      "currentMatches": [
+        {
+          "name": "entryMode",
+          "expression": "\"text\"",
+          "owner": "DatePicker",
+          "line": 36
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "2bd44e9f0237d7501e146adb0397b57baece05aa46fb986fce781fc0e4b3df53",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D390",
+      "file": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "owner": "DatePicker",
+      "prop": "kind",
+      "before": "\"date\"",
+      "currentMatches": [
+        {
+          "name": "kind",
+          "expression": "\"date\"",
+          "owner": "DatePicker",
+          "line": 36
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "2bd44e9f0237d7501e146adb0397b57baece05aa46fb986fce781fc0e4b3df53",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D391",
+      "file": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "owner": "DatePicker",
+      "prop": "presentation",
+      "before": "\"popover\"",
+      "currentMatches": [
+        {
+          "name": "presentation",
+          "expression": "\"popover\"",
+          "owner": "DatePicker",
+          "line": 36
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "2bd44e9f0237d7501e146adb0397b57baece05aa46fb986fce781fc0e4b3df53",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D395",
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "owner": "DateRangeComparisonPicker",
+      "prop": "defaultValue",
+      "before": "null",
+      "currentMatches": [
+        {
+          "name": "defaultValue",
+          "expression": "null",
+          "owner": "DateRangeComparisonPicker",
+          "line": 32
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "6a61dd6a7b18f8cc60fe34219879c6d1cd032cabf6fb68e54866edca1bb375dd",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D396",
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "owner": "DateRangeComparisonPicker",
+      "prop": "presentation",
+      "before": "'popover'",
+      "currentMatches": [
+        {
+          "name": "presentation",
+          "expression": "'popover'",
+          "owner": "DateRangeComparisonPicker",
+          "line": 32
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "6a61dd6a7b18f8cc60fe34219879c6d1cd032cabf6fb68e54866edca1bb375dd",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D400",
+      "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+      "owner": "DateRangePicker",
+      "prop": "defaultValue",
+      "before": "null",
+      "currentMatches": [
+        {
+          "name": "defaultValue",
+          "expression": "null",
+          "owner": "DateRangePicker",
+          "line": 29
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "cc75272a86c5d24515d3bcd9b0447b4786b7d970091cd6805ab88e0931a6640b",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D401",
+      "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+      "owner": "DateRangePicker",
+      "prop": "showTitle",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "showTitle",
+          "expression": "false",
+          "owner": "DateRangePicker",
+          "line": 29
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "cc75272a86c5d24515d3bcd9b0447b4786b7d970091cd6805ab88e0931a6640b",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D402",
+      "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+      "owner": "DateRangePicker",
+      "prop": "showFields",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "showFields",
+          "expression": "false",
+          "owner": "DateRangePicker",
+          "line": 29
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "cc75272a86c5d24515d3bcd9b0447b4786b7d970091cd6805ab88e0931a6640b",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D403",
+      "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+      "owner": "DateRangePicker",
+      "prop": "entryMode",
+      "before": "\"text\"",
+      "currentMatches": [
+        {
+          "name": "entryMode",
+          "expression": "\"text\"",
+          "owner": "DateRangePicker",
+          "line": 29
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "cc75272a86c5d24515d3bcd9b0447b4786b7d970091cd6805ab88e0931a6640b",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D404",
+      "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+      "owner": "DateRangePicker",
+      "prop": "fieldMode",
+      "before": "\"text\"",
+      "currentMatches": [
+        {
+          "name": "fieldMode",
+          "expression": "\"text\"",
+          "owner": "DateRangePicker",
+          "line": 29
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "cc75272a86c5d24515d3bcd9b0447b4786b7d970091cd6805ab88e0931a6640b",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D405",
+      "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+      "owner": "DateRangePicker",
+      "prop": "presentation",
+      "before": "\"popover\"",
+      "currentMatches": [
+        {
+          "name": "presentation",
+          "expression": "\"popover\"",
+          "owner": "DateRangePicker",
+          "line": 29
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "cc75272a86c5d24515d3bcd9b0447b4786b7d970091cd6805ab88e0931a6640b",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D414",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "showTitle",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "showTitle",
+          "expression": "false",
+          "owner": "DateRangeSelector",
+          "line": 137
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D415",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "navigation",
+      "before": "\"arrows\"",
+      "currentMatches": [
+        {
+          "name": "navigation",
+          "expression": "\"period\"",
+          "owner": "DateRangeSelector",
+          "line": 137
+        }
+      ],
+      "status": "changed-initializer",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D416",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "entryMode",
+      "before": "\"text\"",
+      "currentMatches": [
+        {
+          "name": "entryMode",
+          "expression": "\"text\"",
+          "owner": "DateRangeSelector",
+          "line": 137
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D417",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "rangeClickBehavior",
+      "before": "\"adjust-end\"",
+      "currentMatches": [
+        {
+          "name": "rangeClickBehavior",
+          "expression": "\"adjust-nearest\"",
+          "owner": "DateRangeSelector",
+          "line": 137
+        }
+      ],
+      "status": "changed-initializer",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D418",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "selectionUnit",
+      "before": "\"day\"",
+      "currentMatches": [
+        {
+          "name": "selectionUnit",
+          "expression": "\"day\"",
+          "owner": "DateRangeSelector",
+          "line": 137
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D419",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "showFields",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showFields",
+          "expression": "false",
+          "owner": "DateRangeSelector",
+          "line": 137
+        }
+      ],
+      "status": "changed-initializer",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D420",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "showActions",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showActions",
+          "expression": "true",
+          "owner": "DateRangeSelector",
+          "line": 137
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D421",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "defaultActiveEndpoint",
+      "before": "\"end\"",
+      "currentMatches": [
+        {
+          "name": "defaultActiveEndpoint",
+          "expression": "\"end\"",
+          "owner": "DateRangeSelector",
+          "line": 137
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D422",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "rangeDragBehavior",
+      "before": "\"move-and-resize\"",
+      "currentMatches": [
+        {
+          "name": "rangeDragBehavior",
+          "expression": "\"move-and-resize\"",
+          "owner": "DateRangeSelector",
+          "line": 137
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D423",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "calendarNavigation",
+      "before": "\"linked\"",
+      "currentMatches": [
+        {
+          "name": "calendarNavigation",
+          "expression": "\"independent\"",
+          "owner": "DateRangeSelector",
+          "line": 137
+        }
+      ],
+      "status": "changed-initializer",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D424",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "calendarLayout",
+      "before": "\"paged\"",
+      "currentMatches": [
+        {
+          "name": "calendarLayout",
+          "expression": "\"paged\"",
+          "owner": "DateRangeSelector",
+          "line": 137
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D425",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "scrollMonths",
+      "before": "12",
+      "currentMatches": [
+        {
+          "name": "scrollMonths",
+          "expression": "12",
+          "owner": "DateRangeSelector",
+          "line": 137
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D426",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "commitBehavior",
+      "before": "\"apply\"",
+      "currentMatches": [
+        {
+          "name": "commitBehavior",
+          "expression": "\"apply\"",
+          "owner": "DateRangeSelector",
+          "line": 137
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D427",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "defaultValue",
+      "before": "null",
+      "currentMatches": [
+        {
+          "name": "defaultValue",
+          "expression": "null",
+          "owner": "DateRangeSelector",
+          "line": 137
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D428",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "unavailable",
+      "before": "[]",
+      "currentMatches": [
+        {
+          "name": "unavailable",
+          "expression": "[]",
+          "owner": "DateRangeSelector",
+          "line": 138
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D429",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "basePresets",
+      "before": "[]",
+      "currentMatches": [
+        {
+          "name": "basePresets",
+          "expression": "[]",
+          "owner": "DateRangeSelector",
+          "line": 138
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D430",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "presetGroups",
+      "before": "[]",
+      "currentMatches": [
+        {
+          "name": "presetGroups",
+          "expression": "[]",
+          "owner": "DateRangeSelector",
+          "line": 138
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D431",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "presetPlacement",
+      "before": "\"side\"",
+      "currentMatches": [
+        {
+          "name": "presetPlacement",
+          "expression": "\"side\"",
+          "owner": "DateRangeSelector",
+          "line": 138
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D432",
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "owner": "DateRangeSelector",
+      "prop": "months",
+      "before": "2",
+      "currentMatches": [
+        {
+          "name": "months",
+          "expression": "2",
+          "owner": "DateRangeSelector",
+          "line": 138
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D465",
+      "file": "packages/ui/src/experimental/DateRangeSelector/date-contract.ts",
+      "owner": "getDateRangeLength",
+      "prop": "unit",
+      "before": "\"days\"",
+      "currentMatches": [
+        {
+          "name": "unit",
+          "expression": "\"days\"",
+          "owner": "getDateRangeLength",
+          "line": 26
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D466",
+      "file": "packages/ui/src/experimental/DateRangeSelector/date-contract.ts",
+      "owner": "dateTimeToInstant",
+      "prop": "disambiguation",
+      "before": "\"reject\"",
+      "currentMatches": [
+        {
+          "name": "disambiguation",
+          "expression": "\"reject\"",
+          "owner": "dateTimeToInstant",
+          "line": 36
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D467",
+      "file": "packages/ui/src/experimental/DateRangeSelector/date-contract.ts",
+      "owner": "isDateRangeAllowed",
+      "prop": "{ min, max, unavailable = [], rangeLength, getDateUnavailableReason }",
+      "before": "{}",
+      "currentMatches": [
+        {
+          "name": "{ min, max, unavailable = [], rangeLength, getDateUnavailableReason }",
+          "expression": "{}",
+          "owner": "isDateRangeAllowed",
+          "line": 40
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D468",
+      "file": "packages/ui/src/experimental/DateRangeSelector/date-contract.ts",
+      "owner": "isDateRangeAllowed",
+      "prop": "unavailable",
+      "before": "[]",
+      "currentMatches": [
+        {
+          "name": "unavailable",
+          "expression": "[]",
+          "owner": "isDateRangeAllowed",
+          "line": 40
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D471",
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "owner": "DateTimeRangePicker",
+      "prop": "defaultValue",
+      "before": "null",
+      "currentMatches": [
+        {
+          "name": "defaultValue",
+          "expression": "null",
+          "owner": "DateTimeRangePicker",
+          "line": 25
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "998ff09a714566dd458db7b3add2fa0e07786bc9db799555a2c54a978461c3d8",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D472",
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "owner": "DateTimeRangePicker",
+      "prop": "minuteStep",
+      "before": "15",
+      "currentMatches": [
+        {
+          "name": "minuteStep",
+          "expression": "15",
+          "owner": "DateTimeRangePicker",
+          "line": 25
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "998ff09a714566dd458db7b3add2fa0e07786bc9db799555a2c54a978461c3d8",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D473",
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "owner": "DateTimeRangePicker",
+      "prop": "presentation",
+      "before": "'popover'",
+      "currentMatches": [
+        {
+          "name": "presentation",
+          "expression": "'popover'",
+          "owner": "DateTimeRangePicker",
+          "line": 25
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "998ff09a714566dd458db7b3add2fa0e07786bc9db799555a2c54a978461c3d8",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D485",
+      "file": "packages/ui/src/experimental/Dialog/Dialog.tsx",
+      "owner": "Dialog",
+      "prop": "size",
+      "before": "\"md\"",
+      "currentMatches": [
+        {
+          "name": "size",
+          "expression": "\"md\"",
+          "owner": "Dialog",
+          "line": 148
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "dc450b6ced9e6566a92dd4b67918394d84f1899b7a9b79ee9a322f0fe409164e",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D486",
+      "file": "packages/ui/src/experimental/Dialog/Dialog.tsx",
+      "owner": "Dialog",
+      "prop": "dismissOnOutside",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "dismissOnOutside",
+          "expression": "true",
+          "owner": "Dialog",
+          "line": 149
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "dc450b6ced9e6566a92dd4b67918394d84f1899b7a9b79ee9a322f0fe409164e",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D487",
+      "file": "packages/ui/src/experimental/Dialog/Dialog.tsx",
+      "owner": "Dialog",
+      "prop": "dismissOnEscape",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "dismissOnEscape",
+          "expression": "true",
+          "owner": "Dialog",
+          "line": 149
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "dc450b6ced9e6566a92dd4b67918394d84f1899b7a9b79ee9a322f0fe409164e",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D488",
+      "file": "packages/ui/src/experimental/Dialog/Dialog.tsx",
+      "owner": "Dialog",
+      "prop": "showCloseButton",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showCloseButton",
+          "expression": "true",
+          "owner": "Dialog",
+          "line": 149
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "dc450b6ced9e6566a92dd4b67918394d84f1899b7a9b79ee9a322f0fe409164e",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D491",
+      "file": "packages/ui/src/experimental/Disclosure/Disclosure.tsx",
+      "owner": "Disclosure",
+      "prop": "defaultExpanded",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "defaultExpanded",
+          "expression": "false",
+          "owner": "Disclosure",
+          "line": 15
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "d5dcf44cb5d87654507ad6edb9b278aa57f3467dcbb02a61fb4f86e96bc32cb1",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D493",
+      "file": "packages/ui/src/experimental/Divider/Divider.tsx",
+      "owner": "Divider",
+      "prop": "orientation",
+      "before": "\"horizontal\"",
+      "currentMatches": [
+        {
+          "name": "orientation",
+          "expression": "\"horizontal\"",
+          "owner": "Divider",
+          "line": 7
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "a530e9ae9fef9b82a46a277a61788f585a9fde38d60d64c029706f7cfd3fcc21",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D494",
+      "file": "packages/ui/src/experimental/Divider/Divider.tsx",
+      "owner": "Divider",
+      "prop": "decorative",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "decorative",
+          "expression": "false",
+          "owner": "Divider",
+          "line": 7
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "a530e9ae9fef9b82a46a277a61788f585a9fde38d60d64c029706f7cfd3fcc21",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D495",
+      "file": "packages/ui/src/experimental/IconButton/IconButton.tsx",
+      "owner": "IconButton",
+      "prop": "variant",
+      "before": "\"text\"",
+      "currentMatches": [
+        {
+          "name": "variant",
+          "expression": "\"text\"",
+          "owner": "IconButton",
+          "line": 9
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "5713a8146e087473fd147cd18d5f807d2c926a3d524a44a50490db2cb4ea94a1",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D496",
+      "file": "packages/ui/src/experimental/IconButton/IconButton.tsx",
+      "owner": "IconButton",
+      "prop": "tone",
+      "before": "\"neutral\"",
+      "currentMatches": [
+        {
+          "name": "tone",
+          "expression": "\"neutral\"",
+          "owner": "IconButton",
+          "line": 9
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "5713a8146e087473fd147cd18d5f807d2c926a3d524a44a50490db2cb4ea94a1",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D497",
+      "file": "packages/ui/src/experimental/Link/Link.tsx",
+      "owner": "Link",
+      "prop": "external",
+      "before": "/^(?:[a-z][a-z\\d+.-]*:|\\/\\/)/i.test(href)",
+      "currentMatches": [
+        {
+          "name": "external",
+          "expression": "/^(?:[a-z][a-z\\d+.-]*:|\\/\\/)/i.test(href)",
+          "owner": "Link",
+          "line": 13
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "2deb54771cea81b8709f1ae9399510d22c0a7126886e2aa2068d09e7b27590b5",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D498",
+      "file": "packages/ui/src/experimental/Link/Link.tsx",
+      "owner": "Link",
+      "prop": "underline",
+      "before": "\"hover\"",
+      "currentMatches": [
+        {
+          "name": "underline",
+          "expression": "\"hover\"",
+          "owner": "Link",
+          "line": 13
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "2deb54771cea81b8709f1ae9399510d22c0a7126886e2aa2068d09e7b27590b5",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D499",
+      "file": "packages/ui/src/experimental/Link/Link.tsx",
+      "owner": "Link",
+      "prop": "tone",
+      "before": "\"primary\"",
+      "currentMatches": [
+        {
+          "name": "tone",
+          "expression": "\"primary\"",
+          "owner": "Link",
+          "line": 13
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "2deb54771cea81b8709f1ae9399510d22c0a7126886e2aa2068d09e7b27590b5",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D502",
+      "file": "packages/ui/src/experimental/Menu/Menu.tsx",
+      "owner": "Menu",
+      "prop": "selectionMode",
+      "before": "\"multiple\"",
+      "currentMatches": [
+        {
+          "name": "selectionMode",
+          "expression": "\"multiple\"",
+          "owner": "Menu",
+          "line": 63
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "c1791ca484cd0631d9994417b69240fb6f4938afa4dd0cc31c67819ad80b8cfb",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D503",
+      "file": "packages/ui/src/experimental/Menu/Menu.tsx",
+      "owner": "Menu",
+      "prop": "placement",
+      "before": "\"bottom start\"",
+      "currentMatches": [
+        {
+          "name": "placement",
+          "expression": "\"bottom start\"",
+          "owner": "Menu",
+          "line": 63
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "c1791ca484cd0631d9994417b69240fb6f4938afa4dd0cc31c67819ad80b8cfb",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D506",
+      "file": "packages/ui/src/experimental/Navigation/Navigation.tsx",
+      "owner": "NavigationItem",
+      "prop": "current",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "current",
+          "expression": "false",
+          "owner": "NavigationItem",
+          "line": 18
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "d2a8c4bd6cc6ccf273f1763fb4b871a52fd7ee1efb6041fdd95b34ac5b673d60",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D507",
+      "file": "packages/ui/src/experimental/Pagination/Pagination.tsx",
+      "owner": "Pagination",
+      "prop": "hasNextPage",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "hasNextPage",
+          "expression": "false",
+          "owner": "Pagination",
+          "line": 31
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "9584ee76349fa69e89c6404431386c882afbde36047160dca7a7802def68dbf5",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D508",
+      "file": "packages/ui/src/experimental/Pagination/Pagination.tsx",
+      "owner": "Pagination",
+      "prop": "pageSizeOptions",
+      "before": "[25, 50, 100]",
+      "currentMatches": [
+        {
+          "name": "pageSizeOptions",
+          "expression": "[25, 50, 100]",
+          "owner": "Pagination",
+          "line": 31
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "9584ee76349fa69e89c6404431386c882afbde36047160dca7a7802def68dbf5",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D509",
+      "file": "packages/ui/src/experimental/Pagination/Pagination.tsx",
+      "owner": "Pagination",
+      "prop": "disabled",
+      "before": "false",
+      "currentMatches": [
+        {
+          "name": "disabled",
+          "expression": "false",
+          "owner": "Pagination",
+          "line": 32
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "9584ee76349fa69e89c6404431386c882afbde36047160dca7a7802def68dbf5",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D510",
+      "file": "packages/ui/src/experimental/Pagination/Pagination.tsx",
+      "owner": "Pagination",
+      "prop": "showBoundaryButtons",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showBoundaryButtons",
+          "expression": "true",
+          "owner": "Pagination",
+          "line": 32
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "9584ee76349fa69e89c6404431386c882afbde36047160dca7a7802def68dbf5",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D512",
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "owner": "PeriodPicker",
+      "prop": "defaultValue",
+      "before": "null",
+      "currentMatches": [
+        {
+          "name": "defaultValue",
+          "expression": "null",
+          "owner": "PeriodPicker",
+          "line": 49
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "51578bc9e5be69466d73e83b938b452a54a075f3f4330a543f1875da66674273",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D513",
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "owner": "PeriodPicker",
+      "prop": "firstDayOfWeek",
+      "before": "'mon'",
+      "currentMatches": [
+        {
+          "name": "firstDayOfWeek",
+          "expression": "'mon'",
+          "owner": "PeriodPicker",
+          "line": 49
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "51578bc9e5be69466d73e83b938b452a54a075f3f4330a543f1875da66674273",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D514",
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "owner": "PeriodPicker",
+      "prop": "presentation",
+      "before": "'popover'",
+      "currentMatches": [
+        {
+          "name": "presentation",
+          "expression": "'popover'",
+          "owner": "PeriodPicker",
+          "line": 49
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "51578bc9e5be69466d73e83b938b452a54a075f3f4330a543f1875da66674273",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D534",
+      "file": "packages/ui/src/experimental/Popover/Popover.tsx",
+      "owner": "Popover",
+      "prop": "showTitle",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showTitle",
+          "expression": "true",
+          "owner": "Popover",
+          "line": 160
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D535",
+      "file": "packages/ui/src/experimental/Popover/Popover.tsx",
+      "owner": "Popover",
+      "prop": "placement",
+      "before": "\"bottom start\"",
+      "currentMatches": [
+        {
+          "name": "placement",
+          "expression": "\"bottom start\"",
+          "owner": "Popover",
+          "line": 160
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D536",
+      "file": "packages/ui/src/experimental/Popover/Popover.tsx",
+      "owner": "Popover",
+      "prop": "size",
+      "before": "\"md\"",
+      "currentMatches": [
+        {
+          "name": "size",
+          "expression": "\"md\"",
+          "owner": "Popover",
+          "line": 160
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D537",
+      "file": "packages/ui/src/experimental/Popover/Popover.tsx",
+      "owner": "Popover",
+      "prop": "presentation",
+      "before": "\"popover\"",
+      "currentMatches": [
+        {
+          "name": "presentation",
+          "expression": "\"popover\"",
+          "owner": "Popover",
+          "line": 160
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D538",
+      "file": "packages/ui/src/experimental/Progress/Progress.tsx",
+      "owner": "Progress",
+      "prop": "minValue",
+      "before": "0",
+      "currentMatches": [
+        {
+          "name": "minValue",
+          "expression": "0",
+          "owner": "Progress",
+          "line": 27
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e5e9fe0337a634ee59f3e27c4be9c566fa82ea73402a54c6eabe8e2d2ccc8c5f",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D539",
+      "file": "packages/ui/src/experimental/Progress/Progress.tsx",
+      "owner": "Progress",
+      "prop": "maxValue",
+      "before": "100",
+      "currentMatches": [
+        {
+          "name": "maxValue",
+          "expression": "100",
+          "owner": "Progress",
+          "line": 27
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e5e9fe0337a634ee59f3e27c4be9c566fa82ea73402a54c6eabe8e2d2ccc8c5f",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D540",
+      "file": "packages/ui/src/experimental/Progress/Progress.tsx",
+      "owner": "Progress",
+      "prop": "variant",
+      "before": "\"linear\"",
+      "currentMatches": [
+        {
+          "name": "variant",
+          "expression": "\"linear\"",
+          "owner": "Progress",
+          "line": 27
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "e5e9fe0337a634ee59f3e27c4be9c566fa82ea73402a54c6eabe8e2d2ccc8c5f",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D545",
+      "file": "packages/ui/src/experimental/RadioGroup/RadioGroup.tsx",
+      "owner": "RadioGroup",
+      "prop": "orientation",
+      "before": "\"vertical\"",
+      "currentMatches": [
+        {
+          "name": "orientation",
+          "expression": "\"vertical\"",
+          "owner": "RadioGroup",
+          "line": 58
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "2d1ce9f65bb5ede574e4b36d1e0bcab493a23b4d3cbc65b4288235cc2e014042",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D547",
+      "file": "packages/ui/src/experimental/SearchField/SearchField.tsx",
+      "owner": "SearchField",
+      "prop": "items",
+      "before": "[]",
+      "currentMatches": [
+        {
+          "name": "items",
+          "expression": "[]",
+          "owner": "SearchField",
+          "line": 60
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "919fdfc1a1b9df3e6d4218d351a30e85c20e292e01b3f370fad7676fe0d9bc25",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D548",
+      "file": "packages/ui/src/experimental/SearchField/SearchField.tsx",
+      "owner": "SearchField",
+      "prop": "showResults",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showResults",
+          "expression": "true",
+          "owner": "SearchField",
+          "line": 60
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "919fdfc1a1b9df3e6d4218d351a30e85c20e292e01b3f370fad7676fe0d9bc25",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D549",
+      "file": "packages/ui/src/experimental/SearchField/SearchField.tsx",
+      "owner": "SearchField",
+      "prop": "defaultValue",
+      "before": "\"\"",
+      "currentMatches": [
+        {
+          "name": "defaultValue",
+          "expression": "\"\"",
+          "owner": "SearchField",
+          "line": 60
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "919fdfc1a1b9df3e6d4218d351a30e85c20e292e01b3f370fad7676fe0d9bc25",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D550",
+      "file": "packages/ui/src/experimental/SearchField/SearchField.tsx",
+      "owner": "SearchField",
+      "prop": "filter",
+      "before": "\"contains\"",
+      "currentMatches": [
+        {
+          "name": "filter",
+          "expression": "\"contains\"",
+          "owner": "SearchField",
+          "line": 60
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "919fdfc1a1b9df3e6d4218d351a30e85c20e292e01b3f370fad7676fe0d9bc25",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D551",
+      "file": "packages/ui/src/experimental/SearchField/SearchField.tsx",
+      "owner": "SearchField",
+      "prop": "showClearButton",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "showClearButton",
+          "expression": "true",
+          "owner": "SearchField",
+          "line": 62
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "919fdfc1a1b9df3e6d4218d351a30e85c20e292e01b3f370fad7676fe0d9bc25",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D552",
+      "file": "packages/ui/src/experimental/SearchField/SearchField.tsx",
+      "owner": "SearchField",
+      "prop": "startIcon",
+      "before": "<SearchIcon size={16}/>",
+      "currentMatches": [
+        {
+          "name": "startIcon",
+          "expression": "<SearchIcon size={16}/>",
+          "owner": "SearchField",
+          "line": 63
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "919fdfc1a1b9df3e6d4218d351a30e85c20e292e01b3f370fad7676fe0d9bc25",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D564",
+      "file": "packages/ui/src/experimental/Stack/Stack.tsx",
+      "owner": "Stack",
+      "prop": "direction",
+      "before": "\"column\"",
+      "currentMatches": [
+        {
+          "name": "direction",
+          "expression": "\"column\"",
+          "owner": "Stack",
+          "line": 13
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "9289e8b6bd6eabd45434700705e71689218d1762e70aeb332919d61ae1242e57",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D565",
+      "file": "packages/ui/src/experimental/Stack/Stack.tsx",
+      "owner": "Stack",
+      "prop": "gap",
+      "before": "2",
+      "currentMatches": [
+        {
+          "name": "gap",
+          "expression": "2",
+          "owner": "Stack",
+          "line": 13
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "9289e8b6bd6eabd45434700705e71689218d1762e70aeb332919d61ae1242e57",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D566",
+      "file": "packages/ui/src/experimental/Stack/Stack.tsx",
+      "owner": "Stack",
+      "prop": "align",
+      "before": "\"stretch\"",
+      "currentMatches": [
+        {
+          "name": "align",
+          "expression": "\"stretch\"",
+          "owner": "Stack",
+          "line": 13
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "9289e8b6bd6eabd45434700705e71689218d1762e70aeb332919d61ae1242e57",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D567",
+      "file": "packages/ui/src/experimental/Stack/Stack.tsx",
+      "owner": "Stack",
+      "prop": "justify",
+      "before": "\"start\"",
+      "currentMatches": [
+        {
+          "name": "justify",
+          "expression": "\"start\"",
+          "owner": "Stack",
+          "line": 13
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "9289e8b6bd6eabd45434700705e71689218d1762e70aeb332919d61ae1242e57",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D568",
+      "file": "packages/ui/src/experimental/Status/Status.tsx",
+      "owner": "Status",
+      "prop": "announcement",
+      "before": "\"off\"",
+      "currentMatches": [
+        {
+          "name": "announcement",
+          "expression": "\"off\"",
+          "owner": "Status",
+          "line": 15
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "21ab451907d7fca3f13a6e757b0c1ac8390f6609423b5af802f6730d3b185e0b",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D569",
+      "file": "packages/ui/src/experimental/Status/Status.tsx",
+      "owner": "Status",
+      "prop": "tone",
+      "before": "\"neutral\"",
+      "currentMatches": [
+        {
+          "name": "tone",
+          "expression": "\"neutral\"",
+          "owner": "Status",
+          "line": 15
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "21ab451907d7fca3f13a6e757b0c1ac8390f6609423b5af802f6730d3b185e0b",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D570",
+      "file": "packages/ui/src/experimental/Surface/Surface.tsx",
+      "owner": "Surface",
+      "prop": "tone",
+      "before": "\"default\"",
+      "currentMatches": [
+        {
+          "name": "tone",
+          "expression": "\"default\"",
+          "owner": "Surface",
+          "line": 8
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "c05bbbe6313c71a67e08b86b73c7a8d047f430db6825fb39f6c5271cde9fe17c",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D571",
+      "file": "packages/ui/src/experimental/Surface/Surface.tsx",
+      "owner": "Surface",
+      "prop": "variant",
+      "before": "\"flat\"",
+      "currentMatches": [
+        {
+          "name": "variant",
+          "expression": "\"flat\"",
+          "owner": "Surface",
+          "line": 8
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "c05bbbe6313c71a67e08b86b73c7a8d047f430db6825fb39f6c5271cde9fe17c",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D575",
+      "file": "packages/ui/src/experimental/Table/Table.tsx",
+      "owner": "TableCell",
+      "prop": "align",
+      "before": "\"start\"",
+      "currentMatches": [
+        {
+          "name": "align",
+          "expression": "\"start\"",
+          "owner": "TableCell",
+          "line": 40
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "fd16ddb941fc551cb6a9b39772b3a0de4d62ed96d56ddcc4120b04cba8e8adbb",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D576",
+      "file": "packages/ui/src/experimental/Table/Table.tsx",
+      "owner": "TableHeaderCell",
+      "prop": "align",
+      "before": "\"start\"",
+      "currentMatches": [
+        {
+          "name": "align",
+          "expression": "\"start\"",
+          "owner": "TableHeaderCell",
+          "line": 43
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "fd16ddb941fc551cb6a9b39772b3a0de4d62ed96d56ddcc4120b04cba8e8adbb",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D577",
+      "file": "packages/ui/src/experimental/Table/Table.tsx",
+      "owner": "TableHeaderCell",
+      "prop": "scope",
+      "before": "\"col\"",
+      "currentMatches": [
+        {
+          "name": "scope",
+          "expression": "\"col\"",
+          "owner": "TableHeaderCell",
+          "line": 43
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "fd16ddb941fc551cb6a9b39772b3a0de4d62ed96d56ddcc4120b04cba8e8adbb",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D578",
+      "file": "packages/ui/src/experimental/Tabs/Tabs.tsx",
+      "owner": "Tabs",
+      "prop": "activation",
+      "before": "\"automatic\"",
+      "currentMatches": [
+        {
+          "name": "activation",
+          "expression": "\"automatic\"",
+          "owner": "Tabs",
+          "line": 31
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "26e9ae79ccae4af261405ea1c8f3765a0cd4b1eea2b8647a0beb115dd0e74c0d",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D579",
+      "file": "packages/ui/src/experimental/Tabs/Tabs.tsx",
+      "owner": "Tabs",
+      "prop": "orientation",
+      "before": "\"horizontal\"",
+      "currentMatches": [
+        {
+          "name": "orientation",
+          "expression": "\"horizontal\"",
+          "owner": "Tabs",
+          "line": 31
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "26e9ae79ccae4af261405ea1c8f3765a0cd4b1eea2b8647a0beb115dd0e74c0d",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D580",
+      "file": "packages/ui/src/experimental/Tabs/Tabs.tsx",
+      "owner": "Tabs",
+      "prop": "overflow",
+      "before": "\"scroll\"",
+      "currentMatches": [
+        {
+          "name": "overflow",
+          "expression": "\"scroll\"",
+          "owner": "Tabs",
+          "line": 31
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "26e9ae79ccae4af261405ea1c8f3765a0cd4b1eea2b8647a0beb115dd0e74c0d",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D590",
+      "file": "packages/ui/src/experimental/TagGroup/TagGroup.tsx",
+      "owner": "TagGroup",
+      "prop": "tone",
+      "before": "\"neutral\"",
+      "currentMatches": [
+        {
+          "name": "tone",
+          "expression": "\"neutral\"",
+          "owner": "TagGroup",
+          "line": 39
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "bb22ca0082b22fb5331cca3d3ca06e4eba133af92f376f1edc1236da3d05721a",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D593",
+      "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+      "owner": "TextArea",
+      "prop": "rows",
+      "before": "4",
+      "currentMatches": [
+        {
+          "name": "rows",
+          "expression": "4",
+          "owner": "TextArea",
+          "line": 15
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "0630b5dc4ef085bef18dcb7ec09049004b130806c20a68f7b41149ada57c3552",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D600",
+      "file": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "owner": "TextTimeField",
+      "publicOwner": "TimeField",
+      "prop": "defaultValue",
+      "before": "null",
+      "currentMatches": [
+        {
+          "name": "defaultValue",
+          "expression": "null",
+          "owner": "TextTimeField",
+          "line": 16
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "b454ad6921a5ed5b96164c92baad525f6140c65f0c99c9d3f3e54786ea0b2d5d",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D601",
+      "file": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "owner": "TextTimeField",
+      "publicOwner": "TimeField",
+      "prop": "minuteStep",
+      "before": "1",
+      "currentMatches": [
+        {
+          "name": "minuteStep",
+          "expression": "1",
+          "owner": "TextTimeField",
+          "line": 16
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "b454ad6921a5ed5b96164c92baad525f6140c65f0c99c9d3f3e54786ea0b2d5d",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D627",
+      "file": "packages/ui/src/experimental/ToggleButton/ToggleButton.tsx",
+      "owner": "ToggleButtonGroup",
+      "prop": "selectionMode",
+      "before": "\"single\"",
+      "currentMatches": [
+        {
+          "name": "selectionMode",
+          "expression": "\"single\"",
+          "owner": "ToggleButtonGroup",
+          "line": 44
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "f93a552afb444876b4aeacc2d0501048c0fc2a0d9ad693bb7168cb75efb1c373",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D628",
+      "file": "packages/ui/src/experimental/ToggleButton/ToggleButton.tsx",
+      "owner": "ToggleButtonGroup",
+      "prop": "allowEmpty",
+      "before": "true",
+      "currentMatches": [
+        {
+          "name": "allowEmpty",
+          "expression": "true",
+          "owner": "ToggleButtonGroup",
+          "line": 45
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "f93a552afb444876b4aeacc2d0501048c0fc2a0d9ad693bb7168cb75efb1c373",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D629",
+      "file": "packages/ui/src/experimental/ToggleButton/ToggleButton.tsx",
+      "owner": "ToggleButtonGroup",
+      "prop": "orientation",
+      "before": "\"horizontal\"",
+      "currentMatches": [
+        {
+          "name": "orientation",
+          "expression": "\"horizontal\"",
+          "owner": "ToggleButtonGroup",
+          "line": 45
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "f93a552afb444876b4aeacc2d0501048c0fc2a0d9ad693bb7168cb75efb1c373",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D630",
+      "file": "packages/ui/src/experimental/ToggleButton/ToggleButton.tsx",
+      "owner": "ToggleButtonGroup",
+      "prop": "buttonWidth",
+      "before": "\"equal\"",
+      "currentMatches": [
+        {
+          "name": "buttonWidth",
+          "expression": "\"equal\"",
+          "owner": "ToggleButtonGroup",
+          "line": 45
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "f93a552afb444876b4aeacc2d0501048c0fc2a0d9ad693bb7168cb75efb1c373",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D631",
+      "file": "packages/ui/src/experimental/Tooltip/Tooltip.tsx",
+      "owner": "TooltipLifetime",
+      "publicOwner": "Tooltip",
+      "prop": "placement",
+      "before": "\"top\"",
+      "currentMatches": [
+        {
+          "name": "placement",
+          "expression": "\"top\"",
+          "owner": "TooltipLifetime",
+          "line": 27
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "432c9ccb28b951dfbca0ab271229f5f8d06cb7ff410fd339438d3dbb098f5e8c",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D632",
+      "file": "packages/ui/src/experimental/Tooltip/Tooltip.tsx",
+      "owner": "TooltipLifetime",
+      "publicOwner": "Tooltip",
+      "prop": "delay",
+      "before": "700",
+      "currentMatches": [
+        {
+          "name": "delay",
+          "expression": "700",
+          "owner": "TooltipLifetime",
+          "line": 27
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "432c9ccb28b951dfbca0ab271229f5f8d06cb7ff410fd339438d3dbb098f5e8c",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D633",
+      "file": "packages/ui/src/experimental/Tooltip/Tooltip.tsx",
+      "owner": "TooltipLifetime",
+      "publicOwner": "Tooltip",
+      "prop": "closeDelay",
+      "before": "100",
+      "currentMatches": [
+        {
+          "name": "closeDelay",
+          "expression": "100",
+          "owner": "TooltipLifetime",
+          "line": 27
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "432c9ccb28b951dfbca0ab271229f5f8d06cb7ff410fd339438d3dbb098f5e8c",
+      "classification": "public-composed-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D634",
+      "file": "packages/ui/src/experimental/Typography/Typography.tsx",
+      "owner": "Typography",
+      "prop": "variant",
+      "before": "\"body1\"",
+      "currentMatches": [
+        {
+          "name": "variant",
+          "expression": "\"body1\"",
+          "owner": "Typography",
+          "line": 13
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "3df58c5e33ee0c5f9e2dd8969ef41cc858cb48385c77d08860bb3f8ab506546f",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D635",
+      "file": "packages/ui/src/experimental/Typography/Typography.tsx",
+      "owner": "Typography",
+      "prop": "as",
+      "before": "\"p\"",
+      "currentMatches": [
+        {
+          "name": "as",
+          "expression": "\"p\"",
+          "owner": "Typography",
+          "line": 13
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "3df58c5e33ee0c5f9e2dd8969ef41cc858cb48385c77d08860bb3f8ab506546f",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D636",
+      "file": "packages/ui/src/experimental/Typography/Typography.tsx",
+      "owner": "Typography",
+      "prop": "tone",
+      "before": "\"default\"",
+      "currentMatches": [
+        {
+          "name": "tone",
+          "expression": "\"default\"",
+          "owner": "Typography",
+          "line": 13
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "3df58c5e33ee0c5f9e2dd8969ef41cc858cb48385c77d08860bb3f8ab506546f",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D637",
+      "file": "packages/ui/src/experimental/icons/activityTypeIcon.tsx",
+      "owner": "getActivityTypeIcon",
+      "prop": "{ size = 20, overrides, fallback }",
+      "before": "{}",
+      "currentMatches": [
+        {
+          "name": "{ size = 20, overrides, fallback }",
+          "expression": "{}",
+          "owner": "getActivityTypeIcon",
+          "line": 12
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "3626f49bd4af6404687dd54b1e81a4019c29fd367000dfb7d5fb4a1cb4d495bb",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D638",
+      "file": "packages/ui/src/experimental/icons/activityTypeIcon.tsx",
+      "owner": "getActivityTypeIcon",
+      "prop": "size",
+      "before": "20",
+      "currentMatches": [
+        {
+          "name": "size",
+          "expression": "20",
+          "owner": "getActivityTypeIcon",
+          "line": 12
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "3626f49bd4af6404687dd54b1e81a4019c29fd367000dfb7d5fb4a1cb4d495bb",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D641",
+      "file": "packages/ui/src/experimental/icons/createVector.tsx",
+      "owner": "Icon",
+      "publicOwner": "IconProps",
+      "prop": "size",
+      "before": "\"1em\"",
+      "currentMatches": [
+        {
+          "name": "size",
+          "expression": "\"1em\"",
+          "owner": "Icon",
+          "line": 17
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "classification": "shared-icon-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D642",
+      "file": "packages/ui/src/experimental/icons/createVector.tsx",
+      "owner": "Icon",
+      "publicOwner": "IconProps",
+      "prop": "strokeWidth",
+      "before": "2",
+      "currentMatches": [
+        {
+          "name": "strokeWidth",
+          "expression": "2",
+          "owner": "Icon",
+          "line": 17
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "classification": "shared-icon-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D643",
+      "file": "packages/ui/src/experimental/icons/createVector.tsx",
+      "owner": "Icon",
+      "publicOwner": "IconProps",
+      "prop": "color",
+      "before": "\"currentColor\"",
+      "currentMatches": [
+        {
+          "name": "color",
+          "expression": "\"currentColor\"",
+          "owner": "Icon",
+          "line": 17
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "classification": "shared-icon-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D644",
+      "file": "packages/ui/src/experimental/icons/createVector.tsx",
+      "owner": "Icon",
+      "publicOwner": "IconProps",
+      "prop": "fill",
+      "before": "\"none\"",
+      "currentMatches": [
+        {
+          "name": "fill",
+          "expression": "\"none\"",
+          "owner": "Icon",
+          "line": 18
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "classification": "shared-icon-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D645",
+      "file": "packages/ui/src/experimental/icons/createVector.tsx",
+      "owner": "Icon",
+      "publicOwner": "IconProps",
+      "prop": "mirrorInRtl",
+      "before": "directional",
+      "currentMatches": [
+        {
+          "name": "mirrorInRtl",
+          "expression": "directional",
+          "owner": "Icon",
+          "line": 18
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "classification": "shared-icon-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D653",
+      "file": "packages/ui/src/hooks/paginationModel.ts",
+      "owner": "normalizePaginationModel",
+      "prop": "options",
+      "before": "{}",
+      "currentMatches": [
+        {
+          "name": "options",
+          "expression": "{}",
+          "owner": "<callback>",
+          "line": 18
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": false,
+      "currentSourceSha256": "83393ba591fb78a58d2fddcc279a4388ae659998503ac4076d20d90eb4a3fc6a",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D659",
+      "file": "packages/ui/src/hooks/usePersistentPaginationModel.ts",
+      "owner": "usePersistentPaginationModel",
+      "prop": "key",
+      "before": "undefined",
+      "currentMatches": [
+        {
+          "name": "key",
+          "expression": "undefined",
+          "owner": "usePersistentPaginationModel",
+          "line": 19
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "76f4c23e47ac60f2c7084adb16116493910b18f432ccdd37691d90f6f184e872",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D660",
+      "file": "packages/ui/src/hooks/usePersistentPaginationModel.ts",
+      "owner": "usePersistentPaginationModel",
+      "prop": "initialValue",
+      "before": "{ page: 0, pageSize: 25 }",
+      "currentMatches": [
+        {
+          "name": "initialValue",
+          "expression": "{ page: 0, pageSize: 25 }",
+          "owner": "usePersistentPaginationModel",
+          "line": 20
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "76f4c23e47ac60f2c7084adb16116493910b18f432ccdd37691d90f6f184e872",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D661",
+      "file": "packages/ui/src/hooks/usePersistentPaginationModel.ts",
+      "owner": "usePersistentPaginationModel",
+      "prop": "options",
+      "before": "{}",
+      "currentMatches": [
+        {
+          "name": "options",
+          "expression": "{}",
+          "owner": "usePersistentPaginationModel",
+          "line": 21
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "76f4c23e47ac60f2c7084adb16116493910b18f432ccdd37691d90f6f184e872",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D662",
+      "file": "packages/ui/src/hooks/usePersistentState.ts",
+      "owner": "usePersistentState",
+      "prop": "options",
+      "before": "{}",
+      "currentMatches": [
+        {
+          "name": "options",
+          "expression": "{}",
+          "owner": "usePersistentState",
+          "line": 21
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "64ac3e729235f826115afd9c5affa9a58c4085e01054be5e7f37583989fbb02d",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D671",
+      "file": "packages/ui/src/utils/formatDueDateLabel.ts",
+      "owner": "formatDueDateLabel",
+      "prop": "nowInput",
+      "before": "new Date()",
+      "currentMatches": [
+        {
+          "name": "nowInput",
+          "expression": "new Date()",
+          "owner": "<callback>",
+          "line": 66
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": false,
+      "currentSourceSha256": "3df8f8b9e7ba95dd6763b2cb5b243fc8323fba809f81a056fca358f5284e043c",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D672",
+      "file": "packages/ui/src/utils/formatDueDateLabel.ts",
+      "owner": "formatDueDateLabel",
+      "prop": "options",
+      "before": "{}",
+      "currentMatches": [
+        {
+          "name": "options",
+          "expression": "{}",
+          "owner": "<callback>",
+          "line": 67
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": false,
+      "currentSourceSha256": "3df8f8b9e7ba95dd6763b2cb5b243fc8323fba809f81a056fca358f5284e043c",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D675",
+      "file": "packages/ui/src/utils/relative-dates.ts",
+      "owner": "getRelativeDateRange",
+      "prop": "offset",
+      "before": "0",
+      "currentMatches": [
+        {
+          "name": "offset",
+          "expression": "0",
+          "owner": "getRelativeDateRange",
+          "line": 97
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "1922bc80f9168a09eccd04aa5984973c6487b3482b38cf1135bf926a0f3339fd",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    },
+    {
+      "id": "D676",
+      "file": "packages/ui/src/utils/relative-dates.ts",
+      "owner": "getRelativeDateRange",
+      "prop": "weekStartsOn",
+      "before": "1",
+      "currentMatches": [
+        {
+          "name": "weekStartsOn",
+          "expression": "1",
+          "owner": "getRelativeDateRange",
+          "line": 97
+        }
+      ],
+      "status": "same-initializer-expression",
+      "matchingOwner": true,
+      "currentSourceSha256": "1922bc80f9168a09eccd04aa5984973c6487b3482b38cf1135bf926a0f3339fd",
+      "classification": "public-parameter-default",
+      "scope": "Declaration optionality not used; initializer expression comparison only. Same expression is not whole behavior equivalence or a constant value for contextual defaults."
+    }
+  ],
+  "counts": {
+    "same-initializer-expression": 209,
+    "changed-initializer": 5
+  },
+  "limits": "Historical public-default candidates only; conditional host/context/default ownership remains separately described by public contract guides. Not a new runtime execution."
+}

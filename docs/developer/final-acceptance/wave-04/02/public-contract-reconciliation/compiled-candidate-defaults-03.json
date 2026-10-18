@@ -1,0 +1,118 @@
+{
+  "startedAt": "2026-10-18T01:32:03.344Z",
+  "admissionPath": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/editor-native-03/host-admission.json",
+  "admissionSha256": "3b233042ea1898aa378ba282ab9c1d2f96fdda30cd69d15f6fd897b26e3ff8eb",
+  "admission": {
+    "head": "debc3d2ba565f14776e09911c185152b0a5b342c",
+    "node": "v24.19.0",
+    "owner": "x08-d15-editor-retry:7316",
+    "pid": 7316,
+    "sourceManifest": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/editor-native-03/source-after-build.json",
+    "sourceSha256": "fb887bb004f722c5525aa2b0ee37893f7babe8b82f9c995fc0d60a8e2d57cc9c",
+    "librarySha256": "7e8517d8a4dba50adc59b55c3f4dc9ce715d55b02ccdb41415232dbf55d980c3",
+    "hostSha256": "ecaa552c893e7b8c031198f02b184215d957a8ddf8f4ebefaa27db3ce8f00ba7",
+    "hostRoot": "/Users/thomashall/Repositories/sg-ui/packages/ui/browser-docs-static",
+    "baseURL": "http://127.0.0.1:6173",
+    "immutable": true
+  },
+  "sourceManifestFileSha256": "b8d082b03bae7633316f3681847205a9afe7cbad9136cc5763fcd489d44792c3",
+  "sourceManifestCanonicalSha256": "fb887bb004f722c5525aa2b0ee37893f7babe8b82f9c995fc0d60a8e2d57cc9c",
+  "declarationComparisonPath": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/editor-native-03/declaration-comparison.json",
+  "declarationComparisonSha256": "f9d3b0fed68c5aa59330e7a85ea3a3cc168a2a1577ccebb2e4b250a6c0222705",
+  "builds": 0,
+  "sourceMutations": 0,
+  "rows": [
+    {
+      "component": "Calendar",
+      "prop": "navigation",
+      "source": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "sourceOwner": "Calendar",
+      "committedMapSourceSha256": "014087f32659335ffa19d1170b9c067467a411e7204813241fa99c76f681946a",
+      "compiledCandidateSourceSha256": "014087f32659335ffa19d1170b9c067467a411e7204813241fa99c76f681946a",
+      "sourceHashUnchanged": true,
+      "observedInitializers": [
+        "\"period\""
+      ],
+      "expected": "\"period\"",
+      "passed": true
+    },
+    {
+      "component": "DateRangeSelector",
+      "prop": "navigation",
+      "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "sourceOwner": "DateRangeSelector",
+      "committedMapSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "compiledCandidateSourceSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
+      "sourceHashUnchanged": false,
+      "observedInitializers": [
+        "\"period\""
+      ],
+      "expected": "\"period\"",
+      "passed": true
+    },
+    {
+      "component": "DateRangeSelector",
+      "prop": "rangeClickBehavior",
+      "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "sourceOwner": "DateRangeSelector",
+      "committedMapSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "compiledCandidateSourceSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
+      "sourceHashUnchanged": false,
+      "observedInitializers": [
+        "\"adjust-nearest\""
+      ],
+      "expected": "\"adjust-nearest\"",
+      "passed": true
+    },
+    {
+      "component": "DateRangeSelector",
+      "prop": "showFields",
+      "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "sourceOwner": "DateRangeSelector",
+      "committedMapSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "compiledCandidateSourceSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
+      "sourceHashUnchanged": false,
+      "observedInitializers": [
+        "false"
+      ],
+      "expected": "false",
+      "passed": true
+    },
+    {
+      "component": "DateRangeSelector",
+      "prop": "calendarNavigation",
+      "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "sourceOwner": "DateRangeSelector",
+      "committedMapSourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "compiledCandidateSourceSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
+      "sourceHashUnchanged": false,
+      "observedInitializers": [
+        "\"independent\""
+      ],
+      "expected": "\"independent\"",
+      "passed": true
+    },
+    {
+      "component": "AppDataGrid",
+      "prop": "selection",
+      "source": "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+      "sourceOwner": "Grid",
+      "committedMapSourceSha256": "52b7748e0e039295ac31db6318d934884d1a36b402a5cbcadab9ddd31a8a8b6e",
+      "compiledCandidateSourceSha256": "52b7748e0e039295ac31db6318d934884d1a36b402a5cbcadab9ddd31a8a8b6e",
+      "sourceHashUnchanged": true,
+      "observedInitializers": [
+        "true"
+      ],
+      "expected": "true",
+      "passed": true
+    }
+  ],
+  "priorVerifierFailure": "compiled-candidate-defaults-02.json compared raw prettyJSON bytes to producerJSON.stringify(source) hash; corrected to actual producer method, original failure retained.",
+  "beforeLibraryDigest": "7e8517d8a4dba50adc59b55c3f4dc9ce715d55b02ccdb41415232dbf55d980c3",
+  "declarationFilesVerified": 445,
+  "afterLibraryDigest": "7e8517d8a4dba50adc59b55c3f4dc9ce715d55b02ccdb41415232dbf55d980c3",
+  "status": "pass",
+  "supersession": "Initial95inventory and laterdigestfailure retained;05focusfix changed JS with new7eadmission. All445DTS byte-identical sooriginalinventoryreused;0additionalinventory/build.",
+  "finishedAt": "2026-10-18T01:32:03.793Z",
+  "cleanup": "Light slot released; no library/source mutation or build"
+}

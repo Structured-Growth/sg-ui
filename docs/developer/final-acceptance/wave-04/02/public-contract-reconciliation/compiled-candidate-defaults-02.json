@@ -1,0 +1,28 @@
+{
+  "startedAt": "2026-10-18T01:31:34.663Z",
+  "admissionPath": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/editor-native-03/host-admission.json",
+  "admissionSha256": "3b233042ea1898aa378ba282ab9c1d2f96fdda30cd69d15f6fd897b26e3ff8eb",
+  "admission": {
+    "head": "debc3d2ba565f14776e09911c185152b0a5b342c",
+    "node": "v24.19.0",
+    "owner": "x08-d15-editor-retry:7316",
+    "pid": 7316,
+    "sourceManifest": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/editor-native-03/source-after-build.json",
+    "sourceSha256": "fb887bb004f722c5525aa2b0ee37893f7babe8b82f9c995fc0d60a8e2d57cc9c",
+    "librarySha256": "7e8517d8a4dba50adc59b55c3f4dc9ce715d55b02ccdb41415232dbf55d980c3",
+    "hostSha256": "ecaa552c893e7b8c031198f02b184215d957a8ddf8f4ebefaa27db3ce8f00ba7",
+    "hostRoot": "/Users/thomashall/Repositories/sg-ui/packages/ui/browser-docs-static",
+    "baseURL": "http://127.0.0.1:6173",
+    "immutable": true
+  },
+  "sourceManifestSha256": "b8d082b03bae7633316f3681847205a9afe7cbad9136cc5763fcd489d44792c3",
+  "declarationComparisonPath": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/editor-native-03/declaration-comparison.json",
+  "declarationComparisonSha256": "f9d3b0fed68c5aa59330e7a85ea3a3cc168a2a1577ccebb2e4b250a6c0222705",
+  "builds": 0,
+  "sourceMutations": 0,
+  "rows": [],
+  "status": "fail",
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'b8d082b03bae7633316f3681847205a9afe7cbad9136cc5763fcd489d44792c3'\n- 'fb887bb004f722c5525aa2b0ee37893f7babe8b82f9c995fc0d60a8e2d57cc9c'\n\n    at file:///Users/thomashall/Repositories/sg-ui/[eval1]:3:82",
+  "finishedAt": "2026-10-18T01:31:34.666Z",
+  "cleanup": "Light slot released; no library/source mutation or build"
+}

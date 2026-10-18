@@ -1,0 +1,261 @@
+{
+  "inventorySha256": "82ede56de4a678e39963abdee53202e0cf38d4ea6535e3e02d768c061b4a9d37",
+  "mapSha256": "ba43a35fb00c3ddb966835ab17723e6831034f7dec9a1782cead2870991f81f0",
+  "sourceMode": "git-commit",
+  "sourceRef": "a33b7448f4fbec5c55bf5c86b315a5572de04d01",
+  "compiler": "5.9.3",
+  "checks": [
+    {
+      "kind": "removed-name",
+      "name": "AppButton",
+      "replacements": [
+        "Button"
+      ],
+      "guide": "docs/developer/react-aria-button.md",
+      "guideSha256": "44e866d2aa9aa77f043326781ba819ba599fed84da460c9fe44a0a0725686b57",
+      "passed": true
+    },
+    {
+      "kind": "removed-name",
+      "name": "AppButtonProps",
+      "replacements": [
+        "ButtonProps"
+      ],
+      "guide": "docs/developer/react-aria-button.md",
+      "guideSha256": "44e866d2aa9aa77f043326781ba819ba599fed84da460c9fe44a0a0725686b57",
+      "passed": true
+    },
+    {
+      "kind": "removed-name",
+      "name": "FormControlLabel",
+      "replacements": [
+        "Checkbox",
+        "Switch",
+        "RadioGroup"
+      ],
+      "guide": "docs/developer/react-aria-primitives.md",
+      "guideSha256": "ed7b6668e1d62e0a8c9c02863bc3c9a2270fc206741c9cd62cc1fd9d130dde34",
+      "passed": true
+    },
+    {
+      "kind": "removed-name",
+      "name": "FormControlLabelProps",
+      "replacements": [
+        "CheckboxProps",
+        "SwitchProps",
+        "RadioGroupProps"
+      ],
+      "guide": "docs/developer/react-aria-primitives.md",
+      "guideSha256": "ed7b6668e1d62e0a8c9c02863bc3c9a2270fc206741c9cd62cc1fd9d130dde34",
+      "passed": true
+    },
+    {
+      "kind": "removed-name",
+      "name": "MuiLink",
+      "replacements": [
+        "Link"
+      ],
+      "guide": "docs/developer/react-aria-primitives.md",
+      "guideSha256": "ed7b6668e1d62e0a8c9c02863bc3c9a2270fc206741c9cd62cc1fd9d130dde34",
+      "passed": true
+    },
+    {
+      "kind": "removed-name",
+      "name": "MuiLinkProps",
+      "replacements": [
+        "LinkProps"
+      ],
+      "guide": "docs/developer/react-aria-primitives.md",
+      "guideSha256": "ed7b6668e1d62e0a8c9c02863bc3c9a2270fc206741c9cd62cc1fd9d130dde34",
+      "passed": true
+    },
+    {
+      "kind": "removed-name",
+      "name": "MenuItemProps",
+      "replacements": [
+        "MenuItem"
+      ],
+      "guide": "docs/developer/react-aria-primitives.md",
+      "guideSha256": "ed7b6668e1d62e0a8c9c02863bc3c9a2270fc206741c9cd62cc1fd9d130dde34",
+      "passed": true
+    },
+    {
+      "kind": "removed-name",
+      "name": "SelectChangeEvent",
+      "replacements": [
+        "SelectProps"
+      ],
+      "guide": "docs/developer/react-aria-primitives.md",
+      "guideSha256": "ed7b6668e1d62e0a8c9c02863bc3c9a2270fc206741c9cd62cc1fd9d130dde34",
+      "passed": true
+    },
+    {
+      "kind": "removed-name",
+      "name": "AppGridSortModel",
+      "replacements": [
+        "AppDataGridSortRule"
+      ],
+      "guide": "docs/developer/react-aria-catalog-grid.md",
+      "guideSha256": "8cb3881670af3fd39dafcd66ffbd115612a4887829f00c8876cfe954911b2dd3",
+      "passed": true
+    },
+    {
+      "kind": "removed-name",
+      "name": "darkTheme",
+      "replacements": [
+        "Provider",
+        "ThemeScope"
+      ],
+      "guide": "docs/developer/react-aria-theme.md",
+      "guideSha256": "2411e13ae7b887ee39801b072e845017e9cf91cd9d3d5e3a5a52002eab0288fe",
+      "passed": true
+    },
+    {
+      "kind": "removed-name",
+      "name": "lightTheme",
+      "replacements": [
+        "Provider",
+        "ThemeScope"
+      ],
+      "guide": "docs/developer/react-aria-theme.md",
+      "guideSha256": "2411e13ae7b887ee39801b072e845017e9cf91cd9d3d5e3a5a52002eab0288fe",
+      "passed": true
+    },
+    {
+      "kind": "removed-name",
+      "name": "theme",
+      "replacements": [
+        "Provider",
+        "ThemeScope"
+      ],
+      "guide": "docs/developer/react-aria-theme.md",
+      "guideSha256": "2411e13ae7b887ee39801b072e845017e9cf91cd9d3d5e3a5a52002eab0288fe",
+      "passed": true
+    },
+    {
+      "kind": "changed-default",
+      "priorCandidate": "D342",
+      "component": "Calendar",
+      "source": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "sourceSha256": "014087f32659335ffa19d1170b9c067467a411e7204813241fa99c76f681946a",
+      "prop": "navigation",
+      "before": "\"arrows\"",
+      "after": "\"period\"",
+      "retainPreviousBehavior": "navigation=\"arrows\"",
+      "guide": "docs/developer/react-aria-public-contracts.md",
+      "sourceOwner": "Calendar",
+      "sourceReviewedAtCommit": "98f1f9b022da273e7a95edf0a82b18e773e2b384",
+      "matchedSourceInitializers": [
+        "\"period\""
+      ],
+      "guideSha256": "f289ad590fd1885c489ad622e028e38b146b653aefe418d4ad5e7d4c675c5268",
+      "passed": true
+    },
+    {
+      "kind": "changed-default",
+      "priorCandidate": "D415",
+      "component": "DateRangeSelector",
+      "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "sourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "prop": "navigation",
+      "before": "\"arrows\"",
+      "after": "\"period\"",
+      "retainPreviousBehavior": "navigation=\"arrows\"",
+      "guide": "docs/developer/react-aria-public-contracts.md",
+      "sourceOwner": "DateRangeSelector",
+      "sourceReviewedAtCommit": "98f1f9b022da273e7a95edf0a82b18e773e2b384",
+      "matchedSourceInitializers": [
+        "\"period\""
+      ],
+      "guideSha256": "f289ad590fd1885c489ad622e028e38b146b653aefe418d4ad5e7d4c675c5268",
+      "passed": true
+    },
+    {
+      "kind": "changed-default",
+      "priorCandidate": "D417",
+      "component": "DateRangeSelector",
+      "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "sourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "prop": "rangeClickBehavior",
+      "before": "\"adjust-end\"",
+      "after": "\"adjust-nearest\"",
+      "retainPreviousBehavior": "rangeClickBehavior=\"adjust-end\"",
+      "guide": "docs/developer/react-aria-public-contracts.md",
+      "sourceOwner": "DateRangeSelector",
+      "sourceReviewedAtCommit": "98f1f9b022da273e7a95edf0a82b18e773e2b384",
+      "matchedSourceInitializers": [
+        "\"adjust-nearest\""
+      ],
+      "guideSha256": "f289ad590fd1885c489ad622e028e38b146b653aefe418d4ad5e7d4c675c5268",
+      "passed": true
+    },
+    {
+      "kind": "changed-default",
+      "priorCandidate": "D419",
+      "component": "DateRangeSelector",
+      "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "sourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "prop": "showFields",
+      "before": "true",
+      "after": "false",
+      "retainPreviousBehavior": "showFields={true}",
+      "guide": "docs/developer/react-aria-public-contracts.md",
+      "sourceOwner": "DateRangeSelector",
+      "sourceReviewedAtCommit": "98f1f9b022da273e7a95edf0a82b18e773e2b384",
+      "matchedSourceInitializers": [
+        "false"
+      ],
+      "guideSha256": "f289ad590fd1885c489ad622e028e38b146b653aefe418d4ad5e7d4c675c5268",
+      "passed": true
+    },
+    {
+      "kind": "changed-default",
+      "priorCandidate": "D423",
+      "component": "DateRangeSelector",
+      "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "sourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "prop": "calendarNavigation",
+      "before": "\"linked\"",
+      "after": "\"independent\"",
+      "retainPreviousBehavior": "calendarNavigation=\"linked\"",
+      "guide": "docs/developer/react-aria-public-contracts.md",
+      "sourceOwner": "DateRangeSelector",
+      "sourceReviewedAtCommit": "98f1f9b022da273e7a95edf0a82b18e773e2b384",
+      "matchedSourceInitializers": [
+        "\"independent\""
+      ],
+      "guideSha256": "f289ad590fd1885c489ad622e028e38b146b653aefe418d4ad5e7d4c675c5268",
+      "passed": true
+    },
+    {
+      "kind": "changed-default",
+      "component": "AppDataGrid",
+      "source": "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+      "sourceOwner": "Grid",
+      "sourceSha256": "52b7748e0e039295ac31db6318d934884d1a36b402a5cbcadab9ddd31a8a8b6e",
+      "sourceReviewedAtCommit": "98f1f9b022da273e7a95edf0a82b18e773e2b384",
+      "prop": "selection",
+      "before": "omitted: no selection config or selection column",
+      "after": "true",
+      "retainPreviousBehavior": "selection={false}",
+      "guide": "docs/migration.md",
+      "baselineSource": {
+        "commit": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "path": "src/components/AppDataGrid/AppDataGrid.tsx",
+        "evidence": "selection has no initializer; resolvedSelection returns undefined for omission; selection column is omitted when !resolvedSelection."
+      },
+      "scope": "Changed relative to initial extraction, not a new change since the saved owned-default snapshot.",
+      "matchedSourceInitializers": [
+        "true"
+      ],
+      "guideSha256": "ed2ada274927799e0c8c6d1ec626cf1ffa1208d3e1c2f2c30d478652d2336cf4",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limits": [
+    "Verifies12absent-symbol mappings and6source-bound changed defaults. The separate exact-lock inherited inventory resolves38captured analysis contracts and740styling mappings; no universal upstream-prop compatibility claim.",
+    "Does not publish or promote a release. Actual Conventional Commit impact evidence is recorded separately.",
+    "Built declarations cannot establish runtime defaults; the gate checks named implementation owners and source hashes independently. Use --source-ref to pin committed bytes while candidate changes are in progress."
+  ]
+}

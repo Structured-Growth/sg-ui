@@ -67,8 +67,10 @@ already used Set values; retain that shape. The removed upstream model alias and
 engine parameter types are separate changes. Custom getRowId moves to the top
 level and returns a stable string; the default converts numeric row.id to string.
 
-Grid defaults are client mode, page zero, page size 25 and empty criteria/selection
-unless controlled, default or restored values apply. Selection, rows and errors
+Grid defaults are client mode, page zero, page size 25 and empty criteria/selected
+IDs unless controlled, default or restored values apply. Checkbox selection is
+enabled when omitted; use `selection={false}` to preserve the extracted wrapper
+without a selection column. Selection, rows and errors
 are excluded from saved grid view state. A size action requests page zero before
 the size callback; the optional atomic footer callback supersedes legacy calls.
 The two legacy footer callback props are still required by their public type.

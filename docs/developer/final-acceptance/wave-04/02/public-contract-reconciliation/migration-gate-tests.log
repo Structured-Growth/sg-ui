@@ -1,0 +1,10 @@
+✔ committed source pin excludes dirty candidate defaults and records the exact commit (401.213583ms)
+✔ an optional public prop and an unrelated helper default do not establish its runtime default (171.822083ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 624.537292

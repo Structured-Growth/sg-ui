@@ -1,0 +1,5 @@
+BREAKING CHANGE: DateRangeSelector and DateRangePicker now default rangeClickBehavior to
+"adjust-nearest"; pass rangeClickBehavior="adjust-end" to retain the previous completed-range
+click behavior. Multi-month Calendar, DateRangeSelector and DateRangePicker now default
+calendarNavigation to "independent"; pass calendarNavigation="linked" to keep consecutive views
+moving together.

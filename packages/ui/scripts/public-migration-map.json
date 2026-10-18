@@ -479,56 +479,84 @@
       "before": "\"arrows\"",
       "after": "\"period\"",
       "retainPreviousBehavior": "navigation=\"arrows\"",
-      "guide": "docs/developer/react-aria-public-contracts.md"
+      "guide": "docs/developer/react-aria-public-contracts.md",
+      "sourceOwner": "Calendar",
+      "sourceReviewedAtCommit": "4a7305f0302ba8cd27b6496a5c5f62b48ef7b6f1"
     },
     {
       "priorCandidate": "D415",
       "component": "DateRangeSelector",
       "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
-      "sourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "sourceSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
       "prop": "navigation",
       "before": "\"arrows\"",
       "after": "\"period\"",
       "retainPreviousBehavior": "navigation=\"arrows\"",
-      "guide": "docs/developer/react-aria-public-contracts.md"
+      "guide": "docs/developer/react-aria-public-contracts.md",
+      "sourceOwner": "DateRangeSelector",
+      "sourceReviewedAtCommit": "4a7305f0302ba8cd27b6496a5c5f62b48ef7b6f1"
     },
     {
       "priorCandidate": "D417",
       "component": "DateRangeSelector",
       "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
-      "sourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "sourceSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
       "prop": "rangeClickBehavior",
       "before": "\"adjust-end\"",
       "after": "\"adjust-nearest\"",
       "retainPreviousBehavior": "rangeClickBehavior=\"adjust-end\"",
-      "guide": "docs/developer/react-aria-public-contracts.md"
+      "guide": "docs/developer/react-aria-public-contracts.md",
+      "sourceOwner": "DateRangeSelector",
+      "sourceReviewedAtCommit": "4a7305f0302ba8cd27b6496a5c5f62b48ef7b6f1"
     },
     {
       "priorCandidate": "D419",
       "component": "DateRangeSelector",
       "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
-      "sourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "sourceSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
       "prop": "showFields",
       "before": "true",
       "after": "false",
       "retainPreviousBehavior": "showFields={true}",
-      "guide": "docs/developer/react-aria-public-contracts.md"
+      "guide": "docs/developer/react-aria-public-contracts.md",
+      "sourceOwner": "DateRangeSelector",
+      "sourceReviewedAtCommit": "4a7305f0302ba8cd27b6496a5c5f62b48ef7b6f1"
     },
     {
       "priorCandidate": "D423",
       "component": "DateRangeSelector",
       "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
-      "sourceSha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+      "sourceSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
       "prop": "calendarNavigation",
       "before": "\"linked\"",
       "after": "\"independent\"",
       "retainPreviousBehavior": "calendarNavigation=\"linked\"",
-      "guide": "docs/developer/react-aria-public-contracts.md"
+      "guide": "docs/developer/react-aria-public-contracts.md",
+      "sourceOwner": "DateRangeSelector",
+      "sourceReviewedAtCommit": "4a7305f0302ba8cd27b6496a5c5f62b48ef7b6f1"
+    },
+    {
+      "component": "AppDataGrid",
+      "source": "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+      "sourceOwner": "Grid",
+      "sourceSha256": "52b7748e0e039295ac31db6318d934884d1a36b402a5cbcadab9ddd31a8a8b6e",
+      "sourceReviewedAtCommit": "4a7305f0302ba8cd27b6496a5c5f62b48ef7b6f1",
+      "prop": "selection",
+      "before": "omitted: no selection config or selection column",
+      "after": "true",
+      "retainPreviousBehavior": "selection={false}",
+      "guide": "docs/migration.md",
+      "baselineSource": {
+        "commit": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "path": "src/components/AppDataGrid/AppDataGrid.tsx",
+        "evidence": "selection has no initializer; resolvedSelection returns undefined for omission; selection column is omitted when !resolvedSelection."
+      },
+      "scope": "Changed relative to initial extraction, not a new change since the saved owned-default snapshot."
     }
   ],
   "limits": [
-    "Verifies known absent-symbol mappings and five direct changed defaults; inherited old upstream props remain unresolved.",
-    "No publication history, release marker or owner approval inferred.",
-    "Built declarations cannot establish runtime defaults; this gate inspects hashed source bindings separately."
+    "Verifies12absent-symbol mappings and6source-bound changed defaults. The separate exact-lock inherited inventory resolves38captured analysis contracts and740styling mappings; no universal upstream-prop compatibility claim.",
+    "Does not publish or promote a release. Actual Conventional Commit impact evidence is recorded separately.",
+    "Built declarations cannot establish runtime defaults; the gate checks named implementation owners and source hashes independently. Use --source-ref to pin committed bytes while candidate changes are in progress."
   ]
 }
