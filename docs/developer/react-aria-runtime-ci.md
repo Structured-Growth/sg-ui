@@ -186,3 +186,11 @@ retain its native keyboard/selection, structural geometry and authored system-co
 assertions, annotate the unsupported adjustment/paint branch, and leave its
 computed contrast in the observation rather than treating it as an accepted
 forced-paint result. Chromium and Firefox keep the actual contrast assertions.
+
+Direct PR jobs now explicitly select `pull_request.head.sha`, after an explicit
+reusable `inputs.ref` and before the push-event `github.sha` fallback. All three
+job types assert that exact value after checkout. On PR97 the inspected proposal
+SHA and GitHub synthetic merge SHA differ; validating one while labelling the
+artifact as the other breaks the download verifier's immutable-head binding.
+Main pushes and exact-ref reusable callers retain their existing source choice.
+The guard tests reject returning a PR job to the ambiguous merge-ref fallback.

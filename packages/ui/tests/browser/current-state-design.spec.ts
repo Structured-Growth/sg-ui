@@ -38,8 +38,30 @@ async function pair(page:Page,selected:Locator,peer:Locator,marker:Marker,key='T
 async function labelPaint(page:Page,element:Locator,scope:Locator){
  const bounds=await element.evaluate(node=>{const range=node.ownerDocument.createRange();range.selectNodeContents(node);const rect=range.getBoundingClientRect();return {x:rect.x,y:rect.y,width:rect.width,height:rect.height};});
  const scopeBounds=(await scope.boundingBox())!;
- const png=await page.screenshot({clip:bounds});
- const pixels=await page.evaluate(async encoded=>{const img=new Image();img.src='data:image/png;base64,'+encoded;await img.decode();const canvas=document.createElement('canvas');canvas.width=img.width;canvas.height=img.height;const ctx=canvas.getContext('2d')!;ctx.drawImage(img,0,0);const data=ctx.getImageData(0,0,img.width,img.height).data;const luminance=(r:number,g:number,b:number)=>[r,g,b].map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0);let min=1,max=0,dark=0,light=0;for(let i=0;i<data.length;i+=4){const x=(i/4)%img.width,y=Math.floor(i/4/img.width);if(x<img.width*.1||x>=img.width*.9||y<img.height*.1||y>=img.height*.9)continue;const value=luminance(data[i],data[i+1],data[i+2]);min=Math.min(min,value);max=Math.max(max,value);if(value<.2)dark++;if(value>.8)light++;}return {width:img.width,height:img.height,min,max,dark,light,contrast:(max+.05)/(min+.05)};},png.toString('base64'));
+ const viewport=await page.evaluate(()=>({width:innerWidth,height:innerHeight}));
+ const png=await page.screenshot();
+ const {crop,...pixels}=await page.evaluate(async({encoded,bounds,viewport})=>{
+  const img=new Image();img.src='data:image/png;base64,'+encoded;await img.decode();
+  const scaleX=img.width/viewport.width,scaleY=img.height/viewport.height;
+  const canvas=document.createElement('canvas');canvas.width=Math.ceil(bounds.width*scaleX);canvas.height=Math.ceil(bounds.height*scaleY);
+  const ctx=canvas.getContext('2d')!;
+  // Crop the actual viewport bitmap using its observed CSS-to-pixel scale.
+  ctx.drawImage(img,bounds.x*scaleX,bounds.y*scaleY,bounds.width*scaleX,bounds.height*scaleY,0,0,canvas.width,canvas.height);
+  const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;
+  const luminance=(r:number,g:number,b:number)=>[r,g,b].map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0);
+  const samples:number[]=[];let min=1,max=0;
+  for(let i=0;i<data.length;i+=4){
+   const x=(i/4)%canvas.width,y=Math.floor(i/4/canvas.width);
+   if(x<canvas.width*.1||x>=canvas.width*.9||y<canvas.height*.1||y>=canvas.height*.9)continue;
+   const value=luminance(data[i],data[i+1],data[i+2]);samples.push(value);min=Math.min(min,value);max=Math.max(max,value);
+  }
+  // System ButtonFace can be gray. Require both painted tones and actual 3:1
+  // separation without assuming a pure-white backplate or pure-black glyphs.
+  const spread=max-min,dark=samples.filter(value=>value<=min+spread*.2).length,light=samples.filter(value=>value>=max-spread*.2).length;
+  return {width:canvas.width,height:canvas.height,min,max,dark,light,contrast:(max+.05)/(min+.05),crop:canvas.toDataURL('image/png').split(',')[1]};
+ },{encoded:png.toString('base64'),bounds,viewport});
+ await test.info().attach('painted-toggle-label',{body:Buffer.from(crop,'base64'),contentType:'image/png'});
+ await test.info().attach('painted-label-metrics',{body:JSON.stringify({bounds,viewport,pixels}),contentType:'application/json'});
  // Sample the inner 80% of the text Range to exclude backplate edges, borders and focus.
  expect(pixels.contrast).toBeGreaterThanOrEqual(3);expect(pixels.dark).toBeGreaterThanOrEqual(5);expect(pixels.light).toBeGreaterThanOrEqual(5);
  return {...pixels,scopeRectangle:{x:bounds.x-scopeBounds.x,y:bounds.y-scopeBounds.y,width:bounds.width,height:bounds.height}};
@@ -121,8 +143,10 @@ test('toggle selected hover retains system colors and geometry (active)',async({
   const selected=scope.getByRole('radio',{name:'Selected option'}),peer=scope.getByRole('radio',{name:'Other option'}),before=await snapshot(selected,'border');
   await selected.hover();await expect(selected).toHaveAttribute('data-hovered');await selected.focus();await page.keyboard.press('Tab');await peer.focus();await expect(peer).toBeFocused();
   const after=await snapshot(selected,'border'),focus=await snapshot(peer,'border');expect(after.markerWidth).toBe(3);expect(after.markerStyle).toBe('double');if(await page.evaluate(()=>CSS.supports('forced-color-adjust','auto')))expect(after.forcedColorAdjust).toBe('auto');else{expect(after.forcedColorAdjust).toBeUndefined();info.annotations.push({type:'unsupported-css-branch',description:'forced-color-adjust is unsupported; system color, glyph paint, hover, selection and geometry remain checked.'});}expect(after.width).toBe(before.width);expect(after.height).toBe(before.height);expect(focus.outlineWidth).toBeGreaterThanOrEqual(2);await expect(selected).toHaveAttribute('aria-checked','true');
-  const actualContrast=contrast(after.color,after.background);expect(actualContrast).toBeGreaterThanOrEqual(3);expect(after.color).toBe(focus.color);expect(after.background).toBe(focus.background);
-  const paintedLabel=await labelPaint(page,selected,scope);observations.push({theme,density,direction,actual:context,before,after,focus,actualContrast,paintedLabel});await info.attach(`toggle-${theme}-${density}-${direction}-active`,{body:await scope.screenshot(),contentType:'image/png'});
+  // System text/backplate colors may be translucent. Screenshot pixels include
+  // that compositing; comparing raw RGBA RGB channels would incorrectly report 1:1.
+  const paintedLabel=await labelPaint(page,selected,scope),actualContrast=paintedLabel.contrast;expect(actualContrast).toBeGreaterThanOrEqual(3);expect(after.color).toBe(focus.color);expect(after.background).toBe(focus.background);
+  observations.push({theme,density,direction,actual:context,before,after,focus,actualContrast,paintedLabel});await info.attach(`toggle-${theme}-${density}-${direction}-active`,{body:await scope.screenshot(),contentType:'image/png'});
  }
  await info.attach('observed-state-geometry',{body:JSON.stringify(observations,null,2),contentType:'application/json'});
 });

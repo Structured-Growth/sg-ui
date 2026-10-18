@@ -38,8 +38,8 @@ export function workflowFindings(workflows) {
   const job=ci.jobs?.[id];const steps=job?.steps??[];
   check(job && !job['continue-on-error'],'CI: mandatory job failure can be ignored');
   check(readOnlyJob(job),`CI ${id}: job credentials override read-only default`);
-  check(steps[0]?.with?.ref==='${{ inputs.ref || github.sha }}' && steps[0]?.with?.['persist-credentials']===false,`CI ${id}: exact ref/credential isolation missing`);
-  check(steps.some(s=>s.name==='Record exact checked head' && s.if===undefined && s.run?.includes('test "$actual" = "$EXPECTED_HEAD"')),`CI ${id}: checked-head assertion missing`);
+  check(steps[0]?.with?.ref==='${{ inputs.ref || github.event.pull_request.head.sha || github.sha }}' && steps[0]?.with?.['persist-credentials']===false,`CI ${id}: exact ref/credential isolation missing`);
+  check(steps.some(s=>s.name==='Record exact checked head' && s.if===undefined && s.env?.EXPECTED_HEAD==='${{ inputs.ref || github.event.pull_request.head.sha || github.sha }}' && s.run?.includes('test "$actual" = "$EXPECTED_HEAD"')),`CI ${id}: checked-head assertion missing`);
   check(steps.every(s=>!s['continue-on-error']),`CI ${id}: step failure can be ignored`);
  }
  const steps=ci.jobs?.validate?.steps??[];const commands=steps.map(s=>s.run??'');

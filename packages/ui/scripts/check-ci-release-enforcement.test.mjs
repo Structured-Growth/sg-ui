@@ -104,3 +104,9 @@ test('native engine prerequisites cannot become skipped green required contexts'
 test('native execution and collection cannot use partial grep or omit the package byte join',()=>{
  for(const mutate of [w=>w.ci.jobs.native.steps.find(s=>s.run?.startsWith('pnpm test:browser')).run+=' --grep smoke',w=>w.ci.jobs.native.steps.find(s=>s.run?.includes('--list --project')).run+=' --grep smoke',w=>w.ci.jobs.validate.steps=w.ci.jobs.validate.steps.filter(s=>!s.run?.includes('verify-native-ci.mjs'))]){const w=structuredClone(workflows);mutate(w);assert(workflowFindings(w).length);}
 });
+
+test('direct PR validation binds the proposal SHA rather than the synthetic merge ref',()=>{
+ for(const id of ['validate','native','docs'])for(const change of [job=>job.steps[0].with.ref='${{ inputs.ref || github.sha }}',job=>job.steps.find(s=>s.name==='Record exact checked head').env.EXPECTED_HEAD='${{ github.sha }}']){
+  const candidate=structuredClone(workflows);change(candidate.ci.jobs[id]);assert.ok(workflowFindings(candidate).length);
+ }
+});
