@@ -1,23 +1,33 @@
 {
-  "lastIntegratedHead": "ef7de8fc991ab5fd34c7ce4f7d6aa602a868a8f4",
+  "lastIntegratedHead": "a33b7448f4fbec5c55bf5c86b315a5572de04d01",
   "ongoing": [
     {
       "threadId": "01a14bd4-fbcc-7460-93a5-571ced620baa",
-      "task": "Instrumented memory successor",
-      "state": "Finite210memorycycles pass;14localheaps independently hash-verified. No heavy lane held. Existing-snapshot/source causal review of whole-page heap/native-query growth underway.",
-      "evidence": "docs/developer/final-acceptance/wave-04/02/instrumented-memory/memory-02",
-      "limits": "Lifecycle assertions passed; no numerical performance/memory budget, plateau or blanket leak-free claim; broader X19/G20/B10/P08 remain open",
-      "integratedCode": "Performance fixture public AppDataGrid alias fixed in a2e1e896; fresh fixture build and7policy checks pass. Initial failed build retained memory-01. Full memory run not yet complete."
+      "task": "B05/Z13 public contract/default and migration reconciliation",
+      "state": "Source/tool/docs joins prepared; await coordinated fresh declarations and actual integration breaking-change message validation",
+      "evidence": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation",
+      "limits": "Committed HEAD is separate from uncommitted X08 candidates; no independent heavy build."
     },
     {
       "threadId": "01a14bd5-0ddf-72d2-8b9f-5b37d1bde6e6",
-      "task": "C08/C12/D09 containment/fluid/reflow/rem-font reconciliation",
-      "state": "Granted one fresh docs-native fixture build and exactly six existing enlarged/standard toolbar browser cases after memory release",
-      "reuse": "Accepted actual zoom, CSS fallback6, visual48 and enlarged-text native evidence; do not repeat unchanged matrices",
-      "nextSourceAudit": "X08 calendar/editor single-pointer alternatives under hidden-field, variable/bounded/fixed and rejected-host policies; identify concrete missing equivalent action, no physical/speech gate"
+      "task": "X08 calendar/editor/panel single-pointer alternatives",
+      "state": "Inline one-popup calendar adjustment, editor table selection and panel width alternatives under source review; targeted validation pending",
+      "evidence": "docs/developer/final-acceptance/wave-04/05/batch/x08-implementation",
+      "plannedValidation": "One shared library/catalog/private-host build after source freeze, then bounded affected cases. Root D15 Navigation/List/Calendar selection CSS and state spec must share the same frozen build.",
+      "rootReviewPoints": [
+        "No nested calendar popup",
+        "Escape propagation and focus ownership",
+        "Supported nested table detection",
+        "No extra controls when resizing/dragging disabled"
+      ]
     }
   ],
   "paused": "Apple source-only changes remain unreviewed and uncommitted; no audible AT or simulator execution",
   "coordinatorNext": "Review finite reports, fix concrete defects, close only named fulfilled criteria, commit/push validated work to dev; keep main/release/AT/legal gates separate",
-  "countsSource": "docs/developer/final-acceptance/wave-04/coordinator/accepted-closures.json (canonical; do not duplicate evolving counts here)"
+  "countsSource": "docs/developer/final-acceptance/wave-04/coordinator/accepted-closures.json (canonical; do not duplicate evolving counts here)",
+  "completedMeasurementEvidence": {
+    "memory": "docs/developer/final-acceptance/wave-04/02/instrumented-memory/receipt.json",
+    "causalReview": "docs/developer/final-acceptance/wave-04/02/instrumented-memory/causal-investigation.json",
+    "limits": "210 lifecycle cycles passed; raw heaps remain local with verified hash index. No approved heap/latency budget or universal leak-free claim."
+  }
 }
