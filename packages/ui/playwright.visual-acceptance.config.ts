@@ -1,6 +1,7 @@
 import {defineConfig, devices} from '@playwright/test';
 import {isAbsolute, resolve} from 'node:path';
-import {existsSync} from 'node:fs';
+import {existsSync, mkdirSync, readFileSync, writeFileSync, lstatSync} from 'node:fs';
+import {randomUUID} from 'node:crypto';
 import {visualBaselineNames, validateVisualBaseline} from './scripts/visual-baseline-review.mjs';
 // Coordinator starts an immutable built docs-owned native host separately.
 const baseURL = process.env.SGUI_VISUAL_BASE_URL;
@@ -16,7 +17,22 @@ if (process.argv.some(argument => /^--update-snapshots(?:=|$)/.test(argument) ||
 }
 let baselines: string;
 if (mode === 'capture') {
-  if (existsSync(output)) throw new Error('Capture output must be a new directory');
+  const admissionPath = resolve(output, 'capture-admission.json');
+  if (process.env.TEST_WORKER_INDEX !== undefined) {
+    // Playwright reloads this config in workers after creating output/traces.
+    // Only the parent's fresh admission may be reused, never another capture.
+    const admission = JSON.parse(readFileSync(admissionPath, 'utf8'));
+    if (!lstatSync(admissionPath).isFile() || !process.env.SGUI_VISUAL_CAPTURE_RUN ||
+      admission.run !== process.env.SGUI_VISUAL_CAPTURE_RUN || admission.output !== output) {
+      throw new Error('Worker requires this parent capture admission');
+    }
+  } else {
+    if (existsSync(output)) throw new Error('Capture output must be a new directory');
+    const run = randomUUID();
+    mkdirSync(output);
+    writeFileSync(admissionPath, JSON.stringify({run, output, parentPid: process.pid}), {flag: 'wx'});
+    process.env.SGUI_VISUAL_CAPTURE_RUN = run;
+  }
   baselines = `${output}/candidates`;
 } else {
   baselines = process.env.SGUI_VISUAL_BASELINES ?? '';

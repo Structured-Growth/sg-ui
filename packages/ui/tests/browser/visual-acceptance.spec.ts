@@ -1,6 +1,8 @@
 import {test, expect} from '@playwright/test';
 import {resolve} from 'node:path';
 import {validateVisualExecution} from '../../scripts/visual-baseline-review.mjs';
+import {attachVisualFontEnvironment} from './visual-font-environment';
+import {assertVisualGridGeometry} from './visual-grid-geometry';
 
 // Eight deliberately bounded configurations; each captures the five named families.
 // Screenshots are candidates until an operator reviews and approves baseline images.
@@ -45,12 +47,14 @@ for (const [theme,density,width,locale,direction,longLabels] of configurations) 
     for (const family of ['controls','grids','navigation','editor']) {
       const region = page.getByRole('region', {name:`Visual ${family}`,exact:true});
       await expect(region).toBeVisible();
+      if (family === 'grids') await assertVisualGridGeometry(region, width, info);
       await expect(region).toHaveScreenshot(`${key}-${family}.png`, {animations:'disabled',caret:'hide',maxDiffPixels:0});
     }
     await page.getByRole('button',{name:'Open visual dialog',exact:true}).click();
     const dialog = page.getByRole('dialog');
     await expect(dialog).toBeVisible();
     await expect(dialog).toHaveScreenshot(`${key}-overlay.png`, {animations:'disabled',caret:'hide',maxDiffPixels:0});
+    await attachVisualFontEnvironment(page, info);
     await page.keyboard.press('Escape');
     await expect(dialog).toBeHidden();
     await expect(page.getByRole('button',{name:'Open visual dialog',exact:true})).toBeFocused();

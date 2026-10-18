@@ -1,16 +1,22 @@
 @layer sgui.components {
   .root { inline-size: 100%; min-inline-size: 0; color: var(--sgui-data-grid-text); background: var(--sgui-data-grid-surface); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
-  .toolbar, .footer, .actions, .columnHeader { display: flex; align-items: center; gap: var(--sgui-space2); }
+  .toolbar, .footer, .actions { display: flex; align-items: center; gap: var(--sgui-space2); }
   .toolbar, .footer { padding: var(--sgui-space2); flex-wrap: wrap; }
   .footer { justify-content: flex-end; }
   .container { position: relative; overflow: auto; border: 1px solid var(--sgui-data-grid-border); }
   .table { border-collapse: collapse; inline-size: 100%; }
-  .header, .cell { text-align: start; vertical-align: middle; padding: var(--sgui-space2); border-block-end: 1px solid var(--sgui-data-grid-border); }
+  .header, .cell { box-sizing: border-box; text-align: start; vertical-align: middle; padding: var(--sgui-space2); border-block-end: 1px solid var(--sgui-data-grid-border); }
   .header { background: var(--sgui-data-grid-header-surface); }
   .row[data-selected] { background: var(--sgui-data-grid-selected-surface); }
   .row[data-focus-visible], .cell[data-focus-visible], .header[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-data-grid-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
   .resizer { block-size: var(--sgui-control-height); inline-size: 0.5rem; border-inline-end: 2px solid var(--sgui-data-grid-resizer-border); cursor: col-resize; touch-action: none; }
   .resizer[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-data-grid-focus-color); }
-  .columnHeader { justify-content: space-between; }
+  /* Keep the caption usable at the public 120px flexible-column minimum.
+     Resize affordances own a second row rather than squeezing it between them. */
+  .columnHeader { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--sgui-space2); }
+  .columnLabel { grid-column: 1 / -1; min-inline-size: 0; overflow-wrap: anywhere; }
+  .columnLabel > [data-sgui-part="button"] { inline-size: 100%; max-inline-size: 100%; }
+  .actions { flex-wrap: wrap; }
+  .actions > * { max-inline-size: 100%; }
   @media (forced-colors: active) { .row[data-selected] { border: 1px solid Highlight; } }
 }
