@@ -1,0 +1,49 @@
+# W-19 maintained documentation navigation
+
+Recommend accepting the finite W-19 documentation obligation. The final source-only audit checks **100 maintained guides, 2,168 local Markdown links, zero document defects and zero retention findings within that scope**. It recognizes 123 website-link occurrences against 104 canonical website routes: **98 unique component pages and six general/index routes**. These are distinct from the 238 package public export/import routes inventoried under B-05. The earlier eight repairs remain integrated; no current local link requires another replacement.
+
+The initial quick audit included 99 guides/2,160 links and wrongly excluded the current react-aria-parallel-browser-validation.md because its name contained “parallel”. The maintained selector uses explicit historical directory/prefix rules, correctly includes that guide and reports every excluded document. The initial output remains unchanged. The pre-README maintained run was 100 guides/2,167 links; the final README fix adds one guidance link. No historical count is overwritten.
+
+The new maintained wrapper reuses check-document-links.mjs unchanged. It derives static routes from apps/docs/app page.tsx files and component slugs from catalog.json, requiring the dynamic catalog page. Only exact recognized routes are dispositioned from the raw filesystem audit. Unknown or legacy redirect URLs, arbitrary missing absolute paths, local targets and Markdown anchors still fail. Website fragment existence requires rendered-page evidence; this check does not infer DOM anchors from Next source. It reports 562 excluded historical/out-of-scope Markdown documents separately, preserving their paths and the reason. No frozen evidence, proposal, batch report or original parser/assertion was rewritten.
+
+One genuine current command defect was found in packages/ui/README.md: Development still prescribed removed Storybook commands. That section now names root dev:docs/build:docs, the actual Next catalog/private native fixture host, production-source checks and packages/ui cwd for direct library scripts. Manifest existence and workspace ownership are verified without starting a server or build.
+
+| Original W-19 criterion | Evidence and disposition |
+| --- | --- |
+| All local documentation links | final-audit.json: 100 maintained guides/2,168 links; zero current defects. Canonical app/catalog routes joined explicitly. Earlier eight repairs/307-link root receipt retained by hash. Historical reports/snapshots are separately reported, not current-navigation failures. |
+| Exported example types | Retain accepted public catalog compiler run: 98 routes/1,284 setup and initial/changed source snapshots. Current source join reuses ten unchanged public examples; two SavedDocument descriptions match accepted X08/typecheck evidence, with generated public snippet/body unchanged. Public declarations/import-route acceptance remains B-05's separate source-bound receipt. No new example API or snippet was introduced here. That original evidence is not fresh current compilation. The final follow-up below separately compiles the actually changed range source. |
+| Referenced file paths | Markdown paths/anchors validated by existing parser. Extended read-only reference audit produced 219 findings, each dispositioned in final-audit.json: 164 historical story-source identities, eight dated artifacts, 22 actual library scripts under packages/ui, 17 dated Storybook command records, four library-owned tools, two valid pnpm -r syntax findings, two genuine README commands now fixed. No unresolved finding is suppressed. Source graphs/commands are not executed. |
+| Commands | Existing focused checker + fixed README: 68 current source/command/link/import checks, zero issues. Real root package scripts and direct library cwd confirmed. Broader checker was written for four guides and assumes root; historical/context findings are retained rather than rewriting all guides to satisfy that assumption. |
+| Docs-only work | 19 meaningful existing-parser/current-guidance/new-wrapper tests pass under Node24.19.0. Includes valid current route, unknown route, legacy redirect, missing target/anchor, arbitrary absolute path, explicit historical scope and invalid catalog host/slugs. No unrelated UI tests/build/browser/install. Canonical light slot released. |
+
+The wrapper's scope remains explicit: Markdown parser limitations, remote HTTP URLs, raw HTML/MDX hrefs, arbitrary prose commands and type execution are not silently certified. Required source compiler/browser receipts remain separate and dated. Root owns canonical acceptance counts, tracking and Git integration.
+
+
+## Final changed-source disposition
+
+The initial recommendation and report are preserved as receipt-initial.json and
+report-initial.md. Root review identified one surviving precise type-evidence gap:
+X08 changed AdvancedRangeExample's generated travel snippet to add `required` and
+omit `showFields`. The earlier 98-route/1,284-source run and later twelve public
+examples do not certify that new source. IconPanelNavigation and SavedDocument
+changes are description-only; docs TypeScript/catalog checks are not substituted
+for copied-source compilation.
+
+Four current generated snippets now pass the existing strict public-source
+compiler with zero diagnostics: DateRangePicker and DateRangeSelector, each in
+travel and independent scenarios. The test host transpiles the actual current
+owner and exampleSource helper, evaluates them via React server rendering and
+captures Example's actual `source` prop. Example rendering stops at that boundary;
+production code and generated source are not rewritten. Travel snippets assert
+`required` and absence of `showFields`; independent references retain `showFields`.
+The copied-source compiler runs from apps/docs against the existing 445 built
+public declarations. Source owner/helper/compiler hashes and the complete library
+digest are stable before/after. This is source-type evidence, not a browser,
+interaction or physical-input run.
+
+The first attempt failed before extraction because the test host used CommonJS
+require.resolve for an import-only public subpath. Its failure receipt is retained.
+The host now reads the actual public export's import target; the corrected run
+passes all four snippets. No product/source fix, install, build or browser was
+needed, and the owned light slot was released. The final recommendation remains
+accept W-19 with this exact new compiler evidence included.

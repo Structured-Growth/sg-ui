@@ -98,3 +98,22 @@ routes, command workspace ownership, referenced scripts/source paths and public
 package import routes. It explicitly excludes dated browser receipts and does not
 execute commands or compile component snippets. The coordinator still runs the
 required catalog/snippet browser checks against the frozen build.
+
+For maintained documentation navigation across root, consumer and developer
+guides, run from the repository root:
+
+```sh
+node --test packages/ui/scripts/check-document-links.test.mjs packages/ui/scripts/check-maintained-documentation.test.mjs
+node packages/ui/scripts/check-maintained-documentation.mjs
+```
+
+The [navigation checker](../../packages/ui/scripts/check-maintained-documentation.mjs)
+reuses the local Markdown parser and joins absolute website links to current Next.js
+page files and catalog slugs. It rejects unknown routes, legacy redirect URLs,
+missing local files and broken Markdown anchors. It reports historical batch,
+frozen acceptance and migration snapshot documents separately; it does not rewrite
+or certify those records. Website fragments need rendered-page evidence, while
+Markdown fragments are checked locally. Remote URLs, raw HTML/MDX links, prose
+commands and example types remain outside this navigation check; use the scoped
+command checker above and the required public-source compiler evidence for those
+contracts. No docs build or UI run is required for a documentation link edit.

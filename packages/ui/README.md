@@ -81,30 +81,31 @@ settings, styling, form, date and accessibility responsibilities.
 
 ## Development
 
-Use Node 24 (see `.nvmrc`) and pnpm 10.29.3. The supported consumer minimum is
-Node 22.12.0; [runtime and CI validation](../../docs/developer/react-aria-runtime-ci.md)
-documents the runtime matrix, packed React consumers and retained artifacts:
+Use Node 24 (see the repository-root `.nvmrc`) and pnpm 10.29.3. The supported
+consumer minimum is Node 22.12.0; [runtime and CI validation](../../docs/developer/react-aria-runtime-ci.md)
+records the runtime matrix and packed consumers. Run these commands from the
+repository root:
 
 ```sh
 pnpm install --frozen-lockfile
 pnpm check
-pnpm storybook
-pnpm build-storybook
+pnpm dev:docs
+pnpm build:docs
 ```
 
-`pnpm check` typechecks production source and stories, runs unit and release-policy tests, builds
-ESM/declarations, and imports each public package entry point. Vitest executes
-colocated tests independently of TypeScript's production/story checking.
-GitHub Actions runs these checks and builds the package and Storybook on PRs and
-main. Local builds are for validation; official build artifacts and releases
-come from Actions.
+`pnpm check` forwards library validation to `packages/ui`: production types,
+colocated unit and release-policy tests, owned import/token guards, compiled
+ESM/declarations and public package entry points. The Next.js docs application
+owns the live component catalog; Storybook has been removed. Use the
+[development validation policy](../../docs/developer/react-aria-development-validation.md)
+for targeted dev work and required production checks.
 
 The [browser acceptance suite](../../docs/developer/react-aria-browser-acceptance.md)
-executes built Storybook interactions, accessibility failures and a bounded
-performance smoke workload through `pnpm test:browser`.
+executes the private docs-native fixtures through `pnpm test:browser`; build them
+first with `pnpm build:browser-docs`. Direct library scripts run from `packages/ui`.
 `pnpm test:hydration-consumer` executes packed React 18/19 Vite SSR and hydration
-in browsers; `pnpm test:next-consumer` builds and runs a clean packed Next.js App
-Router production consumer. See [server boundaries](../../docs/developer/react-aria-server-components.md).
+in browsers; `pnpm test:next-consumer` builds and runs a packed Next.js App Router
+production consumer. See [server boundaries](../../docs/developer/react-aria-server-components.md).
 
 ## AI coding and releases
 
