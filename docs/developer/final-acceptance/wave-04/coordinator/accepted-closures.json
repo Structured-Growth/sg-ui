@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 81,
-  "closedTotal": 262,
-  "remaining": 58,
+  "closedThisReview": 83,
+  "closedTotal": 264,
+  "remaining": 56,
   "entries": [
     {
       "id": "A-M-21",
@@ -722,6 +722,24 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/root-import-distribution-review.json",
       "sha256": "a737ec9d89cac60ca41d76a2416afec5ff348b75ddec419ca26f53b43130c197",
       "limits": "Dependency traversal/bundle behavior is distinct from package-manager installation. Single-package consumers still install editor dependencies and shared stylesheet. Prior fourteen-probe archive and later layout-only archive check retain their distinct inputs; no fresh performance, publication or release claim."
+    },
+    {
+      "id": "A-X-02",
+      "basis": "Eleven explicit applicability mappings link each required key family to shipped contracts/tests and actual native receipts. Appropriate native editing/link behavior is preserved rather than imposing collection shortcuts on every component.",
+      "criterion": "- [ ] A-X-02 Reconcile original `X-02`: Define keyboard contracts and verify Tab/Shift+Tab, arrows, Home/End, Enter/Space, Escape, and typeahead where appropriate. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-keyboard-focus-review.json",
+      "sha256": "385e5061aa9ebf523e47551ba2b1649969648cf1c2e5106d84b91b4d601916c4",
+      "limits": "Current six cases and retained historical receipts keep their distinct source/runtime scopes. Native keyboard/DOM/AX evidence does not establish spoken assistive-technology or physical-device acceptance. No all-state Cartesian promise."
+    },
+    {
+      "id": "A-X-04",
+      "basis": "Retained native coverage establishes initial/return/trapped focus, nested dismissal and focus after removal/reorder/update. The only identified current removed-opener restoration gap now passes six focused three-engine cases without mocks, forced focus or assertion changes.",
+      "criterion": "- [ ] A-X-04 Reconcile original `X-04`: Verify initial focus, return focus, focus after removal/reorder/update, trapped focus in modals, and nested-overlay dismissal ordering. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-keyboard-focus-review.json",
+      "sha256": "385e5061aa9ebf523e47551ba2b1649969648cf1c2e5106d84b91b4d601916c4",
+      "limits": "Current six cases and retained historical receipts keep their distinct source/runtime scopes. Native keyboard/DOM/AX evidence does not establish spoken assistive-technology or physical-device acceptance. No all-state Cartesian promise."
     }
   ],
   "limits": [

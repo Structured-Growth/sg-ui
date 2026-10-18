@@ -1,0 +1,33 @@
+{
+  "entries": [
+    {
+      "id": "A-X-02",
+      "basis": "Eleven explicit applicability mappings link each required key family to shipped contracts/tests and actual native receipts. Appropriate native editing/link behavior is preserved rather than imposing collection shortcuts on every component.",
+      "criterion": "- [ ] A-X-02 Reconcile original `X-02`: Define keyboard contracts and verify Tab/Shift+Tab, arrows, Home/End, Enter/Space, Escape, and typeahead where appropriate. Historical status: open."
+    },
+    {
+      "id": "A-X-04",
+      "basis": "Retained native coverage establishes initial/return/trapped focus, nested dismissal and focus after removal/reorder/update. The only identified current removed-opener restoration gap now passes six focused three-engine cases without mocks, forced focus or assertion changes.",
+      "criterion": "- [ ] A-X-04 Reconcile original `X-04`: Verify initial focus, return focus, focus after removal/reorder/update, trapped focus in modals, and nested-overlay dismissal ordering. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/keyboard-focus/receipt.json",
+      "sha256": "c09582ad5fe6bc081c75ce57703049293b09e3e8251b41d386e7057f8c1864e0"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/keyboard-focus/key-applicability.json",
+      "sha256": "6942bdeb4d0ee6c37c4dd3264ee978da575d9d42b81237e792136c9b515f301a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/keyboard-focus/removed-escape-01/results.json",
+      "sha256": "5960886d7aa16a3e5e31dd2c47763360f63783dffed60d14edb97c044e0855bb"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/keyboard-focus/removed-escape-01/execution.json",
+      "sha256": "4de84f27081ab5b5791e2ddc0d98b8472545bc54d0a3cedf81f22d45a8893587"
+    }
+  ],
+  "limits": "Current six cases and retained historical receipts keep their distinct source/runtime scopes. Native keyboard/DOM/AX evidence does not establish spoken assistive-technology or physical-device acceptance. No all-state Cartesian promise."
+}

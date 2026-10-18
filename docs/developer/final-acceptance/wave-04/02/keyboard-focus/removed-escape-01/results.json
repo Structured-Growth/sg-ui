@@ -1,0 +1,365 @@
+{
+  "config": {
+    "argv": [
+      "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "packages/ui/playwright.wave04-browser-acceptance.config.ts",
+      "batch52-dialog-removed-opener.spec.ts",
+      "--grep",
+      "removed child opener: escape"
+    ],
+    "configFile": "/Users/thomashall/Repositories/sg-ui/packages/ui/playwright.wave04-browser-acceptance.config.ts",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/keyboard-focus/removed-escape-01/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "wave04-browser-acceptance.spec.ts",
+          "batch52-dialog-removed-opener.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/keyboard-focus/removed-escape-01/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "wave04-browser-acceptance.spec.ts",
+          "batch52-dialog-removed-opener.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/keyboard-focus/removed-escape-01/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "wave04-browser-acceptance.spec.ts",
+          "batch52-dialog-removed-opener.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/keyboard-focus/removed-escape-01/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "batch52-dialog-removed-opener.spec.ts",
+      "file": "batch52-dialog-removed-opener.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "removed child opener: escape recovers parent focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 658,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:17:59.823Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "dismissal-focus-diagnostic",
+                      "contentType": "application/json",
+                      "body": "ewogICJpbW1lZGlhdGUiOiB7CiAgICAiYWN0aXZlIjogIjxpbnB1dCB0YWJpbmRleD1cIjBcIiBpZD1cInJlYWN0LWFyaWE2MDc1MDE3MDQwLV9yXzZfXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTYwNzUwMTcwNDAtX3JfN19cIiBjbGFzcz1cInNndWlfaW5wdXRfM2M2ZDc1NDVcIiBkYXRhLXNndWktcGFydD1cImlucHV0XCIgZGF0YS1yYWM9XCJcIiB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgdGl0bGU9XCJcIiBkYXRhLWZvY3VzZWQ9XCJ0cnVlXCIgZGF0YS1ob3ZlcmVkPVwidHJ1ZVwiIGRhdGEtZm9jdXMtdmlzaWJsZT1cInRydWVcIj4iLAogICAgImRpYWxvZ3MiOiBbCiAgICAgIHsKICAgICAgICAiaHRtbCI6ICI8c2VjdGlvbiBjbGFzcz1cInNndWlfZGlhbG9nXzI0MmE4NGY3IHNndWlfcm9vdF8wZjY1OTRlOVwiIGRhdGEtcmFjPVwiXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTYwNzUwMTcwNDAtX3JfNF9cIiByb2xlPVwiZGlhbG9nXCIgdGFiaW5kZXg9XCItMVwiPjxoZWFkZXIgY2xhc3M9XCJzZ3VpX2hlYWRlcl8yNDJhODRmN1wiIGRhdGEtc2d1aS1wYXJ0PVwiZGlhbG9nLWhlYWRlclwiPjxkaXYgY2xhc3M9XCJzZ3VpX2hlYWRpbmdfMjQyYTg0ZjdcIj48aDIgaWQ9XCJyZWFjdC1hcmlhNjA3NTAxNzA0MC1fcl80X1wiIHNsb3Q9XCJ0aXRsZVwiIGNsYXNzPVwic2d1aV90aXRsZV8yNDJhODRmN1wiPlJlY292ZXJ5IHBhcmVudDwvaDI+PC9kaXY+PC9oZWFkZXI+PGRpdiBjbGFzcz1cInNndWlfYm9keV8yNDJhODRmNyBzZ3VpX2JvZHlfMGY2NTk0ZTlcIiBkYXRhLXNndWktcGFydD1cImRpYWxvZy1ib2R5XCI+PHAgcm9sZT1cInN0YXR1c1wiPkNoaWxkIGRpc21pc3NhbDogZXNjYXBlPC9wPjxkaXYgZGF0YS1zZ3VpLXBhcnQ9XCJmaWVsZFwiIGNsYXNzPVwic2d1aV9yb290XzNjNmQ3NTQ1XCIgZGF0YS1yYWM9XCJcIj48bGFiZWwgY2xhc3M9XCJzZ3VpX2xhYmVsXzNjNmQ3NTQ1XCIgaWQ9XCJyZWFjdC1hcmlhNjA3NTAxNzA0MC1fcl83X1wiIGZvcj1cInJlYWN0LWFyaWE2MDc1MDE3MDQwLV9yXzZfXCI+UGFyZW50IGZhbGxiYWNrPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNjA3NTAxNzA0MC1fcl82X1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE2MDc1MDE3MDQwLV9yXzdfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCIgZGF0YS1mb2N1c2VkPVwidHJ1ZVwiIGRhdGEtaG92ZXJlZD1cInRydWVcIiBkYXRhLWZvY3VzLXZpc2libGU9XCJ0cnVlXCI+PC9kaXY+PGRpdiBkYXRhLXNndWktcGFydD1cImZpZWxkXCIgY2xhc3M9XCJzZ3VpX3Jvb3RfM2M2ZDc1NDVcIiBkYXRhLXJhYz1cIlwiPjxsYWJlbCBjbGFzcz1cInNndWlfbGFiZWxfM2M2ZDc1NDVcIiBpZD1cInJlYWN0LWFyaWE2MDc1MDE3MDQwLV9yX2NfXCIgZm9yPVwicmVhY3QtYXJpYTYwNzUwMTcwNDAtX3JfYl9cIj5Ib3N0IGRlc3RpbmF0aW9uPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNjA3NTAxNzA0MC1fcl9iX1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE2MDc1MDE3MDQwLV9yX2NfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCI+PC9kaXY+PGRpdj48L2Rpdj48L2Rpdj48L3NlY3Rpb24+IgogICAgICB9CiAgICBdCiAgfSwKICAiZGVmZXJyZWQiOiB7CiAgICAiYWN0aXZlIjogIjxpbnB1dCB0YWJpbmRleD1cIjBcIiBpZD1cInJlYWN0LWFyaWE2MDc1MDE3MDQwLV9yXzZfXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTYwNzUwMTcwNDAtX3JfN19cIiBjbGFzcz1cInNndWlfaW5wdXRfM2M2ZDc1NDVcIiBkYXRhLXNndWktcGFydD1cImlucHV0XCIgZGF0YS1yYWM9XCJcIiB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgdGl0bGU9XCJcIiBkYXRhLWZvY3VzZWQ9XCJ0cnVlXCIgZGF0YS1ob3ZlcmVkPVwidHJ1ZVwiIGRhdGEtZm9jdXMtdmlzaWJsZT1cInRydWVcIj4iLAogICAgImRpYWxvZ3MiOiBbCiAgICAgIHsKICAgICAgICAiaHRtbCI6ICI8c2VjdGlvbiBjbGFzcz1cInNndWlfZGlhbG9nXzI0MmE4NGY3IHNndWlfcm9vdF8wZjY1OTRlOVwiIGRhdGEtcmFjPVwiXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTYwNzUwMTcwNDAtX3JfNF9cIiByb2xlPVwiZGlhbG9nXCIgdGFiaW5kZXg9XCItMVwiPjxoZWFkZXIgY2xhc3M9XCJzZ3VpX2hlYWRlcl8yNDJhODRmN1wiIGRhdGEtc2d1aS1wYXJ0PVwiZGlhbG9nLWhlYWRlclwiPjxkaXYgY2xhc3M9XCJzZ3VpX2hlYWRpbmdfMjQyYTg0ZjdcIj48aDIgaWQ9XCJyZWFjdC1hcmlhNjA3NTAxNzA0MC1fcl80X1wiIHNsb3Q9XCJ0aXRsZVwiIGNsYXNzPVwic2d1aV90aXRsZV8yNDJhODRmN1wiPlJlY292ZXJ5IHBhcmVudDwvaDI+PC9kaXY+PC9oZWFkZXI+PGRpdiBjbGFzcz1cInNndWlfYm9keV8yNDJhODRmNyBzZ3VpX2JvZHlfMGY2NTk0ZTlcIiBkYXRhLXNndWktcGFydD1cImRpYWxvZy1ib2R5XCI+PHAgcm9sZT1cInN0YXR1c1wiPkNoaWxkIGRpc21pc3NhbDogZXNjYXBlPC9wPjxkaXYgZGF0YS1zZ3VpLXBhcnQ9XCJmaWVsZFwiIGNsYXNzPVwic2d1aV9yb290XzNjNmQ3NTQ1XCIgZGF0YS1yYWM9XCJcIj48bGFiZWwgY2xhc3M9XCJzZ3VpX2xhYmVsXzNjNmQ3NTQ1XCIgaWQ9XCJyZWFjdC1hcmlhNjA3NTAxNzA0MC1fcl83X1wiIGZvcj1cInJlYWN0LWFyaWE2MDc1MDE3MDQwLV9yXzZfXCI+UGFyZW50IGZhbGxiYWNrPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNjA3NTAxNzA0MC1fcl82X1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE2MDc1MDE3MDQwLV9yXzdfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCIgZGF0YS1mb2N1c2VkPVwidHJ1ZVwiIGRhdGEtaG92ZXJlZD1cInRydWVcIiBkYXRhLWZvY3VzLXZpc2libGU9XCJ0cnVlXCI+PC9kaXY+PGRpdiBkYXRhLXNndWktcGFydD1cImZpZWxkXCIgY2xhc3M9XCJzZ3VpX3Jvb3RfM2M2ZDc1NDVcIiBkYXRhLXJhYz1cIlwiPjxsYWJlbCBjbGFzcz1cInNndWlfbGFiZWxfM2M2ZDc1NDVcIiBpZD1cInJlYWN0LWFyaWE2MDc1MDE3MDQwLV9yX2NfXCIgZm9yPVwicmVhY3QtYXJpYTYwNzUwMTcwNDAtX3JfYl9cIj5Ib3N0IGRlc3RpbmF0aW9uPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNjA3NTAxNzA0MC1fcl9iX1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE2MDc1MDE3MDQwLV9yX2NfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCI+PC9kaXY+PGRpdj48L2Rpdj48L2Rpdj48L3NlY3Rpb24+IgogICAgICB9CiAgICBdCiAgfQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7853c8467183c7f5c15d-30be1e851cadc03fc7bd",
+          "file": "batch52-dialog-removed-opener.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "removed child opener: escape preserves host destination",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 383,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:18:00.737Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "dismissal-focus-diagnostic",
+                      "contentType": "application/json",
+                      "body": "ewogICJpbW1lZGlhdGUiOiB7CiAgICAiYWN0aXZlIjogIjxpbnB1dCB0YWJpbmRleD1cIjBcIiBpZD1cInJlYWN0LWFyaWE2NzU3MjU4MTEyLV9yX2JfXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTY3NTcyNTgxMTItX3JfY19cIiBjbGFzcz1cInNndWlfaW5wdXRfM2M2ZDc1NDVcIiBkYXRhLXNndWktcGFydD1cImlucHV0XCIgZGF0YS1yYWM9XCJcIiB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgdGl0bGU9XCJcIiBkYXRhLWhvc3QtZm9jdXMtYXR0ZW1wdD1cInsmcXVvdDtpbmVydCZxdW90OzpmYWxzZSwmcXVvdDtzdWNjZWVkZWQmcXVvdDs6dHJ1ZSwmcXVvdDthY3RpdmUmcXVvdDs6JnF1b3Q7Jmx0O2lucHV0IHRhYmluZGV4PVxcJnF1b3Q7MFxcJnF1b3Q7IGlkPVxcJnF1b3Q7cmVhY3QtYXJpYTY3NTcyNTgxMTItX3JfYl9cXCZxdW90OyBhcmlhLWxhYmVsbGVkYnk9XFwmcXVvdDtyZWFjdC1hcmlhNjc1NzI1ODExMi1fcl9jX1xcJnF1b3Q7IGNsYXNzPVxcJnF1b3Q7c2d1aV9pbnB1dF8zYzZkNzU0NVxcJnF1b3Q7IGRhdGEtc2d1aS1wYXJ0PVxcJnF1b3Q7aW5wdXRcXCZxdW90OyBkYXRhLXJhYz1cXCZxdW90O1xcJnF1b3Q7IHR5cGU9XFwmcXVvdDt0ZXh0XFwmcXVvdDsgdmFsdWU9XFwmcXVvdDtcXCZxdW90OyB0aXRsZT1cXCZxdW90O1xcJnF1b3Q7Jmd0OyZxdW90O31cIiBkYXRhLWZvY3VzZWQ9XCJ0cnVlXCIgZGF0YS1mb2N1cy12aXNpYmxlPVwidHJ1ZVwiIGRhdGEtaG92ZXJlZD1cInRydWVcIj4iLAogICAgImRpYWxvZ3MiOiBbCiAgICAgIHsKICAgICAgICAiaHRtbCI6ICI8c2VjdGlvbiBjbGFzcz1cInNndWlfZGlhbG9nXzI0MmE4NGY3IHNndWlfcm9vdF8wZjY1OTRlOVwiIGRhdGEtcmFjPVwiXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTY3NTcyNTgxMTItX3JfNF9cIiByb2xlPVwiZGlhbG9nXCIgdGFiaW5kZXg9XCItMVwiPjxoZWFkZXIgY2xhc3M9XCJzZ3VpX2hlYWRlcl8yNDJhODRmN1wiIGRhdGEtc2d1aS1wYXJ0PVwiZGlhbG9nLWhlYWRlclwiPjxkaXYgY2xhc3M9XCJzZ3VpX2hlYWRpbmdfMjQyYTg0ZjdcIj48aDIgaWQ9XCJyZWFjdC1hcmlhNjc1NzI1ODExMi1fcl80X1wiIHNsb3Q9XCJ0aXRsZVwiIGNsYXNzPVwic2d1aV90aXRsZV8yNDJhODRmN1wiPlJlY292ZXJ5IHBhcmVudDwvaDI+PC9kaXY+PC9oZWFkZXI+PGRpdiBjbGFzcz1cInNndWlfYm9keV8yNDJhODRmNyBzZ3VpX2JvZHlfMGY2NTk0ZTlcIiBkYXRhLXNndWktcGFydD1cImRpYWxvZy1ib2R5XCI+PHAgcm9sZT1cInN0YXR1c1wiPkNoaWxkIGRpc21pc3NhbDogZXNjYXBlPC9wPjxkaXYgZGF0YS1zZ3VpLXBhcnQ9XCJmaWVsZFwiIGNsYXNzPVwic2d1aV9yb290XzNjNmQ3NTQ1XCIgZGF0YS1yYWM9XCJcIj48bGFiZWwgY2xhc3M9XCJzZ3VpX2xhYmVsXzNjNmQ3NTQ1XCIgaWQ9XCJyZWFjdC1hcmlhNjc1NzI1ODExMi1fcl83X1wiIGZvcj1cInJlYWN0LWFyaWE2NzU3MjU4MTEyLV9yXzZfXCI+UGFyZW50IGZhbGxiYWNrPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNjc1NzI1ODExMi1fcl82X1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE2NzU3MjU4MTEyLV9yXzdfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCI+PC9kaXY+PGRpdiBkYXRhLXNndWktcGFydD1cImZpZWxkXCIgY2xhc3M9XCJzZ3VpX3Jvb3RfM2M2ZDc1NDVcIiBkYXRhLXJhYz1cIlwiPjxsYWJlbCBjbGFzcz1cInNndWlfbGFiZWxfM2M2ZDc1NDVcIiBpZD1cInJlYWN0LWFyaWE2NzU3MjU4MTEyLV9yX2NfXCIgZm9yPVwicmVhY3QtYXJpYTY3NTcyNTgxMTItX3JfYl9cIj5Ib3N0IGRlc3RpbmF0aW9uPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNjc1NzI1ODExMi1fcl9iX1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE2NzU3MjU4MTEyLV9yX2NfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCIgZGF0YS1ob3N0LWZvY3VzLWF0dGVtcHQ9XCJ7JnF1b3Q7aW5lcnQmcXVvdDs6ZmFsc2UsJnF1b3Q7c3VjY2VlZGVkJnF1b3Q7OnRydWUsJnF1b3Q7YWN0aXZlJnF1b3Q7OiZxdW90OyZsdDtpbnB1dCB0YWJpbmRleD1cXCZxdW90OzBcXCZxdW90OyBpZD1cXCZxdW90O3JlYWN0LWFyaWE2NzU3MjU4MTEyLV9yX2JfXFwmcXVvdDsgYXJpYS1sYWJlbGxlZGJ5PVxcJnF1b3Q7cmVhY3QtYXJpYTY3NTcyNTgxMTItX3JfY19cXCZxdW90OyBjbGFzcz1cXCZxdW90O3NndWlfaW5wdXRfM2M2ZDc1NDVcXCZxdW90OyBkYXRhLXNndWktcGFydD1cXCZxdW90O2lucHV0XFwmcXVvdDsgZGF0YS1yYWM9XFwmcXVvdDtcXCZxdW90OyB0eXBlPVxcJnF1b3Q7dGV4dFxcJnF1b3Q7IHZhbHVlPVxcJnF1b3Q7XFwmcXVvdDsgdGl0bGU9XFwmcXVvdDtcXCZxdW90OyZndDsmcXVvdDt9XCIgZGF0YS1mb2N1c2VkPVwidHJ1ZVwiIGRhdGEtZm9jdXMtdmlzaWJsZT1cInRydWVcIiBkYXRhLWhvdmVyZWQ9XCJ0cnVlXCI+PC9kaXY+PGRpdj48L2Rpdj48L2Rpdj48L3NlY3Rpb24+IgogICAgICB9CiAgICBdCiAgfSwKICAiZGVmZXJyZWQiOiB7CiAgICAiYWN0aXZlIjogIjxpbnB1dCB0YWJpbmRleD1cIjBcIiBpZD1cInJlYWN0LWFyaWE2NzU3MjU4MTEyLV9yX2JfXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTY3NTcyNTgxMTItX3JfY19cIiBjbGFzcz1cInNndWlfaW5wdXRfM2M2ZDc1NDVcIiBkYXRhLXNndWktcGFydD1cImlucHV0XCIgZGF0YS1yYWM9XCJcIiB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgdGl0bGU9XCJcIiBkYXRhLWhvc3QtZm9jdXMtYXR0ZW1wdD1cInsmcXVvdDtpbmVydCZxdW90OzpmYWxzZSwmcXVvdDtzdWNjZWVkZWQmcXVvdDs6dHJ1ZSwmcXVvdDthY3RpdmUmcXVvdDs6JnF1b3Q7Jmx0O2lucHV0IHRhYmluZGV4PVxcJnF1b3Q7MFxcJnF1b3Q7IGlkPVxcJnF1b3Q7cmVhY3QtYXJpYTY3NTcyNTgxMTItX3JfYl9cXCZxdW90OyBhcmlhLWxhYmVsbGVkYnk9XFwmcXVvdDtyZWFjdC1hcmlhNjc1NzI1ODExMi1fcl9jX1xcJnF1b3Q7IGNsYXNzPVxcJnF1b3Q7c2d1aV9pbnB1dF8zYzZkNzU0NVxcJnF1b3Q7IGRhdGEtc2d1aS1wYXJ0PVxcJnF1b3Q7aW5wdXRcXCZxdW90OyBkYXRhLXJhYz1cXCZxdW90O1xcJnF1b3Q7IHR5cGU9XFwmcXVvdDt0ZXh0XFwmcXVvdDsgdmFsdWU9XFwmcXVvdDtcXCZxdW90OyB0aXRsZT1cXCZxdW90O1xcJnF1b3Q7Jmd0OyZxdW90O31cIiBkYXRhLWZvY3VzZWQ9XCJ0cnVlXCIgZGF0YS1mb2N1cy12aXNpYmxlPVwidHJ1ZVwiIGRhdGEtaG92ZXJlZD1cInRydWVcIj4iLAogICAgImRpYWxvZ3MiOiBbCiAgICAgIHsKICAgICAgICAiaHRtbCI6ICI8c2VjdGlvbiBjbGFzcz1cInNndWlfZGlhbG9nXzI0MmE4NGY3IHNndWlfcm9vdF8wZjY1OTRlOVwiIGRhdGEtcmFjPVwiXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTY3NTcyNTgxMTItX3JfNF9cIiByb2xlPVwiZGlhbG9nXCIgdGFiaW5kZXg9XCItMVwiPjxoZWFkZXIgY2xhc3M9XCJzZ3VpX2hlYWRlcl8yNDJhODRmN1wiIGRhdGEtc2d1aS1wYXJ0PVwiZGlhbG9nLWhlYWRlclwiPjxkaXYgY2xhc3M9XCJzZ3VpX2hlYWRpbmdfMjQyYTg0ZjdcIj48aDIgaWQ9XCJyZWFjdC1hcmlhNjc1NzI1ODExMi1fcl80X1wiIHNsb3Q9XCJ0aXRsZVwiIGNsYXNzPVwic2d1aV90aXRsZV8yNDJhODRmN1wiPlJlY292ZXJ5IHBhcmVudDwvaDI+PC9kaXY+PC9oZWFkZXI+PGRpdiBjbGFzcz1cInNndWlfYm9keV8yNDJhODRmNyBzZ3VpX2JvZHlfMGY2NTk0ZTlcIiBkYXRhLXNndWktcGFydD1cImRpYWxvZy1ib2R5XCI+PHAgcm9sZT1cInN0YXR1c1wiPkNoaWxkIGRpc21pc3NhbDogZXNjYXBlPC9wPjxkaXYgZGF0YS1zZ3VpLXBhcnQ9XCJmaWVsZFwiIGNsYXNzPVwic2d1aV9yb290XzNjNmQ3NTQ1XCIgZGF0YS1yYWM9XCJcIj48bGFiZWwgY2xhc3M9XCJzZ3VpX2xhYmVsXzNjNmQ3NTQ1XCIgaWQ9XCJyZWFjdC1hcmlhNjc1NzI1ODExMi1fcl83X1wiIGZvcj1cInJlYWN0LWFyaWE2NzU3MjU4MTEyLV9yXzZfXCI+UGFyZW50IGZhbGxiYWNrPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNjc1NzI1ODExMi1fcl82X1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE2NzU3MjU4MTEyLV9yXzdfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCI+PC9kaXY+PGRpdiBkYXRhLXNndWktcGFydD1cImZpZWxkXCIgY2xhc3M9XCJzZ3VpX3Jvb3RfM2M2ZDc1NDVcIiBkYXRhLXJhYz1cIlwiPjxsYWJlbCBjbGFzcz1cInNndWlfbGFiZWxfM2M2ZDc1NDVcIiBpZD1cInJlYWN0LWFyaWE2NzU3MjU4MTEyLV9yX2NfXCIgZm9yPVwicmVhY3QtYXJpYTY3NTcyNTgxMTItX3JfYl9cIj5Ib3N0IGRlc3RpbmF0aW9uPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNjc1NzI1ODExMi1fcl9iX1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE2NzU3MjU4MTEyLV9yX2NfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCIgZGF0YS1ob3N0LWZvY3VzLWF0dGVtcHQ9XCJ7JnF1b3Q7aW5lcnQmcXVvdDs6ZmFsc2UsJnF1b3Q7c3VjY2VlZGVkJnF1b3Q7OnRydWUsJnF1b3Q7YWN0aXZlJnF1b3Q7OiZxdW90OyZsdDtpbnB1dCB0YWJpbmRleD1cXCZxdW90OzBcXCZxdW90OyBpZD1cXCZxdW90O3JlYWN0LWFyaWE2NzU3MjU4MTEyLV9yX2JfXFwmcXVvdDsgYXJpYS1sYWJlbGxlZGJ5PVxcJnF1b3Q7cmVhY3QtYXJpYTY3NTcyNTgxMTItX3JfY19cXCZxdW90OyBjbGFzcz1cXCZxdW90O3NndWlfaW5wdXRfM2M2ZDc1NDVcXCZxdW90OyBkYXRhLXNndWktcGFydD1cXCZxdW90O2lucHV0XFwmcXVvdDsgZGF0YS1yYWM9XFwmcXVvdDtcXCZxdW90OyB0eXBlPVxcJnF1b3Q7dGV4dFxcJnF1b3Q7IHZhbHVlPVxcJnF1b3Q7XFwmcXVvdDsgdGl0bGU9XFwmcXVvdDtcXCZxdW90OyZndDsmcXVvdDt9XCIgZGF0YS1mb2N1c2VkPVwidHJ1ZVwiIGRhdGEtZm9jdXMtdmlzaWJsZT1cInRydWVcIiBkYXRhLWhvdmVyZWQ9XCJ0cnVlXCI+PC9kaXY+PGRpdj48L2Rpdj48L2Rpdj48L3NlY3Rpb24+IgogICAgICB9CiAgICBdCiAgfQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7853c8467183c7f5c15d-c462e3d1fd2b8bf85644",
+          "file": "batch52-dialog-removed-opener.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "removed child opener: escape recovers parent focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1258,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:18:01.378Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "dismissal-focus-diagnostic",
+                      "contentType": "application/json",
+                      "body": "ewogICJpbW1lZGlhdGUiOiB7CiAgICAiYWN0aXZlIjogIjxpbnB1dCB0YWJpbmRleD1cIjBcIiBpZD1cInJlYWN0LWFyaWE1MjYwMzE0OTI3LV9yXzZfXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTUyNjAzMTQ5MjctX3JfN19cIiBjbGFzcz1cInNndWlfaW5wdXRfM2M2ZDc1NDVcIiBkYXRhLXNndWktcGFydD1cImlucHV0XCIgZGF0YS1yYWM9XCJcIiB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgdGl0bGU9XCJcIiBkYXRhLWZvY3VzZWQ9XCJ0cnVlXCIgZGF0YS1mb2N1cy12aXNpYmxlPVwidHJ1ZVwiIGRhdGEtaG92ZXJlZD1cInRydWVcIj4iLAogICAgImRpYWxvZ3MiOiBbCiAgICAgIHsKICAgICAgICAiaHRtbCI6ICI8c2VjdGlvbiBjbGFzcz1cInNndWlfZGlhbG9nXzI0MmE4NGY3IHNndWlfcm9vdF8wZjY1OTRlOVwiIGRhdGEtcmFjPVwiXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTUyNjAzMTQ5MjctX3JfNF9cIiByb2xlPVwiZGlhbG9nXCIgdGFiaW5kZXg9XCItMVwiPjxoZWFkZXIgY2xhc3M9XCJzZ3VpX2hlYWRlcl8yNDJhODRmN1wiIGRhdGEtc2d1aS1wYXJ0PVwiZGlhbG9nLWhlYWRlclwiPjxkaXYgY2xhc3M9XCJzZ3VpX2hlYWRpbmdfMjQyYTg0ZjdcIj48aDIgaWQ9XCJyZWFjdC1hcmlhNTI2MDMxNDkyNy1fcl80X1wiIHNsb3Q9XCJ0aXRsZVwiIGNsYXNzPVwic2d1aV90aXRsZV8yNDJhODRmN1wiPlJlY292ZXJ5IHBhcmVudDwvaDI+PC9kaXY+PC9oZWFkZXI+PGRpdiBjbGFzcz1cInNndWlfYm9keV8yNDJhODRmNyBzZ3VpX2JvZHlfMGY2NTk0ZTlcIiBkYXRhLXNndWktcGFydD1cImRpYWxvZy1ib2R5XCI+PHAgcm9sZT1cInN0YXR1c1wiPkNoaWxkIGRpc21pc3NhbDogZXNjYXBlPC9wPjxkaXYgZGF0YS1zZ3VpLXBhcnQ9XCJmaWVsZFwiIGNsYXNzPVwic2d1aV9yb290XzNjNmQ3NTQ1XCIgZGF0YS1yYWM9XCJcIj48bGFiZWwgY2xhc3M9XCJzZ3VpX2xhYmVsXzNjNmQ3NTQ1XCIgaWQ9XCJyZWFjdC1hcmlhNTI2MDMxNDkyNy1fcl83X1wiIGZvcj1cInJlYWN0LWFyaWE1MjYwMzE0OTI3LV9yXzZfXCI+UGFyZW50IGZhbGxiYWNrPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNTI2MDMxNDkyNy1fcl82X1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE1MjYwMzE0OTI3LV9yXzdfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCIgZGF0YS1mb2N1c2VkPVwidHJ1ZVwiIGRhdGEtZm9jdXMtdmlzaWJsZT1cInRydWVcIiBkYXRhLWhvdmVyZWQ9XCJ0cnVlXCI+PC9kaXY+PGRpdiBkYXRhLXNndWktcGFydD1cImZpZWxkXCIgY2xhc3M9XCJzZ3VpX3Jvb3RfM2M2ZDc1NDVcIiBkYXRhLXJhYz1cIlwiPjxsYWJlbCBjbGFzcz1cInNndWlfbGFiZWxfM2M2ZDc1NDVcIiBpZD1cInJlYWN0LWFyaWE1MjYwMzE0OTI3LV9yX2NfXCIgZm9yPVwicmVhY3QtYXJpYTUyNjAzMTQ5MjctX3JfYl9cIj5Ib3N0IGRlc3RpbmF0aW9uPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNTI2MDMxNDkyNy1fcl9iX1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE1MjYwMzE0OTI3LV9yX2NfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCI+PC9kaXY+PGRpdj48L2Rpdj48L2Rpdj48L3NlY3Rpb24+IgogICAgICB9CiAgICBdCiAgfSwKICAiZGVmZXJyZWQiOiB7CiAgICAiYWN0aXZlIjogIjxpbnB1dCB0YWJpbmRleD1cIjBcIiBpZD1cInJlYWN0LWFyaWE1MjYwMzE0OTI3LV9yXzZfXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTUyNjAzMTQ5MjctX3JfN19cIiBjbGFzcz1cInNndWlfaW5wdXRfM2M2ZDc1NDVcIiBkYXRhLXNndWktcGFydD1cImlucHV0XCIgZGF0YS1yYWM9XCJcIiB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgdGl0bGU9XCJcIiBkYXRhLWZvY3VzZWQ9XCJ0cnVlXCIgZGF0YS1mb2N1cy12aXNpYmxlPVwidHJ1ZVwiIGRhdGEtaG92ZXJlZD1cInRydWVcIj4iLAogICAgImRpYWxvZ3MiOiBbCiAgICAgIHsKICAgICAgICAiaHRtbCI6ICI8c2VjdGlvbiBjbGFzcz1cInNndWlfZGlhbG9nXzI0MmE4NGY3IHNndWlfcm9vdF8wZjY1OTRlOVwiIGRhdGEtcmFjPVwiXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTUyNjAzMTQ5MjctX3JfNF9cIiByb2xlPVwiZGlhbG9nXCIgdGFiaW5kZXg9XCItMVwiPjxoZWFkZXIgY2xhc3M9XCJzZ3VpX2hlYWRlcl8yNDJhODRmN1wiIGRhdGEtc2d1aS1wYXJ0PVwiZGlhbG9nLWhlYWRlclwiPjxkaXYgY2xhc3M9XCJzZ3VpX2hlYWRpbmdfMjQyYTg0ZjdcIj48aDIgaWQ9XCJyZWFjdC1hcmlhNTI2MDMxNDkyNy1fcl80X1wiIHNsb3Q9XCJ0aXRsZVwiIGNsYXNzPVwic2d1aV90aXRsZV8yNDJhODRmN1wiPlJlY292ZXJ5IHBhcmVudDwvaDI+PC9kaXY+PC9oZWFkZXI+PGRpdiBjbGFzcz1cInNndWlfYm9keV8yNDJhODRmNyBzZ3VpX2JvZHlfMGY2NTk0ZTlcIiBkYXRhLXNndWktcGFydD1cImRpYWxvZy1ib2R5XCI+PHAgcm9sZT1cInN0YXR1c1wiPkNoaWxkIGRpc21pc3NhbDogZXNjYXBlPC9wPjxkaXYgZGF0YS1zZ3VpLXBhcnQ9XCJmaWVsZFwiIGNsYXNzPVwic2d1aV9yb290XzNjNmQ3NTQ1XCIgZGF0YS1yYWM9XCJcIj48bGFiZWwgY2xhc3M9XCJzZ3VpX2xhYmVsXzNjNmQ3NTQ1XCIgaWQ9XCJyZWFjdC1hcmlhNTI2MDMxNDkyNy1fcl83X1wiIGZvcj1cInJlYWN0LWFyaWE1MjYwMzE0OTI3LV9yXzZfXCI+UGFyZW50IGZhbGxiYWNrPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNTI2MDMxNDkyNy1fcl82X1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE1MjYwMzE0OTI3LV9yXzdfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCIgZGF0YS1mb2N1c2VkPVwidHJ1ZVwiIGRhdGEtZm9jdXMtdmlzaWJsZT1cInRydWVcIiBkYXRhLWhvdmVyZWQ9XCJ0cnVlXCI+PC9kaXY+PGRpdiBkYXRhLXNndWktcGFydD1cImZpZWxkXCIgY2xhc3M9XCJzZ3VpX3Jvb3RfM2M2ZDc1NDVcIiBkYXRhLXJhYz1cIlwiPjxsYWJlbCBjbGFzcz1cInNndWlfbGFiZWxfM2M2ZDc1NDVcIiBpZD1cInJlYWN0LWFyaWE1MjYwMzE0OTI3LV9yX2NfXCIgZm9yPVwicmVhY3QtYXJpYTUyNjAzMTQ5MjctX3JfYl9cIj5Ib3N0IGRlc3RpbmF0aW9uPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNTI2MDMxNDkyNy1fcl9iX1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE1MjYwMzE0OTI3LV9yX2NfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCI+PC9kaXY+PGRpdj48L2Rpdj48L2Rpdj48L3NlY3Rpb24+IgogICAgICB9CiAgICBdCiAgfQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7853c8467183c7f5c15d-b5f060a13d0172a6af46",
+          "file": "batch52-dialog-removed-opener.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "removed child opener: escape preserves host destination",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 530,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:18:03.270Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "dismissal-focus-diagnostic",
+                      "contentType": "application/json",
+                      "body": "ewogICJpbW1lZGlhdGUiOiB7CiAgICAiYWN0aXZlIjogIjxpbnB1dCB0YWJpbmRleD1cIjBcIiBpZD1cInJlYWN0LWFyaWExNzg2MTM5MTg4LV9yX2JfXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTE3ODYxMzkxODgtX3JfY19cIiBjbGFzcz1cInNndWlfaW5wdXRfM2M2ZDc1NDVcIiBkYXRhLXNndWktcGFydD1cImlucHV0XCIgZGF0YS1yYWM9XCJcIiB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgdGl0bGU9XCJcIiBkYXRhLWhvc3QtZm9jdXMtYXR0ZW1wdD1cInsmcXVvdDtpbmVydCZxdW90OzpmYWxzZSwmcXVvdDtzdWNjZWVkZWQmcXVvdDs6dHJ1ZSwmcXVvdDthY3RpdmUmcXVvdDs6JnF1b3Q7Jmx0O2lucHV0IHRhYmluZGV4PVxcJnF1b3Q7MFxcJnF1b3Q7IGlkPVxcJnF1b3Q7cmVhY3QtYXJpYTE3ODYxMzkxODgtX3JfYl9cXCZxdW90OyBhcmlhLWxhYmVsbGVkYnk9XFwmcXVvdDtyZWFjdC1hcmlhMTc4NjEzOTE4OC1fcl9jX1xcJnF1b3Q7IGNsYXNzPVxcJnF1b3Q7c2d1aV9pbnB1dF8zYzZkNzU0NVxcJnF1b3Q7IGRhdGEtc2d1aS1wYXJ0PVxcJnF1b3Q7aW5wdXRcXCZxdW90OyBkYXRhLXJhYz1cXCZxdW90O1xcJnF1b3Q7IHR5cGU9XFwmcXVvdDt0ZXh0XFwmcXVvdDsgdmFsdWU9XFwmcXVvdDtcXCZxdW90OyB0aXRsZT1cXCZxdW90O1xcJnF1b3Q7Jmd0OyZxdW90O31cIiBkYXRhLWZvY3VzZWQ9XCJ0cnVlXCIgZGF0YS1mb2N1cy12aXNpYmxlPVwidHJ1ZVwiIGRhdGEtaG92ZXJlZD1cInRydWVcIj4iLAogICAgImRpYWxvZ3MiOiBbCiAgICAgIHsKICAgICAgICAiaHRtbCI6ICI8c2VjdGlvbiBjbGFzcz1cInNndWlfZGlhbG9nXzI0MmE4NGY3IHNndWlfcm9vdF8wZjY1OTRlOVwiIGRhdGEtcmFjPVwiXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTE3ODYxMzkxODgtX3JfNF9cIiByb2xlPVwiZGlhbG9nXCIgdGFiaW5kZXg9XCItMVwiPjxoZWFkZXIgY2xhc3M9XCJzZ3VpX2hlYWRlcl8yNDJhODRmN1wiIGRhdGEtc2d1aS1wYXJ0PVwiZGlhbG9nLWhlYWRlclwiPjxkaXYgY2xhc3M9XCJzZ3VpX2hlYWRpbmdfMjQyYTg0ZjdcIj48aDIgaWQ9XCJyZWFjdC1hcmlhMTc4NjEzOTE4OC1fcl80X1wiIHNsb3Q9XCJ0aXRsZVwiIGNsYXNzPVwic2d1aV90aXRsZV8yNDJhODRmN1wiPlJlY292ZXJ5IHBhcmVudDwvaDI+PC9kaXY+PC9oZWFkZXI+PGRpdiBjbGFzcz1cInNndWlfYm9keV8yNDJhODRmNyBzZ3VpX2JvZHlfMGY2NTk0ZTlcIiBkYXRhLXNndWktcGFydD1cImRpYWxvZy1ib2R5XCI+PHAgcm9sZT1cInN0YXR1c1wiPkNoaWxkIGRpc21pc3NhbDogZXNjYXBlPC9wPjxkaXYgZGF0YS1zZ3VpLXBhcnQ9XCJmaWVsZFwiIGNsYXNzPVwic2d1aV9yb290XzNjNmQ3NTQ1XCIgZGF0YS1yYWM9XCJcIj48bGFiZWwgY2xhc3M9XCJzZ3VpX2xhYmVsXzNjNmQ3NTQ1XCIgaWQ9XCJyZWFjdC1hcmlhMTc4NjEzOTE4OC1fcl83X1wiIGZvcj1cInJlYWN0LWFyaWExNzg2MTM5MTg4LV9yXzZfXCI+UGFyZW50IGZhbGxiYWNrPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhMTc4NjEzOTE4OC1fcl82X1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWExNzg2MTM5MTg4LV9yXzdfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCI+PC9kaXY+PGRpdiBkYXRhLXNndWktcGFydD1cImZpZWxkXCIgY2xhc3M9XCJzZ3VpX3Jvb3RfM2M2ZDc1NDVcIiBkYXRhLXJhYz1cIlwiPjxsYWJlbCBjbGFzcz1cInNndWlfbGFiZWxfM2M2ZDc1NDVcIiBpZD1cInJlYWN0LWFyaWExNzg2MTM5MTg4LV9yX2NfXCIgZm9yPVwicmVhY3QtYXJpYTE3ODYxMzkxODgtX3JfYl9cIj5Ib3N0IGRlc3RpbmF0aW9uPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhMTc4NjEzOTE4OC1fcl9iX1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWExNzg2MTM5MTg4LV9yX2NfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCIgZGF0YS1ob3N0LWZvY3VzLWF0dGVtcHQ9XCJ7JnF1b3Q7aW5lcnQmcXVvdDs6ZmFsc2UsJnF1b3Q7c3VjY2VlZGVkJnF1b3Q7OnRydWUsJnF1b3Q7YWN0aXZlJnF1b3Q7OiZxdW90OyZsdDtpbnB1dCB0YWJpbmRleD1cXCZxdW90OzBcXCZxdW90OyBpZD1cXCZxdW90O3JlYWN0LWFyaWExNzg2MTM5MTg4LV9yX2JfXFwmcXVvdDsgYXJpYS1sYWJlbGxlZGJ5PVxcJnF1b3Q7cmVhY3QtYXJpYTE3ODYxMzkxODgtX3JfY19cXCZxdW90OyBjbGFzcz1cXCZxdW90O3NndWlfaW5wdXRfM2M2ZDc1NDVcXCZxdW90OyBkYXRhLXNndWktcGFydD1cXCZxdW90O2lucHV0XFwmcXVvdDsgZGF0YS1yYWM9XFwmcXVvdDtcXCZxdW90OyB0eXBlPVxcJnF1b3Q7dGV4dFxcJnF1b3Q7IHZhbHVlPVxcJnF1b3Q7XFwmcXVvdDsgdGl0bGU9XFwmcXVvdDtcXCZxdW90OyZndDsmcXVvdDt9XCIgZGF0YS1mb2N1c2VkPVwidHJ1ZVwiIGRhdGEtZm9jdXMtdmlzaWJsZT1cInRydWVcIiBkYXRhLWhvdmVyZWQ9XCJ0cnVlXCI+PC9kaXY+PGRpdj48L2Rpdj48L2Rpdj48L3NlY3Rpb24+IgogICAgICB9CiAgICBdCiAgfSwKICAiZGVmZXJyZWQiOiB7CiAgICAiYWN0aXZlIjogIjxpbnB1dCB0YWJpbmRleD1cIjBcIiBpZD1cInJlYWN0LWFyaWExNzg2MTM5MTg4LV9yX2JfXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTE3ODYxMzkxODgtX3JfY19cIiBjbGFzcz1cInNndWlfaW5wdXRfM2M2ZDc1NDVcIiBkYXRhLXNndWktcGFydD1cImlucHV0XCIgZGF0YS1yYWM9XCJcIiB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgdGl0bGU9XCJcIiBkYXRhLWhvc3QtZm9jdXMtYXR0ZW1wdD1cInsmcXVvdDtpbmVydCZxdW90OzpmYWxzZSwmcXVvdDtzdWNjZWVkZWQmcXVvdDs6dHJ1ZSwmcXVvdDthY3RpdmUmcXVvdDs6JnF1b3Q7Jmx0O2lucHV0IHRhYmluZGV4PVxcJnF1b3Q7MFxcJnF1b3Q7IGlkPVxcJnF1b3Q7cmVhY3QtYXJpYTE3ODYxMzkxODgtX3JfYl9cXCZxdW90OyBhcmlhLWxhYmVsbGVkYnk9XFwmcXVvdDtyZWFjdC1hcmlhMTc4NjEzOTE4OC1fcl9jX1xcJnF1b3Q7IGNsYXNzPVxcJnF1b3Q7c2d1aV9pbnB1dF8zYzZkNzU0NVxcJnF1b3Q7IGRhdGEtc2d1aS1wYXJ0PVxcJnF1b3Q7aW5wdXRcXCZxdW90OyBkYXRhLXJhYz1cXCZxdW90O1xcJnF1b3Q7IHR5cGU9XFwmcXVvdDt0ZXh0XFwmcXVvdDsgdmFsdWU9XFwmcXVvdDtcXCZxdW90OyB0aXRsZT1cXCZxdW90O1xcJnF1b3Q7Jmd0OyZxdW90O31cIiBkYXRhLWZvY3VzZWQ9XCJ0cnVlXCIgZGF0YS1mb2N1cy12aXNpYmxlPVwidHJ1ZVwiIGRhdGEtaG92ZXJlZD1cInRydWVcIj4iLAogICAgImRpYWxvZ3MiOiBbCiAgICAgIHsKICAgICAgICAiaHRtbCI6ICI8c2VjdGlvbiBjbGFzcz1cInNndWlfZGlhbG9nXzI0MmE4NGY3IHNndWlfcm9vdF8wZjY1OTRlOVwiIGRhdGEtcmFjPVwiXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTE3ODYxMzkxODgtX3JfNF9cIiByb2xlPVwiZGlhbG9nXCIgdGFiaW5kZXg9XCItMVwiPjxoZWFkZXIgY2xhc3M9XCJzZ3VpX2hlYWRlcl8yNDJhODRmN1wiIGRhdGEtc2d1aS1wYXJ0PVwiZGlhbG9nLWhlYWRlclwiPjxkaXYgY2xhc3M9XCJzZ3VpX2hlYWRpbmdfMjQyYTg0ZjdcIj48aDIgaWQ9XCJyZWFjdC1hcmlhMTc4NjEzOTE4OC1fcl80X1wiIHNsb3Q9XCJ0aXRsZVwiIGNsYXNzPVwic2d1aV90aXRsZV8yNDJhODRmN1wiPlJlY292ZXJ5IHBhcmVudDwvaDI+PC9kaXY+PC9oZWFkZXI+PGRpdiBjbGFzcz1cInNndWlfYm9keV8yNDJhODRmNyBzZ3VpX2JvZHlfMGY2NTk0ZTlcIiBkYXRhLXNndWktcGFydD1cImRpYWxvZy1ib2R5XCI+PHAgcm9sZT1cInN0YXR1c1wiPkNoaWxkIGRpc21pc3NhbDogZXNjYXBlPC9wPjxkaXYgZGF0YS1zZ3VpLXBhcnQ9XCJmaWVsZFwiIGNsYXNzPVwic2d1aV9yb290XzNjNmQ3NTQ1XCIgZGF0YS1yYWM9XCJcIj48bGFiZWwgY2xhc3M9XCJzZ3VpX2xhYmVsXzNjNmQ3NTQ1XCIgaWQ9XCJyZWFjdC1hcmlhMTc4NjEzOTE4OC1fcl83X1wiIGZvcj1cInJlYWN0LWFyaWExNzg2MTM5MTg4LV9yXzZfXCI+UGFyZW50IGZhbGxiYWNrPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhMTc4NjEzOTE4OC1fcl82X1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWExNzg2MTM5MTg4LV9yXzdfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCI+PC9kaXY+PGRpdiBkYXRhLXNndWktcGFydD1cImZpZWxkXCIgY2xhc3M9XCJzZ3VpX3Jvb3RfM2M2ZDc1NDVcIiBkYXRhLXJhYz1cIlwiPjxsYWJlbCBjbGFzcz1cInNndWlfbGFiZWxfM2M2ZDc1NDVcIiBpZD1cInJlYWN0LWFyaWExNzg2MTM5MTg4LV9yX2NfXCIgZm9yPVwicmVhY3QtYXJpYTE3ODYxMzkxODgtX3JfYl9cIj5Ib3N0IGRlc3RpbmF0aW9uPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhMTc4NjEzOTE4OC1fcl9iX1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWExNzg2MTM5MTg4LV9yX2NfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCIgZGF0YS1ob3N0LWZvY3VzLWF0dGVtcHQ9XCJ7JnF1b3Q7aW5lcnQmcXVvdDs6ZmFsc2UsJnF1b3Q7c3VjY2VlZGVkJnF1b3Q7OnRydWUsJnF1b3Q7YWN0aXZlJnF1b3Q7OiZxdW90OyZsdDtpbnB1dCB0YWJpbmRleD1cXCZxdW90OzBcXCZxdW90OyBpZD1cXCZxdW90O3JlYWN0LWFyaWExNzg2MTM5MTg4LV9yX2JfXFwmcXVvdDsgYXJpYS1sYWJlbGxlZGJ5PVxcJnF1b3Q7cmVhY3QtYXJpYTE3ODYxMzkxODgtX3JfY19cXCZxdW90OyBjbGFzcz1cXCZxdW90O3NndWlfaW5wdXRfM2M2ZDc1NDVcXCZxdW90OyBkYXRhLXNndWktcGFydD1cXCZxdW90O2lucHV0XFwmcXVvdDsgZGF0YS1yYWM9XFwmcXVvdDtcXCZxdW90OyB0eXBlPVxcJnF1b3Q7dGV4dFxcJnF1b3Q7IHZhbHVlPVxcJnF1b3Q7XFwmcXVvdDsgdGl0bGU9XFwmcXVvdDtcXCZxdW90OyZndDsmcXVvdDt9XCIgZGF0YS1mb2N1c2VkPVwidHJ1ZVwiIGRhdGEtZm9jdXMtdmlzaWJsZT1cInRydWVcIiBkYXRhLWhvdmVyZWQ9XCJ0cnVlXCI+PC9kaXY+PGRpdj48L2Rpdj48L2Rpdj48L3NlY3Rpb24+IgogICAgICB9CiAgICBdCiAgfQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7853c8467183c7f5c15d-0babd4b604411ae7d4e7",
+          "file": "batch52-dialog-removed-opener.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "removed child opener: escape recovers parent focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1004,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:18:04.186Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "dismissal-focus-diagnostic",
+                      "contentType": "application/json",
+                      "body": "ewogICJpbW1lZGlhdGUiOiB7CiAgICAiYWN0aXZlIjogIjxpbnB1dCB0YWJpbmRleD1cIjBcIiBpZD1cInJlYWN0LWFyaWExMTE5NDY0MDU2LV9yXzZfXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTExMTk0NjQwNTYtX3JfN19cIiBjbGFzcz1cInNndWlfaW5wdXRfM2M2ZDc1NDVcIiBkYXRhLXNndWktcGFydD1cImlucHV0XCIgZGF0YS1yYWM9XCJcIiB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgdGl0bGU9XCJcIiBkYXRhLWZvY3VzZWQ9XCJ0cnVlXCIgZGF0YS1mb2N1cy12aXNpYmxlPVwidHJ1ZVwiPiIsCiAgICAiZGlhbG9ncyI6IFsKICAgICAgewogICAgICAgICJodG1sIjogIjxzZWN0aW9uIGNsYXNzPVwic2d1aV9kaWFsb2dfMjQyYTg0Zjcgc2d1aV9yb290XzBmNjU5NGU5XCIgZGF0YS1yYWM9XCJcIiBhcmlhLWxhYmVsbGVkYnk9XCJyZWFjdC1hcmlhMTExOTQ2NDA1Ni1fcl80X1wiIHJvbGU9XCJkaWFsb2dcIiB0YWJpbmRleD1cIi0xXCI+PGhlYWRlciBjbGFzcz1cInNndWlfaGVhZGVyXzI0MmE4NGY3XCIgZGF0YS1zZ3VpLXBhcnQ9XCJkaWFsb2ctaGVhZGVyXCI+PGRpdiBjbGFzcz1cInNndWlfaGVhZGluZ18yNDJhODRmN1wiPjxoMiBpZD1cInJlYWN0LWFyaWExMTE5NDY0MDU2LV9yXzRfXCIgc2xvdD1cInRpdGxlXCIgY2xhc3M9XCJzZ3VpX3RpdGxlXzI0MmE4NGY3XCI+UmVjb3ZlcnkgcGFyZW50PC9oMj48L2Rpdj48L2hlYWRlcj48ZGl2IGNsYXNzPVwic2d1aV9ib2R5XzI0MmE4NGY3IHNndWlfYm9keV8wZjY1OTRlOVwiIGRhdGEtc2d1aS1wYXJ0PVwiZGlhbG9nLWJvZHlcIj48cCByb2xlPVwic3RhdHVzXCI+Q2hpbGQgZGlzbWlzc2FsOiBlc2NhcGU8L3A+PGRpdiBkYXRhLXNndWktcGFydD1cImZpZWxkXCIgY2xhc3M9XCJzZ3VpX3Jvb3RfM2M2ZDc1NDVcIiBkYXRhLXJhYz1cIlwiPjxsYWJlbCBjbGFzcz1cInNndWlfbGFiZWxfM2M2ZDc1NDVcIiBpZD1cInJlYWN0LWFyaWExMTE5NDY0MDU2LV9yXzdfXCIgZm9yPVwicmVhY3QtYXJpYTExMTk0NjQwNTYtX3JfNl9cIj5QYXJlbnQgZmFsbGJhY2s8L2xhYmVsPjxpbnB1dCB0YWJpbmRleD1cIjBcIiBpZD1cInJlYWN0LWFyaWExMTE5NDY0MDU2LV9yXzZfXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTExMTk0NjQwNTYtX3JfN19cIiBjbGFzcz1cInNndWlfaW5wdXRfM2M2ZDc1NDVcIiBkYXRhLXNndWktcGFydD1cImlucHV0XCIgZGF0YS1yYWM9XCJcIiB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgdGl0bGU9XCJcIiBkYXRhLWZvY3VzZWQ9XCJ0cnVlXCIgZGF0YS1mb2N1cy12aXNpYmxlPVwidHJ1ZVwiPjwvZGl2PjxkaXYgZGF0YS1zZ3VpLXBhcnQ9XCJmaWVsZFwiIGNsYXNzPVwic2d1aV9yb290XzNjNmQ3NTQ1XCIgZGF0YS1yYWM9XCJcIj48bGFiZWwgY2xhc3M9XCJzZ3VpX2xhYmVsXzNjNmQ3NTQ1XCIgaWQ9XCJyZWFjdC1hcmlhMTExOTQ2NDA1Ni1fcl9jX1wiIGZvcj1cInJlYWN0LWFyaWExMTE5NDY0MDU2LV9yX2JfXCI+SG9zdCBkZXN0aW5hdGlvbjwvbGFiZWw+PGlucHV0IHRhYmluZGV4PVwiMFwiIGlkPVwicmVhY3QtYXJpYTExMTk0NjQwNTYtX3JfYl9cIiBhcmlhLWxhYmVsbGVkYnk9XCJyZWFjdC1hcmlhMTExOTQ2NDA1Ni1fcl9jX1wiIGNsYXNzPVwic2d1aV9pbnB1dF8zYzZkNzU0NVwiIGRhdGEtc2d1aS1wYXJ0PVwiaW5wdXRcIiBkYXRhLXJhYz1cIlwiIHR5cGU9XCJ0ZXh0XCIgdmFsdWU9XCJcIiB0aXRsZT1cIlwiPjwvZGl2PjxkaXY+PC9kaXY+PC9kaXY+PC9zZWN0aW9uPiIKICAgICAgfQogICAgXQogIH0sCiAgImRlZmVycmVkIjogewogICAgImFjdGl2ZSI6ICI8aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhMTExOTQ2NDA1Ni1fcl82X1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWExMTE5NDY0MDU2LV9yXzdfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCIgZGF0YS1mb2N1c2VkPVwidHJ1ZVwiIGRhdGEtZm9jdXMtdmlzaWJsZT1cInRydWVcIj4iLAogICAgImRpYWxvZ3MiOiBbCiAgICAgIHsKICAgICAgICAiaHRtbCI6ICI8c2VjdGlvbiBjbGFzcz1cInNndWlfZGlhbG9nXzI0MmE4NGY3IHNndWlfcm9vdF8wZjY1OTRlOVwiIGRhdGEtcmFjPVwiXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTExMTk0NjQwNTYtX3JfNF9cIiByb2xlPVwiZGlhbG9nXCIgdGFiaW5kZXg9XCItMVwiPjxoZWFkZXIgY2xhc3M9XCJzZ3VpX2hlYWRlcl8yNDJhODRmN1wiIGRhdGEtc2d1aS1wYXJ0PVwiZGlhbG9nLWhlYWRlclwiPjxkaXYgY2xhc3M9XCJzZ3VpX2hlYWRpbmdfMjQyYTg0ZjdcIj48aDIgaWQ9XCJyZWFjdC1hcmlhMTExOTQ2NDA1Ni1fcl80X1wiIHNsb3Q9XCJ0aXRsZVwiIGNsYXNzPVwic2d1aV90aXRsZV8yNDJhODRmN1wiPlJlY292ZXJ5IHBhcmVudDwvaDI+PC9kaXY+PC9oZWFkZXI+PGRpdiBjbGFzcz1cInNndWlfYm9keV8yNDJhODRmNyBzZ3VpX2JvZHlfMGY2NTk0ZTlcIiBkYXRhLXNndWktcGFydD1cImRpYWxvZy1ib2R5XCI+PHAgcm9sZT1cInN0YXR1c1wiPkNoaWxkIGRpc21pc3NhbDogZXNjYXBlPC9wPjxkaXYgZGF0YS1zZ3VpLXBhcnQ9XCJmaWVsZFwiIGNsYXNzPVwic2d1aV9yb290XzNjNmQ3NTQ1XCIgZGF0YS1yYWM9XCJcIj48bGFiZWwgY2xhc3M9XCJzZ3VpX2xhYmVsXzNjNmQ3NTQ1XCIgaWQ9XCJyZWFjdC1hcmlhMTExOTQ2NDA1Ni1fcl83X1wiIGZvcj1cInJlYWN0LWFyaWExMTE5NDY0MDU2LV9yXzZfXCI+UGFyZW50IGZhbGxiYWNrPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhMTExOTQ2NDA1Ni1fcl82X1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWExMTE5NDY0MDU2LV9yXzdfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCIgZGF0YS1mb2N1c2VkPVwidHJ1ZVwiIGRhdGEtZm9jdXMtdmlzaWJsZT1cInRydWVcIj48L2Rpdj48ZGl2IGRhdGEtc2d1aS1wYXJ0PVwiZmllbGRcIiBjbGFzcz1cInNndWlfcm9vdF8zYzZkNzU0NVwiIGRhdGEtcmFjPVwiXCI+PGxhYmVsIGNsYXNzPVwic2d1aV9sYWJlbF8zYzZkNzU0NVwiIGlkPVwicmVhY3QtYXJpYTExMTk0NjQwNTYtX3JfY19cIiBmb3I9XCJyZWFjdC1hcmlhMTExOTQ2NDA1Ni1fcl9iX1wiPkhvc3QgZGVzdGluYXRpb248L2xhYmVsPjxpbnB1dCB0YWJpbmRleD1cIjBcIiBpZD1cInJlYWN0LWFyaWExMTE5NDY0MDU2LV9yX2JfXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTExMTk0NjQwNTYtX3JfY19cIiBjbGFzcz1cInNndWlfaW5wdXRfM2M2ZDc1NDVcIiBkYXRhLXNndWktcGFydD1cImlucHV0XCIgZGF0YS1yYWM9XCJcIiB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgdGl0bGU9XCJcIj48L2Rpdj48ZGl2PjwvZGl2PjwvZGl2Pjwvc2VjdGlvbj4iCiAgICAgIH0KICAgIF0KICB9Cn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7853c8467183c7f5c15d-5b748e49412f9b5df234",
+          "file": "batch52-dialog-removed-opener.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "removed child opener: escape preserves host destination",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 582,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:18:05.445Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "dismissal-focus-diagnostic",
+                      "contentType": "application/json",
+                      "body": "ewogICJpbW1lZGlhdGUiOiB7CiAgICAiYWN0aXZlIjogIjxpbnB1dCB0YWJpbmRleD1cIjBcIiBpZD1cInJlYWN0LWFyaWE1MDA4MzMxMDQxLV9yX2JfXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTUwMDgzMzEwNDEtX3JfY19cIiBjbGFzcz1cInNndWlfaW5wdXRfM2M2ZDc1NDVcIiBkYXRhLXNndWktcGFydD1cImlucHV0XCIgZGF0YS1yYWM9XCJcIiB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgdGl0bGU9XCJcIiBkYXRhLWhvc3QtZm9jdXMtYXR0ZW1wdD1cInsmcXVvdDtpbmVydCZxdW90OzpmYWxzZSwmcXVvdDtzdWNjZWVkZWQmcXVvdDs6dHJ1ZSwmcXVvdDthY3RpdmUmcXVvdDs6JnF1b3Q7Jmx0O2lucHV0IHRhYmluZGV4PVxcJnF1b3Q7MFxcJnF1b3Q7IGlkPVxcJnF1b3Q7cmVhY3QtYXJpYTUwMDgzMzEwNDEtX3JfYl9cXCZxdW90OyBhcmlhLWxhYmVsbGVkYnk9XFwmcXVvdDtyZWFjdC1hcmlhNTAwODMzMTA0MS1fcl9jX1xcJnF1b3Q7IGNsYXNzPVxcJnF1b3Q7c2d1aV9pbnB1dF8zYzZkNzU0NVxcJnF1b3Q7IGRhdGEtc2d1aS1wYXJ0PVxcJnF1b3Q7aW5wdXRcXCZxdW90OyBkYXRhLXJhYz1cXCZxdW90O1xcJnF1b3Q7IHR5cGU9XFwmcXVvdDt0ZXh0XFwmcXVvdDsgdmFsdWU9XFwmcXVvdDtcXCZxdW90OyB0aXRsZT1cXCZxdW90O1xcJnF1b3Q7Jmd0OyZxdW90O31cIiBkYXRhLWZvY3VzZWQ9XCJ0cnVlXCIgZGF0YS1mb2N1cy12aXNpYmxlPVwidHJ1ZVwiPiIsCiAgICAiZGlhbG9ncyI6IFsKICAgICAgewogICAgICAgICJodG1sIjogIjxzZWN0aW9uIGNsYXNzPVwic2d1aV9kaWFsb2dfMjQyYTg0Zjcgc2d1aV9yb290XzBmNjU5NGU5XCIgZGF0YS1yYWM9XCJcIiBhcmlhLWxhYmVsbGVkYnk9XCJyZWFjdC1hcmlhNTAwODMzMTA0MS1fcl80X1wiIHJvbGU9XCJkaWFsb2dcIiB0YWJpbmRleD1cIi0xXCI+PGhlYWRlciBjbGFzcz1cInNndWlfaGVhZGVyXzI0MmE4NGY3XCIgZGF0YS1zZ3VpLXBhcnQ9XCJkaWFsb2ctaGVhZGVyXCI+PGRpdiBjbGFzcz1cInNndWlfaGVhZGluZ18yNDJhODRmN1wiPjxoMiBpZD1cInJlYWN0LWFyaWE1MDA4MzMxMDQxLV9yXzRfXCIgc2xvdD1cInRpdGxlXCIgY2xhc3M9XCJzZ3VpX3RpdGxlXzI0MmE4NGY3XCI+UmVjb3ZlcnkgcGFyZW50PC9oMj48L2Rpdj48L2hlYWRlcj48ZGl2IGNsYXNzPVwic2d1aV9ib2R5XzI0MmE4NGY3IHNndWlfYm9keV8wZjY1OTRlOVwiIGRhdGEtc2d1aS1wYXJ0PVwiZGlhbG9nLWJvZHlcIj48cCByb2xlPVwic3RhdHVzXCI+Q2hpbGQgZGlzbWlzc2FsOiBlc2NhcGU8L3A+PGRpdiBkYXRhLXNndWktcGFydD1cImZpZWxkXCIgY2xhc3M9XCJzZ3VpX3Jvb3RfM2M2ZDc1NDVcIiBkYXRhLXJhYz1cIlwiPjxsYWJlbCBjbGFzcz1cInNndWlfbGFiZWxfM2M2ZDc1NDVcIiBpZD1cInJlYWN0LWFyaWE1MDA4MzMxMDQxLV9yXzdfXCIgZm9yPVwicmVhY3QtYXJpYTUwMDgzMzEwNDEtX3JfNl9cIj5QYXJlbnQgZmFsbGJhY2s8L2xhYmVsPjxpbnB1dCB0YWJpbmRleD1cIjBcIiBpZD1cInJlYWN0LWFyaWE1MDA4MzMxMDQxLV9yXzZfXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTUwMDgzMzEwNDEtX3JfN19cIiBjbGFzcz1cInNndWlfaW5wdXRfM2M2ZDc1NDVcIiBkYXRhLXNndWktcGFydD1cImlucHV0XCIgZGF0YS1yYWM9XCJcIiB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgdGl0bGU9XCJcIj48L2Rpdj48ZGl2IGRhdGEtc2d1aS1wYXJ0PVwiZmllbGRcIiBjbGFzcz1cInNndWlfcm9vdF8zYzZkNzU0NVwiIGRhdGEtcmFjPVwiXCI+PGxhYmVsIGNsYXNzPVwic2d1aV9sYWJlbF8zYzZkNzU0NVwiIGlkPVwicmVhY3QtYXJpYTUwMDgzMzEwNDEtX3JfY19cIiBmb3I9XCJyZWFjdC1hcmlhNTAwODMzMTA0MS1fcl9iX1wiPkhvc3QgZGVzdGluYXRpb248L2xhYmVsPjxpbnB1dCB0YWJpbmRleD1cIjBcIiBpZD1cInJlYWN0LWFyaWE1MDA4MzMxMDQxLV9yX2JfXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTUwMDgzMzEwNDEtX3JfY19cIiBjbGFzcz1cInNndWlfaW5wdXRfM2M2ZDc1NDVcIiBkYXRhLXNndWktcGFydD1cImlucHV0XCIgZGF0YS1yYWM9XCJcIiB0eXBlPVwidGV4dFwiIHZhbHVlPVwiXCIgdGl0bGU9XCJcIiBkYXRhLWhvc3QtZm9jdXMtYXR0ZW1wdD1cInsmcXVvdDtpbmVydCZxdW90OzpmYWxzZSwmcXVvdDtzdWNjZWVkZWQmcXVvdDs6dHJ1ZSwmcXVvdDthY3RpdmUmcXVvdDs6JnF1b3Q7Jmx0O2lucHV0IHRhYmluZGV4PVxcJnF1b3Q7MFxcJnF1b3Q7IGlkPVxcJnF1b3Q7cmVhY3QtYXJpYTUwMDgzMzEwNDEtX3JfYl9cXCZxdW90OyBhcmlhLWxhYmVsbGVkYnk9XFwmcXVvdDtyZWFjdC1hcmlhNTAwODMzMTA0MS1fcl9jX1xcJnF1b3Q7IGNsYXNzPVxcJnF1b3Q7c2d1aV9pbnB1dF8zYzZkNzU0NVxcJnF1b3Q7IGRhdGEtc2d1aS1wYXJ0PVxcJnF1b3Q7aW5wdXRcXCZxdW90OyBkYXRhLXJhYz1cXCZxdW90O1xcJnF1b3Q7IHR5cGU9XFwmcXVvdDt0ZXh0XFwmcXVvdDsgdmFsdWU9XFwmcXVvdDtcXCZxdW90OyB0aXRsZT1cXCZxdW90O1xcJnF1b3Q7Jmd0OyZxdW90O31cIiBkYXRhLWZvY3VzZWQ9XCJ0cnVlXCIgZGF0YS1mb2N1cy12aXNpYmxlPVwidHJ1ZVwiPjwvZGl2PjxkaXY+PC9kaXY+PC9kaXY+PC9zZWN0aW9uPiIKICAgICAgfQogICAgXQogIH0sCiAgImRlZmVycmVkIjogewogICAgImFjdGl2ZSI6ICI8aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNTAwODMzMTA0MS1fcl9iX1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE1MDA4MzMxMDQxLV9yX2NfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCIgZGF0YS1ob3N0LWZvY3VzLWF0dGVtcHQ9XCJ7JnF1b3Q7aW5lcnQmcXVvdDs6ZmFsc2UsJnF1b3Q7c3VjY2VlZGVkJnF1b3Q7OnRydWUsJnF1b3Q7YWN0aXZlJnF1b3Q7OiZxdW90OyZsdDtpbnB1dCB0YWJpbmRleD1cXCZxdW90OzBcXCZxdW90OyBpZD1cXCZxdW90O3JlYWN0LWFyaWE1MDA4MzMxMDQxLV9yX2JfXFwmcXVvdDsgYXJpYS1sYWJlbGxlZGJ5PVxcJnF1b3Q7cmVhY3QtYXJpYTUwMDgzMzEwNDEtX3JfY19cXCZxdW90OyBjbGFzcz1cXCZxdW90O3NndWlfaW5wdXRfM2M2ZDc1NDVcXCZxdW90OyBkYXRhLXNndWktcGFydD1cXCZxdW90O2lucHV0XFwmcXVvdDsgZGF0YS1yYWM9XFwmcXVvdDtcXCZxdW90OyB0eXBlPVxcJnF1b3Q7dGV4dFxcJnF1b3Q7IHZhbHVlPVxcJnF1b3Q7XFwmcXVvdDsgdGl0bGU9XFwmcXVvdDtcXCZxdW90OyZndDsmcXVvdDt9XCIgZGF0YS1mb2N1c2VkPVwidHJ1ZVwiIGRhdGEtZm9jdXMtdmlzaWJsZT1cInRydWVcIj4iLAogICAgImRpYWxvZ3MiOiBbCiAgICAgIHsKICAgICAgICAiaHRtbCI6ICI8c2VjdGlvbiBjbGFzcz1cInNndWlfZGlhbG9nXzI0MmE4NGY3IHNndWlfcm9vdF8wZjY1OTRlOVwiIGRhdGEtcmFjPVwiXCIgYXJpYS1sYWJlbGxlZGJ5PVwicmVhY3QtYXJpYTUwMDgzMzEwNDEtX3JfNF9cIiByb2xlPVwiZGlhbG9nXCIgdGFiaW5kZXg9XCItMVwiPjxoZWFkZXIgY2xhc3M9XCJzZ3VpX2hlYWRlcl8yNDJhODRmN1wiIGRhdGEtc2d1aS1wYXJ0PVwiZGlhbG9nLWhlYWRlclwiPjxkaXYgY2xhc3M9XCJzZ3VpX2hlYWRpbmdfMjQyYTg0ZjdcIj48aDIgaWQ9XCJyZWFjdC1hcmlhNTAwODMzMTA0MS1fcl80X1wiIHNsb3Q9XCJ0aXRsZVwiIGNsYXNzPVwic2d1aV90aXRsZV8yNDJhODRmN1wiPlJlY292ZXJ5IHBhcmVudDwvaDI+PC9kaXY+PC9oZWFkZXI+PGRpdiBjbGFzcz1cInNndWlfYm9keV8yNDJhODRmNyBzZ3VpX2JvZHlfMGY2NTk0ZTlcIiBkYXRhLXNndWktcGFydD1cImRpYWxvZy1ib2R5XCI+PHAgcm9sZT1cInN0YXR1c1wiPkNoaWxkIGRpc21pc3NhbDogZXNjYXBlPC9wPjxkaXYgZGF0YS1zZ3VpLXBhcnQ9XCJmaWVsZFwiIGNsYXNzPVwic2d1aV9yb290XzNjNmQ3NTQ1XCIgZGF0YS1yYWM9XCJcIj48bGFiZWwgY2xhc3M9XCJzZ3VpX2xhYmVsXzNjNmQ3NTQ1XCIgaWQ9XCJyZWFjdC1hcmlhNTAwODMzMTA0MS1fcl83X1wiIGZvcj1cInJlYWN0LWFyaWE1MDA4MzMxMDQxLV9yXzZfXCI+UGFyZW50IGZhbGxiYWNrPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNTAwODMzMTA0MS1fcl82X1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE1MDA4MzMxMDQxLV9yXzdfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCI+PC9kaXY+PGRpdiBkYXRhLXNndWktcGFydD1cImZpZWxkXCIgY2xhc3M9XCJzZ3VpX3Jvb3RfM2M2ZDc1NDVcIiBkYXRhLXJhYz1cIlwiPjxsYWJlbCBjbGFzcz1cInNndWlfbGFiZWxfM2M2ZDc1NDVcIiBpZD1cInJlYWN0LWFyaWE1MDA4MzMxMDQxLV9yX2NfXCIgZm9yPVwicmVhY3QtYXJpYTUwMDgzMzEwNDEtX3JfYl9cIj5Ib3N0IGRlc3RpbmF0aW9uPC9sYWJlbD48aW5wdXQgdGFiaW5kZXg9XCIwXCIgaWQ9XCJyZWFjdC1hcmlhNTAwODMzMTA0MS1fcl9iX1wiIGFyaWEtbGFiZWxsZWRieT1cInJlYWN0LWFyaWE1MDA4MzMxMDQxLV9yX2NfXCIgY2xhc3M9XCJzZ3VpX2lucHV0XzNjNmQ3NTQ1XCIgZGF0YS1zZ3VpLXBhcnQ9XCJpbnB1dFwiIGRhdGEtcmFjPVwiXCIgdHlwZT1cInRleHRcIiB2YWx1ZT1cIlwiIHRpdGxlPVwiXCIgZGF0YS1ob3N0LWZvY3VzLWF0dGVtcHQ9XCJ7JnF1b3Q7aW5lcnQmcXVvdDs6ZmFsc2UsJnF1b3Q7c3VjY2VlZGVkJnF1b3Q7OnRydWUsJnF1b3Q7YWN0aXZlJnF1b3Q7OiZxdW90OyZsdDtpbnB1dCB0YWJpbmRleD1cXCZxdW90OzBcXCZxdW90OyBpZD1cXCZxdW90O3JlYWN0LWFyaWE1MDA4MzMxMDQxLV9yX2JfXFwmcXVvdDsgYXJpYS1sYWJlbGxlZGJ5PVxcJnF1b3Q7cmVhY3QtYXJpYTUwMDgzMzEwNDEtX3JfY19cXCZxdW90OyBjbGFzcz1cXCZxdW90O3NndWlfaW5wdXRfM2M2ZDc1NDVcXCZxdW90OyBkYXRhLXNndWktcGFydD1cXCZxdW90O2lucHV0XFwmcXVvdDsgZGF0YS1yYWM9XFwmcXVvdDtcXCZxdW90OyB0eXBlPVxcJnF1b3Q7dGV4dFxcJnF1b3Q7IHZhbHVlPVxcJnF1b3Q7XFwmcXVvdDsgdGl0bGU9XFwmcXVvdDtcXCZxdW90OyZndDsmcXVvdDt9XCIgZGF0YS1mb2N1c2VkPVwidHJ1ZVwiIGRhdGEtZm9jdXMtdmlzaWJsZT1cInRydWVcIj48L2Rpdj48ZGl2PjwvZGl2PjwvZGl2Pjwvc2VjdGlvbj4iCiAgICAgIH0KICAgIF0KICB9Cn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7853c8467183c7f5c15d-3cf75f3a050983c64197",
+          "file": "batch52-dialog-removed-opener.spec.ts",
+          "line": 23,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T00:17:59.607Z",
+    "duration": 6453.899,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 262/320 A leaves closed; 58 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 264/320 A leaves closed; 56 A, 0 editor V review leaves and six future leaves remain.**
+
+### Keyboard contracts and focus lifecycle accepted — 2026-10-17
+
+Reconciled eleven component-specific keyboard families with retained native interaction receipts, preserving differences between editable inputs, collections, route links and tabs. Six current removed-opener Escape cases pass across Chromium, Firefox and WebKit, including fallback, host placement, deferred stability, containment and final trigger restoration.
+Wave 04 now closes 83 of 139 items; 56 remain.
 
 ### Granular import boundaries and distribution assessment accepted — 2026-10-17
 
