@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 105,
-  "closedTotal": 286,
-  "remaining": 34,
+  "closedThisReview": 107,
+  "closedTotal": 288,
+  "remaining": 32,
   "entries": [
     {
       "id": "A-M-21",
@@ -938,6 +938,24 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/public-contract-defaults-and-breaking-markers.json",
       "sha256": "c1665bf0c08351148e8d000efa2c5a51a5e550dddcffa9421bbf8c2598711772",
       "limits": "No universal compatibility with every inherited upstream prop. Defaults and conditional/context expressions remain distinct; no invented constant/default API or deprecation schedule. Initial digest drift and manifest-verifier failures are retained and explained. This completes API/migration reconciliation, not production promotion, package publication, license, performance or spoken-AT gates."
+    },
+    {
+      "id": "A-G-17",
+      "basis": "The shipped reorder contract defines pointer/touch/keyboard and non-drag requests, translated request status feedback, Escape/cancel and sorting/filtering/search/pagination gating. Current policy tests and byte-identical reorder/DnD/focus core join retained native pointer,keyboard,simulated-touch rollback and dataset/sibling cancellation evidence. Host-owned persistence remains explicit.",
+      "criterion": "- [ ] A-G-17 Reconcile original `G-17`: Define row reordering for pointer, touch, keyboard and non-drag actions; announce changes, support cancel, and define behavior when sorting/filtering/pagination is active. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/grid-reorder-g17-m18.json",
+      "sha256": "add846a407e5de32d14da4876c706a3f3845fba25cbd0c45ad3d70d30e04535e",
+      "limits": "Retained native results are dated evidence, not newly executed. No physical long-press, spoken-screen-reader or production network-persistence claim. Other grid/performance/accessibility/release gates remain open; existing required assertions are preserved."
+    },
+    {
+      "id": "A-M-18",
+      "basis": "AppDataGridRowDnd uses owned data hooks,root scoping and a token-styled preview with replacement/dragend/error/unmount cleanup. F/T/V-C18 remain accepted and linked separately. Forty existing targeted cases pass;25 retained native cases authenticate pointer,keyboard and simulated-phone non-drag touch flows. Original finite migration obligation does not require relabeling spoken/physical tests as passed.",
+      "criterion": "- [ ] A-M-18 Reconcile AppDataGridRowDnd final acceptance: Replace DOM selectors/ghost styling; keyboard/touch/reorder/cancel behavior. Link its `F-C18`, `T-C18` and `V-C18` evidence and any unresolved defects.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/grid-reorder-g17-m18.json",
+      "sha256": "add846a407e5de32d14da4876c706a3f3845fba25cbd0c45ad3d70d30e04535e",
+      "limits": "Retained native results are dated evidence, not newly executed. No physical long-press, spoken-screen-reader or production network-persistence claim. Other grid/performance/accessibility/release gates remain open; existing required assertions are preserved."
     }
   ],
   "limits": [

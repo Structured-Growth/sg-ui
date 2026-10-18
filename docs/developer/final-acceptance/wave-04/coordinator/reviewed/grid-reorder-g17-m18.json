@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "A-G-17",
+      "basis": "The shipped reorder contract defines pointer/touch/keyboard and non-drag requests, translated request status feedback, Escape/cancel and sorting/filtering/search/pagination gating. Current policy tests and byte-identical reorder/DnD/focus core join retained native pointer,keyboard,simulated-touch rollback and dataset/sibling cancellation evidence. Host-owned persistence remains explicit.",
+      "criterion": "- [ ] A-G-17 Reconcile original `G-17`: Define row reordering for pointer, touch, keyboard and non-drag actions; announce changes, support cancel, and define behavior when sorting/filtering/pagination is active. Historical status: open."
+    },
+    {
+      "id": "A-M-18",
+      "basis": "AppDataGridRowDnd uses owned data hooks,root scoping and a token-styled preview with replacement/dragend/error/unmount cleanup. F/T/V-C18 remain accepted and linked separately. Forty existing targeted cases pass;25 retained native cases authenticate pointer,keyboard and simulated-phone non-drag touch flows. Original finite migration obligation does not require relabeling spoken/physical tests as passed.",
+      "criterion": "- [ ] A-M-18 Reconcile AppDataGridRowDnd final acceptance: Replace DOM selectors/ghost styling; keyboard/touch/reorder/cancel behavior. Link its `F-C18`, `T-C18` and `V-C18` evidence and any unresolved defects."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/grid-reorder/receipt.json",
+      "sha256": "da3f3f894751d7dc28afcdc20dbbf4843d03fd4f3cce76a0bc83b27c33d59186"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/grid-reorder/report.md",
+      "sha256": "2e286b5f89f2755fd62e0ea50aeade137714137814ba37eb4b1f1b5cce2ae7c3"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/grid-reorder/source-reconciliation.json",
+      "sha256": "eec0ee190dfb572543de761b4e8d1e5fa2e296491386806632ce76a71229eef6"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/grid-reorder/retained-native.json",
+      "sha256": "98988718c9e99eaca056f82492f2778d66954bb637db2c7db7441ff9a3aca4b4"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/grid-reorder/validation.json",
+      "sha256": "9f4daf4dcd3831e78567f286b5b948b2f5629d20d7902b1ec26073f5c6c6a205"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/grid-reorder/units.log",
+      "sha256": "2a9f631f2d33064621217b03d9744963f508d81d92d5ce5809537cfa9aef185d"
+    },
+    {
+      "path": "docs/developer/react-aria-grid-reorder.md",
+      "sha256": "b443400f08eab8f390f89438b4aa7fe72d591bf326185c973adcbad64c2ef7d1"
+    },
+    {
+      "path": "docs/developer/react-aria-browser-acceptance.md",
+      "sha256": "cf668cb3e803f0ad48a8addcd0f4ca047b3ea4a7119aba0aa75f3d5b7693c929"
+    }
+  ],
+  "limits": "Retained native results are dated evidence, not newly executed. No physical long-press, spoken-screen-reader or production network-persistence claim. Other grid/performance/accessibility/release gates remain open; existing required assertions are preserved."
+}

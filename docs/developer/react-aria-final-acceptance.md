@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 286/320 A leaves closed; 34 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 288/320 A leaves closed; 32 A, 0 editor V review leaves and six future leaves remain.**
+
+### Grid reorder obligations reconciled — 2026-10-17
+
+Closed A-G-17 and A-M-18 against the shipped owned implementation,40 passing focused tests and25 authenticated retained native executions. Pointer,keyboard,non-drag and trusted simulated-touch Move behavior,announcements,cancel,processing restrictions and host rollback are explicitly mapped.
+Wave 04 now closes 107 of 139 items; 32 remain.
 
 ### Public contract and migration reconciliation completed — 2026-10-17
 
