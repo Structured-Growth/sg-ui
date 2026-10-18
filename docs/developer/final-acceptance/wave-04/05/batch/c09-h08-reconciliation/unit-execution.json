@@ -1,0 +1,31 @@
+{
+  "node": "v24.19.0",
+  "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+  "args": [
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "src/i18n/icu.test.ts",
+    "src/i18n/index.test.tsx",
+    "src/i18n/ICUFormatting.next100-regression.test.tsx",
+    "src/experimental/icons/icons.test.tsx",
+    "src/experimental/icons/icons.next100-regression.test.tsx",
+    "src/components/TextAlignMenuControl/TextAlignMenuControl.test.tsx",
+    "src/components/SideNavigation/SideNavigation.test.tsx",
+    "--maxWorkers=1",
+    "--no-file-parallelism"
+  ],
+  "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+  "exitCode": 0,
+  "files": [
+    "src/i18n/icu.test.ts",
+    "src/i18n/index.test.tsx",
+    "src/i18n/ICUFormatting.next100-regression.test.tsx",
+    "src/experimental/icons/icons.test.tsx",
+    "src/experimental/icons/icons.next100-regression.test.tsx",
+    "src/components/TextAlignMenuControl/TextAlignMenuControl.test.tsx",
+    "src/components/SideNavigation/SideNavigation.test.tsx"
+  ],
+  "builds": 0,
+  "browserRuns": 0,
+  "newTests": 0
+}

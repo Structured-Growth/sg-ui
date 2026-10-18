@@ -106,10 +106,20 @@ The focused `translations-locale-acceptance.spec.ts` checks counts 0/1/2/3/11/10
 clear, keyboard focus, complete pseudo labels and 320 CSS-pixel reflow. Date and
 number output use the fixed instant 2026-10-16T12:00:00Z and a UTC browser context;
 this pins the existing runtime-time-zone contract without adding a new formatter
-API. Its DOM live-region assertions establish rendered updates only. An operator
-must separately record actual English/Arabic spoken count and clear announcements
-with AT, browser, OS, device and language versions. These specs need a freshly
-built docs-native host after integration; adding a spec is not a passing receipt.
+API. Its DOM live-region assertions establish rendered count/clear updates. Actual
+spoken delivery belongs to the separate A-X-11/operator evidence; H-08 formatting
+validation makes no spoken-delivery claim.
+
+The retained supported-host [native receipt](../../packages/ui/artifacts/wave03-integration/followup-final-results.json)
+contains nine passing locale cases (three scenarios in Chromium, Firefox and
+WebKit), plus six passing English/Arabic navigation-motion cases. The fixture and
+locale-spec bytes match their integrated inputs; the owned ICU/adapter and
+Provider/ThemeScope source joins remain recorded in the
+[C09/H08 reconciliation](final-acceptance/wave-04/05/batch/c09-h08-reconciliation/evidence.json).
+Reuse those scoped passes without describing the mixed parent report as wholly
+green or claiming a fresh complete host graph. Later SideNavigation styling and
+interaction changes are identified separately; the signed RTL motion contract is
+preserved and current targeted units pass.
 
 Batch validation on 2026-10-07: `pnpm check` passed (145 test files, 1,010 tests,
 type checking, foundation/token guards, release-policy checks, package build and
@@ -117,9 +127,13 @@ public-entry smoke checks). `pnpm build-storybook` passed with all three new sto
 Both ran under the shared batch validation lock using Node 26.5.0 and pnpm 10.29.3;
 supported Node 22.12/24 CI verification remains separate.
 
-Current-input browser visual/RTL execution and assistive-technology review of
-these migrated scenarios remain open. The dated Storybook build above is retained
-only as historical evidence; Storybook has been removed. Broader component catalog coverage, host catalog integration and engine
+The current representative [reviewed visual baseline](final-acceptance/wave-04/05/batch/visual-baseline-48-plan/reviewed-baseline-05-provenance.json)
+and strict 48-image comparison add bounded RTL/pseudo-label presentation evidence.
+The separate native locale cases establish actual Arabic plural/date/number text;
+the visual matrix is not an all-locale certification. Installed scoped-lifecycle
+24-case evidence retains locale/direction changes through hydration and portals at
+its recorded tarball. Spoken AT remains separate under A-X-11. The dated Storybook
+build above is retained only as historical evidence; Storybook has been removed. Broader component catalog coverage, host catalog integration and engine
 specific ICU styles remain outside this slice. See the
 [master task list](react-aria-master-task-list.md) for H-07–H-09 and broad acceptance.
 

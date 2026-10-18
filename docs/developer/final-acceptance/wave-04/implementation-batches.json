@@ -1,7 +1,7 @@
 {
   "original": 139,
-  "closed": 91,
-  "remaining": 48,
+  "closed": 93,
+  "remaining": 46,
   "batches": [
     {
       "title": "Editors and content",
@@ -66,7 +66,6 @@
         "A-D-09",
         "A-D-15",
         "A-D-17",
-        "A-C-09",
         "A-C-11",
         "A-X-07",
         "A-X-08",
@@ -77,7 +76,7 @@
         "A-X-09",
         "A-X-13"
       ],
-      "count": 15,
+      "count": 14,
       "state": "implementation-and-validation",
       "limits": "Retain accepted evidence. No releases or shared-output races. Exact test window and ownership required."
     },
@@ -123,7 +122,6 @@
         "A-G-20",
         "A-B-14",
         "A-I-08",
-        "A-H-08",
         "A-M-38",
         "A-W-18",
         "A-W-19",
@@ -132,7 +130,7 @@
         "A-Z-15",
         "A-Z-16"
       ],
-      "count": 14,
+      "count": 13,
       "state": "implementation-and-validation",
       "limits": "Retain accepted evidence. No releases or shared-output races. Exact test window and ownership required."
     }

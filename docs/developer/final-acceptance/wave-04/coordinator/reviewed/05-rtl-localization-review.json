@@ -1,0 +1,37 @@
+{
+  "entries": [
+    {
+      "id": "A-C-09",
+      "basis": "Owned logical layout, directional SVG overrides/nesting and RTL placement have source and actual native/icon/visual evidence. Physical alignment commands and geometry remain intentionally physical; navigation direction/reduced-motion projections match their recorded contract despite later private variable renaming.",
+      "criterion": "- [ ] A-C-09 Reconcile original `C-09`: Use logical properties and direction-aware icons/placement for RTL; do not assume physical left/right always means start/end. Historical status: open."
+    },
+    {
+      "id": "A-H-08",
+      "basis": "Owned ICU variable/grammar validation, six Arabic plural categories/counts, locale date/number digits, pseudo labels and narrow reflow have actual retained three-engine evidence. Live locale/direction propagation has24installed lifecycle passes at the recorded tarball; current198unit passes supplement exact-source joins.",
+      "criterion": "- [ ] A-H-08 Reconcile original `H-08`: Validate ICU variables, pluralization, selection counts, date/number formatting, long labels, RTL, and pseudo-localized stories. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c09-h08-reconciliation/handoff.json",
+      "sha256": "5e20312b267e6a351f0c4b817fde442ddd60dea4e8910e0d6d535ecdcbe3418b"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c09-h08-reconciliation/evidence.json",
+      "sha256": "52ad882584fd06a1cfb95192090c66df5c746bf5995b061bdbfa60445880549f"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c09-h08-reconciliation/report.md",
+      "sha256": "1277527866ee37fa1a6ff5371138ab1115f74c8110ed46d8cc62e455e97b34ba"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c09-h08-reconciliation/unit-execution.json",
+      "sha256": "8330e3b47675a0003c2bddea0c695df05f7a464f7b8afcc8fea89a77ed506466"
+    },
+    {
+      "path": "docs/developer/react-aria-i18n-acceptance.md",
+      "sha256": "d7de6df6421512f50f48f9c04ca4896015bcef58995113fc62c1906a196b236f"
+    }
+  ],
+  "limits": "Selected passing cases from mixed historical parent reports retain exact input/runtime scopes; no parent whole-suite green claim. No new browser/build/AT run, all-locale guarantee or physical-device approval. Spoken output remains X11, and unsupported ICU skeleton/style grammar remains host-owned."
+}

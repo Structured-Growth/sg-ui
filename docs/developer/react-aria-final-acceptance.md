@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 272/320 A leaves closed; 48 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 274/320 A leaves closed; 46 A, 0 editor V review leaves and six future leaves remain.**
+
+### RTL and localization acceptance reconciled — 2026-10-17
+
+Reviewed exact retained locale/motion/icon results with unchanged relevant source joins, installed lifecycle scope evidence and the reviewed visual matrix. Seven focused existing unit files pass198tests. Updated stale i18n guidance to record actual executed coverage and separate spoken delivery.
+Wave 04 now closes 93 of 139 items; 46 remain.
 
 ### Consumer migration guide accepted — 2026-10-17
 

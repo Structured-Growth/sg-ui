@@ -1,0 +1,382 @@
+{
+  "originalCriteria": {
+    "C09": "Use logical properties and direction-aware icons/placement for RTL; do not assume physical left/right always means start/end.",
+    "H08": "Validate ICU variables, pluralization, selection counts, date/number formatting, long labels, RTL, and pseudo-localized stories."
+  },
+  "receiptHashes": {
+    "packages/ui/artifacts/wave03-integration/followup-final-results.json": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+    "docs/developer/final-acceptance/wave-04/10/implementation-batch/csp-icons-18-05-01/results.json": "a088b67cfeae4ae092eb919b1addef7f4cf732fb2f32d4d157d8f0b92b2ad54d",
+    "docs/developer/final-acceptance/wave-04/10/implementation-batch/csp-icons-18-05-01/receipt.json": "0ed31dee5c1a21e347445ff963fc62c502e0dcf6a807a1d18ff14ebca2963ad8",
+    "docs/developer/final-acceptance/wave-03-17/input-receipt.json": "3bd34e9e1f4e6badd73ae643c602db20397aab231c687ee5f8ddef9b014c6d93",
+    "docs/developer/final-acceptance/wave-03-17/built-locale-results.json": "ad71fa570f1f25166b7f07c39231d9cb1889e861605d245534722503704db286",
+    "docs/developer/final-acceptance/wave-04/02/scoped-lifecycle/receipt.json": "470c69c0084cc398bed7ae9f20eb4e1933ff12cbf79108b44de41d90285dbfb9",
+    "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/reviewed-baseline-05-provenance.json": "e47d3c24f2638befe1ec1b1ba103c74fe05b1b30a983febcaf7665b6479594e8",
+    "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/compare-provenance-admission-01/receipt.json": "e5696920d3c592ca1832ff69df822ff5cc049977e459ca176d47109897161e0b",
+    "docs/developer/final-acceptance/editor-chrome-presentation/results.json": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea",
+    "docs/developer/final-acceptance/rich-editor-presentation/results.json": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+  },
+  "retainedNative": {
+    "localeAndMotion": [
+      {
+        "file": "navigation-locale-motion.spec.ts",
+        "title": "en-US: drill motion mirrors, interrupted Back restores focus, reduced motion suppresses animation",
+        "project": "chromium",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "navigation-locale-motion.spec.ts",
+        "title": "ar-EG: drill motion mirrors, interrupted Back restores focus, reduced motion suppresses animation",
+        "project": "chromium",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "navigation-locale-motion.spec.ts",
+        "title": "en-US: drill motion mirrors, interrupted Back restores focus, reduced motion suppresses animation",
+        "project": "firefox",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "navigation-locale-motion.spec.ts",
+        "title": "ar-EG: drill motion mirrors, interrupted Back restores focus, reduced motion suppresses animation",
+        "project": "firefox",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "navigation-locale-motion.spec.ts",
+        "title": "en-US: drill motion mirrors, interrupted Back restores focus, reduced motion suppresses animation",
+        "project": "webkit",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "navigation-locale-motion.spec.ts",
+        "title": "ar-EG: drill motion mirrors, interrupted Back restores focus, reduced motion suppresses animation",
+        "project": "webkit",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "translations-locale-acceptance.spec.ts",
+        "title": "english-fallback: public locale, fixed date/number, count/clear and 320px reflow",
+        "project": "chromium",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "translations-locale-acceptance.spec.ts",
+        "title": "pseudo-localized-long-labels: public locale, fixed date/number, count/clear and 320px reflow",
+        "project": "chromium",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "translations-locale-acceptance.spec.ts",
+        "title": "arabic-plural-and-direction: public locale, fixed date/number, count/clear and 320px reflow",
+        "project": "chromium",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "translations-locale-acceptance.spec.ts",
+        "title": "english-fallback: public locale, fixed date/number, count/clear and 320px reflow",
+        "project": "firefox",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "translations-locale-acceptance.spec.ts",
+        "title": "pseudo-localized-long-labels: public locale, fixed date/number, count/clear and 320px reflow",
+        "project": "firefox",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "translations-locale-acceptance.spec.ts",
+        "title": "arabic-plural-and-direction: public locale, fixed date/number, count/clear and 320px reflow",
+        "project": "firefox",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "translations-locale-acceptance.spec.ts",
+        "title": "english-fallback: public locale, fixed date/number, count/clear and 320px reflow",
+        "project": "webkit",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "translations-locale-acceptance.spec.ts",
+        "title": "pseudo-localized-long-labels: public locale, fixed date/number, count/clear and 320px reflow",
+        "project": "webkit",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "translations-locale-acceptance.spec.ts",
+        "title": "arabic-plural-and-direction: public locale, fixed date/number, count/clear and 320px reflow",
+        "project": "webkit",
+        "results": [
+          "passed"
+        ]
+      }
+    ],
+    "iconDirectionAndNaming": [
+      {
+        "file": "icons-native.spec.ts",
+        "title": "96 current icons: native SVG geometry, inherited/overridden/nested RTL and optical captures",
+        "project": "chromium",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "icons-native.spec.ts",
+        "title": "named theme pairs and decorative/meaningful naming in native accessibility roles",
+        "project": "chromium",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "icons-native.spec.ts",
+        "title": "96 current icons: native SVG geometry, inherited/overridden/nested RTL and optical captures",
+        "project": "firefox",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "icons-native.spec.ts",
+        "title": "named theme pairs and decorative/meaningful naming in native accessibility roles",
+        "project": "firefox",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "icons-native.spec.ts",
+        "title": "96 current icons: native SVG geometry, inherited/overridden/nested RTL and optical captures",
+        "project": "webkit",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "file": "icons-native.spec.ts",
+        "title": "named theme pairs and decorative/meaningful naming in native accessibility roles",
+        "project": "webkit",
+        "results": [
+          "passed"
+        ]
+      }
+    ]
+  },
+  "sourceJoins": [
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
+      "currentSha256": "d82cfba8be4f38f8e0c24b9d4fd854dd37d0c833b4d7251775452b5edd9e0a60",
+      "matchesOriginal": false,
+      "matchesIntegratedProposal": true,
+      "originalSha256": "a4fdd33331cf744ae5cde3c029dcb026240825026c5a04120d36647267d3d5b3",
+      "integratedProposalSha256": "d82cfba8be4f38f8e0c24b9d4fd854dd37d0c833b4d7251775452b5edd9e0a60"
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/i18n/Translations.fixture.tsx",
+      "currentSha256": "625636f384a6bd48c249ab9fe7735bdbb69ae2b941a6117585ae1d84ed1b1038",
+      "matchesOriginal": false,
+      "matchesIntegratedProposal": true,
+      "originalSha256": "99f58b1ae3db393b5549a321321672a0197258661a24fe9c5b6b1431fa21fe95",
+      "integratedProposalSha256": "625636f384a6bd48c249ab9fe7735bdbb69ae2b941a6117585ae1d84ed1b1038"
+    },
+    {
+      "path": "packages/ui/src/components/SideNavigation/SideNavigation.module.css",
+      "currentSha256": "e09d269b280e980af4bfb87335659a26c2137b6be98332c5e0747cf4ccc22848",
+      "matchesOriginal": false,
+      "matchesIntegratedProposal": false,
+      "originalSha256": "4a975c632190d5d6fb5e4590bf3de1feb318d3c18146123cfddc6b03b421e97c",
+      "integratedProposalSha256": "ff4b0772ac5ef50f8967e42b086acc100142d44e6a8bb4f4ae4428846c16da22"
+    },
+    {
+      "path": "packages/ui/src/components/SideNavigation/SideNavigation.tsx",
+      "currentSha256": "b07ec6bc2768579d6f551c7507a3c334e44cd3e1ef3acbdd3333f37330f0626b",
+      "matchesOriginal": false,
+      "matchesIntegratedProposal": false,
+      "originalSha256": "f0b2e86367b1a2b73ca204018b663987157ff713d7a71758be9727bcc21fc085",
+      "integratedProposalSha256": null
+    },
+    {
+      "path": "packages/ui/src/foundation/ThemeScope.tsx",
+      "currentSha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "matchesOriginal": true,
+      "matchesIntegratedProposal": false,
+      "originalSha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "integratedProposalSha256": null
+    },
+    {
+      "path": "packages/ui/src/i18n/icu.ts",
+      "currentSha256": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+      "matchesOriginal": true,
+      "matchesIntegratedProposal": false,
+      "originalSha256": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+      "integratedProposalSha256": null
+    },
+    {
+      "path": "packages/ui/src/i18n/index.tsx",
+      "currentSha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "matchesOriginal": true,
+      "matchesIntegratedProposal": false,
+      "originalSha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "integratedProposalSha256": null
+    },
+    {
+      "path": "packages/ui/tests/browser/navigation-locale-motion.spec.ts",
+      "currentSha256": "76ae006bcc4b7081c19db06aacddac3167f5f4e094cba9a6d52799072cc1737c",
+      "matchesOriginal": false,
+      "matchesIntegratedProposal": true,
+      "originalSha256": null,
+      "integratedProposalSha256": "76ae006bcc4b7081c19db06aacddac3167f5f4e094cba9a6d52799072cc1737c"
+    },
+    {
+      "path": "packages/ui/tests/browser/translations-locale-acceptance.spec.ts",
+      "currentSha256": "c14b8f2db567fc4d5dfe8e56343f4f3fa8c8fcca02b23b19877af1178a334e1b",
+      "matchesOriginal": false,
+      "matchesIntegratedProposal": true,
+      "originalSha256": null,
+      "integratedProposalSha256": "c14b8f2db567fc4d5dfe8e56343f4f3fa8c8fcca02b23b19877af1178a334e1b"
+    },
+    {
+      "path": "packages/ui/src/i18n/icu.ts",
+      "currentSha256": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+      "matchesBuiltLocaleSource": true,
+      "recordedSha256": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035"
+    },
+    {
+      "path": "packages/ui/src/i18n/index.tsx",
+      "currentSha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "matchesBuiltLocaleSource": true,
+      "recordedSha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db"
+    },
+    {
+      "path": "packages/ui/src/experimental/Provider/Provider.tsx",
+      "currentSha256": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+      "matchesBuiltLocaleSource": true,
+      "recordedSha256": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d"
+    },
+    {
+      "path": "packages/ui/src/foundation/ThemeScope.tsx",
+      "currentSha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "matchesBuiltLocaleSource": true,
+      "recordedSha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6"
+    }
+  ],
+  "sideNavigationChangedSourceReview": {
+    "wholeSourceHashDifferent": true,
+    "scope": "Later styling/interaction changes mean no fresh whole-transitive-host equivalence claim. Current RTL motion declarations preserve the accepted signed-offset/reduced-motion contract; current existing navigation unit cases passed in the finite light run.",
+    "motionProjection": {
+      "oldOffsets": [
+        [
+          "forward",
+          "1rem"
+        ],
+        [
+          "back",
+          "-1rem"
+        ],
+        [
+          "forward",
+          "-1rem"
+        ],
+        [
+          "back",
+          "1rem"
+        ]
+      ],
+      "currentOffsets": [
+        [
+          "forward",
+          "1rem"
+        ],
+        [
+          "back",
+          "-1rem"
+        ],
+        [
+          "forward",
+          "-1rem"
+        ],
+        [
+          "back",
+          "1rem"
+        ]
+      ],
+      "rtlOverridePresent": true,
+      "reducedMotionPresent": true,
+      "keyframeTranslateVariablesPresent": true,
+      "offsetsUnchanged": true,
+      "privateVariableRename": "--sgui-navigation-* to --_side-navigation-*; normalized direction/value pairs are unchanged."
+    }
+  },
+  "lifecycle24": {
+    "receipt": "docs/developer/final-acceptance/wave-04/02/scoped-lifecycle/receipt.json",
+    "candidateSha256": "4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959",
+    "cases": 24,
+    "scope": "React18/19 \u00d7 ar-EG/fr-FR \u00d73engines \u00d7light/dark, hydration identity and live portal locale/direction/scope updates. Recorded exact tarball, not a new current-package claim.",
+    "sourceJoin": {
+      "packages/ui/scripts/test-scoped-lifecycle-consumer.mjs": {
+        "recorded": "1ec39f734446654f55f896b6c035b3ce958ca06520fd4312d580b65bc79a9b99",
+        "current": "1ec39f734446654f55f896b6c035b3ce958ca06520fd4312d580b65bc79a9b99",
+        "matches": true
+      },
+      "packages/ui/scripts/scope-hydration-proof.jsx": {
+        "recorded": "dac7017b6a9fbbe2651c259f749ed7e74669ceac1988658d11a35aa657e3f7f4",
+        "current": "dac7017b6a9fbbe2651c259f749ed7e74669ceac1988658d11a35aa657e3f7f4",
+        "matches": true
+      },
+      "packages/ui/scripts/packed-browser.mjs": {
+        "recorded": "d306b7f6b3e221fd358b807bca85336c46d00ee558aa8112a5c49645aabe2664",
+        "current": "d306b7f6b3e221fd358b807bca85336c46d00ee558aa8112a5c49645aabe2664",
+        "matches": true
+      }
+    }
+  },
+  "iconsCompiledJoin": {
+    "filesCompared": 785,
+    "mismatches": [],
+    "scope": "Only icon compiled files, not whole-host equivalence; root accepted the separate icon native/optical scope under I05."
+  },
+  "visual48": "Root reviewed final48 and retained all48zero-diff comparison. RTL/pseudo-label matrix is representative; the separate locale9cases establish actual Arabic count/date/number content. HB19/20 retain actual Arabic editor/chrome scopes.",
+  "currentUnitRun": {
+    "files": 7,
+    "passed": 198,
+    "newTests": 0,
+    "seconds": 4.41,
+    "runtime": "Node24.19.0",
+    "timing": "Finished before coordinator steering to avoid repeat light checks; no further test expansion."
+  },
+  "limits": [
+    "15selected locale/motion passes and6icon passes only; parent reports include unrelated failures/skips and are not described as wholly green.",
+    "No new browser/AT/build run. No spoken-delivery, all-locale, physical-device or universal visual claim.",
+    "H08originalcriterion does not require speech; prior H08-SPEECH follow-up is not imported into this leaf. X11 remains separate.",
+    "No executed inventory-align-direction native result inferred from source-only spec presence; current command/translated-RTL units, explicit logical/physical icon source and accepted native icon scopes are used."
+  ],
+  "codeChanges": false,
+  "countsChanged": false
+}
