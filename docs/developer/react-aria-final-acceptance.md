@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 267/320 A leaves closed; 53 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 269/320 A leaves closed; 51 A, 0 editor V review leaves and six future leaves remain.**
+
+### Grid state and cell acceptance completed — 2026-10-17
+
+Reconciled supported grid states, external live-region/busy behavior and retained row/focus/scroll context against existing unit/native evidence and reviewed state images. Three active Firefox clipboard cases now pass with real exact-text/JSON paste, visible focus, selection preservation and independent failure/cleanup assertions.
+Wave 04 now closes 88 of 139 items; 51 remain.
 
 ### Durable visual regression coverage accepted — 2026-10-17
 

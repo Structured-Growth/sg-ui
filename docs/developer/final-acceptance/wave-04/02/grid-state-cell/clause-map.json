@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-18T00:22:05.018023+00:00",
+  "status": "Reconciliation complete; approved Firefox3 passed; root decides original-leaf closure",
+  "productionChanges": [],
+  "centralCountsChanged": false,
+  "clauses": [
+    {
+      "id": "A-G-15",
+      "clauses": "Empty/no-results/loading/refresh/error and row-subheader behavior",
+      "source": [
+        "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+        "packages/ui/src/components/AppDataGrid/ownedGridParts.test.tsx",
+        "packages/ui/src/components/AppDataGrid/components/RowSubHeader.test.tsx"
+      ],
+      "basis": "Existing colocated assertions distinguish all five states, translated default messages, host Retry request, retained row controls, and host-controlled section expand/edit/actions. Source review only; no new unit run.",
+      "announcementScope": "Appropriate announcement implementation/DOM contract is supported: distinct named states, polite status versus assertive error, atomic content and named pending Progress. No concrete defect or unsupported promise found. Representative actual spoken AT review remains independently owned by X11; no utterance claim here."
+    },
+    {
+      "id": "A-G-15",
+      "clauses": "Retained context during request, error, retry, settlement; independent grid",
+      "source": [
+        "packages/ui/tests/browser/batch05-grid-busy.spec.ts",
+        "packages/ui/tests/browser/batch08-grid-retry-focus.spec.ts"
+      ],
+      "basis": "Existing native specs assert row identity, focused cell, both scroll axes, sibling independence, aria-busy and a single external polite/assertive region. Retry owner removal and later host focus covered. Historical acceptance is retained in its original scope; DOM MutationObserver counts are not speech.",
+      "evidence": [
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/final-acceptance/wave-03-followup/validation-results.json"
+      ]
+    },
+    {
+      "id": "A-G-15",
+      "clauses": "Rendered representative states",
+      "source": [
+        "apps/docs/native-fixtures/scenarios/foundation/VisualAcceptance.fixture.tsx"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-04/05/batch/visual-grid-fix/completion-receipt.json"
+      ],
+      "basis": "Reviewed visual-grid correction and zero-diff comparison covers representative selected/loading/empty/error panels. Does not prove speech or every cell/state permutation."
+    },
+    {
+      "id": "A-G-21",
+      "clauses": "Escaped text/JSON, locale and timezone dates, image fallback/retry, host link adapter and nested actions",
+      "source": [
+        "packages/ui/src/components/AppDataGrid/ownedGridCells.tsx",
+        "packages/ui/src/components/AppDataGrid/ownedGridCells.test.tsx",
+        "packages/ui/src/components/AppDataGrid/AppDataGrid.cells.test.tsx",
+        "packages/ui/src/components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx",
+        "packages/ui/tests/browser/inventory-learner-grid-cells.spec.ts"
+      ],
+      "basis": "Existing unit/public-grid cases cover literal escaped content and cyclic JSON, civil-date preservation, host timestamp zone, invalid date fallback, image load failure/source replacement and native link metadata/adapter. Existing native learner grid spec covers encoded destinations, one request, menu return focus, opener isolation and live locale/fallback replacement. Preserve historical evidence scope; no new broad native matrix warranted.",
+      "evidence": [
+        "docs/developer/react-aria-grid-cell-acceptance.md",
+        "docs/developer/backlog-execution-2026-10-15.md"
+      ]
+    },
+    {
+      "id": "A-G-21",
+      "clauses": "Firefox real clipboard paste and independent success/failure cleanup",
+      "source": [
+        "packages/ui/tests/browser/batch05-grid-clipboard.spec.ts",
+        "apps/docs/native-fixtures/scenarios/components/AppDataGrid/ownedGridCells.fixture.tsx"
+      ],
+      "basis": "Packet04 explicitly carries missing active Firefox receipt. Newer all-engine aggregate exists, but exact active raw case results were not recovered. Packet15 native-window-results contains only skips and is not passing evidence.",
+      "evidence": [
+        "docs/developer/final-acceptance/wave-04/04/validation-plan.json",
+        "docs/developer/final-acceptance/wave-04/15/implementation/native-window-results.json"
+      ],
+      "proposedRun": "Only existing native keyboard copy light/dark and injected controlled-rejection Firefox cases (3 active). No Chromium CDP denial claim; no speech claim.",
+      "result": "firefox-01/results.json:3expected,0unexpected,0skipped; exact active Firefox native clipboard successor passed"
+    }
+  ],
+  "sourceSha256": {
+    "apps/docs/native-fixtures/scenarios/components/AppDataGrid/ownedGridCells.fixture.tsx": "a19f8d67a1c7ef5f0313ffd859e4aecd8771c4ee3ef0b136d2044078b208459a",
+    "apps/docs/native-fixtures/scenarios/foundation/VisualAcceptance.fixture.tsx": "6bb970fa272eb271645823c8b7ffbae107747512f9d37a46c126c9677ce84be5",
+    "docs/developer/backlog-execution-2026-10-15.md": "75a4996497dd31574bd8a7fa82e01e2345aed262697ec0515de7ae3f60ad2809",
+    "docs/developer/final-acceptance/wave-03-followup/validation-results.json": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+    "docs/developer/final-acceptance/wave-04/04/validation-plan.json": "85bcfc24f86f036f9d376242ecae5f0d3c755467e7844280805de25e74c7b3ef",
+    "docs/developer/final-acceptance/wave-04/05/batch/visual-grid-fix/completion-receipt.json": "548bc4baf57fd29096ee27e2fe31fe0ede0b5c571aa7bf3e9853dce64a812cd3",
+    "docs/developer/final-acceptance/wave-04/15/implementation/native-window-results.json": "68ab8363bb41bcb7395153fd9f1a47c368192edff07dbb3350ebb7fba899c90f",
+    "docs/developer/react-aria-grid-cell-acceptance.md": "f458cb2e66bbcb2b00e33125863b7d78502884de8862654a321704ee34e1ba9f",
+    "packages/ui/src/components/AppDataGrid/AppDataGrid.cells.test.tsx": "50411f27e10ecf69d65d6037c35b1d7ae5e35f2bc838ac5071ccf5ad951289c7",
+    "packages/ui/src/components/AppDataGrid/components/RowSubHeader.test.tsx": "6adeb894520f6d34bb177a513f120bf89a52eaf95acf6129f87e70d57079f0ff",
+    "packages/ui/src/components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx": "e6cbd368d6dd165cd4ddeebdcc41ec6dd2a802d3190bc9e9fd24cc8629bf1ca2",
+    "packages/ui/src/components/AppDataGrid/ownedGridCells.test.tsx": "eaf5aa24f2cf0651fe5f11c3ce23306e3842961bbc54b626d1e096770e246f52",
+    "packages/ui/src/components/AppDataGrid/ownedGridCells.tsx": "f50829dbb7f1ce7942b87a7ffd1102c9721a3686d955b786731b944207ee0947",
+    "packages/ui/src/components/AppDataGrid/ownedGridParts.test.tsx": "88659b0ebd8ac8b8b4d737fcea71e0958d2a47d3c5d2d94660a85e689e72af38",
+    "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx": "d8914b3ed6ffcd7e87b4951821758ee788cb46ceed6e1fc7902770d7f032f1ec",
+    "packages/ui/tests/browser/batch05-grid-busy.spec.ts": "be9e28a13391e0b611232ef099df649bc6e6173599a1458f20ef4359ea4b76c2",
+    "packages/ui/tests/browser/batch05-grid-clipboard.spec.ts": "77d19c8a4845005babfa06a93ba4d3103c40b90b726311202fded5cbfe2facae",
+    "packages/ui/tests/browser/batch08-grid-retry-focus.spec.ts": "1aae010e3572e9a5be06b5977d4f4e0407adc98ad22570b3e146d1818e7d702f",
+    "packages/ui/tests/browser/inventory-learner-grid-cells.spec.ts": "e87c981e87e777d4690b11cb0ada68153502201eff2993fb15eb37d332bf1a8f"
+  },
+  "limits": [
+    "No actual AT utterance or ordering evidence generated.",
+    "Historical aggregate validation is not represented as a fresh current-head raw run.",
+    "No all-skipped result used as a pass."
+  ]
+}

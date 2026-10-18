@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 86,
-  "closedTotal": 267,
-  "remaining": 53,
+  "closedThisReview": 88,
+  "closedTotal": 269,
+  "remaining": 51,
   "entries": [
     {
       "id": "A-M-21",
@@ -767,6 +767,24 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-durable-visual-regression-review.json",
       "sha256": "f7ea1fc7940f35c7af4a79e46c80996e9580d4d69247df67d899390ea2365e3a",
       "limits": "Reviewed Chromium/macOS/font environment only, explicit regression command rather than portable Linux screenshot CI. No automatic image approval, threshold changes, spoken AT or physical-device claim. Documentation-only command expansion followed runtime comparison and was checked purely; compared doc bytes retained separately."
+    },
+    {
+      "id": "A-G-15",
+      "basis": "All named states and row-subheaders have owned translated semantics and supported host actions. Native busy/error/retry cases verify one external live region, correct status/alert changes, retained rows/focus/two-axis scroll and sibling independence; reviewed images establish representative rendered states.",
+      "criterion": "- [ ] A-G-15 Reconcile original `G-15`: Support empty, no-results, loading, refresh, error, and row-subheader states with appropriate announcements and preserved context. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-grid-states-cells-review.json",
+      "sha256": "f1b3471732a6b7f76bc8ce454ab327b18e6a83f318c34302209e862dff0a3615",
+      "limits": "Live-region assertions establish DOM/native contracts, not spoken output; representative speech remains X11. Clipboard failure case deliberately injects rejection and does not prove Firefox OS permission denial. Historical unit/native results retain original dates and inputs; no broad rerun or all-state matrix claim."
+    },
+    {
+      "id": "A-G-21",
+      "basis": "Public cells preserve adapter/native link metadata, escaping, date/timezone formatting and image fallback/replacement; retained tests cover original-row nested callbacks. Missing active Firefox clipboard receipt is now three passing native cases, including controlled error isolation and cleanup.",
+      "criterion": "- [ ] A-G-21 Reconcile original `G-21`: Preserve link adapter semantics, visible focus, copy success/error feedback, escaped JSON/text, date localization, and image fallback behavior in cells. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-grid-states-cells-review.json",
+      "sha256": "f1b3471732a6b7f76bc8ce454ab327b18e6a83f318c34302209e862dff0a3615",
+      "limits": "Live-region assertions establish DOM/native contracts, not spoken output; representative speech remains X11. Clipboard failure case deliberately injects rejection and does not prove Firefox OS permission denial. Historical unit/native results retain original dates and inputs; no broad rerun or all-state matrix claim."
     }
   ],
   "limits": [

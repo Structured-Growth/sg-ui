@@ -1,0 +1,48 @@
+{
+  "ids": [
+    "A-G-15",
+    "A-G-21"
+  ],
+  "status": "Source/live-contract reconciliation complete; missing active Firefox clipboard receipt recovered with3/3passes",
+  "productionChanges": [],
+  "centralCountsChanged": false,
+  "clauseMap": "clause-map.json",
+  "G15": "Original appropriate announcement contract supported by distinct translated states, polite/atomic status and assertive error, named pending Progress; external live region updates outside busy grid, retained row identity/focus/both scroll axes and independent grid native assertions. No concrete source or ordering defect found. Root reviews closure; no speech claim.",
+  "G21": "Existing unit/public-grid/native adapter evidence retained in original scope for escaping, dates/timezones, image fallback, encoded destinations and native semantics. New Firefox cases close specific raw native-copy receipt gap.",
+  "newNative": {
+    "result": "firefox-01/results.json",
+    "execution": "firefox-01/execution.json",
+    "stats": {
+      "startTime": "2026-10-18T00:22:24.584Z",
+      "duration": 19748.658,
+      "expected": 3,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cases": [
+      "native keyboard copy preserves focus, selection and escaped text/JSON: light",
+      "native keyboard copy preserves focus, selection and escaped text/JSON: dark",
+      "controlled rejection isolates feedback and replacement/unmount cleanup"
+    ],
+    "assertions": "Native keyboard activation and real paste exact escaped text/JSON; focus ring and focused action retained; row checkbox unchanged; empty copy disabled; feedback expiry; independent rejection feedback, replacement/unmount and stale completion cleanup.",
+    "controlledFailure": "Third case deliberately injects clipboard rejection. Does not prove Firefox OS permission denial. Chromium CDP-only case excluded."
+  },
+  "provenance": {
+    "admission": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05",
+    "runtime": "v24.19.0",
+    "hostDigest": "965c9041d147e4d54cc0ac14c97871e95227f0ce6284156dc11d875d26ebd01a",
+    "specSha256": "77d19c8a4845005babfa06a93ba4d3103c40b90b726311202fded5cbfe2facae",
+    "allAdmittedHostAndRuntimeSourceUnchangedAfterRun": true,
+    "filesChecked": 1310,
+    "builds": 0,
+    "installs": 0
+  },
+  "resources": "Ownedimmutable6173closed;canonicalheavy/legacy/portleasesreleased",
+  "limits": [
+    "Representative observed spoken AT belongs to X11; no utterance/order claim from DOM/native tests.",
+    "Historical accepted aggregate evidence remains dated and is not labeled a new current-head full suite.",
+    "All-skipped packet15 discovery retained as discovery only."
+  ],
+  "finishedAt": "2026-10-18T00:22:53.386359+00:00"
+}
