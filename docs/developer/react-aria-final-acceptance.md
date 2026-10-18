@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 275/320 A leaves closed; 45 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 276/320 A leaves closed; 44 A, 0 editor V review leaves and six future leaves remain.**
+
+### Native browser interaction acceptance reconciled — 2026-10-17
+
+Joined actual recorded engine-emulated touch/tap results with accepted pointer, clipboard, focus, viewport geometry and live portal checks. Five selected touch cases pass; the explicit Firefox target-sizing skip and all physical-device/clipboard-permission limits remain recorded. No new broad browser run is warranted.
+Wave 04 now closes 95 of 139 items; 44 remain.
 
 ### Initial theme and hydration acceptance completed — 2026-10-17
 

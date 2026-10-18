@@ -1,6 +1,6 @@
 # Remaining browser, visual and final acceptance work
 
-**Current open work:** 0 hardening (V) review items, 45 final-acceptance (A) items and six explicitly deferred future items. Completed items have been removed; evidence remains in the [execution receipt](backlog-execution-2026-10-15.md).
+**Current open work:** 0 hardening (V) review items, 44 final-acceptance (A) items and six explicitly deferred future items. Completed items have been removed; evidence remains in the [execution receipt](backlog-execution-2026-10-15.md).
 
 Priority: P3 — third, only after the required functionality baseline and regression tasks are complete. P4 final acceptance follows hardening. Known defects are recorded individually as `BUG-0001`, `BUG-0002`, etc. with reproduction, expected result, affected component, priority and linked regression; allocate IDs only when a real defect is found. Do not create empty defect tasks.
 
@@ -107,7 +107,6 @@ Each `A-*` acceptance item below reconciles one original parent with its impleme
 - [ ] A-X-06 Reconcile original `X-06`: Verify text/non-text contrast, visible focus, high contrast/forced colors, reduced motion, and state meaning beyond color. Historical status: open.
 - [ ] A-X-07 Reconcile original `X-07`: Verify target size/spacing against WCAG requirements and aim for comfortable primary touch targets; test coarse-pointer use rather than shrinking every hit area with density. Historical status: open.
 - [ ] A-X-08 Reconcile original `X-08`: Provide both keyboard and single-pointer non-drag alternatives for drag operations where required; keyboard support alone does not satisfy every dragging requirement. Historical status: open.
-- [ ] A-X-09 Reconcile original `X-09`: Test real browser interaction, including pointer/touch, focus, layout, portals and clipboard; DOM-emulation tests alone are insufficient. Historical status: open.
 - [ ] A-X-10 Reconcile original `X-10`: Establish supported Chrome/Firefox/WebKit browser checks and document representative touch and assistive-technology coverage. Historical status: open.
 - [ ] A-X-11 Reconcile original `X-11`: Perform manual screen-reader reviews of representative dialogs, selectors, calendars, navigation, tables and editors; document platform/version and findings. Historical status: open.
 - [ ] A-X-13 Reconcile original `X-13`: Add browser interaction stories/tests for all changed behavior; keep deterministic local fixtures and no authentication/database/network dependency. Historical status: open.

@@ -1,0 +1,63 @@
+{
+  "status": "original-real-browser-interaction-clause-supported",
+  "originalCriterion": "Real browser pointer/touch, focus, layout, portals and clipboard; DOM-emulation alone insufficient",
+  "retainedTouch": {
+    "path": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+    "sha256": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+    "cases": [
+      {
+        "title": "auto coarse-pointer and explicit touch preserve control targets, tag spacing, activation and focus",
+        "project": "chromium",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "auto coarse-pointer and explicit touch preserve control targets, tag spacing, activation and focus",
+        "project": "firefox",
+        "results": [
+          "skipped"
+        ]
+      },
+      {
+        "title": "auto coarse-pointer and explicit touch preserve control targets, tag spacing, activation and focus",
+        "project": "webkit",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "emulated touch invokes one ordinary, anchor, toggle and native-form activation",
+        "project": "chromium",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "emulated touch invokes one ordinary, anchor, toggle and native-form activation",
+        "project": "firefox",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "emulated touch invokes one ordinary, anchor, toggle and native-form activation",
+        "project": "webkit",
+        "results": [
+          "passed"
+        ]
+      }
+    ],
+    "scope": "Engine-emulated touch/coarse-pointer contexts with actual taps and trusted touch-event assertion; one explicit Firefox target-sizing skip retained. No physical device claim."
+  },
+  "otherAcceptedScopes": {
+    "clipboard": "docs/developer/final-acceptance/wave-04/02/grid-state-cell/receipt.json",
+    "focus": "docs/developer/final-acceptance/wave-04/02/keyboard-focus/receipt.json",
+    "layout": "docs/developer/final-acceptance/wave-04/coordinator/css-fallback/receipt.json",
+    "portals": "docs/developer/final-acceptance/wave-04/02/scoped-lifecycle/receipt.json",
+    "rendered": "docs/developer/final-acceptance/wave-04/05/batch/visual-grid-fix/completion-receipt.json"
+  },
+  "clarification": "The user prefers simulated phone testing. The quoted X09 criterion requires real browser interaction, not physical hardware; the separate physical/AT/support reviews remain open. Clipboard controlled rejection is explicitly injected and is not Firefox OS permission-denial evidence.",
+  "newRuns": 0,
+  "limits": "Retained cases stay at their original source/runtime; no whole-parent green, physical touch, spoken AT or universal clipboard-policy assertion."
+}
