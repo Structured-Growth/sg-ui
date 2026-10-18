@@ -1,7 +1,8 @@
 import {expect,test} from '@playwright/test';
 const fixture='/fixtures/?id=migration-proofs-daterangeselector--compact-navigation&embed=true';
-for(const density of ['compact','comfortable'])test(`clean ${density} calendar has tight cells and aligned navigation without default scrolling`,async({page},info)=>{
+for(const {density,wideFont=false} of [{density:'compact'},{density:'comfortable'},{density:'compact',wideFont:true}])test(`clean ${density} calendar${wideFont?' with a wide host font':''} has tight cells and aligned navigation without default scrolling`,async({page},info)=>{
  await page.goto(fixture+`&globals=density:${density}`);
+ if(wideFont)await page.addStyleTag({content:'[data-sgui-part="date-range-selector"] { --sgui-font-family: Verdana, sans-serif; }'});
  const root=page.locator('[data-sgui-part="date-range-selector"]');
  await expect(page.getByRole('textbox')).toHaveCount(0);
  await expect(page.getByRole('slider')).toHaveCount(0);
@@ -16,6 +17,7 @@ for(const density of ['compact','comfortable'])test(`clean ${density} calendar h
  const boxes=await Promise.all([header.boundingBox(),previous.boundingBox(),next.boundingBox()]);
  expect(boxes[0]!.x).toBeLessThan(boxes[1]!.x);expect(boxes[1]!.x).toBeLessThan(boxes[2]!.x);
  expect(Math.abs(boxes[1]!.y-boxes[2]!.y)).toBeLessThan(1);
+ for(const box of boxes.slice(1)){expect(box!.width).toBeGreaterThanOrEqual(density==='compact'?32:44);expect(box!.height).toBeGreaterThanOrEqual(density==='compact'?32:44);}
  expect(await grid.evaluate(e=>e.scrollWidth<=e.clientWidth+1)).toBe(true);
  await next.click();await expect(next).toBeFocused();
  await expect(page.locator('header').getByText('November 2026',{exact:true})).toBeVisible();

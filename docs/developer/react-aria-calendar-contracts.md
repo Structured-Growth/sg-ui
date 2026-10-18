@@ -1005,9 +1005,16 @@ the calendar when both fit. Constrained hosts wrap panels in their existing DOM
 order, preserving before/after placement and keyboard order. Endpoint fields keep
 their usable width; this correction does not shrink controls or touch targets.
 
-## Calendar row alignment checkpoint
+## Compact static calendar heading checkpoint
 
-Calendar table cells align to the top of their row so platform font baselines do
-not enlarge the six-week layout during month paging. The compact-navigation
-native check retains its constant-height assertion and records before/after row
-geometry; the Linux confirmation remains part of the current full checkpoint.
+Static month headings retain a single row with their previous/next controls at
+compact pointer sizes. Their header removes surplus column gaps and uses narrow
+horizontal arrow padding while retaining shared minimum pointer/touch targets.
+The heading can still wrap when the host's text or locale genuinely needs it;
+no month text is clipped or hidden. A wider host-font case reproduces the Linux
+November wrapping failure locally and retains the exact October/November height,
+button alignment, visible labels and narrow-viewport assertions.
+
+The initial cell-alignment hypothesis was disproved by the retained Linux
+screenshot: the extra height came from the heading. That unrelated cell change
+is removed. Earlier receipts retain their actual code and failure outcomes.

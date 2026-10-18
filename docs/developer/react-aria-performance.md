@@ -269,3 +269,36 @@ Raw samples, baseline/candidate inventories, frame-opportunity method, timings a
 host load averages remain retained. The composed host totals246,048baseline and
 246,979currentgzipbytes across all emitted output, including both renderers;
 these are conservative totals, not minimum route payloads, paint timings or INP.
+
+## Package-size follow-up after native focus fixes
+
+The separately retained `backlog-to-ten/bundles-03` audit consumes archive
+`885f3fd9fa90ad80dd1871dd77feab3283c992f219c49c4b1127adc780c57d68`
+from distribution digest
+`393ebefedd7db8586ecba34b8564b52a67e91b92e7160967fefaff3fbc9b7871`.
+All fourteen installed import boundaries and the independent React19 foundation
+consumer pass. `source-input-join-03.json` joins all874 UI files to local proposed
+commit `c7b2192dbb6d51284a64135ab5ebbebb4cd8fd91` and the fresh native-27 build.
+This remains local, unmerged evidence, separate from official Actions artifacts.
+
+Compared with bundles-02 under the same Node24/React19 import method, Button and
+AppDataGrid JavaScript bytes remain identical. Shared CSS grows612 raw bytes /
+76 gzip-level9 bytes to253,767 /22,326. The editor JavaScript grows248 raw /62
+compressed bytes to888,597 /237,441. Per-boundary values, hashes and deltas are in
+`bundles-03/comparison.json`. Earlier grid timings retain their exact f049 source;
+this follow-up does not relabel those timings, claim improved latency or supply
+representative-machine budgets for A-P-08/A-X-19.
+
+### Bounded catalog selection-tail repeat
+
+`backlog-to-ten/performance-07-catalog-tail` repeats only the catalog large-page
+workload (three warmups, nine measured navigations and450 recorded updates) on
+the c7b2192 local distribution above. It is an explicit diagnostic, not a new
+complete matrix or a replacement for performance-06. Fixture/runner bytes,
+method, viewport and the recorded runtime/browser/hardware fields match. The
+active-update disposal probe and all post-navigation cleanup checks pass.
+Selection median/p95 are268.1/318ms, versus266.2/514.5ms in performance-06;
+input median/p95 are269.3/375.9ms versus264.7/381.9ms. Update median/p95 are
+270.7/585.7ms versus267.9/598.5ms. The nine-sample selection maximum did not recur;
+its cause remains unestablished. Required slower-hardware/budget work and stable
+repetitions remain open; this is no universal speed, INP or physical-input claim.

@@ -18,6 +18,10 @@
   .periodViewport { position: relative; }
   .periodContents { position: absolute; inset: 0; overflow: auto; overscroll-behavior: contain; }
   .monthHeader { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; min-block-size: var(--calendar-day-size); gap: var(--sgui-space1); }
+  /* Keep full pointer/touch targets while reserving the heading's text width.
+     Default button padding and two gaps can wrap long months with host fonts. */
+  .monthHeader:has(.heading) { column-gap: 0; }
+  .monthHeader:has(.heading) > :is(.previous, .next) { padding-inline: var(--sgui-space1); }
   .monthHeader:has(.monthSelectors) { align-items: end; }
   .monthHeading { grid-column: 1; grid-row: 1; text-align: start; }
   .monthSelectors { display: flex; gap: var(--sgui-space1); align-items: end; min-inline-size: 0; }
@@ -41,7 +45,7 @@
   .month { container-type: inline-size; flex: 0 0 var(--calendar-month-width); box-sizing: border-box; inline-size: var(--calendar-month-width); max-inline-size: 100%; min-inline-size: 0; text-align: center; }
   .gridViewport { min-block-size: calc(6 * var(--calendar-day-size) + 8 * var(--sgui-space1) + var(--sgui-caption-size) * var(--sgui-caption-line-height)); box-sizing: border-box; inline-size: 100%; max-inline-size: 100%; min-inline-size: 0; overflow-x: auto; }
   .grid { table-layout: fixed; border-spacing: 0 var(--sgui-space1); inline-size: 100%; min-inline-size: calc(7 * var(--calendar-day-size)); }
-  .grid td { padding: 0; vertical-align: top; }
+  .grid td { padding: 0; }
   .weekday { padding: 0; font-size: var(--sgui-caption-size); line-height: var(--sgui-caption-line-height); white-space: nowrap; font-weight: var(--sgui-action-weight); color: var(--sgui-date-range-selector-weekday-text); }
   .weekday::after { content: attr(data-narrow-label); display: none; }
   @container (max-width: 22rem) {
