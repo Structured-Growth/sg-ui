@@ -1,0 +1,48 @@
+name: Firefox tooltip viewport diagnostic
+on:
+  push:
+    branches: [codex/tooltip-viewport-debug-9ca3e666]
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    name: Firefox viewport diagnostic
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash
+        working-directory: packages/ui
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - name: Record diagnostic identity
+        run: |
+          mkdir -p artifacts/logs
+          git rev-parse HEAD > artifacts/logs/head.txt
+          node --version > artifacts/logs/node.txt
+      - run: pnpm build
+      - run: pnpm build:browser-docs
+      - run: pnpm exec playwright install --with-deps firefox
+      - name: Repeat only the retained failure with native viewport diagnostics
+        timeout-minutes: 8
+        run: xvfb-run --auto-servernum pnpm test:browser --project=firefox --headed --grep 'combined dialog, menu, tooltip and editor dialog' --repeat-each=3 2>&1 | tee artifacts/logs/browser.txt
+      - name: Preserve diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: sgui-firefox-tooltip-diagnostic
+          path: |
+            packages/ui/artifacts/logs/
+            packages/ui/artifacts/browser-results.json
+            packages/ui/artifacts/browser-report/
+            packages/ui/artifacts/browser-traces/
+          retention-days: 14
