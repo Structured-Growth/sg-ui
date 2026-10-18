@@ -1,0 +1,60 @@
+{
+  "entries": [
+    {
+      "id": "A-C-11",
+      "basis": "TextField adornment uses one explicit&child rule while retaining an identical flat baseline, avoiding a new browser-floor requirement. The owned CSS guard enforces one nesting level/single parent/one leading& and preserves existing layer/token/global/typography checks. Fourteen affected compiler/guard tests and3artifact fixtures pass; library build preserves445DTS. Actual raw public CSS is byte-verified and loaded separately from Vite lowering. Chromium/Firefox/WebKit each disable all3flat declarations, observe native16x16 then50%8x16, verify fallback16x16, restore CSSOM and preserve value/focus/320pxfit. Initial3consumer-lowering assumption failures remain retained; corrected host reuses identical modules plus exact raw sidecar, without another module/library build.",
+      "criterion": "- [ ] A-C-11 Reconcile original `C-11`: Use native nesting with documented tooling/browser support; keep selector depth shallow and component ownership obvious. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/native-nesting/receipt.json",
+      "sha256": "90b34f9d083fa0e6ba0ecba7a894c768f1e5ead5871b3991a7b495e897699841"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/native-nesting/report.md",
+      "sha256": "bc2ae05351778088a1aca96254ab8e195ce8160095807c897b09130c805a1644"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/native-nesting/applied-validation.json",
+      "sha256": "4babba39a2c0b46f16345c39ec03334de2e602be2770b39573ab1ccd6424134f"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/native-nesting/native-parity-summary.json",
+      "sha256": "4c59c9fb1ad607079ce6ecbde00cf86243cdad66e8aeb8dfc539e2c343c417ef"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/results.json",
+      "sha256": "58b9cec620e58b090ac8391e9056830ab3d27ce37db95c34ddcf9185c1675cc3"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/native-nesting/native-02/results.json",
+      "sha256": "dc0f74386ddabb8b630658813c4aee3e050f1ece41528a9fb392fe27951f1f5a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/native-nesting/native-02/execution.json",
+      "sha256": "2d79f2381e9e6e9e32df98ffb0ef267fc93c6c48f8050c57a6feb1d4b82b1efb"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/native-nesting/browser-support.md",
+      "sha256": "1babd42ef862f9ea0e887230189bbec16b21952ab83f0feac9a204497d54d8e3"
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/TextField.module.css",
+      "sha256": "0f0f84fd5b3e0317ca3c71c569da0a3ad5eda03574a3366604cb371bae6d4379"
+    },
+    {
+      "path": "packages/ui/scripts/check-component-css.mjs",
+      "sha256": "d05cdbefa9483ab0e2a85f6f228b131784b5e394d8a2247bace564d8bf879067"
+    },
+    {
+      "path": "packages/ui/scripts/css-modules.test.mjs",
+      "sha256": "840d26fb971ff72c23c0552d08cfa12e0332db361f9e02040f80338b6a093b77"
+    },
+    {
+      "path": "packages/ui/scripts/build-browser-docs.mjs",
+      "sha256": "b00f009cd533ddfddcf8d1ad150efc587a9a1b8086178786b43d968ce8982863"
+    }
+  ],
+  "limits": "Explicit-&support is documented separately from relaxed parsing. Current Chromium153/Firefox155/WebKit26.6 evidence does not certify historical minimum versions, physical Safari/mobile or legacy browsers. Flat fallback preserves the prior rule. No public API, numeric browser floor, baseline, broad catalog/fixture source or release change."
+}

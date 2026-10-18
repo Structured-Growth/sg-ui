@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 114,
-  "closedTotal": 295,
-  "remaining": 25,
+  "closedThisReview": 115,
+  "closedTotal": 296,
+  "remaining": 24,
   "entries": [
     {
       "id": "A-M-21",
@@ -1019,6 +1019,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/d15-current-state-design-and-painted-indicators.json",
       "sha256": "ba6fcb8522473202b16d1a2a85fedaa79eaec48fab4f5f3986377f3e741f4a7f",
       "limits": "Design/applicability obligation with bounded native evidence, not all-library runtime certification or Cartesian browser/identity matrix. Original test-setup failures and computed-style false assurance remain preserved. X06 contrast/environment coverage, X07targetsize and X11spokenAT stay open. No baseline update, physical-device, publication or broad visual acceptance inferred."
+    },
+    {
+      "id": "A-C-11",
+      "basis": "TextField adornment uses one explicit&child rule while retaining an identical flat baseline, avoiding a new browser-floor requirement. The owned CSS guard enforces one nesting level/single parent/one leading& and preserves existing layer/token/global/typography checks. Fourteen affected compiler/guard tests and3artifact fixtures pass; library build preserves445DTS. Actual raw public CSS is byte-verified and loaded separately from Vite lowering. Chromium/Firefox/WebKit each disable all3flat declarations, observe native16x16 then50%8x16, verify fallback16x16, restore CSSOM and preserve value/focus/320pxfit. Initial3consumer-lowering assumption failures remain retained; corrected host reuses identical modules plus exact raw sidecar, without another module/library build.",
+      "criterion": "- [ ] A-C-11 Reconcile original `C-11`: Use native nesting with documented tooling/browser support; keep selector depth shallow and component ownership obvious. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/c11-native-nesting-with-fallback.json",
+      "sha256": "0fe34cfab012517701d376138f5c36a552d4dbb2631c82aad0f109fe33f39176",
+      "limits": "Explicit-&support is documented separately from relaxed parsing. Current Chromium153/Firefox155/WebKit26.6 evidence does not certify historical minimum versions, physical Safari/mobile or legacy browsers. Flat fallback preserves the prior rule. No public API, numeric browser floor, baseline, broad catalog/fixture source or release change."
     }
   ],
   "limits": [

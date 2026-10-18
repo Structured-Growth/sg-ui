@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 295/320 A leaves closed; 25 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 296/320 A leaves closed; 24 A, 0 editor V review leaves and six future leaves remain.**
+
+### Native nesting and shallow ownership completed — 2026-10-17
+
+Closed A-C-11 with a production explicit-&TextField rule, matching flat fallback, maintained depth/ownership guards and compiler tests. Corrected native-only/fallback-only parity passes all three current browser engines against byte-verified distributed CSS.
+Wave 04 now closes 115 of 139 items; 24 remain.
 
 ### Current state-design inventory completed — 2026-10-17
 
