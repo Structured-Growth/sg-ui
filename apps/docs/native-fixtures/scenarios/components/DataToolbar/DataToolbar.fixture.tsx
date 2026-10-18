@@ -124,7 +124,11 @@ export function ContainerBoundaryPreview({ enlarged = false }: { enlarged?: bool
   const [expanded, setExpanded] = useState(false);
   const [events, setEvents] = useState<string[]>([]);
   const record = (event: string) => setEvents(previous => [...previous, event]);
-  return <Provider style={enlarged ? { "--sgui-label-size": "1.75rem", "--sgui-body-size": "2rem" } : undefined}>
+  return <Provider style={enlarged ? {
+    "--sgui-label-size": "1.75rem", "--sgui-body-size": "2rem",
+    "--sgui-compact-control-text-size": "1.5rem",
+    "--sgui-comfortable-control-text-size": "1.75rem",
+  } : undefined}>
     <Button onPress={() => setExpanded(value => !value)}>Resize narrow host</Button>
     <div data-testid="outer-toolbar-container" style={{ inlineSize: 1120, container: "sgui-data-toolbar / inline-size" }}>
       {(["Narrow", "Wide"] as const).map(name => <section key={name} aria-label={`${name} toolbar host`}

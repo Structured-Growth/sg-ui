@@ -68,11 +68,18 @@ placement contract. Enlarged text and longer host labels may wrap actions; keep
 the allocated width sufficient for the host's controls and test visible focus,
 keyboard menu activation/dismissal and search focus through host resizing.
 
-The ContainerBoundary and ContainerBoundaryEnlarged stories provide independent
-320px/800px hosts in a fixed wider ancestor and a host resize action. Prepared
-native geometry/focus/menu cases are recorded in
-[batch-165 evidence](parallel-batch-165/toolbar-container-boundary.md); browser
-execution and broader device/assistive-technology acceptance remain pending.
+The private docs-native ContainerBoundary and ContainerBoundaryEnlarged fixtures
+provide independent 320px/800px hosts in a fixed wider ancestor and a host resize
+action. The enlarged fixture doubles the owned compact/comfortable control-text
+tokens; label/body overrides alone do not enlarge Button and TextField controls.
+The two existing native cases verify actual computed font sizes, control content
+bounds, exact query widths, resizing, sibling drafts, callbacks, menu actions and
+keyboard focus. All six executions pass in Chromium, Firefox and WebKit on a fresh
+immutable fixture host with the library output unchanged; see the
+[current receipt](final-acceptance/wave-04/05/batch/c08-c12-d09/completion-receipt.json).
+The [batch-165 evidence](parallel-batch-165/toolbar-container-boundary.md) retains its
+original preparation scope. These are container/text stress checks, not actual
+browser zoom, physical-device or spoken assistive-technology evidence.
 
 M-16–M-19 and G integration/acceptance remain open: toolbar migration does not
 complete grid state processing, page resets, persistence, row focus/reorder,

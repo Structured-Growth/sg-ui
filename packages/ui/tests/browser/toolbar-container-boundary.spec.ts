@@ -37,6 +37,19 @@ for (const enlarged of [false, true]) {
     // Exact input widths distinguish adaptation from incidental flex shrinking.
     await expect(narrowInput).toHaveCSS('width', '160px');
     await expect(wideInput).toHaveCSS('width', '240px');
+    // Verify enlargement reaches the production control typography roles.
+    // Label/body overrides alone leave these controls at their ordinary size.
+    const rem = await page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).fontSize));
+    for (const input of [narrowInput, wideInput]) {
+      await expect.poll(() => input.evaluate(node => parseFloat(getComputedStyle(node).fontSize)))
+        .toBeCloseTo(rem * (enlarged ? 1.5 : .75), 1);
+    }
+    for (const toolbar of [narrow, wide]) {
+      await expect.poll(() => toolbar.getByRole('button', { name: 'Create course', exact: true })
+        .evaluate(node => parseFloat(getComputedStyle(node).fontSize)))
+        .toBeCloseTo(rem * (enlarged ? 1.75 : .875), 1);
+    }
+
     const narrowAction = await narrow.getByRole('button', { name: 'Create course', exact: true }).boundingBox();
     const narrowSearch = await narrowInput.boundingBox();
     expect(narrowSearch!.y).toBeGreaterThanOrEqual(narrowAction!.y + narrowAction!.height);
@@ -45,8 +58,14 @@ for (const enlarged of [false, true]) {
     expect(Math.abs(wideAction!.y + wideAction!.height / 2 - wideSearch!.y - wideSearch!.height / 2)).toBeLessThanOrEqual(1);
     await narrowInput.fill('draft'); await wideInput.fill('published');
     for (const toolbar of [narrow, wide]) {
-      for (const control of await toolbar.getByRole('button').all()) await insideInlineBounds(toolbar, control);
+      for (const control of await toolbar.getByRole('button').all()) {
+        await insideInlineBounds(toolbar, control);
+        expect(await control.evaluate(node => node.scrollWidth <= node.clientWidth + 1 && node.scrollHeight <= node.clientHeight + 1),
+          'Enlarged action label stays inside its reachable button').toBe(true);
+      }
       await insideInlineBounds(toolbar, toolbar.getByRole('searchbox'));
+      expect(await toolbar.getByRole('searchbox').evaluate(node => node.scrollWidth <= node.clientWidth + 1 && node.scrollHeight <= node.clientHeight + 1),
+        'Enlarged search input remains usable within its allocated field').toBe(true);
       const searchBox = await toolbar.getByRole('searchbox').boundingBox();
       const closeBox = await toolbar.getByRole('button', { name: 'Clear and close search' }).boundingBox();
       expect(searchBox!.x + searchBox!.width).toBeLessThanOrEqual(closeBox!.x + 1);
