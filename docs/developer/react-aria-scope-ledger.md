@@ -332,6 +332,8 @@ Checklist IDs cover all 37 current directories, including catalog-only directori
 | M-37 | primitives | Replace every reexport with an owned implementation/type or documented removal |
 
 
+Current M-01–M-37 tracking is maintained in the [37-row migration map](react-aria-migration-inventory-acceptance.md), with integrated commits, transitive-boundary evidence and separate F/T/V versus original-A dispositions. The acceptance counts and checkboxes in the dated 2026-10-07 snapshot below are historical evidence, not current completion totals.
+
 Inventory whole-row acceptance reconciled 2026-10-07 from
 [the inventory evidence record](react-aria-migration-inventory-acceptance.md).
 These checkbox entries score the same stable IDs as the table above, not extra

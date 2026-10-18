@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 281/320 A leaves closed; 39 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 282/320 A leaves closed; 38 A, 0 editor V review leaves and six future leaves remain.**
+
+### Individual migration tracking completed — 2026-10-17
+
+Recovered all37original component rows from authoritative accepted ledgers and linked each to implementation, actual dev commit and phase validation. The frozen map records35accepted rows and preserves M16/M18 broad acceptance as open. Per-row committed-source graphs cover387unique files with zero retired/unresolved references; current uncommitted accessibility work is explicitly separate.
+Wave 04 now closes 101 of 139 items; 38 remain.
 
 ### Upstream source provenance verified read-only — 2026-10-17
 

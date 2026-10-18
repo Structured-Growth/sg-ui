@@ -2,6 +2,8 @@
 
 Current-link maintenance (2026-10-17): links to removed story files now point to their docs-owned native fixture replacements. Historical execution claims below retain their original scope and dates.
 
+Current M-01–M-37 implementation, dev-commit, transitive-boundary and phase/acceptance tracking is in the [37-row migration map](react-aria-migration-inventory-acceptance.md). Historical execution entries below retain their original dates and scopes.
+
 ## Backlog sequencing update — 2026-10-08
 
 Follow-up priority clarification: enforce functionality → regression → hardening

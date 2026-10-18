@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "rows": 37,
+  "openOriginalRows": [
+    "M-16",
+    "M-18"
+  ],
+  "localValidationLinks": 148,
+  "currentGuideLinks": 116,
+  "allCommitsAncestorOfDev": true,
+  "headAuditFiles": 387,
+  "workingAuditFiles": 388,
+  "canonicalSha256": "47ab4af14948bf161cbfbf1e6962a3f77777a77da084f34fe823f9b3a7bc7121"
+}

@@ -1,0 +1,12 @@
+{
+  "startedAt": "2026-10-18T01:00:21.727Z",
+  "runtime": "v24.19.0",
+  "command": [
+    "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "scripts/check-foundations.mjs"
+  ],
+  "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+  "status": "pass",
+  "finishedAt": "2026-10-18T01:00:26.350Z",
+  "cleanup": "Owned light slot released; no heavy/build/browser/install"
+}

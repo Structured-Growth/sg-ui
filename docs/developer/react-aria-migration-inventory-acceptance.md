@@ -1,5 +1,77 @@
 # Migration inventory acceptance reconciliation
 
+## Current M-01–M-37 tracking — 2026-10-17
+
+The [37-row tracking map](migration-tracking.json) supersedes the historical Hold
+recommendations below. It joins the earlier accepted wave-02 reconciliation with
+later coordinator closures: 35 original individual rows are accepted; broad
+A-M-16 and A-M-18 remain open. All F/T/V baseline phases are shipped and accepted
+in their recorded scopes. These are separate claims, and this tracking work does
+not close any shared acceptance or release gate.
+
+Each row records actual implementation/test paths and hashes, a commit verified
+as an ancestor of `dev`, original acceptance and validation receipts, and a
+recursive source-boundary audit. [Frozen HEAD source evidence](final-acceptance/wave-04/02/migration-tracking/head-boundary-row-audit.json)
+found no retired/unresolved relative dependencies in the 37 integrated row graphs;
+[working-source graphs](final-acceptance/wave-04/02/migration-tracking/boundary-row-audit.json)
+are recorded separately. The
+[maintained foundation guard](final-acceptance/wave-04/02/migration-tracking/validation.json)
+also passed. Concurrent X08 working changes are listed separately with their
+HEAD/working hashes; they are not represented as committed or behavior-validated.
+
+[Historical PR #1](https://github.com/Structured-Growth/sg-ui/pull/1) is initial
+combined attribution, not a required new review gate. Later human-authorized
+direct `dev` integrations use actual commit links below. A latest implementation
+commit alone does not establish acceptance; its row-specific reconciliation and
+validation record supplies that evidence. Typefaces is now a docs/native catalog;
+Button replaces the historical AppButton name. Storybook is removed.
+
+| Row | Current implementation / catalog | Integrated implementation commit | Original row acceptance / validation | Transitive boundary |
+| --- | --- | --- | --- | --- |
+| M-01 | [Button (AppButton removed)](../../packages/ui/src/components/Button/Button.tsx) | [540f47d4](https://github.com/Structured-Growth/sg-ui/commit/540f47d4059a9cea8890b80927f34f51ef2fbc3e) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C01 | 6 HEAD files, 0 retired/unresolved |
+| M-02 | [AppInlineProgress](../../packages/ui/src/components/AppInlineProgress/AppInlineProgress.tsx) | [530bbc00](https://github.com/Structured-Growth/sg-ui/commit/530bbc00465d9dbf1e9948f8a2c01b2e51b1a479) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C02 | 6 HEAD files, 0 retired/unresolved |
+| M-03 | [AppOperationSteps](../../packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx) | [530bbc00](https://github.com/Structured-Growth/sg-ui/commit/530bbc00465d9dbf1e9948f8a2c01b2e51b1a479) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C03 | 12 HEAD files, 0 retired/unresolved |
+| M-04 | [AppPageHeader](../../packages/ui/src/components/AppPageHeader/AppPageHeader.tsx) | [530bbc00](https://github.com/Structured-Growth/sg-ui/commit/530bbc00465d9dbf1e9948f8a2c01b2e51b1a479) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C04 | 18 HEAD files, 0 retired/unresolved |
+| M-05 | [AppPageTabs](../../packages/ui/src/components/AppPageTabs/AppPageTabs.tsx) | [24b75801](https://github.com/Structured-Growth/sg-ui/commit/24b758011c2457fd0947c466b19e755ba3ee34d6) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C05 | 21 HEAD files, 0 retired/unresolved |
+| M-06 | [AppShell](../../packages/ui/src/components/AppShell/AppShell.tsx) | [d3201f0f](https://github.com/Structured-Growth/sg-ui/commit/d3201f0f0ca68aa006a880a2f63a9dd8d8c8845e) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C06 | 4 HEAD files, 0 retired/unresolved |
+| M-07 | [AuthShell](../../packages/ui/src/components/AuthShell/AuthShell.tsx) | [530bbc00](https://github.com/Structured-Growth/sg-ui/commit/530bbc00465d9dbf1e9948f8a2c01b2e51b1a479) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C07 | 4 HEAD files, 0 retired/unresolved |
+| M-08 | [AppModal](../../packages/ui/src/components/AppModal/AppModal.tsx) | [540f47d4](https://github.com/Structured-Growth/sg-ui/commit/540f47d4059a9cea8890b80927f34f51ef2fbc3e) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C08 | 8 HEAD files, 0 retired/unresolved |
+| M-09 | [SideNavigation](../../packages/ui/src/components/SideNavigation/SideNavigation.tsx) | [bd169b54](https://github.com/Structured-Growth/sg-ui/commit/bd169b54b0d245987289308d96eda39e059fccb9) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C09 | 24 HEAD files, 0 retired/unresolved |
+| M-10 | [ExperiencePageNavigator](../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx) | [9c9e2e83](https://github.com/Structured-Growth/sg-ui/commit/9c9e2e830d17d7c855f8af75f576aa950a4c6bea) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C10 | 24 HEAD files, 0 retired/unresolved |
+| M-11 | [CardCollectionWithFooter](../../packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx) | [530bbc00](https://github.com/Structured-Growth/sg-ui/commit/530bbc00465d9dbf1e9948f8a2c01b2e51b1a479) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C11 | 11 HEAD files, 0 retired/unresolved |
+| M-12 | [AppPaginationFooter (preserved CardPaginationFooter directory)](../../packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.tsx) | [530bbc00](https://github.com/Structured-Growth/sg-ui/commit/530bbc00465d9dbf1e9948f8a2c01b2e51b1a479) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C12 | 9 HEAD files, 0 retired/unresolved |
+| M-13 | [ClassCardFrame](../../packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx) | [530bbc00](https://github.com/Structured-Growth/sg-ui/commit/530bbc00465d9dbf1e9948f8a2c01b2e51b1a479) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C13 | 5 HEAD files, 0 retired/unresolved |
+| M-14 | [InstructorClassCard](../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx) | [9c236b1a](https://github.com/Structured-Growth/sg-ui/commit/9c236b1a1185454b8b70ffc08e4c7ae1a8a19522) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C14 | 19 HEAD files, 0 retired/unresolved |
+| M-15 | [LearnerClassCard](../../packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx) | [540f47d4](https://github.com/Structured-Growth/sg-ui/commit/540f47d4059a9cea8890b80927f34f51ef2fbc3e) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C15 | 26 HEAD files, 0 retired/unresolved |
+| M-16 | [AppDataGrid](../../packages/ui/src/components/AppDataGrid/AppDataGrid.tsx) | [bd169b54](https://github.com/Structured-Growth/sg-ui/commit/bd169b54b0d245987289308d96eda39e059fccb9) | [Open — G acceptance](final-acceptance/wave-02-reconciliation.json); F/T/V-C16 | 89 HEAD files, 0 retired/unresolved |
+| M-17 | [AppDataGridShell](../../packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx) | [540f47d4](https://github.com/Structured-Growth/sg-ui/commit/540f47d4059a9cea8890b80927f34f51ef2fbc3e) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C17 | 74 HEAD files, 0 retired/unresolved |
+| M-18 | [DataGridDragHandle/useDataGridRowDnd](../../packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx) | [bd169b54](https://github.com/Structured-Growth/sg-ui/commit/bd169b54b0d245987289308d96eda39e059fccb9) | [Open — G acceptance](final-acceptance/wave-02-reconciliation.json); F/T/V-C18 | 5 HEAD files, 0 retired/unresolved |
+| M-19 | [LearnerClassesDataGrid](../../packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx) | [530bbc00](https://github.com/Structured-Growth/sg-ui/commit/530bbc00465d9dbf1e9948f8a2c01b2e51b1a479) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C19 | 90 HEAD files, 0 retired/unresolved |
+| M-20 | [DataToolbar](../../packages/ui/src/components/DataToolbar/DataToolbar.tsx) | [bd169b54](https://github.com/Structured-Growth/sg-ui/commit/bd169b54b0d245987289308d96eda39e059fccb9) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C20 | 44 HEAD files, 0 retired/unresolved |
+| M-21 | [DocumentEditorLayout](../../packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.tsx) | [530bbc00](https://github.com/Structured-Growth/sg-ui/commit/530bbc00465d9dbf1e9948f8a2c01b2e51b1a479) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C21 | 3 HEAD files, 0 retired/unresolved |
+| M-22 | [DocumentEditorToolbar](../../packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx) | [540f47d4](https://github.com/Structured-Growth/sg-ui/commit/540f47d4059a9cea8890b80927f34f51ef2fbc3e) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C22 | 24 HEAD files, 0 retired/unresolved |
+| M-23 | [ContentEditorChrome](../../packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx) | [540f47d4](https://github.com/Structured-Growth/sg-ui/commit/540f47d4059a9cea8890b80927f34f51ef2fbc3e) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C23 | 17 HEAD files, 0 retired/unresolved |
+| M-24 | [EditableTitleField](../../packages/ui/src/components/EditableTitleField/EditableTitleField.tsx) | [72ae8cf0](https://github.com/Structured-Growth/sg-ui/commit/72ae8cf0e1d962b95ab32857653a9d339aafe3c6) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C24 | 15 HEAD files, 0 retired/unresolved |
+| M-25 | [FloatingTextSelectionToolbar](../../packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx) | [6c485ed7](https://github.com/Structured-Growth/sg-ui/commit/6c485ed79d0d6a521d188e5bde8315722296f518) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C25 | 14 HEAD files, 0 retired/unresolved |
+| M-26 | [RichTextFormattingToolbar](../../packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx) | [540f47d4](https://github.com/Structured-Growth/sg-ui/commit/540f47d4059a9cea8890b80927f34f51ef2fbc3e) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C26 | 59 HEAD files, 0 retired/unresolved |
+| M-27 | [InsertContentMenuControl](../../packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx) | [540f47d4](https://github.com/Structured-Growth/sg-ui/commit/540f47d4059a9cea8890b80927f34f51ef2fbc3e) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C27 | 17 HEAD files, 0 retired/unresolved |
+| M-28 | [TextAlignMenuControl](../../packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx) | [540f47d4](https://github.com/Structured-Growth/sg-ui/commit/540f47d4059a9cea8890b80927f34f51ef2fbc3e) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C28 | 20 HEAD files, 0 retired/unresolved |
+| M-29 | [TextColorPickerControl](../../packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.tsx) | [72ae8cf0](https://github.com/Structured-Growth/sg-ui/commit/72ae8cf0e1d962b95ab32857653a9d339aafe3c6) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C29 | 18 HEAD files, 0 retired/unresolved |
+| M-30 | [TextStyleMenuControl](../../packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx) | [540f47d4](https://github.com/Structured-Growth/sg-ui/commit/540f47d4059a9cea8890b80927f34f51ef2fbc3e) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C30 | 19 HEAD files, 0 retired/unresolved |
+| M-31 | [ColumnsLayoutModal](../../packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx) | [530bbc00](https://github.com/Structured-Growth/sg-ui/commit/530bbc00465d9dbf1e9948f8a2c01b2e51b1a479) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C31 | 14 HEAD files, 0 retired/unresolved |
+| M-32 | [ImageUploadModal](../../packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx) | [540f47d4](https://github.com/Structured-Growth/sg-ui/commit/540f47d4059a9cea8890b80927f34f51ef2fbc3e) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C32 | 18 HEAD files, 0 retired/unresolved |
+| M-33 | [LinkUrlModal](../../packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx) | [530bbc00](https://github.com/Structured-Growth/sg-ui/commit/530bbc00465d9dbf1e9948f8a2c01b2e51b1a479) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C33 | 15 HEAD files, 0 retired/unresolved |
+| M-34 | [PageRichTextEditorSection](../../packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx) | [b861e86e](https://github.com/Structured-Growth/sg-ui/commit/b861e86ecae8cffce28d82c8534a079f70ce3c06) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C34 | 91 HEAD files, 0 retired/unresolved; working X08 delta |
+| M-35 | [Docs/native Typefaces catalog built from public Typography; no Typefaces runtime export](../../apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx) | [d3201f0f](https://github.com/Structured-Growth/sg-ui/commit/d3201f0f0ca68aa006a880a2f63a9dd8d8c8845e) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C35 | 5 HEAD files, 0 retired/unresolved |
+| M-36 | [Public/direct icons and activityTypeIcon](../../packages/ui/src/components/icons/activityTypeIcon.tsx) | [540f47d4](https://github.com/Structured-Growth/sg-ui/commit/540f47d4059a9cea8890b80927f34f51ef2fbc3e) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C36 | 198 HEAD files, 0 retired/unresolved |
+| M-37 | [Owned primitive aliases/barrels](../../packages/ui/src/components/primitives/Progress.tsx) | [9c9e2e83](https://github.com/Structured-Growth/sg-ui/commit/9c9e2e830d17d7c855f8af75f576aa950a4c6bea) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C37 | 51 HEAD files, 0 retired/unresolved |
+
+Exact per-row phase groups, source/test hashes, retained validation links and
+remaining gaps are in the tracking map. No broad unit/browser regression matrix
+was repeated for this reconciliation.
+
+## Historical criterion review — 2026-10-07
+
 Current-link maintenance (2026-10-17): links to removed story files now point to their docs-owned native fixture replacements. Historical execution claims below retain their original scope and dates.
 
 Task slice: W-19/Z-10/Z-15, M-01–M-37 evidence reconciliation (2026-10-07).
@@ -12,7 +84,7 @@ merged, released or commercially licensed to a consumer. All 37 directories are
 registered in the [owned source/transitive/token/layer guard](../../packages/ui/scripts/check-foundations.mjs).
 The 34 runtime catalog directories have granular package exports, colocated tests
 and stories. The [component barrel](../../packages/ui/src/components/index.ts) is reexported by
-the [root](../../packages/ui/src/index.ts); [package exports](../../package.json) declare the
+the [root](../../packages/ui/src/index.ts); [package exports](../../packages/ui/package.json) declare the
 corresponding public subpaths. M-12 exports AppPaginationFooter from the preserved
 CardPaginationFooter directory; M-18 exports DataGridDragHandle/useDataGridRowDnd.
 M-35 is a Storybook catalog, not a missing Typefaces runtime export. M-36/M-37
