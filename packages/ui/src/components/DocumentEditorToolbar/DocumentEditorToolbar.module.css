@@ -10,6 +10,6 @@
   .zoom { min-inline-size: 3.75rem; text-align: center; font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
   .status, .slot { min-inline-size: 0; max-inline-size: 100%; overflow-wrap: anywhere; }
   .status { color: var(--sgui-document-editor-toolbar-muted-text); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
-  @media (forced-colors: active) { .action[aria-pressed="true"] { border-color: Highlight; } }
-  @media (forced-colors: active) { .action[aria-pressed="true"]::after { border-color: Highlight; } }
+  @media (forced-colors: active) { .action[aria-pressed="true"] { border-color: ButtonText; } }
+  @media (forced-colors: active) { .action[aria-pressed="true"]::after { border-color: ButtonText; } }
 }

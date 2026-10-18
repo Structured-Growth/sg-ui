@@ -178,3 +178,11 @@ image width zero and mandatory image errors. A byte audit found an invalid IDAT
 CRC in that fixture and the initial SavedRichDocument fixture. Both now use a
 generated 1×1 RGBA PNG with valid chunk CRCs and a verified decompressed scanline.
 Native image-load/error gates remain unchanged; fresh Linux CI must verify them.
+
+The maintained forced-color proofs record two separate capabilities: whether the
+media query is active, and whether the engine implements `forced-color-adjust`.
+WebKit's media emulation alone does not establish UA forced painting. The checks
+retain its native keyboard/selection, structural geometry and authored system-color
+assertions, annotate the unsupported adjustment/paint branch, and leave its
+computed contrast in the observation rather than treating it as an accepted
+forced-paint result. Chromium and Firefox keep the actual contrast assertions.

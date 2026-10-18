@@ -25,7 +25,7 @@ function contrast(first:string,second:string){
 }
 async function pair(page:Page,selected:Locator,peer:Locator,marker:Marker,key='Tab'){
  const before=await snapshot(selected,marker),peerBefore=await snapshot(peer,marker);
- await selected.focus();await page.keyboard.press(key);await expect(peer).toBeFocused();
+ await selected.focus();const nativeKey=test.info().project.name==='webkit'&&process.platform==='darwin'&&/^(Shift\+)?Tab$/.test(key)?'Alt+'+key:key;await page.keyboard.press(nativeKey);await expect(peer).toBeFocused();
  const after=await snapshot(selected,marker),focus=await snapshot(peer,marker);
  expect(after.width).toBe(before.width);expect(after.height).toBe(before.height);
  expect(focus.width).toBe(peerBefore.width);expect(focus.height).toBe(peerBefore.height);
@@ -62,12 +62,14 @@ for(const forcedColors of ['none','active'] as const)for(const owner of ['side',
   const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));const observations:unknown[]=[];
   for(const [theme,density,direction] of [['light','compact','ltr'],['dark','comfortable','rtl']] as const){
    await page.goto(`/fixtures/?id=${profiles[owner]}&embed=true&globals=theme:${theme};density:${density};direction:${direction}`);
+   const supportsAdjustment=await page.evaluate(()=>CSS.supports('forced-color-adjust','auto'));
+   if(forcedColors==='active'&&!supportsAdjustment)info.annotations.push({type:'unsupported-css-branch',description:'Forced-color adjustment/UA paint is unsupported; native selection, system-color marker geometry and focus remain checked. No forced-paint contrast claim.'});
    const active=await page.evaluate(()=>matchMedia('(forced-colors: active)').matches);test.skip(forcedColors==='active'&&!active,'No normal-mode substitution for unsupported forced colors.');expect(active).toBe(forcedColors==='active');
    const scope=page.getByTestId('current-state-scope'),context=await actualContext(scope,theme,density,direction);if(!active)expect(context.colorScheme).toContain(theme);
    const states:unknown[]=[];let capture:Buffer|undefined;
    if(owner==='side'){
     const nav=page.getByRole('navigation',{name:'State navigation'}),selected=nav.getByRole('link',{name:'Current course'}),peer=nav.getByRole('link',{name:'Course reports'});
-    const observed=await pair(page,selected,peer,'start');await expect(selected).toHaveAttribute('aria-current','page');if(active)expect(observed.contrast).toBeGreaterThanOrEqual(3);states.push(observed);
+    const observed=await pair(page,selected,peer,'start');await expect(selected).toHaveAttribute('aria-current','page');if(active&&supportsAdjustment)expect(observed.contrast).toBeGreaterThanOrEqual(3);states.push(observed);
     capture=await scope.screenshot();
     const trigger=nav.getByRole('button',{name:/State user/});const triggerBefore=await trigger.boundingBox();await trigger.click();
     await page.getByRole('menuitem',{name:'Other',exact:true}).click();
@@ -80,32 +82,32 @@ for(const forcedColors of ['none','active'] as const)for(const owner of ['side',
    }else if(owner==='document'||owner==='rich'||owner==='floating'){
     if(owner==='floating')await prepareFloating(page);
     const selected=page.getByRole('button',{name:'Bold',exact:true}),peer=page.getByRole('button',{name:'Italic',exact:true});
-    const observed=await pair(page,selected,peer,'inset');await expect(selected).toHaveAttribute('aria-pressed','true');if(active)expect(observed.contrast).toBeGreaterThanOrEqual(3);states.push(observed);
+    const observed=await pair(page,selected,peer,'inset');await expect(selected).toHaveAttribute('aria-pressed','true');if(active&&supportsAdjustment)expect(observed.contrast).toBeGreaterThanOrEqual(3);states.push(observed);
     if(owner==='rich'){await expect(peer).toHaveAttribute('aria-pressed','mixed');const mixed=await snapshot(peer,'border');expect(mixed.markerStyle).toBe('dashed');expect(mixed.markerWidth).toBe(1);states.push({mixed});}
     else await expect(peer).toHaveAttribute('aria-pressed','false');
     capture=await scope.screenshot();
    }else if(owner==='color'){
     await page.getByRole('button',{name:'Text color',exact:true}).click();const dialog=page.getByRole('dialog',{name:'Text color',exact:true});
     const selected=dialog.getByRole('button',{name:'Primary',exact:true}),peer=dialog.getByRole('button',{name:'Primary emphasis',exact:true});
-    await expect(selected).toHaveAttribute('aria-pressed','true');const observed=await pair(page,selected,peer,'border');if(active)expect(observed.contrast).toBeGreaterThanOrEqual(3);states.push(observed);
+    await expect(selected).toHaveAttribute('aria-pressed','true');const observed=await pair(page,selected,peer,'border');if(active&&supportsAdjustment)expect(observed.contrast).toBeGreaterThanOrEqual(3);states.push(observed);
     expect(await selected.evaluate(node=>getComputedStyle(node).forcedColorAdjust)).not.toBe('none');
-    const fill=selected.locator('[aria-hidden="true"]');if(active)expect(await fill.evaluate(node=>getComputedStyle(node).forcedColorAdjust)).toBe('none');
+    const fill=selected.locator('[aria-hidden="true"]');if(active&&supportsAdjustment)expect(await fill.evaluate(node=>getComputedStyle(node).forcedColorAdjust)).toBe('none');
     capture=await dialog.screenshot();
    }else if(owner==='quarter'){
     const form=page.getByRole('form',{name:'Quarter state form'});const wire=()=>form.evaluate(node=>Object.fromEntries(new FormData(node as HTMLFormElement)));const initial=await wire();
     const original=page.getByRole('button',{name:'Quarter 4',exact:true});await expect(original).toHaveAttribute('aria-pressed','true');
     const selected=page.getByRole('button',{name:'Quarter 2',exact:true}),peer=page.getByRole('button',{name:'Quarter 3',exact:true});await selected.click();await expect(selected).toHaveAttribute('aria-pressed','true');await expect(original).toHaveAttribute('aria-pressed','false');expect(await wire()).toEqual(initial);
-    const observed=await pair(page,selected,peer,'inset');if(active)expect(observed.contrast).toBeGreaterThanOrEqual(3);states.push(observed);capture=await scope.screenshot();
+    const observed=await pair(page,selected,peer,'inset');if(active&&supportsAdjustment)expect(observed.contrast).toBeGreaterThanOrEqual(3);states.push(observed);capture=await scope.screenshot();
     await page.getByRole('button',{name:'Apply',exact:true}).click();expect(await wire()).toEqual({'quarter.start':'2026-04-01','quarter.end':'2026-06-30'});
    }else{
     const roots=scope.locator('[data-sgui-part="date-range-selector"]'),endpoint=roots.nth(0).getByRole('group',{name:'Edit range endpoint',exact:true});
     const end=endpoint.getByRole('button',{name:'End date',exact:true}),start=endpoint.getByRole('button',{name:'Start date',exact:true});await expect(end).toHaveAttribute('aria-pressed','true');
-    const endpointState=await pair(page,end,start,'inset','Shift+Tab');if(active)expect(endpointState.contrast).toBeGreaterThanOrEqual(3);states.push(endpointState);
+    const endpointState=await pair(page,end,start,'inset','Shift+Tab');if(active&&supportsAdjustment)expect(endpointState.contrast).toBeGreaterThanOrEqual(3);states.push(endpointState);
     const adjustRoot=roots.nth(1);await adjustRoot.getByRole('button',{name:'Adjust dates',exact:true}).click();const operations=adjustRoot.getByRole('group',{name:'Adjust dates',exact:true});
     const whole=operations.getByRole('button',{name:'Whole range',exact:true}),adjustStart=operations.getByRole('button',{name:'Start date',exact:true});await expect(whole).toHaveAttribute('aria-pressed','true');
-    const operationState=await pair(page,whole,adjustStart,'inset');if(active)expect(operationState.contrast).toBeGreaterThanOrEqual(3);states.push(operationState);capture=await scope.screenshot();
+    const operationState=await pair(page,whole,adjustStart,'inset');if(active&&supportsAdjustment)expect(operationState.contrast).toBeGreaterThanOrEqual(3);states.push(operationState);capture=await scope.screenshot();
    }
-   observations.push({theme,density,direction,forcedColors,actual:context,states});
+   observations.push({theme,density,direction,forcedColors,supportsAdjustment,actual:context,states});
    await info.attach(`${owner}-${theme}-${density}-${direction}-${forcedColors}`,{body:capture!,contentType:'image/png'});
   }
   await info.attach('observed-state-geometry',{body:JSON.stringify(observations,null,2),contentType:'application/json'});expect(errors).toEqual([]);
@@ -118,7 +120,7 @@ test('toggle selected hover retains system colors and geometry (active)',async({
   const active=await page.evaluate(()=>matchMedia('(forced-colors: active)').matches);test.skip(!active,'No forced-color substitution.');const scope=page.getByTestId('current-state-scope'),context=await actualContext(scope,theme,density,direction);
   const selected=scope.getByRole('radio',{name:'Selected option'}),peer=scope.getByRole('radio',{name:'Other option'}),before=await snapshot(selected,'border');
   await selected.hover();await expect(selected).toHaveAttribute('data-hovered');await selected.focus();await page.keyboard.press('Tab');await peer.focus();await expect(peer).toBeFocused();
-  const after=await snapshot(selected,'border'),focus=await snapshot(peer,'border');expect(after.markerWidth).toBe(3);expect(after.markerStyle).toBe('double');expect(after.forcedColorAdjust).toBe('auto');expect(after.width).toBe(before.width);expect(after.height).toBe(before.height);expect(focus.outlineWidth).toBeGreaterThanOrEqual(2);await expect(selected).toHaveAttribute('aria-checked','true');
+  const after=await snapshot(selected,'border'),focus=await snapshot(peer,'border');expect(after.markerWidth).toBe(3);expect(after.markerStyle).toBe('double');if(await page.evaluate(()=>CSS.supports('forced-color-adjust','auto')))expect(after.forcedColorAdjust).toBe('auto');else{expect(after.forcedColorAdjust).toBeUndefined();info.annotations.push({type:'unsupported-css-branch',description:'forced-color-adjust is unsupported; system color, glyph paint, hover, selection and geometry remain checked.'});}expect(after.width).toBe(before.width);expect(after.height).toBe(before.height);expect(focus.outlineWidth).toBeGreaterThanOrEqual(2);await expect(selected).toHaveAttribute('aria-checked','true');
   const actualContrast=contrast(after.color,after.background);expect(actualContrast).toBeGreaterThanOrEqual(3);expect(after.color).toBe(focus.color);expect(after.background).toBe(focus.background);
   const paintedLabel=await labelPaint(page,selected,scope);observations.push({theme,density,direction,actual:context,before,after,focus,actualContrast,paintedLabel});await info.attach(`toggle-${theme}-${density}-${direction}-active`,{body:await scope.screenshot(),contentType:'image/png'});
  }

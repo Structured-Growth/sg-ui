@@ -57,10 +57,11 @@ test('extra stale package and symlink output fail closed', async t => {
 
 function nativeProof() {
  const expected={head:'a'.repeat(40),node:'v24.19.0',runURL:'https://github.com/example/ui/actions/runs/1',runAttempt:'1',inputHash:'b'.repeat(64),dist:{'packages/ui/dist/index.js':'c'.repeat(64)}};
+ expected.outputs={...expected.dist,'packages/ui/browser-docs-static/index.html':'f'.repeat(64)};
  const records=Object.fromEntries(['chromium','firefox','webkit'].map(browser=>{
   const test={projectName:browser,projectId:browser,status:'expected',results:[{status:'passed'}]};
   const report={config:{workers:1},suites:[{specs:[{id:'one',tests:[test]}]}],stats:{expected:1,unexpected:0,flaky:0,skipped:0},errors:[]};
-  return [browser,{receipt:{schemaVersion:1,...expected,browser,outputs:expected.dist},collection:structuredClone(report),results:report}];
+  return [browser,{receipt:{schemaVersion:1,...expected,browser,outputs:expected.outputs},collection:structuredClone(report),results:report}];
  }));
  return {records,expected};
 }
@@ -69,7 +70,7 @@ test('independent engine collections join the exact package inputs and compiled 
  assert.deepEqual(Object.keys(result.engines),['chromium','firefox','webkit']);assert.equal(result.engines.webkit.tests,1);
 });
 test('missing engines, wrong heads/runs and changed distributed bytes fail the native join',()=>{
- for(const mutate of [r=>delete r.webkit,r=>r.firefox.receipt.head='d'.repeat(40),r=>r.chromium.receipt.runAttempt='2',r=>r.webkit.receipt.outputs={'packages/ui/dist/index.js':'d'.repeat(64)},r=>r.firefox.receipt.inputHash='e'.repeat(64)]){
+ for(const mutate of [r=>delete r.webkit,r=>r.firefox.receipt.head='d'.repeat(40),r=>r.chromium.receipt.runAttempt='2',r=>r.webkit.receipt.outputs={'packages/ui/dist/index.js':'d'.repeat(64)},r=>r.firefox.receipt.inputHash='e'.repeat(64),r=>r.webkit.receipt.outputs={...r.webkit.receipt.outputs,'packages/ui/browser-docs-static/index.html':'0'.repeat(64)}]){
   const {records,expected}=nativeProof();mutate(records);assert.throws(()=>verifyNativeRecords(records,expected));
  }
 });

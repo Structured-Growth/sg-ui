@@ -44,6 +44,7 @@ export function verifyNativeRecords(records,expected) {
   const dist=Object.fromEntries(Object.entries(receipt.outputs??{}).filter(([path])=>path.startsWith('packages/ui/dist/')));
   assert.ok(Object.keys(dist).length,'Missing native compiled distribution');
   assert.deepEqual(dist,expected.dist,`Native ${browser} compiled bytes differ from package`);
+  assert.deepEqual(receipt.outputs,expected.outputs,`Native ${browser} fixture/distribution bytes differ from official artifacts`);
   assert.deepEqual(collected(results,browser,true),collected(collection,browser,false),'Executed native scope differs from complete collection');
   assert.equal(results.config.workers,1,'Native engines retain serial execution');
   assert.equal(results.stats.unexpected,0);
@@ -52,7 +53,7 @@ export function verifyNativeRecords(records,expected) {
   assert.deepEqual(results.errors??[],[],'Native runner errors');
   summaries[browser]={tests:collected(results,browser,true).length,stats:results.stats};
  }
- return {head:expected.head,node:expected.node,runURL:expected.runURL,inputHash:expected.inputHash,distHash:sha(JSON.stringify(expected.dist)),engines:summaries,
+ return {head:expected.head,node:expected.node,runURL:expected.runURL,inputHash:expected.inputHash,distHash:sha(JSON.stringify(expected.dist)),outputHash:sha(JSON.stringify(expected.outputs)),engines:summaries,
   limits:'Complete maintained engine collections, including explicitly reported existing skips; not manual AT, visual-baseline approval or publication.'};
 }
 export async function readNativeJSON(root,path) {
@@ -76,7 +77,7 @@ if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)) {
  const summary=verifyNativeRecords(records,{
   head:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),node:process.version,
   runURL:`${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
-  runAttempt:process.env.GITHUB_RUN_ATTEMPT,inputHash:sha(JSON.stringify(inputs)),dist:await inventory(root,['packages/ui/dist']),
+  runAttempt:process.env.GITHUB_RUN_ATTEMPT,inputHash:sha(JSON.stringify(inputs)),dist:await inventory(root,['packages/ui/dist']),outputs:await inventory(root,['packages/ui/dist','packages/ui/browser-docs-static']),
  });
  await writeFile(resolve(root,'packages/ui/artifacts/logs/native-validation.json'),JSON.stringify({...summary,artifactHashes:hashes},null,2)+'\n');
  console.log('Verified all three native engine collections against the exact package inputs and compiled bytes.');

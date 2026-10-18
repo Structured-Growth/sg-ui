@@ -25,7 +25,11 @@ for(const target of ['nested list','code block','merged header'] as const)test(`
   }
   await expect.poll(point).toEqual({text:expected,offset:expected.length,collapsed:true,contained:true});
  }
- const before=await saved(page);await page.keyboard.type(' revised');
+ const before=await saved(page);let wordBoundary:Document|undefined;
+ // Engines may create a history boundary for the leading space in a code node.
+ // Keep actual typing and capture that exact intermediate document; full undo
+ // must still restore the original bytes within at most these two native groups.
+ if(target==='code block'){await page.keyboard.type(' ');await expect.poll(()=>saved(page)).not.toEqual(before);wordBoundary=await saved(page);await page.keyboard.type('revised');}else await page.keyboard.type(' revised');
  const index=target==='nested list'?3:target==='code block'?6:7;
  await expect.poll(async()=>JSON.stringify((await saved(page)).root.children[index])).toContain(' revised');
  const after=await saved(page);
@@ -43,10 +47,14 @@ for(const target of ['nested list','code block','merged header'] as const)test(`
   expect(nodes(cell).find(n=>n.type==='text')).toMatchObject({text:'Lesson heading revised'});
  }
  const toolbar=page.getByRole('group',{name:'Text formatting',exact:true});
- await toolbar.getByRole('button',{name:'Undo',exact:true}).click();await expect.poll(()=>saved(page)).toEqual(before);
- await toolbar.getByRole('button',{name:'Redo',exact:true}).click();await expect.poll(()=>saved(page)).toEqual(after);
+ let undoSteps=1;await toolbar.getByRole('button',{name:'Undo',exact:true}).click();
+ if(wordBoundary){await expect.poll(async()=>{const current=JSON.stringify(await saved(page));return current===JSON.stringify(before)||current===JSON.stringify(wordBoundary);}).toBe(true);if(JSON.stringify(await saved(page))===JSON.stringify(wordBoundary)){undoSteps=2;await toolbar.getByRole('button',{name:'Undo',exact:true}).click();}}
+ await expect.poll(()=>saved(page)).toEqual(before);
+ await toolbar.getByRole('button',{name:'Redo',exact:true}).click();
+ if(undoSteps===2){await expect.poll(()=>saved(page)).toEqual(wordBoundary);await toolbar.getByRole('button',{name:'Redo',exact:true}).click();}
+ await expect.poll(()=>saved(page)).toEqual(after);
  await page.getByRole('button',{name:'Reload structured document',exact:true}).click();await expect.poll(()=>saved(page)).toEqual(after);
  await page.getByRole('button',{name:'Make read-only',exact:true}).click();await expect(editor).toHaveAttribute('contenteditable','false');
  await expect(content).toContainText(' revised');expect(await saved(page)).toEqual(after);
- expect(errors).toEqual([]);await info.attach(target,{body:JSON.stringify({before,after}),contentType:'application/json'});
+ expect(errors).toEqual([]);await info.attach(target,{body:JSON.stringify({before,wordBoundary,after,undoSteps}),contentType:'application/json'});
 });

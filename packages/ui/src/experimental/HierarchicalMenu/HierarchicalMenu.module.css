@@ -29,7 +29,7 @@
   @media (prefers-reduced-motion: reduce) { .level[data-direction] { animation: none; } }
   @media (forced-colors: active) {
     .root:focus-visible, .item[data-focused], .item:focus-visible { outline: 1px solid Highlight; outline-offset: -1px; }
-    .item[aria-current="page"]::before { border-inline-start-color: Highlight; }
+    .item[aria-current="page"]::before { border-inline-start-color: CanvasText; }
     .item[data-disabled], .item:disabled { color: GrayText; opacity: 1; }
   }
 }

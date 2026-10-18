@@ -32,6 +32,8 @@ for(const forcedColors of ['none','active'] as const)for(const kind of ['menu','
     // Two observed contexts, not a Cartesian theme/density/direction matrix.
     for(const [theme,density,direction] of [['light','compact','ltr'],['dark','comfortable','rtl']] as const){
       await page.goto(`/fixtures/?id=foundations-foundation-catalogue--structural-selection-indicators&embed=true&globals=theme:${theme};density:${density};direction:${direction}`);
+      const supportsAdjustment=await page.evaluate(()=>CSS.supports('forced-color-adjust','auto'));
+      if(forcedColors==='active'&&!supportsAdjustment)info.annotations.push({type:'unsupported-css-branch',description:'Forced-color adjustment/UA paint unsupported; native focus, structural marker geometry and selection remain checked. No forced-paint contrast claim.'});
       const forced=await page.evaluate(()=>matchMedia('(forced-colors: active)').matches);
       test.skip(forcedColors==='active'&&!forced,'No normal-color substitute for unavailable forced-color emulation.');
       expect(forced).toBe(forcedColors==='active');
@@ -51,7 +53,7 @@ for(const forcedColors of ['none','active'] as const)for(const kind of ['menu','
       const other=kind==='menu'?group.getByRole('link',{name:'Course reports'}):group.getByRole('button',{name:kind==='month'?'May':branch==='paged'?'2028':'2030',exact:true});
       const before=await appearance(selected,pseudo);
       await selected.focus();
-      await page.keyboard.press(kind==='year'&&branch==='scroll'?'ArrowDown':'Tab');
+      await page.keyboard.press(kind==='year'&&branch==='scroll'?'ArrowDown':info.project.name==='webkit'&&process.platform==='darwin'?'Alt+Tab':'Tab');
       await expect(other).toBeFocused();
       const after=await appearance(selected,pseudo),focus=await appearance(other,pseudo);
       expect(after.width).toBe(before.width);expect(after.height).toBe(before.height);
@@ -62,7 +64,7 @@ for(const forcedColors of ['none','active'] as const)for(const kind of ['menu','
       expect(focus.content).not.toBe('""');
       expect(focus.outlineWidth).toBeGreaterThanOrEqual(kind==='menu'&&forced?1:2);
       expect(focus.outlineStyle).toBe('solid');
-      const ringContrast=contrast(after.color,after.surface);if(forced)expect(ringContrast).toBeGreaterThanOrEqual(3);
+      const ringContrast=contrast(after.color,after.surface);if(forced&&supportsAdjustment)expect(ringContrast).toBeGreaterThanOrEqual(3);
       if(branch===branches[branches.length-1])contextImage=await (kind==='year'?scope.getByTestId('year-indicator-examples'):group).screenshot();
       if(kind==='menu')await expect(selected).toHaveAttribute('aria-current','page');
       else{
@@ -72,7 +74,7 @@ for(const forcedColors of ['none','active'] as const)for(const kind of ['menu','
         await expect(other).toHaveAttribute('aria-pressed','true');await expect(selected).toHaveAttribute('aria-pressed','false');
         const next=await appearance(other,pseudo);expect(next.width).toBe(focus.width);expect(next.height).toBe(focus.height);expect(next.content).toBe('""');expect(next.markWidth).toBe(2);
       }
-      evidence.push({theme,density,direction,forcedColors,branch,measuredScope,before,after,focus,ringContrast});
+      evidence.push({theme,density,direction,forcedColors,supportsAdjustment,branch,measuredScope,before,after,focus,ringContrast});
       }
       await info.attach(`${kind}-${theme}-${density}-${direction}-${forcedColors}`,{body:contextImage!,contentType:'image/png'});
     }

@@ -61,7 +61,7 @@ export async function verifyCI(download) {
       for(const [key,path]of Object.entries({receipt:'logs/build-receipt.json',collection:'logs/browser-collection.json',results:'browser-results.json'}))
         records[browser][key]=(await readNativeJSON(download.nativeProofRoot,`sgui-native-${browser}-node-24/${path}`)).value;
     }
-    verifyNativeRecords(records,{head:expectedHead,node:receipt.node,runURL:run.html_url,runAttempt:String(run.run_attempt),inputHash:receipt.inputHash,dist:Object.fromEntries(Object.entries(actual).filter(([path])=>path.startsWith('packages/ui/dist/')))});
+    verifyNativeRecords(records,{head:expectedHead,node:receipt.node,runURL:run.html_url,runAttempt:String(run.run_attempt),inputHash:receipt.inputHash,outputs:actual,dist:Object.fromEntries(Object.entries(actual).filter(([path])=>path.startsWith('packages/ui/dist/')))});
   }
   for(const name of ['LICENSE','THIRD_PARTY_NOTICES.md']) requireThat(receipt.inputs[`packages/ui/${name}`]===hash(await file(resolve(packageDirectory,name))),`Packaged legal-file digest mismatch: ${name}`);
   return {status:'consistent-downloaded-ci-evidence',head:expectedHead,runtime,runURL:run.html_url,outputs:Object.keys(actual).length,limitations:'Operator must independently bind extracted files/receipt to verified archives and inspect browser results/skips. This checks supplied metadata consistency, not API authenticity, behavior, effective branch protection, licensing, npm control, provenance or release approval.'};

@@ -15,7 +15,7 @@
     /* Preserve the color data only; keep interactive chrome system-painted. */
     .swatchFill { forced-color-adjust: none; }
     .swatch { border-color: ButtonText; }
-    .swatch[aria-pressed="true"] { border-color: Highlight; }
+    .swatch[aria-pressed="true"] { border-color: ButtonText; }
     .swatch[data-focus-visible] { outline: var(--sgui-control-focus-width) solid Highlight; outline-offset: var(--sgui-control-focus-offset); }
   }
 }
