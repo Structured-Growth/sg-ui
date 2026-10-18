@@ -1,0 +1,41 @@
+{
+  "entries": [
+    {
+      "id": "A-C-14",
+      "basis": "Shipped guarded :has enhancement and vh/dvh fallbacks have documented baseline behavior, with no anchor positioning/style-query/view-transition dependency. The exact outstanding fallback and four-presentation branches now pass three engines.",
+      "criterion": "- [ ] A-C-14 Reconcile original `C-14`: Define progressive enhancement with `@supports`; do not adopt limited-support anchor positioning, style queries, or transitions as unconditional dependencies. Historical status: open."
+    },
+    {
+      "id": "A-C-15",
+      "basis": "Owned focus-visible/native attributes retain baseline outlines; decorated-field unsupported-enhancement and empty-grid focus-repair cases now pass, including inset/forced-color checks. Accepted keyboard/focus lifecycle and rendered visual matrix cover representative replaced outlines without claiming all-state/device coverage.",
+      "criterion": "- [ ] A-C-15 Reconcile original `C-15`: Use `:focus-visible` or owned accessible focus-state attributes; preserve visible focus when replacing current outline suppression. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/css-fallback/receipt.json",
+      "sha256": "1bf0925014a032f4bb5b7f950a012c1327d63e74551b847b0fe8ad4707830b2d"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/css-fallback/native-01/results.json",
+      "sha256": "e86321c0f683d5a92450fd4c3caf2140e938870bd606ae4014c08fe9cb24db30"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/css-fallback/native-01/execution.json",
+      "sha256": "c4b5b39ea12551ddf5bd8fb3c424815d9f3b5b0821483c64b784374e2ae3f424"
+    },
+    {
+      "path": "docs/developer/react-aria-css-composition.md",
+      "sha256": "bed0be24f4da5d1b48867c60beb3829f5c95db440c17144e92fe9c44837e0e37"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-keyboard-focus-review.json",
+      "sha256": "385e5061aa9ebf523e47551ba2b1649969648cf1c2e5106d84b91b4d601916c4"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-representative-visual-review.json",
+      "sha256": "cee497d86a10b7b902c30cde9ac3c1db00553978988de6c5c5b99875d0067756"
+    }
+  ],
+  "limits": "Unsupported-has branch injection in current engines is not an old-browser support floor claim. Forced-color ring assertions and retained visual review are not spoken AT or physical dynamic-viewport acceptance. Optional native nesting remains deferred separately."
+}

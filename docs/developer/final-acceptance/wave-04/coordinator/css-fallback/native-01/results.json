@@ -1,0 +1,359 @@
+{
+  "config": {
+    "argv": [
+      "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "docs/developer/final-acceptance/wave-04/coordinator/css-fallback/bounded.config.mjs"
+    ],
+    "configFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/coordinator/css-fallback/bounded.config.mjs",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-13",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/coordinator/css-fallback/native-01/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-13",
+        "testIgnore": [],
+        "testMatch": [
+          "css-contracts.spec.mjs"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/coordinator/css-fallback/native-01/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-13",
+        "testIgnore": [],
+        "testMatch": [
+          "css-contracts.spec.mjs"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/coordinator/css-fallback/native-01/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-13",
+        "testIgnore": [],
+        "testMatch": [
+          "css-contracts.spec.mjs"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/coordinator/css-fallback/native-01/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "css-contracts.spec.mjs",
+      "file": "css-contracts.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "decorated-field enhancement fallback and final-card repair retain a computed focus ring",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 457,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:20:22.350Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "focus-observations",
+                      "contentType": "application/json",
+                      "body": "eyJmaWVsZCI6eyJzdHlsZSI6Im5vbmUiLCJ3aWR0aCI6MywiY29sb3IiOiJyZ2IoMCwgMCwgMCkiLCJvZmZzZXQiOjB9LCJlbXB0eSI6eyJzdHlsZSI6InNvbGlkIiwid2lkdGgiOjIsImNvbG9yIjoicmdiYSg1LCAwLCA3MywgMC44KSIsIm9mZnNldCI6LTJ9LCJlbmdpbmUiOiJjaHJvbWl1bSIsImJyYW5jaCI6ImluamVjdGVkIHVuc3VwcG9ydGVkLWhhcyBndWFyZCJ9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-b0df2e2bc18d36324cce",
+          "file": "css-contracts.spec.mjs",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "presentation geometry survives resize and reopen without replacing the focused draft",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 802,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:20:23.060Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "geometry",
+                      "contentType": "application/json",
+                      "body": "W3sicHJlc2VudGF0aW9uIjoicG9wb3ZlciIsIndpZHRoIjo3NzAsInBvc2l0aW9uIjoiYWJzb2x1dGUiLCJsZWZ0IjoxNiwidG9wIjoxMDksImhlaWdodCI6MTE1LjY4NzUsIm1heEhlaWdodCI6IjY3OXB4In0seyJwcmVzZW50YXRpb24iOiJwb3BvdmVyIiwid2lkdGgiOjM2MCwicG9zaXRpb24iOiJhYnNvbHV0ZSIsImxlZnQiOjE2LCJ0b3AiOjEwOSwiaGVpZ2h0IjoxMTUuNjg3NSwibWF4SGVpZ2h0IjoiNjc5cHgifSx7InByZXNlbnRhdGlvbiI6InBvcG92ZXIiLCJ3aWR0aCI6NzcwLCJwb3NpdGlvbiI6ImFic29sdXRlIiwibGVmdCI6MTYsInRvcCI6MTA5LCJoZWlnaHQiOjExNS42ODc1LCJtYXhIZWlnaHQiOiI2NzlweCJ9LHsicHJlc2VudGF0aW9uIjoiZGlhbG9nIiwid2lkdGgiOjc3MCwicG9zaXRpb24iOiJmaXhlZCIsImxlZnQiOjE2NSwidG9wIjozNDIuMTU2MjUsImhlaWdodCI6MTE1LjY4NzUsIm1heEhlaWdodCI6Ijc2OHB4In0seyJwcmVzZW50YXRpb24iOiJkaWFsb2ciLCJ3aWR0aCI6MzYwLCJwb3NpdGlvbiI6ImZpeGVkIiwibGVmdCI6MTUsInRvcCI6MzQyLjE1NjI1LCJoZWlnaHQiOjExNS42ODc1LCJtYXhIZWlnaHQiOiI3NjhweCJ9LHsicHJlc2VudGF0aW9uIjoiZGlhbG9nIiwid2lkdGgiOjc3MCwicG9zaXRpb24iOiJmaXhlZCIsImxlZnQiOjExNSwidG9wIjozNDIuMTU2MjUsImhlaWdodCI6MTE1LjY4NzUsIm1heEhlaWdodCI6Ijc2OHB4In0seyJwcmVzZW50YXRpb24iOiJkcmF3ZXIiLCJ3aWR0aCI6MTEwMCwicG9zaXRpb24iOiJmaXhlZCIsImxlZnQiOjAsInRvcCI6Njg0LjMxMjUsImhlaWdodCI6MTE1LjY4NzUsIm1heEhlaWdodCI6IjcyMHB4In0seyJwcmVzZW50YXRpb24iOiJkcmF3ZXIiLCJ3aWR0aCI6MzkwLCJwb3NpdGlvbiI6ImZpeGVkIiwibGVmdCI6MCwidG9wIjo2ODQuMzEyNSwiaGVpZ2h0IjoxMTUuNjg3NSwibWF4SGVpZ2h0IjoiNzIwcHgifSx7InByZXNlbnRhdGlvbiI6ImRyYXdlciIsIndpZHRoIjoxMDAwLCJwb3NpdGlvbiI6ImZpeGVkIiwibGVmdCI6MCwidG9wIjo2ODQuMzEyNSwiaGVpZ2h0IjoxMTUuNjg3NSwibWF4SGVpZ2h0IjoiNzIwcHgifSx7InByZXNlbnRhdGlvbiI6ImF1dG8iLCJ3aWR0aCI6NzcwLCJwb3NpdGlvbiI6ImFic29sdXRlIiwibGVmdCI6Mjk5LjM0Mzc1LCJ0b3AiOjEwOSwiaGVpZ2h0IjoxMTUuNjg3NSwibWF4SGVpZ2h0IjoiNjc5cHgifSx7InByZXNlbnRhdGlvbiI6ImF1dG8iLCJ3aWR0aCI6MzkwLCJwb3NpdGlvbiI6ImZpeGVkIiwibGVmdCI6MCwidG9wIjo2ODQuMzEyNSwiaGVpZ2h0IjoxMTUuNjg3NSwibWF4SGVpZ2h0IjoiNzIwcHgifSx7InByZXNlbnRhdGlvbiI6ImF1dG8iLCJ3aWR0aCI6NzcwLCJwb3NpdGlvbiI6ImFic29sdXRlIiwibGVmdCI6MjE4LCJ0b3AiOjEwOSwiaGVpZ2h0IjoxMTUuNjg3NSwibWF4SGVpZ2h0IjoiNjc5cHgifV0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-99238e1b2343096e28de",
+          "file": "css-contracts.spec.mjs",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "decorated-field enhancement fallback and final-card repair retain a computed focus ring",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 927,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:20:24.078Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "focus-observations",
+                      "contentType": "application/json",
+                      "body": "eyJmaWVsZCI6eyJzdHlsZSI6Im5vbmUiLCJ3aWR0aCI6MywiY29sb3IiOiJyZ2IoMCwgMCwgMCkiLCJvZmZzZXQiOjB9LCJlbXB0eSI6eyJzdHlsZSI6InNvbGlkIiwid2lkdGgiOjIsImNvbG9yIjoicmdiKDAsIDAsIDApIiwib2Zmc2V0IjotMn0sImVuZ2luZSI6ImZpcmVmb3giLCJicmFuY2giOiJpbmplY3RlZCB1bnN1cHBvcnRlZC1oYXMgZ3VhcmQifQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-5934e852cda2bfadc8fc",
+          "file": "css-contracts.spec.mjs",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "presentation geometry survives resize and reopen without replacing the focused draft",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1059,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:20:25.515Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "geometry",
+                      "contentType": "application/json",
+                      "body": "W3sicHJlc2VudGF0aW9uIjoicG9wb3ZlciIsIndpZHRoIjo3NzAsInBvc2l0aW9uIjoiYWJzb2x1dGUiLCJsZWZ0IjoxNiwidG9wIjoxMDksImhlaWdodCI6MTE1LjY5OTk5Njk0ODI0MjE5LCJtYXhIZWlnaHQiOiI2NzlweCJ9LHsicHJlc2VudGF0aW9uIjoicG9wb3ZlciIsIndpZHRoIjozNjAsInBvc2l0aW9uIjoiYWJzb2x1dGUiLCJsZWZ0IjoxNiwidG9wIjoxMDksImhlaWdodCI6MTE1LjY5OTk5Njk0ODI0MjE5LCJtYXhIZWlnaHQiOiI2NzlweCJ9LHsicHJlc2VudGF0aW9uIjoicG9wb3ZlciIsIndpZHRoIjo3NzAsInBvc2l0aW9uIjoiYWJzb2x1dGUiLCJsZWZ0IjoxNiwidG9wIjoxMDksImhlaWdodCI6MTE1LjY5OTk5Njk0ODI0MjE5LCJtYXhIZWlnaHQiOiI2NzlweCJ9LHsicHJlc2VudGF0aW9uIjoiZGlhbG9nIiwid2lkdGgiOjc3MCwicG9zaXRpb24iOiJmaXhlZCIsImxlZnQiOjE2NSwidG9wIjozNDIuMTQ5OTkzODk2NDg0NCwiaGVpZ2h0IjoxMTUuNzAwMDEyMjA3MDMxMjUsIm1heEhlaWdodCI6Ijc2OHB4In0seyJwcmVzZW50YXRpb24iOiJkaWFsb2ciLCJ3aWR0aCI6MzYwLCJwb3NpdGlvbiI6ImZpeGVkIiwibGVmdCI6MTUsInRvcCI6MzQyLjE0OTk5Mzg5NjQ4NDQsImhlaWdodCI6MTE1LjcwMDAxMjIwNzAzMTI1LCJtYXhIZWlnaHQiOiI3NjhweCJ9LHsicHJlc2VudGF0aW9uIjoiZGlhbG9nIiwid2lkdGgiOjc3MCwicG9zaXRpb24iOiJmaXhlZCIsImxlZnQiOjExNSwidG9wIjozNDIuMTQ5OTkzODk2NDg0NCwiaGVpZ2h0IjoxMTUuNzAwMDEyMjA3MDMxMjUsIm1heEhlaWdodCI6Ijc2OHB4In0seyJwcmVzZW50YXRpb24iOiJkcmF3ZXIiLCJ3aWR0aCI6MTEwMCwicG9zaXRpb24iOiJmaXhlZCIsImxlZnQiOjAsInRvcCI6Njg0LjI5OTk4Nzc5Mjk2ODgsImhlaWdodCI6MTE1LjY5OTk5Njk0ODI0MjE5LCJtYXhIZWlnaHQiOiI3MjBweCJ9LHsicHJlc2VudGF0aW9uIjoiZHJhd2VyIiwid2lkdGgiOjM5MCwicG9zaXRpb24iOiJmaXhlZCIsImxlZnQiOjAsInRvcCI6Njg0LjI5OTk4Nzc5Mjk2ODgsImhlaWdodCI6MTE1LjY5OTk5Njk0ODI0MjE5LCJtYXhIZWlnaHQiOiI3MjBweCJ9LHsicHJlc2VudGF0aW9uIjoiZHJhd2VyIiwid2lkdGgiOjEwMDAsInBvc2l0aW9uIjoiZml4ZWQiLCJsZWZ0IjowLCJ0b3AiOjY4NC4yOTk5ODc3OTI5Njg4LCJoZWlnaHQiOjExNS42OTk5OTY5NDgyNDIxOSwibWF4SGVpZ2h0IjoiNzIwcHgifSx7InByZXNlbnRhdGlvbiI6ImF1dG8iLCJ3aWR0aCI6NzcwLCJwb3NpdGlvbiI6ImFic29sdXRlIiwibGVmdCI6Mjk5LjI4MzMyNTE5NTMxMjUsInRvcCI6MTA5LCJoZWlnaHQiOjExNS42OTk5OTY5NDgyNDIxOSwibWF4SGVpZ2h0IjoiNjc5cHgifSx7InByZXNlbnRhdGlvbiI6ImF1dG8iLCJ3aWR0aCI6MzkwLCJwb3NpdGlvbiI6ImZpeGVkIiwibGVmdCI6MCwidG9wIjo2ODQuMjk5OTg3NzkyOTY4OCwiaGVpZ2h0IjoxMTUuNjk5OTk2OTQ4MjQyMTksIm1heEhlaWdodCI6IjcyMHB4In0seyJwcmVzZW50YXRpb24iOiJhdXRvIiwid2lkdGgiOjc3MCwicG9zaXRpb24iOiJhYnNvbHV0ZSIsImxlZnQiOjIxOCwidG9wIjoxMDksImhlaWdodCI6MTE1LjY5OTk5Njk0ODI0MjE5LCJtYXhIZWlnaHQiOiI2NzlweCJ9XQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-483a7547f85b31107be8",
+          "file": "css-contracts.spec.mjs",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "decorated-field enhancement fallback and final-card repair retain a computed focus ring",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 772,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:20:26.982Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "focus-observations",
+                      "contentType": "application/json",
+                      "body": "eyJmaWVsZCI6eyJzdHlsZSI6Im5vbmUiLCJ3aWR0aCI6MywiY29sb3IiOiJyZ2IoMTUsIDIzLCA0MikiLCJvZmZzZXQiOjB9LCJlbXB0eSI6eyJzdHlsZSI6InNvbGlkIiwid2lkdGgiOjIsImNvbG9yIjoicmdiKDI5LCA3OCwgMjE2KSIsIm9mZnNldCI6LTJ9LCJlbmdpbmUiOiJ3ZWJraXQiLCJicmFuY2giOiJpbmplY3RlZCB1bnN1cHBvcnRlZC1oYXMgZ3VhcmQifQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-ba38451c9df22f804bc5",
+          "file": "css-contracts.spec.mjs",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "presentation geometry survives resize and reopen without replacing the focused draft",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1059,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:20:28.004Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "geometry",
+                      "contentType": "application/json",
+                      "body": "W3sicHJlc2VudGF0aW9uIjoicG9wb3ZlciIsIndpZHRoIjo3NzAsInBvc2l0aW9uIjoiYWJzb2x1dGUiLCJsZWZ0IjoxNiwidG9wIjoxMDksImhlaWdodCI6MTE1LjY4NzUsIm1heEhlaWdodCI6IjY3OXB4In0seyJwcmVzZW50YXRpb24iOiJwb3BvdmVyIiwid2lkdGgiOjM2MCwicG9zaXRpb24iOiJhYnNvbHV0ZSIsImxlZnQiOjE2LCJ0b3AiOjEwOSwiaGVpZ2h0IjoxMTUuNjg3NSwibWF4SGVpZ2h0IjoiNjc5cHgifSx7InByZXNlbnRhdGlvbiI6InBvcG92ZXIiLCJ3aWR0aCI6NzcwLCJwb3NpdGlvbiI6ImFic29sdXRlIiwibGVmdCI6MTYsInRvcCI6MTA5LCJoZWlnaHQiOjExNS42ODc1LCJtYXhIZWlnaHQiOiI2NzlweCJ9LHsicHJlc2VudGF0aW9uIjoiZGlhbG9nIiwid2lkdGgiOjc3MCwicG9zaXRpb24iOiJmaXhlZCIsImxlZnQiOjE2NSwidG9wIjozNDIuMjUsImhlaWdodCI6MTE1LjY4NzUsIm1heEhlaWdodCI6Ijc2OHB4In0seyJwcmVzZW50YXRpb24iOiJkaWFsb2ciLCJ3aWR0aCI6MzYwLCJwb3NpdGlvbiI6ImZpeGVkIiwibGVmdCI6MTUsInRvcCI6MzQyLjI1LCJoZWlnaHQiOjExNS42ODc1LCJtYXhIZWlnaHQiOiI3NjhweCJ9LHsicHJlc2VudGF0aW9uIjoiZGlhbG9nIiwid2lkdGgiOjc3MCwicG9zaXRpb24iOiJmaXhlZCIsImxlZnQiOjExNSwidG9wIjozNDIuMjUsImhlaWdodCI6MTE1LjY4NzUsIm1heEhlaWdodCI6Ijc2OHB4In0seyJwcmVzZW50YXRpb24iOiJkcmF3ZXIiLCJ3aWR0aCI6MTEwMCwicG9zaXRpb24iOiJmaXhlZCIsImxlZnQiOjAsInRvcCI6Njg0LjMxMjUsImhlaWdodCI6MTE1LjY4NzUsIm1heEhlaWdodCI6IjcyMHB4In0seyJwcmVzZW50YXRpb24iOiJkcmF3ZXIiLCJ3aWR0aCI6MzkwLCJwb3NpdGlvbiI6ImZpeGVkIiwibGVmdCI6MCwidG9wIjo2ODQuMzEyNSwiaGVpZ2h0IjoxMTUuNjg3NSwibWF4SGVpZ2h0IjoiNzIwcHgifSx7InByZXNlbnRhdGlvbiI6ImRyYXdlciIsIndpZHRoIjoxMDAwLCJwb3NpdGlvbiI6ImZpeGVkIiwibGVmdCI6MCwidG9wIjo2ODQuMzEyNSwiaGVpZ2h0IjoxMTUuNjg3NSwibWF4SGVpZ2h0IjoiNzIwcHgifSx7InByZXNlbnRhdGlvbiI6ImF1dG8iLCJ3aWR0aCI6NzcwLCJwb3NpdGlvbiI6ImFic29sdXRlIiwibGVmdCI6Mjk5LjM0Mzc1LCJ0b3AiOjEwOSwiaGVpZ2h0IjoxMTUuNjg3NSwibWF4SGVpZ2h0IjoiNjc5cHgifSx7InByZXNlbnRhdGlvbiI6ImF1dG8iLCJ3aWR0aCI6MzkwLCJwb3NpdGlvbiI6ImZpeGVkIiwibGVmdCI6MCwidG9wIjo2ODQuMzEyNSwiaGVpZ2h0IjoxMTUuNjg3NSwibWF4SGVpZ2h0IjoiNzIwcHgifSx7InByZXNlbnRhdGlvbiI6ImF1dG8iLCJ3aWR0aCI6NzcwLCJwb3NpdGlvbiI6ImFic29sdXRlIiwibGVmdCI6MTIsInRvcCI6MTQxLCJoZWlnaHQiOjExNS42ODc1LCJtYXhIZWlnaHQiOiI2NDdweCJ9XQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-047939fcd0b4512460db",
+          "file": "css-contracts.spec.mjs",
+          "line": 26,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T00:20:22.162Z",
+    "duration": 6937.045,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

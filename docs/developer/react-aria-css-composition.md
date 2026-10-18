@@ -98,10 +98,7 @@ focus, scroll and resize. Vertical writing mode is not certified by this analysi
 physical inline engine height and logical CSS caps need a separate validation if
 that support is promised. RTL remains a separate direction concern.
 
-The scoped acceptance fixture checks popover/dialog/drawer/auto at wide and narrow
-widths, resize in both directions, preserved focused draft, Escape restoration and
-reopen. Until the patch is integrated and that fixture runs against a fresh build,
-this explanation is a source-based justification, not a new geometry pass.
+The scoped acceptance fixture checks popover/dialog/drawer/auto at wide and narrow widths, resize in both directions, preserved focused draft, Escape restoration and reopen. The [current bounded execution](final-acceptance/wave-04/coordinator/css-fallback/receipt.json) passes both existing cases across Chromium, Firefox and WebKit against the hash-verified built host. It also verifies the decorated input fallback and empty-grid focus ring, including forced colors. The unsupported-`:has` branch is injected by disabling its declared enhancement guard; this establishes the fallback branch, not minimum-version support in an older engine.
 
 ## Enhancement and tooling boundaries
 

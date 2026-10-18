@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 264/320 A leaves closed; 56 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 266/320 A leaves closed; 54 A, 0 editor V review leaves and six future leaves remain.**
+
+### Progressive enhancement and visible focus accepted — 2026-10-17
+
+Six existing fallback-focus and resize/reopen cases pass across Chromium, Firefox and WebKit using the current hash-verified built host. The decorated field preserves its baseline ring without the :has enhancement; final-grid focus repair remains inset and visible in forced colors. Four overlay presentations preserve viewport geometry, focused node and draft through resize.
+Wave 04 now closes 85 of 139 items; 54 remain.
 
 ### Keyboard contracts and focus lifecycle accepted — 2026-10-17
 
