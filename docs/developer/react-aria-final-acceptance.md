@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 271/320 A leaves closed; 49 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 272/320 A leaves closed; 48 A, 0 editor V review leaves and six future leaves remain.**
+
+### Consumer migration guide accepted — 2026-10-17
+
+Reviewed the current consumer guide against owned import, styling, typography, grid-state, selection/pagination, icon and changed-default contracts. It accounts for all twelve removed baseline names, links the built public boundary and inherited styling inventories, and clearly distinguishes module-graph isolation from mandatory editor installation. All42 local guide links pass.
+Wave 04 now closes 91 of 139 items; 48 remain.
 
 ### Grid keyboard and focus-scroll transitions accepted — 2026-10-17
 

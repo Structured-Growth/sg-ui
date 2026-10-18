@@ -82,6 +82,8 @@ compatibility. They are not implicitly deprecated or authorized for removal.
 Preserved component names do not imply preserved upstream props. Migrate against
 owned types and the linked component contract rather than forwarding old prop bags.
 
+Use the [built public boundary index](developer/react-aria-public-boundary-index.md) for exact exported names, aliases, callable children and value domains. The [inherited styling migration map](developer/react-aria-inherited-styling-migration.md) accounts for removed upstream styling, system and slot props per component. Native `className` and style ownership remain component-specific; InstructorClassCard.className is retained course-name content, not a CSS class.
+
 | Previous integration | Owned integration and contract |
 | --- | --- |
 | Application `@ui` aliases or upstream imports | Public SGUI root/declared subpaths; relative imports inside SGUI |
@@ -117,6 +119,8 @@ The [card pagination](developer/react-aria-card-pagination.md),
 [data toolbar](developer/react-aria-data-toolbar.md) contracts provide per-component
 breaking mappings. Translated Course-named preset factories coexist with existing
 Class exports; see [presets](developer/react-aria-grid-presets.md).
+
+The [distribution decision](developer/react-aria-import-boundaries.md) keeps the existing package and declared granular subpaths. Those boundaries avoid editor/grid code in basic consumer module graphs; they do not remove mandatory editor dependencies from installation. Root convenience imports remain supported.
 
 ## Changed defaults and compatibility names
 
@@ -192,12 +196,10 @@ original-source removal and production rollout require a separately authorized t
 SGUI accepts models, data, routing, translations and account actions from the host;
 it never imports platform contracts or owns API/database/login policy.
 
-True grid pinning, expansion/editing and spreadsheet capabilities remain deferred.
+True grid pinning, arbitrary row-detail expansion/editing and spreadsheet capabilities remain deferred; the supported section-subheader expand/collapse contract is separate.
 Reorder is restricted to a complete single-page dataset and requires host persistence
 and rollback. Advanced scheduling/recurrence and fiscal calculation are not calendar
-features; hosts can supply explicit presets. Calendar range-preview announcements,
-actual IME/device behavior, assistive-technology output and broader rich-content trust
-still need acceptance. See [browser evidence](developer/react-aria-browser-acceptance.md)
+features; hosts can supply explicit presets. Representative spoken calendar range-preview output, actual IME/device behavior, assistive-technology output and broader rich-content trust still need acceptance. Implemented live-region DOM contracts and supported parsing are separate from those reviews. See [browser evidence](developer/react-aria-browser-acceptance.md)
 and [calendar limits](developer/react-aria-calendar-contracts.md).
 
 React 18.3/19 and representative packed Vite SSR/hydration, React Server Component

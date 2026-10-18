@@ -1,0 +1,36 @@
+{
+  "entries": [
+    {
+      "id": "A-W-13",
+      "basis": "docs/migration.md provides concrete consumer mappings for every named original concern with component-specific public contracts and full removed-name table. Current import-boundary/package-type evidence verifies the public surface; host responsibilities and unreleased breaking-change/release policy remain explicit.",
+      "criterion": "- [ ] A-W-13 Reconcile original `W-13`: Publish a consumer migration guide mapping imports, removed styling props, theme objects, typography, grid types, pagination/selection, icons and changed defaults. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/migration.md",
+      "sha256": "ed2ada274927799e0c8c6d1ec626cf1ffa1208d3e1c2f2c30d478652d2336cf4"
+    },
+    {
+      "path": "docs/developer/react-aria-public-contracts.md",
+      "sha256": "93e2a3d36226011fc740673d581daed9661c9056d800c864d29768a5d0a44768"
+    },
+    {
+      "path": "docs/developer/react-aria-public-boundary-index.md",
+      "sha256": "52ec0c87017cbef21b54450f4fba9ad83f392b593a2070d1216fb99492316916"
+    },
+    {
+      "path": "docs/developer/react-aria-inherited-styling-migration.md",
+      "sha256": "92f1ae9a64b4d5b45f6fd3ce8570d757a0c076b57b2b1650435ab97ce8abc6b2"
+    },
+    {
+      "path": "packages/ui/scripts/public-migration-map.json",
+      "sha256": "560220ee02e3e45d1cc2aa6946c68380160ba1f2086368111e2854d5c63cbb73"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/current-grid-package/receipt.json",
+      "sha256": "4ddc8718df370f86a8d8d98cc16ba467464083e0994d376181e989b77806e636"
+    }
+  ],
+  "limits": "Documentation review and current links, no new UI test required. This closes the consumer guide deliverable, not complete API/default inventory reconciliation, inherited-prop compatibility, support-service decisions, release marking/approval or modification of the learner application."
+}

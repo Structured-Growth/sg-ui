@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 90,
-  "closedTotal": 271,
-  "remaining": 49,
+  "closedThisReview": 91,
+  "closedTotal": 272,
+  "remaining": 48,
   "entries": [
     {
       "id": "A-M-21",
@@ -803,6 +803,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-grid-keyboard-scroll-review.json",
       "sha256": "d0bb4158f4563a3303fcf6c8d1c21494038a64ba6369f26d5d6054eeb298cf02",
       "limits": "Documentation correction and source/evidence reconciliation; no fresh full grid matrix. Retained selected cases keep original inputs and original failed lineage executions remain visible. No universal fixed-scroll promise, physical touch or spoken AT claim."
+    },
+    {
+      "id": "A-W-13",
+      "basis": "docs/migration.md provides concrete consumer mappings for every named original concern with component-specific public contracts and full removed-name table. Current import-boundary/package-type evidence verifies the public surface; host responsibilities and unreleased breaking-change/release policy remain explicit.",
+      "criterion": "- [ ] A-W-13 Reconcile original `W-13`: Publish a consumer migration guide mapping imports, removed styling props, theme objects, typography, grid types, pagination/selection, icons and changed defaults. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/root-consumer-migration-guide-review.json",
+      "sha256": "3d7bfb8a9544692ae35e20e5a54cea10ef8d2e989762da80b03d53cf20794ac2",
+      "limits": "Documentation review and current links, no new UI test required. This closes the consumer guide deliverable, not complete API/default inventory reconciliation, inherited-prop compatibility, support-service decisions, release marking/approval or modification of the learner application."
     }
   ],
   "limits": [
