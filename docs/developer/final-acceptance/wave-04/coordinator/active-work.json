@@ -11,14 +11,15 @@
     {
       "threadId": "01a14bd5-0ddf-72d2-8b9f-5b37d1bde6e6",
       "task": "D15 current state applicability and remaining design gaps",
-      "state": "Shared build succeeded;445DTS unchanged;13 cases pass and two floating-toolbar setup cases need targeted unchanged-host retry",
+      "state": "15 computed-style cases pass after three setup corrections, but root34-image review found invisible forced-color selected-toggle label; hold integration pending actual paint regression/fix and targeted rerun",
       "evidence": "docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/completion-receipt.json",
       "plannedValidation": "Source/light first; reuse accepted evidence; no Cartesian matrix or invented AT/device gate for design-only criteria",
       "rootReviewPoints": [
         "Selection marker independent of focus",
         "No layout jump",
         "Owned token aliases",
-        "Public props remain unchanged"
+        "Public props remain unchanged",
+        "Actual label paint readability beyond computed foreground/background contrast"
       ]
     }
   ],
