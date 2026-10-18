@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 293/320 A leaves closed; 27 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 294/320 A leaves closed; 26 A, 0 editor V review leaves and six future leaves remain.**
+
+### Current support and replacement scope documented — 2026-10-17
+
+Closed A-W-18 with current prerelease maintenance policy, shipped limitations, six explicit future tasks, actual public migrations and concrete React Aria replacement work/ownership. Unapproved future service commitments are distinguished from accepted dependency-update guidance.
+Wave 04 now closes 113 of 139 items; 26 remain.
 
 ### Release marking and offline configuration checks completed — 2026-10-17
 

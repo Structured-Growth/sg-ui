@@ -1,17 +1,17 @@
 {
-  "lastIntegratedHead": "9ffbbb0b",
+  "lastIntegratedHead": "9cae9e43",
   "ongoing": [
     {
       "threadId": "01a14bd4-fbcc-7460-93a5-571ced620baa",
-      "task": "W18 limitations, support-policy scope and replacement responsibility",
-      "state": "R15/R28 completed; write source-backed guidance and isolate only genuine owner policy decisions",
-      "evidence": "docs/developer/final-acceptance/wave-04/02/release-marking-safety/receipt.json (completed prior task)",
-      "limits": "Source/light only; no invented SLA/contact/appointment/compatibility promise; no release/admin/AT mutation"
+      "task": "C11 native CSS nesting implementation plan",
+      "state": "W18 complete; inspect compiler/support contract and prepare minimal nesting implementation with focused validation",
+      "evidence": "docs/developer/final-acceptance/wave-04/02/current-support-boundaries/receipt.json (completed prior task)",
+      "limits": "Read-only/isolated fixture tests while D15 frozen host is active; no shared source mutation/build until root releases lane"
     },
     {
       "threadId": "01a14bd5-0ddf-72d2-8b9f-5b37d1bde6e6",
       "task": "D15 current state applicability and remaining design gaps",
-      "state": "Source frozen for eight owners;119 affected existing tests pass; one shared build/fifteen bounded Chromium cases authorized",
+      "state": "Shared build succeeded;445DTS unchanged;13 cases pass and two floating-toolbar setup cases need targeted unchanged-host retry",
       "evidence": "docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/completion-receipt.json",
       "plannedValidation": "Source/light first; reuse accepted evidence; no Cartesian matrix or invented AT/device gate for design-only criteria",
       "rootReviewPoints": [

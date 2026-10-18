@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 112,
-  "closedTotal": 293,
-  "remaining": 27,
+  "closedThisReview": 113,
+  "closedTotal": 294,
+  "remaining": 26,
   "entries": [
     {
       "id": "A-M-21",
@@ -1001,6 +1001,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/r15-r28-offline-release-safety.json",
       "sha256": "953066f395433ff91dcb6e32969b49c7fbfcfaec7a8ac50067efbb5c458a0b7e",
       "limits": "Pure synthetic prior-version inputs establish tool behavior, not authoritative publication history. Read-only empty GitHub tag/release observations and public npm404 do not certify private/deleted history or rights. No main promotion, version edit, dispatch, tag or publish action. R17 authority, R27 effective protection, legal and final-candidate checks remain separate."
+    },
+    {
+      "id": "A-W-18",
+      "basis": "Migration and dependency guides now document current dev/main validation and role-based maintenance, host-owned/shipped limitations, six canonical FUTIDs, actual12removals/6default migrations and339c958d release marker. React Aria replacement responsibilities cover interaction, foundation/API, distribution/evidence and host integration without a fabricated budget or framework portability promise. Public aliases are not assigned invented deprecation schedules. Accepted L09 documentation scope is verified and stale pending wording corrected; old operational templates remain unapproved future additional commitments. Source/governance checks and100guide/2187link audit pass.",
+      "criterion": "- [ ] A-W-18 Reconcile original `W-18`: Document known limitations, deferred features, support policy, deprecated names, release impact, and the cost/responsibility of eventually replacing React Aria. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/w18-current-support-and-replacement-scope.json",
+      "sha256": "bc6b0f8c46bc426a0a6678252b14dfa581e86ba976f130ca8c5c7d3ad19aa792",
+      "limits": "Documents actual current policy; no SLA, security contact, named appointment, published backport window, future service contract or new compatibility guarantee is adopted. Remaining runtime/AT/performance/legal/publication acceptance is unchanged; no UI build/browser tests required for these docs-only edits."
     }
   ],
   "limits": [

@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/current-support-boundaries/governance.log",
+      "sha256": "10b216347c05a046c96aab6e0877e2e85516e50b9fc4cc543f0c35c74ba86d28"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/current-support-boundaries/governance.log.resources.json",
+      "sha256": "43e75035aaf76a809995ccc39278d0c00b9c75589045236a3fe448fb7cb3310b"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/current-support-boundaries/navigation.log",
+      "sha256": "22e045be9f6037cf9e18e817178f7830525b1171dea0d7a24cf3108170aaa953"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/current-support-boundaries/navigation.log.resources.json",
+      "sha256": "fc1006349f6a5d8a1020081f7e46f213fabec57c28cba71a8e757fb543d9fc33"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/current-support-boundaries/receipt.json",
+      "sha256": "11ffc09dc44bb829afe81ad4e489751404de426a7f2db688e98652ecac73bf32"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/current-support-boundaries/reconcile.py",
+      "sha256": "becc962e0fdc8592f6dc27e0b9ba74e485b44444b8124851178fee5f771aaa98"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/current-support-boundaries/report.md",
+      "sha256": "e249df6ad0a305df399569c71a5b036c8299ae6148368f5ebb4707c50f75a2a6"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/current-support-boundaries/source-reconciliation.json",
+      "sha256": "6767f622defe8ea6085c936a88725c219913988d0600ed237a3daf42074693fc"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/current-support-boundaries/validate.mjs",
+      "sha256": "434ea82b4b638d3037d7a98ac458a274b9fc7e27783088042ff2202c5ce22024"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/current-support-boundaries/validation.json",
+      "sha256": "3a066043e98c974e5c389c16ec4a24e95396104649259a436e9109f0cfb0d101"
+    },
+    {
+      "path": "docs/migration.md",
+      "sha256": "2a9d0f27594623457d241a8333538ae05a8d381d2e5b0d3baa212c4f55d6f674"
+    },
+    {
+      "path": "docs/developer/react-aria-dependency-upgrades.md",
+      "sha256": "4da7837f6638bc7e156307acc1db180d85ac2f137dd67d4f3ec12e1fd5215dcd"
+    }
+  ]
+}
