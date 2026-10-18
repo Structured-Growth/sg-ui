@@ -1,19 +1,19 @@
 {
-  "lastIntegratedHead": "339c958d639250abfb6fef28da48f4d85c215393",
+  "lastIntegratedHead": "b1bc4ab8",
   "ongoing": [
     {
       "threadId": "01a14bd4-fbcc-7460-93a5-571ced620baa",
-      "task": "G17 row reorder behavior, plus M18 only where fulfilled",
-      "state": "Reconcile accepted pointer/keyboard/simulated-touch evidence and fix actual announce/cancel/host restriction gaps",
-      "evidence": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation",
-      "limits": "Source/light first; do not invent physical-device/spoken claims or new gates; no broad rerun."
+      "task": "W19 current documentation links and route reconciliation",
+      "state": "Fix genuine maintained guide/source/subpath links; preserve canonical routes and frozen historical evidence",
+      "evidence": "docs/developer/final-acceptance/wave-04/02/grid-reorder/receipt.json (completed prior task)",
+      "limits": "Source/light only; no broad build/browser/install or historical evidence rewrite"
     },
     {
       "threadId": "01a14bd5-0ddf-72d2-8b9f-5b37d1bde6e6",
-      "task": "D15 structural selected/current indicators",
-      "state": "X08 completed; next bounded source fixes for HierarchicalMenu current page and MonthPicker/YearPicker selected choices",
-      "evidence": "docs/developer/final-acceptance/wave-04/05/batch/x08-implementation",
-      "plannedValidation": "Source/light review first, then finite affected native evidence only; preserve layout/focus/constraints.",
+      "task": "D15 current state applicability and remaining design gaps",
+      "state": "All six bounded structural marker owners integrated; reconcile218 current public names and fix concrete remaining state design gaps",
+      "evidence": "docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/completion-receipt.json",
+      "plannedValidation": "Source/light first; reuse accepted evidence; no Cartesian matrix or invented AT/device gate for design-only criteria",
       "rootReviewPoints": [
         "Selection marker independent of focus",
         "No layout jump",
