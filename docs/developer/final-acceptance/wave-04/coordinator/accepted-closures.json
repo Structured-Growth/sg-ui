@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 98,
-  "closedTotal": 279,
-  "remaining": 41,
+  "closedThisReview": 99,
+  "closedTotal": 280,
+  "remaining": 40,
   "entries": [
     {
       "id": "A-M-21",
@@ -875,6 +875,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-container-fluid-text-review.json",
       "sha256": "f9e806808497a6c533a5368c3b5737a146f375499afdc3dc76f9a6f8e79c7be0",
       "limits": "Exactly six fresh toolbar cases; other evidence retains original runtime/source scopes. Enlarged scoped font-token stress is distinct from real browser zoom. No new screenshot from passing toolbar run, physical dynamic-viewport, native-nesting support-floor, spoken AT or universal all-layout guarantee."
+    },
+    {
+      "id": "A-X-13",
+      "basis": "Maintained browser examples/tests cover the frozen cumulative changed-contract inventory with deterministic public-import/local-host fixtures. Original failures, selected passes and affected continuations remain explicit; source/type/documentation-only changes are not assigned invented UI tests. Current toolbar6closes the last identified affected validation gap.",
+      "criterion": "- [ ] A-X-13 Reconcile original `X-13`: Add browser interaction stories/tests for all changed behavior; keep deterministic local fixtures and no authentication/database/network dependency. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-changed-behavior-coverage-review.json",
+      "sha256": "3d7ad267b614ebb7bfa46b76932d52f7aa15659a0f4e989cf77df2f72cb3b76d",
+      "limits": "Inventory and reference/runtime hashes verified; no new broad browser/network trace or all-parent-suite green claim. Historical evidence retains tested input scope; newly implemented future behavior still requires its own focused regression evidence. No authentication/database/service backend behavior inferred."
     }
   ],
   "limits": [

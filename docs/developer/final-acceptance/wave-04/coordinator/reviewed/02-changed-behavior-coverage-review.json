@@ -1,0 +1,24 @@
+{
+  "entries": [
+    {
+      "id": "A-X-13",
+      "basis": "Maintained browser examples/tests cover the frozen cumulative changed-contract inventory with deterministic public-import/local-host fixtures. Original failures, selected passes and affected continuations remain explicit; source/type/documentation-only changes are not assigned invented UI tests. Current toolbar6closes the last identified affected validation gap.",
+      "criterion": "- [ ] A-X-13 Reconcile original `X-13`: Add browser interaction stories/tests for all changed behavior; keep deterministic local fixtures and no authentication/database/network dependency. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/changed-contract-coverage/receipt.json",
+      "sha256": "2d561bc25bbb4ce93d26c253fbbf91d3bc8e2bab07b87e5d74f4ff9e7b9932e1"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/changed-contract-coverage/freeze.py",
+      "sha256": "74a99df445b093d5654b15d26fc9a21e60b09b7185c169575cbae2255f2e32c7"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/completion-receipt.json",
+      "sha256": "f8097ffbb886ef91c936590edf283943a0bc541f019b0467b79038acccda29cd"
+    }
+  ],
+  "limits": "Inventory and reference/runtime hashes verified; no new broad browser/network trace or all-parent-suite green claim. Historical evidence retains tested input scope; newly implemented future behavior still requires its own focused regression evidence. No authentication/database/service backend behavior inferred."
+}

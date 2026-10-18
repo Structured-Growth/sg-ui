@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 279/320 A leaves closed; 41 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 280/320 A leaves closed; 40 A, 0 editor V review leaves and six future leaves remain.**
+
+### Changed behavior coverage inventory accepted — 2026-10-17
+
+Froze21changed-contract groups with86test/evidence hashes and1060runtime input hashes. The join preserves original coverage inventories, exact selected native observations and accepted specific follow-ups, including the corrected enlarged-toolbar cases. No concrete missing behavioral test remains in the frozen inventory.
+Wave 04 now closes 99 of 139 items; 40 remain.
 
 ### Container, fluid layout and text stress accepted — 2026-10-17
 
