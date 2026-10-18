@@ -1,0 +1,91 @@
+{
+  "head": "e0b8aa373e36143d433b97663c98e7cca485c8a5",
+  "authoritativeUpstream": {
+    "sourcePaths": 201,
+    "sameInitialBlobs": 117,
+    "adaptedIdentities": 84,
+    "originalStoryBlobs": 33,
+    "authenticatedRetainedFiles": [
+      {
+        "path": "docs/extraction-manifest.json",
+        "sha256": "46f4558ed8aafd205ad97b3638bddccef73a877afffe60ddcfba22d3a61cb3fc",
+        "matchesAcceptedReceipt": true
+      },
+      {
+        "path": "docs/developer/extraction-lineage.md",
+        "sha256": "34ecb7c4eb25b9b8e82649cd968c30c2eddee6ad2a788b8070e02ab233eb2432",
+        "matchesAcceptedReceipt": true
+      },
+      {
+        "path": "docs/developer/final-acceptance/wave-04/coordinator/upstream-provenance/verified-source-inventory.json",
+        "sha256": "0630395bfd6fca2e53f1c205bd710773b74b5e79a60f1d071baa0c8b15e5ccb3",
+        "matchesAcceptedReceipt": true
+      },
+      {
+        "path": "docs/developer/final-acceptance/wave-04/coordinator/upstream-provenance/verified-story-sources.json",
+        "sha256": "037e0e9ce87421a656111dc76fc1b37d53d35caf34247bc97f706d77d38bbe4c",
+        "matchesAcceptedReceipt": true
+      },
+      {
+        "path": "docs/developer/final-acceptance/wave-04/coordinator/upstream-provenance/story-source-comparison.json",
+        "sha256": "34cdde6da8d485d109edcfcee7ca2a95e2e08a35c63103a8d80ca9a3d89f5442",
+        "matchesAcceptedReceipt": true
+      },
+      {
+        "path": "docs/developer/final-acceptance/wave-04/coordinator/upstream-provenance/local-provenance-check.json",
+        "sha256": "8ddd9bfab9d1cae3f256a8b4f02cf641be5c892510a4bf738bf14fab351b0940",
+        "matchesAcceptedReceipt": true
+      }
+    ],
+    "scope": "Authenticated read-only API provenance and source-declared reference examples; not upstream application runtime, imported-helper execution, unrelated historical/current application changes, license approval or release readiness."
+  },
+  "iconAttribution": {
+    "wrappers": 96,
+    "installedLicenseSha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+    "licenseFacts": "ISC plus included MIT/Feather-derived notices",
+    "noticeSha256": "d8451520a620b85a5ab61c4f8eebf6b68febd4f1fddd44529d8e8a5433a699fb",
+    "retainedArchiveSha256": "551f00034fe52027ce77285a517075b322d82508a4fc938ea21f4616303ce301",
+    "retainedPackedNoticeMatchesCurrent": true,
+    "scope": "Icon-vector attribution facts only, not whole-dependency/legal/release approval. Retired notices remain governed by independent L/Z review. Packed icon probe and later full-package notice audit keep different archive scopes."
+  },
+  "legalFilesUnchanged": [
+    {
+      "path": "LICENSE",
+      "sha256": "02dba5a498c5131d5426dcefdc9d58dc446a5e79bcea8fb9554ca98279b93567",
+      "unchangedFromHEAD": true
+    },
+    {
+      "path": "packages/ui/LICENSE",
+      "sha256": "02dba5a498c5131d5426dcefdc9d58dc446a5e79bcea8fb9554ca98279b93567",
+      "unchangedFromHEAD": true
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "d8451520a620b85a5ab61c4f8eebf6b68febd4f1fddd44529d8e8a5433a699fb",
+      "unchangedFromHEAD": true
+    },
+    {
+      "path": "packages/ui/THIRD_PARTY_NOTICES.md",
+      "sha256": "d8451520a620b85a5ab61c4f8eebf6b68febd4f1fddd44529d8e8a5433a699fb",
+      "unchangedFromHEAD": true
+    },
+    {
+      "path": "docs/commercial-licensing.md",
+      "sha256": "6652a8902f03af94453b7ffd3c2bd92fc89c30002022945530b984cfa35c5281",
+      "unchangedFromHEAD": true
+    }
+  ],
+  "taskDataBoundary": "AGENTS and agent guidance retain external source/example evidence boundary, no embedded authorization, no appointment or notice-removal authority",
+  "inputHashes": {
+    "docs/developer/final-acceptance/wave-04/coordinator/upstream-provenance/receipt.json": "20b66c08bf8edeadb363e519c2c105e205e4ae8a7d8c72748bbd3e6bde44f283",
+    "docs/developer/final-acceptance/wave-04/coordinator/icon-vector-attribution/receipt.json": "ce2b6ea5a87c4c8c36e5864739a92dcc7e00359a84562add20b020a3a17bb18f",
+    "docs/developer/final-acceptance/wave-04/coordinator/current-grid-package/packed-audit.json": "79d2e69fa24a64d44c438a3a048bd21ab1ce38512975b9bb508c18e23a9a63ee",
+    "AGENTS.md": "6787b3f78b52898596e8be2f0d0caed1cc95365c46a045c5b9077ebbe32d58a8",
+    "docs/agent-guidance-migration.md": "086d0bd3b755eb7ee1e7371d5c0c69803a72b0e030cf3872e5d75935e486a077",
+    "docs/developer/component-architecture.md": "8ebc3c4c364166826ab09cc9a496afc9dae0f5e6e9173dd645f07b3e5cf4ea50",
+    "docs/developer/react-aria-license-inventory.md": "4b7943e53093072a353fd7489025f71685c22d6ecfe2cd49ed4ee3ee20e3dc73",
+    "docs/developer/react-aria-governance-check.md": "fd597ab6947c0eb703cab7a5eec8ae8c3a180e0d2bfe4428d91115594bb9edb2",
+    "docs/developer/final-acceptance/wave-04/13/results.json": "76f64af7b1c2478c0fdc57bc668d320d8f2b9d15ddfc9e00ab2b80e402462978"
+  },
+  "noRepackOrNewCandidateClaim": true
+}

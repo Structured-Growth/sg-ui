@@ -1,0 +1,26 @@
+{
+  "startedAt": "2026-10-18T01:45:58.801Z",
+  "runtime": "v24.19.0",
+  "runs": [
+    {
+      "name": "governance",
+      "command": [
+        "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "packages/ui/scripts/check-governance-policy.mjs",
+        "."
+      ],
+      "status": "pass"
+    },
+    {
+      "name": "navigation",
+      "command": [
+        "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "packages/ui/scripts/check-maintained-documentation.mjs"
+      ],
+      "status": "pass"
+    }
+  ],
+  "status": "pass",
+  "finishedAt": "2026-10-18T01:45:59.195Z",
+  "cleanup": "Canonical light slot released; no repack/build/install/browser/remote mutation"
+}
