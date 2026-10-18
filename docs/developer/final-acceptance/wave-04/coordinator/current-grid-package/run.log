@@ -1,0 +1,8 @@
+
+> @structured-growth/sg-ui@0.0.0-development build /Users/thomashall/Repositories/sg-ui/packages/ui
+> node scripts/build.mjs
+
+All package entry points import successfully.
+Consumer imports and owned theme/typography contracts typecheck.
+Retained exact candidate archive and SHA-256 file manifest in /Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-grid-candidate
+Packed JS, declarations, CSS, maps and assets match the fresh build; exports and notices are retained.

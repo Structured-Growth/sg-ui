@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "sourceCommit": "66b411792cb2006e6843a43f20223258b212e390",
+  "runtimeSourceCommit": "e11b00c1",
+  "commands": [
+    "pnpm build",
+    "node scripts/check-package.mjs --retain-packed=<fresh candidate directory>"
+  ],
+  "node": "24.21.0",
+  "result": "Fresh JS/declarations/CSS/maps/assets match packed archive; exports import and public consumer contracts typecheck. Prior frozen consumer matrix remains separately scoped.",
+  "logSha256": "aaf2eb9ce13fd2b42eaee713a6e2a5d2f0f6a1f193ebe670bcd34a71f9a4c737",
+  "packedAudit": {
+    "path": "docs/developer/final-acceptance/wave-04/coordinator/current-grid-package/packed-audit.json",
+    "sha256": "79d2e69fa24a64d44c438a3a048bd21ab1ce38512975b9bb508c18e23a9a63ee"
+  },
+  "limits": "No publication, release approval or reexecution of prior installed consumer browser matrix."
+}
