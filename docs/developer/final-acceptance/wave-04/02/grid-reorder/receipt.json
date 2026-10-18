@@ -1,0 +1,74 @@
+{
+  "head": "d9a48d0faffd0f9bfd9a851adcc58b79a56c98ad",
+  "recommendations": [
+    {
+      "id": "A-G-17",
+      "status": "complete",
+      "scope": "Original finite behavior-definition/owned migration obligation; physical long-press and spoken output unclaimed"
+    },
+    {
+      "id": "A-M-18",
+      "status": "complete",
+      "scope": "Original finite behavior-definition/owned migration obligation; physical long-press and spoken output unclaimed"
+    }
+  ],
+  "runtimeChanges": false,
+  "newTests": false,
+  "freshValidation": {
+    "files": 5,
+    "passed": 40,
+    "failed": 0,
+    "receipt": "validation.json"
+  },
+  "retainedNative": {
+    "executions": 25,
+    "failed": 0,
+    "skipped": 0,
+    "receipt": "retained-native.json",
+    "fresh": false
+  },
+  "clauseMap": "report.md",
+  "sourceReconciliation": "source-reconciliation.json",
+  "F_T_V_C18": "Accepted canonical phase records linked via migration-tracking.json; next100-c18 retains exact regression mapping",
+  "references": [
+    {
+      "path": "docs/developer/migration-tracking.json",
+      "sha256": "47ab4af14948bf161cbfbf1e6962a3f77777a77da084f34fe823f9b3a7bc7121"
+    },
+    {
+      "path": "docs/developer/react-aria-grid-reorder.md",
+      "sha256": "b443400f08eab8f390f89438b4aa7fe72d591bf326185c973adcbad64c2ef7d1"
+    },
+    {
+      "path": "docs/developer/react-aria-browser-acceptance.md",
+      "sha256": "cf668cb3e803f0ad48a8addcd0f4ca047b3ea4a7119aba0aa75f3d5b7693c929"
+    },
+    {
+      "path": "docs/developer/parallel-next100/next100-c18.md",
+      "sha256": "6d27bc0b9727de098b385ead6a8b564a87a86a4f930b6e62dfda54ecee145135"
+    },
+    {
+      "path": "docs/developer/react-aria-baseline-tasks.md",
+      "sha256": "148c29c18b57d9e9917daad17d0bb0a73c293b28f63768968a0dc04084a29844"
+    },
+    {
+      "path": "docs/developer/react-aria-regression-tasks.md",
+      "sha256": "912f7293365fdf77a3db49db1d0b6cc7bd766789b8063f1f48314c9ed27fdd39"
+    },
+    {
+      "path": "docs/developer/react-aria-hardening-execution.md",
+      "sha256": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/04/results.json",
+      "sha256": "ce009d3bac34d8586fef96e0785120c530e17ff9a3dd1daa7784e926a136071c"
+    }
+  ],
+  "limits": [
+    "No physical long-press observation",
+    "No spoken screen-reader output",
+    "No production persistence/network race certification",
+    "No broader acceptance inferred"
+  ],
+  "cleanup": "Canonical light slot released; no heavy/browser/build/install; no root Git/count changes"
+}

@@ -109,7 +109,7 @@ screenshots/traces live under `artifacts/packed-browser` and are retained with t
 14-day browser artifact. Explicit local engine subsets remain reported as subsets;
 CI refuses a subset.
 
-## Native reorder input (G-17/G-18 partial)
+## Native reorder input (historical G-17/G-18 slice)
 
 `tests/browser/reorder.spec.ts` exercises the first handle gesture with native
 mouse input, trusted dragstart/drop/dragend events, before/after host order changes
@@ -121,8 +121,11 @@ style; the owned handle now enables pointer hit testing.
 
 A separate 390px touchscreen context uses trusted taps on non-drag Move controls
 and verifies commit/rollback. This covers the touch alternative, not physical
-touch long-press dragging. G-17/G-18 stay open for their remaining device,
-screen-reader and cleanup/preview matrix.
+touch long-press dragging. The later [finite G-17/M-18 reconciliation](final-acceptance/wave-04/02/grid-reorder/receipt.json)
+recommends acceptance of their behavior-definition and owned migration obligations
+using this bounded touch alternative, current cleanup/policy tests and retained
+native evidence. Physical long-press and spoken-output observations remain
+unclaimed; G-18 and other acceptance rows retain their own criteria.
 
 Final local Node 24 execution passes 30/30 tests across Chromium and WebKit,
 including 16 accessibility scans, in 23.7 seconds. Results:

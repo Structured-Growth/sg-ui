@@ -1,0 +1,327 @@
+[
+  {
+    "id": "daily-oct08/daily-browser-pool/730985b1-789c-4f02-ac23-d84f22cc244b/full-011",
+    "results": {
+      "path": "/Users/thomashall/.codex/visualizations/2026/10/07/01a1164f-41db-7f30-aaf9-f20133b6566f/native-evidence/daily-oct08/daily-browser-pool/730985b1-789c-4f02-ac23-d84f22cc244b/full-011/results.json",
+      "sha256": "a7d3405915e5cb3f74e59c19c933d53532c883dca9afcc098767bba6d0453705",
+      "bytes": 14025
+    },
+    "admission": {
+      "path": "/Users/thomashall/.codex/visualizations/2026/10/07/01a1164f-41db-7f30-aaf9-f20133b6566f/native-evidence/daily-oct08/daily-browser-pool/730985b1-789c-4f02-ac23-d84f22cc244b/full-011/evidence.json",
+      "sha256": "657dcaa5d554839960f2c2cd2361b572ccc2a0425d46b7d5a7970babd15d9d2a",
+      "bytes": 3516
+    },
+    "buildDigest": "63ba039937bdf5a6e5ad4695ba9ed44c3dd686a11f07088f91da04be98699b4d",
+    "stats": {
+      "startTime": "2026-10-08T12:09:44.773Z",
+      "duration": 32097.494000000002,
+      "expected": 9,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cases": [
+      {
+        "title": "Strict Mode keyboard cancellation keeps selection, source focus and no host request across remount",
+        "file": "batch01-grid-reorder.spec.ts",
+        "project": "chromium",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "keyboard Move alternatives keep source focus through pending commit and host failure rollback",
+        "file": "batch01-grid-reorder.spec.ts",
+        "project": "chromium",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "single pointer Move alternative repairs source focus when the destination disables its action",
+        "file": "batch01-grid-reorder.spec.ts",
+        "project": "chromium",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "Strict Mode keyboard cancellation keeps selection, source focus and no host request across remount",
+        "file": "batch01-grid-reorder.spec.ts",
+        "project": "firefox",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "keyboard Move alternatives keep source focus through pending commit and host failure rollback",
+        "file": "batch01-grid-reorder.spec.ts",
+        "project": "firefox",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "single pointer Move alternative repairs source focus when the destination disables its action",
+        "file": "batch01-grid-reorder.spec.ts",
+        "project": "firefox",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "Strict Mode keyboard cancellation keeps selection, source focus and no host request across remount",
+        "file": "batch01-grid-reorder.spec.ts",
+        "project": "webkit",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "keyboard Move alternatives keep source focus through pending commit and host failure rollback",
+        "file": "batch01-grid-reorder.spec.ts",
+        "project": "webkit",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "single pointer Move alternative repairs source focus when the destination disables its action",
+        "file": "batch01-grid-reorder.spec.ts",
+        "project": "webkit",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      }
+    ],
+    "scope": "Historical native execution; no fresh current-head/browser or physical-device claim"
+  },
+  {
+    "id": "wave43/pointer-invalidation-pending-engines",
+    "results": {
+      "path": "/Users/thomashall/.codex/visualizations/2026/10/07/01a1164f-41db-7f30-aaf9-f20133b6566f/native-evidence/wave43/pointer-invalidation-pending-engines/results.json",
+      "sha256": "cfcc2ebea83e1f2e997c5f394cfad7ba7e97a7976398ac129ccd3bafd9a0078b",
+      "bytes": 21781
+    },
+    "admission": {
+      "path": "/Users/thomashall/.codex/visualizations/2026/10/07/01a1164f-41db-7f30-aaf9-f20133b6566f/native-evidence/wave43/pointer-invalidation-pending-engines/evidence.json",
+      "sha256": "6f2a4669bc6aaf0a8e7631e9901e1e88d7f35fd00f9c6533b7b17c6e63632bac",
+      "bytes": 2847
+    },
+    "buildDigest": "25e3b09e40134dfb019414e596c51adcdb06c30a00ecf47760596c366529d51c",
+    "stats": {
+      "startTime": "2026-10-07T22:03:52.380Z",
+      "duration": 19686.344,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cases": [
+      {
+        "title": "F7 trusted pointer drop after dataset replacement emits no stale move and restores source focus",
+        "file": "inventory-pointer-reorder-invalidation.spec.ts",
+        "project": "firefox",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "F7 trusted pointer drop after identity replacement emits no stale move and restores source focus",
+        "file": "inventory-pointer-reorder-invalidation.spec.ts",
+        "project": "firefox",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "F7 trusted pointer release over another grid cancels with colliding row IDs and no stale move",
+        "file": "inventory-pointer-reorder-invalidation.spec.ts",
+        "project": "firefox",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "F7 trusted pointer drop after dataset replacement emits no stale move and restores source focus",
+        "file": "inventory-pointer-reorder-invalidation.spec.ts",
+        "project": "webkit",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "F7 trusted pointer drop after identity replacement emits no stale move and restores source focus",
+        "file": "inventory-pointer-reorder-invalidation.spec.ts",
+        "project": "webkit",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "F7 trusted pointer release over another grid cancels with colliding row IDs and no stale move",
+        "file": "inventory-pointer-reorder-invalidation.spec.ts",
+        "project": "webkit",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      }
+    ],
+    "scope": "Historical native execution; no fresh current-head/browser or physical-device claim"
+  },
+  {
+    "id": "wave43/reorder-pending-engines",
+    "results": {
+      "path": "/Users/thomashall/.codex/visualizations/2026/10/07/01a1164f-41db-7f30-aaf9-f20133b6566f/native-evidence/wave43/reorder-pending-engines/results.json",
+      "sha256": "482e9897e01efd1d207245296eb359da6255fd119227307cc3576f0aad862097",
+      "bytes": 17928
+    },
+    "admission": {
+      "path": "/Users/thomashall/.codex/visualizations/2026/10/07/01a1164f-41db-7f30-aaf9-f20133b6566f/native-evidence/wave43/reorder-pending-engines/evidence.json",
+      "sha256": "0f4a895ace8120ccee3c6b0946f82ed7ceb8870b7d1366780168f4b80a7390aa",
+      "bytes": 3380
+    },
+    "buildDigest": "25e3b09e40134dfb019414e596c51adcdb06c30a00ecf47760596c366529d51c",
+    "stats": {
+      "startTime": "2026-10-07T22:03:00.457Z",
+      "duration": 32880.904,
+      "expected": 10,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cases": [
+      {
+        "title": "first native pointer drag commits before target and restores source handle focus",
+        "file": "reorder.spec.ts",
+        "project": "firefox",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "first native pointer drag commits after target and restores source handle focus",
+        "file": "reorder.spec.ts",
+        "project": "firefox",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "native pointer drop outside cancels; rejected pointer move rolls back to host order",
+        "file": "reorder.spec.ts",
+        "project": "firefox",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "multiple selection and sorting disable native reorder without emitting host moves",
+        "file": "reorder.spec.ts",
+        "project": "firefox",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "touchscreen non-drag Move alternative commits and rolls back with trusted touch input",
+        "file": "reorder.spec.ts",
+        "project": "firefox",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "first native pointer drag commits before target and restores source handle focus",
+        "file": "reorder.spec.ts",
+        "project": "webkit",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "first native pointer drag commits after target and restores source handle focus",
+        "file": "reorder.spec.ts",
+        "project": "webkit",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "native pointer drop outside cancels; rejected pointer move rolls back to host order",
+        "file": "reorder.spec.ts",
+        "project": "webkit",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "multiple selection and sorting disable native reorder without emitting host moves",
+        "file": "reorder.spec.ts",
+        "project": "webkit",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "title": "touchscreen non-drag Move alternative commits and rolls back with trusted touch input",
+        "file": "reorder.spec.ts",
+        "project": "webkit",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      }
+    ],
+    "scope": "Historical native execution; no fresh current-head/browser or physical-device claim"
+  }
+]

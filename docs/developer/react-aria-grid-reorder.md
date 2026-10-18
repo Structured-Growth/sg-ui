@@ -31,7 +31,10 @@ is moved; invalid/missing/self/adjacent no-op targets emit no callback. Replacin
 rows or the identity function during a drag invalidates the captured order.
 
 React Aria handles pointer, touch, keyboard and assistive-technology drag
-interactions and their announcements. Activate the handle to enter keyboard drag
+interactions and their announcements. Touch users can also tap Move up/down
+without dragging; this requests the same adjacent before/after move as keyboard
+or pointer activation of those controls. Touch scrolling outside the handle
+remains native; the drag handle reserves its own gesture with `touch-action: none`. Activate the handle to enter keyboard drag
 mode, navigate drop positions, confirm to request a move, or Escape to cancel.
 Move up/down controls offer equivalent non-drag requests. A request announcement
 does not claim the host has saved the order. Focus stays with the source control
@@ -98,7 +101,11 @@ The existing `inventory-pointer-reorder-invalidation.spec.ts` separately covers
 trusted pointer dataset/identity replacement and cancellation over a second grid
 with colliding row IDs. These pointer checks do not establish touch cancellation.
 
-This slice does not establish physical-device long-press dragging, spoken
-screen-reader announcements, every dataset-change
-boundary or production network race reconciliation. G-17/G-18/G-28/X-08 and the
-broader G/U/X/R/Z gates remain open beyond this representative evidence.
+The [finite G-17/M-18 reconciliation](final-acceptance/wave-04/02/grid-reorder/receipt.json)
+joins the behavior definition, owned helper/style contracts, accepted F/T/V-C18
+records, retained native input evidence and current focused tests. It recommends
+acceptance of those two obligations. This does not establish physical-device
+long-press dragging or spoken screen-reader output; those observations remain
+separate from the defined touch alternative and DOM announcement contract.
+Production network abort, stale-response handling and persistence remain host
+responsibilities. Other G/U/X/R/Z obligations retain their own acceptance scopes.

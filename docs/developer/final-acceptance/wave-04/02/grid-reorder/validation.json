@@ -1,0 +1,18 @@
+{
+  "startedAt": "2026-10-18T01:37:46.679Z",
+  "runtime": "v24.19.0",
+  "command": [
+    "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "src/components/AppDataGrid/AppDataGrid.reorder.test.tsx",
+    "src/components/AppDataGrid/AppDataGrid.reorder-policy.test.tsx",
+    "src/components/AppDataGrid/AppDataGrid.pointer-invalidation.test.tsx",
+    "src/components/AppDataGridRowDnd/DataGridDragHandle.test.tsx",
+    "src/components/AppDataGridRowDnd/useDataGridRowDnd.test.tsx"
+  ],
+  "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+  "status": "pass",
+  "finishedAt": "2026-10-18T01:37:50.221Z",
+  "cleanup": "Owned command settled and light slot released; no build/browser/install"
+}
