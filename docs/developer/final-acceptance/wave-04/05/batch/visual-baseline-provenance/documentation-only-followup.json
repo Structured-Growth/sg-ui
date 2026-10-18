@@ -1,0 +1,18 @@
+{
+  "status": "documented-generation-and-pinning-commands-verified-purely",
+  "sourceDoc": "docs/developer/react-aria-visual-baseline-review.md",
+  "beforeSha256": "88a5fd81c0f60a2ffeaa28b71a3ce126099928aaeb1e0c45a893587c5cd63c0c",
+  "afterSha256": "af52b27ffd59e917e82cf3ce7b7aaf0f5bfa766299b202094ddf3e623292d48d",
+  "comparedDocPreservedAt": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-provenance/candidate-doc-before-instructions.md.txt",
+  "firstComparisonPassed": 8,
+  "firstComparisons": 48,
+  "secondComparisonRun": false,
+  "generatorFileCount": 3436,
+  "pinnedSha256": "7b9ac3ad7460194bf23adf6dd05e80d45f51599a33a6575dad071a6fef143022",
+  "pinnedBytesMatch": true,
+  "candidateErrors": [],
+  "existingManifestRefused": true,
+  "builds": 0,
+  "browserRuns": 0,
+  "note": "Documentation correction is outside frozen runtime evidence; passing comparison remains bound to original candidate manifest/doc snapshot. Pure generator output is a separate current-documentation check, not another UI comparison."
+}

@@ -1,0 +1,31 @@
+✔ exact matrix is required; missing or pending image never becomes a baseline (20.492167ms)
+✔ changed image, source or host invalidates the matching review (15.701167ms)
+✔ reject duplicate/unknown image coverage and missing actual review metadata (8.504334ms)
+✔ reject hash-valid path traversal and symlink escape (12.379375ms)
+✔ malformed receipt or absent baseline rejects rather than grants review (7.244292ms)
+✔ actual comparison entry rejects alternate-config auto updates and wrong snapshot roots (28.79875ms)
+✔ actual capture entry writes only fresh candidates and refuses overwrites and update flags (6.690125ms)
+✔ actual entry rejects unbound paths, invalid modes and symlink escape (7.032875ms)
+✔ historical Git and artifact baseline accepts a separately bound changed candidate (225.36325ms)
+✔ candidate drift fails independently while the historical baseline remains valid (96.729291ms)
+✔ historical Git/source hash mismatch and unavailable commit are rejected (108.103167ms)
+✔ packed historical artifact tamper, missing entries and unsafe paths are rejected (177.515375ms)
+✔ packed artifact format, canonical base64 and unexpected entries are checked (133.120959ms)
+✔ reviewed manifest tamper and historical provenance masquerading as candidate are rejected (100.765666ms)
+✔ actual comparison entry requires candidate binding even with an admitted baseline (133.09025ms)
+✔ packed historical snapshot symlink escape is rejected (83.740041ms)
+✔ historical Git symlinks cannot masquerade as regular reviewed source files (128.73075ms)
+✔ packed snapshot generation is deterministic for identical reviewed bytes (61.605334ms)
+✔ fresh parent admission permits its worker config reload with capture policy intact (396.302458ms)
+✔ worker reload refuses missing admission (171.474417ms)
+✔ worker reload refuses mismatched or missing run binding (541.687041ms)
+✔ parent refuses existing candidate destination even with a prior admission (347.801542ms)
+✔ snapshot update flags cannot bypass fresh admission (170.543583ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1820.540708

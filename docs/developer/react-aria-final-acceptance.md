@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 266/320 A leaves closed; 54 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 267/320 A leaves closed; 53 A, 0 editor V review leaves and six future leaves remain.**
+
+### Durable visual regression coverage accepted — 2026-10-17
+
+The eight-case/48-image regression matrix now separates immutable historical baseline inputs from each new candidate. Original reviewer, observations and all image hashes are preserved; Git-backed source and a hash-pinned packed snapshot protect historical bytes. Twenty-three guards pass on Node22.12 and24, and all48 actual comparisons pass with zero differences and no snapshot updates.
+Wave 04 now closes 86 of 139 items; 53 remain.
 
 ### Progressive enhancement and visible focus accepted — 2026-10-17
 

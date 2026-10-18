@@ -1,0 +1,106 @@
+{
+  "status": "complete-integrated-historical-provenance-and-strict-comparison",
+  "bindings": {
+    "amendedReview": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/reviewed-baseline-05-provenance.json",
+      "sha256": "e47d3c24f2638befe1ec1b1ba103c74fe05b1b30a983febcaf7665b6479594e8"
+    },
+    "historicalManifest": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-provenance/historical-source-e11b-05.json",
+      "sha256": "e4d1e713031a707760a23285126b15bb67de6fe33ac4282224fedc01eeed675e"
+    },
+    "packedSnapshot": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-provenance/historical-artifacts-e11b-05.json.gz",
+      "sha256": "878a5f268dab25c401ea1d1beb7609c11ee78dae07bb01527572f911e62d4092"
+    },
+    "snapshotAudit": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-provenance/packed-snapshot.json",
+      "sha256": "89cf4326f3dd6e07962e566c3453fec089917bc1c56b1e31d2b983ab86135132"
+    },
+    "candidateManifest": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-provenance/candidate-inputs-01.json",
+      "sha256": "b47663877a0c24da735b11a1e69cf252e0b08951032275d60788860b589f051e"
+    },
+    "candidateRecord": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-provenance/candidate-record-01.json",
+      "sha256": "169602b87b3f00e743bafefe3e7af4a1bb4e83f4042a9a1ee2061c6801f20e51"
+    },
+    "comparison": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/compare-provenance-admission-01/receipt.json",
+      "sha256": "e5696920d3c592ca1832ff69df822ff5cc049977e459ca176d47109897161e0b"
+    },
+    "rawComparison": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/compare-provenance-01/results.json",
+      "sha256": "a49785973edd0cbf6631099562f3b5b34702f403bc0adb0e87a1ac851ffbf257"
+    },
+    "node24Guards": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-provenance/integrated-guards.log",
+      "sha256": "93c4bd4c2ef55b9226bdaa60ac56a2a984678f434d5be9e93186ea5bc53e71f6"
+    },
+    "node22Guards": {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/validation/visual-provenance-node22.log",
+      "sha256": "537e886b29b0080620b3a76cbeb589383fd376264cd1eee728ed1aa00f424d61"
+    },
+    "types": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-provenance/integrated-browser-types.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docCommands": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-provenance/documentation-only-followup.json",
+      "sha256": "cced4f423479408ab5f167d413768babf420cab00714734ee44a7eb6c5e36be0"
+    },
+    "frozenComparedDoc": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-provenance/candidate-doc-before-instructions.md.txt",
+      "sha256": "88a5fd81c0f60a2ffeaa28b71a3ce126099928aaeb1e0c45a893587c5cd63c0c"
+    }
+  },
+  "baseline": {
+    "commit": "e11b00c1d8808b4c797c587dea1b804b89206e81",
+    "trackedInputs": 1114,
+    "packedNonGitInputs": 2164,
+    "packedBytes": 1935204,
+    "fileMapUnchanged": true,
+    "originalReviewAndSourceUnchanged": true,
+    "reviewerAnd48ImageRecordsPreserved": true,
+    "packedNoExtraction": true
+  },
+  "candidate": "Separate pinned candidate manifest records six tooling/document changes; historical baseline hashes are not refreshed from candidate bytes.",
+  "comparison": {
+    "status": "passed",
+    "owner": "visual48-compare:42209",
+    "mode": "compare",
+    "workers": 1,
+    "retries": 0,
+    "expectedCases": 8,
+    "expectedComparisons": 48,
+    "updateSnapshots": "none",
+    "maxDiffPixels": 0,
+    "builds": 0,
+    "nativeExitCode": 0,
+    "stable": true,
+    "fontCasesStable": true,
+    "caseCount": 8,
+    "passed": 8,
+    "completedComparisons": 48,
+    "cleanup": {
+      "ownedBrowserClosed": true,
+      "ownedServerClosed": true,
+      "claimsReleased": true
+    },
+    "completedAt": "2026-10-18T00:21:07.752Z"
+  },
+  "validation": {
+    "node24GuardsPassed": 23,
+    "rootActualNode22_12GuardsPassed": 23,
+    "browserTypesExitCode": 0,
+    "documentationGeneratorAndSHACommandExecutedPurely": true,
+    "documentedFreshManifestEntries": 3436,
+    "documentedExistingManifestRefused": true
+  },
+  "documentationFollowup": "After comparison passed, expanded mandatory candidate generation/SHA pin instructions. Frozen compared doc bytes are retained separately. No second runtime run for documentation.",
+  "secondRuntimeJobStarted": false,
+  "currentlyOwnedBrowsersServersOrLeases": false,
+  "libraryOrPrivateFixtureRuntimeChanged": false,
+  "builds": 0,
+  "commitsOrCountsChanged": false
+}
