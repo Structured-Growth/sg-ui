@@ -1,17 +1,17 @@
 {
-  "lastIntegratedHead": "9efc43a4",
+  "lastIntegratedHead": "3759da35",
   "ongoing": [
     {
       "threadId": "01a14bd4-fbcc-7460-93a5-571ced620baa",
-      "task": "W20 factual source/license attribution and task-data boundaries",
-      "state": "W19 completed; reconcile original attribution obligation against accepted B14/I08 provenance and honest remaining legal limitations",
-      "evidence": "docs/developer/final-acceptance/wave-04/02/document-navigation/receipt.json (completed prior task)",
-      "limits": "Source/read-only light first; do not infer legal compatibility or rights from metadata; no builds/repacks/remote mutation"
+      "task": "R25 workflow dependency pin/review obligation",
+      "state": "W20 completed; reconcile immutable action pins and review policy with source guards and authoritative read-only provenance where needed",
+      "evidence": "docs/developer/final-acceptance/wave-04/02/attribution-boundary/receipt.json (completed prior task)",
+      "limits": "Source/read-only light first; no workflow dispatch, repository settings, release, main or publish mutation"
     },
     {
       "threadId": "01a14bd5-0ddf-72d2-8b9f-5b37d1bde6e6",
       "task": "D15 current state applicability and remaining design gaps",
-      "state": "All six bounded structural marker owners integrated; reconcile218 current public names and fix concrete remaining state design gaps",
+      "state": "Current218-name source reconciliation and concrete selected/current marker fixes in progress; preserve existing Active text rather than adding redundant geometry",
       "evidence": "docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/completion-receipt.json",
       "plannedValidation": "Source/light first; reuse accepted evidence; no Cartesian matrix or invented AT/device gate for design-only criteria",
       "rootReviewPoints": [
