@@ -27,6 +27,8 @@
   .rotated { transform: rotate(180deg); }
   .back { justify-content: start; flex-shrink: 0; margin: var(--sgui-space2); }
   .footer { border-block-start: 1px solid var(--sgui-side-navigation-divider); padding-block-start: var(--sgui-space3); }
+  /* The outer navigation scrollport clips external outlines at its edges. */
+  .userTrigger[data-focus-visible], .collapse[data-focus-visible] { outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
   .collapse { align-self: stretch; flex-shrink: 0; border-radius: 0; border-block-start: 1px solid var(--sgui-side-navigation-divider); margin-block-start: auto; }
   .error { color: var(--sgui-side-navigation-danger); padding: var(--sgui-space2); font-size: var(--sgui-label-size); }
   @keyframes forward { from { opacity: 0; transform: translateX(var(--_side-navigation-forward-offset)); } to { opacity: 1; transform: translateX(0); } }
