@@ -1,0 +1,300 @@
+{
+  "files": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actionlint-admission.json",
+      "sha256": "bddb7b692e417e48effee6e8f29296b7301563b364d7190dc83debbe91375288"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actionlint-release.json",
+      "sha256": "9ece50ffe5d0726eb90ec20057955f3fad104dfef1ff32056ac8feb8931a8d3a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actionlint-version.log",
+      "sha256": "2f40fa9e505771c4dd7ff4b6ed601e587f52744935b72906e55b21a9a7c1ce1b"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actionlint-version.log.resources.json",
+      "sha256": "38e60ad15966bec628353174e889654c7d5d91814f19bea10865ae0f42bbd154"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actionlint.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actionlint.log.resources.json",
+      "sha256": "113ccee0f6d458b804beb7eeafc4b0422036e03c9520c8ca030ecccaa97595b6"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-checkout-package.json",
+      "sha256": "56eba18d281e1ec4ebb06cfeec3ee60228fa1b7cf645eceaf53c4bc39c39e7aa"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-checkout-release.json",
+      "sha256": "21b9c1994109a9877bb92792e4e68e863f8a9139225cf143deac494f465f1cbf"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-checkout-tag-refs.json",
+      "sha256": "8ed57c1d3c79c929f46e816c654ebb34b330b298c07cee8a459e06a53fb394a5"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-download-artifact-package.json",
+      "sha256": "771f9e09f28168f8a0f7e1a7a12bd8e43369413c6ba9aa8c9e8db487f9bda027"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-download-artifact-release.json",
+      "sha256": "9a42e262c51803642cae7acca053724f0daf1f6656ad7c76346f0b1141773026"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-download-artifact-tag-refs.json",
+      "sha256": "a5b1c69b687984d4f0dc80a489cfc3686d49cbab7fb9f93e84b981039e46da10"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-setup-node-package.json",
+      "sha256": "3ace1563be8565ba00cd46664a88be1b2bc4e12aded255038f7444b17a52479c"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-setup-node-release.json",
+      "sha256": "064f8dc8b7609ebf3a61c59aa1dcdf96719abddd430d4a2aaa4363c80e4cdb4e"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-setup-node-tag-refs.json",
+      "sha256": "5470f5c572a4fef312530a737457a72caa277992adaa18c43194fd868a90729f"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-upload-artifact-package.json",
+      "sha256": "d638ce75429e1387e205b8f234045ec7056c714bd89c90eb0a24798bf388f18c"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-upload-artifact-release.json",
+      "sha256": "df648576c9fdae00b5f70f7c8b3a4e06e8785afd6c7d71276c655b1725206b85"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-upload-artifact-tag-refs.json",
+      "sha256": "5ae590d7952458a06aafdfe0066c617736a057344e463b189be1eb0add77defd"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/annotated-and-nested-review.json",
+      "sha256": "34a9f72b9ad5d2de51cda633d585dd94aab3510759c40c7b4fb76bd05443bf95"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/check-links.mjs",
+      "sha256": "cf9d9dca45ba42b9cebb9d4e5a4f44b7887b1f9c481219ef7738138fbc23147b"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/ci-artifacts-tests.log",
+      "sha256": "23f615e2a59dfb0f197fecc19201a46ae142382a324d7152fd221ae42b9e7d84"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/ci-artifacts-tests.log.resources.json",
+      "sha256": "3754c5048a48010f00f054935f139afae2471d652a8f002ddeaf93be3de56e38"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/ci-artifacts-validation.json",
+      "sha256": "d6f9f5f01d02e23d2c4b327d5b883964f79f57a150da253fa24d9cc6e6a17173"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/codex-nested-setup-node-action.json",
+      "sha256": "62de6dd6ae58f6c4d6dd05036b1d9e18d223e900b1afcea697286ce4355a47d4"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/codex-nested-setup-node-commit.json",
+      "sha256": "b964174ae0ee1fea50b47dc19b9b1c548594c3943b20a1873d58448efbe3edd4"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/fetch-annotated-review.py",
+      "sha256": "f13d06671c29c15d6d66413ca6541d8441922293f0697cdb37d1f986c733d966"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/fetch-missing-metadata.py",
+      "sha256": "fb669b9e5a9238d25453172a6cdfe358d146788645d78dbff13dadbdaa08df8e"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/fetch-release-review.py",
+      "sha256": "3a2adb4083bdc7c4f8d370254d359c6ffe1483a78fced6b7c6ea1620525e2cd2"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/links-validation.json",
+      "sha256": "e9689419b67180622672461529ad43901d2092ba001dc7a05cfbd6477d7f370c"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/links.log",
+      "sha256": "bcaaa0982fd96bf1f1cbc319056487b8bada19aa5bd647f0cb140669b4384275"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/links.log.resources.json",
+      "sha256": "5c2c162eb59485fbe020de88df7c1c794faacf3ca04e71d79388a7bedd3962b0"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-changelog.json",
+      "sha256": "30157b4ee0c280bc93cc6925748bd9ed9062d26a3932c58a26aae3a570645eb7"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-major-tag-object.json",
+      "sha256": "02ba4a459d0a9b2551579d45d840316054f978c7ce562fa469ad402f70f9f277"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-package.json",
+      "sha256": "c3fc10d003b951d6592fb90a332377ad3fe2fa6962071509619b744e62e23208"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-tag-refs.json",
+      "sha256": "297e3d9ed67280c37734f928b7df59f7b35da9d8452e3d715e7d474c788f8d49"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.10-tag-object.json",
+      "sha256": "d817716282a9aa72964edf3ef12c851f13488a0b9d8f7d3364f2698e39b4aa15"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.11-tag-object.json",
+      "sha256": "4c3e2dc646a3b621fe104e339bb2500162481fd7cccdc64a08bd68b957b966af"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.12-tag-object.json",
+      "sha256": "5309fe3ff31b2e15b0773ae2b5d660180f2b33b0f4d4214e19fa4a7650d4b78a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.13-tag-object.json",
+      "sha256": "e37ced6b95df3e2f606bb9a49cdaad90ce66a4a44462a3c912bcde2b81265335"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.2-tag-object.json",
+      "sha256": "96eda663fc45e235d497da01d0a97b6047ac9f7a160fc4eb0e786bdac7c7c0fe"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.3-tag-object.json",
+      "sha256": "47ee9d8b64e38b147ec0d47e4925f4c367a44e04196396249f3571028f0d926d"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.4-tag-object.json",
+      "sha256": "e5a1cbe1571f7ca02f3a32b681e69b852f03ccbdab3e6433aadbbb375bd80a08"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.5-tag-object.json",
+      "sha256": "2d846beea8b749cf5cc13a8144a2ff59a8d76bd1402607a61d3e60d267442be3"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.6-tag-object.json",
+      "sha256": "83771f1d5c216bddf226a95a6b64b1a70d3fd3e5b7c740cc432461d9c2cf03bf"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.7-tag-object.json",
+      "sha256": "983fa5749e38bb33a5fb43fa1bd77d65abf08a946225f3b320a1e24ca6a7bdde"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.8-tag-object.json",
+      "sha256": "a6a3cb1a2954c066f12d6caecc04f8bb3dcd11f1555a21d3a8261409d498ee84"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.9-tag-object.json",
+      "sha256": "fa24340a7fdb79c3f9a700e38f1234f6389ddbfbae605b12988b1c56b28dc83d"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/peter-evans-create-pull-request-package.json",
+      "sha256": "571a2252b8146d26b5ef5a7aeb22f22bcf16699cae6b3d6888b7bcad40285bb0"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/peter-evans-create-pull-request-release.json",
+      "sha256": "951032fd54c9f2c6bbd45dcc55e2c552e507e4ec94c0300307b3a0816abac113"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/peter-evans-create-pull-request-tag-refs.json",
+      "sha256": "93b8087ffc3c8b481799bb21a388b78a15c6341260ce08f3c2820183ed6eb59a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-major-tag-object.json",
+      "sha256": "72df83ebd19b3c7af31ff428c3ce3371c4ce6a232c282bc443ddd06324d515a5"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-package.json",
+      "sha256": "8d4e43e26cbc138f57c60d3c1de12849c73e60faed88c6db879a71a712c4d027"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-release.json",
+      "sha256": "0b08d0517593cb68287a0eab90e0db3cf05c3198ebad1c846d82e3660bf68ec8"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-tag-refs.json",
+      "sha256": "623f5ae7fd5b8e12ed3a19aa5f764a67aa3374d48178882ff44063142b677d8a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-v4.0.0-tag-object.json",
+      "sha256": "63ba852882b48c592a762aa0fc3427b4da42cb27cb4b5a33236d40491d5a8a2d"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-v4.1.0-tag-object.json",
+      "sha256": "a28a56958f9ae5a9ce37a1b1a80c69a710909e5c4f9e25378e27fd8995eec555"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-v4.2.0-tag-object.json",
+      "sha256": "b2af1f2d9afe4b5d49c7a678dc461d120c22eef0d67c0db9342992522bc27f11"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-v4.3.0-tag-object.json",
+      "sha256": "9951e7a9908e8bb620177db0fc3d958d74867df379a2bcdb69c1f87cbb020464"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-v4.4.0-tag-object.json",
+      "sha256": "af31006a164efc2565a3fec910b36a127a9b01323939d064e88995012b143bad"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/policy-tests.log",
+      "sha256": "1d112c8311142775c8ef7bbf04e73ba9fabe97ce71b5f2a332caa7f6b91d260f"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/policy-tests.log.resources.json",
+      "sha256": "e7936c134e520033eb0707406111c5f6cd7c5f45db0c9cd076cf87f287d79176"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/prepare-actionlint.py",
+      "sha256": "e523c5ea81dbcb4a3f6e9237f364cdc670ecde056010c64a9a8f2c4b66625170"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/receipt.json",
+      "sha256": "7979d8a17f3d1d285fb031630c9edbb0b9b7f56e0a7a66a17cf3c07eb73386fa"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/reconcile.py",
+      "sha256": "82ae6740e1ec51c7e1154c9374b72516f73bf1eb4b7c192f8cfc93e50b9b70af"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/release-review-manifest.json",
+      "sha256": "6231d40da999115680a28bc38aecc6d0836cbcabe755c6912e2030e95440f44f"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/remote-manifest.json",
+      "sha256": "a7d4d4aecab253cffd26be26756470e553c8bfd2ac50e68e779c5866beb8770c"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/report.md",
+      "sha256": "77b6926c41bb9ded14265de0488ec5acb248b553e78d36ad1eb54edd77be1152"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/source-reconciliation.json",
+      "sha256": "0070895f0f2c7782f5fa57eec329c0a4027046b3f7ed8eedd1105f92e95e8f31"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/validate-artifacts.mjs",
+      "sha256": "ec08bdbf5f0c96bdca25bbb7b9dbfeee54c34a81f2124fd2b019b530db7e6dfd"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/validate.mjs",
+      "sha256": "275c08cfe8217a432522a8f16f768f9be43f0104f542ff4aa3a5d20f9e5d1271"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/validation.json",
+      "sha256": "4062666077804803547d6f113b14a838c72448b2e18ccf2673a864f58c50eb3a"
+    },
+    {
+      "path": "packages/ui/scripts/check-ci-release-enforcement.mjs",
+      "sha256": "ed27a37a69740ef929a429119b95853b1ef1cab6cccbc2b716f1f39d2003130c"
+    },
+    {
+      "path": "packages/ui/scripts/check-ci-release-enforcement.test.mjs",
+      "sha256": "9d329b1078f87ed1061c2101028350b0908eb06165c1b27ba008da80b8b2fc8b"
+    },
+    {
+      "path": "docs/developer/workflow-dependency-policy.md",
+      "sha256": "336723f7d44ca1b7dbc6ef2d6413d0e57887a8af443f2e2b4db40667cd5cadc6"
+    }
+  ]
+}

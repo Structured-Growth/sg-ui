@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 290/320 A leaves closed; 30 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 291/320 A leaves closed; 29 A, 0 editor V review leaves and six future leaves remain.**
+
+### Workflow dependency pin and review checks completed — 2026-10-17
+
+Closed A-R-25 after verifying the seven immutable action identities, enforcing full-SHA references in the maintained guard and running checksum-verified actionlint on all four unchanged workflows. Fourteen policy cases and three artifact-helper cases pass.
+Wave 04 now closes 110 of 139 items; 29 remain.
 
 ### Attribution and evidence boundaries reconciled — 2026-10-17
 

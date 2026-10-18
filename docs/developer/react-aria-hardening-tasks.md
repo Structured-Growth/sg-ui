@@ -1,6 +1,6 @@
 # Remaining browser, visual and final acceptance work
 
-**Current open work:** 0 hardening (V) review items, 30 final-acceptance (A) items and six explicitly deferred future items. Completed items have been removed; evidence remains in the [execution receipt](backlog-execution-2026-10-15.md).
+**Current open work:** 0 hardening (V) review items, 29 final-acceptance (A) items and six explicitly deferred future items. Completed items have been removed; evidence remains in the [execution receipt](backlog-execution-2026-10-15.md).
 
 Priority: P3 — third, only after the required functionality baseline and regression tasks are complete. P4 final acceptance follows hardening. Known defects are recorded individually as `BUG-0001`, `BUG-0002`, etc. with reproduction, expected result, affected component, priority and linked regression; allocate IDs only when a real defect is found. Do not create empty defect tasks.
 
@@ -105,7 +105,6 @@ Each `A-*` acceptance item below reconciles one original parent with its impleme
 - [ ] A-R-17 Reconcile original `R-17`: Verify npm scope ownership, public access, trusted-publishing/token setup, GitHub release/tag permissions, provenance requirements, and commercial notices before publication. Historical status: open.
 - [ ] A-R-21 Reconcile original `R-21`: Preserve minimal workflow permissions, trusted/untrusted input separation, credential isolation, separate validation, and draft-PR review; never auto-merge AI proposals. Historical status: open.
 - [ ] A-R-23 Reconcile original `R-23`: Verify AI-created draft PR validation even when default-token PR creation does not trigger another workflow; do not rely on absent CI events. Historical status: open.
-- [ ] A-R-25 Reconcile original `R-25`: Pin/review workflow dependencies according to repository policy and validate proposed workflow changes without weakening protections to make checks pass. Historical status: open.
 - [ ] A-R-27 Reconcile original `R-27`: Ensure release-blocking checks actually run on the PR and main paths, including AI proposals and maintainer infrastructure PRs; check branch-protection names against the final workflow jobs. Historical status: open.
 - [ ] A-R-28 Reconcile original `R-28`: Validate release configuration safely without publishing while implementing it; explicitly control whether final migration merges will trigger the first public release or a subsequent major release. Historical status: open.
 - [ ] A-W-18 Reconcile original `W-18`: Document known limitations, deferred features, support policy, deprecated names, release impact, and the cost/responsibility of eventually replacing React Aria. Historical status: open.

@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 109,
-  "closedTotal": 290,
-  "remaining": 30,
+  "closedThisReview": 110,
+  "closedTotal": 291,
+  "remaining": 29,
   "entries": [
     {
       "id": "A-M-21",
@@ -974,6 +974,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/w20-attribution-and-task-data-boundaries.json",
       "sha256": "1b4e4eab338f12534c214ee4d4aa74581f8a6905bd2b98a4b9d84b2734191b4d",
       "limits": "Factual attribution and trust-boundary obligation only. Client-only legal-text finding, licensing/rights compatibility, final-candidate/distribution approval and notice-removal remain separate L/Z gates. No new package, runtime, remote, AT or publication evidence inferred."
+    },
+    {
+      "id": "A-R-25",
+      "basis": "All31external action references resolve to seven reviewed immutable commits; two candidate-local reusable workflows remain relative. Official commit/action/package/tag/release or pinned-changelog metadata is reviewed without conflating package.version with action tag identity. The maintained guard now rejects mutable external refs and local@ref forms, with14passing tests. Official checksum-verified actionlintv1.7.12 passes all four workflows without suppressions;3artifact-helper tests pass. Workflow hashes remain unchanged, preserving production/dev paths, credentials, release prerequisites, sandbox and draft-only behavior.",
+      "criterion": "- [ ] A-R-25 Reconcile original `R-25`: Pin/review workflow dependencies according to repository policy and validate proposed workflow changes without weakening protections to make checks pass. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/r25-workflow-dependency-policy.json",
+      "sha256": "2b4c0268ac4a7c318063770be2f01424c5b21ac9e10a504e3b7263dee4db84ed",
+      "limits": "Reference form and source review do not certify upstream safety or immutable downloaded tools. Optional Codex CLI version and floating hosted Node/Ubuntu boundaries remain explicit. No new live Actions, AI PR, effective branch-protection, release, main, tag or publication success inferred; R21/R23/R27 and release authority scopes remain separate."
     }
   ],
   "limits": [

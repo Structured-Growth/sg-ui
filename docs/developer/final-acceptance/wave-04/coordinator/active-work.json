@@ -1,12 +1,12 @@
 {
-  "lastIntegratedHead": "3759da35",
+  "lastIntegratedHead": "351f1f50",
   "ongoing": [
     {
       "threadId": "01a14bd4-fbcc-7460-93a5-571ced620baa",
-      "task": "R25 workflow dependency pin/review obligation",
-      "state": "W20 completed; reconcile immutable action pins and review policy with source guards and authoritative read-only provenance where needed",
-      "evidence": "docs/developer/final-acceptance/wave-04/02/attribution-boundary/receipt.json (completed prior task)",
-      "limits": "Source/read-only light first; no workflow dispatch, repository settings, release, main or publish mutation"
+      "task": "R15/R28 release marking and safe configuration reconciliation",
+      "state": "R25 complete; reconcile actual breaking markers, release rules and ordinary dev/main boundaries without publication",
+      "evidence": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/receipt.json (completed prior task)",
+      "limits": "Source/read-only light first; no dispatch, main, tag, publish, secret/settings/version mutation"
     },
     {
       "threadId": "01a14bd5-0ddf-72d2-8b9f-5b37d1bde6e6",
