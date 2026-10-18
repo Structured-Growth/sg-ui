@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "imports": [
+    {
+      "name": "@structured-growth/sg-ui/experimental",
+      "publicExport": "./experimental",
+      "target": "/Users/thomashall/Repositories/sg-ui/packages/ui/dist/experimental/index.js"
+    },
+    {
+      "name": "@structured-growth/sg-ui/components/AppDataGrid",
+      "publicExport": "./components/AppDataGrid",
+      "target": "/Users/thomashall/Repositories/sg-ui/packages/ui/dist/components/AppDataGrid/index.js"
+    },
+    {
+      "name": "@structured-growth/sg-ui/styles.css",
+      "publicExport": "./styles.css",
+      "target": "/Users/thomashall/Repositories/sg-ui/packages/ui/dist/styles.css"
+    }
+  ],
+  "scope": "Actual fixture imports resolve to matching compiled public package exports; no library rebuild"
+}

@@ -1,0 +1,745 @@
+{
+  "evidenceFor": [
+    "A-X-19",
+    "A-G-20",
+    "A-B-10",
+    "A-P-08"
+  ],
+  "status": "Finite instrumented memory execution passed; measurements and retaining-path review ready for owner assessment",
+  "closureDecisions": [],
+  "centralCountsChanged": false,
+  "cycles": {
+    "configurations": 7,
+    "warmupPerConfiguration": 5,
+    "recordedPerConfiguration": 25,
+    "totalWarmup": 35,
+    "totalRecorded": 175,
+    "totalCycles": 210,
+    "additionalColdDisposedPreparations": 7
+  },
+  "snapshots": {
+    "count": 14,
+    "allBytesAndHashesVerified": true,
+    "artifacts": "memory-02/measurement/*.heapsnapshot",
+    "index": "memory-02/measurement/memory.json"
+  },
+  "firstAttempt": {
+    "path": "memory-01/execution.json",
+    "result": "Failed fixture build before any measurement",
+    "cause": "Broad root Vite alias rewrote public /components/AppDataGrid import into dist/index.js/components/AppDataGrid (ENOTDIR). Original log/resources/failure retained."
+  },
+  "fix": {
+    "path": "packages/ui/tests/performance/vite.config.mjs",
+    "change": "Add public AppDataGrid compiled-subpath alias before broad root alias. No library implementation change.",
+    "commit": "a2e1e896dfc731dc011266afa14294bde77eb5c7",
+    "validation": [
+      "Corrected production fixture build passed",
+      "All3actual fixture imports resolve exactly to public package compiled exports (config-resolution.json)",
+      "Existing performance-proof-policy7tests passed, including negative lifecycle/counter/late-publication assertions",
+      "Full unchanged memory protocol passed"
+    ]
+  },
+  "builds": {
+    "fixtureAttempts": 2,
+    "successfulFixtureBuilds": 1,
+    "libraryBuilds": 0,
+    "installs": 0
+  },
+  "provenance": {
+    "freshGridAudit": {
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/coordinator/current-grid-package/packed-audit.json",
+      "sha256": "79d2e69fa24a64d44c438a3a048bd21ab1ce38512975b9bb508c18e23a9a63ee",
+      "archiveSha256": "551f00034fe52027ce77285a517075b322d82508a4fc938ea21f4616303ce301"
+    },
+    "auditedDistFiles": 1861,
+    "sourceHeadAtStart": "2978977798dd5c596f39e7b08ac8ab41b92f76c7",
+    "fixtureAndPolicyHashes": "memory-02/admission.json",
+    "libraryAndRuntimeSourceBefore": "memory-02/admission.json",
+    "sourceAndLibraryAndFixtureAssetsUnchangedAfterMeasurement": true,
+    "servedAssetVerification": "Driver hashes every served asset against frozen local build before cycles; host serves immutable in-memory production bytes.",
+    "runtime": "v24.19.0",
+    "measurementEnvironment": {
+      "node": "v24.19.0",
+      "os": "Darwin",
+      "release": "27.0.0",
+      "arch": "arm64",
+      "cpu": "Apple M4",
+      "totalMemoryBytes": 25769803776,
+      "loadAverage": [
+        5.31298828125,
+        5.2431640625,
+        5.5947265625
+      ],
+      "browser": "153.0.8010.12"
+    },
+    "loadAndProcessSamples": "memory-02/measurement.log.resources.json"
+  },
+  "assertions": "All210cycles disposed with zero root children/scopes/options/menus/pendingFrames/activeTimers, mounted/updating false; disposal occurred during active interval and second disposal was tolerated. Sample count stayed unchanged over later250ms observation. Native label selection and catalog sort menu actions asserted. Catalog open portal disposal covered; selector uses inline listbox.",
+  "measured": [
+    {
+      "name": "processing-small",
+      "recordedMetrics": {
+        "documents": {
+          "coldDisposed": 1,
+          "firstRecorded": 1,
+          "final": 1,
+          "min": 1,
+          "max": 1,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "nodes": {
+          "coldDisposed": 19,
+          "firstRecorded": 34,
+          "final": 32,
+          "min": 32,
+          "max": 34,
+          "lastMinusFirst": -2,
+          "linearSlopePerRecordedCycle": -0.018461538461538463
+        },
+        "jsEventListeners": {
+          "coldDisposed": 165,
+          "firstRecorded": 178,
+          "final": 178,
+          "min": 178,
+          "max": 178,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "JSHeapUsedSize": {
+          "coldDisposed": 3941476,
+          "firstRecorded": 6522468,
+          "final": 6987800,
+          "min": 6522468,
+          "max": 6987800,
+          "lastMinusFirst": 465332,
+          "linearSlopePerRecordedCycle": 17241.172307692308
+        },
+        "JSHeapTotalSize": {
+          "coldDisposed": 5832704,
+          "firstRecorded": 8781824,
+          "final": 9568256,
+          "min": 8257536,
+          "max": 9568256,
+          "lastMinusFirst": 786432,
+          "linearSlopePerRecordedCycle": 1411.5446153846153
+        }
+      },
+      "warmTrackedObjects": {
+        "object / MediaQueryList": 1,
+        "native / blink::MediaQuerySet": 58,
+        "native / EventListener": 178,
+        "native / V8EventListener": 176,
+        "native / blink::RegisteredEventListener": 178
+      },
+      "finalTrackedObjects": {
+        "object / MediaQueryList": 1,
+        "native / blink::MediaQuerySet": 283,
+        "native / EventListener": 178,
+        "native / V8EventListener": 176,
+        "native / blink::RegisteredEventListener": 178
+      },
+      "warmFinalClosureCounts": [
+        6501,
+        6501
+      ],
+      "warmFinalReactShapeCounts": {
+        "fibers": [
+          4,
+          4
+        ],
+        "fiberRoots": [
+          1,
+          1
+        ],
+        "fixtureRowsWithValues": [
+          0,
+          0
+        ]
+      },
+      "warmReactCandidateIdsPresentInFinal": [],
+      "finalDirectStrongMediaQuerySetClosureEdges": [],
+      "finalRawDetachednessCounts": {
+        "0": 135998,
+        "1": 14
+      }
+    },
+    {
+      "name": "processing-wide",
+      "recordedMetrics": {
+        "documents": {
+          "coldDisposed": 1,
+          "firstRecorded": 1,
+          "final": 1,
+          "min": 1,
+          "max": 1,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "nodes": {
+          "coldDisposed": 19,
+          "firstRecorded": 26,
+          "final": 26,
+          "min": 24,
+          "max": 26,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": -0.018461538461538463
+        },
+        "jsEventListeners": {
+          "coldDisposed": 165,
+          "firstRecorded": 178,
+          "final": 178,
+          "min": 178,
+          "max": 178,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "JSHeapUsedSize": {
+          "coldDisposed": 4343460,
+          "firstRecorded": 6638528,
+          "final": 7097356,
+          "min": 6638528,
+          "max": 7097356,
+          "lastMinusFirst": 458828,
+          "linearSlopePerRecordedCycle": 16047.347692307687
+        },
+        "JSHeapTotalSize": {
+          "coldDisposed": 5832704,
+          "firstRecorded": 9568256,
+          "final": 9043968,
+          "min": 7471104,
+          "max": 10092544,
+          "lastMinusFirst": -524288,
+          "linearSlopePerRecordedCycle": 8670.916923076924
+        }
+      },
+      "warmTrackedObjects": {
+        "object / MediaQueryList": 1,
+        "native / blink::MediaQuerySet": 58,
+        "native / EventListener": 178,
+        "native / V8EventListener": 176,
+        "native / blink::RegisteredEventListener": 178
+      },
+      "finalTrackedObjects": {
+        "object / MediaQueryList": 1,
+        "native / blink::MediaQuerySet": 283,
+        "native / EventListener": 178,
+        "native / V8EventListener": 176,
+        "native / blink::RegisteredEventListener": 178
+      },
+      "warmFinalClosureCounts": [
+        6500,
+        6498
+      ],
+      "warmFinalReactShapeCounts": {
+        "fibers": [
+          4,
+          4
+        ],
+        "fiberRoots": [
+          1,
+          1
+        ],
+        "fixtureRowsWithValues": [
+          0,
+          0
+        ]
+      },
+      "warmReactCandidateIdsPresentInFinal": [],
+      "finalDirectStrongMediaQuerySetClosureEdges": [],
+      "finalRawDetachednessCounts": {
+        "0": 137145,
+        "1": 10
+      }
+    },
+    {
+      "name": "processing-largePage",
+      "recordedMetrics": {
+        "documents": {
+          "coldDisposed": 1,
+          "firstRecorded": 1,
+          "final": 1,
+          "min": 1,
+          "max": 1,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "nodes": {
+          "coldDisposed": 19,
+          "firstRecorded": 22,
+          "final": 22,
+          "min": 22,
+          "max": 22,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "jsEventListeners": {
+          "coldDisposed": 165,
+          "firstRecorded": 178,
+          "final": 178,
+          "min": 178,
+          "max": 178,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "JSHeapUsedSize": {
+          "coldDisposed": 4531552,
+          "firstRecorded": 6774424,
+          "final": 7247228,
+          "min": 6774424,
+          "max": 7247228,
+          "lastMinusFirst": 472804,
+          "linearSlopePerRecordedCycle": 15961.584615384616
+        },
+        "JSHeapTotalSize": {
+          "coldDisposed": 7028736,
+          "firstRecorded": 9977856,
+          "final": 9715712,
+          "min": 8142848,
+          "max": 10502144,
+          "lastMinusFirst": -262144,
+          "linearSlopePerRecordedCycle": 6654.424615384615
+        }
+      },
+      "warmTrackedObjects": {
+        "object / MediaQueryList": 1,
+        "native / blink::MediaQuerySet": 58,
+        "native / EventListener": 178,
+        "native / V8EventListener": 176,
+        "native / blink::RegisteredEventListener": 178
+      },
+      "finalTrackedObjects": {
+        "object / MediaQueryList": 1,
+        "native / blink::MediaQuerySet": 283,
+        "native / EventListener": 178,
+        "native / V8EventListener": 176,
+        "native / blink::RegisteredEventListener": 178
+      },
+      "warmFinalClosureCounts": [
+        6497,
+        6496
+      ],
+      "warmFinalReactShapeCounts": {
+        "fibers": [
+          4,
+          4
+        ],
+        "fiberRoots": [
+          1,
+          1
+        ],
+        "fixtureRowsWithValues": [
+          0,
+          0
+        ]
+      },
+      "warmReactCandidateIdsPresentInFinal": [],
+      "finalDirectStrongMediaQuerySetClosureEdges": [],
+      "finalRawDetachednessCounts": {
+        "0": 135821,
+        "1": 8
+      }
+    },
+    {
+      "name": "catalog-small",
+      "recordedMetrics": {
+        "documents": {
+          "coldDisposed": 1,
+          "firstRecorded": 1,
+          "final": 1,
+          "min": 1,
+          "max": 1,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "nodes": {
+          "coldDisposed": 19,
+          "firstRecorded": 32,
+          "final": 30,
+          "min": 28,
+          "max": 32,
+          "lastMinusFirst": -2,
+          "linearSlopePerRecordedCycle": -0.03230769230769233
+        },
+        "jsEventListeners": {
+          "coldDisposed": 165,
+          "firstRecorded": 317,
+          "final": 317,
+          "min": 317,
+          "max": 317,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "JSHeapUsedSize": {
+          "coldDisposed": 4086556,
+          "firstRecorded": 7141072,
+          "final": 7611152,
+          "min": 7141072,
+          "max": 7611152,
+          "lastMinusFirst": 470080,
+          "linearSlopePerRecordedCycle": 16289.55076923077
+        },
+        "JSHeapTotalSize": {
+          "coldDisposed": 6094848,
+          "firstRecorded": 9043968,
+          "final": 10092544,
+          "min": 8519680,
+          "max": 10354688,
+          "lastMinusFirst": 1048576,
+          "linearSlopePerRecordedCycle": 11897.304615384615
+        }
+      },
+      "warmTrackedObjects": {
+        "object / MediaQueryList": 0,
+        "native / blink::MediaQuerySet": 126,
+        "native / EventListener": 317,
+        "native / V8EventListener": 314,
+        "native / blink::RegisteredEventListener": 317
+      },
+      "finalTrackedObjects": {
+        "object / MediaQueryList": 0,
+        "native / blink::MediaQuerySet": 701,
+        "native / EventListener": 317,
+        "native / V8EventListener": 314,
+        "native / blink::RegisteredEventListener": 317
+      },
+      "warmFinalClosureCounts": [
+        6642,
+        6641
+      ],
+      "warmFinalReactShapeCounts": {
+        "fibers": [
+          3,
+          3
+        ],
+        "fiberRoots": [
+          1,
+          1
+        ],
+        "fixtureRowsWithValues": [
+          0,
+          0
+        ]
+      },
+      "warmReactCandidateIdsPresentInFinal": [],
+      "finalDirectStrongMediaQuerySetClosureEdges": [],
+      "finalRawDetachednessCounts": {
+        "0": 149404,
+        "1": 13
+      }
+    },
+    {
+      "name": "catalog-wide",
+      "recordedMetrics": {
+        "documents": {
+          "coldDisposed": 1,
+          "firstRecorded": 1,
+          "final": 1,
+          "min": 1,
+          "max": 1,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "nodes": {
+          "coldDisposed": 19,
+          "firstRecorded": 22,
+          "final": 24,
+          "min": 22,
+          "max": 24,
+          "lastMinusFirst": 2,
+          "linearSlopePerRecordedCycle": 0.047692307692307694
+        },
+        "jsEventListeners": {
+          "coldDisposed": 165,
+          "firstRecorded": 317,
+          "final": 317,
+          "min": 317,
+          "max": 317,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "JSHeapUsedSize": {
+          "coldDisposed": 4451420,
+          "firstRecorded": 7376952,
+          "final": 7951612,
+          "min": 7376952,
+          "max": 7951612,
+          "lastMinusFirst": 574660,
+          "linearSlopePerRecordedCycle": 19887.541538461537
+        },
+        "JSHeapTotalSize": {
+          "coldDisposed": 6356992,
+          "firstRecorded": 10616832,
+          "final": 9568256,
+          "min": 9306112,
+          "max": 10616832,
+          "lastMinusFirst": -1048576,
+          "linearSlopePerRecordedCycle": 13510.498461538462
+        }
+      },
+      "warmTrackedObjects": {
+        "object / MediaQueryList": 0,
+        "native / blink::MediaQuerySet": 126,
+        "native / EventListener": 317,
+        "native / V8EventListener": 314,
+        "native / blink::RegisteredEventListener": 317
+      },
+      "finalTrackedObjects": {
+        "object / MediaQueryList": 0,
+        "native / blink::MediaQuerySet": 701,
+        "native / EventListener": 317,
+        "native / V8EventListener": 314,
+        "native / blink::RegisteredEventListener": 317
+      },
+      "warmFinalClosureCounts": [
+        6638,
+        6638
+      ],
+      "warmFinalReactShapeCounts": {
+        "fibers": [
+          3,
+          3
+        ],
+        "fiberRoots": [
+          1,
+          1
+        ],
+        "fixtureRowsWithValues": [
+          0,
+          0
+        ]
+      },
+      "warmReactCandidateIdsPresentInFinal": [],
+      "finalDirectStrongMediaQuerySetClosureEdges": [],
+      "finalRawDetachednessCounts": {
+        "0": 147982,
+        "1": 10
+      }
+    },
+    {
+      "name": "catalog-largePage",
+      "recordedMetrics": {
+        "documents": {
+          "coldDisposed": 1,
+          "firstRecorded": 1,
+          "final": 1,
+          "min": 1,
+          "max": 1,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "nodes": {
+          "coldDisposed": 19,
+          "firstRecorded": 22,
+          "final": 22,
+          "min": 22,
+          "max": 22,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "jsEventListeners": {
+          "coldDisposed": 165,
+          "firstRecorded": 317,
+          "final": 317,
+          "min": 317,
+          "max": 317,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "JSHeapUsedSize": {
+          "coldDisposed": 4579268,
+          "firstRecorded": 7444636,
+          "final": 7964152,
+          "min": 7444636,
+          "max": 7964924,
+          "lastMinusFirst": 519516,
+          "linearSlopePerRecordedCycle": 15465.196923076928
+        },
+        "JSHeapTotalSize": {
+          "coldDisposed": 6356992,
+          "firstRecorded": 9043968,
+          "final": 10878976,
+          "min": 9043968,
+          "max": 11665408,
+          "lastMinusFirst": 1835008,
+          "linearSlopePerRecordedCycle": 53638.69538461536
+        }
+      },
+      "warmTrackedObjects": {
+        "object / MediaQueryList": 0,
+        "native / blink::MediaQuerySet": 126,
+        "native / EventListener": 317,
+        "native / V8EventListener": 314,
+        "native / blink::RegisteredEventListener": 317
+      },
+      "finalTrackedObjects": {
+        "object / MediaQueryList": 0,
+        "native / blink::MediaQuerySet": 701,
+        "native / EventListener": 317,
+        "native / V8EventListener": 314,
+        "native / blink::RegisteredEventListener": 317
+      },
+      "warmFinalClosureCounts": [
+        6637,
+        6637
+      ],
+      "warmFinalReactShapeCounts": {
+        "fibers": [
+          3,
+          3
+        ],
+        "fiberRoots": [
+          1,
+          1
+        ],
+        "fixtureRowsWithValues": [
+          0,
+          0
+        ]
+      },
+      "warmReactCandidateIdsPresentInFinal": [],
+      "finalDirectStrongMediaQuerySetClosureEdges": [],
+      "finalRawDetachednessCounts": {
+        "0": 144607,
+        "1": 9
+      }
+    },
+    {
+      "name": "processing-selector",
+      "recordedMetrics": {
+        "documents": {
+          "coldDisposed": 1,
+          "firstRecorded": 1,
+          "final": 1,
+          "min": 1,
+          "max": 1,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "nodes": {
+          "coldDisposed": 19,
+          "firstRecorded": 19,
+          "final": 19,
+          "min": 19,
+          "max": 19,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "jsEventListeners": {
+          "coldDisposed": 165,
+          "firstRecorded": 178,
+          "final": 178,
+          "min": 178,
+          "max": 178,
+          "lastMinusFirst": 0,
+          "linearSlopePerRecordedCycle": 0.0
+        },
+        "JSHeapUsedSize": {
+          "coldDisposed": 3778548,
+          "firstRecorded": 5570472,
+          "final": 6012396,
+          "min": 5570472,
+          "max": 6016180,
+          "lastMinusFirst": 441924,
+          "linearSlopePerRecordedCycle": 13929.258461538457
+        },
+        "JSHeapTotalSize": {
+          "coldDisposed": 4407296,
+          "firstRecorded": 7094272,
+          "final": 7880704,
+          "min": 7094272,
+          "max": 8667136,
+          "lastMinusFirst": 786432,
+          "linearSlopePerRecordedCycle": 14115.446153846155
+        }
+      },
+      "warmTrackedObjects": {
+        "object / MediaQueryList": 0,
+        "native / blink::MediaQuerySet": 13,
+        "native / EventListener": 178,
+        "native / V8EventListener": 176,
+        "native / blink::RegisteredEventListener": 178
+      },
+      "finalTrackedObjects": {
+        "object / MediaQueryList": 0,
+        "native / blink::MediaQuerySet": 13,
+        "native / EventListener": 178,
+        "native / V8EventListener": 176,
+        "native / blink::RegisteredEventListener": 178
+      },
+      "warmFinalClosureCounts": [
+        6347,
+        6347
+      ],
+      "warmFinalReactShapeCounts": {
+        "fibers": [
+          4,
+          4
+        ],
+        "fiberRoots": [
+          1,
+          1
+        ],
+        "fixtureRowsWithValues": [
+          0,
+          0
+        ]
+      },
+      "warmReactCandidateIdsPresentInFinal": [],
+      "finalDirectStrongMediaQuerySetClosureEdges": [],
+      "finalRawDetachednessCounts": {
+        "0": 115072,
+        "1": 6
+      }
+    }
+  ],
+  "retainingPathReview": {
+    "details": "memory-02/analysis.json",
+    "method": "Warm/final node IDs, property-shape candidates, closure/native listener counts and shortest strong graph paths excluding weak edges. Group self-size is not transitive retained size.",
+    "findings": [
+      "Media-query native entries grow through HTMLDocument\u2192StyleEngine native hash-table paths. Direct query-set closure edges, native listener totals, MediaQueryList wrappers and total closures are separately recorded; no benign/cache-bounded conclusion inferred.",
+      "Performance longtask/layoutshift records have sampled strong paths through browser Performance buffers and automation roots; do not attribute whole-page heap growth entirely to this subset.",
+      "A single catalog-wide warm snapshot node (native DIV id91601, raw detachedness2) is retained through document live-log layout fragments; that node ID is absent in final and all final snapshots have no flag2 nodes. See memory-02/warm-layout-node-review.json; this is not an automatic benign/leak verdict.",
+      "Growing SharedFunctionInfoWrapper metadata has sampled paths through fixture mount\u2192imported module function\u2192Code\u2192ProtectedFixedArray. This does not attribute all heap growth or demonstrate accumulating live closures.",
+      "Remaining React root/Fiber candidates have sampled paths through the public fixture mount closure\u2192React createRoot module context/current/alternate/deletions. Exact warm/final IDs, cleared/null component props/state links, candidate counts and any warm IDs surviving in final are saved.",
+      "No fixture row objects with actual id/name/count values were found among the reviewed property-shape candidates; system/Hole shape templates are excluded. This is a bounded heuristic, not an exhaustive proof of all possible application data."
+    ],
+    "needsOwnerReview": [
+      "Assess observed whole-page post-GC heap trends and native StyleEngine media-query entry growth before deciding acceptance or any longer-run/cross-browser follow-up.",
+      "Review exact retained React bookkeeping and browser/automation paths in snapshots; stable counts and absent old candidate IDs do not independently prove universal leak freedom."
+    ]
+  },
+  "resources": {
+    "cleanup": "Owned4179closed;canonicalheavy/legacy/portleasesreleased",
+    "commands": {
+      "fixture-build.log.resources.json": {
+        "settled": true,
+        "samples": 4,
+        "result": {
+          "code": 0,
+          "signal": null
+        },
+        "ownershipErrors": []
+      },
+      "measurement.log.resources.json": {
+        "settled": true,
+        "samples": 1474,
+        "result": {
+          "code": 0,
+          "signal": null
+        },
+        "ownershipErrors": []
+      }
+    },
+    "additionalHeavyWork": "None; finite run ended and no further heavy execution started."
+  },
+  "limits": [
+    "No memory threshold/plateau approval inferred. Compare raw trends and inspect snapshot retaining paths.",
+    "GC/instrumentation changes execution; do not compare these samples with latency runs.",
+    "Both grids, inline selector, Provider and catalog sort-menu portal only. Upload URL and editor observer cleanup retain separate existing test evidence.",
+    "Chromium-only instrumentation does not certify Firefox/WebKit or physical hardware.",
+    "No matching baseline/candidate latency comparison or invented numerical memory threshold.",
+    "No automatic closure of X19/G20/B10/P08 from this execution."
+  ],
+  "finishedAt": "2026-10-18T00:51:23.525613+00:00"
+}

@@ -1,0 +1,88 @@
+vite v7.3.6 building client environment for production...
+transforming...
+dist/foundation/ThemeScope.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/foundation/ThemeScope.js" was ignored.
+dist/experimental/TextField/TextField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/TextField.js" was ignored.
+dist/experimental/Popover/Popover.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Popover/Popover.js" was ignored.
+dist/components/Button/Button.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/Button/Button.js" was ignored.
+dist/experimental/Provider/Provider.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Provider/Provider.js" was ignored.
+dist/experimental/Tabs/Tabs.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/Tabs.js" was ignored.
+dist/experimental/ComboBox/ComboBox.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/ComboBox/ComboBox.js" was ignored.
+dist/experimental/Dialog/Dialog.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Dialog/Dialog.js" was ignored.
+dist/experimental/AsyncMultiSelect/AsyncMultiSelect.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/AsyncMultiSelect/AsyncMultiSelect.js" was ignored.
+dist/experimental/DateField/DateField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/DateField.js" was ignored.
+dist/experimental/TimeField/TimeField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TimeField/TimeField.js" was ignored.
+dist/experimental/Calendar/Calendar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/Calendar.js" was ignored.
+dist/experimental/Checkbox/Checkbox.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Checkbox/Checkbox.js" was ignored.
+dist/experimental/DateRangePicker/DateRangePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangePicker/DateRangePicker.js" was ignored.
+dist/experimental/DatePicker/DatePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DatePicker/DatePicker.js" was ignored.
+dist/experimental/DateRangeSelector/DateRangeSelector.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/DateRangeSelector.js" was ignored.
+dist/experimental/DataGrid/DataGrid.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DataGrid/DataGrid.js" was ignored.
+dist/experimental/SplitAction/SplitAction.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/SplitAction/SplitAction.js" was ignored.
+dist/experimental/Switch/Switch.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Switch/Switch.js" was ignored.
+dist/experimental/RadioGroup/RadioGroup.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/RadioGroup/RadioGroup.js" was ignored.
+dist/experimental/Menu/Menu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Menu/Menu.js" was ignored.
+dist/experimental/Select/Select.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Select/Select.js" was ignored.
+dist/experimental/IconButton/IconButton.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/IconButton/IconButton.js" was ignored.
+dist/experimental/TextArea/TextArea.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextArea/TextArea.js" was ignored.
+dist/experimental/Link/Link.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Link/Link.js" was ignored.
+dist/experimental/Breadcrumbs/Breadcrumbs.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Breadcrumbs/Breadcrumbs.js" was ignored.
+dist/experimental/Tooltip/Tooltip.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tooltip/Tooltip.js" was ignored.
+dist/experimental/List/List.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/List/List.js" was ignored.
+dist/experimental/ToggleButton/ToggleButton.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/ToggleButton/ToggleButton.js" was ignored.
+dist/experimental/Disclosure/Disclosure.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Disclosure/Disclosure.js" was ignored.
+dist/experimental/TagGroup/TagGroup.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TagGroup/TagGroup.js" was ignored.
+dist/experimental/Progress/Progress.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Progress/Progress.js" was ignored.
+dist/experimental/Pagination/Pagination.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Pagination/Pagination.js" was ignored.
+dist/experimental/Navigation/Navigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Navigation/Navigation.js" was ignored.
+dist/experimental/Avatar/Avatar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Avatar/Avatar.js" was ignored.
+dist/experimental/SearchField/SearchField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/SearchField/SearchField.js" was ignored.
+dist/experimental/DateTimeRangePicker/DateTimeRangePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateTimeRangePicker/DateTimeRangePicker.js" was ignored.
+dist/experimental/FormFieldScope/FormFieldScope.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/FormFieldScope/FormFieldScope.js" was ignored.
+dist/experimental/PeriodPicker/PeriodPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/PeriodPicker/PeriodPicker.js" was ignored.
+dist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.js" was ignored.
+dist/experimental/YearPicker/YearPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/YearPicker/YearPicker.js" was ignored.
+dist/experimental/MonthPicker/MonthPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/MonthPicker/MonthPicker.js" was ignored.
+dist/components/AppDataGrid/AppDataGrid.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/AppDataGrid.js" was ignored.
+dist/experimental/TextField/FieldMessages.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/FieldMessages.js" was ignored.
+dist/experimental/TextField/useStandaloneFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/useStandaloneFormReset.js" was ignored.
+dist/i18n/index.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/i18n/index.js" was ignored.
+dist/experimental/Tabs/useTabOverflow.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/useTabOverflow.js" was ignored.
+dist/experimental/Tabs/TabIndicator.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/TabIndicator.js" was ignored.
+dist/experimental/useFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/useFormReset.js" was ignored.
+dist/experimental/DateField/TextDateField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/TextDateField.js" was ignored.
+dist/experimental/DateField/DateFieldControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/DateFieldControl.js" was ignored.
+dist/experimental/Calendar/CalendarNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarNavigation.js" was ignored.
+dist/experimental/TimeField/TextTimeField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TimeField/TextTimeField.js" was ignored.
+dist/experimental/Calendar/CalendarPeriodNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarPeriodNavigation.js" was ignored.
+dist/experimental/Calendar/CalendarMonthTransition.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarMonthTransition.js" was ignored.
+dist/experimental/DateRangeSelector/CalendarFormValidity.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/CalendarFormValidity.js" was ignored.
+dist/experimental/DateRangeSelector/useCalendarFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/useCalendarFormReset.js" was ignored.
+dist/experimental/DateRangeSelector/RangeGestures.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/RangeGestures.js" was ignored.
+dist/experimental/DataGrid/GridColumnWidthControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DataGrid/GridColumnWidthControl.js" was ignored.
+dist/adapters/navigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/navigation.js" was ignored.
+dist/experimental/Select/FramePositionedPopover.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Select/FramePositionedPopover.js" was ignored.
+dist/adapters/Link.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/Link.js" was ignored.
+dist/components/AppDataGrid/ownedGridParts.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridParts.js" was ignored.
+dist/experimental/HierarchicalMenu/HierarchicalMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/HierarchicalMenu/HierarchicalMenu.js" was ignored.
+dist/components/AppDataGrid/ownedGridLayoutController.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridLayoutController.js" was ignored.
+dist/components/AppDataGrid/ownedGridPersistence.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridPersistence.js" was ignored.
+dist/components/AppDataGrid/ownedGridController.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridController.js" was ignored.
+dist/components/AppDataGrid/ownedGridInteraction.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridInteraction.js" was ignored.
+dist/adapters/navigationContext.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/navigationContext.js" was ignored.
+dist/components/CardPaginationFooter/CardPaginationFooter.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/CardPaginationFooter/CardPaginationFooter.js" was ignored.
+dist/components/AppDataGridRowDnd/DataGridDragHandle.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGridRowDnd/DataGridDragHandle.js" was ignored.
+dist/components/AppDataGrid/ownedGridCells.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridCells.js" was ignored.
+../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/context.mjs (2:0): Module level directives cause errors when bundled, "use client" in "../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/context.mjs" was ignored.
+../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/Icon.mjs (2:0): Module level directives cause errors when bundled, "use client" in "../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/Icon.mjs" was ignored.
+✓ 3011 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.38 kB │ gzip:   0.27 kB
+dist/assets/index-D5VXef4X.css  248.89 kB │ gzip:  22.35 kB
+dist/assets/index-Dgfndtku.js   764.42 kB │ gzip: 224.84 kB
+✓ built in 1.88s
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

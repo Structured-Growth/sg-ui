@@ -1,0 +1,12 @@
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 5 modules transformed.
+✗ Build failed in 33ms
+error during build:
+[vite:load-fallback] Could not load /Users/thomashall/Repositories/sg-ui/packages/ui/dist/index.js/components/AppDataGrid (imported by tests/performance/fixture.tsx): ENOTDIR: not a directory, open '/Users/thomashall/Repositories/sg-ui/packages/ui/dist/index.js/components/AppDataGrid'
+    at async open (node:internal/fs/promises:697:25)
+    at async Object.readFile (node:internal/fs/promises:1348:14)
+    at async Object.handler (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:33249:21)
+    at async PluginDriver.hookFirstAndGetPlugin (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/rollup@4.64.0/node_modules/rollup/dist/es/shared/node-entry.js:23338:28)
+    at async file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/rollup@4.64.0/node_modules/rollup/dist/es/shared/node-entry.js:22315:33
+    at async Queue.work (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/rollup@4.64.0/node_modules/rollup/dist/es/shared/node-entry.js:23566:32)

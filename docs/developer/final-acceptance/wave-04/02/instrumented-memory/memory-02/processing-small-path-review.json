@@ -1,0 +1,233 @@
+{
+  "sha256": "3af889859e24e9efbbee6dc68749d2461fbf0c22a130a58a48e2dce23331cf64",
+  "bytes": 12472297,
+  "nodeCount": 136012,
+  "rawDetachednessCounts": {
+    "0": 135998,
+    "1": 14
+  },
+  "sampleStrongPathsForReview": [
+    [
+      {
+        "nodeIndex": 0,
+        "type": "synthetic",
+        "name": "",
+        "via": null
+      },
+      {
+        "nodeIndex": 1,
+        "type": "synthetic",
+        "name": "(GC roots)",
+        "via": [
+          "element",
+          "1"
+        ]
+      },
+      {
+        "nodeIndex": 11,
+        "type": "synthetic",
+        "name": "(Global handles)",
+        "via": [
+          "element",
+          "10"
+        ]
+      },
+      {
+        "nodeIndex": 3697,
+        "type": "object",
+        "name": "InjectedScript",
+        "via": [
+          "internal",
+          "10 / DevTools console"
+        ]
+      },
+      {
+        "nodeIndex": 46287,
+        "type": "native",
+        "name": "HTMLDocument",
+        "via": [
+          "property",
+          "document"
+        ]
+      },
+      {
+        "nodeIndex": 134808,
+        "type": "native",
+        "name": "StyleEngine",
+        "via": [
+          "element",
+          "27"
+        ]
+      },
+      {
+        "nodeIndex": 134813,
+        "type": "native",
+        "name": "blink::HeapHashTableBacking<blink::HashTable<cppgc::internal::BasicMember<const blink::MediaQuerySet, cppgc::internal::S",
+        "via": [
+          "element",
+          "11"
+        ]
+      },
+      {
+        "nodeIndex": 123897,
+        "type": "native",
+        "name": "blink::MediaQuerySet",
+        "via": [
+          "element",
+          "205"
+        ]
+      }
+    ],
+    [
+      {
+        "nodeIndex": 0,
+        "type": "synthetic",
+        "name": "",
+        "via": null
+      },
+      {
+        "nodeIndex": 1,
+        "type": "synthetic",
+        "name": "(GC roots)",
+        "via": [
+          "element",
+          "1"
+        ]
+      },
+      {
+        "nodeIndex": 11,
+        "type": "synthetic",
+        "name": "(Global handles)",
+        "via": [
+          "element",
+          "10"
+        ]
+      },
+      {
+        "nodeIndex": 3698,
+        "type": "object",
+        "name": "UtilityScript",
+        "via": [
+          "internal",
+          "11 / DevTools console"
+        ]
+      },
+      {
+        "nodeIndex": 95426,
+        "type": "object",
+        "name": "Object",
+        "via": [
+          "property",
+          "builtins"
+        ]
+      },
+      {
+        "nodeIndex": 46312,
+        "type": "native",
+        "name": "Performance",
+        "via": [
+          "property",
+          "performance"
+        ]
+      },
+      {
+        "nodeIndex": 134834,
+        "type": "native",
+        "name": "blink::HeapVectorBacking<cppgc::internal::BasicMember<blink::PerformanceEntry, cppgc::internal::StrongMemberTag, cppgc::",
+        "via": [
+          "element",
+          "13"
+        ]
+      },
+      {
+        "nodeIndex": 132102,
+        "type": "native",
+        "name": "PerformanceLongTaskTiming",
+        "via": [
+          "element",
+          "25"
+        ]
+      }
+    ],
+    [
+      {
+        "nodeIndex": 0,
+        "type": "synthetic",
+        "name": "",
+        "via": null
+      },
+      {
+        "nodeIndex": 1,
+        "type": "synthetic",
+        "name": "(GC roots)",
+        "via": [
+          "element",
+          "1"
+        ]
+      },
+      {
+        "nodeIndex": 11,
+        "type": "synthetic",
+        "name": "(Global handles)",
+        "via": [
+          "element",
+          "10"
+        ]
+      },
+      {
+        "nodeIndex": 3698,
+        "type": "object",
+        "name": "UtilityScript",
+        "via": [
+          "internal",
+          "11 / DevTools console"
+        ]
+      },
+      {
+        "nodeIndex": 95426,
+        "type": "object",
+        "name": "Object",
+        "via": [
+          "property",
+          "builtins"
+        ]
+      },
+      {
+        "nodeIndex": 46312,
+        "type": "native",
+        "name": "Performance",
+        "via": [
+          "property",
+          "performance"
+        ]
+      },
+      {
+        "nodeIndex": 134831,
+        "type": "native",
+        "name": "blink::HeapVectorBacking<cppgc::internal::BasicMember<blink::PerformanceEntry, cppgc::internal::StrongMemberTag, cppgc::",
+        "via": [
+          "element",
+          "10"
+        ]
+      },
+      {
+        "nodeIndex": 135129,
+        "type": "native",
+        "name": "LayoutShift",
+        "via": [
+          "element",
+          "6"
+        ]
+      },
+      {
+        "nodeIndex": 128669,
+        "type": "native",
+        "name": "LayoutShiftAttribution",
+        "via": [
+          "element",
+          "2"
+        ]
+      }
+    ]
+  ]
+}

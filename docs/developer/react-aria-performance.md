@@ -183,3 +183,21 @@ The nominal 100ms timer target does not establish sustained 10Hz delivery under
 contention. These measurements cover the original candidate's processing large-page
 workload; they establish neither current-candidate performance, a full renderer
 matrix, approved budgets nor an old-foundation comparison.
+
+## Instrumented memory execution — 2026-10-17
+
+The [finite execution receipt](final-acceptance/wave-04/02/instrumented-memory/receipt.json) records all210cycles passing: seven configurations, each with five warmup and25recorded cycles. It used Chromium153, Node24.19 and an AppleM4 host against the fresh grid candidate `551f00034fe52027ce77285a517075b322d82508a4fc938ea21f4616303ce301`. Each unmount occurred during active updates; root children, scopes, options, menus, pending frames and owned timers returned to zero, and no later samples appeared. Catalog sort-menu disposal and inline selector cleanup are covered separately.
+
+| Configuration | Post-GC used-heap final minus first recorded (bytes) | Recorded DOM-node range | Recorded listener count |
+| --- | ---: | ---: | ---: |
+| processing-small | 465,332 | 32–34 | 178 |
+| processing-wide | 458,828 | 24–26 | 178 |
+| processing-largePage | 472,804 | 22–22 | 178 |
+| catalog-small | 470,080 | 28–32 | 317 |
+| catalog-wide | 574,660 | 22–24 | 317 |
+| catalog-largePage | 519,516 | 22–22 | 317 |
+| processing-selector | 441,924 | 19–19 | 178 |
+
+Listener counts remained fixed, while whole-page used heap grew in every configuration. Sampled strong paths locate native media-query groups under the document's StyleEngine, performance entries under browser buffers, and remaining React bookkeeping through the fixture's imported module context. No accumulating live SGUI callback/data path was identified in this bounded review; that is not a universal leak-free or plateau conclusion. The heap/native-cache growth remains a causal follow-up, and no numerical memory or latency budget is approved by this run.
+
+The [artifact manifest](final-acceptance/wave-04/02/instrumented-memory/artifact-manifest.json) indexes14local-only heap snapshots (174,219,779bytes) and compact measurements/retaining paths. Their hashes and sizes were independently verified. Raw heaps are not committed to Git; the [retention record](final-acceptance/wave-04/02/instrumented-memory/coordinator-retention.json) also describes byte-identical compressed resource telemetry. Original fixture-build failure is retained: a broad import alias intercepted the grid's public subpath. The specific alias correction passed a fresh fixture build, three import-resolution checks, seven policy tests and the full unchanged run. No library build or dependency installation was needed.
