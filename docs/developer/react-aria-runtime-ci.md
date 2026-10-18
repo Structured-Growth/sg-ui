@@ -70,7 +70,12 @@ limit with a 45-minute browser step budget. The latest inspected full run
 exhausted its former 30-minute job limit during browser execution (25m28s in that
 step, 1,132 of 1,521 executions started). This supports increasing the budget, not
 claiming the expanded suite passes; the new budget still needs a current full run.
-The separate docs job retains its 20-minute limit pending measured evidence.
+Run [39098705687](https://github.com/Structured-Growth/sg-ui/actions/runs/39098705687)
+reached 233 of 245 docs browser cases before the 20-minute job limit. The docs job
+now has 30 minutes, including build/setup and failure-artifact retention; the new
+budget still requires a successful current-candidate run. Its three original
+docs assertion failures and clean-output unit resolution failure remain retained
+in `backlog-to-ten/ci-01`; extending time does not repair those failures.
 
 The pnpm store cache is keyed explicitly by root `pnpm-lock.yaml`; neither dist,
 native fixture output nor Next output is restored from cache.

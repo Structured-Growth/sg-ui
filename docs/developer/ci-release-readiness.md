@@ -83,7 +83,7 @@ contexts separately with the existing check-receipt verifier.
 
 Inspect actual browser JSON, failures/skips, engines and trace contents rather
 than concluding success from artifact presence. Measure full job durations and
-browser-step headroom against60m/45m Node24,30m Node22 and20m docs budgets. Preserve
+browser-step headroom against60m/45m Node24,30m Node22 and30m docs budgets. Preserve
 original failures. Verify Node22 reaches packed consumers after its test fix.
 Use the receipt's input/output hashes to decide which earlier successful behavior
 evidence is unchanged; do not rerun or invalidate all300 accepted V leaves.

@@ -12,6 +12,19 @@ Original module paths below are provenance, not current import instructions. Eac
 
 ## Existing specs and preserved fixture identities
 
+### Build-independent grid unit fixtures — 2026-10-18
+
+The [sectioned/server lineage tests](../../packages/ui/src/components/AppDataGrid/AppDataGrid.sectioned-lineage.test.tsx)
+now use their colocated
+[source-context fixture](../../packages/ui/src/components/AppDataGrid/AppDataGrid.sectioned.native-fixture.tsx).
+Clean CI runs unit checks before compiled exports exist; mocking docs-owned public
+imports still required package resolution and failed in both runtime jobs of
+[run 39098705687](https://github.com/Structured-Growth/sg-ui/actions/runs/39098705687).
+The four existing behavior cases and assertions are retained and pass with a
+validation resolver that rejects built-package imports. Docs-owned native fixtures
+continue consuming public compiled exports. This is a unit-host ownership fix,
+not a change to the historical browser identities or their acceptance counts.
+
 | Existing spec path | Fixture IDs | Direct historical evidence references |
 |---|---|---|
 | [acceptance-pack-113.spec.ts](../../packages/ui/tests/browser/acceptance-pack-113.spec.ts) | `data-appdatagrid--retained-selection` | [acceptance-evidence](parallel-batch-113/acceptance-evidence.md)<br>[acceptance-evidence](parallel-batch-138/acceptance-evidence.md)<br>[checkpoint-recovery](parallel-batch-173/checkpoint-recovery.md) |

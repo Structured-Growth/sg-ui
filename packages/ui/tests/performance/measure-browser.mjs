@@ -44,7 +44,9 @@ try {
       // accessible names during the fixed update burst, as with the search input.
       const option=page.locator('[role="option"]').first();
       assert.equal((await option.textContent()).replace(/^[○✓]\s*/,''),'Course 0');
-      await option.click();
+      await option.focus();
+      assert.equal(await option.evaluate(node=>node===node.ownerDocument.activeElement),true,'Option must own keyboard focus');
+      await page.keyboard.press('Space');
       assert.equal(await option.getAttribute('aria-selected'),'true','selection must actually commit');
     }
     else {
@@ -83,8 +85,11 @@ try {
   assert.deepEqual(errors,[]);
   const summaries={};for(const row of results.filter(r=>!r.warmup))for(const sample of row.samples){const key=row.workload+':'+sample.action+(sample.duringUpdates?':updating':':idle');(summaries[key]??=[]).push(sample.ms);}
   for(const [key,values] of Object.entries(summaries)){values.sort((a,b)=>a-b);summaries[key]={count:values.length,medianMs:values[Math.ceil(values.length*.5)-1],p95Ms:values[Math.ceil(values.length*.95)-1],maxMs:values.at(-1)};}
-  await writeFile(destination,JSON.stringify({schemaVersion:2,renderer,sourceHead,selectedWorkloads:workloads,iterations,fixtureHashes,cleanupProbes,viewport:{width:1440,height:900},summaries,measuredAt:new Date().toISOString(),environment:{react:JSON.parse(await readFile(resolve(here,'../../node_modules/react/package.json'),'utf8')).version,throttlePolicy:'none',node:process.version,browser:browser.version(),os:os.type(),release:os.release(),arch:os.arch(),cpu:os.cpus()[0]?.model,totalMemoryBytes:os.totalmem(),loadAverage:os.loadavg()},assets,results,method:'Production React; 3 warmup/9 recorded navigations per workload; overlapping native input/selection during 50 updates; input/grid-click capture, selector public selection callback or timer callback to two post-commit RAFs. Frame-opportunity estimate, not physical paint/INP/AT. All emitted assets summed separately, not route transfer.',limits:['No cross-build baseline or physical-device result without second matching run.','No heap retention/GC plateau or global listener census.','No budget auto-record/update.']},null,2)+'\n',{flag:'wx'});
+  await writeFile(destination,JSON.stringify({schemaVersion:2,renderer,sourceHead,selectedWorkloads:workloads,iterations,fixtureHashes,cleanupProbes,viewport:{width:1440,height:900},summaries,measuredAt:new Date().toISOString(),environment:{react:JSON.parse(await readFile(resolve(here,'../../node_modules/react/package.json'),'utf8')).version,throttlePolicy:'none',node:process.version,browser:browser.version(),os:os.type(),release:os.release(),arch:os.arch(),cpu:os.cpus()[0]?.model,totalMemoryBytes:os.totalmem(),loadAverage:os.loadavg()},assets,results,method:'Production React; 3 warmup/9 recorded navigations per workload; overlapping native input/selection during 50 updates; input/grid-click capture, selector keyboard selection public callback or timer callback to two post-commit RAFs. Frame-opportunity estimate, not physical paint/INP/AT. All emitted assets summed separately, not route transfer.',limits:['No cross-build baseline or physical-device result without second matching run.','No heap retention/GC plateau or global listener census.','No budget auto-record/update.']},null,2)+'\n',{flag:'wx'});
 } catch(error) {
-  if(currentAttempt&&activePage)currentAttempt.browserState=await activePage.evaluate(()=>({updating:window.sguiPerf?.updating,samples:window.sguiPerf?.samples,activeElement:{tag:document.activeElement?.tagName,name:document.activeElement?.getAttribute('aria-label'),value:document.activeElement?.value}})).catch(failure=>({error:String(failure)}));
+  if(currentAttempt&&activePage){
+    currentAttempt.browserState=await activePage.evaluate(()=>({updating:window.sguiPerf?.updating,samples:window.sguiPerf?.samples,bodyText:document.body.innerText,options:document.querySelectorAll('[role=option]').length,activeElement:{tag:document.activeElement?.tagName,name:document.activeElement?.getAttribute('aria-label'),value:document.activeElement?.value}})).catch(failure=>({error:String(failure)}));
+    await activePage.screenshot({path:destination+'.failed.png'}).catch(()=>{});
+  }
   await writeFile(destination+'.failed.json',JSON.stringify({renderer,sourceHead,fixtureHashes,assets,results,cleanupProbes,currentAttempt,error:String(error.stack??error)},null,2)+'\n',{flag:'wx'});throw error;
 } finally {await browser.close();}

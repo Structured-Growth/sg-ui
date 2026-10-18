@@ -1,19 +1,9 @@
 // @vitest-environment jsdom
-import {afterEach,expect,it,vi} from 'vitest';
+import {afterEach,expect,it} from 'vitest';
 import {act,cleanup,render,screen,within} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {Provider} from '../../experimental/Provider/Provider';
-import {SectionedRows} from '../../../../../apps/docs/native-fixtures/scenarios/components/AppDataGrid/SectionedRows';
-import {DebouncedServerSearchAndSort} from '../../../../../apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture';
-// Exercise the exact docs host against current source rather than stale dist.
-vi.mock('@structured-growth/sg-ui/components',async()=>({
- AppDataGrid:(await import('./AppDataGrid')).AppDataGrid,
- AppDataGridShell:(await import('../AppDataGridShell/AppDataGridShell')).AppDataGridShell,
- RowSubHeader:(await import('./components/RowSubHeader')).RowSubHeader,
- createActionMenuColumn:(await import('./createActionMenuColumn')).createActionMenuColumn,
- parseFilterRuleValues:(await import('../DataToolbar/filterRuleValue')).parseFilterRuleValues,
-}));
-vi.mock('@structured-growth/sg-ui/experimental',async()=>({Button:(await import('../Button/Button')).Button,Link:(await import('../../experimental/Link/Link')).Link,Typography:(await import('../../experimental/Typography/Typography')).Typography}));
+import {SectionedRows,DebouncedServerSearchAndSort} from './AppDataGrid.sectioned.native-fixture';
 afterEach(cleanup);
 it('plain sectioned grid hides only host-owned children and restores them without utility columns',async()=>{
  const user=userEvent.setup();
@@ -27,7 +17,7 @@ it('plain sectioned grid hides only host-owned children and restores them withou
  }
 });
 it('private server successor debounces new search text and accepts host-side sorting',async()=>{
- const user=userEvent.setup();render(<Provider>{DebouncedServerSearchAndSort.render?.({} as never,{} as never)}</Provider>);
+ const user=userEvent.setup();render(<Provider><DebouncedServerSearchAndSort/></Provider>);
  await screen.findByText('Course 1');
  expect(screen.getByRole('button',{name:'Sort Course'}).closest('th')?.getAttribute('aria-sort')).toBe('ascending');
  expect([...screen.getByRole('grid',{name:'Server courses'}).querySelectorAll('tbody tr[data-grid-row]')].map(row=>row.getAttribute('data-grid-row'))).toEqual(['course-1','course-10','course-11','course-12','course-13']);

@@ -10,7 +10,7 @@ test('component aliases resolve locally through modes, density boundaries and li
   const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
   await page.emulateMedia({colorScheme:'light',contrast:'no-preference',forcedColors:'none'});
   await page.goto('/theming');
-  await expect(page.getByRole('main').getByRole('heading',{level:2})).toHaveText(['The framework','1. Global theming','2. Semantic theming','3. Color palettes','4. From palettes to semantics','5. Application','6. Overrides','Inspect the token pipeline','Component token override']);
+  await expect(page.getByRole('main').getByRole('heading',{level:2})).toHaveText(['The framework','1. Global theming','2. Semantic theming','3. Color palettes','4. From palettes to semantics','5. Application','6. Overrides','Inspect the token pipeline','Component token override','Production foundations','Production spacing scale','Keyboard focus traversal','Motion and system preferences']);
   await expect(page.getByRole('main')).not.toContainText(/Apple Human Interface|Material Design color reference|These are SGUI interpretations/);
   await page.screenshot({path:'/tmp/sgui-theming-framework.png',animations:'disabled'});
   const inspector=page.getByRole('region',{name:exampleName('Theme token pipeline')});

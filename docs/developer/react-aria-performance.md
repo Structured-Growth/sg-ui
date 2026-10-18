@@ -102,8 +102,9 @@ opportunity and excludes work before the callback; it is not full input latency.
 Grid selection retains its existing event-capture boundary. Compare only runs
 with identical fixture and runner hashes.
 
-After native query clear, the driver verifies the first result's text and uses its
-actual option element; it then requires `aria-selected=true`. This avoids repeated
+After native query clear, the driver verifies the first result's text, focuses
+the actual option, checks focus ownership and sends a native Space key; it then
+requires `aria-selected=true`. This avoids repeated
 accessible-name enumeration across 2,000 results during the fixed update burst.
 All fifty updates and input/selection overlap assertions remain mandatory.
 
