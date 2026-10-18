@@ -1,6 +1,4 @@
 {
-  "remaining": 46,
-  "closedOfOriginal139": 93,
   "lastIntegratedHead": "ef7de8fc991ab5fd34c7ce4f7d6aa602a868a8f4",
   "ongoing": [
     {
@@ -8,16 +6,18 @@
       "task": "Instrumented memory successor",
       "state": "Running unchanged seven configurations x30cycles with snapshots; heavy lane reserved",
       "evidence": "docs/developer/final-acceptance/wave-04/02/instrumented-memory/memory-02",
-      "pendingCode": "packages/ui/tests/performance/vite.config.mjs specific public AppDataGrid alias before broad root alias; initial failed build retained memory-01; fresh fixture build and7policychecks pass",
-      "limits": "No performance/memory budget or broad acceptance closure inferred from partial run"
+      "limits": "No performance/memory budget or broad acceptance closure inferred from partial run",
+      "integratedCode": "Performance fixture public AppDataGrid alias fixed in a2e1e896; fresh fixture build and7policy checks pass. Initial failed build retained memory-01. Full memory run not yet complete."
     },
     {
       "threadId": "01a14bd5-0ddf-72d2-8b9f-5b37d1bde6e6",
       "task": "C08/C12/D09 containment/fluid/reflow/rem-font reconciliation",
-      "state": "Source/light review only while memory owns heavy lane",
-      "reuse": "Accepted actual zoom, CSS fallback6, visual48 and enlarged-text native evidence; do not repeat unchanged matrices"
+      "state": "Two-file enlarged-control typography fixture/assertion fix applied; six existing native toolbar cases queued for one fresh fixture build after memory releases heavy lane",
+      "reuse": "Accepted actual zoom, CSS fallback6, visual48 and enlarged-text native evidence; do not repeat unchanged matrices",
+      "nextSourceAudit": "X08 calendar/editor single-pointer alternatives under hidden-field, variable/bounded/fixed and rejected-host policies; identify concrete missing equivalent action, no physical/speech gate"
     }
   ],
   "paused": "Apple source-only changes remain unreviewed and uncommitted; no audible AT or simulator execution",
-  "coordinatorNext": "Review finite reports, fix concrete defects, close only named fulfilled criteria, commit/push validated work to dev; keep main/release/AT/legal gates separate"
+  "coordinatorNext": "Review finite reports, fix concrete defects, close only named fulfilled criteria, commit/push validated work to dev; keep main/release/AT/legal gates separate",
+  "countsSource": "docs/developer/final-acceptance/wave-04/coordinator/accepted-closures.json (canonical; do not duplicate evolving counts here)"
 }
