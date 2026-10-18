@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 274/320 A leaves closed; 46 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 275/320 A leaves closed; 45 A, 0 editor V review leaves and six future leaves remain.**
+
+### Initial theme and hydration acceptance completed — 2026-10-17
+
+The exact outstanding D17 successor has already passed in24installed-consumer lifecycle cases. JavaScript gating establishes loaded CSS/color-scheme and theme colors before hydration, with unchanged initial computed colors/IDs/nodes afterward; system changes, explicit scope changes and nested/sibling independence retain their recorded assertions.
+Wave 04 now closes 94 of 139 items; 45 remain.
 
 ### RTL and localization acceptance reconciled — 2026-10-17
 

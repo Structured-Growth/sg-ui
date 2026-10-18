@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 93,
-  "closedTotal": 274,
-  "remaining": 46,
+  "closedThisReview": 94,
+  "closedTotal": 275,
+  "remaining": 45,
   "entries": [
     {
       "id": "A-M-21",
@@ -830,6 +830,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-rtl-localization-review.json",
       "sha256": "65d3835de9d331aaef549ef983e4ad1ca4dd4e33f80bef84bade8c72670984e8",
       "limits": "Selected passing cases from mixed historical parent reports retain exact input/runtime scopes; no parent whole-suite green claim. No new browser/build/AT run, all-locale guarantee or physical-device approval. Spoken output remains X11, and unsupported ICU skeleton/style grammar remains host-owned."
+    },
+    {
+      "id": "A-D-17",
+      "basis": "Explicit light/dark/system and initial server/host contracts are documented. The accepted24case React18/19\u00d7locale\u00d7engine\u00d7system-preference execution covers the named gated prehydration styling successor without browser reads in server render, while preserving fixed nested scopes and zero hydration diagnostics.",
+      "criterion": "- [ ] A-D-17 Reconcile original `D-17`: Specify explicit light/dark/system settings, initial server theme, `color-scheme`, and hydration behavior without unwanted flashes or browser-global assumptions. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/root-initial-theme-hydration-review.json",
+      "sha256": "86ab0459995497e66fe6be96acbc8e99de5bd7b86d2a2f20bd1427037209fa13",
+      "limits": "Reuse actual recorded tarball lifecycle evidence; no fresh browser execution. Computed pre/post-hydration style consistency is not universal first-paint/deployment certification. Hosts must load initial CSS and serialize consistent theme/locale/default inputs; speech/physical devices and release approval remain separate."
     }
   ],
   "limits": [

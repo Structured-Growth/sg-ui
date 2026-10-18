@@ -1,0 +1,28 @@
+{
+  "entries": [
+    {
+      "id": "A-D-17",
+      "basis": "Explicit light/dark/system and initial server/host contracts are documented. The accepted24case React18/19\u00d7locale\u00d7engine\u00d7system-preference execution covers the named gated prehydration styling successor without browser reads in server render, while preserving fixed nested scopes and zero hydration diagnostics.",
+      "criterion": "- [ ] A-D-17 Reconcile original `D-17`: Specify explicit light/dark/system settings, initial server theme, `color-scheme`, and hydration behavior without unwanted flashes or browser-global assumptions. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/react-aria-theme.md",
+      "sha256": "4a33488d9b1af94025fd9ad9d25197066a2c2a33c1af47c54cce1f722c76ec54"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/scoped-lifecycle/receipt.json",
+      "sha256": "470c69c0084cc398bed7ae9f20eb4e1933ff12cbf79108b44de41d90285dbfb9"
+    },
+    {
+      "path": "packages/ui/scripts/test-scoped-lifecycle-consumer.mjs",
+      "sha256": "1ec39f734446654f55f896b6c035b3ce958ca06520fd4312d580b65bc79a9b99"
+    },
+    {
+      "path": "packages/ui/scripts/scope-hydration-proof.jsx",
+      "sha256": "dac7017b6a9fbbe2651c259f749ed7e74669ceac1988658d11a35aa657e3f7f4"
+    }
+  ],
+  "limits": "Reuse actual recorded tarball lifecycle evidence; no fresh browser execution. Computed pre/post-hydration style consistency is not universal first-paint/deployment certification. Hosts must load initial CSS and serialize consistent theme/locale/default inputs; speech/physical devices and release approval remain separate."
+}
