@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 101,
-  "closedTotal": 282,
-  "remaining": 38,
+  "closedThisReview": 102,
+  "closedTotal": 283,
+  "remaining": 37,
   "entries": [
     {
       "id": "A-M-21",
@@ -902,6 +902,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-component-tracking-review.json",
       "sha256": "86fc02d984a974a9ce4b5e4a16c1aff8b45c4c1b305687f36cb5ecb4d61647aa",
       "limits": "Tracking deliverable at frozen HEAD, not completion of every component acceptance or a live claim for later dirty source. M16/M18 remain open. Concurrent candidate hashes are contextual snapshots, not assertions that those new bytes are landed or behavior-validated. Historical phase counts/checkboxes remain separate."
+    },
+    {
+      "id": "A-I-08",
+      "basis": "The requested icon catalog, accessibility/optical checks, supported-runtime bundle pruning and shipped-vector notice attribution all have actual source/installed/packed evidence. Original remaining native/packed successors are fulfilled by accepted I05 and14probe consumer execution; no repeated icon/browser suite is required.",
+      "criterion": "- [ ] A-I-08 Reconcile original `I-08`: Add icon catalog, accessibility, and bundle checks; update notices for all shipped vector assets. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/root-icon-catalog-bundle-notice-review.json",
+      "sha256": "dafe7988c3d0e2e1829e85a67d0b07f368174d5e5973bfdc6a57e650b3b2ef45",
+      "limits": "Icon-vector attribution facts only, not whole-dependency/legal/release approval. Retired notices remain governed by independent L/Z review. Packed icon probe and later full-package notice audit keep different archive scopes."
     }
   ],
   "limits": [

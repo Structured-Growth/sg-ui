@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 282/320 A leaves closed; 38 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 283/320 A leaves closed; 37 A, 0 editor V review leaves and six future leaves remain.**
+
+### Icon catalog, bundle and vector notices accepted — 2026-10-17
+
+Joined accepted native/optical/name/direction/contrast and catalog results with supported-runtime packed single-icon pruning. Current96wrapper mappings pass; installed Lucide1.52ISC plus Feather/MIT license text is fully present in identical root/UI notices, and notice bytes match the fresh packed archive. No global legal approval is inferred.
+Wave 04 now closes 102 of 139 items; 37 remain.
 
 ### Individual migration tracking completed — 2026-10-17
 

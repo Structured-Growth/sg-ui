@@ -1,0 +1,33 @@
+{
+  "status": "icon-specific-catalog-accessibility-bundle-and-notice-scope-complete",
+  "wrappers": 96,
+  "vectorDependency": {
+    "name": "lucide-react",
+    "version": "1.52.0",
+    "manifestLicense": "ISC",
+    "licenseSha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+    "completeInstalledLicenseTextPresentInNotices": true,
+    "scope": "ISC license plus included MIT/Feather-derived notices; do not relabel as MIT-only"
+  },
+  "rootAndUiNoticesIdentical": true,
+  "packedNotice": {
+    "path": "THIRD_PARTY_NOTICES.md",
+    "bytes": 69034,
+    "sha256": "d8451520a620b85a5ab61c4f8eebf6b68febd4f1fddd44529d8e8a5433a699fb"
+  },
+  "packedArchiveSha256": "551f00034fe52027ce77285a517075b322d82508a4fc938ea21f4616303ce301",
+  "supportedRuntimeBundleEvidence": {
+    "path": "docs/developer/final-acceptance/wave-04/02/consumer-driver-integration/current-import-boundaries.json",
+    "sha256": "ed783960f9ef2ff1314b0533ba34369a059cc8e9e9a67933813cd25257b194bc",
+    "node": "v24.19.0",
+    "archiveSha256": "4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959",
+    "subpath": "icons/AddIcon",
+    "resolvedWrapperCount": 1,
+    "renderedWrapperCount": 1,
+    "result": "pass"
+  },
+  "nativeOpticalNamingDirectionContrast": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-csp-and-icon-contract-closures.json acceptedI05; original six native icon cases and actual root rendered review remain at recorded inputs",
+  "catalog": "Existing accepted production icon catalog search/naming/source/copy/isolation plus separately accepted98route catalog execution; no rerun for credit",
+  "mappingSha256": "b807dc80f9a0cf4119abbf260488dd414723e25614a94a531bd0c08d3293c557",
+  "limits": "Icon-vector attribution facts only, not whole-dependency/legal/release approval. Retired notices remain governed by independent L/Z review. Packed icon probe and later full-package notice audit keep different archive scopes."
+}

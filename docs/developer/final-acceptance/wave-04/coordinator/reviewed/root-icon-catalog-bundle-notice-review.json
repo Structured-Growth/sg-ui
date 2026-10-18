@@ -1,0 +1,36 @@
+{
+  "entries": [
+    {
+      "id": "A-I-08",
+      "basis": "The requested icon catalog, accessibility/optical checks, supported-runtime bundle pruning and shipped-vector notice attribution all have actual source/installed/packed evidence. Original remaining native/packed successors are fulfilled by accepted I05 and14probe consumer execution; no repeated icon/browser suite is required.",
+      "criterion": "- [ ] A-I-08 Reconcile original `I-08`: Add icon catalog, accessibility, and bundle checks; update notices for all shipped vector assets. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/icon-vector-attribution/receipt.json",
+      "sha256": "ce2b6ea5a87c4c8c36e5864739a92dcc7e00359a84562add20b020a3a17bb18f"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/icon-vector-attribution/mapping-check.json",
+      "sha256": "b807dc80f9a0cf4119abbf260488dd414723e25614a94a531bd0c08d3293c557"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-csp-and-icon-contract-closures.json",
+      "sha256": "a4ca0e330c956836a93049ed091be1793eb0b148b4a3f1c4f718fa63165f59c7"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/consumer-driver-integration/current-import-boundaries.json",
+      "sha256": "ed783960f9ef2ff1314b0533ba34369a059cc8e9e9a67933813cd25257b194bc"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/current-grid-package/packed-audit.json",
+      "sha256": "79d2e69fa24a64d44c438a3a048bd21ab1ce38512975b9bb508c18e23a9a63ee"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "d8451520a620b85a5ab61c4f8eebf6b68febd4f1fddd44529d8e8a5433a699fb"
+    }
+  ],
+  "limits": "Icon-vector attribution facts only, not whole-dependency/legal/release approval. Retired notices remain governed by independent L/Z review. Packed icon probe and later full-package notice audit keep different archive scopes."
+}
