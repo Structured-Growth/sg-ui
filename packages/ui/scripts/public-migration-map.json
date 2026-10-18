@@ -487,53 +487,53 @@
       "priorCandidate": "D415",
       "component": "DateRangeSelector",
       "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
-      "sourceSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
+      "sourceSha256": "3ff41daefcd6bc65ea9dd079576b10d17de5359ef46932189f7abccc473e82d3",
       "prop": "navigation",
       "before": "\"arrows\"",
       "after": "\"period\"",
       "retainPreviousBehavior": "navigation=\"arrows\"",
       "guide": "docs/developer/react-aria-public-contracts.md",
       "sourceOwner": "DateRangeSelector",
-      "sourceReviewedAtCommit": "4a7305f0302ba8cd27b6496a5c5f62b48ef7b6f1"
+      "sourceReviewedAtCommit": "6d2695a236914268ce95503f27680f86f29a153e"
     },
     {
       "priorCandidate": "D417",
       "component": "DateRangeSelector",
       "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
-      "sourceSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
+      "sourceSha256": "3ff41daefcd6bc65ea9dd079576b10d17de5359ef46932189f7abccc473e82d3",
       "prop": "rangeClickBehavior",
       "before": "\"adjust-end\"",
       "after": "\"adjust-nearest\"",
       "retainPreviousBehavior": "rangeClickBehavior=\"adjust-end\"",
       "guide": "docs/developer/react-aria-public-contracts.md",
       "sourceOwner": "DateRangeSelector",
-      "sourceReviewedAtCommit": "4a7305f0302ba8cd27b6496a5c5f62b48ef7b6f1"
+      "sourceReviewedAtCommit": "6d2695a236914268ce95503f27680f86f29a153e"
     },
     {
       "priorCandidate": "D419",
       "component": "DateRangeSelector",
       "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
-      "sourceSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
+      "sourceSha256": "3ff41daefcd6bc65ea9dd079576b10d17de5359ef46932189f7abccc473e82d3",
       "prop": "showFields",
       "before": "true",
       "after": "false",
       "retainPreviousBehavior": "showFields={true}",
       "guide": "docs/developer/react-aria-public-contracts.md",
       "sourceOwner": "DateRangeSelector",
-      "sourceReviewedAtCommit": "4a7305f0302ba8cd27b6496a5c5f62b48ef7b6f1"
+      "sourceReviewedAtCommit": "6d2695a236914268ce95503f27680f86f29a153e"
     },
     {
       "priorCandidate": "D423",
       "component": "DateRangeSelector",
       "source": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
-      "sourceSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
+      "sourceSha256": "3ff41daefcd6bc65ea9dd079576b10d17de5359ef46932189f7abccc473e82d3",
       "prop": "calendarNavigation",
       "before": "\"linked\"",
       "after": "\"independent\"",
       "retainPreviousBehavior": "calendarNavigation=\"linked\"",
       "guide": "docs/developer/react-aria-public-contracts.md",
       "sourceOwner": "DateRangeSelector",
-      "sourceReviewedAtCommit": "4a7305f0302ba8cd27b6496a5c5f62b48ef7b6f1"
+      "sourceReviewedAtCommit": "6d2695a236914268ce95503f27680f86f29a153e"
     },
     {
       "component": "AppDataGrid",

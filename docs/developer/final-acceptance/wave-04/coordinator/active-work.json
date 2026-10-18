@@ -1,25 +1,24 @@
 {
-  "lastIntegratedHead": "9cae9e43",
+  "lastIntegratedHead": "6d2695a236914268ce95503f27680f86f29a153e",
   "ongoing": [
     {
       "threadId": "01a14bd4-fbcc-7460-93a5-571ced620baa",
-      "task": "C11 native CSS nesting implementation plan",
-      "state": "W18 complete; inspect compiler/support contract and prepare minimal nesting implementation with focused validation",
+      "task": "C11 native CSS nesting implementation and focused browser parity",
+      "state": "D15 lane released; apply fallback-preserving minimal patch, validate owned compiler/guard and one-case three-engine parity",
       "evidence": "docs/developer/final-acceptance/wave-04/02/current-support-boundaries/receipt.json (completed prior task)",
-      "limits": "Read-only/isolated fixture tests while D15 frozen host is active; no shared source mutation/build until root releases lane"
+      "limits": "One shared library/private-host build; no broad matrix, baseline rewrite or unsupported numeric browser minimum"
     },
     {
       "threadId": "01a14bd5-0ddf-72d2-8b9f-5b37d1bde6e6",
-      "task": "D15 current state applicability and remaining design gaps",
-      "state": "15 computed-style cases pass after three setup corrections, but root34-image review found invisible forced-color selected-toggle label; hold integration pending actual paint regression/fix and targeted rerun",
-      "evidence": "docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/completion-receipt.json",
-      "plannedValidation": "Source/light first; reuse accepted evidence; no Cartesian matrix or invented AT/device gate for design-only criteria",
+      "task": "X07 target size and spacing reconciliation",
+      "state": "D15 complete; read-only current touch-target overrides and accepted geometry evidence review while C11 lane active",
+      "evidence": "docs/developer/final-acceptance/wave-04/05/batch/d15-current-inventory/root-final-review.json (completed prior task)",
+      "plannedValidation": "Propose concrete uncovered calendar/inline/resize/touch fixes; no shared source/output change until C11 releases lane",
       "rootReviewPoints": [
-        "Selection marker independent of focus",
-        "No layout jump",
-        "Owned token aliases",
-        "Public props remain unchanged",
-        "Actual label paint readability beyond computed foreground/background contrast"
+        "44px touch policy versus compact pointer density",
+        "WCAG24minimum/spacing exception distinct",
+        "Trusted simulated touch evidence",
+        "No invented physical-device gate"
       ]
     }
   ],

@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 113,
-  "closedTotal": 294,
-  "remaining": 26,
+  "closedThisReview": 114,
+  "closedTotal": 295,
+  "remaining": 25,
   "entries": [
     {
       "id": "A-M-21",
@@ -1010,6 +1010,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/w18-current-support-and-replacement-scope.json",
       "sha256": "bc6b0f8c46bc426a0a6678252b14dfa581e86ba976f130ca8c5c7d3ad19aa792",
       "limits": "Documents actual current policy; no SLA, security contact, named appointment, published backport window, future service contract or new compatibility guarantee is adopted. Remaining runtime/AT/performance/legal/publication acceptance is unchanged; no UI build/browser tests required for these docs-only edits."
+    },
+    {
+      "id": "A-D-15",
+      "basis": "Current public matrix resolves all eleven state decisions per218names, distinguishes owned/composed/host-driven/N/A contracts and preserves historical records. Existing119affected tests, source guards/types and445byte-identical declarations accompany eight-owner structural/pending changes. Fifteen effective Chromium cases use actual representative LTR/RTL,density,appearance and forced-color contexts; current/selected/mixed/focus and geometry remain distinct. Root34-image review found and blocked an invisible forced-color selected-toggle label; systemButtonText/ButtonFace with automatic adjustment restores glyphs and double marker. Maintained text-paint sampling fails old rasters1:1/noink and passes corrected21:1. Actual integration6d2695a2 plus owner-pinned12removed/6default gate proves no default/API drift.",
+      "criterion": "- [ ] A-D-15 Reconcile original `D-15`: Design complete hover, focus, pressed, selected, disabled, read-only, invalid, pending, empty, loading, and error states; never rely on color alone for meaning. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/d15-current-state-design-and-painted-indicators.json",
+      "sha256": "ba6fcb8522473202b16d1a2a85fedaa79eaec48fab4f5f3986377f3e741f4a7f",
+      "limits": "Design/applicability obligation with bounded native evidence, not all-library runtime certification or Cartesian browser/identity matrix. Original test-setup failures and computed-style false assurance remain preserved. X06 contrast/environment coverage, X07targetsize and X11spokenAT stay open. No baseline update, physical-device, publication or broad visual acceptance inferred."
     }
   ],
   "limits": [

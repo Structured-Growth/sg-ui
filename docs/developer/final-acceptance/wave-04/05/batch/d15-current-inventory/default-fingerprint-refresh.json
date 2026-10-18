@@ -1,0 +1,35 @@
+{
+  "reviewedCommit": "6d2695a236914268ce95503f27680f86f29a153e",
+  "scope": "Reviewed marker-class source changes only; no initializer, public prop or migration-semantic changes",
+  "changes": [
+    {
+      "component": "DateRangeSelector",
+      "prop": "navigation",
+      "oldSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
+      "newSha256": "3ff41daefcd6bc65ea9dd079576b10d17de5359ef46932189f7abccc473e82d3",
+      "expectedInitializer": "\"period\""
+    },
+    {
+      "component": "DateRangeSelector",
+      "prop": "rangeClickBehavior",
+      "oldSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
+      "newSha256": "3ff41daefcd6bc65ea9dd079576b10d17de5359ef46932189f7abccc473e82d3",
+      "expectedInitializer": "\"adjust-nearest\""
+    },
+    {
+      "component": "DateRangeSelector",
+      "prop": "showFields",
+      "oldSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
+      "newSha256": "3ff41daefcd6bc65ea9dd079576b10d17de5359ef46932189f7abccc473e82d3",
+      "expectedInitializer": "false"
+    },
+    {
+      "component": "DateRangeSelector",
+      "prop": "calendarNavigation",
+      "oldSha256": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
+      "newSha256": "3ff41daefcd6bc65ea9dd079576b10d17de5359ef46932189f7abccc473e82d3",
+      "expectedInitializer": "\"independent\""
+    }
+  ],
+  "declarationIdentity": "native-03/declarations.json records445byte-identical declarations; current compiled inventory is reused, not rebuilt"
+}

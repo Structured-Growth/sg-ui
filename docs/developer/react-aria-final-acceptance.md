@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 294/320 A leaves closed; 26 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 295/320 A leaves closed; 25 A, 0 editor V review leaves and six future leaves remain.**
+
+### Current state-design inventory completed — 2026-10-17
+
+Closed A-D-15 with218public names/2398state applicability decisions,81corrected historical dispositions and concrete marker/pending repairs across eight owners. Fifteen effective native cases and34final reviewed images support the bounded fixes; actual painted-toggle text regression now catches the invisible-label defect missed by computed-style contrast.
+Wave 04 now closes 114 of 139 items; 25 remain.
 
 ### Current support and replacement scope documented — 2026-10-17
 
