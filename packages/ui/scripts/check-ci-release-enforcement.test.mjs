@@ -117,3 +117,10 @@ test('Firefox native clipboard coverage keeps its real display and complete exec
   step.run=step.run.replace(fragment,'');assert(workflowFindings(candidate).length);
  }
 });
+
+test('pinned action cannot silently install mutable CLI and proxy releases',()=>{
+ for(const version of [undefined,'','latest','^0.163.0','0.162.0']){
+  const candidate=structuredClone(workflows);candidate.ai.jobs.implement.steps.find(s=>s.uses?.startsWith('openai/codex-action@')).with['codex-version']=version;
+  assert(workflowFindings(candidate).some(f=>f.includes('version pin')));
+ }
+});

@@ -136,3 +136,21 @@ fields from synthetic fixtures. Supported raw query status values do not by
 themselves supply actual observed check names, reviewed PR requirements, bypass
 review, tag authority review or proof that failed/missing checks block merging.
 A green structural receipt is still not authenticated platform or owner approval.
+
+## AI tool version and source review follow-up
+
+The proposed AI workflow pins `codex-version: '0.163.0'`, which the pinned action
+uses for both its CLI and Responses API proxy installation. This removes the
+previous moving tool version while keeping its action SHA, workspace sandbox,
+privilege drop and separate validation/write jobs. The
+[official action documentation](https://learn.chatgpt.com/docs/github-action)
+describes the version pin and recommends making Codex the last job step.
+
+`backlog-to-ten/ai-action-source-review` retains exact-commit source hashes,
+upstream LICENSE/NOTICE, registry integrity metadata and an isolated Node24/macOS
+CLI version/help check. These checks use no API request or publication credential.
+The 31 workflow/artifact tests reject removal or broadening of the tool pin.
+The review records the later read-only patch capture/upload steps as a remaining
+trust-review consideration. It is not a maintainer approval, a review of all
+bundled dependency bytes, an Ubuntu sandbox proof or a live AI draft result.
+A-R-21 and A-R-23 remain open with their original acceptance requirements.

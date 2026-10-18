@@ -54,6 +54,8 @@ export function workflowFindings(workflows) {
    'test-editor-consumer.mjs --react18','test-editor-consumer.mjs 2>&1',
    'pnpm pack','ci-artifacts.mjs complete'])requireStep(steps,command);
  for(const command of ['test-next-consumer.mjs','verify-native-ci.mjs'])requireStep(steps,command,"matrix.node == '24'");
+ const codexAction=(ai.jobs?.implement?.steps??[]).filter(step=>step.uses?.startsWith('openai/codex-action@'));
+ check(codexAction.length===1&&codexAction[0].with?.['codex-version']==='0.163.0','AI: reviewed CLI and proxy version pin missing');
  const nativeSteps=ci.jobs?.native?.steps??[];
  for(const command of ['ci-artifacts.mjs begin','pnpm build:browser-docs','ci-artifacts.mjs complete'])requireStep(nativeSteps,command);
  for(const run of ['pnpm build','pnpm exec playwright test --list --project=${{ matrix.browser }} --reporter=json > artifacts/logs/browser-collection.json'])check(nativeSteps.filter(step=>step.run===run&&step.if===undefined).length===1,'CI: complete unfiltered native engine execution missing');
