@@ -1,0 +1,56 @@
+{
+  "entries": [
+    {
+      "id": "A-W-19",
+      "basis": "Current local Markdown paths/anchors and source-derived site routes have zero defects across100maintained guides/2168links. The wrapper preserves parser assertions and rejects unknown/legacy routes, missing targets and broken anchors;562historical/out-of-scope documents are explicitly reported.219extended reference findings are dispositioned, including the two real README command repairs. Existing98-route/1284snippet and12public-example compiler evidence is retained at its original inputs; the changed AdvancedRange owner now has four actual SSR-captured copied sources compiled with zero diagnostics against445current declarations, with stable source/library hashes. Description-only changes are distinguished.",
+      "criterion": "- [ ] A-W-19 Reconcile original `W-19`: Check all local doc links, exported example types, referenced file paths, and commands; docs-only updates do not require unrelated UI tests. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/document-navigation/receipt.json",
+      "sha256": "42fc5b3f9d460570f75fca1a8eec20aaad411149134ce99cc4348bdb95215252"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/document-navigation/report.md",
+      "sha256": "300379ac1df9f05ba183be196841589df29d8a8bafaf260d98e67d4517c036f1"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/document-navigation/final-audit.json",
+      "sha256": "cd3f8951d0047cca8850c9651a2d9d1ca9fed89c80da34b92f065dc3eb8f2a69"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/document-navigation/public-example-source-join.json",
+      "sha256": "3910b9a63c4a87fcf8b1c28efe3b98391d028e80c9eefd3ac9e50b89ae4728bf"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/document-navigation/changed-source-compilation.json",
+      "sha256": "a85be9ebde598130c3a017bf14ec5515b08a32934137a632608ea330335703f4"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/document-navigation/validation.json",
+      "sha256": "6850aef36552d0887f9c7d86af30c1aa9050d81d4d2242ee3ae59cf82ed45cff"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/document-navigation/guard-tests.log",
+      "sha256": "69fdf6cbe739795a2e01e4bd294f8c27aca9535be275897d82693ffba75340b3"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/document-navigation/current-guidance.log",
+      "sha256": "0fbe7982771e64395380ae12374f793b2603ae26056dd83c1d6485a53ac996b5"
+    },
+    {
+      "path": "packages/ui/README.md",
+      "sha256": "21655962adc73c7fa0b2a81d5137d02bce1be276e9a3b20c5a00b3bc4261b476"
+    },
+    {
+      "path": "packages/ui/scripts/check-maintained-documentation.mjs",
+      "sha256": "41197ecbd54f3f39f4ee00c977242189844e2a2ac003deb4abfdd4657de469f3"
+    },
+    {
+      "path": "packages/ui/scripts/check-maintained-documentation.test.mjs",
+      "sha256": "571b227a8a470d2268a9c1fb0217c9705602fc608b5fed4f7b54af8c9d2aea3c"
+    }
+  ],
+  "limits": "No fresh full catalog/browser execution inferred. Remote URLs, raw HTML/MDX and arbitrary prose execution are outside the local parser. Historical snapshots are preserved rather than rewritten. The initial import-only export test-host failure is retained and corrected without changing generated product source; no UI build/install was needed."
+}

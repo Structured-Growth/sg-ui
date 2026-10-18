@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 288/320 A leaves closed; 32 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 289/320 A leaves closed; 31 A, 0 editor V review leaves and six future leaves remain.**
+
+### Current documentation checks completed — 2026-10-17
+
+Closed A-W-19 after checking100maintained guides and2168local links against104canonical website routes, replacing retired Storybook development commands and compiling four changed calendar snippets against current built public types. Nineteen checker tests and68command/reference checks pass; historical evidence stays separately identified.
+Wave 04 now closes 108 of 139 items; 31 remain.
 
 ### Grid reorder obligations reconciled — 2026-10-17
 

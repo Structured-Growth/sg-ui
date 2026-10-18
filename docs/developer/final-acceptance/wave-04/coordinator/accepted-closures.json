@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 107,
-  "closedTotal": 288,
-  "remaining": 32,
+  "closedThisReview": 108,
+  "closedTotal": 289,
+  "remaining": 31,
   "entries": [
     {
       "id": "A-M-21",
@@ -956,6 +956,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/grid-reorder-g17-m18.json",
       "sha256": "add846a407e5de32d14da4876c706a3f3845fba25cbd0c45ad3d70d30e04535e",
       "limits": "Retained native results are dated evidence, not newly executed. No physical long-press, spoken-screen-reader or production network-persistence claim. Other grid/performance/accessibility/release gates remain open; existing required assertions are preserved."
+    },
+    {
+      "id": "A-W-19",
+      "basis": "Current local Markdown paths/anchors and source-derived site routes have zero defects across100maintained guides/2168links. The wrapper preserves parser assertions and rejects unknown/legacy routes, missing targets and broken anchors;562historical/out-of-scope documents are explicitly reported.219extended reference findings are dispositioned, including the two real README command repairs. Existing98-route/1284snippet and12public-example compiler evidence is retained at its original inputs; the changed AdvancedRange owner now has four actual SSR-captured copied sources compiled with zero diagnostics against445current declarations, with stable source/library hashes. Description-only changes are distinguished.",
+      "criterion": "- [ ] A-W-19 Reconcile original `W-19`: Check all local doc links, exported example types, referenced file paths, and commands; docs-only updates do not require unrelated UI tests. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/w19-current-documentation-links-and-sources.json",
+      "sha256": "782ae6205142b305ebdece084e9b72965ada6942f6442712896d167ad3a16539",
+      "limits": "No fresh full catalog/browser execution inferred. Remote URLs, raw HTML/MDX and arbitrary prose execution are outside the local parser. Historical snapshots are preserved rather than rewritten. The initial import-only export test-host failure is retained and corrected without changing generated product source; no UI build/install was needed."
     }
   ],
   "limits": [

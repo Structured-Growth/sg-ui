@@ -1,12 +1,12 @@
 {
-  "lastIntegratedHead": "b1bc4ab8",
+  "lastIntegratedHead": "9efc43a4",
   "ongoing": [
     {
       "threadId": "01a14bd4-fbcc-7460-93a5-571ced620baa",
-      "task": "W19 current documentation links and route reconciliation",
-      "state": "Fix genuine maintained guide/source/subpath links; preserve canonical routes and frozen historical evidence",
-      "evidence": "docs/developer/final-acceptance/wave-04/02/grid-reorder/receipt.json (completed prior task)",
-      "limits": "Source/light only; no broad build/browser/install or historical evidence rewrite"
+      "task": "W20 factual source/license attribution and task-data boundaries",
+      "state": "W19 completed; reconcile original attribution obligation against accepted B14/I08 provenance and honest remaining legal limitations",
+      "evidence": "docs/developer/final-acceptance/wave-04/02/document-navigation/receipt.json (completed prior task)",
+      "limits": "Source/read-only light first; do not infer legal compatibility or rights from metadata; no builds/repacks/remote mutation"
     },
     {
       "threadId": "01a14bd5-0ddf-72d2-8b9f-5b37d1bde6e6",
