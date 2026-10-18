@@ -1,0 +1,69 @@
+{
+  "entries": [
+    {
+      "id": "A-B-05",
+      "basis": "480 current contracts/238 routes/445 fresh declarations with no unresolved types are joined to 38 locked historical analysis contracts, 740 styling mappings and all266 baseline symbol dispositions. Runtime defaults are source-backed:214 captured public initializer records include209 unchanged expressions/five mapped calendar changes, plus extraction-to-owned omitted grid selection=true. Callback/model/ref/deprecation and conditional DataToolbar visibility contracts are documented; two focused verifier tests pass.",
+      "criterion": "- [ ] A-B-05 Reconcile original `B-05`: Snapshot public props, callbacks, models, defaults, subpaths, and deprecations; identify changes that are actually breaking. Historical status: open."
+    },
+    {
+      "id": "A-Z-13",
+      "basis": "Final declarations are byte-bound to admitted library7e8517d8; all445 declarations unchanged after the real editor focus fix and all six source-owner default bindings verified. Twelve removed-name mappings have public replacements/guides. Fifteen incompatible source families retain actual major markers, and actual339c958d has concrete adjust-end/linked migration alternatives for the two originally unmarked changes. Project commitlint and configured semantic-release analyzer both pass on the actual committed message (major), without publishing.",
+      "criterion": "- [ ] A-Z-13 Reconcile original `Z-13`: Reconcile API snapshot with final declarations and consumer guide; verify every breaking change has migration instructions and correct Conventional Commit release marking. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation/receipt.json",
+      "sha256": "61dc75eb91f7a64f19ad7248e9013a1247b6a2b76989d2a3ead3f53b39b1c5f1"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation/contract-join.json",
+      "sha256": "d3a35529286331f5daf307e89634dd56622ce63fee41e11f78f0634f4025a927"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation/fresh-declaration-execution.json",
+      "sha256": "9a9e1e21453ff8547076894e29ad45caa38769f815bd0a90633e552a53ec9ca3"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation/fresh-declaration-delta.json",
+      "sha256": "bc0c88dded67ffa546d23114dc5c85b82513e1f2a1f048ef9eca2032f634b83a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation/direct-default-drift.json",
+      "sha256": "aec8319c56e887a261a245379a0a9bf03defd4ff112bab6a54351f2231be232c"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation/final-committed-migration-gate.json",
+      "sha256": "60e5c524aecb6861f9b81efa4894086791d896f9e6bc70f334072ba7bafc9c4e"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation/compiled-candidate-defaults-03.json",
+      "sha256": "8ecf37e0d72e3d1d4f93afcd7cac5fe9dc50bfa825723ecda1d612923b6eb314"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation/release-impact.json",
+      "sha256": "5fdfa216612a71102047fc1e169ef39386aaf619d6e3d94acee0fcebbdec10c3"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation/migration-gate-tests.log",
+      "sha256": "6bcb87d28f156c210fe817b23b839c63ab5fdc00cb4b123f11d759119f06258e"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation/actual-commit-validation.json",
+      "sha256": "60ae9d4899b5b7effa8918240450118beb88d3b855a31727d109bad4bb66bc02"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation/actual-commitlint.log",
+      "sha256": "60874f047272b9412e4c5039e278fa923dd416d5413083c32b72fdb0e792025c"
+    },
+    {
+      "path": "docs/developer/react-aria-public-contract-acceptance.md",
+      "sha256": "36e5b7611d4cbcf56d3b8aa6704ee18aba7aeab035d0ce28edac9d4a54cc78d0"
+    },
+    {
+      "path": "docs/developer/react-aria-public-contracts.md",
+      "sha256": "f289ad590fd1885c489ad622e028e38b146b653aefe418d4ad5e7d4c675c5268"
+    }
+  ],
+  "limits": "No universal compatibility with every inherited upstream prop. Defaults and conditional/context expressions remain distinct; no invented constant/default API or deprecation schedule. Initial digest drift and manifest-verifier failures are retained and explained. This completes API/migration reconciliation, not production promotion, package publication, license, performance or spoken-AT gates."
+}

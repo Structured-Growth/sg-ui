@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 103,
-  "closedTotal": 284,
-  "remaining": 36,
+  "closedThisReview": 105,
+  "closedTotal": 286,
+  "remaining": 34,
   "entries": [
     {
       "id": "A-M-21",
@@ -920,6 +920,24 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/x08-pointer-alternatives.json",
       "sha256": "89c5f5df9cb141cc55fd2f0350f7fb656e8332ea96539726be48a2cd1c94d17b",
       "limits": "Native text/image drag and arbitrary host-added plugins are outside owned drag operations. Reused grid/page/sort evidence is identified as retained, not rerun. No spoken-AT, physical-device or complete accessibility conformance claim; D15/X06/X07/X11 remain separate."
+    },
+    {
+      "id": "A-B-05",
+      "basis": "480 current contracts/238 routes/445 fresh declarations with no unresolved types are joined to 38 locked historical analysis contracts, 740 styling mappings and all266 baseline symbol dispositions. Runtime defaults are source-backed:214 captured public initializer records include209 unchanged expressions/five mapped calendar changes, plus extraction-to-owned omitted grid selection=true. Callback/model/ref/deprecation and conditional DataToolbar visibility contracts are documented; two focused verifier tests pass.",
+      "criterion": "- [ ] A-B-05 Reconcile original `B-05`: Snapshot public props, callbacks, models, defaults, subpaths, and deprecations; identify changes that are actually breaking. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/public-contract-defaults-and-breaking-markers.json",
+      "sha256": "c1665bf0c08351148e8d000efa2c5a51a5e550dddcffa9421bbf8c2598711772",
+      "limits": "No universal compatibility with every inherited upstream prop. Defaults and conditional/context expressions remain distinct; no invented constant/default API or deprecation schedule. Initial digest drift and manifest-verifier failures are retained and explained. This completes API/migration reconciliation, not production promotion, package publication, license, performance or spoken-AT gates."
+    },
+    {
+      "id": "A-Z-13",
+      "basis": "Final declarations are byte-bound to admitted library7e8517d8; all445 declarations unchanged after the real editor focus fix and all six source-owner default bindings verified. Twelve removed-name mappings have public replacements/guides. Fifteen incompatible source families retain actual major markers, and actual339c958d has concrete adjust-end/linked migration alternatives for the two originally unmarked changes. Project commitlint and configured semantic-release analyzer both pass on the actual committed message (major), without publishing.",
+      "criterion": "- [ ] A-Z-13 Reconcile original `Z-13`: Reconcile API snapshot with final declarations and consumer guide; verify every breaking change has migration instructions and correct Conventional Commit release marking. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/public-contract-defaults-and-breaking-markers.json",
+      "sha256": "c1665bf0c08351148e8d000efa2c5a51a5e550dddcffa9421bbf8c2598711772",
+      "limits": "No universal compatibility with every inherited upstream prop. Defaults and conditional/context expressions remain distinct; no invented constant/default API or deprecation schedule. Initial digest drift and manifest-verifier failures are retained and explained. This completes API/migration reconciliation, not production promotion, package publication, license, performance or spoken-AT gates."
     }
   ],
   "limits": [

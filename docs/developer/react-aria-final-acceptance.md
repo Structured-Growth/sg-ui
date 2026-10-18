@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 284/320 A leaves closed; 36 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 286/320 A leaves closed; 34 A, 0 editor V review leaves and six future leaves remain.**
+
+### Public contract and migration reconciliation completed — 2026-10-17
+
+Closed A-B-05 and A-Z-13 against fresh public declarations, source-bound defaults and the consumer migration guide. The missing AppDataGrid selection-default mapping is now maintained, owner-pinned validation rejects unrelated helper defaults, and actual commit339c958d supplies verified breaking markers for the previously unmarked calendar-default changes.
+Wave 04 now closes 105 of 139 items; 34 remain.
 
 ### Single-pointer alternatives completed — 2026-10-17
 

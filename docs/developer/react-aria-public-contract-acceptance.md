@@ -171,6 +171,8 @@ candidates; it is not relabeled as hundreds of fixed public defaults.
 The [release-impact record](final-acceptance/wave-04/02/public-contract-reconciliation/release-impact.json)
 preserves actual commit history and distinguishes source-family major markers
 from exact default-change commits. The originally unmarked nearest-endpoint and
-independent-calendar changes need the actual reconciliation integration marker;
-a suggested footer is not counted as committed release evidence. Publication,
-version calculation and future approved promotion to main remain separate.
+independent-calendar changes now have the concrete migration instructions and
+breaking marker in integration commit `339c958d`. Project commitlint passes, and
+the configured analyzer classifies that actual committed message as major; see the
+[actual commit validation](final-acceptance/wave-04/02/public-contract-reconciliation/actual-commit-validation.json).
+Publication, version calculation and future approved promotion to main remain separate.

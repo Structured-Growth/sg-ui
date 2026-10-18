@@ -1,0 +1,9 @@
+{
+  "commit": "339c958d639250abfb6fef28da48f4d85c215393",
+  "url": "https://github.com/Structured-Growth/sg-ui/commit/339c958d639250abfb6fef28da48f4d85c215393",
+  "subject": "fix(api)!: reconcile owned public defaults and migration proofs",
+  "messageSha256": "c9d41eb065815751f707e8c2ea009a2f3112c29e434b5600577cc35eaa74347d",
+  "scope": "Actual committed message, not proposed text; pure configured analyzer only, no release/publish/version action.",
+  "semanticReleaseImpact": "major",
+  "status": "pass"
+}

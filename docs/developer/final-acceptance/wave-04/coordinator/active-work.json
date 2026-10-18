@@ -1,24 +1,24 @@
 {
-  "lastIntegratedHead": "a33b7448f4fbec5c55bf5c86b315a5572de04d01",
+  "lastIntegratedHead": "339c958d639250abfb6fef28da48f4d85c215393",
   "ongoing": [
     {
       "threadId": "01a14bd4-fbcc-7460-93a5-571ced620baa",
-      "task": "B05/Z13 public contract/default and migration reconciliation",
-      "state": "Source/tool/docs joins prepared; await coordinated fresh declarations and actual integration breaking-change message validation",
+      "task": "G17 row reorder behavior, plus M18 only where fulfilled",
+      "state": "Reconcile accepted pointer/keyboard/simulated-touch evidence and fix actual announce/cancel/host restriction gaps",
       "evidence": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation",
-      "limits": "Committed HEAD is separate from uncommitted X08 candidates; no independent heavy build."
+      "limits": "Source/light first; do not invent physical-device/spoken claims or new gates; no broad rerun."
     },
     {
       "threadId": "01a14bd5-0ddf-72d2-8b9f-5b37d1bde6e6",
-      "task": "X08 calendar/editor/panel single-pointer alternatives",
-      "state": "Inline one-popup calendar adjustment, editor table selection and panel width alternatives under source review; targeted validation pending",
+      "task": "D15 structural selected/current indicators",
+      "state": "X08 completed; next bounded source fixes for HierarchicalMenu current page and MonthPicker/YearPicker selected choices",
       "evidence": "docs/developer/final-acceptance/wave-04/05/batch/x08-implementation",
-      "plannedValidation": "One shared library/catalog/private-host build after source freeze, then bounded affected cases. Root D15 Navigation/List/Calendar selection CSS and state spec must share the same frozen build.",
+      "plannedValidation": "Source/light review first, then finite affected native evidence only; preserve layout/focus/constraints.",
       "rootReviewPoints": [
-        "No nested calendar popup",
-        "Escape propagation and focus ownership",
-        "Supported nested table detection",
-        "No extra controls when resizing/dragging disabled"
+        "Selection marker independent of focus",
+        "No layout jump",
+        "Owned token aliases",
+        "Public props remain unchanged"
       ]
     }
   ],
