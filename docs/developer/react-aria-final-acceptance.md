@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 289/320 A leaves closed; 31 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 290/320 A leaves closed; 30 A, 0 editor V review leaves and six future leaves remain.**
+
+### Attribution and evidence boundaries reconciled — 2026-10-17
+
+Closed A-W-20 against authenticated extraction provenance, exact icon-license/retained-notice facts and unchanged external task-data boundaries. Current guidance preserves unresolved legal-text, rights and final-candidate findings rather than claiming full legal approval.
+Wave 04 now closes 109 of 139 items; 30 remain.
 
 ### Current documentation checks completed — 2026-10-17
 

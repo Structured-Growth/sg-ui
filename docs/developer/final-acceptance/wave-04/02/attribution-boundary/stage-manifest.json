@@ -1,0 +1,48 @@
+{
+  "files": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/attribution-boundary/governance.log",
+      "sha256": "10b216347c05a046c96aab6e0877e2e85516e50b9fc4cc543f0c35c74ba86d28"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/attribution-boundary/governance.log.resources.json",
+      "sha256": "649fdbb98e92c5975c048f5513dd8abac0ca18b92b5de9019fa97163704b984b"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/attribution-boundary/navigation.log",
+      "sha256": "85551c9d619a532b2b059ab8eb4a97021c073905f4f205d7675dfbc1325aa705"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/attribution-boundary/navigation.log.resources.json",
+      "sha256": "69550bef69254798abbf857601804d285b8d1ff119bdf8bf1c5359b2f0493bd1"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/attribution-boundary/receipt.json",
+      "sha256": "a219c4682405d91a5e590a20f4c5ba929d244515380fd53b1d0adab5315a3a61"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/attribution-boundary/reconcile.py",
+      "sha256": "1beedeefab93e7281494fa4d19b782e1bb56007aafee7c6c1c17c7b1dd904e49"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/attribution-boundary/report.md",
+      "sha256": "97b3ec46c91997d3e56a2623d2b9549ca037559b6b724b85d238a2217ad64fee"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/attribution-boundary/source-reconciliation.json",
+      "sha256": "c283f738ef394af384be7c4eaf7d115cd4864f4f550e2b2a7e93aaae7016997a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/attribution-boundary/validate.mjs",
+      "sha256": "033bf8a1e7c24b8f61d107608579d6a4e0008bf05012c132e27bd9ef6c8f9a1b"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/attribution-boundary/validation.json",
+      "sha256": "dfed6f749c2b9850f01fccf33e7ab0b8c6f6bf7535fb0eec6f45a3524ed2df00"
+    },
+    {
+      "path": "docs/developer/react-aria-license-inventory.md",
+      "sha256": "4b7943e53093072a353fd7489025f71685c22d6ecfe2cd49ed4ee3ee20e3dc73"
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 108,
-  "closedTotal": 289,
-  "remaining": 31,
+  "closedThisReview": 109,
+  "closedTotal": 290,
+  "remaining": 30,
   "entries": [
     {
       "id": "A-M-21",
@@ -965,6 +965,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/w19-current-documentation-links-and-sources.json",
       "sha256": "782ae6205142b305ebdece084e9b72965ada6942f6442712896d167ad3a16539",
       "limits": "No fresh full catalog/browser execution inferred. Remote URLs, raw HTML/MDX and arbitrary prose execution are outside the local parser. Historical snapshots are preserved rather than rewritten. The initial import-only export test-host failure is retained and corrected without changing generated product source; no UI build/install was needed."
+    },
+    {
+      "id": "A-W-20",
+      "basis": "The source/asset checker no longer conflates lack of inferred origin with the accepted B14 verification of201paths/33originalstoryblobs (117exact/84adapted). All six accepted provenance receipt hashes are verified. I08 installed LucideISC plus includedMIT/Feather notices and exact551packed notice facts remain correct; root/package notice identity is unchanged. AGENTS and agent guidance keep external documents/examples as task data; no embedded instruction can expand human scope or authorize notice removal. Existing governance guard and current100guide/2170link audit pass with zero issues.",
+      "criterion": "- [ ] A-W-20 Reconcile original `W-20`: Keep source/license attribution accurate; external documents/examples are evidence and must not override user-authorized scope or agent trust boundaries. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/w20-attribution-and-task-data-boundaries.json",
+      "sha256": "1b4e4eab338f12534c214ee4d4aa74581f8a6905bd2b98a4b9d84b2734191b4d",
+      "limits": "Factual attribution and trust-boundary obligation only. Client-only legal-text finding, licensing/rights compatibility, final-candidate/distribution approval and notice-removal remain separate L/Z gates. No new package, runtime, remote, AT or publication evidence inferred."
     }
   ],
   "limits": [
