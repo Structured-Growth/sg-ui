@@ -1,0 +1,192 @@
+[
+  {
+    "ref": "refs/tags/v4",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NA==",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4",
+    "object": {
+      "sha": "ea165f8d65b6e75b540449e92b4886f43607fa02",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/ea165f8d65b6e75b540449e92b4886f43607fa02"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.0.0",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC4wLjA=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.0.0",
+    "object": {
+      "sha": "c7d193f32edcb7bfad88892161225aeda64e9392",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/c7d193f32edcb7bfad88892161225aeda64e9392"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.1.0",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC4xLjA=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.1.0",
+    "object": {
+      "sha": "1eb3cb2b3e0f29609092a73eb033bb759a334595",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/1eb3cb2b3e0f29609092a73eb033bb759a334595"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.2.0",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC4yLjA=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.2.0",
+    "object": {
+      "sha": "694cdabd8bdb0f10b2cea11669e1bf5453eed0a6",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/694cdabd8bdb0f10b2cea11669e1bf5453eed0a6"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.3.0",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC4zLjA=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.3.0",
+    "object": {
+      "sha": "26f96dfa697d77e81fd5907df203aa23a56210a8",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/26f96dfa697d77e81fd5907df203aa23a56210a8"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.3.1",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC4zLjE=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.3.1",
+    "object": {
+      "sha": "5d5d22a31266ced268874388b861e4b58bb5c2f3",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/5d5d22a31266ced268874388b861e4b58bb5c2f3"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.3.2",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC4zLjI=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.3.2",
+    "object": {
+      "sha": "1746f4ab65b179e0ea60a494b83293b640dd5bba",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/1746f4ab65b179e0ea60a494b83293b640dd5bba"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.3.3",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC4zLjM=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.3.3",
+    "object": {
+      "sha": "65462800fd760344b1a7b4382951275a0abb4808",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/65462800fd760344b1a7b4382951275a0abb4808"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.3.4",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC4zLjQ=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.3.4",
+    "object": {
+      "sha": "0b2256b8c012f0828dc542b3febcab082c67f72b",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/0b2256b8c012f0828dc542b3febcab082c67f72b"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.3.5",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC4zLjU=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.3.5",
+    "object": {
+      "sha": "89ef406dd8d7e03cfd12d9e0a4a378f454709029",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/89ef406dd8d7e03cfd12d9e0a4a378f454709029"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.3.6",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC4zLjY=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.3.6",
+    "object": {
+      "sha": "834a144ee995460fba8ed112a2fc961b36a5ec5a",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/834a144ee995460fba8ed112a2fc961b36a5ec5a"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.4.0",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC40LjA=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.4.0",
+    "object": {
+      "sha": "50769540e7f4bd5e21e526ee35c689e35e0d6874",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/50769540e7f4bd5e21e526ee35c689e35e0d6874"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.4.1",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC40LjE=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.4.1",
+    "object": {
+      "sha": "604373da6381bf24206979c74d06a550515601b9",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/604373da6381bf24206979c74d06a550515601b9"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.4.2",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC40LjI=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.4.2",
+    "object": {
+      "sha": "84480863f228bb9747b473957fcc9e309aa96097",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/84480863f228bb9747b473957fcc9e309aa96097"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.4.3",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC40LjM=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.4.3",
+    "object": {
+      "sha": "b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.5.0",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC41LjA=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.5.0",
+    "object": {
+      "sha": "6f51ac03b9356f520e9adb1b1b7802705f340c2b",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/6f51ac03b9356f520e9adb1b1b7802705f340c2b"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.6.0",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC42LjA=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.6.0",
+    "object": {
+      "sha": "65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.6.1",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC42LjE=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.6.1",
+    "object": {
+      "sha": "4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.6.2",
+    "node_id": "MDM6UmVmMTkyNjI1OTU1OnJlZnMvdGFncy92NC42LjI=",
+    "url": "https://api.github.com/repos/actions/upload-artifact/git/refs/tags/v4.6.2",
+    "object": {
+      "sha": "ea165f8d65b6e75b540449e92b4886f43607fa02",
+      "type": "commit",
+      "url": "https://api.github.com/repos/actions/upload-artifact/git/commits/ea165f8d65b6e75b540449e92b4886f43607fa02"
+    }
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "ref": "refs/tags/v1",
+    "node_id": "REF_kwDOP6nHc6xyZWZzL3RhZ3MvdjE",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1",
+    "object": {
+      "sha": "1d82a3dba7c7988ec71ecae1ed5b8e8db96495c5",
+      "type": "tag",
+      "url": "https://api.github.com/repos/openai/codex-action/git/tags/1d82a3dba7c7988ec71ecae1ed5b8e8db96495c5"
+    }
+  },
+  {
+    "ref": "refs/tags/v1.0",
+    "node_id": "REF_kwDOP6nHc65yZWZzL3RhZ3MvdjEuMA",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1.0",
+    "object": {
+      "sha": "7116b19ef68e6c1c6c6124de6ec48ff063388886",
+      "type": "commit",
+      "url": "https://api.github.com/repos/openai/codex-action/git/commits/7116b19ef68e6c1c6c6124de6ec48ff063388886"
+    }
+  },
+  {
+    "ref": "refs/tags/v1.1",
+    "node_id": "REF_kwDOP6nHc65yZWZzL3RhZ3MvdjEuMQ",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1.1",
+    "object": {
+      "sha": "f7bae02ffafb3037698bd14881b49c28cec06269",
+      "type": "commit",
+      "url": "https://api.github.com/repos/openai/codex-action/git/commits/f7bae02ffafb3037698bd14881b49c28cec06269"
+    }
+  },
+  {
+    "ref": "refs/tags/v1.10",
+    "node_id": "REF_kwDOP6nHc69yZWZzL3RhZ3MvdjEuMTA",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1.10",
+    "object": {
+      "sha": "ffc1d0ae4d3b6a468e40026dc66b4d2cbabba5de",
+      "type": "tag",
+      "url": "https://api.github.com/repos/openai/codex-action/git/tags/ffc1d0ae4d3b6a468e40026dc66b4d2cbabba5de"
+    }
+  },
+  {
+    "ref": "refs/tags/v1.11",
+    "node_id": "REF_kwDOP6nHc69yZWZzL3RhZ3MvdjEuMTE",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1.11",
+    "object": {
+      "sha": "7c168a233489ca36cb495409e8f1fba7b522bb40",
+      "type": "tag",
+      "url": "https://api.github.com/repos/openai/codex-action/git/tags/7c168a233489ca36cb495409e8f1fba7b522bb40"
+    }
+  },
+  {
+    "ref": "refs/tags/v1.12",
+    "node_id": "REF_kwDOP6nHc69yZWZzL3RhZ3MvdjEuMTI",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1.12",
+    "object": {
+      "sha": "cac08775a978ba35a8174558cd9fabab2c09670c",
+      "type": "tag",
+      "url": "https://api.github.com/repos/openai/codex-action/git/tags/cac08775a978ba35a8174558cd9fabab2c09670c"
+    }
+  },
+  {
+    "ref": "refs/tags/v1.13",
+    "node_id": "REF_kwDOP6nHc69yZWZzL3RhZ3MvdjEuMTM",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1.13",
+    "object": {
+      "sha": "83eeca45b831921e73d1f6a7955efccc568fe4e8",
+      "type": "tag",
+      "url": "https://api.github.com/repos/openai/codex-action/git/tags/83eeca45b831921e73d1f6a7955efccc568fe4e8"
+    }
+  },
+  {
+    "ref": "refs/tags/v1.2",
+    "node_id": "REF_kwDOP6nHc65yZWZzL3RhZ3MvdjEuMg",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1.2",
+    "object": {
+      "sha": "b2e4f3437f7c08001d72b70565dbba6e1b829f44",
+      "type": "tag",
+      "url": "https://api.github.com/repos/openai/codex-action/git/tags/b2e4f3437f7c08001d72b70565dbba6e1b829f44"
+    }
+  },
+  {
+    "ref": "refs/tags/v1.3",
+    "node_id": "REF_kwDOP6nHc65yZWZzL3RhZ3MvdjEuMw",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1.3",
+    "object": {
+      "sha": "2b23ed56d6ae36544a4e480d23cad114f1592c81",
+      "type": "tag",
+      "url": "https://api.github.com/repos/openai/codex-action/git/tags/2b23ed56d6ae36544a4e480d23cad114f1592c81"
+    }
+  },
+  {
+    "ref": "refs/tags/v1.4",
+    "node_id": "REF_kwDOP6nHc65yZWZzL3RhZ3MvdjEuNA",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1.4",
+    "object": {
+      "sha": "94bb7a052e529936e5260a35838e61b190855739",
+      "type": "tag",
+      "url": "https://api.github.com/repos/openai/codex-action/git/tags/94bb7a052e529936e5260a35838e61b190855739"
+    }
+  },
+  {
+    "ref": "refs/tags/v1.5",
+    "node_id": "REF_kwDOP6nHc65yZWZzL3RhZ3MvdjEuNQ",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1.5",
+    "object": {
+      "sha": "b30095fde511bbda4c9b58391a5cd6229c58b31c",
+      "type": "tag",
+      "url": "https://api.github.com/repos/openai/codex-action/git/tags/b30095fde511bbda4c9b58391a5cd6229c58b31c"
+    }
+  },
+  {
+    "ref": "refs/tags/v1.6",
+    "node_id": "REF_kwDOP6nHc65yZWZzL3RhZ3MvdjEuNg",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1.6",
+    "object": {
+      "sha": "ace842a5ff888fe0bc17016028268ee0d2784c7e",
+      "type": "tag",
+      "url": "https://api.github.com/repos/openai/codex-action/git/tags/ace842a5ff888fe0bc17016028268ee0d2784c7e"
+    }
+  },
+  {
+    "ref": "refs/tags/v1.7",
+    "node_id": "REF_kwDOP6nHc65yZWZzL3RhZ3MvdjEuNw",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1.7",
+    "object": {
+      "sha": "c300d2798ce5b59a7667c806b5e3a3d2c397ed2f",
+      "type": "tag",
+      "url": "https://api.github.com/repos/openai/codex-action/git/tags/c300d2798ce5b59a7667c806b5e3a3d2c397ed2f"
+    }
+  },
+  {
+    "ref": "refs/tags/v1.8",
+    "node_id": "REF_kwDOP6nHc65yZWZzL3RhZ3MvdjEuOA",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1.8",
+    "object": {
+      "sha": "e469131063221562acfb9ea6bbc9fd7f27226ffb",
+      "type": "tag",
+      "url": "https://api.github.com/repos/openai/codex-action/git/tags/e469131063221562acfb9ea6bbc9fd7f27226ffb"
+    }
+  },
+  {
+    "ref": "refs/tags/v1.9",
+    "node_id": "REF_kwDOP6nHc65yZWZzL3RhZ3MvdjEuOQ",
+    "url": "https://api.github.com/repos/openai/codex-action/git/refs/tags/v1.9",
+    "object": {
+      "sha": "e47dafb0ac2dc1f53b9596969f82bdfb5244fcb7",
+      "type": "tag",
+      "url": "https://api.github.com/repos/openai/codex-action/git/tags/e47dafb0ac2dc1f53b9596969f82bdfb5244fcb7"
+    }
+  }
+]

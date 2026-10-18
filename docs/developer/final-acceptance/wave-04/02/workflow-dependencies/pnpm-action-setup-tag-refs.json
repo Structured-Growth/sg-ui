@@ -1,0 +1,62 @@
+[
+  {
+    "ref": "refs/tags/v4",
+    "node_id": "MDM6UmVmMjYyMjg5NzQ3OnJlZnMvdGFncy92NA==",
+    "url": "https://api.github.com/repos/pnpm/action-setup/git/refs/tags/v4",
+    "object": {
+      "sha": "f40ffcd9367d9f12939873eb1018b921a783ffaa",
+      "type": "tag",
+      "url": "https://api.github.com/repos/pnpm/action-setup/git/tags/f40ffcd9367d9f12939873eb1018b921a783ffaa"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.0.0",
+    "node_id": "MDM6UmVmMjYyMjg5NzQ3OnJlZnMvdGFncy92NC4wLjA=",
+    "url": "https://api.github.com/repos/pnpm/action-setup/git/refs/tags/v4.0.0",
+    "object": {
+      "sha": "0c17529a66aca453f9227af23103ed11469b1e47",
+      "type": "tag",
+      "url": "https://api.github.com/repos/pnpm/action-setup/git/tags/0c17529a66aca453f9227af23103ed11469b1e47"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.1.0",
+    "node_id": "MDM6UmVmMjYyMjg5NzQ3OnJlZnMvdGFncy92NC4xLjA=",
+    "url": "https://api.github.com/repos/pnpm/action-setup/git/refs/tags/v4.1.0",
+    "object": {
+      "sha": "7088e561eb65bb68695d245aa206f005ef30921d",
+      "type": "tag",
+      "url": "https://api.github.com/repos/pnpm/action-setup/git/tags/7088e561eb65bb68695d245aa206f005ef30921d"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.2.0",
+    "node_id": "MDM6UmVmMjYyMjg5NzQ3OnJlZnMvdGFncy92NC4yLjA=",
+    "url": "https://api.github.com/repos/pnpm/action-setup/git/refs/tags/v4.2.0",
+    "object": {
+      "sha": "9fd676a19091d4595eefd76e4bd31c97133911f1",
+      "type": "tag",
+      "url": "https://api.github.com/repos/pnpm/action-setup/git/tags/9fd676a19091d4595eefd76e4bd31c97133911f1"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.3.0",
+    "node_id": "MDM6UmVmMjYyMjg5NzQ3OnJlZnMvdGFncy92NC4zLjA=",
+    "url": "https://api.github.com/repos/pnpm/action-setup/git/refs/tags/v4.3.0",
+    "object": {
+      "sha": "c336a2788d9774dccfdeb4823a5058ccc9f07453",
+      "type": "tag",
+      "url": "https://api.github.com/repos/pnpm/action-setup/git/tags/c336a2788d9774dccfdeb4823a5058ccc9f07453"
+    }
+  },
+  {
+    "ref": "refs/tags/v4.4.0",
+    "node_id": "MDM6UmVmMjYyMjg5NzQ3OnJlZnMvdGFncy92NC40LjA=",
+    "url": "https://api.github.com/repos/pnpm/action-setup/git/refs/tags/v4.4.0",
+    "object": {
+      "sha": "a15d269cd4658e1107c09f1fabf4cbd7bd1f308a",
+      "type": "tag",
+      "url": "https://api.github.com/repos/pnpm/action-setup/git/tags/a15d269cd4658e1107c09f1fabf4cbd7bd1f308a"
+    }
+  }
+]

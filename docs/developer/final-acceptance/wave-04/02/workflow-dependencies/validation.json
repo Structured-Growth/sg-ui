@@ -1,0 +1,37 @@
+{
+  "startedAt": "2026-10-18T01:48:14.348Z",
+  "runtime": "v24.19.0",
+  "runs": [
+    {
+      "name": "policy-tests",
+      "command": [
+        "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--test",
+        "packages/ui/scripts/check-ci-release-enforcement.test.mjs"
+      ],
+      "status": "pass"
+    },
+    {
+      "name": "actionlint-version",
+      "command": [
+        "/var/folders/vp/bckxx0097z9gb5q8_d1chsvh0000gn/T/sgui-r25-actionlint-2vghlpua/actionlint",
+        "-version"
+      ],
+      "status": "pass"
+    },
+    {
+      "name": "actionlint",
+      "command": [
+        "/var/folders/vp/bckxx0097z9gb5q8_d1chsvh0000gn/T/sgui-r25-actionlint-2vghlpua/actionlint",
+        ".github/workflows/ci.yml",
+        ".github/workflows/release.yml",
+        ".github/workflows/pr-title.yml",
+        ".github/workflows/ai-code.yml"
+      ],
+      "status": "pass"
+    }
+  ],
+  "status": "pass",
+  "finishedAt": "2026-10-18T01:48:15.121Z",
+  "cleanup": "Owned commands settled; canonical light slot released; verified actionlint remains only in task-specific temp; no dispatch/build/install/settings mutation"
+}

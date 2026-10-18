@@ -1,0 +1,24 @@
+{
+  "node_id": "TA_kwDOP6nHc9oAKGIzMDA5NWZkZTUxMWJiZGE0YzliNTgzOTFhNWNkNjIyOWM1OGIzMWM",
+  "sha": "b30095fde511bbda4c9b58391a5cd6229c58b31c",
+  "url": "https://api.github.com/repos/openai/codex-action/git/tags/b30095fde511bbda4c9b58391a5cd6229c58b31c",
+  "tagger": {
+    "name": "Michael Bolin",
+    "email": "mbolin@openai.com",
+    "date": "2026-03-17T05:12:41Z"
+  },
+  "object": {
+    "sha": "bdc01a0b28bb6936f84be3db1ab077a4e4032e49",
+    "type": "commit",
+    "url": "https://api.github.com/repos/openai/codex-action/git/commits/bdc01a0b28bb6936f84be3db1ab077a4e4032e49"
+  },
+  "tag": "v1.5",
+  "message": "v1.5\n",
+  "verification": {
+    "verified": false,
+    "reason": "unsigned",
+    "signature": null,
+    "payload": null,
+    "verified_at": null
+  }
+}

@@ -1,0 +1,22 @@
+✔ current workflow configuration keeps production/infrastructure/main/reusable paths and default-token draft validation (1.101458ms)
+✔ rejects missing main path, infrastructure path bypass, narrowed matrix, ignored failures and skipped release prerequisite (1.116958ms)
+✔ rejects AI event dependency, wrong draft SHA, write-job package execution, secrets or non-draft creation (0.920208ms)
+✔ empty, API-denied and observed unprotected-main responses fail closed (0.167417ms)
+✔ both legacy and effective-ruleset fixtures can require observed contexts without mistaking legacy404 for no rules (0.302125ms)
+✔ stale check names, missing owner review and absent failed/missing-check blocking observations cannot pass (0.290958ms)
+✔ mandatory runtime and docs gates cannot silently skip inside a green job (0.756208ms)
+✔ both React generations and one unambiguous execution of each gate are required (0.421459ms)
+✔ production PR and title event filters cannot omit new heads or edited titles (0.602833ms)
+✔ title validation and patch identity cannot be skipped or have failures ignored (0.873834ms)
+✔ job permission overrides cannot broaden read-only CI or AI execution (0.764ms)
+✔ logical gates cannot collapse onto one context or reuse legacy settings after a404 (0.095125ms)
+✔ YAML boolean false on an unconditional job is a skipped gate, not an absent condition (0.4125ms)
+✔ dependency policy rejects mutable external action/workflow refs without requiring remote execution (0.669375ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 68.337459

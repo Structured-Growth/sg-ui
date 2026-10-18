@@ -65,3 +65,32 @@ never dispatch releases or change repository settings merely to test a patch.
 For final-candidate retrieval, offline archive/receipt verification and the
 remaining production protection/owner evidence, use
 [CI release readiness](ci-release-readiness.md).
+
+
+## Maintained pin validation and reviewed identities
+
+The source-only [workflow policy guard](../../packages/ui/scripts/check-ci-release-enforcement.mjs)
+checks external action and reusable-workflow references for full 40-character
+commit SHAs, while allowing candidate-local references. Mutable tags, branches,
+short SHAs, expressions and container tags do not satisfy that rule. Run its
+focused fixtures from the repository root:
+
+```sh
+node --test packages/ui/scripts/check-ci-release-enforcement.test.mjs
+```
+
+The [R-25 reconciliation](final-acceptance/wave-04/02/workflow-dependencies/receipt.json)
+records the seven current pinned commits, official action/package metadata,
+release-note and annotated-tag review, downloaded-tool boundaries and actual
+checksum-verified actionlint output for all four workflows. Action package.version
+is not an action tag identity; annotated tag objects must be dereferenced to their
+commit. Moving major-tag observations are dated evidence, not workflow inputs.
+The generic pin guard validates reference form, not upstream safety or approval of
+a replacement SHA; maintain the review procedure above for any update.
+
+This review does not change workflow events, permissions, runtime/browser gates,
+release prerequisites, AI sandbox or draft-only behavior. Source policy and
+schema checks do not establish representative Actions execution, effective branch
+protection or a successful AI proposal run; R-27 and R-21 retain those live scopes.
+The separately documented floating runner/Node and optional Codex CLI version
+choices are not made immutable by action pins or by running actionlint.

@@ -1,0 +1,11 @@
+✔ clean start removes stale dist, native host and tarballs; receipt binds current inputs and bytes (27.17725ms)
+✔ changed source or missing stylesheet cannot produce a successful receipt (23.242916ms)
+✔ extra stale package and symlink output fail closed (21.787208ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 120.6095

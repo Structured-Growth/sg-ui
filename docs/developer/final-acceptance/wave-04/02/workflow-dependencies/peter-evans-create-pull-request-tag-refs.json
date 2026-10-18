@@ -1,0 +1,142 @@
+[
+  {
+    "ref": "refs/tags/v7",
+    "node_id": "MDM6UmVmMTk3MTc2MzY1OnJlZnMvdGFncy92Nw==",
+    "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/refs/tags/v7",
+    "object": {
+      "sha": "22a9089034f40e5a961c8808d113e2c98fb63676",
+      "type": "commit",
+      "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/commits/22a9089034f40e5a961c8808d113e2c98fb63676"
+    }
+  },
+  {
+    "ref": "refs/tags/v7-rc",
+    "node_id": "MDM6UmVmMTk3MTc2MzY1OnJlZnMvdGFncy92Ny1yYw==",
+    "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/refs/tags/v7-rc",
+    "object": {
+      "sha": "c58bcf269b90fc649379e9703aa26fcb04b2ea62",
+      "type": "commit",
+      "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/commits/c58bcf269b90fc649379e9703aa26fcb04b2ea62"
+    }
+  },
+  {
+    "ref": "refs/tags/v7.0.0",
+    "node_id": "MDM6UmVmMTk3MTc2MzY1OnJlZnMvdGFncy92Ny4wLjA=",
+    "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/refs/tags/v7.0.0",
+    "object": {
+      "sha": "4320041ed380b20e97d388d56a7fb4f9b8c20e79",
+      "type": "commit",
+      "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/commits/4320041ed380b20e97d388d56a7fb4f9b8c20e79"
+    }
+  },
+  {
+    "ref": "refs/tags/v7.0.1",
+    "node_id": "MDM6UmVmMTk3MTc2MzY1OnJlZnMvdGFncy92Ny4wLjE=",
+    "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/refs/tags/v7.0.1",
+    "object": {
+      "sha": "8867c4aba1b742c39f8d0ba35429c2dfa4b6cb20",
+      "type": "commit",
+      "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/commits/8867c4aba1b742c39f8d0ba35429c2dfa4b6cb20"
+    }
+  },
+  {
+    "ref": "refs/tags/v7.0.10",
+    "node_id": "MDM6UmVmMTk3MTc2MzY1OnJlZnMvdGFncy92Ny4wLjEw",
+    "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/refs/tags/v7.0.10",
+    "object": {
+      "sha": "d4f3be6ce6f4083b7ac7490ab98b48a62db1ee41",
+      "type": "commit",
+      "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/commits/d4f3be6ce6f4083b7ac7490ab98b48a62db1ee41"
+    }
+  },
+  {
+    "ref": "refs/tags/v7.0.11",
+    "node_id": "MDM6UmVmMTk3MTc2MzY1OnJlZnMvdGFncy92Ny4wLjEx",
+    "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/refs/tags/v7.0.11",
+    "object": {
+      "sha": "22a9089034f40e5a961c8808d113e2c98fb63676",
+      "type": "commit",
+      "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/commits/22a9089034f40e5a961c8808d113e2c98fb63676"
+    }
+  },
+  {
+    "ref": "refs/tags/v7.0.2",
+    "node_id": "MDM6UmVmMTk3MTc2MzY1OnJlZnMvdGFncy92Ny4wLjI=",
+    "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/refs/tags/v7.0.2",
+    "object": {
+      "sha": "d121e62763d8cc35b5fb1710e887d6e69a52d3a4",
+      "type": "commit",
+      "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/commits/d121e62763d8cc35b5fb1710e887d6e69a52d3a4"
+    }
+  },
+  {
+    "ref": "refs/tags/v7.0.3",
+    "node_id": "MDM6UmVmMTk3MTc2MzY1OnJlZnMvdGFncy92Ny4wLjM=",
+    "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/refs/tags/v7.0.3",
+    "object": {
+      "sha": "6cd32fd93684475c31847837f87bb135d40a2b79",
+      "type": "commit",
+      "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/commits/6cd32fd93684475c31847837f87bb135d40a2b79"
+    }
+  },
+  {
+    "ref": "refs/tags/v7.0.4",
+    "node_id": "MDM6UmVmMTk3MTc2MzY1OnJlZnMvdGFncy92Ny4wLjQ=",
+    "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/refs/tags/v7.0.4",
+    "object": {
+      "sha": "2f38cd26bfebe301a5ee90bdd6550a69dc3ef23f",
+      "type": "commit",
+      "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/commits/2f38cd26bfebe301a5ee90bdd6550a69dc3ef23f"
+    }
+  },
+  {
+    "ref": "refs/tags/v7.0.5",
+    "node_id": "MDM6UmVmMTk3MTc2MzY1OnJlZnMvdGFncy92Ny4wLjU=",
+    "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/refs/tags/v7.0.5",
+    "object": {
+      "sha": "5e914681df9dc83aa4e4905692ca88beb2f9e91f",
+      "type": "commit",
+      "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/commits/5e914681df9dc83aa4e4905692ca88beb2f9e91f"
+    }
+  },
+  {
+    "ref": "refs/tags/v7.0.6",
+    "node_id": "MDM6UmVmMTk3MTc2MzY1OnJlZnMvdGFncy92Ny4wLjY=",
+    "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/refs/tags/v7.0.6",
+    "object": {
+      "sha": "67ccf781d68cd99b580ae25a5c18a1cc84ffff1f",
+      "type": "commit",
+      "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/commits/67ccf781d68cd99b580ae25a5c18a1cc84ffff1f"
+    }
+  },
+  {
+    "ref": "refs/tags/v7.0.7",
+    "node_id": "MDM6UmVmMTk3MTc2MzY1OnJlZnMvdGFncy92Ny4wLjc=",
+    "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/refs/tags/v7.0.7",
+    "object": {
+      "sha": "dd2324fc52d5d43c699a5636bcf19fceaa70c284",
+      "type": "commit",
+      "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/commits/dd2324fc52d5d43c699a5636bcf19fceaa70c284"
+    }
+  },
+  {
+    "ref": "refs/tags/v7.0.8",
+    "node_id": "MDM6UmVmMTk3MTc2MzY1OnJlZnMvdGFncy92Ny4wLjg=",
+    "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/refs/tags/v7.0.8",
+    "object": {
+      "sha": "271a8d0340265f705b14b6d32b9829c1cb33d45e",
+      "type": "commit",
+      "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/commits/271a8d0340265f705b14b6d32b9829c1cb33d45e"
+    }
+  },
+  {
+    "ref": "refs/tags/v7.0.9",
+    "node_id": "MDM6UmVmMTk3MTc2MzY1OnJlZnMvdGFncy92Ny4wLjk=",
+    "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/refs/tags/v7.0.9",
+    "object": {
+      "sha": "84ae59a2cdc2258d6fa0732dd66352dddae2a412",
+      "type": "commit",
+      "url": "https://api.github.com/repos/peter-evans/create-pull-request/git/commits/84ae59a2cdc2258d6fa0732dd66352dddae2a412"
+    }
+  }
+]

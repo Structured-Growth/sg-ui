@@ -1,0 +1,18 @@
+{
+  "name": "package.json",
+  "path": "package.json",
+  "sha": "f9fa5b1a4bf2aa3aa531a72183fa406aecf131ee",
+  "size": 911,
+  "url": "https://api.github.com/repos/openai/codex-action/contents/package.json?ref=bdf19a4a223ec2549a3e2274a0cf61556bc07675",
+  "html_url": "https://github.com/openai/codex-action/blob/bdf19a4a223ec2549a3e2274a0cf61556bc07675/package.json",
+  "git_url": "https://api.github.com/repos/openai/codex-action/git/blobs/f9fa5b1a4bf2aa3aa531a72183fa406aecf131ee",
+  "download_url": "https://raw.githubusercontent.com/openai/codex-action/bdf19a4a223ec2549a3e2274a0cf61556bc07675/package.json",
+  "type": "file",
+  "content": "ewogICJuYW1lIjogIkBvcGVuYWkvY29kZXgtYWN0aW9uIiwKICAidmVyc2lv\nbiI6ICIwLjAuMCIsCiAgImRlc2NyaXB0aW9uIjogIkdpdEh1YiBBY3Rpb24g\ndG8gcnVuIGNvZGV4IGV4ZWMgdmlhIHRoZSBDb2RleCBDTEkgd2l0aCBhY2Nv\nbXBhbnlpbmcgaGVscGVyIHN0ZXBzIiwKICAicHJpdmF0ZSI6IHRydWUsCiAg\nInNjcmlwdHMiOiB7CiAgICAiYnVpbGQiOiAiZXNidWlsZCBzcmMvbWFpbi50\ncyAtLXNvdXJjZW1hcD1pbmxpbmUgLS1mb3JtYXQ9Y2pzIC0tYnVuZGxlIC0t\ncGxhdGZvcm09bm9kZSAtLXRhcmdldD1ub2RlMjAgLS1vdXRkaXI9ZGlzdCIs\nCiAgICAiY2hlY2siOiAidHNjIC0tbm9FbWl0IiwKICAgICJ0ZXN0IjogInBu\ncG0gcnVuIGJ1aWxkICYmIG5vZGUgLS10ZXN0IHRlc3QvKi50ZXN0Lm1qcyIK\nICB9LAogICJkZXBlbmRlbmNpZXMiOiB7CiAgICAiQGFjdGlvbnMvY29yZSI6\nICJeMS4xMS4xIiwKICAgICJAb2N0b2tpdC9ncmFwaHFsIjogIl44LjIuMiIs\nCiAgICAiQG9jdG9raXQvcGx1Z2luLXJldHJ5IjogIl43LjIuMSIsCiAgICAi\nQG9jdG9raXQvcmVzdCI6ICJeMjEuMS4xIiwKICAgICJjb21tYW5kZXIiOiAi\nMTQuMC4xIiwKICAgICJzdHJpbmctYXJndiI6ICIwLjMuMiIKICB9LAogICJk\nZXZEZXBlbmRlbmNpZXMiOiB7CiAgICAiQHR5cGVzL25vZGUiOiAiXjIwLjEy\nLjciLAogICAgImVzYnVpbGQiOiAiXjAuMjMuMCIsCiAgICAidHlwZXNjcmlw\ndCI6ICJeNS40LjUiCiAgfSwKICAicGFja2FnZU1hbmFnZXIiOiAicG5wbUAx\nMC4zMy4wK3NoYTUxMi4xMDU2OGJiNGE2YWZiNThjOWViMzYzMGRhOTBjYzk1\nMTY0MTdhYmViZDNmYWJiZTY3MzlmMGFlNzk1NzI4ZGExNDkxZTlkYjVhNTQ0\nYzc2YWQ4ZWI3NTcwZjVjNGJiM2Q2YzYzN2IyY2I0MWJmZGNkYjQ3ZmE4MjNj\nODY0OTMxOSIKfQo=\n",
+  "encoding": "base64",
+  "_links": {
+    "self": "https://api.github.com/repos/openai/codex-action/contents/package.json?ref=bdf19a4a223ec2549a3e2274a0cf61556bc07675",
+    "git": "https://api.github.com/repos/openai/codex-action/git/blobs/f9fa5b1a4bf2aa3aa531a72183fa406aecf131ee",
+    "html": "https://github.com/openai/codex-action/blob/bdf19a4a223ec2549a3e2274a0cf61556bc07675/package.json"
+  }
+}

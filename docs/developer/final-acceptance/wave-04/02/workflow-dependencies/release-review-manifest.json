@@ -1,0 +1,144 @@
+[
+  {
+    "repository": "actions/checkout",
+    "pinnedCommit": "11d5960a326750d5838078e36cf38b85af677262",
+    "retainedMajorLabel": "v4",
+    "tagRefs": {
+      "endpoint": "repos/actions/checkout/git/matching-refs/tags/v4",
+      "method": "GET",
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-checkout-tag-refs.json",
+      "sha256": "8ed57c1d3c79c929f46e816c654ebb34b330b298c07cee8a459e06a53fb394a5"
+    },
+    "observedTagsDirectlyResolvingToPinnedCommit": [
+      "v4",
+      "v4.4.0"
+    ],
+    "release": {
+      "endpoint": "repos/actions/checkout/releases/tags/v4.4.0",
+      "method": "GET",
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-checkout-release.json",
+      "sha256": "21b9c1994109a9877bb92792e4e68e863f8a9139225cf143deac494f465f1cbf"
+    },
+    "distinction": "Tag observations are current read-only metadata, separate from immutable workflow commit; package.version does not establish action release tag identity"
+  },
+  {
+    "repository": "actions/setup-node",
+    "pinnedCommit": "49933ea5288caeca8642d1e84afbd3f7d6820020",
+    "retainedMajorLabel": "v4",
+    "tagRefs": {
+      "endpoint": "repos/actions/setup-node/git/matching-refs/tags/v4",
+      "method": "GET",
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-setup-node-tag-refs.json",
+      "sha256": "5470f5c572a4fef312530a737457a72caa277992adaa18c43194fd868a90729f"
+    },
+    "observedTagsDirectlyResolvingToPinnedCommit": [
+      "v4",
+      "v4.4.0"
+    ],
+    "release": {
+      "endpoint": "repos/actions/setup-node/releases/tags/v4.4.0",
+      "method": "GET",
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-setup-node-release.json",
+      "sha256": "064f8dc8b7609ebf3a61c59aa1dcdf96719abddd430d4a2aaa4363c80e4cdb4e"
+    },
+    "distinction": "Tag observations are current read-only metadata, separate from immutable workflow commit; package.version does not establish action release tag identity"
+  },
+  {
+    "repository": "actions/upload-artifact",
+    "pinnedCommit": "ea165f8d65b6e75b540449e92b4886f43607fa02",
+    "retainedMajorLabel": "v4",
+    "tagRefs": {
+      "endpoint": "repos/actions/upload-artifact/git/matching-refs/tags/v4",
+      "method": "GET",
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-upload-artifact-tag-refs.json",
+      "sha256": "5ae590d7952458a06aafdfe0066c617736a057344e463b189be1eb0add77defd"
+    },
+    "observedTagsDirectlyResolvingToPinnedCommit": [
+      "v4",
+      "v4.6.2"
+    ],
+    "release": {
+      "endpoint": "repos/actions/upload-artifact/releases/tags/v4.6.2",
+      "method": "GET",
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-upload-artifact-release.json",
+      "sha256": "df648576c9fdae00b5f70f7c8b3a4e06e8785afd6c7d71276c655b1725206b85"
+    },
+    "distinction": "Tag observations are current read-only metadata, separate from immutable workflow commit; package.version does not establish action release tag identity"
+  },
+  {
+    "repository": "actions/download-artifact",
+    "pinnedCommit": "d3f86a106a0bac45b974a628896c90dbdf5c8093",
+    "retainedMajorLabel": "v4",
+    "tagRefs": {
+      "endpoint": "repos/actions/download-artifact/git/matching-refs/tags/v4",
+      "method": "GET",
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-download-artifact-tag-refs.json",
+      "sha256": "a5b1c69b687984d4f0dc80a489cfc3686d49cbab7fb9f93e84b981039e46da10"
+    },
+    "observedTagsDirectlyResolvingToPinnedCommit": [
+      "v4",
+      "v4.3.0"
+    ],
+    "release": {
+      "endpoint": "repos/actions/download-artifact/releases/tags/v4.3.0",
+      "method": "GET",
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/actions-download-artifact-release.json",
+      "sha256": "9a42e262c51803642cae7acca053724f0daf1f6656ad7c76346f0b1141773026"
+    },
+    "distinction": "Tag observations are current read-only metadata, separate from immutable workflow commit; package.version does not establish action release tag identity"
+  },
+  {
+    "repository": "pnpm/action-setup",
+    "pinnedCommit": "b906affcce14559ad1aafd4ab0e942779e9f58b1",
+    "retainedMajorLabel": "v4",
+    "tagRefs": {
+      "endpoint": "repos/pnpm/action-setup/git/matching-refs/tags/v4",
+      "method": "GET",
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-tag-refs.json",
+      "sha256": "623f5ae7fd5b8e12ed3a19aa5f764a67aa3374d48178882ff44063142b677d8a"
+    },
+    "observedTagsDirectlyResolvingToPinnedCommit": [
+      "v4"
+    ],
+    "release": null,
+    "distinction": "Tag observations are current read-only metadata, separate from immutable workflow commit; package.version does not establish action release tag identity"
+  },
+  {
+    "repository": "openai/codex-action",
+    "pinnedCommit": "bdf19a4a223ec2549a3e2274a0cf61556bc07675",
+    "retainedMajorLabel": "v1",
+    "tagRefs": {
+      "endpoint": "repos/openai/codex-action/git/matching-refs/tags/v1",
+      "method": "GET",
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-tag-refs.json",
+      "sha256": "297e3d9ed67280c37734f928b7df59f7b35da9d8452e3d715e7d474c788f8d49"
+    },
+    "observedTagsDirectlyResolvingToPinnedCommit": [
+      "v1"
+    ],
+    "release": null,
+    "distinction": "Tag observations are current read-only metadata, separate from immutable workflow commit; package.version does not establish action release tag identity"
+  },
+  {
+    "repository": "peter-evans/create-pull-request",
+    "pinnedCommit": "22a9089034f40e5a961c8808d113e2c98fb63676",
+    "retainedMajorLabel": "v7",
+    "tagRefs": {
+      "endpoint": "repos/peter-evans/create-pull-request/git/matching-refs/tags/v7",
+      "method": "GET",
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/peter-evans-create-pull-request-tag-refs.json",
+      "sha256": "93b8087ffc3c8b481799bb21a388b78a15c6341260ce08f3c2820183ed6eb59a"
+    },
+    "observedTagsDirectlyResolvingToPinnedCommit": [
+      "v7",
+      "v7.0.11"
+    ],
+    "release": {
+      "endpoint": "repos/peter-evans/create-pull-request/releases/tags/v7.0.11",
+      "method": "GET",
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/peter-evans-create-pull-request-release.json",
+      "sha256": "951032fd54c9f2c6bbd45dcc55e2c552e507e4ec94c0300307b3a0816abac113"
+    },
+    "distinction": "Tag observations are current read-only metadata, separate from immutable workflow commit; package.version does not establish action release tag identity"
+  }
+]

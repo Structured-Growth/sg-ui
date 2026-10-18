@@ -85,3 +85,14 @@ test('YAML boolean false on an unconditional job is a skipped gate, not an absen
   const value=structuredClone(workflows);mutate(value);assert(workflowFindings(value).length);
  }
 });
+
+test('dependency policy rejects mutable external action/workflow refs without requiring remote execution',()=>{
+ for(const ref of ['actions/checkout@v4','actions/checkout@main','actions/checkout@11d5960','actions/checkout@${{ inputs.ref }}','docker://example/action:latest']){
+  const w=structuredClone(workflows);w.ci.jobs.validate.steps[0].uses=ref;
+  assert(workflowFindings(w).some(f=>f.startsWith('Workflow dependency:')),ref);
+ }
+ const w=structuredClone(workflows);w.release.jobs.validate.uses='owner/repo/.github/workflows/ci.yml@main';
+ assert(workflowFindings(w).some(f=>f.startsWith('Workflow dependency:')));
+ const local=structuredClone(workflows);local.ai.jobs['validate-draft'].uses='./.github/workflows/ci.yml@dev';
+ assert(workflowFindings(local).some(f=>f.startsWith('Workflow dependency:')));
+});

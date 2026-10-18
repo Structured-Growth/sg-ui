@@ -1,0 +1,24 @@
+{
+  "node_id": "TA_kwDOD6I5U9oAKDlmZDY3NmExOTA5MWQ0NTk1ZWVmZDc2ZTRiZDMxYzk3MTMzOTExZjE",
+  "sha": "9fd676a19091d4595eefd76e4bd31c97133911f1",
+  "url": "https://api.github.com/repos/pnpm/action-setup/git/tags/9fd676a19091d4595eefd76e4bd31c97133911f1",
+  "tagger": {
+    "name": "Zoltan Kochan",
+    "email": "z@kochan.io",
+    "date": "2025-10-08T08:50:57Z"
+  },
+  "object": {
+    "sha": "41ff72655975bd51cab0327fa583b6e92b6d3061",
+    "type": "commit",
+    "url": "https://api.github.com/repos/pnpm/action-setup/git/commits/41ff72655975bd51cab0327fa583b6e92b6d3061"
+  },
+  "tag": "v4.2.0",
+  "message": "v4.2.0\n-----BEGIN PGP SIGNATURE-----\n\niQJABAABCAAqFiEEe3TRKZVotYa6mWK1ZJ5NSvdOfewFAmjmJfcMHHpAa29jaGFu\nLmlvAAoJEGSeTUr3Tn3s5DwP/2TpvGxcteK3OIhC/qpf6O2LdcfkSW6vCdwjwz/n\nQXaogKtmH175OKPKJ0t3nKClxwEeNRiu3gjB5qNfxJrApIwYLv8SMPGPzQXLypsU\nDNF2N/Bvun7B1YMpyxAZphxYSpLjlT0GeTGoK9oq3JYNtbKoou9usar+3lj+9G68\ndf7eHdl8vvnL6BUvPK2yVCjpZIk34Mlwp3aaZ9MSyAJu8uoVY7mmjC2v0cZvKpbO\ntfQ4VIG5sZ6XujiUXReLZkaACdYtr8Rxw87LTxvQHYCIER0WPBBqhyzzEl/YNCjf\nU8GORAa/Thgruxuye7/akGZda8dUAwnXE46muWJFG57rA9nj+bCx245mZ6idp3vL\nDpu8vsDbI5uuBZzudFgW6+WD4C2LUiz2ftjBKj9b+v0ckdzPKDBcPIt0IqT68Hfg\ntMUGmEzcytjd+YtsgC2G6jWguoZUO+xXbLbYRv+Hk/YMz5aPgXVgkMQcztkPpNnm\nboiRtPCA7w+5hqxTPOFGX27vp/nks4otaT3mDw84uKSr6eO4/fmHJrVyanRDaPPJ\nxurjSsYtm4tlxmX/34D0551kNfSt1Nit30eyEHjCLGhskx6NbZmICKzZnZOCBaKK\nBR1JsPa8LVwn+ap4Gc4m6t1RflqnrgK/P9YdUzwH2DkZPfyk38x0sx6tGtNG6lxz\n0qqX\n=95U2\n-----END PGP SIGNATURE-----\n",
+  "verification": {
+    "verified": true,
+    "reason": "valid",
+    "signature": "-----BEGIN PGP SIGNATURE-----\n\niQJABAABCAAqFiEEe3TRKZVotYa6mWK1ZJ5NSvdOfewFAmjmJfcMHHpAa29jaGFu\nLmlvAAoJEGSeTUr3Tn3s5DwP/2TpvGxcteK3OIhC/qpf6O2LdcfkSW6vCdwjwz/n\nQXaogKtmH175OKPKJ0t3nKClxwEeNRiu3gjB5qNfxJrApIwYLv8SMPGPzQXLypsU\nDNF2N/Bvun7B1YMpyxAZphxYSpLjlT0GeTGoK9oq3JYNtbKoou9usar+3lj+9G68\ndf7eHdl8vvnL6BUvPK2yVCjpZIk34Mlwp3aaZ9MSyAJu8uoVY7mmjC2v0cZvKpbO\ntfQ4VIG5sZ6XujiUXReLZkaACdYtr8Rxw87LTxvQHYCIER0WPBBqhyzzEl/YNCjf\nU8GORAa/Thgruxuye7/akGZda8dUAwnXE46muWJFG57rA9nj+bCx245mZ6idp3vL\nDpu8vsDbI5uuBZzudFgW6+WD4C2LUiz2ftjBKj9b+v0ckdzPKDBcPIt0IqT68Hfg\ntMUGmEzcytjd+YtsgC2G6jWguoZUO+xXbLbYRv+Hk/YMz5aPgXVgkMQcztkPpNnm\nboiRtPCA7w+5hqxTPOFGX27vp/nks4otaT3mDw84uKSr6eO4/fmHJrVyanRDaPPJ\nxurjSsYtm4tlxmX/34D0551kNfSt1Nit30eyEHjCLGhskx6NbZmICKzZnZOCBaKK\nBR1JsPa8LVwn+ap4Gc4m6t1RflqnrgK/P9YdUzwH2DkZPfyk38x0sx6tGtNG6lxz\n0qqX\n=95U2\n-----END PGP SIGNATURE-----\n",
+    "payload": "object 41ff72655975bd51cab0327fa583b6e92b6d3061\ntype commit\ntag v4.2.0\ntagger Zoltan Kochan <z@kochan.io> 1759913457 +0200\n\nv4.2.0\n",
+    "verified_at": "2025-10-08T08:51:46Z"
+  }
+}

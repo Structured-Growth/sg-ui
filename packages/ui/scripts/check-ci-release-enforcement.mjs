@@ -11,6 +11,17 @@ export function workflowFindings(workflows) {
  const hasTypes=(event,required,defaultAllowed)=>event?.types===undefined ? defaultAllowed : Array.isArray(event.types) && required.every(type=>event.types.includes(type));
  const {ci,ai,release,title}=workflows??{};
  if(!ci||!ai||!release||!title)return ['All four parsed workflow objects are required'];
+ // Local actions/workflows run from the same checked-out candidate. External
+ // action and reusable-workflow references must pin an immutable commit; tags,
+ // branches, expressions and container tags do not meet repository policy.
+ for(const [name,workflow] of Object.entries(workflows))for(const [id,job]of Object.entries(workflow.jobs??{})) {
+  const references=[job.uses,...(job.steps??[]).map(step=>step.uses)].filter(ref=>ref!==undefined);
+  for(const ref of references) {
+   const local=typeof ref==='string'&&ref.startsWith('./');
+   check(typeof ref==='string'&&(local ? !ref.includes('@')&&!ref.includes('..')&&!ref.includes('${{') : /^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+(?:\/[A-Za-z0-9_./-]+)?@[a-f0-9]{40}$/.test(ref)),`Workflow dependency: ${name}/${id} requires a full commit SHA or candidate-local reference`);
+  }
+ }
+
  check(equal(ci.on?.pull_request?.['branches-ignore'],['dev']),'CI: production PR path/dev exception changed');
  check(equal(ci.on?.push?.branches,['main']),'CI: main push path missing');
  check(ci.on?.pull_request?.branches===undefined && hasTypes(ci.on?.pull_request,['opened','synchronize','reopened'],true),'CI: PR event types/branches can suppress validation');

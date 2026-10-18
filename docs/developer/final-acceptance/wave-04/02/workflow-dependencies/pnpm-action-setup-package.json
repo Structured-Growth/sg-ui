@@ -1,0 +1,18 @@
+{
+  "name": "package.json",
+  "path": "package.json",
+  "sha": "c3b687836feab3cb2d13d5e24f73a4edde8033c5",
+  "size": 788,
+  "url": "https://api.github.com/repos/pnpm/action-setup/contents/package.json?ref=b906affcce14559ad1aafd4ab0e942779e9f58b1",
+  "html_url": "https://github.com/pnpm/action-setup/blob/b906affcce14559ad1aafd4ab0e942779e9f58b1/package.json",
+  "git_url": "https://api.github.com/repos/pnpm/action-setup/git/blobs/c3b687836feab3cb2d13d5e24f73a4edde8033c5",
+  "download_url": "https://raw.githubusercontent.com/pnpm/action-setup/b906affcce14559ad1aafd4ab0e942779e9f58b1/package.json",
+  "type": "file",
+  "content": "ewogICJwcml2YXRlIjogdHJ1ZSwKICAic2NyaXB0cyI6IHsKICAgICJidWls\nZDpuY2MiOiAibmNjIGJ1aWxkIC0tbWluaWZ5IC0tbm8tc291cmNlLW1hcC1y\nZWdpc3RlciAtLW5vLWNhY2hlIGRpc3QvdHNjL2luZGV4LmpzIC0tb3V0IGRp\nc3QvIiwKICAgICJidWlsZCI6ICJ0c2MgJiYgcG5wbSBydW4gYnVpbGQ6bmNj\nIiwKICAgICJzdGFydCI6ICJwbnBtIHJ1biBidWlsZCAmJiBzaCAuL3J1bi5z\naCIsCiAgICAidXBkYXRlLXBucG0tZGlzdCI6ICJwbnBtIGluc3RhbGwgJiYg\nY3AgLi9ub2RlX21vZHVsZXMvcG5wbS9kaXN0L3BucG0uY2pzIC4vZGlzdC9w\nbnBtLmNqcyAmJiBjcCAuL25vZGVfbW9kdWxlcy9wbnBtL2Rpc3Qvd29ya2Vy\nLmpzIC4vZGlzdC93b3JrZXIuanMiCiAgfSwKICAiZGVwZW5kZW5jaWVzIjog\newogICAgIkBhY3Rpb25zL2NhY2hlIjogIl40LjEuMCIsCiAgICAiQGFjdGlv\nbnMvY29yZSI6ICJeMS4xMC4xIiwKICAgICJAYWN0aW9ucy9leGVjIjogIl4x\nLjEuMSIsCiAgICAiQGFjdGlvbnMvZ2xvYiI6ICJeMC41LjAiLAogICAgIkB0\neXBlcy9leHBhbmQtdGlsZGUiOiAiXjIuMC4yIiwKICAgICJAdHlwZXMvbm9k\nZSI6ICJeMjAuMTEuNSIsCiAgICAiZXhwYW5kLXRpbGRlIjogIl4yLjAuMiIs\nCiAgICAieWFtbCI6ICJeMi4zLjQiLAogICAgInpvZCI6ICJeMy4yMi40Igog\nIH0sCiAgImRldkRlcGVuZGVuY2llcyI6IHsKICAgICJAdmVyY2VsL25jYyI6\nICJeMC4zOC4xIiwKICAgICJwbnBtIjogIl44LjE0LjMiLAogICAgInR5cGVz\nY3JpcHQiOiAiXjUuMy4zIgogIH0KfQo=\n",
+  "encoding": "base64",
+  "_links": {
+    "self": "https://api.github.com/repos/pnpm/action-setup/contents/package.json?ref=b906affcce14559ad1aafd4ab0e942779e9f58b1",
+    "git": "https://api.github.com/repos/pnpm/action-setup/git/blobs/c3b687836feab3cb2d13d5e24f73a4edde8033c5",
+    "html": "https://github.com/pnpm/action-setup/blob/b906affcce14559ad1aafd4ab0e942779e9f58b1/package.json"
+  }
+}

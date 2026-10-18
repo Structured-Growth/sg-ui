@@ -1,0 +1,12 @@
+{
+  "startedAt": "2026-10-18T01:50:05.130Z",
+  "runtime": "v24.19.0",
+  "command": [
+    "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "--test",
+    "packages/ui/scripts/ci-artifacts.test.mjs"
+  ],
+  "status": "pass",
+  "finishedAt": "2026-10-18T01:50:05.307Z",
+  "cleanup": "Canonical light released; inert temporary artifact fixtures, no library/docs build/browser/dispatch"
+}

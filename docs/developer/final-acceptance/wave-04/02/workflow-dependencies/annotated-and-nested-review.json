@@ -1,0 +1,171 @@
+[
+  {
+    "repository": "pnpm/action-setup",
+    "pinnedCommit": "b906affcce14559ad1aafd4ab0e942779e9f58b1",
+    "annotatedTagsResolvingToPinnedCommit": [
+      "v4.3.0"
+    ],
+    "tagObjectReceipts": [
+      {
+        "endpoint": "repos/pnpm/action-setup/git/tags/0c17529a66aca453f9227af23103ed11469b1e47",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-v4.0.0-tag-object.json",
+        "sha256": "63ba852882b48c592a762aa0fc3427b4da42cb27cb4b5a33236d40491d5a8a2d"
+      },
+      {
+        "endpoint": "repos/pnpm/action-setup/git/tags/7088e561eb65bb68695d245aa206f005ef30921d",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-v4.1.0-tag-object.json",
+        "sha256": "a28a56958f9ae5a9ce37a1b1a80c69a710909e5c4f9e25378e27fd8995eec555"
+      },
+      {
+        "endpoint": "repos/pnpm/action-setup/git/tags/9fd676a19091d4595eefd76e4bd31c97133911f1",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-v4.2.0-tag-object.json",
+        "sha256": "b2af1f2d9afe4b5d49c7a678dc461d120c22eef0d67c0db9342992522bc27f11"
+      },
+      {
+        "endpoint": "repos/pnpm/action-setup/git/tags/c336a2788d9774dccfdeb4823a5058ccc9f07453",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-v4.3.0-tag-object.json",
+        "sha256": "9951e7a9908e8bb620177db0fc3d958d74867df379a2bcdb69c1f87cbb020464"
+      },
+      {
+        "endpoint": "repos/pnpm/action-setup/git/tags/a15d269cd4658e1107c09f1fabf4cbd7bd1f308a",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-v4.4.0-tag-object.json",
+        "sha256": "af31006a164efc2565a3fec910b36a127a9b01323939d064e88995012b143bad"
+      }
+    ],
+    "release": {
+      "endpoint": "repos/pnpm/action-setup/releases/tags/v4.3.0",
+      "method": "GET",
+      "exit": 0,
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/pnpm-action-setup-release.json",
+      "sha256": "0b08d0517593cb68287a0eab90e0db3cf05c3198ebad1c846d82e3660bf68ec8"
+    }
+  },
+  {
+    "repository": "openai/codex-action",
+    "pinnedCommit": "bdf19a4a223ec2549a3e2274a0cf61556bc07675",
+    "annotatedTagsResolvingToPinnedCommit": [
+      "v1.13"
+    ],
+    "tagObjectReceipts": [
+      {
+        "endpoint": "repos/openai/codex-action/git/tags/ffc1d0ae4d3b6a468e40026dc66b4d2cbabba5de",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.10-tag-object.json",
+        "sha256": "d817716282a9aa72964edf3ef12c851f13488a0b9d8f7d3364f2698e39b4aa15"
+      },
+      {
+        "endpoint": "repos/openai/codex-action/git/tags/7c168a233489ca36cb495409e8f1fba7b522bb40",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.11-tag-object.json",
+        "sha256": "4c3e2dc646a3b621fe104e339bb2500162481fd7cccdc64a08bd68b957b966af"
+      },
+      {
+        "endpoint": "repos/openai/codex-action/git/tags/cac08775a978ba35a8174558cd9fabab2c09670c",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.12-tag-object.json",
+        "sha256": "5309fe3ff31b2e15b0773ae2b5d660180f2b33b0f4d4214e19fa4a7650d4b78a"
+      },
+      {
+        "endpoint": "repos/openai/codex-action/git/tags/83eeca45b831921e73d1f6a7955efccc568fe4e8",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.13-tag-object.json",
+        "sha256": "e37ced6b95df3e2f606bb9a49cdaad90ce66a4a44462a3c912bcde2b81265335"
+      },
+      {
+        "endpoint": "repos/openai/codex-action/git/tags/b2e4f3437f7c08001d72b70565dbba6e1b829f44",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.2-tag-object.json",
+        "sha256": "96eda663fc45e235d497da01d0a97b6047ac9f7a160fc4eb0e786bdac7c7c0fe"
+      },
+      {
+        "endpoint": "repos/openai/codex-action/git/tags/2b23ed56d6ae36544a4e480d23cad114f1592c81",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.3-tag-object.json",
+        "sha256": "47ee9d8b64e38b147ec0d47e4925f4c367a44e04196396249f3571028f0d926d"
+      },
+      {
+        "endpoint": "repos/openai/codex-action/git/tags/94bb7a052e529936e5260a35838e61b190855739",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.4-tag-object.json",
+        "sha256": "e5a1cbe1571f7ca02f3a32b681e69b852f03ccbdab3e6433aadbbb375bd80a08"
+      },
+      {
+        "endpoint": "repos/openai/codex-action/git/tags/b30095fde511bbda4c9b58391a5cd6229c58b31c",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.5-tag-object.json",
+        "sha256": "2d846beea8b749cf5cc13a8144a2ff59a8d76bd1402607a61d3e60d267442be3"
+      },
+      {
+        "endpoint": "repos/openai/codex-action/git/tags/ace842a5ff888fe0bc17016028268ee0d2784c7e",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.6-tag-object.json",
+        "sha256": "83771f1d5c216bddf226a95a6b64b1a70d3fd3e5b7c740cc432461d9c2cf03bf"
+      },
+      {
+        "endpoint": "repos/openai/codex-action/git/tags/c300d2798ce5b59a7667c806b5e3a3d2c397ed2f",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.7-tag-object.json",
+        "sha256": "983fa5749e38bb33a5fb43fa1bd77d65abf08a946225f3b320a1e24ca6a7bdde"
+      },
+      {
+        "endpoint": "repos/openai/codex-action/git/tags/e469131063221562acfb9ea6bbc9fd7f27226ffb",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.8-tag-object.json",
+        "sha256": "a6a3cb1a2954c066f12d6caecc04f8bb3dcd11f1555a21d3a8261409d498ee84"
+      },
+      {
+        "endpoint": "repos/openai/codex-action/git/tags/e47dafb0ac2dc1f53b9596969f82bdfb5244fcb7",
+        "method": "GET",
+        "exit": 0,
+        "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/openai-codex-action-v1.9-tag-object.json",
+        "sha256": "fa24340a7fdb79c3f9a700e38f1234f6389ddbfbae605b12988b1c56b28dc83d"
+      }
+    ],
+    "release": {
+      "endpoint": "repos/openai/codex-action/releases/tags/v1.13",
+      "method": "GET",
+      "exit": 1,
+      "error": "gh: Not Found (HTTP 404)"
+    }
+  },
+  {
+    "context": "openai/codex-action nested dependency",
+    "repository": "actions/setup-node",
+    "pinnedCommit": "53b83947a5a98c8d113130e565377fae1a50d02f",
+    "commitReceipt": {
+      "endpoint": "repos/actions/setup-node/git/commits/53b83947a5a98c8d113130e565377fae1a50d02f",
+      "method": "GET",
+      "exit": 0,
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/codex-nested-setup-node-commit.json",
+      "sha256": "b964174ae0ee1fea50b47dc19b9b1c548594c3943b20a1873d58448efbe3edd4"
+    },
+    "metadataReceipt": {
+      "endpoint": "repos/actions/setup-node/contents/action.yml?ref=53b83947a5a98c8d113130e565377fae1a50d02f",
+      "method": "GET",
+      "exit": 0,
+      "path": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/codex-nested-setup-node-action.json",
+      "sha256": "62de6dd6ae58f6c4d6dd05036b1d9e18d223e900b1afcea697286ce4355a47d4"
+    }
+  }
+]
