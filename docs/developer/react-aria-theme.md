@@ -39,7 +39,7 @@ resolve `prefers-color-scheme` and `color-scheme`. It needs no preference read i
 render or effect to choose the initial colors. Explicit `light` and `dark` scopes
 retain their own color scheme when the system preference changes.
 
-The [installed scoped-lifecycle receipt](final-acceptance/wave-04/02/scoped-lifecycle/receipt.json) records24passing cases across React18/19, Arabic/French, three engines and both system preferences. Its JavaScript gate verifies loaded CSS and computed scope colors/`color-scheme` before hydration, identical initial colors afterward, stable server IDs/nodes, subsequent system changes and a fixed nested light scope. This is evidence at the recorded tarball, not a promise that a host can defer CSS or restore a different theme after hydration without a visible change.
+The [installed scoped-lifecycle receipt](final-acceptance/wave-04/02/scoped-lifecycle/receipt.json) records 24 passing cases across React 18/19, Arabic/French, three engines and both system preferences. Its JavaScript gate verifies loaded CSS and computed scope colors/`color-scheme` before hydration, identical initial colors afterward, stable server IDs/nodes, subsequent system changes and a fixed nested light scope. This is evidence at the recorded tarball, not a promise that a host can defer CSS or restore a different theme after hydration without a visible change.
 
 Load `styles.css` in the document's initial stylesheet path before showing the
 interface. A late stylesheet, client-only preference restoration or a different
