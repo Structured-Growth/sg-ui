@@ -1,0 +1,136 @@
+
+Running 27 tests using 1 worker
+
+(node:37578) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/current-target-sizes.spec.ts:76:1 › color targets keep pointer sizing and enlarge actual touch controls (1.6s)
+  ✓   2 [chromium] › tests/browser/current-target-sizes.spec.ts:78:1 › hidden and short labels expose active touch hit regions (2.9s)
+  ✓   3 [chromium] › tests/browser/current-target-sizes.spec.ts:92:1 › calendar quarter and inline range retain shared targets and prose exception (2.1s)
+  ✓   4 [chromium] › tests/browser/current-target-sizes.spec.ts:93:1 › resize equivalents meet touch geometry before narrow handle exception (2.9s)
+  ✓   5 [chromium] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows ltr (202ms)
+  ✘   6 [chromium] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows rtl (177ms)
+(node:37952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [chromium] › tests/browser/hierarchical-menu-presentation.spec.ts:36:1 › menu retains focus and visible Back with enlarged text, reduced motion and forced colors in a narrow host (310ms)
+  ✓   8 [chromium] › tests/browser/validation-contrast.spec.ts:28:57 › validation success has actual text paint and keyboard focus (none) (348ms)
+  ✓   9 [chromium] › tests/browser/validation-contrast.spec.ts:28:57 › validation success has actual text paint and keyboard focus (active) (381ms)
+(node:38023) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [firefox] › tests/browser/current-target-sizes.spec.ts:76:1 › color targets keep pointer sizing and enlarge actual touch controls (2.1s)
+  ✓  11 [firefox] › tests/browser/current-target-sizes.spec.ts:78:1 › hidden and short labels expose active touch hit regions (2.6s)
+  ✓  12 [firefox] › tests/browser/current-target-sizes.spec.ts:92:1 › calendar quarter and inline range retain shared targets and prose exception (2.4s)
+  ✓  13 [firefox] › tests/browser/current-target-sizes.spec.ts:93:1 › resize equivalents meet touch geometry before narrow handle exception (2.6s)
+  ✘  14 [firefox] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows ltr (318ms)
+(node:38449) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  15 [firefox] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows rtl (863ms)
+(node:38521) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  16 [firefox] › tests/browser/hierarchical-menu-presentation.spec.ts:36:1 › menu retains focus and visible Back with enlarged text, reduced motion and forced colors in a narrow host (997ms)
+  ✓  17 [firefox] › tests/browser/validation-contrast.spec.ts:28:57 › validation success has actual text paint and keyboard focus (none) (344ms)
+  ✓  18 [firefox] › tests/browser/validation-contrast.spec.ts:28:57 › validation success has actual text paint and keyboard focus (active) (329ms)
+(node:38600) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  19 [webkit] › tests/browser/current-target-sizes.spec.ts:76:1 › color targets keep pointer sizing and enlarge actual touch controls (2.3s)
+  ✓  20 [webkit] › tests/browser/current-target-sizes.spec.ts:78:1 › hidden and short labels expose active touch hit regions (3.3s)
+  ✓  21 [webkit] › tests/browser/current-target-sizes.spec.ts:92:1 › calendar quarter and inline range retain shared targets and prose exception (2.4s)
+  ✓  22 [webkit] › tests/browser/current-target-sizes.spec.ts:93:1 › resize equivalents meet touch geometry before narrow handle exception (3.2s)
+  ✓  23 [webkit] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows ltr (335ms)
+  ✓  24 [webkit] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows rtl (372ms)
+  ✓  25 [webkit] › tests/browser/hierarchical-menu-presentation.spec.ts:36:1 › menu retains focus and visible Back with enlarged text, reduced motion and forced colors in a narrow host (394ms)
+  ✓  26 [webkit] › tests/browser/validation-contrast.spec.ts:28:57 › validation success has actual text paint and keyboard focus (none) (418ms)
+  ✓  27 [webkit] › tests/browser/validation-contrast.spec.ts:28:57 › validation success has actual text paint and keyboard focus (active) (361ms)
+
+
+  1) [chromium] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows rtl 
+
+    Error: expect(received).toBeDefined()
+
+    Received: undefined
+
+      27 |   const forward = observations.find(row => row.direction === 'forward')!;
+      28 |   const back = observations.find(row => row.direction === 'back')!;
+    > 29 |   expect(forward).toBeDefined(); expect(back).toBeDefined();
+         |                   ^
+      30 |   expect(forward.localeDirection).toBe(direction);
+      31 |   expect(Math.sign(forward.x)).toBe(direction === 'rtl' ? -1 : 1);
+      32 |   expect(Math.sign(back.x)).toBe(-Math.sign(forward.x));
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hierarchical-menu-presentation.spec.ts:29:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-02/traces/hierarchical-menu-presenta-d1083-ses-on-Back-and-follows-rtl-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-02/traces/hierarchical-menu-presenta-d1083-ses-on-Back-and-follows-rtl-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-02/traces/hierarchical-menu-presenta-d1083-ses-on-Back-and-follows-rtl-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-02/traces/hierarchical-menu-presenta-d1083-ses-on-Back-and-follows-rtl-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [firefox] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows ltr 
+
+    Error: expect(received).toBeDefined()
+
+    Received: undefined
+
+      27 |   const forward = observations.find(row => row.direction === 'forward')!;
+      28 |   const back = observations.find(row => row.direction === 'back')!;
+    > 29 |   expect(forward).toBeDefined(); expect(back).toBeDefined();
+         |                   ^
+      30 |   expect(forward.localeDirection).toBe(direction);
+      31 |   expect(Math.sign(forward.x)).toBe(direction === 'rtl' ? -1 : 1);
+      32 |   expect(Math.sign(back.x)).toBe(-Math.sign(forward.x));
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hierarchical-menu-presentation.spec.ts:29:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-02/traces/hierarchical-menu-presenta-ed655-ses-on-Back-and-follows-ltr-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-02/traces/hierarchical-menu-presenta-ed655-ses-on-Back-and-follows-ltr-firefox/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-02/traces/hierarchical-menu-presenta-ed655-ses-on-Back-and-follows-ltr-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-02/traces/hierarchical-menu-presenta-ed655-ses-on-Back-and-follows-ltr-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [firefox] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows rtl 
+
+    Error: expect(received).toBeDefined()
+
+    Received: undefined
+
+      27 |   const forward = observations.find(row => row.direction === 'forward')!;
+      28 |   const back = observations.find(row => row.direction === 'back')!;
+    > 29 |   expect(forward).toBeDefined(); expect(back).toBeDefined();
+         |                   ^
+      30 |   expect(forward.localeDirection).toBe(direction);
+      31 |   expect(Math.sign(forward.x)).toBe(direction === 'rtl' ? -1 : 1);
+      32 |   expect(Math.sign(back.x)).toBe(-Math.sign(forward.x));
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hierarchical-menu-presentation.spec.ts:29:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-02/traces/hierarchical-menu-presenta-d1083-ses-on-Back-and-follows-rtl-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-02/traces/hierarchical-menu-presenta-d1083-ses-on-Back-and-follows-rtl-firefox/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-02/traces/hierarchical-menu-presenta-d1083-ses-on-Back-and-follows-rtl-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-02/traces/hierarchical-menu-presenta-d1083-ses-on-Back-and-follows-rtl-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [chromium] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows rtl 
+    [firefox] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows ltr 
+    [firefox] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows rtl 
+  24 passed (41.6s)

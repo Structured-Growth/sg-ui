@@ -1,0 +1,6 @@
+{
+  "attemptedAt": "2026-10-18T23:01:10.705563+00:00",
+  "admitted": false,
+  "reason": "Existing heavyweight validation lease belongs to the ongoing catalog-tail diagnostic. No lock was removed and no native output/build was started.",
+  "nextAction": "Wait for diagnostic completion before native admission."
+}

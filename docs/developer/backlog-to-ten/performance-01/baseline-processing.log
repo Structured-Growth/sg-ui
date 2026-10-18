@@ -1,0 +1,52 @@
+{"renderer":"processing","workload":"small","iteration":0}
+{"renderer":"processing","workload":"small","iteration":1}
+{"renderer":"processing","workload":"small","iteration":2}
+{"renderer":"processing","workload":"small","iteration":3}
+{"renderer":"processing","workload":"small","iteration":4}
+{"renderer":"processing","workload":"small","iteration":5}
+{"renderer":"processing","workload":"small","iteration":6}
+{"renderer":"processing","workload":"small","iteration":7}
+{"renderer":"processing","workload":"small","iteration":8}
+{"renderer":"processing","workload":"small","iteration":9}
+{"renderer":"processing","workload":"small","iteration":10}
+{"renderer":"processing","workload":"small","iteration":11}
+{"renderer":"processing","workload":"wide","iteration":0}
+{"renderer":"processing","workload":"wide","iteration":1}
+{"renderer":"processing","workload":"wide","iteration":2}
+{"renderer":"processing","workload":"wide","iteration":3}
+{"renderer":"processing","workload":"wide","iteration":4}
+{"renderer":"processing","workload":"wide","iteration":5}
+{"renderer":"processing","workload":"wide","iteration":6}
+{"renderer":"processing","workload":"wide","iteration":7}
+{"renderer":"processing","workload":"wide","iteration":8}
+{"renderer":"processing","workload":"wide","iteration":9}
+{"renderer":"processing","workload":"wide","iteration":10}
+{"renderer":"processing","workload":"wide","iteration":11}
+{"renderer":"processing","workload":"largePage","iteration":0}
+{"renderer":"processing","workload":"largePage","iteration":1}
+{"renderer":"processing","workload":"largePage","iteration":2}
+{"renderer":"processing","workload":"largePage","iteration":3}
+{"renderer":"processing","workload":"largePage","iteration":4}
+{"renderer":"processing","workload":"largePage","iteration":5}
+{"renderer":"processing","workload":"largePage","iteration":6}
+{"renderer":"processing","workload":"largePage","iteration":7}
+{"renderer":"processing","workload":"largePage","iteration":8}
+{"renderer":"processing","workload":"largePage","iteration":9}
+{"renderer":"processing","workload":"largePage","iteration":10}
+{"renderer":"processing","workload":"largePage","iteration":11}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: No selection sampled during updates
+    at assertLatencySamples (file:///Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-01/baseline/tests/consumers/performance-proof-policy.mjs:46:10)
+    at file:///Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-01/baseline/tests/performance/measure-browser.mjs:53:5 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

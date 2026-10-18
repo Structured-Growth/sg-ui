@@ -1,0 +1,29 @@
+{
+  "sourceFrozenSha256": "82a2dd27b51265bf10f8f01477cdba74a22e271add68266fa76fb39d5d994cce",
+  "nativeReusedExecutions": 9,
+  "newBrowserExecutions": 0,
+  "closed19Preserved": true,
+  "centralCountsChanged": false,
+  "fixtureIdsVerified": [
+    "overlays-appmodal--ownership",
+    "migration-proofs-popover-collision--viewport-edge",
+    "migration-proofs-popover-collision--scrollable-host",
+    "migration-proofs-select--independent",
+    "migration-proofs-combobox--independent",
+    "migration-proofs-datepicker--default",
+    "migration-proofs-daterangepicker--default"
+  ],
+  "newFilesAndPatches": {
+    "overlay-zoom/checks.mjs": "fab766a8abd0c822c126ec96de0139b115072a5d430f4eb6f18577e23fd88ffc",
+    "overlay-zoom/check-static.cjs": "1991198d62c01594ebabe5156022a491c93aeb3d5bf3fc82daa2cdc650faf3ba",
+    "overlay-zoom/runner-base.json": "9d0141ef8a0c0e849551ba12b6b64335fb5ab3982956db82fdb07266dfadc182",
+    "overlay-zoom/proposed-run.mjs": "800679c98d160d858fc7553ab28b239eb01a620120cc0560f10e5c5bb1b5bac6",
+    "overlay-zoom/static-types.txt": "ac2f431044e562b697c88d2a05f6b87de3f3cd3f7098c2c4357f9bf4e6a44bfd",
+    "overlay-zoom/README.md": "dfbe85ebed4ca719be0427e08de8b2221b0492bf392fa3b6c9695df465e76347",
+    "overlay-zoom/static-types-first.txt": "edf31e9238bc39da05407c551a48c21006a9fa0cd54e711699d0d3579fa65e53",
+    "overlay-zoom/runner-addition.patch": "613afb70b440067d8a3725187645c1a31f8ab5880705146d5b2aa6aee0335794"
+  },
+  "renderCapturePatchSha256": "cea49609c06c21af825305100581d097bceac95094078b7731b3b8aa1eb312e6",
+  "evidence": "hierarchical-native-reuse.json",
+  "limits": "No runtime/browser/compiled-output mutation during pack/lock window; patch integration and52 actual Chrome zoom configurations remain unexecuted."
+}

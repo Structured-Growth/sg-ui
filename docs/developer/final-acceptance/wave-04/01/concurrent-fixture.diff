@@ -1,0 +1,22 @@
+diff --git a/apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx b/apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx
+index 9942b72f..ad5dc094 100644
+--- a/apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx
++++ b/apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx
+@@ -241,13 +241,16 @@ export const ImageSources: Story = {
+     const [readOnly, setReadOnly] = useState(false);
+     const [attempt, setAttempt] = useState(0);
+     return <Provider>
+-      <p>The first host upload returns an unsupported address. Retry with the same file and description.</p>
++      <p>The first upload returns an unsupported address, the second malformed metadata, and the third a valid image. Retry with the same file and description.</p>
+       <Button onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</Button>
+       <Button onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved document</Button>
+       <PageRichTextEditorSection lexicalValue={seed} editorKey={`image-sources-${revision}`} onLexicalChange={setValue}
+         readOnly={readOnly} aria-label="Image source document" toolPreset="full" style={{ height: 360 }}
+         onUploadImage={async () => {
+           setAttempt(current => current + 1);
++          // Deliberately model an untyped service response at the public boundary.
++          // The first two results must remain retryable without inserting a node.
++          if (attempt === 1) return { assetId: { unexpected: true }, assetVersionId: "upload-v1", src: IMAGE_POLICY_PIXEL } as unknown as { assetId: string; assetVersionId: string; src: string };
+           return { assetId: "uploaded-image", assetVersionId: "upload-v1", src: attempt === 0 ? "javascript:alert('unsafe-upload')" : IMAGE_POLICY_PIXEL };
+         }} />
+       <pre aria-label="Saved image source JSON">{JSON.stringify(value)}</pre>

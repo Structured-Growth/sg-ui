@@ -1,0 +1,12 @@
+{
+  "supplementalPatchSha256": "001401bf2fc9ff05dad1cc6ac169d976add13b5e777ccce93280361b83dec2c0",
+  "input": {
+    "target": "packages/ui/tests/apple/SimulatorAcceptance.swift",
+    "beforeSha256": "ce06b24ec47f9d198fa5e77cb7880e14e890bab5f486ce8ca2f752c1d162fc4a",
+    "proposedSha256": "921947eb792a5e50dafaea948b590d186fcb1a648898d34b8994ee396c800e05",
+    "status": "unexecuted proposed-only; integrated nine-method run must finish first",
+    "command": "node packages/ui/tests/apple/run-simulator.mjs --only testCalendarCancelRemovesStalePreviewVoiceOverSpeech --output /Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/03/calendar-preview-cancel-run",
+    "limit": "Native XCTest taps set up draft/Cancel; only actual VoiceOver utterances assert preview presence/removal. This does not establish physical gesture or keyboard timing."
+  },
+  "executed": "parse and read-only applicability only; no shared writes or heavy jobs"
+}

@@ -1,0 +1,7 @@
+{
+  "allExistingLegalFencesByteEqual": true,
+  "proposedNoticeCopiesEqual": true,
+  "commercialLicenseFilesChanged": false,
+  "noticesRemoved": 0,
+  "correction": "Initial read_text-based check normalized the mixed CRLF tslib license block. Coordinator retained the exact block; proposed mirrors now match its raw bytes. No substantive license words changed. integration-observation was captured before this correction."
+}

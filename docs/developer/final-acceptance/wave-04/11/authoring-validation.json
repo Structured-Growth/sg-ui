@@ -1,0 +1,37 @@
+{
+  "checks": [
+    {
+      "name": "node-syntax",
+      "command": [
+        "node",
+        "--check",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/11/proposed-files/packages/ui/tests/apple/run-simulator.mjs"
+      ],
+      "exitCode": 0,
+      "log": "node-syntax.txt"
+    },
+    {
+      "name": "swift-parse",
+      "command": [
+        "swiftc",
+        "-frontend",
+        "-parse",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/11/proposed-files/packages/ui/tests/apple/SimulatorAcceptance.swift"
+      ],
+      "exitCode": 0,
+      "log": "swift-parse.txt"
+    },
+    {
+      "name": "patch-check",
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/11/apple-voiceover.patch"
+      ],
+      "exitCode": 0,
+      "log": "patch-check.txt"
+    }
+  ],
+  "limits": "Swift parse only; no SDK typecheck, build, simulator, native browser or runtime assertions executed."
+}

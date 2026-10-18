@@ -1,0 +1,967 @@
+{
+  "capturedAt": "2026-10-17T21:50:41.806953+00:00",
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "receipts": [
+    {
+      "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+      "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json",
+      "sha256": "2836d44de7ad5bbc2963b34ffd1a33d60827ed0ba01e533ba11a0d5504fa0d5c"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-integration/controls-report.md",
+      "sha256": "0f82b5917cac051112577fcc802cd5caf764398e030b10ab82896a3167f88a54"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+      "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "sha256": "975c83f3ca4b42d05e1823b170a0c5201794e3e8651aaca2ff7cc884ca7025e3"
+    },
+    {
+      "path": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea"
+    },
+    {
+      "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+      "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-08/report.md",
+      "sha256": "f3f248504efa1cd32af502bb69863c3003a1b91c13e5be04c6420185df77b876"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-08/results.json",
+      "sha256": "ad28b818f6e9946a0c1e638008289ca08a1ec30b1bc4ea148b7ea0ed3913683a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-08/validation-plan.json",
+      "sha256": "cc6caaa022511a2cca1b9569413f8d05531bb48c42d0c84ed20833dea746424f"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-09/report.md",
+      "sha256": "db57801395575cc03880ec54a5a5748900feffa7843748ef851b8fc4f42edfdf"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-09/results.json",
+      "sha256": "9acb01ad3a130829d3960cc5d77577f9182130bb7dcf33e714b7ebc8cb86c484"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-09/validation-plan.json",
+      "sha256": "91e55a75f2f4d2170951ad04aa556dedfebd2b4d7a54c3848e448c3a8dc2baf1"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-10/report.md",
+      "sha256": "33ffca43cd9fc0ab686d96272bc214b83949a4852afea7be068290a4fa3adcd1"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-10/results.json",
+      "sha256": "1d5ef056d6ec5dba24e38797c57d0c2faf38f2acd2d403529a68a8679497bf28"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-10/validation-plan.json",
+      "sha256": "f1e9a5108e34703d782851438b181bf8be87f970a5b68d6da8bb03ff22db9636"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-11/report.md",
+      "sha256": "55f3d92f55bc22cf025a7f269d7da33a0c28c82d671f0617f9dc4e30910324c5"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-11/results.json",
+      "sha256": "332442e00631e181e150031d2d2eef672f5f0ab90daf8dd7ecd16aba5119922e"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-11/validation-plan.json",
+      "sha256": "1fa8a60e28639fd8f78db060e1882ac53e0e9688540a534ea7b4e8640363ce8a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-12/report.md",
+      "sha256": "27afc955c97106c874f77fec855784a6911328698e2a902649f13daa0f34b0ed"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-12/results.json",
+      "sha256": "45db7be9f0c42bc236e1d3a2461a5ea22907436a1f54070104817035e9daa83d"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-12/validation-plan.json",
+      "sha256": "160a01395a5df5136acdedcff4ec5b51ac3082478ed61d565efc910128dff935"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-13/report.md",
+      "sha256": "af603f44b5cc42e9a0da52cf8848c47de66711c7e9cbf4e7fe09ff6186a3da30"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-13/results.json",
+      "sha256": "69095322c05ce48f710e9910c4baf9c1f9bbb0b911abcef28a7bd39a62e6d880"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-13/validation-plan.json",
+      "sha256": "2992cee33ee2f275434c295288441a95c174db823884fa598fa3449b617ed88c"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-14/report.md",
+      "sha256": "215b3fc4004584b5b330dd5cd764e313566cbca5de5bba22eb31817f498a30a6"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-14/results.json",
+      "sha256": "efdaddbbc78118d2e8bb66837a54f6ed0c3c4615c6258695be707ead37b3b0bc"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-14/validation-plan.json",
+      "sha256": "ef4d9ea64a82535f907d18d1f8eec358e7794790fbd1c6cdf8ad8b43b37fbcf7"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-15/report.md",
+      "sha256": "5f69d02cda5573e0142028b63ca95f8b28c4b764a631b9c86f95d5041eead1eb"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-15/results.json",
+      "sha256": "2a348ef0832217e9dcd8e8015d8d3b7fa59f2bbd09421109e70b8c81a93ea77f"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-15/validation-plan.json",
+      "sha256": "cfc3f94a18ab1fa475c229e0ba4ad0fe2a4fdc054fba2a2b865cc96a78f3337d"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-17/report.md",
+      "sha256": "c8b63fc5a3bbc62c75fbbabb4959d066def18e6ef18c8fdf5c659becc970469c"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-17/results.json",
+      "sha256": "0d82917b0c070a9ea0f6820c544f49acb6703ae8d7c5c07de7dd6122d22e9e6b"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-17/validation-plan.json",
+      "sha256": "aba1cb0b9d36f3cc093687588046a93a0020f10f5b07b7acb26752e5086b1920"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-32/report.md",
+      "sha256": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-32/results.json",
+      "sha256": "e9bd80ef2361a6fcca021b2f65782da02ef1ceaccb8f51084f6cc8b67c039852"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-32/validation-plan.json",
+      "sha256": "ddcdbd2229c5154126990da1c78b3f228939434bd41db54d620ceaee21eb19ab"
+    }
+  ],
+  "rawReceipts": [
+    {
+      "path": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "actualSha256": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+      "expectedSha256": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+      "matches": true,
+      "statsAsRecorded": {
+        "startTime": "2026-10-16T23:46:43.616Z",
+        "duration": 123618.043,
+        "expected": 160,
+        "skipped": 1,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "path": "packages/ui/artifacts/wave03-integration/followup-color-results.json",
+      "actualSha256": "129e3da3735becf00174e9dbd5d5d73ccecf92599190067b750f41636179c835",
+      "expectedSha256": "129e3da3735becf00174e9dbd5d5d73ccecf92599190067b750f41636179c835",
+      "matches": true,
+      "statsAsRecorded": {
+        "startTime": "2026-10-16T23:49:35.438Z",
+        "duration": 3419.105,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "path": "apps/docs/test-results/wave03-followup-results.json",
+      "actualSha256": "68ce1788f6a64c3d41a6597550108d584acadfc62cd96971082657989ae295b1",
+      "expectedSha256": "68ce1788f6a64c3d41a6597550108d584acadfc62cd96971082657989ae295b1",
+      "matches": true,
+      "statsAsRecorded": {
+        "startTime": "2026-10-16T23:40:09.984Z",
+        "duration": 58596.215,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 3,
+        "flaky": 0
+      }
+    },
+    {
+      "path": "apps/docs/test-results/wave03-followup-corrected-results.json",
+      "actualSha256": "8d26fbbdee05392d0477a1e7d28277c20c7bd18bd8409d5aee5403223bab8c34",
+      "expectedSha256": "8d26fbbdee05392d0477a1e7d28277c20c7bd18bd8409d5aee5403223bab8c34",
+      "matches": true,
+      "statsAsRecorded": {
+        "startTime": "2026-10-16T23:49:00.581Z",
+        "duration": 3127.014,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  ],
+  "selectedSourceComparisons": [
+    {
+      "path": "packages/ui/src/experimental/ToggleButton/ToggleButton.module.css",
+      "sha256": "b984a5519ee3d17ec8f2b1f5fe4a0b2f6fe5ddc609a1462fddd79e9a7067a4c9",
+      "followupExpected": null,
+      "comparison": "not-in-selected-followup-receipt"
+    },
+    {
+      "path": "packages/ui/src/experimental/ToggleButton/ToggleButton.tsx",
+      "sha256": "f93a552afb444876b4aeacc2d0501048c0fc2a0d9ad693bb7168cb75efb1c373",
+      "followupExpected": null,
+      "comparison": "not-in-selected-followup-receipt"
+    },
+    {
+      "path": "packages/ui/src/experimental/Navigation/Navigation.module.css",
+      "sha256": "500062dd46338240136c4366503e032a30c43b8218e028330e69e6262569bd34",
+      "followupExpected": null,
+      "comparison": "not-in-selected-followup-receipt"
+    },
+    {
+      "path": "packages/ui/src/experimental/Menu/Menu.module.css",
+      "sha256": "c1291a28693298ea9975a5dc4a68e84bad25093e7aa6999b0db073237a5b47c8",
+      "followupExpected": null,
+      "comparison": "not-in-selected-followup-receipt"
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/TextField.module.css",
+      "sha256": "be00aa2b75186be5845760e0285d2d009730aaf904adf83567a15c8af21a00d5",
+      "followupExpected": null,
+      "comparison": "not-in-selected-followup-receipt"
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+      "sha256": "a9b1f0fadeefd8498e024cd4aaea6db0a2f026951586c91e6df1bba9204817f4",
+      "followupExpected": null,
+      "comparison": "not-in-selected-followup-receipt"
+    },
+    {
+      "path": "packages/ui/src/experimental/Dialog/Dialog.module.css",
+      "sha256": "fc5dafaa09efdb601d4ffc001bbf9142f77c4801e91a69ed2de34b555567a41f",
+      "followupExpected": null,
+      "comparison": "not-in-selected-followup-receipt"
+    },
+    {
+      "path": "packages/ui/src/foundation/ThemeScope.tsx",
+      "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "followupExpected": null,
+      "comparison": "not-in-selected-followup-receipt"
+    },
+    {
+      "path": "packages/ui/src/components/SideNavigation/SideNavigation.module.css",
+      "sha256": "e09d269b280e980af4bfb87335659a26c2137b6be98332c5e0747cf4ccc22848",
+      "followupExpected": null,
+      "comparison": "not-in-selected-followup-receipt"
+    },
+    {
+      "path": "packages/ui/tests/browser/acceptance-touch-targets.spec.ts",
+      "sha256": "794c0b6436534c660e0bc4afc5df28396d9ae19bfef3336dec6494769a7a80fa",
+      "followupExpected": "794c0b6436534c660e0bc4afc5df28396d9ae19bfef3336dec6494769a7a80fa",
+      "comparison": "match"
+    },
+    {
+      "path": "packages/ui/tests/browser/navigation-locale-motion.spec.ts",
+      "sha256": "76ae006bcc4b7081c19db06aacddac3167f5f4e094cba9a6d52799072cc1737c",
+      "followupExpected": null,
+      "comparison": "not-in-selected-followup-receipt"
+    },
+    {
+      "path": "packages/ui/tests/browser/wave03-overlay-successors.spec.ts",
+      "sha256": "6687705c49aa06c61938ec3f8de8dc6ddde22e222c43272547ffca637904354b",
+      "followupExpected": null,
+      "comparison": "not-in-selected-followup-receipt"
+    },
+    {
+      "path": "packages/ui/tests/browser/wave03-system-indications.spec.ts",
+      "sha256": "8a7fc816c0fbdd8c06bcb7a213ea2be390621aac9ce1a1e9f820ccaec411cd2a",
+      "followupExpected": "8a7fc816c0fbdd8c06bcb7a213ea2be390621aac9ce1a1e9f820ccaec411cd2a",
+      "comparison": "match"
+    },
+    {
+      "path": "packages/ui/tests/browser/token-tier-scope.spec.ts",
+      "sha256": "f8e5046ff89e6632e148bded2246cf72ff26e000346beb62338af7bb873544f7",
+      "followupExpected": null,
+      "comparison": "not-in-selected-followup-receipt"
+    },
+    {
+      "path": "packages/ui/package.json",
+      "sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "followupExpected": null,
+      "comparison": "not-in-selected-followup-receipt"
+    },
+    {
+      "path": "packages/ui/dist/styles.css",
+      "sha256": "23d43fc0ce9fe013c7227a7515cd6823cbdee3c91a823464dec81186c6bb0dd1",
+      "followupExpected": null,
+      "comparison": "not-in-selected-followup-receipt"
+    }
+  ],
+  "HB19HB20Comparisons": [
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "sources": [
+        {
+          "path": "packages/ui/tests/browser/wave03-editor-chrome-acceptance.spec.ts",
+          "recorded": "ece29a77d65657c28f1fa1a90afac3750f0a0e56f6d651b82a99c802270b8383",
+          "actual": "ece29a77d65657c28f1fa1a90afac3750f0a0e56f6d651b82a99c802270b8383",
+          "matches": true
+        },
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
+          "recorded": "194beb0534e51d4f1719d6370499c3f079affeb6f3946b197df5baec96383ada",
+          "actual": "194beb0534e51d4f1719d6370499c3f079affeb6f3946b197df5baec96383ada",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.next100-regression.test.tsx",
+          "recorded": "ef248f551acef10143eeec5531d3a021e6ebee0659c3fca59259d65b37b4e303",
+          "actual": "ef248f551acef10143eeec5531d3a021e6ebee0659c3fca59259d65b37b4e303",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+          "recorded": "d6ad85d669565d337b32c1a81eb8f9f8987783ac36a4445901be5e7314d2a3ff",
+          "actual": "d6ad85d669565d337b32c1a81eb8f9f8987783ac36a4445901be5e7314d2a3ff",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.module.css",
+          "recorded": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+          "actual": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+          "recorded": "9233115d02d4ed62671ccb642760b14894a096c854fbaa92559b912fab3f2cbb",
+          "actual": "9233115d02d4ed62671ccb642760b14894a096c854fbaa92559b912fab3f2cbb",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.module.css",
+          "recorded": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+          "actual": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.next100-regression.test.tsx",
+          "recorded": "690b3b1fcb940dad931410c056691144e8f1031db88655228f45b6f503a93cb8",
+          "actual": "690b3b1fcb940dad931410c056691144e8f1031db88655228f45b6f503a93cb8",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+          "recorded": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+          "actual": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+          "recorded": "e59fb0d1e4c4eeb4cf5331cbfedbb19225bd511f67322d604d6441e3d226d2a8",
+          "actual": "e59fb0d1e4c4eeb4cf5331cbfedbb19225bd511f67322d604d6441e3d226d2a8",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.native-fixture.tsx",
+          "recorded": "73e21fc0eeaae79f6daa0cfb7a5fe07116676962755015340f23fb51cf3af0b5",
+          "actual": "73e21fc0eeaae79f6daa0cfb7a5fe07116676962755015340f23fb51cf3af0b5",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.test.tsx",
+          "recorded": "8b4904dcda2c33713376a667c4039eb42c6d32c92d98fdbe8da7c33754b92c8a",
+          "actual": "8b4904dcda2c33713376a667c4039eb42c6d32c92d98fdbe8da7c33754b92c8a",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.next100-regression.test.tsx",
+          "recorded": "9d8dd1c54c7d563ee66785e2d6e3cb60b4cd912eb29974378f75a8b80a9861a9",
+          "actual": "9d8dd1c54c7d563ee66785e2d6e3cb60b4cd912eb29974378f75a8b80a9861a9",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.module.css",
+          "recorded": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+          "actual": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+          "recorded": "bc51d2f802962a159704dc2b8b327e9ffc98a4fcdc6a79b0b62035b1c5201abd",
+          "actual": "bc51d2f802962a159704dc2b8b327e9ffc98a4fcdc6a79b0b62035b1c5201abd",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+          "recorded": "9806b5dd1349a4961916fb15c179effc8d7737930d5581822b5169ea41b046b5",
+          "actual": "9806b5dd1349a4961916fb15c179effc8d7737930d5581822b5169ea41b046b5",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+      "sources": [
+        {
+          "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+          "recorded": "efa988b430db84a03515476a3888256437d143581558560f73d3229512ecb63a",
+          "actual": "efa988b430db84a03515476a3888256437d143581558560f73d3229512ecb63a",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx",
+          "recorded": "7c043fb1c4db5bb47164cadaf5be8294c1e01697e6841a8c5dde5b44a8493a02",
+          "actual": "7c043fb1c4db5bb47164cadaf5be8294c1e01697e6841a8c5dde5b44a8493a02",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/src/experimental/Menu/Menu.module.css",
+          "recorded": "c1291a28693298ea9975a5dc4a68e84bad25093e7aa6999b0db073237a5b47c8",
+          "actual": "c1291a28693298ea9975a5dc4a68e84bad25093e7aa6999b0db073237a5b47c8",
+          "matches": true
+        },
+        {
+          "path": "packages/ui/tests/browser/hardening-rich-editor-presentation.spec.ts",
+          "recorded": "69fd6929ba08ba4b1aca0bf985ada5c5fc05d30dd417db20314f4c412a6452fd",
+          "actual": "69fd6929ba08ba4b1aca0bf985ada5c5fc05d30dd417db20314f4c412a6452fd",
+          "matches": true
+        },
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+          "recorded": "fd5e4d824df6604e1958b6d79a01d5c382a142701608c4c64d01b926377e8060",
+          "actual": "83a1238084f7623706888bf663015402c7df6b6bf8ce3ccdadf1e00ce8735cf0",
+          "matches": false
+        },
+        {
+          "path": "apps/docs/native-fixtures/registry.json",
+          "recorded": "6eefc562d28b6a986c237de16d80f5edfd734faac38bb1355c195a31abc3185b",
+          "actual": "6eefc562d28b6a986c237de16d80f5edfd734faac38bb1355c195a31abc3185b",
+          "matches": true
+        },
+        {
+          "path": "apps/docs/content/component-usage/editor.json",
+          "recorded": "aafe2451e9d131a9fb3e27179d8f9ceb36bfe5060cbfd32d9b09ac8485cdbf90",
+          "actual": "aafe2451e9d131a9fb3e27179d8f9ceb36bfe5060cbfd32d9b09ac8485cdbf90",
+          "matches": true
+        }
+      ]
+    }
+  ],
+  "retainedNamedNativeCases": [
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "acceptance-touch-targets.spec.ts",
+      "title": "auto coarse-pointer and explicit touch preserve control targets, tag spacing, activation and focus",
+      "tests": [
+        {
+          "project": "chromium",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "acceptance-touch-targets.spec.ts",
+      "title": "migration-proofs-datagrid--client: single-pointer width actions request one-pixel changes without a drag",
+      "tests": [
+        {
+          "project": "chromium",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "acceptance-touch-targets.spec.ts",
+      "title": "migration-proofs-catalog-grid-interaction--client: single-pointer width actions request one-pixel changes without a drag",
+      "tests": [
+        {
+          "project": "chromium",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "acceptance-touch-targets.spec.ts",
+      "title": "auto coarse-pointer and explicit touch preserve control targets, tag spacing, activation and focus",
+      "tests": [
+        {
+          "project": "firefox",
+          "status": "skipped",
+          "results": [
+            "skipped"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "acceptance-touch-targets.spec.ts",
+      "title": "migration-proofs-datagrid--client: single-pointer width actions request one-pixel changes without a drag",
+      "tests": [
+        {
+          "project": "firefox",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "acceptance-touch-targets.spec.ts",
+      "title": "migration-proofs-catalog-grid-interaction--client: single-pointer width actions request one-pixel changes without a drag",
+      "tests": [
+        {
+          "project": "firefox",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "acceptance-touch-targets.spec.ts",
+      "title": "auto coarse-pointer and explicit touch preserve control targets, tag spacing, activation and focus",
+      "tests": [
+        {
+          "project": "webkit",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "acceptance-touch-targets.spec.ts",
+      "title": "migration-proofs-datagrid--client: single-pointer width actions request one-pixel changes without a drag",
+      "tests": [
+        {
+          "project": "webkit",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "acceptance-touch-targets.spec.ts",
+      "title": "migration-proofs-catalog-grid-interaction--client: single-pointer width actions request one-pixel changes without a drag",
+      "tests": [
+        {
+          "project": "webkit",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "navigation-locale-motion.spec.ts",
+      "title": "en-US: drill motion mirrors, interrupted Back restores focus, reduced motion suppresses animation",
+      "tests": [
+        {
+          "project": "chromium",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "navigation-locale-motion.spec.ts",
+      "title": "ar-EG: drill motion mirrors, interrupted Back restores focus, reduced motion suppresses animation",
+      "tests": [
+        {
+          "project": "chromium",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "navigation-locale-motion.spec.ts",
+      "title": "en-US: drill motion mirrors, interrupted Back restores focus, reduced motion suppresses animation",
+      "tests": [
+        {
+          "project": "firefox",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "navigation-locale-motion.spec.ts",
+      "title": "ar-EG: drill motion mirrors, interrupted Back restores focus, reduced motion suppresses animation",
+      "tests": [
+        {
+          "project": "firefox",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "navigation-locale-motion.spec.ts",
+      "title": "en-US: drill motion mirrors, interrupted Back restores focus, reduced motion suppresses animation",
+      "tests": [
+        {
+          "project": "webkit",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "navigation-locale-motion.spec.ts",
+      "title": "ar-EG: drill motion mirrors, interrupted Back restores focus, reduced motion suppresses animation",
+      "tests": [
+        {
+          "project": "webkit",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope",
+      "tests": [
+        {
+          "project": "chromium",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "nested modal locks survive child close, block background scrolling and restore after final close",
+      "tests": [
+        {
+          "project": "chromium",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "AppModal sizes and height modes retain bounded surfaces, editable state and return focus",
+      "tests": [
+        {
+          "project": "chromium",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope",
+      "tests": [
+        {
+          "project": "firefox",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "nested modal locks survive child close, block background scrolling and restore after final close",
+      "tests": [
+        {
+          "project": "firefox",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "AppModal sizes and height modes retain bounded surfaces, editable state and return focus",
+      "tests": [
+        {
+          "project": "firefox",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope",
+      "tests": [
+        {
+          "project": "webkit",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "nested modal locks survive child close, block background scrolling and restore after final close",
+      "tests": [
+        {
+          "project": "webkit",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "AppModal sizes and height modes retain bounded surfaces, editable state and return focus",
+      "tests": [
+        {
+          "project": "webkit",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "motion cancellation preserves rail drafts and focus (start)",
+      "tests": [
+        {
+          "project": "chromium",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "motion cancellation preserves rail drafts and focus (end)",
+      "tests": [
+        {
+          "project": "chromium",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "color-data exception preserves system selection and keyboard focus",
+      "tests": [
+        {
+          "project": "chromium",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "motion cancellation preserves rail drafts and focus (start)",
+      "tests": [
+        {
+          "project": "firefox",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "motion cancellation preserves rail drafts and focus (end)",
+      "tests": [
+        {
+          "project": "firefox",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "color-data exception preserves system selection and keyboard focus",
+      "tests": [
+        {
+          "project": "firefox",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "motion cancellation preserves rail drafts and focus (start)",
+      "tests": [
+        {
+          "project": "webkit",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "motion cancellation preserves rail drafts and focus (end)",
+      "tests": [
+        {
+          "project": "webkit",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "color-data exception preserves system selection and keyboard focus",
+      "tests": [
+        {
+          "project": "webkit",
+          "status": "unexpected",
+          "results": [
+            "failed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-color-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "color-data exception preserves system selection and keyboard focus",
+      "tests": [
+        {
+          "project": "chromium",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-color-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "color-data exception preserves system selection and keyboard focus",
+      "tests": [
+        {
+          "project": "firefox",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-color-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "color-data exception preserves system selection and keyboard focus",
+      "tests": [
+        {
+          "project": "webkit",
+          "status": "expected",
+          "results": [
+            "passed"
+          ]
+        }
+      ]
+    }
+  ],
+  "limits": "Read-only scoped hash/case reconciliation. Matching selected inputs does not imply transitive immutable build or a fresh execution; receipt changes/unknown inputs require coordinator scope review."
+}

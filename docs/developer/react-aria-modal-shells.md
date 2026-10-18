@@ -169,3 +169,21 @@ For an independent icon-only rail with arbitrary sliding tool content, use
 [IconPanelNavigation](react-aria-icon-panel-navigation.md) in either AppShell
 navigation slot or as a standalone bounded composition. It does not share the
 SideNavigation account header or menu model.
+
+## Enlarged navigation chrome
+
+SideNavigation reserves one density-sized item plus its complete focus outline
+in the menu scrollport. When account/back/footer chrome exhausts a short host,
+the navigation root can scroll rather than shrinking that last usable row. Its
+existing focus reveal still measures and adjusts only the menu scrollport.
+
+
+AppShell's main client leaf completes native focus scrolling with an adjustment
+inside its own vertical scrollport, including the control's outward outline.
+Native `scrollIntoView` alone reveals only the border box and can leave the top
+focus edge clipped in Linux WebKit at 200% text. The adjustment leaves sibling
+navigation scrolling and focus ownership intact. Nested dialogs retain their
+own focus behavior; controls taller than the main viewport retain native caret
+scrolling rather than jumping between impossible whole-control placements.
+The shell regression measures the complete focus outline during sequential
+forward/reverse traversal, while retaining independent-scroll assertions.

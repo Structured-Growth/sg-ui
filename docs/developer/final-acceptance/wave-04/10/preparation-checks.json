@@ -1,0 +1,8 @@
+{
+  "runtime": "v26.5.0",
+  "platform": "darwin",
+  "diagnostics": [],
+  "patchDryRun": "original already present byte-for-byte; extension dry-run passes",
+  "nativeConfigSyntax": "pass",
+  "scope": "TypeScript transpilation, proposal-presence checks and patch dry-run only; no semantic types, CSS compilation or runtime behavior executed."
+}

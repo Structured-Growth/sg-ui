@@ -1,5 +1,5 @@
 import {exampleName} from './example-name';
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import groups from '../content/component-navigation.json' with {type:'json'};
 
 test('sidebar slides into categories, restores Back focus and derives the level from the page',async({page})=>{

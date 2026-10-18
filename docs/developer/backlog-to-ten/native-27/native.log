@@ -1,0 +1,35 @@
+
+Running 24 tests using 1 worker
+
+(node:75695) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, normal text) (1.4s)
+  ✓   2 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, 200% text) (1.1s)
+  ✓   3 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, normal text) (1.3s)
+  ✓   4 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, 200% text) (1.1s)
+  ✓   5 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, normal text) (RTL, compact) (1.0s)
+  ✓   6 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, 200% text) (RTL, compact) (1.1s)
+  ✓   7 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, normal text) (RTL, compact) (988ms)
+  ✓   8 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, 200% text) (RTL, compact) (1.2s)
+(node:76130) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [firefox] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, normal text) (1.9s)
+  ✓  10 [firefox] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, 200% text) (1.3s)
+  ✓  11 [firefox] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, normal text) (1.1s)
+  ✓  12 [firefox] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, 200% text) (1.3s)
+  ✓  13 [firefox] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, normal text) (RTL, compact) (1.2s)
+  ✓  14 [firefox] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, 200% text) (RTL, compact) (1.2s)
+  ✓  15 [firefox] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, normal text) (RTL, compact) (1.4s)
+  ✓  16 [firefox] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, 200% text) (RTL, compact) (1.1s)
+(node:76578) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [webkit] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, normal text) (1.7s)
+  ✓  18 [webkit] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, 200% text) (1.1s)
+  ✓  19 [webkit] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, normal text) (1.2s)
+  ✓  20 [webkit] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, 200% text) (1.1s)
+  ✓  21 [webkit] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, normal text) (RTL, compact) (1.3s)
+  ✓  22 [webkit] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, 200% text) (RTL, compact) (1.2s)
+  ✓  23 [webkit] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, normal text) (RTL, compact) (1.1s)
+  ✓  24 [webkit] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, 200% text) (RTL, compact) (1.2s)
+
+  24 passed (32.1s)

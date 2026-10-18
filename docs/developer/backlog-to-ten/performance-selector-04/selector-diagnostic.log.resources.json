@@ -1,0 +1,2820 @@
+{
+  "durationMs": 74192.281958,
+  "commandOwner": "45b1579e-83ff-4ef6-99fa-61dfdebe9059",
+  "processGroup": 76481,
+  "samples": [
+    {
+      "at": "2026-10-18T15:21:33.114Z",
+      "logicalCPUs": 10,
+      "load": [
+        1.951171875,
+        3.36328125,
+        4.451171875
+      ],
+      "freeMemoryBytes": 69599232,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 572817408,
+      "cpuTimes": {
+        "user": 415539790,
+        "nice": 0,
+        "sys": 216904800,
+        "idle": 2704477500,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 928,
+          "cpuPercent": 0
+        }
+      ],
+      "ownedRSSBytes": 950272,
+      "systemRSSBytes": 17201987584,
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 48%",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5219.\nPages active:                                 369315.\nPages inactive:                               367672.\nPages speculative:                               200.\nPages throttled:                                   0.\nPages wired down:                             191241.\nPages purgeable:                                   2.\n\"Translation faults\":                     2958766257.\nPages copy-on-write:                       125940016.\nPages zero filled:                        1647763920.\nPages reactivated:                         289048145.\nPages purged:                               35113221.\nFile-backed pages:                            246059.\nAnonymous pages:                              491128.\nPages stored in compressor:                   989961.\nPages occupied by compressor:                 585937.\nDecompressions:                            209840980.\nCompressions:                              258366030.\nPageins:                                    81721160.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:34.116Z",
+      "logicalCPUs": 10,
+      "load": [
+        1.951171875,
+        3.36328125,
+        4.451171875
+      ],
+      "freeMemoryBytes": 100892672,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 574504960,
+      "cpuTimes": {
+        "user": 415541420,
+        "nice": 0,
+        "sys": 216905670,
+        "idle": 2704484930,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 145744,
+          "cpuPercent": 6.3
+        }
+      ],
+      "ownedRSSBytes": 149241856,
+      "systemRSSBytes": 17474797568,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     4991.\nPages active:                                 363718.\nPages inactive:                               360966.\nPages speculative:                              1375.\nPages throttled:                                   0.\nPages wired down:                             190319.\nPages purgeable:                                   2.\n\"Translation faults\":                     2958823201.\nPages copy-on-write:                       125941178.\nPages zero filled:                        1647795286.\nPages reactivated:                         289134876.\nPages purged:                               35113604.\nFile-backed pages:                            239228.\nAnonymous pages:                              486831.\nPages stored in compressor:                  1010750.\nPages occupied by compressor:                 598215.\nDecompressions:                            209843116.\nCompressions:                              258389992.\nPageins:                                    81728466.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:35.119Z",
+      "logicalCPUs": 10,
+      "load": [
+        1.951171875,
+        3.36328125,
+        4.451171875
+      ],
+      "freeMemoryBytes": 93863936,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 366755840,
+      "cpuTimes": {
+        "user": 415544960,
+        "nice": 0,
+        "sys": 216906530,
+        "idle": 2704490580,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 92864,
+          "cpuPercent": 0.8
+        }
+      ],
+      "ownedRSSBytes": 95092736,
+      "systemRSSBytes": 17346609152,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5300.\nPages active:                                 353839.\nPages inactive:                               356822.\nPages speculative:                              1398.\nPages throttled:                                   0.\nPages wired down:                             191120.\nPages purgeable:                                   2.\n\"Translation faults\":                     2958877705.\nPages copy-on-write:                       125941841.\nPages zero filled:                        1647824584.\nPages reactivated:                         289166477.\nPages purged:                               35113678.\nFile-backed pages:                            239311.\nAnonymous pages:                              472748.\nPages stored in compressor:                  1036438.\nPages occupied by compressor:                 611105.\nDecompressions:                            209844620.\nCompressions:                              258419792.\nPageins:                                    81728571.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:36.121Z",
+      "logicalCPUs": 10,
+      "load": [
+        1.951171875,
+        3.36328125,
+        4.451171875
+      ],
+      "freeMemoryBytes": 88014848,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 366788608,
+      "cpuTimes": {
+        "user": 415547380,
+        "nice": 0,
+        "sys": 216906870,
+        "idle": 2704497790,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 93872,
+          "cpuPercent": 0.4
+        }
+      ],
+      "ownedRSSBytes": 96124928,
+      "systemRSSBytes": 17225547776,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5281.\nPages active:                                 352873.\nPages inactive:                               349954.\nPages speculative:                              1482.\nPages throttled:                                   0.\nPages wired down:                             195223.\nPages purgeable:                                   2.\n\"Translation faults\":                     2958888965.\nPages copy-on-write:                       125942038.\nPages zero filled:                        1647833701.\nPages reactivated:                         289168677.\nPages purged:                               35113688.\nFile-backed pages:                            239417.\nAnonymous pages:                              464892.\nPages stored in compressor:                  1044967.\nPages occupied by compressor:                 614771.\nDecompressions:                            209847817.\nCompressions:                              258432249.\nPageins:                                    81728615.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:37.123Z",
+      "logicalCPUs": 10,
+      "load": [
+        1.951171875,
+        3.36328125,
+        4.451171875
+      ],
+      "freeMemoryBytes": 89079808,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 367198208,
+      "cpuTimes": {
+        "user": 415549700,
+        "nice": 0,
+        "sys": 216907060,
+        "idle": 2704505260,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 111024,
+          "cpuPercent": 2.3
+        }
+      ],
+      "ownedRSSBytes": 113688576,
+      "systemRSSBytes": 17238081536,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5398.\nPages active:                                 354552.\nPages inactive:                               351265.\nPages speculative:                              1502.\nPages throttled:                                   0.\nPages wired down:                             192065.\nPages purgeable:                                 702.\n\"Translation faults\":                     2958893667.\nPages copy-on-write:                       125942218.\nPages zero filled:                        1647836070.\nPages reactivated:                         289168806.\nPages purged:                               35114338.\nFile-backed pages:                            239471.\nAnonymous pages:                              467848.\nPages stored in compressor:                  1044969.\nPages occupied by compressor:                 614802.\nDecompressions:                            209848907.\nCompressions:                              258433387.\nPageins:                                    81728675.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:38.125Z",
+      "logicalCPUs": 10,
+      "load": [
+        1.955078125,
+        3.34033203125,
+        4.4365234375
+      ],
+      "freeMemoryBytes": 93405184,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 367869952,
+      "cpuTimes": {
+        "user": 415551960,
+        "nice": 0,
+        "sys": 216907230,
+        "idle": 2704512830,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 112176,
+          "cpuPercent": 0.4
+        }
+      ],
+      "ownedRSSBytes": 114868224,
+      "systemRSSBytes": 17248108544,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5394.\nPages active:                                 354167.\nPages inactive:                               351846.\nPages speculative:                              1505.\nPages throttled:                                   0.\nPages wired down:                             191917.\nPages purgeable:                                1276.\n\"Translation faults\":                     2958896366.\nPages copy-on-write:                       125942391.\nPages zero filled:                        1647837793.\nPages reactivated:                         289168812.\nPages purged:                               35114338.\nFile-backed pages:                            239487.\nAnonymous pages:                              468031.\nPages stored in compressor:                  1044640.\nPages occupied by compressor:                 614755.\nDecompressions:                            209849094.\nCompressions:                              258433387.\nPageins:                                    81728691.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:39.127Z",
+      "logicalCPUs": 10,
+      "load": [
+        1.955078125,
+        3.34033203125,
+        4.4365234375
+      ],
+      "freeMemoryBytes": 99041280,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 368115712,
+      "cpuTimes": {
+        "user": 415553930,
+        "nice": 0,
+        "sys": 216907420,
+        "idle": 2704520660,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 112176,
+          "cpuPercent": 0
+        }
+      ],
+      "ownedRSSBytes": 114868224,
+      "systemRSSBytes": 17248550912,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5763.\nPages active:                                 354058.\nPages inactive:                               351628.\nPages speculative:                              1505.\nPages throttled:                                   0.\nPages wired down:                             192035.\nPages purgeable:                                 734.\n\"Translation faults\":                     2958898765.\nPages copy-on-write:                       125942538.\nPages zero filled:                        1647839881.\nPages reactivated:                         289168812.\nPages purged:                               35114338.\nFile-backed pages:                            239488.\nAnonymous pages:                              467703.\nPages stored in compressor:                  1044257.\nPages occupied by compressor:                 614595.\nDecompressions:                            209849467.\nCompressions:                              258433387.\nPageins:                                    81728695.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:40.130Z",
+      "logicalCPUs": 10,
+      "load": [
+        1.955078125,
+        3.34033203125,
+        4.4365234375
+      ],
+      "freeMemoryBytes": 64274432,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 368705536,
+      "cpuTimes": {
+        "user": 415556090,
+        "nice": 0,
+        "sys": 216907680,
+        "idle": 2704528230,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 120288,
+          "cpuPercent": 2
+        }
+      ],
+      "ownedRSSBytes": 123174912,
+      "systemRSSBytes": 17236639744,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5857.\nPages active:                                 353337.\nPages inactive:                               351923.\nPages speculative:                               174.\nPages throttled:                                   0.\nPages wired down:                             192661.\nPages purgeable:                                   2.\n\"Translation faults\":                     2958905487.\nPages copy-on-write:                       125942734.\nPages zero filled:                        1647846357.\nPages reactivated:                         289169935.\nPages purged:                               35114382.\nFile-backed pages:                            237543.\nAnonymous pages:                              467891.\nPages stored in compressor:                  1046676.\nPages occupied by compressor:                 615632.\nDecompressions:                            209849923.\nCompressions:                              258436284.\nPageins:                                    81728753.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:41.131Z",
+      "logicalCPUs": 10,
+      "load": [
+        1.955078125,
+        3.34033203125,
+        4.4365234375
+      ],
+      "freeMemoryBytes": 70369280,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 369328128,
+      "cpuTimes": {
+        "user": 415558430,
+        "nice": 0,
+        "sys": 216907850,
+        "idle": 2704535720,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 138576,
+          "cpuPercent": 12.3
+        }
+      ],
+      "ownedRSSBytes": 141901824,
+      "systemRSSBytes": 17286316032,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5164.\nPages active:                                 354426.\nPages inactive:                               352827.\nPages speculative:                               102.\nPages throttled:                                   0.\nPages wired down:                             191939.\nPages purgeable:                                   2.\n\"Translation faults\":                     2958911693.\nPages copy-on-write:                       125942914.\nPages zero filled:                        1647850190.\nPages reactivated:                         289169974.\nPages purged:                               35115398.\nFile-backed pages:                            237472.\nAnonymous pages:                              469883.\nPages stored in compressor:                  1045885.\nPages occupied by compressor:                 615126.\nDecompressions:                            209850892.\nCompressions:                              258436543.\nPageins:                                    81728759.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:42.133Z",
+      "logicalCPUs": 10,
+      "load": [
+        1.955078125,
+        3.34033203125,
+        4.4365234375
+      ],
+      "freeMemoryBytes": 70189056,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 369426432,
+      "cpuTimes": {
+        "user": 415560690,
+        "nice": 0,
+        "sys": 216908020,
+        "idle": 2704543270,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 138816,
+          "cpuPercent": 0.5
+        }
+      ],
+      "ownedRSSBytes": 142147584,
+      "systemRSSBytes": 17287086080,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5081.\nPages active:                                 354759.\nPages inactive:                               352789.\nPages speculative:                               107.\nPages throttled:                                   0.\nPages wired down:                             191733.\nPages purgeable:                                  10.\n\"Translation faults\":                     2958913840.\nPages copy-on-write:                       125943087.\nPages zero filled:                        1647851644.\nPages reactivated:                         289169974.\nPages purged:                               35115398.\nFile-backed pages:                            237480.\nAnonymous pages:                              470175.\nPages stored in compressor:                  1045844.\nPages occupied by compressor:                 615115.\nDecompressions:                            209850932.\nCompressions:                              258436543.\nPageins:                                    81728769.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:43.133Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.51904296875,
+        3.43408203125,
+        4.462890625
+      ],
+      "freeMemoryBytes": 67223552,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 369508352,
+      "cpuTimes": {
+        "user": 415562900,
+        "nice": 0,
+        "sys": 216908250,
+        "idle": 2704550770,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 138880,
+          "cpuPercent": 0.6
+        }
+      ],
+      "ownedRSSBytes": 142213120,
+      "systemRSSBytes": 17316544512,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5135.\nPages active:                                 353838.\nPages inactive:                               352451.\nPages speculative:                               425.\nPages throttled:                                   0.\nPages wired down:                             192905.\nPages purgeable:                                   2.\n\"Translation faults\":                     2958922771.\nPages copy-on-write:                       125943373.\nPages zero filled:                        1647854466.\nPages reactivated:                         289169977.\nPages purged:                               35115410.\nFile-backed pages:                            236087.\nAnonymous pages:                              470627.\nPages stored in compressor:                  1044782.\nPages occupied by compressor:                 614830.\nDecompressions:                            209851461.\nCompressions:                              258436543.\nPageins:                                    81729361.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:44.135Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.51904296875,
+        3.43408203125,
+        4.462890625
+      ],
+      "freeMemoryBytes": 67125248,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 369590272,
+      "cpuTimes": {
+        "user": 415565550,
+        "nice": 0,
+        "sys": 216908450,
+        "idle": 2704557930,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 138896,
+          "cpuPercent": 0
+        }
+      ],
+      "ownedRSSBytes": 142229504,
+      "systemRSSBytes": 17298718720,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5789.\nPages active:                                 353408.\nPages inactive:                               354202.\nPages speculative:                               425.\nPages throttled:                                   0.\nPages wired down:                             190975.\nPages purgeable:                                   2.\n\"Translation faults\":                     2958925703.\nPages copy-on-write:                       125943565.\nPages zero filled:                        1647856268.\nPages reactivated:                         289169977.\nPages purged:                               35115436.\nFile-backed pages:                            235641.\nAnonymous pages:                              472394.\nPages stored in compressor:                  1044711.\nPages occupied by compressor:                 614785.\nDecompressions:                            209851491.\nCompressions:                              258436543.\nPageins:                                    81729365.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:45.137Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.51904296875,
+        3.43408203125,
+        4.462890625
+      ],
+      "freeMemoryBytes": 71696384,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 369803264,
+      "cpuTimes": {
+        "user": 415567630,
+        "nice": 0,
+        "sys": 216908680,
+        "idle": 2704565620,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 138896,
+          "cpuPercent": 0
+        }
+      ],
+      "ownedRSSBytes": 142229504,
+      "systemRSSBytes": 17294835712,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5224.\nPages active:                                 353888.\nPages inactive:                               352722.\nPages speculative:                               426.\nPages throttled:                                   0.\nPages wired down:                             192638.\nPages purgeable:                                 439.\n\"Translation faults\":                     2958929235.\nPages copy-on-write:                       125943878.\nPages zero filled:                        1647860185.\nPages reactivated:                         289169977.\nPages purged:                               35115438.\nFile-backed pages:                            233998.\nAnonymous pages:                              473038.\nPages stored in compressor:                  1044396.\nPages occupied by compressor:                 614686.\nDecompressions:                            209851687.\nCompressions:                              258436543.\nPageins:                                    81729376.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:46.139Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.51904296875,
+        3.43408203125,
+        4.462890625
+      ],
+      "freeMemoryBytes": 72957952,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370130944,
+      "cpuTimes": {
+        "user": 415569860,
+        "nice": 0,
+        "sys": 216908930,
+        "idle": 2704573130,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140384,
+          "cpuPercent": 0.8
+        }
+      ],
+      "ownedRSSBytes": 143753216,
+      "systemRSSBytes": 17285120000,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5453.\nPages active:                                 354225.\nPages inactive:                               352893.\nPages speculative:                               437.\nPages throttled:                                   0.\nPages wired down:                             191893.\nPages purgeable:                                   2.\n\"Translation faults\":                     2958934732.\nPages copy-on-write:                       125944154.\nPages zero filled:                        1647863519.\nPages reactivated:                         289169977.\nPages purged:                               35115877.\nFile-backed pages:                            233387.\nAnonymous pages:                              474168.\nPages stored in compressor:                  1044355.\nPages occupied by compressor:                 614683.\nDecompressions:                            209851728.\nCompressions:                              258436543.\nPageins:                                    81729402.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:47.142Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.51904296875,
+        3.43408203125,
+        4.462890625
+      ],
+      "freeMemoryBytes": 83460096,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370245632,
+      "cpuTimes": {
+        "user": 415572140,
+        "nice": 0,
+        "sys": 216909120,
+        "idle": 2704580670,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140400,
+          "cpuPercent": 0.4
+        }
+      ],
+      "ownedRSSBytes": 143769600,
+      "systemRSSBytes": 17291755520,
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     6329.\nPages active:                                 353467.\nPages inactive:                               352809.\nPages speculative:                               445.\nPages throttled:                                   0.\nPages wired down:                             192035.\nPages purgeable:                                 394.\n\"Translation faults\":                     2958937804.\nPages copy-on-write:                       125944301.\nPages zero filled:                        1647864936.\nPages reactivated:                         289169977.\nPages purged:                               35115877.\nFile-backed pages:                            233405.\nAnonymous pages:                              473316.\nPages stored in compressor:                  1043814.\nPages occupied by compressor:                 614499.\nDecompressions:                            209852252.\nCompressions:                              258436543.\nPageins:                                    81729424.\nPageouts:                                     132091.\nSwapins:                                     2493712.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493712,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:48.146Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.39697265625,
+        3.3935546875,
+        4.4423828125
+      ],
+      "freeMemoryBytes": 70598656,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370343936,
+      "cpuTimes": {
+        "user": 415574720,
+        "nice": 0,
+        "sys": 216909500,
+        "idle": 2704587710,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140400,
+          "cpuPercent": 0.7
+        }
+      ],
+      "ownedRSSBytes": 143769600,
+      "systemRSSBytes": 17285808128,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     4980.\nPages active:                                 353906.\nPages inactive:                               352441.\nPages speculative:                               520.\nPages throttled:                                   0.\nPages wired down:                             193823.\nPages purgeable:                                  12.\n\"Translation faults\":                     2958960682.\nPages copy-on-write:                       125945967.\nPages zero filled:                        1647871876.\nPages reactivated:                         289169977.\nPages purged:                               35115887.\nFile-backed pages:                            233314.\nAnonymous pages:                              473553.\nPages stored in compressor:                  1042423.\nPages occupied by compressor:                 613914.\nDecompressions:                            209852764.\nCompressions:                              258436543.\nPageins:                                    81729760.\nPageouts:                                     132091.\nSwapins:                                     2493716.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493716,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:49.148Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.39697265625,
+        3.3935546875,
+        4.4423828125
+      ],
+      "freeMemoryBytes": 72155136,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370491392,
+      "cpuTimes": {
+        "user": 415577410,
+        "nice": 0,
+        "sys": 216909860,
+        "idle": 2704594650,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140416,
+          "cpuPercent": 0.6
+        }
+      ],
+      "ownedRSSBytes": 143785984,
+      "systemRSSBytes": 17290428416,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5853.\nPages active:                                 354621.\nPages inactive:                               352932.\nPages speculative:                               524.\nPages throttled:                                   0.\nPages wired down:                             191821.\nPages purgeable:                                   2.\n\"Translation faults\":                     2958975845.\nPages copy-on-write:                       125946717.\nPages zero filled:                        1647876993.\nPages reactivated:                         289169977.\nPages purged:                               35116715.\nFile-backed pages:                            232784.\nAnonymous pages:                              475293.\nPages stored in compressor:                  1042200.\nPages occupied by compressor:                 613833.\nDecompressions:                            209852987.\nCompressions:                              258436543.\nPageins:                                    81729859.\nPageouts:                                     132091.\nSwapins:                                     2493716.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493716,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:50.149Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.39697265625,
+        3.3935546875,
+        4.4423828125
+      ],
+      "freeMemoryBytes": 140640256,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370606080,
+      "cpuTimes": {
+        "user": 415580050,
+        "nice": 0,
+        "sys": 216910160,
+        "idle": 2704601640,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140416,
+          "cpuPercent": 0
+        }
+      ],
+      "ownedRSSBytes": 143785984,
+      "systemRSSBytes": 17261527040,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     9172.\nPages active:                                 353279.\nPages inactive:                               351235.\nPages speculative:                               525.\nPages throttled:                                   0.\nPages wired down:                             191601.\nPages purgeable:                                  10.\n\"Translation faults\":                     2958994875.\nPages copy-on-write:                       125947078.\nPages zero filled:                        1647882427.\nPages reactivated:                         289169979.\nPages purged:                               35116725.\nFile-backed pages:                            231272.\nAnonymous pages:                              473767.\nPages stored in compressor:                  1042023.\nPages occupied by compressor:                 613772.\nDecompressions:                            209853158.\nCompressions:                              258436543.\nPageins:                                    81729879.\nPageouts:                                     132091.\nSwapins:                                     2493716.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493716,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:51.151Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.39697265625,
+        3.3935546875,
+        4.4423828125
+      ],
+      "freeMemoryBytes": 137576448,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370671616,
+      "cpuTimes": {
+        "user": 415581980,
+        "nice": 0,
+        "sys": 216910340,
+        "idle": 2704609560,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140432,
+          "cpuPercent": 0
+        }
+      ],
+      "ownedRSSBytes": 143802368,
+      "systemRSSBytes": 17262297088,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     9143.\nPages active:                                 353119.\nPages inactive:                               351436.\nPages speculative:                               525.\nPages throttled:                                   0.\nPages wired down:                             191599.\nPages purgeable:                                 816.\n\"Translation faults\":                     2958996807.\nPages copy-on-write:                       125947225.\nPages zero filled:                        1647883686.\nPages reactivated:                         289169979.\nPages purged:                               35116725.\nFile-backed pages:                            231272.\nAnonymous pages:                              473808.\nPages stored in compressor:                  1041986.\nPages occupied by compressor:                 613762.\nDecompressions:                            209853196.\nCompressions:                              258436543.\nPageins:                                    81729883.\nPageouts:                                     132091.\nSwapins:                                     2493716.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493716,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:52.153Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.39697265625,
+        3.3935546875,
+        4.4423828125
+      ],
+      "freeMemoryBytes": 62291968,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370769920,
+      "cpuTimes": {
+        "user": 415585390,
+        "nice": 0,
+        "sys": 216910860,
+        "idle": 2704615570,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 139888,
+          "cpuPercent": 0.7
+        }
+      ],
+      "ownedRSSBytes": 143245312,
+      "systemRSSBytes": 17297571840,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5123.\nPages active:                                 353772.\nPages inactive:                               352659.\nPages speculative:                               213.\nPages throttled:                                   0.\nPages wired down:                             193661.\nPages purgeable:                                   2.\n\"Translation faults\":                     2959018053.\nPages copy-on-write:                       125948097.\nPages zero filled:                        1647894963.\nPages reactivated:                         289173635.\nPages purged:                               35116771.\nFile-backed pages:                            230996.\nAnonymous pages:                              475648.\nPages stored in compressor:                  1042674.\nPages occupied by compressor:                 614156.\nDecompressions:                            209853482.\nCompressions:                              258437619.\nPageins:                                    81730026.\nPageouts:                                     132091.\nSwapins:                                     2493716.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493716,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:53.156Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.68505859375,
+        3.4365234375,
+        4.451171875
+      ],
+      "freeMemoryBytes": 105316352,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370786304,
+      "cpuTimes": {
+        "user": 415588220,
+        "nice": 0,
+        "sys": 216911400,
+        "idle": 2704622230,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 139968,
+          "cpuPercent": 0.3
+        }
+      ],
+      "ownedRSSBytes": 143327232,
+      "systemRSSBytes": 17213325312,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     7898.\nPages active:                                 351645.\nPages inactive:                               350832.\nPages speculative:                               209.\nPages throttled:                                   0.\nPages wired down:                             192957.\nPages purgeable:                                 449.\n\"Translation faults\":                     2959048460.\nPages copy-on-write:                       125948847.\nPages zero filled:                        1647905135.\nPages reactivated:                         289182904.\nPages purged:                               35116801.\nFile-backed pages:                            231000.\nAnonymous pages:                              471686.\nPages stored in compressor:                  1047207.\nPages occupied by compressor:                 616043.\nDecompressions:                            209853860.\nCompressions:                              258442714.\nPageins:                                    81730079.\nPageouts:                                     132091.\nSwapins:                                     2493716.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493716,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:54.156Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.68505859375,
+        3.4365234375,
+        4.451171875
+      ],
+      "freeMemoryBytes": 109789184,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370802688,
+      "cpuTimes": {
+        "user": 415591420,
+        "nice": 0,
+        "sys": 216911760,
+        "idle": 2704628650,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140048,
+          "cpuPercent": 1
+        }
+      ],
+      "ownedRSSBytes": 143409152,
+      "systemRSSBytes": 17254137856,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     7378.\nPages active:                                 353221.\nPages inactive:                               352042.\nPages speculative:                               226.\nPages throttled:                                   0.\nPages wired down:                             190822.\nPages purgeable:                                 464.\n\"Translation faults\":                     2959060468.\nPages copy-on-write:                       125949442.\nPages zero filled:                        1647908240.\nPages reactivated:                         289182904.\nPages purged:                               35116801.\nFile-backed pages:                            231064.\nAnonymous pages:                              474425.\nPages stored in compressor:                  1046798.\nPages occupied by compressor:                 615895.\nDecompressions:                            209854274.\nCompressions:                              258442714.\nPageins:                                    81730108.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:55.157Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.68505859375,
+        3.4365234375,
+        4.451171875
+      ],
+      "freeMemoryBytes": 103104512,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370851840,
+      "cpuTimes": {
+        "user": 415593840,
+        "nice": 0,
+        "sys": 216911970,
+        "idle": 2704635970,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140080,
+          "cpuPercent": 0.3
+        }
+      ],
+      "ownedRSSBytes": 143441920,
+      "systemRSSBytes": 17275322368,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     6718.\nPages active:                                 352846.\nPages inactive:                               352008.\nPages speculative:                               228.\nPages throttled:                                   0.\nPages wired down:                             192015.\nPages purgeable:                                 992.\n\"Translation faults\":                     2959064447.\nPages copy-on-write:                       125949687.\nPages zero filled:                        1647910386.\nPages reactivated:                         289182907.\nPages purged:                               35116801.\nFile-backed pages:                            231071.\nAnonymous pages:                              474011.\nPages stored in compressor:                  1046532.\nPages occupied by compressor:                 615769.\nDecompressions:                            209854542.\nCompressions:                              258442714.\nPageins:                                    81730118.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:56.159Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.68505859375,
+        3.4365234375,
+        4.451171875
+      ],
+      "freeMemoryBytes": 85082112,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370900992,
+      "cpuTimes": {
+        "user": 415595970,
+        "nice": 0,
+        "sys": 216912260,
+        "idle": 2704643530,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140080,
+          "cpuPercent": 0
+        }
+      ],
+      "ownedRSSBytes": 143441920,
+      "systemRSSBytes": 17291051008,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     6044.\nPages active:                                 354219.\nPages inactive:                               351046.\nPages speculative:                               229.\nPages throttled:                                   0.\nPages wired down:                             192353.\nPages purgeable:                                  60.\n\"Translation faults\":                     2959069617.\nPages copy-on-write:                       125950014.\nPages zero filled:                        1647914203.\nPages reactivated:                         289182907.\nPages purged:                               35116801.\nFile-backed pages:                            231076.\nAnonymous pages:                              474418.\nPages stored in compressor:                  1046296.\nPages occupied by compressor:                 615693.\nDecompressions:                            209854779.\nCompressions:                              258442714.\nPageins:                                    81730129.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:57.161Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.68505859375,
+        3.4365234375,
+        4.451171875
+      ],
+      "freeMemoryBytes": 87998464,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370917376,
+      "cpuTimes": {
+        "user": 415598160,
+        "nice": 0,
+        "sys": 216912560,
+        "idle": 2704651010,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140096,
+          "cpuPercent": 0.1
+        }
+      ],
+      "ownedRSSBytes": 143458304,
+      "systemRSSBytes": 17294508032,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     6624.\nPages active:                                 353029.\nPages inactive:                               352375.\nPages speculative:                               229.\nPages throttled:                                   0.\nPages wired down:                             191656.\nPages purgeable:                                1144.\n\"Translation faults\":                     2959072056.\nPages copy-on-write:                       125950194.\nPages zero filled:                        1647915857.\nPages reactivated:                         289183098.\nPages purged:                               35116801.\nFile-backed pages:                            231078.\nAnonymous pages:                              474555.\nPages stored in compressor:                  1046176.\nPages occupied by compressor:                 615671.\nDecompressions:                            209854904.\nCompressions:                              258442714.\nPageins:                                    81730133.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:58.164Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.5498046875,
+        3.39599609375,
+        4.4306640625
+      ],
+      "freeMemoryBytes": 99729408,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370950144,
+      "cpuTimes": {
+        "user": 415600320,
+        "nice": 0,
+        "sys": 216912760,
+        "idle": 2704658690,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140544,
+          "cpuPercent": 0.6
+        }
+      ],
+      "ownedRSSBytes": 143917056,
+      "systemRSSBytes": 17292214272,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     7218.\nPages active:                                 352928.\nPages inactive:                               351937.\nPages speculative:                               229.\nPages throttled:                                   0.\nPages wired down:                             191658.\nPages purgeable:                                1558.\n\"Translation faults\":                     2959076171.\nPages copy-on-write:                       125950370.\nPages zero filled:                        1647918449.\nPages reactivated:                         289183102.\nPages purged:                               35116801.\nFile-backed pages:                            231079.\nAnonymous pages:                              474015.\nPages stored in compressor:                  1045963.\nPages occupied by compressor:                 615614.\nDecompressions:                            209855118.\nCompressions:                              258442714.\nPageins:                                    81730137.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:21:59.165Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.5498046875,
+        3.39599609375,
+        4.4306640625
+      ],
+      "freeMemoryBytes": 103366656,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370966528,
+      "cpuTimes": {
+        "user": 415602560,
+        "nice": 0,
+        "sys": 216912920,
+        "idle": 2704666250,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140560,
+          "cpuPercent": 0.4
+        }
+      ],
+      "ownedRSSBytes": 143933440,
+      "systemRSSBytes": 17293148160,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     7660.\nPages active:                                 353176.\nPages inactive:                               351530.\nPages speculative:                               229.\nPages throttled:                                   0.\nPages wired down:                             191387.\nPages purgeable:                                 504.\n\"Translation faults\":                     2959078326.\nPages copy-on-write:                       125950517.\nPages zero filled:                        1647920642.\nPages reactivated:                         289183102.\nPages purged:                               35116801.\nFile-backed pages:                            231079.\nAnonymous pages:                              473856.\nPages stored in compressor:                  1045897.\nPages occupied by compressor:                 615602.\nDecompressions:                            209855184.\nCompressions:                              258442714.\nPageins:                                    81730141.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:00.167Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.5498046875,
+        3.39599609375,
+        4.4306640625
+      ],
+      "freeMemoryBytes": 69533696,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 370999296,
+      "cpuTimes": {
+        "user": 415604850,
+        "nice": 0,
+        "sys": 216913220,
+        "idle": 2704673650,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140608,
+          "cpuPercent": 0.6
+        }
+      ],
+      "ownedRSSBytes": 143982592,
+      "systemRSSBytes": 17277026304,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5085.\nPages active:                                 352250.\nPages inactive:                               351334.\nPages speculative:                                86.\nPages throttled:                                   0.\nPages wired down:                             194684.\nPages purgeable:                                   2.\n\"Translation faults\":                     2959084653.\nPages copy-on-write:                       125950876.\nPages zero filled:                        1647924705.\nPages reactivated:                         289184146.\nPages purged:                               35116863.\nFile-backed pages:                            230350.\nAnonymous pages:                              473320.\nPages stored in compressor:                  1046397.\nPages occupied by compressor:                 616145.\nDecompressions:                            209858751.\nCompressions:                              258445418.\nPageins:                                    81730258.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:01.169Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.5498046875,
+        3.39599609375,
+        4.4306640625
+      ],
+      "freeMemoryBytes": 69976064,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 371015680,
+      "cpuTimes": {
+        "user": 415607200,
+        "nice": 0,
+        "sys": 216913430,
+        "idle": 2704681090,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140608,
+          "cpuPercent": 0.5
+        }
+      ],
+      "ownedRSSBytes": 143982592,
+      "systemRSSBytes": 17289527296,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5906.\nPages active:                                 353937.\nPages inactive:                               352645.\nPages speculative:                                88.\nPages throttled:                                   0.\nPages wired down:                             191129.\nPages purgeable:                                2050.\n\"Translation faults\":                     2959088007.\nPages copy-on-write:                       125951053.\nPages zero filled:                        1647926455.\nPages reactivated:                         289184146.\nPages purged:                               35117453.\nFile-backed pages:                            230361.\nAnonymous pages:                              476309.\nPages stored in compressor:                  1045797.\nPages occupied by compressor:                 615879.\nDecompressions:                            209859351.\nCompressions:                              258445418.\nPageins:                                    81730263.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:02.171Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.5498046875,
+        3.39599609375,
+        4.4306640625
+      ],
+      "freeMemoryBytes": 89997312,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 371064832,
+      "cpuTimes": {
+        "user": 415609660,
+        "nice": 0,
+        "sys": 216913590,
+        "idle": 2704688440,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 140608,
+          "cpuPercent": 0
+        }
+      ],
+      "ownedRSSBytes": 143982592,
+      "systemRSSBytes": 17250729984,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     6212.\nPages active:                                 354731.\nPages inactive:                               353448.\nPages speculative:                                92.\nPages throttled:                                   0.\nPages wired down:                             189263.\nPages purgeable:                                1674.\n\"Translation faults\":                     2959090766.\nPages copy-on-write:                       125951225.\nPages zero filled:                        1647927883.\nPages reactivated:                         289184146.\nPages purged:                               35117453.\nFile-backed pages:                            230366.\nAnonymous pages:                              477905.\nPages stored in compressor:                  1045657.\nPages occupied by compressor:                 615838.\nDecompressions:                            209859493.\nCompressions:                              258445418.\nPageins:                                    81730272.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:03.171Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.42529296875,
+        3.35595703125,
+        4.41015625
+      ],
+      "freeMemoryBytes": 70369280,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 371081216,
+      "cpuTimes": {
+        "user": 415612060,
+        "nice": 0,
+        "sys": 216913820,
+        "idle": 2704695810,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141056,
+          "cpuPercent": 0.9
+        }
+      ],
+      "ownedRSSBytes": 144441344,
+      "systemRSSBytes": 17288151040,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5188.\nPages active:                                 354893.\nPages inactive:                               353896.\nPages speculative:                               111.\nPages throttled:                                   0.\nPages wired down:                             189703.\nPages purgeable:                                 770.\n\"Translation faults\":                     2959097599.\nPages copy-on-write:                       125951670.\nPages zero filled:                        1647931731.\nPages reactivated:                         289184146.\nPages purged:                               35118107.\nFile-backed pages:                            230395.\nAnonymous pages:                              478505.\nPages stored in compressor:                  1045528.\nPages occupied by compressor:                 615793.\nDecompressions:                            209859628.\nCompressions:                              258445418.\nPageins:                                    81730306.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:04.173Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.42529296875,
+        3.35595703125,
+        4.41015625
+      ],
+      "freeMemoryBytes": 77578240,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 371113984,
+      "cpuTimes": {
+        "user": 415615560,
+        "nice": 0,
+        "sys": 216914120,
+        "idle": 2704702030,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141088,
+          "cpuPercent": 0.6
+        }
+      ],
+      "ownedRSSBytes": 144474112,
+      "systemRSSBytes": 17306927104,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5457.\nPages active:                                 352471.\nPages inactive:                               352964.\nPages speculative:                               108.\nPages throttled:                                   0.\nPages wired down:                             192997.\nPages purgeable:                                   0.\n\"Translation faults\":                     2959102490.\nPages copy-on-write:                       125951867.\nPages zero filled:                        1647937163.\nPages reactivated:                         289184210.\nPages purged:                               35118907.\nFile-backed pages:                            227711.\nAnonymous pages:                              477832.\nPages stored in compressor:                  1044917.\nPages occupied by compressor:                 615587.\nDecompressions:                            209860336.\nCompressions:                              258445514.\nPageins:                                    81730312.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:05.175Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.42529296875,
+        3.35595703125,
+        4.41015625
+      ],
+      "freeMemoryBytes": 66863104,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 371228672,
+      "cpuTimes": {
+        "user": 415617820,
+        "nice": 0,
+        "sys": 216914260,
+        "idle": 2704709590,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141088,
+          "cpuPercent": 0.3
+        }
+      ],
+      "ownedRSSBytes": 144474112,
+      "systemRSSBytes": 17309138944,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5364.\nPages active:                                 352692.\nPages inactive:                               352955.\nPages speculative:                               108.\nPages throttled:                                   0.\nPages wired down:                             192953.\nPages purgeable:                                 391.\n\"Translation faults\":                     2959104794.\nPages copy-on-write:                       125952044.\nPages zero filled:                        1647938617.\nPages reactivated:                         289184210.\nPages purged:                               35118907.\nFile-backed pages:                            227712.\nAnonymous pages:                              478043.\nPages stored in compressor:                  1044739.\nPages occupied by compressor:                 615512.\nDecompressions:                            209860515.\nCompressions:                              258445514.\nPageins:                                    81730316.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:06.178Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.42529296875,
+        3.35595703125,
+        4.41015625
+      ],
+      "freeMemoryBytes": 72286208,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 371245056,
+      "cpuTimes": {
+        "user": 415619950,
+        "nice": 0,
+        "sys": 216914500,
+        "idle": 2704717220,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141120,
+          "cpuPercent": 1.2
+        }
+      ],
+      "ownedRSSBytes": 144506880,
+      "systemRSSBytes": 17352097792,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5434.\nPages active:                                 355661.\nPages inactive:                               354533.\nPages speculative:                               108.\nPages throttled:                                   0.\nPages wired down:                             189776.\nPages purgeable:                                1938.\n\"Translation faults\":                     2959111771.\nPages copy-on-write:                       125952216.\nPages zero filled:                        1647942055.\nPages reactivated:                         289184210.\nPages purged:                               35118917.\nFile-backed pages:                            227264.\nAnonymous pages:                              483038.\nPages stored in compressor:                  1042874.\nPages occupied by compressor:                 614072.\nDecompressions:                            209861831.\nCompressions:                              258445514.\nPageins:                                    81730401.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:07.179Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.42529296875,
+        3.35595703125,
+        4.41015625
+      ],
+      "freeMemoryBytes": 82968576,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 371261440,
+      "cpuTimes": {
+        "user": 415622320,
+        "nice": 0,
+        "sys": 216914720,
+        "idle": 2704724610,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141120,
+          "cpuPercent": 0.2
+        }
+      ],
+      "ownedRSSBytes": 144506880,
+      "systemRSSBytes": 17356718080,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5229.\nPages active:                                 352872.\nPages inactive:                               354518.\nPages speculative:                               111.\nPages throttled:                                   0.\nPages wired down:                             192830.\nPages purgeable:                                   2.\n\"Translation faults\":                     2959115426.\nPages copy-on-write:                       125952497.\nPages zero filled:                        1647945582.\nPages reactivated:                         289184210.\nPages purged:                               35118967.\nFile-backed pages:                            226740.\nAnonymous pages:                              480761.\nPages stored in compressor:                  1042725.\nPages occupied by compressor:                 614024.\nDecompressions:                            209861981.\nCompressions:                              258445514.\nPageins:                                    81730416.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:08.181Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.55126953125,
+        3.3662109375,
+        4.40771484375
+      ],
+      "freeMemoryBytes": 68272128,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 371310592,
+      "cpuTimes": {
+        "user": 415624400,
+        "nice": 0,
+        "sys": 216914980,
+        "idle": 2704732250,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141120,
+          "cpuPercent": 0
+        }
+      ],
+      "ownedRSSBytes": 144506880,
+      "systemRSSBytes": 17359224832,
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5276.\nPages active:                                 352757.\nPages inactive:                               354509.\nPages speculative:                               116.\nPages throttled:                                   0.\nPages wired down:                             193021.\nPages purgeable:                                   2.\n\"Translation faults\":                     2959118596.\nPages copy-on-write:                       125952692.\nPages zero filled:                        1647947254.\nPages reactivated:                         289184210.\nPages purged:                               35119001.\nFile-backed pages:                            226343.\nAnonymous pages:                              481039.\nPages stored in compressor:                  1042292.\nPages occupied by compressor:                 613904.\nDecompressions:                            209862414.\nCompressions:                              258445514.\nPageins:                                    81730429.\nPageouts:                                     132091.\nSwapins:                                     2493720.\nSwapouts:                                    3570999.",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493720,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:09.183Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.55126953125,
+        3.3662109375,
+        4.40771484375
+      ],
+      "freeMemoryBytes": 79052800,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 420413440,
+      "cpuTimes": {
+        "user": 415626710,
+        "nice": 0,
+        "sys": 216915200,
+        "idle": 2704739690,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141808,
+          "cpuPercent": 0.1
+        }
+      ],
+      "ownedRSSBytes": 145211392,
+      "systemRSSBytes": 17412194304,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     6012.\nPages active:                                 356612.\nPages inactive:                               355894.\nPages speculative:                                60.\nPages throttled:                                   0.\nPages wired down:                             189464.\nPages purgeable:                                2502.\n\"Translation faults\":                     2959129154.\nPages copy-on-write:                       125952876.\nPages zero filled:                        1647950686.\nPages reactivated:                         289184210.\nPages purged:                               35119003.\nFile-backed pages:                            225465.\nAnonymous pages:                              487101.\nPages stored in compressor:                  1037793.\nPages occupied by compressor:                 611542.\nDecompressions:                            209865992.\nCompressions:                              258445514.\nPageins:                                    81730464.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:10.185Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.55126953125,
+        3.3662109375,
+        4.40771484375
+      ],
+      "freeMemoryBytes": 86966272,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 420446208,
+      "cpuTimes": {
+        "user": 415628870,
+        "nice": 0,
+        "sys": 216915410,
+        "idle": 2704747330,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141488,
+          "cpuPercent": 0.4
+        }
+      ],
+      "ownedRSSBytes": 144883712,
+      "systemRSSBytes": 17418010624,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     6426.\nPages active:                                 356260.\nPages inactive:                               355876.\nPages speculative:                                64.\nPages throttled:                                   0.\nPages wired down:                             189464.\nPages purgeable:                                2134.\n\"Translation faults\":                     2959132362.\nPages copy-on-write:                       125953049.\nPages zero filled:                        1647952694.\nPages reactivated:                         289184210.\nPages purged:                               35119003.\nFile-backed pages:                            225470.\nAnonymous pages:                              486730.\nPages stored in compressor:                  1037663.\nPages occupied by compressor:                 611494.\nDecompressions:                            209866123.\nCompressions:                              258445514.\nPageins:                                    81730473.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:11.187Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.55126953125,
+        3.3662109375,
+        4.40771484375
+      ],
+      "freeMemoryBytes": 77266944,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 420675584,
+      "cpuTimes": {
+        "user": 415631140,
+        "nice": 0,
+        "sys": 216915570,
+        "idle": 2704754870,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141488,
+          "cpuPercent": 0.3
+        }
+      ],
+      "ownedRSSBytes": 144883712,
+      "systemRSSBytes": 17419550720,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5467.\nPages active:                                 354094.\nPages inactive:                               355604.\nPages speculative:                                58.\nPages throttled:                                   0.\nPages wired down:                             192891.\nPages purgeable:                                   2.\n\"Translation faults\":                     2959134552.\nPages copy-on-write:                       125953197.\nPages zero filled:                        1647956547.\nPages reactivated:                         289184210.\nPages purged:                               35119045.\nFile-backed pages:                            224993.\nAnonymous pages:                              484763.\nPages stored in compressor:                  1037589.\nPages occupied by compressor:                 611470.\nDecompressions:                            209866199.\nCompressions:                              258445514.\nPageins:                                    81730478.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:12.189Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.55126953125,
+        3.3662109375,
+        4.40771484375
+      ],
+      "freeMemoryBytes": 79560704,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 420773888,
+      "cpuTimes": {
+        "user": 415633320,
+        "nice": 0,
+        "sys": 216915780,
+        "idle": 2704762470,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141504,
+          "cpuPercent": 0.3
+        }
+      ],
+      "ownedRSSBytes": 144900096,
+      "systemRSSBytes": 17420140544,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5447.\nPages active:                                 355312.\nPages inactive:                               355589.\nPages speculative:                                58.\nPages throttled:                                   0.\nPages wired down:                             191718.\nPages purgeable:                                  26.\n\"Translation faults\":                     2959136839.\nPages copy-on-write:                       125953395.\nPages zero filled:                        1647957975.\nPages reactivated:                         289184210.\nPages purged:                               35119045.\nFile-backed pages:                            224995.\nAnonymous pages:                              485964.\nPages stored in compressor:                  1037568.\nPages occupied by compressor:                 611460.\nDecompressions:                            209866220.\nCompressions:                              258445514.\nPageins:                                    81730482.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:13.192Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.5068359375,
+        3.34326171875,
+        4.3935546875
+      ],
+      "freeMemoryBytes": 73416704,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 420888576,
+      "cpuTimes": {
+        "user": 415635860,
+        "nice": 0,
+        "sys": 216916030,
+        "idle": 2704769660,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141504,
+          "cpuPercent": 0.3
+        }
+      ],
+      "ownedRSSBytes": 144900096,
+      "systemRSSBytes": 17427185664,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5170.\nPages active:                                 357387.\nPages inactive:                               355516.\nPages speculative:                               510.\nPages throttled:                                   0.\nPages wired down:                             189633.\nPages purgeable:                                1750.\n\"Translation faults\":                     2959145333.\nPages copy-on-write:                       125953713.\nPages zero filled:                        1647960911.\nPages reactivated:                         289184213.\nPages purged:                               35119045.\nFile-backed pages:                            225480.\nAnonymous pages:                              487933.\nPages stored in compressor:                  1037343.\nPages occupied by compressor:                 611368.\nDecompressions:                            209866445.\nCompressions:                              258445514.\nPageins:                                    81731155.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:14.193Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.5068359375,
+        3.34326171875,
+        4.3935546875
+      ],
+      "freeMemoryBytes": 88686592,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 421019648,
+      "cpuTimes": {
+        "user": 415638410,
+        "nice": 0,
+        "sys": 216916190,
+        "idle": 2704776940,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141504,
+          "cpuPercent": 0.3
+        }
+      ],
+      "ownedRSSBytes": 144900096,
+      "systemRSSBytes": 17419124736,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5993.\nPages active:                                 356618.\nPages inactive:                               355633.\nPages speculative:                               510.\nPages throttled:                                   0.\nPages wired down:                             189472.\nPages purgeable:                                1366.\n\"Translation faults\":                     2959147619.\nPages copy-on-write:                       125953884.\nPages zero filled:                        1647962395.\nPages reactivated:                         289184213.\nPages purged:                               35119045.\nFile-backed pages:                            225480.\nAnonymous pages:                              487281.\nPages stored in compressor:                  1037291.\nPages occupied by compressor:                 611358.\nDecompressions:                            209866497.\nCompressions:                              258445514.\nPageins:                                    81731159.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:15.195Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.5068359375,
+        3.34326171875,
+        4.3935546875
+      ],
+      "freeMemoryBytes": 73826304,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 421183488,
+      "cpuTimes": {
+        "user": 415640730,
+        "nice": 0,
+        "sys": 216916350,
+        "idle": 2704784470,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141504,
+          "cpuPercent": 0.1
+        }
+      ],
+      "ownedRSSBytes": 144900096,
+      "systemRSSBytes": 17429708800,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     6139.\nPages active:                                 354029.\nPages inactive:                               355340.\nPages speculative:                               491.\nPages throttled:                                   0.\nPages wired down:                             192632.\nPages purgeable:                                   2.\n\"Translation faults\":                     2959150247.\nPages copy-on-write:                       125954033.\nPages zero filled:                        1647965472.\nPages reactivated:                         289184213.\nPages purged:                               35119071.\nFile-backed pages:                            224535.\nAnonymous pages:                              485325.\nPages stored in compressor:                  1036513.\nPages occupied by compressor:                 610953.\nDecompressions:                            209866660.\nCompressions:                              258445514.\nPageins:                                    81731163.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:16.195Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.5068359375,
+        3.34326171875,
+        4.3935546875
+      ],
+      "freeMemoryBytes": 88866816,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 414580736,
+      "cpuTimes": {
+        "user": 415642970,
+        "nice": 0,
+        "sys": 216916600,
+        "idle": 2704791960,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141552,
+          "cpuPercent": 1.3
+        }
+      ],
+      "ownedRSSBytes": 144949248,
+      "systemRSSBytes": 17425203200,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5936.\nPages active:                                 355297.\nPages inactive:                               355246.\nPages speculative:                               491.\nPages throttled:                                   0.\nPages wired down:                             191677.\nPages purgeable:                                  10.\n\"Translation faults\":                     2959154693.\nPages copy-on-write:                       125954233.\nPages zero filled:                        1647968331.\nPages reactivated:                         289184213.\nPages purged:                               35119071.\nFile-backed pages:                            224535.\nAnonymous pages:                              486499.\nPages stored in compressor:                  1036428.\nPages occupied by compressor:                 610937.\nDecompressions:                            209866747.\nCompressions:                              258445514.\nPageins:                                    81731167.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:17.197Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.5068359375,
+        3.34326171875,
+        4.3935546875
+      ],
+      "freeMemoryBytes": 91832320,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 414580736,
+      "cpuTimes": {
+        "user": 415645190,
+        "nice": 0,
+        "sys": 216916810,
+        "idle": 2704799520,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141552,
+          "cpuPercent": 0.4
+        }
+      ],
+      "ownedRSSBytes": 144949248,
+      "systemRSSBytes": 17430872064,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     7120.\nPages active:                                 356688.\nPages inactive:                               355001.\nPages speculative:                               491.\nPages throttled:                                   0.\nPages wired down:                             189552.\nPages purgeable:                                1750.\n\"Translation faults\":                     2959158290.\nPages copy-on-write:                       125954545.\nPages zero filled:                        1647970086.\nPages reactivated:                         289184213.\nPages purged:                               35119071.\nFile-backed pages:                            224532.\nAnonymous pages:                              487648.\nPages stored in compressor:                  1035978.\nPages occupied by compressor:                 610732.\nDecompressions:                            209867089.\nCompressions:                              258445514.\nPageins:                                    81731177.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:18.198Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.6259765625,
+        3.35400390625,
+        4.39111328125
+      ],
+      "freeMemoryBytes": 80904192,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 414580736,
+      "cpuTimes": {
+        "user": 415647410,
+        "nice": 0,
+        "sys": 216917090,
+        "idle": 2704806990,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141568,
+          "cpuPercent": 0.6
+        }
+      ],
+      "ownedRSSBytes": 144965632,
+      "systemRSSBytes": 17484939264,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5330.\nPages active:                                 357439.\nPages inactive:                               354400.\nPages speculative:                               518.\nPages throttled:                                   0.\nPages wired down:                             190857.\nPages purgeable:                                 770.\n\"Translation faults\":                     2959171595.\nPages copy-on-write:                       125954915.\nPages zero filled:                        1647982267.\nPages reactivated:                         289185876.\nPages purged:                               35120392.\nFile-backed pages:                            219906.\nAnonymous pages:                              492451.\nPages stored in compressor:                  1036502.\nPages occupied by compressor:                 611040.\nDecompressions:                            209868603.\nCompressions:                              258447573.\nPageins:                                    81731536.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:19.200Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.6259765625,
+        3.35400390625,
+        4.39111328125
+      ],
+      "freeMemoryBytes": 71647232,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 414597120,
+      "cpuTimes": {
+        "user": 415649740,
+        "nice": 0,
+        "sys": 216917310,
+        "idle": 2704814440,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141584,
+          "cpuPercent": 0.6
+        }
+      ],
+      "ownedRSSBytes": 144982016,
+      "systemRSSBytes": 17439916032,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     4955.\nPages active:                                 353005.\nPages inactive:                               351949.\nPages speculative:                                66.\nPages throttled:                                   0.\nPages wired down:                             197286.\nPages purgeable:                                   2.\n\"Translation faults\":                     2959174670.\nPages copy-on-write:                       125955070.\nPages zero filled:                        1647987064.\nPages reactivated:                         289186150.\nPages purged:                               35120922.\nFile-backed pages:                            219465.\nAnonymous pages:                              485555.\nPages stored in compressor:                  1039749.\nPages occupied by compressor:                 612323.\nDecompressions:                            209868865.\nCompressions:                              258451093.\nPageins:                                    81731543.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:20.202Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.6259765625,
+        3.35400390625,
+        4.39111328125
+      ],
+      "freeMemoryBytes": 100909056,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 414613504,
+      "cpuTimes": {
+        "user": 415652050,
+        "nice": 0,
+        "sys": 216917590,
+        "idle": 2704821840,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141600,
+          "cpuPercent": 0
+        }
+      ],
+      "ownedRSSBytes": 144998400,
+      "systemRSSBytes": 17431707648,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     7071.\nPages active:                                 355141.\nPages inactive:                               354477.\nPages speculative:                                66.\nPages throttled:                                   0.\nPages wired down:                             190435.\nPages purgeable:                                4949.\n\"Translation faults\":                     2959177543.\nPages copy-on-write:                       125955264.\nPages zero filled:                        1647988736.\nPages reactivated:                         289186166.\nPages purged:                               35120932.\nFile-backed pages:                            219471.\nAnonymous pages:                              490213.\nPages stored in compressor:                  1040448.\nPages occupied by compressor:                 612394.\nDecompressions:                            209869078.\nCompressions:                              258452002.\nPageins:                                    81731548.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:21.204Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.6259765625,
+        3.35400390625,
+        4.39111328125
+      ],
+      "freeMemoryBytes": 110985216,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 414646272,
+      "cpuTimes": {
+        "user": 415654130,
+        "nice": 0,
+        "sys": 216917750,
+        "idle": 2704829590,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 141600,
+          "cpuPercent": 0
+        }
+      ],
+      "ownedRSSBytes": 144998400,
+      "systemRSSBytes": 17451188224,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     7965.\nPages active:                                 354763.\nPages inactive:                               354055.\nPages speculative:                                66.\nPages throttled:                                   0.\nPages wired down:                             190410.\nPages purgeable:                                5673.\n\"Translation faults\":                     2959181009.\nPages copy-on-write:                       125955443.\nPages zero filled:                        1647990781.\nPages reactivated:                         289186166.\nPages purged:                               35120932.\nFile-backed pages:                            219473.\nAnonymous pages:                              489411.\nPages stored in compressor:                  1040165.\nPages occupied by compressor:                 612325.\nDecompressions:                            209869362.\nCompressions:                              258452002.\nPageins:                                    81731552.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:22.206Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.6259765625,
+        3.35400390625,
+        4.39111328125
+      ],
+      "freeMemoryBytes": 117817344,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 414679040,
+      "cpuTimes": {
+        "user": 415656240,
+        "nice": 0,
+        "sys": 216917960,
+        "idle": 2704837240,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142368,
+          "cpuPercent": 1.3
+        }
+      ],
+      "ownedRSSBytes": 145784832,
+      "systemRSSBytes": 17440571392,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     8841.\nPages active:                                 355618.\nPages inactive:                               353772.\nPages speculative:                                66.\nPages throttled:                                   0.\nPages wired down:                             189024.\nPages purgeable:                                4649.\n\"Translation faults\":                     2959185437.\nPages copy-on-write:                       125955619.\nPages zero filled:                        1647993635.\nPages reactivated:                         289186166.\nPages purged:                               35120932.\nFile-backed pages:                            219474.\nAnonymous pages:                              489982.\nPages stored in compressor:                  1039928.\nPages occupied by compressor:                 612263.\nDecompressions:                            209869504.\nCompressions:                              258452002.\nPageins:                                    81731556.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:23.208Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.49560546875,
+        3.314453125,
+        4.37109375
+      ],
+      "freeMemoryBytes": 140132352,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 414728192,
+      "cpuTimes": {
+        "user": 415658550,
+        "nice": 0,
+        "sys": 216918110,
+        "idle": 2704844740,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142032,
+          "cpuPercent": 0.2
+        }
+      ],
+      "ownedRSSBytes": 145440768,
+      "systemRSSBytes": 17438752768,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     9827.\nPages active:                                 354559.\nPages inactive:                               353766.\nPages speculative:                                70.\nPages throttled:                                   0.\nPages wired down:                             189099.\nPages purgeable:                                3324.\n\"Translation faults\":                     2959187422.\nPages copy-on-write:                       125955769.\nPages zero filled:                        1647994922.\nPages reactivated:                         289186166.\nPages purged:                               35120932.\nFile-backed pages:                            219488.\nAnonymous pages:                              488907.\nPages stored in compressor:                  1039920.\nPages occupied by compressor:                 612263.\nDecompressions:                            209869513.\nCompressions:                              258452002.\nPageins:                                    81731566.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:24.210Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.49560546875,
+        3.314453125,
+        4.37109375
+      ],
+      "freeMemoryBytes": 129269760,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 414728192,
+      "cpuTimes": {
+        "user": 415660690,
+        "nice": 0,
+        "sys": 216918360,
+        "idle": 2704852380,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142032,
+          "cpuPercent": 0.3
+        }
+      ],
+      "ownedRSSBytes": 145440768,
+      "systemRSSBytes": 17439031296,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     8865.\nPages active:                                 353526.\nPages inactive:                               353388.\nPages speculative:                                70.\nPages throttled:                                   0.\nPages wired down:                             191486.\nPages purgeable:                                2295.\n\"Translation faults\":                     2959189989.\nPages copy-on-write:                       125955965.\nPages zero filled:                        1647998530.\nPages reactivated:                         289186166.\nPages purged:                               35120932.\nFile-backed pages:                            219531.\nAnonymous pages:                              487453.\nPages stored in compressor:                  1039875.\nPages occupied by compressor:                 612249.\nDecompressions:                            209869551.\nCompressions:                              258452002.\nPageins:                                    81731570.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:25.212Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.49560546875,
+        3.314453125,
+        4.37109375
+      ],
+      "freeMemoryBytes": 133971968,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 414744576,
+      "cpuTimes": {
+        "user": 415662950,
+        "nice": 0,
+        "sys": 216918510,
+        "idle": 2704859990,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142032,
+          "cpuPercent": 0.2
+        }
+      ],
+      "ownedRSSBytes": 145440768,
+      "systemRSSBytes": 17442111488,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     9018.\nPages active:                                 354585.\nPages inactive:                               353822.\nPages speculative:                                70.\nPages throttled:                                   0.\nPages wired down:                             189886.\nPages purgeable:                                2476.\n\"Translation faults\":                     2959192203.\nPages copy-on-write:                       125956144.\nPages zero filled:                        1647999932.\nPages reactivated:                         289186166.\nPages purged:                               35120932.\nFile-backed pages:                            219531.\nAnonymous pages:                              488946.\nPages stored in compressor:                  1039734.\nPages occupied by compressor:                 612203.\nDecompressions:                            209869692.\nCompressions:                              258452002.\nPageins:                                    81731574.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:26.214Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.49560546875,
+        3.314453125,
+        4.37109375
+      ],
+      "freeMemoryBytes": 125927424,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 414744576,
+      "cpuTimes": {
+        "user": 415665370,
+        "nice": 0,
+        "sys": 216918730,
+        "idle": 2704867310,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142048,
+          "cpuPercent": 0.5
+        }
+      ],
+      "ownedRSSBytes": 145457152,
+      "systemRSSBytes": 17456300032,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     8866.\nPages active:                                 355158.\nPages inactive:                               354041.\nPages speculative:                                78.\nPages throttled:                                   0.\nPages wired down:                             189407.\nPages purgeable:                                3273.\n\"Translation faults\":                     2959195633.\nPages copy-on-write:                       125956315.\nPages zero filled:                        1648001643.\nPages reactivated:                         289186166.\nPages purged:                               35120932.\nFile-backed pages:                            219569.\nAnonymous pages:                              489708.\nPages stored in compressor:                  1039163.\nPages occupied by compressor:                 612034.\nDecompressions:                            209870287.\nCompressions:                              258452002.\nPageins:                                    81731588.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:27.216Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.49560546875,
+        3.314453125,
+        4.37109375
+      ],
+      "freeMemoryBytes": 109330432,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 414744576,
+      "cpuTimes": {
+        "user": 415667650,
+        "nice": 0,
+        "sys": 216919110,
+        "idle": 2704874620,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142080,
+          "cpuPercent": 0.3
+        }
+      ],
+      "ownedRSSBytes": 145489920,
+      "systemRSSBytes": 17485070336,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     7415.\nPages active:                                 354516.\nPages inactive:                               353769.\nPages speculative:                               200.\nPages throttled:                                   0.\nPages wired down:                             191926.\nPages purgeable:                                1549.\n\"Translation faults\":                     2959200748.\nPages copy-on-write:                       125956563.\nPages zero filled:                        1648006160.\nPages reactivated:                         289186322.\nPages purged:                               35120932.\nFile-backed pages:                            219809.\nAnonymous pages:                              488676.\nPages stored in compressor:                  1038264.\nPages occupied by compressor:                 611758.\nDecompressions:                            209871188.\nCompressions:                              258452002.\nPageins:                                    81731770.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:28.218Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.45556640625,
+        3.29248046875,
+        4.35693359375
+      ],
+      "freeMemoryBytes": 145014784,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 414744576,
+      "cpuTimes": {
+        "user": 415670100,
+        "nice": 0,
+        "sys": 216919410,
+        "idle": 2704881860,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142112,
+          "cpuPercent": 1.8
+        }
+      ],
+      "ownedRSSBytes": 145522688,
+      "systemRSSBytes": 17458298880,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     9828.\nPages active:                                 354610.\nPages inactive:                               353218.\nPages speculative:                               201.\nPages throttled:                                   0.\nPages wired down:                             191520.\nPages purgeable:                                1293.\n\"Translation faults\":                     2959205503.\nPages copy-on-write:                       125956895.\nPages zero filled:                        1648009051.\nPages reactivated:                         289186322.\nPages purged:                               35120932.\nFile-backed pages:                            219809.\nAnonymous pages:                              488220.\nPages stored in compressor:                  1036704.\nPages occupied by compressor:                 610207.\nDecompressions:                            209871202.\nCompressions:                              258452002.\nPageins:                                    81731781.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:29.219Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.45556640625,
+        3.29248046875,
+        4.35693359375
+      ],
+      "freeMemoryBytes": 171294720,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 414744576,
+      "cpuTimes": {
+        "user": 415672230,
+        "nice": 0,
+        "sys": 216919570,
+        "idle": 2704889560,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142112,
+          "cpuPercent": 0.4
+        }
+      ],
+      "ownedRSSBytes": 145522688,
+      "systemRSSBytes": 17465131008,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    11298.\nPages active:                                 354352.\nPages inactive:                               354132.\nPages speculative:                               201.\nPages throttled:                                   0.\nPages wired down:                             189411.\nPages purgeable:                                1737.\n\"Translation faults\":                     2959208066.\nPages copy-on-write:                       125957074.\nPages zero filled:                        1648010740.\nPages reactivated:                         289186322.\nPages purged:                               35121020.\nFile-backed pages:                            219871.\nAnonymous pages:                              488814.\nPages stored in compressor:                  1036645.\nPages occupied by compressor:                 610190.\nDecompressions:                            209871261.\nCompressions:                              258452002.\nPageins:                                    81731785.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:30.221Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.45556640625,
+        3.29248046875,
+        4.35693359375
+      ],
+      "freeMemoryBytes": 173195264,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 415137792,
+      "cpuTimes": {
+        "user": 415674560,
+        "nice": 0,
+        "sys": 216919770,
+        "idle": 2704897050,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142112,
+          "cpuPercent": 0.2
+        }
+      ],
+      "ownedRSSBytes": 145522688,
+      "systemRSSBytes": 17467326464,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    11680.\nPages active:                                 354566.\nPages inactive:                               354003.\nPages speculative:                               201.\nPages throttled:                                   0.\nPages wired down:                             189145.\nPages purgeable:                                1353.\n\"Translation faults\":                     2959210804.\nPages copy-on-write:                       125957244.\nPages zero filled:                        1648012211.\nPages reactivated:                         289186353.\nPages purged:                               35121020.\nFile-backed pages:                            219878.\nAnonymous pages:                              488892.\nPages stored in compressor:                  1036188.\nPages occupied by compressor:                 609989.\nDecompressions:                            209871718.\nCompressions:                              258452002.\nPageins:                                    81731789.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:31.223Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.45556640625,
+        3.29248046875,
+        4.35693359375
+      ],
+      "freeMemoryBytes": 146456576,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 415776768,
+      "cpuTimes": {
+        "user": 415676630,
+        "nice": 0,
+        "sys": 216919940,
+        "idle": 2704904780,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142160,
+          "cpuPercent": 0.7
+        }
+      ],
+      "ownedRSSBytes": 145571840,
+      "systemRSSBytes": 17479729152,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     9831.\nPages active:                                 354535.\nPages inactive:                               353703.\nPages speculative:                               201.\nPages throttled:                                   0.\nPages wired down:                             191537.\nPages purgeable:                                 413.\n\"Translation faults\":                     2959213765.\nPages copy-on-write:                       125957394.\nPages zero filled:                        1648016278.\nPages reactivated:                         289186353.\nPages purged:                               35121020.\nFile-backed pages:                            219879.\nAnonymous pages:                              488560.\nPages stored in compressor:                  1035728.\nPages occupied by compressor:                 609777.\nDecompressions:                            209872178.\nCompressions:                              258452002.\nPageins:                                    81731793.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:32.225Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.45556640625,
+        3.29248046875,
+        4.35693359375
+      ],
+      "freeMemoryBytes": 132874240,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 416186368,
+      "cpuTimes": {
+        "user": 415679050,
+        "nice": 0,
+        "sys": 216920240,
+        "idle": 2704912040,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142160,
+          "cpuPercent": 0.1
+        }
+      ],
+      "ownedRSSBytes": 145571840,
+      "systemRSSBytes": 17499242496,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     9118.\nPages active:                                 355742.\nPages inactive:                               354635.\nPages speculative:                               201.\nPages throttled:                                   0.\nPages wired down:                             190357.\nPages purgeable:                                 429.\n\"Translation faults\":                     2959218116.\nPages copy-on-write:                       125957589.\nPages zero filled:                        1648018094.\nPages reactivated:                         289186353.\nPages purged:                               35121020.\nFile-backed pages:                            219897.\nAnonymous pages:                              490681.\nPages stored in compressor:                  1034879.\nPages occupied by compressor:                 609531.\nDecompressions:                            209873033.\nCompressions:                              258452002.\nPageins:                                    81731800.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:33.227Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.4189453125,
+        3.27099609375,
+        4.3427734375
+      ],
+      "freeMemoryBytes": 130334720,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 416382976,
+      "cpuTimes": {
+        "user": 415681180,
+        "nice": 0,
+        "sys": 216920410,
+        "idle": 2704919760,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142160,
+          "cpuPercent": 0
+        }
+      ],
+      "ownedRSSBytes": 145571840,
+      "systemRSSBytes": 17514708992,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     9108.\nPages active:                                 356172.\nPages inactive:                               355322.\nPages speculative:                               202.\nPages throttled:                                   0.\nPages wired down:                             189445.\nPages purgeable:                                1274.\n\"Translation faults\":                     2959221524.\nPages copy-on-write:                       125957768.\nPages zero filled:                        1648019567.\nPages reactivated:                         289186353.\nPages purged:                               35121020.\nFile-backed pages:                            219909.\nAnonymous pages:                              491787.\nPages stored in compressor:                  1034079.\nPages occupied by compressor:                 609335.\nDecompressions:                            209873846.\nCompressions:                              258452002.\nPageins:                                    81731805.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:34.229Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.4189453125,
+        3.27099609375,
+        4.3427734375
+      ],
+      "freeMemoryBytes": 130531328,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 416628736,
+      "cpuTimes": {
+        "user": 415683540,
+        "nice": 0,
+        "sys": 216920610,
+        "idle": 2704927180,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142848,
+          "cpuPercent": 1
+        }
+      ],
+      "ownedRSSBytes": 146276352,
+      "systemRSSBytes": 17436819456,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     9445.\nPages active:                                 355719.\nPages inactive:                               355993.\nPages speculative:                               219.\nPages throttled:                                   0.\nPages wired down:                             188931.\nPages purgeable:                                1410.\n\"Translation faults\":                     2959224647.\nPages copy-on-write:                       125957940.\nPages zero filled:                        1648021692.\nPages reactivated:                         289186356.\nPages purged:                               35121020.\nFile-backed pages:                            219935.\nAnonymous pages:                              491996.\nPages stored in compressor:                  1033880.\nPages occupied by compressor:                 609277.\nDecompressions:                            209874021.\nCompressions:                              258452002.\nPageins:                                    81731830.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:35.231Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.4189453125,
+        3.27099609375,
+        4.3427734375
+      ],
+      "freeMemoryBytes": 144162816,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 416645120,
+      "cpuTimes": {
+        "user": 415685660,
+        "nice": 0,
+        "sys": 216920810,
+        "idle": 2704934850,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142880,
+          "cpuPercent": 0.3
+        }
+      ],
+      "ownedRSSBytes": 146309120,
+      "systemRSSBytes": 17398579200,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     9684.\nPages active:                                 353850.\nPages inactive:                               354138.\nPages speculative:                               226.\nPages throttled:                                   0.\nPages wired down:                             192455.\nPages purgeable:                                 454.\n\"Translation faults\":                     2959228220.\nPages copy-on-write:                       125958094.\nPages zero filled:                        1648025242.\nPages reactivated:                         289186356.\nPages purged:                               35121020.\nFile-backed pages:                            219935.\nAnonymous pages:                              488279.\nPages stored in compressor:                  1033717.\nPages occupied by compressor:                 609230.\nDecompressions:                            209874053.\nCompressions:                              258452002.\nPageins:                                    81731843.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:36.233Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.4189453125,
+        3.27099609375,
+        4.3427734375
+      ],
+      "freeMemoryBytes": 149979136,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 416710656,
+      "cpuTimes": {
+        "user": 415688080,
+        "nice": 0,
+        "sys": 216921020,
+        "idle": 2704942210,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142544,
+          "cpuPercent": 0.3
+        }
+      ],
+      "ownedRSSBytes": 145965056,
+      "systemRSSBytes": 17387847680,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     9999.\nPages active:                                 354358.\nPages inactive:                               354335.\nPages speculative:                               226.\nPages throttled:                                   0.\nPages wired down:                             191471.\nPages purgeable:                                 454.\n\"Translation faults\":                     2959230643.\nPages copy-on-write:                       125958287.\nPages zero filled:                        1648026746.\nPages reactivated:                         289186356.\nPages purged:                               35121020.\nFile-backed pages:                            219932.\nAnonymous pages:                              488987.\nPages stored in compressor:                  1033613.\nPages occupied by compressor:                 609195.\nDecompressions:                            209874158.\nCompressions:                              258452002.\nPageins:                                    81731847.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:37.235Z",
+      "logicalCPUs": 10,
+      "load": [
+        2.4189453125,
+        3.27099609375,
+        4.3427734375
+      ],
+      "freeMemoryBytes": 117374976,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 416907264,
+      "cpuTimes": {
+        "user": 415690360,
+        "nice": 0,
+        "sys": 216921230,
+        "idle": 2704949730,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142560,
+          "cpuPercent": 0.3
+        }
+      ],
+      "ownedRSSBytes": 145981440,
+      "systemRSSBytes": 17427824640,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     8622.\nPages active:                                 357091.\nPages inactive:                               355729.\nPages speculative:                               226.\nPages throttled:                                   0.\nPages wired down:                             189344.\nPages purgeable:                                1794.\n\"Translation faults\":                     2959237025.\nPages copy-on-write:                       125958466.\nPages zero filled:                        1648028477.\nPages reactivated:                         289186356.\nPages purged:                               35121020.\nFile-backed pages:                            219932.\nAnonymous pages:                              493114.\nPages stored in compressor:                  1030713.\nPages occupied by compressor:                 608572.\nDecompressions:                            209877060.\nCompressions:                              258452002.\nPageins:                                    81731851.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:38.237Z",
+      "logicalCPUs": 10,
+      "load": [
+        3.10595703125,
+        3.39892578125,
+        4.38134765625
+      ],
+      "freeMemoryBytes": 133136384,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 416923648,
+      "cpuTimes": {
+        "user": 415692720,
+        "nice": 0,
+        "sys": 216921450,
+        "idle": 2704957110,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142560,
+          "cpuPercent": 0.4
+        }
+      ],
+      "ownedRSSBytes": 145981440,
+      "systemRSSBytes": 17431871488,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     9479.\nPages active:                                 357134.\nPages inactive:                               355333.\nPages speculative:                               226.\nPages throttled:                                   0.\nPages wired down:                             188868.\nPages purgeable:                                1410.\n\"Translation faults\":                     2959240563.\nPages copy-on-write:                       125958769.\nPages zero filled:                        1648031000.\nPages reactivated:                         289186356.\nPages purged:                               35121020.\nFile-backed pages:                            219934.\nAnonymous pages:                              492759.\nPages stored in compressor:                  1030648.\nPages occupied by compressor:                 608544.\nDecompressions:                            209877125.\nCompressions:                              258452002.\nPageins:                                    81731861.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:39.239Z",
+      "logicalCPUs": 10,
+      "load": [
+        3.10595703125,
+        3.39892578125,
+        4.38134765625
+      ],
+      "freeMemoryBytes": 107462656,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 417136640,
+      "cpuTimes": {
+        "user": 415694860,
+        "nice": 0,
+        "sys": 216921620,
+        "idle": 2704964800,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142576,
+          "cpuPercent": 0.3
+        }
+      ],
+      "ownedRSSBytes": 145997824,
+      "systemRSSBytes": 17443602432,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     7514.\nPages active:                                 356588.\nPages inactive:                               355501.\nPages speculative:                               226.\nPages throttled:                                   0.\nPages wired down:                             191266.\nPages purgeable:                                 454.\n\"Translation faults\":                     2959243483.\nPages copy-on-write:                       125958921.\nPages zero filled:                        1648034431.\nPages reactivated:                         289186356.\nPages purged:                               35121020.\nFile-backed pages:                            219961.\nAnonymous pages:                              492354.\nPages stored in compressor:                  1030476.\nPages occupied by compressor:                 608489.\nDecompressions:                            209877299.\nCompressions:                              258452002.\nPageins:                                    81731865.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:40.241Z",
+      "logicalCPUs": 10,
+      "load": [
+        3.10595703125,
+        3.39892578125,
+        4.38134765625
+      ],
+      "freeMemoryBytes": 100040704,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 417480704,
+      "cpuTimes": {
+        "user": 415697210,
+        "nice": 0,
+        "sys": 216921860,
+        "idle": 2704972200,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142576,
+          "cpuPercent": 0
+        }
+      ],
+      "ownedRSSBytes": 145997824,
+      "systemRSSBytes": 17459134464,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     7028.\nPages active:                                 356443.\nPages inactive:                               356210.\nPages speculative:                               226.\nPages throttled:                                   0.\nPages wired down:                             191456.\nPages purgeable:                                 454.\n\"Translation faults\":                     2959247078.\nPages copy-on-write:                       125959114.\nPages zero filled:                        1648036256.\nPages reactivated:                         289186356.\nPages purged:                               35121020.\nFile-backed pages:                            219966.\nAnonymous pages:                              492913.\nPages stored in compressor:                  1029901.\nPages occupied by compressor:                 608221.\nDecompressions:                            209877870.\nCompressions:                              258452002.\nPageins:                                    81731869.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:41.243Z",
+      "logicalCPUs": 10,
+      "load": [
+        3.10595703125,
+        3.39892578125,
+        4.38134765625
+      ],
+      "freeMemoryBytes": 95207424,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 417497088,
+      "cpuTimes": {
+        "user": 415699420,
+        "nice": 0,
+        "sys": 216922080,
+        "idle": 2704979780,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142608,
+          "cpuPercent": 0.7
+        }
+      ],
+      "ownedRSSBytes": 146030592,
+      "systemRSSBytes": 17478778880,
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     7118.\nPages active:                                 358597.\nPages inactive:                               356339.\nPages speculative:                               231.\nPages throttled:                                   0.\nPages wired down:                             189348.\nPages purgeable:                                1810.\n\"Translation faults\":                     2959252713.\nPages copy-on-write:                       125959295.\nPages zero filled:                        1648039011.\nPages reactivated:                         289186356.\nPages purged:                               35121020.\nFile-backed pages:                            220033.\nAnonymous pages:                              495134.\nPages stored in compressor:                  1029167.\nPages occupied by compressor:                 607951.\nDecompressions:                            209878609.\nCompressions:                              258452002.\nPageins:                                    81731902.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:42.245Z",
+      "logicalCPUs": 10,
+      "load": [
+        3.10595703125,
+        3.39892578125,
+        4.38134765625
+      ],
+      "freeMemoryBytes": 87425024,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 417726464,
+      "cpuTimes": {
+        "user": 415701470,
+        "nice": 0,
+        "sys": 216922270,
+        "idle": 2704987520,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142608,
+          "cpuPercent": 0.4
+        }
+      ],
+      "ownedRSSBytes": 146030592,
+      "systemRSSBytes": 17524588544,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     6263.\nPages active:                                 359565.\nPages inactive:                               357188.\nPages speculative:                               231.\nPages throttled:                                   0.\nPages wired down:                             189348.\nPages purgeable:                                1426.\n\"Translation faults\":                     2959258626.\nPages copy-on-write:                       125959466.\nPages zero filled:                        1648040488.\nPages reactivated:                         289186356.\nPages purged:                               35121020.\nFile-backed pages:                            220036.\nAnonymous pages:                              496948.\nPages stored in compressor:                  1027078.\nPages occupied by compressor:                 606989.\nDecompressions:                            209880713.\nCompressions:                              258452002.\nPageins:                                    81731907.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:43.247Z",
+      "logicalCPUs": 10,
+      "load": [
+        3.65771484375,
+        3.50830078125,
+        4.4140625
+      ],
+      "freeMemoryBytes": 81723392,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 417726464,
+      "cpuTimes": {
+        "user": 415703830,
+        "nice": 0,
+        "sys": 216922490,
+        "idle": 2704994910,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142608,
+          "cpuPercent": 0.3
+        }
+      ],
+      "ownedRSSBytes": 146030592,
+      "systemRSSBytes": 17525014528,
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     6033.\nPages active:                                 359056.\nPages inactive:                               357362.\nPages speculative:                               652.\nPages throttled:                                   0.\nPages wired down:                             189507.\nPages purgeable:                                 740.\n\"Translation faults\":                     2959266638.\nPages copy-on-write:                       125959759.\nPages zero filled:                        1648043242.\nPages reactivated:                         289186360.\nPages purged:                               35121020.\nFile-backed pages:                            220453.\nAnonymous pages:                              496617.\nPages stored in compressor:                  1027028.\nPages occupied by compressor:                 606974.\nDecompressions:                            209880764.\nCompressions:                              258452002.\nPageins:                                    81732547.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:44.249Z",
+      "logicalCPUs": 10,
+      "load": [
+        3.65771484375,
+        3.50830078125,
+        4.4140625
+      ],
+      "freeMemoryBytes": 73170944,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 418037760,
+      "cpuTimes": {
+        "user": 415705980,
+        "nice": 0,
+        "sys": 216922730,
+        "idle": 2705002510,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142608,
+          "cpuPercent": 0.9
+        }
+      ],
+      "ownedRSSBytes": 146030592,
+      "systemRSSBytes": 17531338752,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5343.\nPages active:                                 358883.\nPages inactive:                               357337.\nPages speculative:                               457.\nPages throttled:                                   0.\nPages wired down:                             190766.\nPages purgeable:                                 431.\n\"Translation faults\":                     2959269636.\nPages copy-on-write:                       125959955.\nPages zero filled:                        1648046738.\nPages reactivated:                         289186360.\nPages purged:                               35121499.\nFile-backed pages:                            220059.\nAnonymous pages:                              496618.\nPages stored in compressor:                  1026708.\nPages occupied by compressor:                 606798.\nDecompressions:                            209881087.\nCompressions:                              258452002.\nPageins:                                    81732575.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:45.251Z",
+      "logicalCPUs": 10,
+      "load": [
+        3.65771484375,
+        3.50830078125,
+        4.4140625
+      ],
+      "freeMemoryBytes": 75481088,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 418070528,
+      "cpuTimes": {
+        "user": 415708290,
+        "nice": 0,
+        "sys": 216922910,
+        "idle": 2705010020,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142608,
+          "cpuPercent": 0.1
+        }
+      ],
+      "ownedRSSBytes": 146030592,
+      "systemRSSBytes": 17533190144,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5311.\nPages active:                                 359446.\nPages inactive:                               357829.\nPages speculative:                               457.\nPages throttled:                                   0.\nPages wired down:                             189757.\nPages purgeable:                                 439.\n\"Translation faults\":                     2959271755.\nPages copy-on-write:                       125960132.\nPages zero filled:                        1648048129.\nPages reactivated:                         289186360.\nPages purged:                               35121499.\nFile-backed pages:                            220059.\nAnonymous pages:                              497673.\nPages stored in compressor:                  1026667.\nPages occupied by compressor:                 606784.\nDecompressions:                            209881128.\nCompressions:                              258452002.\nPageins:                                    81732579.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:46.253Z",
+      "logicalCPUs": 10,
+      "load": [
+        3.65771484375,
+        3.50830078125,
+        4.4140625
+      ],
+      "freeMemoryBytes": 84787200,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 418086912,
+      "cpuTimes": {
+        "user": 415710590,
+        "nice": 0,
+        "sys": 216923130,
+        "idle": 2705017480,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 142608,
+          "cpuPercent": 0
+        }
+      ],
+      "ownedRSSBytes": 146030592,
+      "systemRSSBytes": 17569054720,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 47%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     6197.\nPages active:                                 359716.\nPages inactive:                               358044.\nPages speculative:                               450.\nPages throttled:                                   0.\nPages wired down:                             189612.\nPages purgeable:                                   2.\n\"Translation faults\":                     2959277647.\nPages copy-on-write:                       125960302.\nPages zero filled:                        1648050549.\nPages reactivated:                         289186362.\nPages purged:                               35121967.\nFile-backed pages:                            219702.\nAnonymous pages:                              498508.\nPages stored in compressor:                  1024274.\nPages occupied by compressor:                 605565.\nDecompressions:                            209883632.\nCompressions:                              258452112.\nPageins:                                    81732583.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:47.254Z",
+      "logicalCPUs": 10,
+      "load": [
+        3.65771484375,
+        3.50830078125,
+        4.4140625
+      ],
+      "freeMemoryBytes": 96370688,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 417955840,
+      "cpuTimes": {
+        "user": 415712370,
+        "nice": 0,
+        "sys": 216923750,
+        "idle": 2705025040,
+        "irq": 0
+      },
+      "ownedProcesses": [
+        {
+          "pid": 76481,
+          "pgid": 76481,
+          "rssKiB": 144128,
+          "cpuPercent": 0.7
+        }
+      ],
+      "ownedRSSBytes": 147587072,
+      "systemRSSBytes": 16455614464,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    56478.\nPages active:                                 327537.\nPages inactive:                               325988.\nPages speculative:                               747.\nPages throttled:                                   0.\nPages wired down:                             199112.\nPages purgeable:                                  18.\n\"Translation faults\":                     2959283989.\nPages copy-on-write:                       125960462.\nPages zero filled:                        1648061975.\nPages reactivated:                         289191235.\nPages purged:                               35123329.\nFile-backed pages:                            219761.\nAnonymous pages:                              434511.\nPages stored in compressor:                  1032527.\nPages occupied by compressor:                 609722.\nDecompressions:                            209884693.\nCompressions:                              258462035.\nPageins:                                    81732869.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    },
+    {
+      "at": "2026-10-18T15:22:47.287Z",
+      "logicalCPUs": 10,
+      "load": [
+        3.65771484375,
+        3.50830078125,
+        4.4140625
+      ],
+      "freeMemoryBytes": 1029603328,
+      "totalMemoryBytes": 25769803776,
+      "supervisorRSSBytes": 417972224,
+      "cpuTimes": {
+        "user": 415712430,
+        "nice": 0,
+        "sys": 216923860,
+        "idle": 2705025190,
+        "irq": 0
+      },
+      "ownedProcesses": [],
+      "ownedRSSBytes": 0,
+      "systemRSSBytes": 16255729664,
+      "memoryPressure": "The system has 25769803776 (1572864 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "vm.swapusage: total = 8192.00M  used = 6726.31M  free = 1465.69M  (encrypted)",
+      "vmStatistics": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    63172.\nPages active:                                 324908.\nPages inactive:                               323534.\nPages speculative:                               769.\nPages throttled:                                   0.\nPages wired down:                             198441.\nPages purgeable:                                  10.\n\"Translation faults\":                     2959288784.\nPages copy-on-write:                       125960554.\nPages zero filled:                        1648063195.\nPages reactivated:                         289191235.\nPages purged:                               35123329.\nFile-backed pages:                            219581.\nAnonymous pages:                              429630.\nPages stored in compressor:                  1029972.\nPages occupied by compressor:                 608760.\nDecompressions:                            209886747.\nCompressions:                              258462035.\nPageins:                                    81732882.\nPageouts:                                     132091.\nSwapins:                                     2493724.\nSwapouts:                                    3570999.",
+      "swapUsedBytes": 7053047234.56,
+      "swapCounters": {
+        "Swapins": 2493724,
+        "Swapouts": 3570999
+      }
+    }
+  ],
+  "result": {
+    "code": 0,
+    "signal": null
+  },
+  "signalErrors": [],
+  "ownershipErrors": [],
+  "serverGroups": [],
+  "settled": true
+}

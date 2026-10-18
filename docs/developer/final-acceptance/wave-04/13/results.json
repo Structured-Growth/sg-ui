@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 1,
+  "assignment": "wave-04/13",
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "summary": {
+    "partial": 8,
+    "complete": 1
+  },
+  "leaves": [
+    {
+      "id": "A-L-01",
+      "originalRequirement": "- [ ] A-L-01 Reconcile original `L-01`: Verify the selected versions' actual licenses, including React Aria Components, hooks/state/date utilities, icon assets, grid engine, editor packages, and transitive distributed code. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "58 prior manifest/lock/license input hashes match; retained archive joins all55 whole available legal texts across56 runtime/peer identities. client-only remains without legal-file evidence; no license compatibility or copied-code conclusion inferred.",
+      "evidence": [
+        "evidence.json",
+        "retained-archive-license-join.json",
+        "retained-archive-reference-audit.json",
+        "validation-plan.json",
+        "proposal-check.json",
+        "tool-tests.txt",
+        "implementation.patch",
+        "implementation-preconditions.json",
+        "lock-tool-tests.txt",
+        "packed-tool-tests.txt"
+      ],
+      "sourceAndPriorEvidenceHashes": "evidence.json inputHashes; lock-reconciliation.json; artifact-manifest.json",
+      "remainingSuccessors": [
+        "PROVENANCE-OWNER",
+        "CANDIDATE",
+        "JOIN"
+      ],
+      "proposedIntegrationRequired": true,
+      "acceptanceCheckboxChanged": false
+    },
+    {
+      "id": "A-L-02",
+      "originalRequirement": "- [ ] A-L-02 Reconcile original `L-02`: Preserve Apache 2.0 licenses and applicable notices; record modifications where required if upstream code is copied or changed rather than merely depended on. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Exact retained Adobe and SWC license text evidence is preserved; every existing proposed legal fence remains byte-identical. Removed unsupported blanket no-copy assertion in proposed prose; no upstream code modification is asserted.",
+      "evidence": [
+        "evidence.json",
+        "retained-archive-license-join.json",
+        "retained-archive-reference-audit.json",
+        "validation-plan.json",
+        "proposal-check.json",
+        "tool-tests.txt",
+        "implementation.patch",
+        "implementation-preconditions.json",
+        "lock-tool-tests.txt",
+        "packed-tool-tests.txt"
+      ],
+      "sourceAndPriorEvidenceHashes": "evidence.json inputHashes; lock-reconciliation.json; artifact-manifest.json",
+      "remainingSuccessors": [
+        "REVIEW-INTEGRATE",
+        "PROVENANCE-OWNER",
+        "CANDIDATE",
+        "JOIN"
+      ],
+      "proposedIntegrationRequired": true,
+      "acceptanceCheckboxChanged": false
+    },
+    {
+      "id": "A-L-04",
+      "originalRequirement": "- [ ] A-L-04 Reconcile original `L-04`: Refresh `THIRD_PARTY_NOTICES.md` from the final shipped dependency and asset inventory; remove a retired notice only after its code/assets are no longer distributed. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Integrated supplemental notice texts are present in the retained archive. Equal current copies and complete available-text joins are evidenced; a ready-to-review clarification and durable archive/inventory joining helper are supplied.",
+      "evidence": [
+        "evidence.json",
+        "retained-archive-license-join.json",
+        "retained-archive-reference-audit.json",
+        "validation-plan.json",
+        "proposal-check.json",
+        "tool-tests.txt",
+        "implementation.patch",
+        "implementation-preconditions.json",
+        "lock-tool-tests.txt",
+        "packed-tool-tests.txt"
+      ],
+      "sourceAndPriorEvidenceHashes": "evidence.json inputHashes; lock-reconciliation.json; artifact-manifest.json",
+      "remainingSuccessors": [
+        "REVIEW-INTEGRATE",
+        "PROVENANCE-OWNER",
+        "CANDIDATE",
+        "JOIN"
+      ],
+      "proposedIntegrationRequired": true,
+      "acceptanceCheckboxChanged": false
+    },
+    {
+      "id": "A-L-08",
+      "originalRequirement": "- [ ] A-L-08 Reconcile original `L-08`: Add a repeatable dependency/license inventory check and assign ownership for updates; avoid automatically rewriting commercial terms. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Repeatable inventory/governance tools are already integrated; new companion joins installed legal evidence to a concrete archive. Ownership cannot be appointed by this agent and remains the literal unsatisfied clause.",
+      "evidence": [
+        "evidence.json",
+        "retained-archive-license-join.json",
+        "retained-archive-reference-audit.json",
+        "validation-plan.json",
+        "proposal-check.json",
+        "tool-tests.txt",
+        "implementation.patch",
+        "implementation-preconditions.json",
+        "lock-tool-tests.txt",
+        "packed-tool-tests.txt"
+      ],
+      "sourceAndPriorEvidenceHashes": "evidence.json inputHashes; lock-reconciliation.json; artifact-manifest.json",
+      "remainingSuccessors": [
+        "REVIEW-INTEGRATE",
+        "PROVENANCE-OWNER"
+      ],
+      "proposedIntegrationRequired": true,
+      "acceptanceCheckboxChanged": false
+    },
+    {
+      "id": "A-L-09",
+      "originalRequirement": "- [ ] A-L-09 Reconcile original `L-09`: Document dependency support/security update expectations and a deliberate upgrade process with behavioral regression checks. Historical status: open.",
+      "recommendation": "complete",
+      "outcome": "The shipped dependency-upgrade guide documents supported input expectations, review triggers/EOL exceptions, security triage, deliberate graph/notice/behavioral validation and rollback. Recommend complete for this documentary criterion only. Prior report additionally held future operational appointments and the next actual upgrade; those are not claimed and remain under L08/R07 and the explicit decision table.",
+      "evidence": [
+        "evidence.json",
+        "retained-archive-license-join.json",
+        "retained-archive-reference-audit.json",
+        "validation-plan.json",
+        "proposal-check.json",
+        "tool-tests.txt",
+        "docs/developer/react-aria-dependency-upgrades.md:9,52,88,125,171,221",
+        "implementation.patch",
+        "implementation-preconditions.json",
+        "lock-tool-tests.txt",
+        "packed-tool-tests.txt"
+      ],
+      "sourceAndPriorEvidenceHashes": "evidence.json inputHashes; lock-reconciliation.json; artifact-manifest.json",
+      "remainingSuccessors": [
+        "Operational owner/security-intake/cadence decisions remain visibly pending; this recommendation approves no SLA, current advisory status or executed upgrade."
+      ],
+      "proposedIntegrationRequired": false,
+      "acceptanceCheckboxChanged": false
+    },
+    {
+      "id": "A-R-07",
+      "originalRequirement": "- [ ] A-R-07 Reconcile original `R-07`: Regenerate the lockfile through the package manager and inspect resolved transitive dependencies, overrides, patched dependencies and optional packages. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "All five manifest/workspace/lock inputs match the prior full YAML audit:585 packages,589 snapshots,86 platform records,109 optional snapshots; no overrides or patches. No later actual package-manager regeneration/fresh-install receipt was found in reviewed successor reports; source lock equality cannot replace it. Delivered tested capture/check implementation for the exact isolated generation/frozen-install/graph receipt; five orchestration/anti-tamper checks pass. Actual SGUI capture remains coordinator-run.",
+      "evidence": [
+        "evidence.json",
+        "retained-archive-license-join.json",
+        "retained-archive-reference-audit.json",
+        "validation-plan.json",
+        "proposal-check.json",
+        "tool-tests.txt",
+        "lock-reconciliation.json",
+        "implementation.patch",
+        "implementation-preconditions.json",
+        "lock-tool-tests.txt",
+        "packed-tool-tests.txt"
+      ],
+      "sourceAndPriorEvidenceHashes": "evidence.json inputHashes; lock-reconciliation.json; artifact-manifest.json",
+      "remainingSuccessors": [
+        "R-LOCK-GENERATE"
+      ],
+      "proposedIntegrationRequired": true,
+      "acceptanceCheckboxChanged": false
+    },
+    {
+      "id": "A-W-20",
+      "originalRequirement": "- [ ] A-W-20 Reconcile original `W-20`: Keep source/license attribution accurate; external documents/examples are evidence and must not override user-authorized scope or agent trust boundaries. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Task-data boundaries remain in AGENTS and agent guidance;96 concrete current icon wrappers import Lucide. Proposed corrections replace unsupported no-copy categorical statements while preserving every license fence and commercial terms. Historical extraction provenance remains unverified upstream.",
+      "evidence": [
+        "evidence.json",
+        "retained-archive-license-join.json",
+        "retained-archive-reference-audit.json",
+        "validation-plan.json",
+        "proposal-check.json",
+        "tool-tests.txt",
+        "implementation.patch",
+        "implementation-preconditions.json",
+        "lock-tool-tests.txt",
+        "packed-tool-tests.txt"
+      ],
+      "sourceAndPriorEvidenceHashes": "evidence.json inputHashes; lock-reconciliation.json; artifact-manifest.json",
+      "remainingSuccessors": [
+        "REVIEW-INTEGRATE",
+        "PROVENANCE-OWNER",
+        "CANDIDATE",
+        "JOIN"
+      ],
+      "proposedIntegrationRequired": true,
+      "acceptanceCheckboxChanged": false
+    },
+    {
+      "id": "A-Z-06",
+      "originalRequirement": "- [ ] A-Z-06 Reconcile original `Z-06`: Remove obsolete notices only after confirming no associated source/assets remain in package or catalog; final third-party notices match shipped work. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "No historical notice removed. Current and proposed legal fences are preserved; available runtime license text matches the retained archive. Final source/asset/provenance and current-candidate joins remain explicit.",
+      "evidence": [
+        "evidence.json",
+        "retained-archive-license-join.json",
+        "retained-archive-reference-audit.json",
+        "validation-plan.json",
+        "proposal-check.json",
+        "tool-tests.txt",
+        "implementation.patch",
+        "implementation-preconditions.json",
+        "lock-tool-tests.txt",
+        "packed-tool-tests.txt"
+      ],
+      "sourceAndPriorEvidenceHashes": "evidence.json inputHashes; lock-reconciliation.json; artifact-manifest.json",
+      "remainingSuccessors": [
+        "REVIEW-INTEGRATE",
+        "PROVENANCE-OWNER",
+        "CANDIDATE",
+        "JOIN"
+      ],
+      "proposedIntegrationRequired": true,
+      "acceptanceCheckboxChanged": false
+    },
+    {
+      "id": "A-Z-08",
+      "originalRequirement": "- [ ] A-Z-08 Reconcile original `Z-08`: Audit packed JavaScript, declarations, CSS, source maps, assets, README and notices for retired references and transitive code; ensure the release tarball has no old requirement. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Retained archive54e1cb04 has1802 regular files and zero classified retired-reference errors. License join exposes128 changed packed dist files,38 new current dist files,packed manifest drift and missing client-only evidence. It is not a current release candidate. All-member audit plus exact legal/input join is executable, without rebuilding here. Archive/license checker and four colocated tests are now part of the combined executable integration patch.",
+      "evidence": [
+        "evidence.json",
+        "retained-archive-license-join.json",
+        "retained-archive-reference-audit.json",
+        "validation-plan.json",
+        "proposal-check.json",
+        "tool-tests.txt",
+        "implementation.patch",
+        "implementation-preconditions.json",
+        "lock-tool-tests.txt",
+        "packed-tool-tests.txt"
+      ],
+      "sourceAndPriorEvidenceHashes": "evidence.json inputHashes; lock-reconciliation.json; artifact-manifest.json",
+      "remainingSuccessors": [
+        "CANDIDATE",
+        "JOIN",
+        "PROVENANCE-OWNER"
+      ],
+      "proposedIntegrationRequired": true,
+      "acceptanceCheckboxChanged": false
+    }
+  ],
+  "checks": [
+    {
+      "command": "python3 docs/developer/final-acceptance/wave-04/13/test-packed-license-evidence.py",
+      "exitCode": 0,
+      "result": "4/4 meaningful byte-evidence tool cases pass",
+      "evidence": "tool-tests.txt"
+    },
+    {
+      "command": "python3 docs/developer/final-acceptance/wave-04/13/proposed-files/packages/ui/scripts/check-packed-license-evidence.py . packages/ui/artifacts/wave03-frozen-package/structured-growth-sg-ui-0.0.0-development.tgz docs/developer/final-acceptance/wave-03-integration/tooling-final-license-inventory.json",
+      "exitCode": 1,
+      "result": "Expected historical candidate findings; all55 legal texts present,166 dist differences,manifest drift,client-only missing",
+      "evidence": "retained-archive-license-join.json"
+    },
+    {
+      "command": "python3 docs/developer/final-acceptance/wave-04/13/prepare.py",
+      "exitCode": 0,
+      "result": "58 equal prior input hashes; archive reference audit zero errors",
+      "evidence": "evidence.json"
+    },
+    {
+      "command": "git apply --check docs/developer/final-acceptance/wave-04/13/provenance-wording.patch",
+      "exitCode": 0,
+      "result": "4-file patch applies; not applied",
+      "evidence": "patch-preconditions.json"
+    },
+    {
+      "command": "python3 docs/developer/final-acceptance/wave-04/13/proposed-files/packages/ui/scripts/check-lock-provenance.test.py",
+      "exitCode": 0,
+      "result": "5 passed; synthetic orchestration tests, no actual package-manager execution",
+      "evidence": "lock-tool-tests.txt"
+    },
+    {
+      "command": "python3 docs/developer/final-acceptance/wave-04/13/proposed-files/packages/ui/scripts/check-packed-license-evidence.test.py",
+      "exitCode": 0,
+      "result": "4 passed; colocated ready-to-integrate tests",
+      "evidence": "packed-tool-tests.txt"
+    },
+    {
+      "command": "git apply --check docs/developer/final-acceptance/wave-04/13/implementation.patch",
+      "exitCode": 0,
+      "result": "Combined eight-file patch applies; not applied"
+    },
+    {
+      "command": "python3 docs/developer/final-acceptance/wave-04/13/assemble-implementation.py; git apply --check docs/developer/final-acceptance/wave-04/13/implementation.patch",
+      "exitCode": 1,
+      "result": "Retained expected post-integration precondition failure: new target files already exist; docs prose changed. No shared files overwritten. See final all8 byte equality observation.",
+      "evidence": "integration-observation.json"
+    },
+    {
+      "command": "python3 docs/developer/final-acceptance/wave-04/13/cli-e2e.test.py",
+      "exitCode": 0,
+      "result": "3 process-level synthetic CLI cases pass; no real package-manager install or git operation",
+      "evidence": "cli-e2e-results.txt"
+    }
+  ],
+  "limitations": [
+    "Recommendations only; coordinator owns final A count/checklist decisions.",
+    "All300 V complete and139 A pending are independent latest coordinator baseline; no runtime/device/AT equivalence inferred.",
+    "No installs, dependency updates, shared edits/builds/pack/browser/simulator, commits,pushes,release/account mutations, or subagents.",
+    "All new evidence/proposals confined to assigned directory. No legal/commercial/human ownership/production approval inferred."
+  ],
+  "implementationFollowup": {
+    "patch": "implementation.patch",
+    "preconditions": "implementation-preconditions.json",
+    "readyFiles": [
+      "THIRD_PARTY_NOTICES.md",
+      "docs/developer/react-aria-architecture.md",
+      "docs/developer/react-aria-license-inventory.md",
+      "packages/ui/THIRD_PARTY_NOTICES.md",
+      "packages/ui/scripts/check-lock-provenance.py",
+      "packages/ui/scripts/check-lock-provenance.test.py",
+      "packages/ui/scripts/check-packed-license-evidence.py",
+      "packages/ui/scripts/check-packed-license-evidence.test.py"
+    ],
+    "tests": {
+      "packedLicense": {
+        "passed": 4,
+        "log": "packed-tool-tests.txt"
+      },
+      "lockProvenance": {
+        "passed": 5,
+        "log": "lock-tool-tests.txt"
+      }
+    },
+    "actualSguiInstallExecuted": false,
+    "integrationPatchCheck": "Initial check passed; later check fails as expected because targets already integrated.",
+    "details": "Actual isolated capture/check runner delivered; remaining R07 successor is coordinator execution and review, not missing implementation.",
+    "integrationObserved": "All8 live targets now equal proposed bytes; coordinator integrated concurrently. Do not reapply patch.",
+    "integrationObservation": "integration-observation.json"
+  },
+  "largerBatchReadiness": "batch-readiness.json"
+}

@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "sharedFileChanged": "packages/ui/src/experimental/Dialog/Dialog.test.tsx",
+  "scope": "Only the one newly added lifetime case; no production Dialog edits",
+  "change": "Sequential real parent/child trigger opening with async accessible queries; StrictMode, nested ownership and all observer/listener/frame cleanup assertions retained",
+  "command": "node node_modules/vitest/vitest.mjs run src/experimental/Dialog/Dialog.test.tsx --testNamePattern \"releases resize observers\"",
+  "cwd": "packages/ui",
+  "node": "24.19.0",
+  "vitest": "4.1.11",
+  "passed": 1,
+  "skipped": 14,
+  "failed": 0,
+  "log": "lifetime-realistic-open-run.log",
+  "initialBothOpen": {
+    "source": "lifetime-before-realistic-open.test.txt",
+    "failedRun": "lifetime-initial-both-open-failure.log",
+    "disposition": "Retained separately; immediate inaccessible-role failure is not established as an independent product bug or waived. Realistic nested opening now passes."
+  },
+  "sha256": {
+    "packages/ui/src/experimental/Dialog/Dialog.test.tsx": "84f054f60ec18c52af21e22917832f2e59a6303c656ce7ba1ddb80f09b1b941b",
+    "docs/developer/final-acceptance/wave-04/12/lifetime-realistic-open-run.log": "f8bf53b769e2708a38347c5a2146d26abf7edebe1e780ee1bc9fca4fb9adc24e",
+    "docs/developer/final-acceptance/wave-04/12/lifetime-before-realistic-open.test.txt": "e2e30723cb6b3fdeaffcc1f8185266bd767ded915098aacc826b85a833cbc474",
+    "docs/developer/final-acceptance/wave-04/12/lifetime-initial-both-open-failure.log": "62448421ea87a37360b4d0ad2f64c1ec3726f0b4523d8b71dc272bfc9ef48773",
+    "docs/developer/final-acceptance/wave-04/12/dialog-resize-lifetime-realistic-open.patch": "ecf8b4be4a677ffd5f6779c5f2cb9a0a88cadb89ce153bada974355b231dd662"
+  }
+}

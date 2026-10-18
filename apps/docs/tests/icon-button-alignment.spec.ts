@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import {expect, test} from './fixtures';
 
 for (const hasTouch of [false, true]) test(`icon buttons center their icons at both densities (touch=${hasTouch})`, async ({browser, baseURL}) => {
   const context = await browser.newContext({baseURL, viewport:{width:1280,height:900}, hasTouch});

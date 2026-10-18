@@ -1,0 +1,57 @@
+{
+  "scope": "Coordinator only: integrate two mirrored files, merge calendar/progress methods from assigned owners, no installs/downloads/physical device. Each method is a separate serialized admission and immutable host.",
+  "prerequisites": [
+    "Review/apply apple-voiceover.patch against unchanged harness; --only accepts any test method identifier so separately owned methods can merge.",
+    "Use supported Node24; existing compiled private host must be admitted against source/package hash snapshot. Never use user3000. No fixture rebuild while admitted.",
+    "Existing canonical legacy/heavy leases must be free; never reclaim another owner lease. Existing installed Xcode27+/iOS27+ runtime only.",
+    "Run original Select first as capability check, then only the four new methods independently. Failed method alone is rerun after a concrete fix; keep all retained passes."
+  ],
+  "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+  "commands": [
+    {
+      "method": "testSafariSelectAndVoiceOverSpeech",
+      "command": "node tests/apple/run-simulator.mjs --only testSafariSelectAndVoiceOverSpeech --port 6183 --fixture-dir /ABSOLUTE/FROZEN/PRIVATE/HOST --output /ABSOLUTE/NEW/EVIDENCE/testSafariSelectAndVoiceOverSpeech",
+      "expected": "exit0; one selected method passes; attachments manifest includes actual speech for every stage; no source/host hash drift; prior device state restored"
+    },
+    {
+      "method": "testSafariDialogVoiceOverContextAndDismissal",
+      "command": "node tests/apple/run-simulator.mjs --only testSafariDialogVoiceOverContextAndDismissal --port 6183 --fixture-dir /ABSOLUTE/FROZEN/PRIVATE/HOST --output /ABSOLUTE/NEW/EVIDENCE/testSafariDialogVoiceOverContextAndDismissal",
+      "expected": "exit0; one selected method passes; attachments manifest includes actual speech for every stage; no source/host hash drift; prior device state restored"
+    },
+    {
+      "method": "testSafariNavigationVoiceOverCurrentAndExpandedState",
+      "command": "node tests/apple/run-simulator.mjs --only testSafariNavigationVoiceOverCurrentAndExpandedState --port 6183 --fixture-dir /ABSOLUTE/FROZEN/PRIVATE/HOST --output /ABSOLUTE/NEW/EVIDENCE/testSafariNavigationVoiceOverCurrentAndExpandedState",
+      "expected": "exit0; one selected method passes; attachments manifest includes actual speech for every stage; no source/host hash drift; prior device state restored"
+    },
+    {
+      "method": "testSafariTableVoiceOverReadingContext",
+      "command": "node tests/apple/run-simulator.mjs --only testSafariTableVoiceOverReadingContext --port 6183 --fixture-dir /ABSOLUTE/FROZEN/PRIVATE/HOST --output /ABSOLUTE/NEW/EVIDENCE/testSafariTableVoiceOverReadingContext",
+      "expected": "exit0; one selected method passes; attachments manifest includes actual speech for every stage; no source/host hash drift; prior device state restored"
+    },
+    {
+      "method": "testSafariEditorVoiceOverEditingAndReadOnly",
+      "command": "node tests/apple/run-simulator.mjs --only testSafariEditorVoiceOverEditingAndReadOnly --port 6183 --fixture-dir /ABSOLUTE/FROZEN/PRIVATE/HOST --output /ABSOLUTE/NEW/EVIDENCE/testSafariEditorVoiceOverEditingAndReadOnly",
+      "expected": "exit0; one selected method passes; attachments manifest includes actual speech for every stage; no source/host hash drift; prior device state restored"
+    }
+  ],
+  "bounds": {
+    "buildSeconds": 180,
+    "perTestXCTestSeconds": 300,
+    "selectedTestProcessWallSeconds": 360,
+    "attachmentExportSeconds": 60,
+    "parallelTesting": false,
+    "defaultMethod": "testSafariSelectAndVoiceOverSpeech"
+  },
+  "artifacts": [
+    "receipt.json with source/host before+after hashes and selected method/process results",
+    "result.xcresult, summary.log, attachments/manifest.json, actual speech text, XCTest diagnostic trees and screenshots",
+    "full failed logs and attachments; manual-review.json actual operator findings separately"
+  ],
+  "remaining": [
+    "Merge/run calendar owner method; keep progress/milestone speech as an extra representative slice.",
+    "Operator six-category manual usability review per manual-review.md; exact observed speech/platform/focus, no fabricated observations.",
+    "Target size/spacing exception audit and uncovered real touch flows; calendar/editor single-pointer non-drag equivalence.",
+    "A-P-07 cross-link zoom, dark/reduced-motion, keyboard and React18/19 executed hydration/production bundle receipts; actual browser zoom is not CSS enlargement."
+  ],
+  "limits": "No runtime execution in this assignment. Node syntax and Swift parsing do not SDK typecheck or validate assertions. Simulator is not a physical device. Automated speech is not manual review."
+}

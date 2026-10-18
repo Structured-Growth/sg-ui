@@ -1,0 +1,21 @@
+--- a/packages/ui/src/foundation/Tokens.next100-regression.test.mjs
++++ b/packages/ui/src/foundation/Tokens.next100-regression.test.mjs
+@@ -2,7 +2,17 @@
+ import assert from 'node:assert/strict';
+ import { readFile } from 'node:fs/promises';
+ import { compileTokens } from '../../scripts/tokens.mjs';
+-import { tokens, tokenTiers } from './tokens.generated.ts';
++import ts from 'typescript';
++
++// Node 22.12 has no default TypeScript loader. Compile the actual generated source
++// with the existing toolchain instead of relying on newer Node's type stripping.
++const generated = await readFile(new URL('./tokens.generated.ts', import.meta.url), 'utf8');
++const compiled = ts.transpileModule(generated, {
++  compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
++  reportDiagnostics: true,
++});
++assert.deepEqual(compiled.diagnostics, []);
++const { tokens, tokenTiers } = await import(`data:text/javascript;base64,${Buffer.from(compiled.outputText).toString('base64')}`);
+ 
+ test('disabled public references emit in both themes without mutating or leaking between compilations', async () => {
+   const source = JSON.parse(await readFile(new URL('./tokens.json', import.meta.url), 'utf8'));

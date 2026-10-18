@@ -1,0 +1,32 @@
+{
+  "files": [
+    "calendar-heading.spec.ts",
+    "calendar-options.spec.ts",
+    "calendar-presets.spec.ts",
+    "calendar-reference-layouts.spec.ts",
+    "date-range-responsive.spec.ts",
+    "dropdown-sizing.spec.ts",
+    "form-integrations.spec.ts",
+    "tab-indicator.spec.ts"
+  ],
+  "titles": [
+    "calendar: optional title keeps accessible naming and navigation shares month row",
+    "date-picker: optional title keeps accessible naming and navigation shares month row",
+    "date-range-selector: optional title keeps accessible naming and navigation shares month row",
+    "date-range-picker: optional title keeps accessible naming and navigation shares month row",
+    "range preset panel: 1 calendars, fixed/relative/custom choices and responsive draft ownership",
+    "presets after calendars preserve visual and keyboard order: ltr",
+    "presets after calendars preserve visual and keyboard order: rtl",
+    "host-supplied presets use a wide responsive dropdown: Compact density",
+    "host-supplied presets use a wide responsive dropdown: Comfortable density",
+    "optional endpoint fields use flexible text and preset rows support keyboard selection",
+    "Select keeps its longest-option width and ellipsizes a host-constrained value at 375px",
+    "Select keeps its longest-option width and ellipsizes a host-constrained value at 1280px",
+    "range dropdown with 2 calendars supports typed and picked endpoints",
+    "long authentication form scrolls to fields, action and footer",
+    "horizontal tab indicator slides at comfortable density",
+    "range preset panel: 2 calendars, fixed/relative/custom choices and responsive draft ownership"
+  ],
+  "source": "docs-02 remaining twelve, CI03 three additional cases, affected two-month preset continuation",
+  "retainedPassing": "docs-02/results.json:25 unchanged cases"
+}

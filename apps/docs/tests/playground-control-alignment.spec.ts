@@ -1,4 +1,4 @@
-import {expect, test} from '@playwright/test';
+import {expect, test} from './fixtures';
 
 for (const width of [1280,600,375]) for (const hasTouch of [false,true]) test(`playground checkboxes align with adjacent input boxes at ${width}px (touch=${hasTouch})`,async({browser,baseURL})=>{
   const context=await browser.newContext({baseURL,viewport:{width,height:1100},hasTouch});

@@ -1,0 +1,594 @@
+{
+  "config": {
+    "argv": [
+      "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native.config.cjs",
+      "calendar-compact-navigation"
+    ],
+    "configFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native.config.cjs",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native-25/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "*.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native-25/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "*.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native-25/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "*.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native-25/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "calendar-compact-navigation.spec.ts",
+      "file": "calendar-compact-navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "clean compact calendar has tight cells and aligned navigation without default scrolling",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1003,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T22:45:53.546Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "calendar-before",
+                      "contentType": "application/json",
+                      "body": "eyJoZWlnaHQiOjMyOC43OTY4NzUsImdyaWRzIjpbeyJoZWlnaHQiOjE2NC43OTY4NzUsInJvd3MiOlt7ImhlaWdodCI6MTYuNzk2ODc1LCJjZWxscyI6W3siaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9XX0seyJoZWlnaHQiOjI0LCJjZWxscyI6W3siaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MjQsImNlbGxzIjpbeyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19LHsiaGVpZ2h0IjoyNCwiY2VsbHMiOlt7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9XX0seyJoZWlnaHQiOjI0LCJjZWxscyI6W3siaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MjQsImNlbGxzIjpbeyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19XX1dfQ=="
+                    },
+                    {
+                      "name": "calendar-after",
+                      "contentType": "application/json",
+                      "body": "eyJoZWlnaHQiOjMyOC43OTY4NzUsImdyaWRzIjpbeyJoZWlnaHQiOjE2NC43OTY4NzUsInJvd3MiOlt7ImhlaWdodCI6MTYuNzk2ODc1LCJjZWxscyI6W3siaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9XX0seyJoZWlnaHQiOjI0LCJjZWxscyI6W3siaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MjQsImNlbGxzIjpbeyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19LHsiaGVpZ2h0IjoyNCwiY2VsbHMiOlt7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9XX0seyJoZWlnaHQiOjI0LCJjZWxscyI6W3siaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MjQsImNlbGxzIjpbeyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19XX1dfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c50ef722c64e7aa7cb4d-4e2d123401b64076bae0",
+          "file": "calendar-compact-navigation.spec.ts",
+          "line": 3,
+          "column": 48
+        },
+        {
+          "title": "clean comfortable calendar has tight cells and aligned navigation without default scrolling",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 807,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T22:45:55.111Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "calendar-before",
+                      "contentType": "application/json",
+                      "body": "eyJoZWlnaHQiOjQzNi43OTY4NzUsImdyaWRzIjpbeyJoZWlnaHQiOjIyNC43OTY4NzUsInJvd3MiOlt7ImhlaWdodCI6MTYuNzk2ODc1LCJjZWxscyI6W3siaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9XX0seyJoZWlnaHQiOjM2LCJjZWxscyI6W3siaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MzYsImNlbGxzIjpbeyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19LHsiaGVpZ2h0IjozNiwiY2VsbHMiOlt7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9XX0seyJoZWlnaHQiOjM2LCJjZWxscyI6W3siaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MzYsImNlbGxzIjpbeyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19XX1dfQ=="
+                    },
+                    {
+                      "name": "calendar-after",
+                      "contentType": "application/json",
+                      "body": "eyJoZWlnaHQiOjQzNi43OTY4NzUsImdyaWRzIjpbeyJoZWlnaHQiOjIyNC43OTY4NzUsInJvd3MiOlt7ImhlaWdodCI6MTYuNzk2ODc1LCJjZWxscyI6W3siaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9XX0seyJoZWlnaHQiOjM2LCJjZWxscyI6W3siaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MzYsImNlbGxzIjpbeyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19LHsiaGVpZ2h0IjozNiwiY2VsbHMiOlt7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9XX0seyJoZWlnaHQiOjM2LCJjZWxscyI6W3siaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MzYsImNlbGxzIjpbeyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19XX1dfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c50ef722c64e7aa7cb4d-ced600236b7dccb67e78",
+          "file": "calendar-compact-navigation.spec.ts",
+          "line": 3,
+          "column": 48
+        },
+        {
+          "title": "month paging slides in both directions, preserves one accessible grid and respects reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 987,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T22:45:55.924Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c50ef722c64e7aa7cb4d-d8771be65aa28fa4ce64",
+          "file": "calendar-compact-navigation.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "RTL month paging reverses the slide direction",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 287,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T22:45:56.919Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c50ef722c64e7aa7cb4d-7ad92f9942ce462ad461",
+          "file": "calendar-compact-navigation.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "clean compact calendar has tight cells and aligned navigation without default scrolling",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1000,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T22:45:57.541Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "calendar-before",
+                      "contentType": "application/json",
+                      "body": "eyJoZWlnaHQiOjMyOC43OTk5ODc3OTI5Njg3NSwiZ3JpZHMiOlt7ImhlaWdodCI6MTY0LjgwMDAwMzA1MTc1NzgsInJvd3MiOlt7ImhlaWdodCI6MTYuODAwMDAzMDUxNzU3ODEyLCJjZWxscyI6W3siaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9XX0seyJoZWlnaHQiOjI0LCJjZWxscyI6W3siaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MjQsImNlbGxzIjpbeyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19LHsiaGVpZ2h0IjoyNCwiY2VsbHMiOlt7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9XX0seyJoZWlnaHQiOjI0LCJjZWxscyI6W3siaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MjQsImNlbGxzIjpbeyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19XX1dfQ=="
+                    },
+                    {
+                      "name": "calendar-after",
+                      "contentType": "application/json",
+                      "body": "eyJoZWlnaHQiOjMyOC43OTk5ODc3OTI5Njg3NSwiZ3JpZHMiOlt7ImhlaWdodCI6MTY0LjgwMDAwMzA1MTc1NzgsInJvd3MiOlt7ImhlaWdodCI6MTYuODAwMDAzMDUxNzU3ODEyLCJjZWxscyI6W3siaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9XX0seyJoZWlnaHQiOjI0LCJjZWxscyI6W3siaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MjQsImNlbGxzIjpbeyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19LHsiaGVpZ2h0IjoyNCwiY2VsbHMiOlt7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9XX0seyJoZWlnaHQiOjI0LCJjZWxscyI6W3siaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MjQsImNlbGxzIjpbeyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19XX1dfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c50ef722c64e7aa7cb4d-0258748f0f102e728363",
+          "file": "calendar-compact-navigation.spec.ts",
+          "line": 3,
+          "column": 48
+        },
+        {
+          "title": "clean comfortable calendar has tight cells and aligned navigation without default scrolling",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 535,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T22:45:59.004Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "calendar-before",
+                      "contentType": "application/json",
+                      "body": "eyJoZWlnaHQiOjQzNi43OTk5ODc3OTI5Njg3NSwiZ3JpZHMiOlt7ImhlaWdodCI6MjI0LjgwMDAwMzA1MTc1NzgsInJvd3MiOlt7ImhlaWdodCI6MTYuODAwMDAzMDUxNzU3ODEyLCJjZWxscyI6W3siaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9XX0seyJoZWlnaHQiOjM2LCJjZWxscyI6W3siaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MzYsImNlbGxzIjpbeyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19LHsiaGVpZ2h0IjozNiwiY2VsbHMiOlt7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9XX0seyJoZWlnaHQiOjM2LCJjZWxscyI6W3siaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MzYsImNlbGxzIjpbeyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19XX1dfQ=="
+                    },
+                    {
+                      "name": "calendar-after",
+                      "contentType": "application/json",
+                      "body": "eyJoZWlnaHQiOjQzNi43OTk5ODc3OTI5Njg3NSwiZ3JpZHMiOlt7ImhlaWdodCI6MjI0LjgwMDAwMzA1MTc1NzgsInJvd3MiOlt7ImhlaWdodCI6MTYuODAwMDAzMDUxNzU3ODEyLCJjZWxscyI6W3siaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9LHsiaGVpZ2h0IjoxNi44MDAwMDMwNTE3NTc4MTIsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2LjhweCJ9XX0seyJoZWlnaHQiOjM2LCJjZWxscyI6W3siaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MzYsImNlbGxzIjpbeyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19LHsiaGVpZ2h0IjozNiwiY2VsbHMiOlt7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9XX0seyJoZWlnaHQiOjM2LCJjZWxscyI6W3siaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In1dfSx7ImhlaWdodCI6MzYsImNlbGxzIjpbeyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjNweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuM3B4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zcHgifV19XX1dfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c50ef722c64e7aa7cb4d-2ba3a8485a64f13a3128",
+          "file": "calendar-compact-navigation.spec.ts",
+          "line": 3,
+          "column": 48
+        },
+        {
+          "title": "month paging slides in both directions, preserves one accessible grid and respects reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 796,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T22:45:59.543Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c50ef722c64e7aa7cb4d-2ec7d4d359f83d513c6d",
+          "file": "calendar-compact-navigation.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "RTL month paging reverses the slide direction",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 244,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T22:46:00.343Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c50ef722c64e7aa7cb4d-13d4c501e6064ed9a41b",
+          "file": "calendar-compact-navigation.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "clean compact calendar has tight cells and aligned navigation without default scrolling",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 948,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T22:46:00.951Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "calendar-before",
+                      "contentType": "application/json",
+                      "body": "eyJoZWlnaHQiOjMyOC43OTY4NzUsImdyaWRzIjpbeyJoZWlnaHQiOjE2NC43OTY4NzUsInJvd3MiOlt7ImhlaWdodCI6MTYuNzk2ODc1LCJjZWxscyI6W3siaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2Ljc5OTk5OXB4In0seyJoZWlnaHQiOjE2Ljc5Njg3NSwiYWxpZ24iOiJtaWRkbGUiLCJsaW5lSGVpZ2h0IjoiMTYuNzk5OTk5cHgifSx7ImhlaWdodCI6MTYuNzk2ODc1LCJhbGlnbiI6Im1pZGRsZSIsImxpbmVIZWlnaHQiOiIxNi43OTk5OTlweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2Ljc5OTk5OXB4In0seyJoZWlnaHQiOjE2Ljc5Njg3NSwiYWxpZ24iOiJtaWRkbGUiLCJsaW5lSGVpZ2h0IjoiMTYuNzk5OTk5cHgifSx7ImhlaWdodCI6MTYuNzk2ODc1LCJhbGlnbiI6Im1pZGRsZSIsImxpbmVIZWlnaHQiOiIxNi43OTk5OTlweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2Ljc5OTk5OXB4In1dfSx7ImhlaWdodCI6MjQsImNlbGxzIjpbeyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9XX0seyJoZWlnaHQiOjI0LCJjZWxscyI6W3siaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifV19LHsiaGVpZ2h0IjoyNCwiY2VsbHMiOlt7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In1dfSx7ImhlaWdodCI6MjQsImNlbGxzIjpbeyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9XX0seyJoZWlnaHQiOjI0LCJjZWxscyI6W3siaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifV19XX1dfQ=="
+                    },
+                    {
+                      "name": "calendar-after",
+                      "contentType": "application/json",
+                      "body": "eyJoZWlnaHQiOjMyOC43OTY4NzUsImdyaWRzIjpbeyJoZWlnaHQiOjE2NC43OTY4NzUsInJvd3MiOlt7ImhlaWdodCI6MTYuNzk2ODc1LCJjZWxscyI6W3siaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2Ljc5OTk5OXB4In0seyJoZWlnaHQiOjE2Ljc5Njg3NSwiYWxpZ24iOiJtaWRkbGUiLCJsaW5lSGVpZ2h0IjoiMTYuNzk5OTk5cHgifSx7ImhlaWdodCI6MTYuNzk2ODc1LCJhbGlnbiI6Im1pZGRsZSIsImxpbmVIZWlnaHQiOiIxNi43OTk5OTlweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2Ljc5OTk5OXB4In0seyJoZWlnaHQiOjE2Ljc5Njg3NSwiYWxpZ24iOiJtaWRkbGUiLCJsaW5lSGVpZ2h0IjoiMTYuNzk5OTk5cHgifSx7ImhlaWdodCI6MTYuNzk2ODc1LCJhbGlnbiI6Im1pZGRsZSIsImxpbmVIZWlnaHQiOiIxNi43OTk5OTlweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2Ljc5OTk5OXB4In1dfSx7ImhlaWdodCI6MjQsImNlbGxzIjpbeyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9XX0seyJoZWlnaHQiOjI0LCJjZWxscyI6W3siaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifV19LHsiaGVpZ2h0IjoyNCwiY2VsbHMiOlt7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In1dfSx7ImhlaWdodCI6MjQsImNlbGxzIjpbeyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9XX0seyJoZWlnaHQiOjI0LCJjZWxscyI6W3siaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MjQsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjI0LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjoyNCwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifV19XX1dfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c50ef722c64e7aa7cb4d-42a3c3f53ef08792846f",
+          "file": "calendar-compact-navigation.spec.ts",
+          "line": 3,
+          "column": 48
+        },
+        {
+          "title": "clean comfortable calendar has tight cells and aligned navigation without default scrolling",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 759,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T22:46:02.106Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "calendar-before",
+                      "contentType": "application/json",
+                      "body": "eyJoZWlnaHQiOjQzNi43OTY4NzUsImdyaWRzIjpbeyJoZWlnaHQiOjIyNC43OTY4NzUsInJvd3MiOlt7ImhlaWdodCI6MTYuNzk2ODc1LCJjZWxscyI6W3siaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2Ljc5OTk5OXB4In0seyJoZWlnaHQiOjE2Ljc5Njg3NSwiYWxpZ24iOiJtaWRkbGUiLCJsaW5lSGVpZ2h0IjoiMTYuNzk5OTk5cHgifSx7ImhlaWdodCI6MTYuNzk2ODc1LCJhbGlnbiI6Im1pZGRsZSIsImxpbmVIZWlnaHQiOiIxNi43OTk5OTlweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2Ljc5OTk5OXB4In0seyJoZWlnaHQiOjE2Ljc5Njg3NSwiYWxpZ24iOiJtaWRkbGUiLCJsaW5lSGVpZ2h0IjoiMTYuNzk5OTk5cHgifSx7ImhlaWdodCI6MTYuNzk2ODc1LCJhbGlnbiI6Im1pZGRsZSIsImxpbmVIZWlnaHQiOiIxNi43OTk5OTlweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2Ljc5OTk5OXB4In1dfSx7ImhlaWdodCI6MzYsImNlbGxzIjpbeyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9XX0seyJoZWlnaHQiOjM2LCJjZWxscyI6W3siaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifV19LHsiaGVpZ2h0IjozNiwiY2VsbHMiOlt7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In1dfSx7ImhlaWdodCI6MzYsImNlbGxzIjpbeyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9XX0seyJoZWlnaHQiOjM2LCJjZWxscyI6W3siaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifV19XX1dfQ=="
+                    },
+                    {
+                      "name": "calendar-after",
+                      "contentType": "application/json",
+                      "body": "eyJoZWlnaHQiOjQzNi43OTY4NzUsImdyaWRzIjpbeyJoZWlnaHQiOjIyNC43OTY4NzUsInJvd3MiOlt7ImhlaWdodCI6MTYuNzk2ODc1LCJjZWxscyI6W3siaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2Ljc5OTk5OXB4In0seyJoZWlnaHQiOjE2Ljc5Njg3NSwiYWxpZ24iOiJtaWRkbGUiLCJsaW5lSGVpZ2h0IjoiMTYuNzk5OTk5cHgifSx7ImhlaWdodCI6MTYuNzk2ODc1LCJhbGlnbiI6Im1pZGRsZSIsImxpbmVIZWlnaHQiOiIxNi43OTk5OTlweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2Ljc5OTk5OXB4In0seyJoZWlnaHQiOjE2Ljc5Njg3NSwiYWxpZ24iOiJtaWRkbGUiLCJsaW5lSGVpZ2h0IjoiMTYuNzk5OTk5cHgifSx7ImhlaWdodCI6MTYuNzk2ODc1LCJhbGlnbiI6Im1pZGRsZSIsImxpbmVIZWlnaHQiOiIxNi43OTk5OTlweCJ9LHsiaGVpZ2h0IjoxNi43OTY4NzUsImFsaWduIjoibWlkZGxlIiwibGluZUhlaWdodCI6IjE2Ljc5OTk5OXB4In1dfSx7ImhlaWdodCI6MzYsImNlbGxzIjpbeyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9XX0seyJoZWlnaHQiOjM2LCJjZWxscyI6W3siaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifV19LHsiaGVpZ2h0IjozNiwiY2VsbHMiOlt7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In1dfSx7ImhlaWdodCI6MzYsImNlbGxzIjpbeyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9XX0seyJoZWlnaHQiOjM2LCJjZWxscyI6W3siaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifSx7ImhlaWdodCI6MzYsImFsaWduIjoidG9wIiwibGluZUhlaWdodCI6IjIwLjMwMDAwMXB4In0seyJoZWlnaHQiOjM2LCJhbGlnbiI6InRvcCIsImxpbmVIZWlnaHQiOiIyMC4zMDAwMDFweCJ9LHsiaGVpZ2h0IjozNiwiYWxpZ24iOiJ0b3AiLCJsaW5lSGVpZ2h0IjoiMjAuMzAwMDAxcHgifV19XX1dfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c50ef722c64e7aa7cb4d-7f49a72e4aa1d956b088",
+          "file": "calendar-compact-navigation.spec.ts",
+          "line": 3,
+          "column": 48
+        },
+        {
+          "title": "month paging slides in both directions, preserves one accessible grid and respects reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 516,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T22:46:02.870Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c50ef722c64e7aa7cb4d-407c139fca16298c3a3e",
+          "file": "calendar-compact-navigation.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "RTL month paging reverses the slide direction",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 335,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T22:46:03.393Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c50ef722c64e7aa7cb4d-80d7950dcd83571da009",
+          "file": "calendar-compact-navigation.spec.ts",
+          "line": 46,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T22:45:53.320Z",
+    "duration": 10445.145,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

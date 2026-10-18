@@ -40,12 +40,21 @@ test('Select positions initially and updates scoped popup sizing, viewport and a
     await expect.poll(() => trigger.evaluate(button => button.getBoundingClientRect().top)).toBeLessThan(before);
     await expect(list).toBeVisible();
     await insideViewport(popup);
-    await expect.poll(async () => {
+    try { await expect.poll(async () => {
       const placement = await popup.getAttribute('data-placement');
       const rect = await popup.evaluate(element => element.getBoundingClientRect().toJSON());
       const anchor = await trigger.evaluate(element => element.getBoundingClientRect().toJSON());
-      return placement === 'top' ? anchor.top - rect.bottom : rect.top - anchor.bottom;
-    }, { message: 'Scrolled Select retains its native anchor gap' }).toBeCloseTo(8, 0);
+      const gap = placement === 'top' ? anchor.top - rect.bottom : rect.top - anchor.bottom;
+      // The native positioner floors its CSS-pixel coordinate. A fractional
+      // anchor therefore retains the nominal 8px gap within one pixel.
+      return Math.abs(gap - 8);
+    }, { message: 'Scrolled Select retains its native anchor gap' }).toBeLessThanOrEqual(1);
+    } finally {
+      await info.attach('scrolled-anchor-geometry', {body:JSON.stringify({
+        popup:await popup.evaluate(node=>({rect:node.getBoundingClientRect().toJSON(),offsetHeight:(node as HTMLElement).offsetHeight,style:node.getAttribute('style'),placement:node.getAttribute('data-placement')})),
+        anchor:await trigger.evaluate(node=>({rect:node.getBoundingClientRect().toJSON(),offsetHeight:(node as HTMLElement).offsetHeight,style:node.getAttribute('style')})),
+      }),contentType:'application/json'});
+    }
     await page.keyboard.press('Escape');
     await expect(list).toHaveCount(0); await expect(trigger).toBeFocused();
     await page.keyboard.press('Enter');

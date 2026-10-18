@@ -1,5 +1,5 @@
 import {exampleName} from './example-name';
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 const transparent='rgba(0, 0, 0, 0) rgba(0, 0, 0, 0)';
 
 test('page and sidebar scroll thumbs remain visible during scrolling without hover or focus',async({page})=>{

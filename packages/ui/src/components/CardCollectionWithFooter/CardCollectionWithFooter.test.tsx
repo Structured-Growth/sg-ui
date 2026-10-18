@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, render, screen } from "@testing-library/react";
+import { act, cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useState } from "react";
 import { renderToString } from "react-dom/server";
@@ -105,4 +105,28 @@ describe("CardCollectionWithFooter", () => {
     expect(html).toContain("One");
     expect(html).toContain("1-2 of 3");
   });
+});
+
+it("reveals the whole focused card control after native scrolling and cancels on unmount", () => {
+  let frame: FrameRequestCallback | undefined;
+  const request = vi.spyOn(window, "requestAnimationFrame").mockImplementation(callback => { frame = callback; return 7; });
+  const cancel = vi.spyOn(window, "cancelAnimationFrame").mockImplementation(() => {});
+  try {
+    const { container, unmount } = render(<CardCollectionWithFooter {...defaults} renderCard={row => <input aria-label={row.label} />} />);
+    const port = container.querySelector<HTMLElement>('[data-sgui-part="card-collection-grid"]')!;
+    const control = screen.getByRole("textbox", { name: "One" });
+    Object.defineProperties(port, { clientTop: { value: 2 }, clientHeight: { value: 100 }, scrollHeight: { value: 500 } });
+    vi.spyOn(port, "getBoundingClientRect").mockReturnValue({ top: 100 } as DOMRect);
+    vi.spyOn(control, "getBoundingClientRect").mockReturnValue({ top: 170, bottom: 234, height: 64 } as DOMRect);
+    control.style.outlineStyle = "solid"; control.style.outlineWidth = "2px"; control.style.outlineOffset = "2px";
+    port.scrollTop = 50;
+    control.focus();
+    expect(port.scrollTop).toBe(50);
+    act(() => frame!(0));
+    expect(port.scrollTop).toBe(86);
+    expect(document.activeElement).toBe(control);
+    screen.getByRole("textbox", { name: "Two" }).focus();
+    unmount();
+    expect(cancel).toHaveBeenCalledWith(7);
+  } finally { request.mockRestore(); cancel.mockRestore(); }
 });

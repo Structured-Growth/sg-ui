@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-18",
+  "node": "v24.19.0",
+  "command": "pnpm exec vitest run src/components/AppDataGrid/ownedGridInteraction.test.tsx src/components/AppDataGrid/AppDataGrid.sectioned-lineage.test.tsx src/components/AppDataGrid/ownedGridColumns.test.ts",
+  "cwd": "packages/ui",
+  "passedCases": 39,
+  "passedFiles": 3,
+  "durationSeconds": 4.32,
+  "sourceSha256": {
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx": "54cffcf3491a0f74cf8833239ac414f95dcf5f2148dfd7040f89583dfd2fb7ee",
+    "packages/ui/src/components/AppDataGrid/AppDataGrid.sectioned-lineage.test.tsx": "f8e852812181f65dc8374eb703a1c1f1b36431ac4b688f5c745751edb8dcfa44",
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx": "27111468b259d5eff812bf24611b023c5188fa1ea7ba92795443a0588e32c022",
+    "packages/ui/src/components/AppDataGrid/ownedGridColumns.test.ts": "843ab60b9eec94d197434ae2d4fab82a592463192f08dfbe2eef7dd57675d52d"
+  },
+  "nativeReceipt": "native-06/execution.json",
+  "nativeScope": "Twelve current-target-sizes cases across Chromium/Firefox/WebKit; all passed, stable inputs/output."
+}

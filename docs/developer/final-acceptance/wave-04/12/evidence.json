@@ -1,0 +1,1454 @@
+{
+  "capturedAt": "2026-10-17T21:54:30.754922+00:00",
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "baselineMatches": true,
+  "priorLeaves": [
+    {
+      "id": "A-X-05",
+      "originalChecklistText": "- [ ] A-X-05 Reconcile original `X-05`: Ensure sticky headers/footers do not obscure focused controls; verify zoom/reflow/text-spacing behavior and scroll padding where needed. Historical status: open.",
+      "owner": 9,
+      "report": "docs/developer/final-acceptance/wave-03-09/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-09/results.json",
+      "reportSha256": "db57801395575cc03880ec54a5a5748900feffa7843748ef851b8fc4f42edfdf",
+      "resultsSha256": "9acb01ad3a130829d3960cc5d77577f9182130bb7dcf33e714b7ebc8cb86c484",
+      "status": "partial",
+      "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+      "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+    },
+    {
+      "id": "A-X-16",
+      "originalChecklistText": "- [ ] A-X-16 Reconcile original `X-16`: Test multiple independent component instances, nested themes/portals, stable IDs, React Strict Mode cleanup, and controlled/uncontrolled transitions. Historical status: open.",
+      "owner": 11,
+      "report": "docs/developer/final-acceptance/wave-03-11/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-11/results.json",
+      "reportSha256": "55f3d92f55bc22cf025a7f269d7da33a0c28c82d671f0617f9dc4e30910324c5",
+      "resultsSha256": "332442e00631e181e150031d2d2eef672f5f0ab90daf8dd7ecd16aba5119922e",
+      "status": "partial",
+      "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+      "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+    },
+    {
+      "id": "A-X-18",
+      "originalChecklistText": "- [ ] A-X-18 Reconcile original `X-18`: Add SSR render and hydration tests with no window/document at import time, no mismatched IDs, and correct initial locale/theme/date values. Historical status: checked.",
+      "owner": 11,
+      "report": "docs/developer/final-acceptance/wave-03-11/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-11/results.json",
+      "reportSha256": "55f3d92f55bc22cf025a7f269d7da33a0c28c82d671f0617f9dc4e30910324c5",
+      "resultsSha256": "332442e00631e181e150031d2d2eef672f5f0ab90daf8dd7ecd16aba5119922e",
+      "status": "partial",
+      "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+      "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+    },
+    {
+      "id": "A-X-06",
+      "originalChecklistText": "- [ ] A-X-06 Reconcile original `X-06`: Verify text/non-text contrast, visible focus, high contrast/forced colors, reduced motion, and state meaning beyond color. Historical status: open.",
+      "owner": 12,
+      "report": "docs/developer/final-acceptance/wave-03-12/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-12/results.json",
+      "reportSha256": "27afc955c97106c874f77fec855784a6911328698e2a902649f13daa0f34b0ed",
+      "resultsSha256": "45db7be9f0c42bc236e1d3a2461a5ea22907436a1f54070104817035e9daa83d",
+      "status": "partial",
+      "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+      "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+    },
+    {
+      "id": "A-X-04",
+      "originalChecklistText": "- [ ] A-X-04 Reconcile original `X-04`: Verify initial focus, return focus, focus after removal/reorder/update, trapped focus in modals, and nested-overlay dismissal ordering. Historical status: open.",
+      "owner": 14,
+      "report": "docs/developer/final-acceptance/wave-03-14/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-14/results.json",
+      "reportSha256": "215b3fc4004584b5b330dd5cd764e313566cbca5de5bba22eb31817f498a30a6",
+      "resultsSha256": "efdaddbbc78118d2e8bb66837a54f6ed0c3c4615c6258695be707ead37b3b0bc",
+      "status": "partial",
+      "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+      "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+    },
+    {
+      "id": "A-X-02",
+      "originalChecklistText": "- [ ] A-X-02 Reconcile original `X-02`: Define keyboard contracts and verify Tab/Shift+Tab, arrows, Home/End, Enter/Space, Escape, and typeahead where appropriate. Historical status: open.",
+      "owner": 19,
+      "report": "docs/developer/final-acceptance/wave-03-19/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-19/results.json",
+      "reportSha256": "216897b1cdf302e967197a532e6ac4b6a2c33cfa0c689a5119eca4a6d64283b3",
+      "resultsSha256": "b0dbc87259685863924d767a0a465cc741ec79e5948e4f67f33ff69de91debf9",
+      "status": "partial",
+      "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+      "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+    },
+    {
+      "id": "A-X-03",
+      "originalChecklistText": "- [ ] A-X-03 Reconcile original `X-03`: Verify accessible names/descriptions, roles, state announcements, validation, heading hierarchy, landmarks, and native form semantics. Historical status: open.",
+      "owner": 19,
+      "report": "docs/developer/final-acceptance/wave-03-19/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-19/results.json",
+      "reportSha256": "216897b1cdf302e967197a532e6ac4b6a2c33cfa0c689a5119eca4a6d64283b3",
+      "resultsSha256": "b0dbc87259685863924d767a0a465cc741ec79e5948e4f67f33ff69de91debf9",
+      "status": "partial",
+      "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+      "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+    },
+    {
+      "id": "A-X-09",
+      "originalChecklistText": "- [ ] A-X-09 Reconcile original `X-09`: Test real browser interaction, including pointer/touch, focus, layout, portals and clipboard; DOM-emulation tests alone are insufficient. Historical status: open.",
+      "owner": 29,
+      "report": "docs/developer/final-acceptance/wave-03-29/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-29/results.json",
+      "reportSha256": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+      "resultsSha256": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+      "status": "partial",
+      "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+      "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+    },
+    {
+      "id": "A-X-13",
+      "originalChecklistText": "- [ ] A-X-13 Reconcile original `X-13`: Add browser interaction stories/tests for all changed behavior; keep deterministic local fixtures and no authentication/database/network dependency. Historical status: open.",
+      "owner": 29,
+      "report": "docs/developer/final-acceptance/wave-03-29/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-29/results.json",
+      "reportSha256": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+      "resultsSha256": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+      "status": "partial",
+      "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+      "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+    },
+    {
+      "id": "A-X-15",
+      "originalChecklistText": "- [ ] A-X-15 Reconcile original `X-15`: Require deliberate review of screenshot changes; do not automatically accept new snapshots to silence regressions. Historical status: open.",
+      "owner": 29,
+      "report": "docs/developer/final-acceptance/wave-03-29/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-29/results.json",
+      "reportSha256": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+      "resultsSha256": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+      "status": "partial",
+      "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+      "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+    },
+    {
+      "id": "A-X-14",
+      "originalChecklistText": "- [ ] A-X-14 Reconcile original `X-14`: Add visual regression coverage for light/dark, density, narrow/wide containers, long/pseudo-localized labels, RTL, focus/error/loading/empty/selected states. Historical status: open.",
+      "owner": 30,
+      "report": "docs/developer/final-acceptance/wave-03-30/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-30/results.json",
+      "reportSha256": "bdb94d8cd0b7ef19b0284b7c421a051471935d31b13ba1152633675f0bd09592",
+      "resultsSha256": "6e59cf17b55e2fe1991b4fd0d785fbc6f614940923fb6fa546be6b685e2ee6c8",
+      "status": "partial",
+      "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+      "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+    },
+    {
+      "id": "A-X-17",
+      "originalChecklistText": "- [ ] A-X-17 Reconcile original `X-17`: Verify React 18.3 and 19 behavior and declaration compatibility using actual consumer fixtures, not just the development React version. Historical status: open.",
+      "owner": 32,
+      "report": "docs/developer/final-acceptance/wave-03-32/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-32/results.json",
+      "reportSha256": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2",
+      "resultsSha256": "e9bd80ef2361a6fcca021b2f65782da02ef1ceaccb8f51084f6cc8b67c039852",
+      "status": "partial",
+      "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+      "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+    },
+    {
+      "id": "A-X-01",
+      "originalChecklistText": "- [ ] A-X-01 Reconcile original `X-01`: Replace implementation-mirroring tests with behavior tests where needed; avoid mocks that hide the very focus/keyboard behavior under migration. Historical status: open.",
+      "owner": 39,
+      "report": "docs/developer/final-acceptance/wave-03-39/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-39/results.json",
+      "reportSha256": "d50c80a902996ed8574ce85106fd5348bb2f64c8e985562c2263b9349ad4237c",
+      "resultsSha256": "a9d8cd0e4fc6cee504cc5a249e6f3f461806fd37cfe42b1bb32ee5b1aa08031e",
+      "status": "partial",
+      "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+      "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+    }
+  ],
+  "priorReportHashChecks": [
+    {
+      "path": "docs/developer/final-acceptance/wave-03-09/report.md",
+      "actual": "db57801395575cc03880ec54a5a5748900feffa7843748ef851b8fc4f42edfdf",
+      "expected": "db57801395575cc03880ec54a5a5748900feffa7843748ef851b8fc4f42edfdf",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-09/results.json",
+      "actual": "9acb01ad3a130829d3960cc5d77577f9182130bb7dcf33e714b7ebc8cb86c484",
+      "expected": "9acb01ad3a130829d3960cc5d77577f9182130bb7dcf33e714b7ebc8cb86c484",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-11/report.md",
+      "actual": "55f3d92f55bc22cf025a7f269d7da33a0c28c82d671f0617f9dc4e30910324c5",
+      "expected": "55f3d92f55bc22cf025a7f269d7da33a0c28c82d671f0617f9dc4e30910324c5",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-11/results.json",
+      "actual": "332442e00631e181e150031d2d2eef672f5f0ab90daf8dd7ecd16aba5119922e",
+      "expected": "332442e00631e181e150031d2d2eef672f5f0ab90daf8dd7ecd16aba5119922e",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-11/report.md",
+      "actual": "55f3d92f55bc22cf025a7f269d7da33a0c28c82d671f0617f9dc4e30910324c5",
+      "expected": "55f3d92f55bc22cf025a7f269d7da33a0c28c82d671f0617f9dc4e30910324c5",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-11/results.json",
+      "actual": "332442e00631e181e150031d2d2eef672f5f0ab90daf8dd7ecd16aba5119922e",
+      "expected": "332442e00631e181e150031d2d2eef672f5f0ab90daf8dd7ecd16aba5119922e",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-12/report.md",
+      "actual": "27afc955c97106c874f77fec855784a6911328698e2a902649f13daa0f34b0ed",
+      "expected": "27afc955c97106c874f77fec855784a6911328698e2a902649f13daa0f34b0ed",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-12/results.json",
+      "actual": "45db7be9f0c42bc236e1d3a2461a5ea22907436a1f54070104817035e9daa83d",
+      "expected": "45db7be9f0c42bc236e1d3a2461a5ea22907436a1f54070104817035e9daa83d",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-14/report.md",
+      "actual": "215b3fc4004584b5b330dd5cd764e313566cbca5de5bba22eb31817f498a30a6",
+      "expected": "215b3fc4004584b5b330dd5cd764e313566cbca5de5bba22eb31817f498a30a6",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-14/results.json",
+      "actual": "efdaddbbc78118d2e8bb66837a54f6ed0c3c4615c6258695be707ead37b3b0bc",
+      "expected": "efdaddbbc78118d2e8bb66837a54f6ed0c3c4615c6258695be707ead37b3b0bc",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-19/report.md",
+      "actual": "216897b1cdf302e967197a532e6ac4b6a2c33cfa0c689a5119eca4a6d64283b3",
+      "expected": "216897b1cdf302e967197a532e6ac4b6a2c33cfa0c689a5119eca4a6d64283b3",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-19/results.json",
+      "actual": "b0dbc87259685863924d767a0a465cc741ec79e5948e4f67f33ff69de91debf9",
+      "expected": "b0dbc87259685863924d767a0a465cc741ec79e5948e4f67f33ff69de91debf9",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-19/report.md",
+      "actual": "216897b1cdf302e967197a532e6ac4b6a2c33cfa0c689a5119eca4a6d64283b3",
+      "expected": "216897b1cdf302e967197a532e6ac4b6a2c33cfa0c689a5119eca4a6d64283b3",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-19/results.json",
+      "actual": "b0dbc87259685863924d767a0a465cc741ec79e5948e4f67f33ff69de91debf9",
+      "expected": "b0dbc87259685863924d767a0a465cc741ec79e5948e4f67f33ff69de91debf9",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-29/report.md",
+      "actual": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+      "expected": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-29/results.json",
+      "actual": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+      "expected": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-29/report.md",
+      "actual": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+      "expected": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-29/results.json",
+      "actual": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+      "expected": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-29/report.md",
+      "actual": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+      "expected": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-29/results.json",
+      "actual": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+      "expected": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-30/report.md",
+      "actual": "bdb94d8cd0b7ef19b0284b7c421a051471935d31b13ba1152633675f0bd09592",
+      "expected": "bdb94d8cd0b7ef19b0284b7c421a051471935d31b13ba1152633675f0bd09592",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-30/results.json",
+      "actual": "6e59cf17b55e2fe1991b4fd0d785fbc6f614940923fb6fa546be6b685e2ee6c8",
+      "expected": "6e59cf17b55e2fe1991b4fd0d785fbc6f614940923fb6fa546be6b685e2ee6c8",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-32/report.md",
+      "actual": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2",
+      "expected": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-32/results.json",
+      "actual": "e9bd80ef2361a6fcca021b2f65782da02ef1ceaccb8f51084f6cc8b67c039852",
+      "expected": "e9bd80ef2361a6fcca021b2f65782da02ef1ceaccb8f51084f6cc8b67c039852",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-39/report.md",
+      "actual": "d50c80a902996ed8574ce85106fd5348bb2f64c8e985562c2263b9349ad4237c",
+      "expected": "d50c80a902996ed8574ce85106fd5348bb2f64c8e985562c2263b9349ad4237c",
+      "match": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-39/results.json",
+      "actual": "a9d8cd0e4fc6cee504cc5a249e6f3f461806fd37cfe42b1bb32ee5b1aa08031e",
+      "expected": "a9d8cd0e4fc6cee504cc5a249e6f3f461806fd37cfe42b1bb32ee5b1aa08031e",
+      "match": true
+    }
+  ],
+  "references": {
+    "AGENTS.md": {
+      "sha256": "6787b3f78b52898596e8be2f0d0caed1cc95365c46a045c5b9077ebbe32d58a8",
+      "exists": true
+    },
+    "apps/docs/native-fixtures/scenarios/components/AppModal/AppModal.fixture.tsx": {
+      "sha256": "dc46ab47609d63f8492f16fa62c75d3f5d3b98563040e4c94c0be9cb92278f56",
+      "exists": true
+    },
+    "apps/docs/native-fixtures/scenarios/components/AppShell/AppShell.fixture.tsx": {
+      "sha256": "c71efcdf367a6a93a5dd1b8cb513c35419984046bacfb05859112136e2659fe5",
+      "exists": true
+    },
+    "apps/docs/native-fixtures/scenarios/foundation/VisualAcceptance.fixture.tsx": {
+      "sha256": "6bb970fa272eb271645823c8b7ffbae107747512f9d37a46c126c9677ce84be5",
+      "exists": true
+    },
+    "apps/docs/test-results/wave03-followup-corrected-results.json": {
+      "sha256": "8d26fbbdee05392d0477a1e7d28277c20c7bd18bd8409d5aee5403223bab8c34",
+      "exists": true
+    },
+    "apps/docs/test-results/wave03-followup-results.json": {
+      "sha256": "68ce1788f6a64c3d41a6597550108d584acadfc62cd96971082657989ae295b1",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/apple-simulator/results.json": {
+      "sha256": "a72bef1a8a60fcd9720b78384c869dc011f4ac69c3772a1a1a081cb68499571c",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/editor-chrome-presentation/results.json": {
+      "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/rich-editor-presentation/results.json": {
+      "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-09/report.md": {
+      "sha256": "db57801395575cc03880ec54a5a5748900feffa7843748ef851b8fc4f42edfdf",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-09/results.json": {
+      "sha256": "9acb01ad3a130829d3960cc5d77577f9182130bb7dcf33e714b7ebc8cb86c484",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-09/validation-plan.json": {
+      "sha256": "91e55a75f2f4d2170951ad04aa556dedfebd2b4d7a54c3848e448c3a8dc2baf1",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-11/lifecycle-matrix.json": {
+      "sha256": "156ea2927b20a940eab6fb02dc30b161ba2f89b059b3499067208e8b2571df6f",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-11/report.md": {
+      "sha256": "55f3d92f55bc22cf025a7f269d7da33a0c28c82d671f0617f9dc4e30910324c5",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-11/results.json": {
+      "sha256": "332442e00631e181e150031d2d2eef672f5f0ab90daf8dd7ecd16aba5119922e",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-11/validation-plan.json": {
+      "sha256": "1fa8a60e28639fd8f78db060e1882ac53e0e9688540a534ea7b4e8640363ce8a",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-12/report.md": {
+      "sha256": "27afc955c97106c874f77fec855784a6911328698e2a902649f13daa0f34b0ed",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-12/results.json": {
+      "sha256": "45db7be9f0c42bc236e1d3a2461a5ea22907436a1f54070104817035e9daa83d",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-12/validation-plan.json": {
+      "sha256": "160a01395a5df5136acdedcff4ec5b51ac3082478ed61d565efc910128dff935",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-14/report.md": {
+      "sha256": "215b3fc4004584b5b330dd5cd764e313566cbca5de5bba22eb31817f498a30a6",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-14/results.json": {
+      "sha256": "efdaddbbc78118d2e8bb66837a54f6ed0c3c4615c6258695be707ead37b3b0bc",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-14/validation-plan.json": {
+      "sha256": "ef4d9ea64a82535f907d18d1f8eec358e7794790fbd1c6cdf8ad8b43b37fbcf7",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-19/matrix-delta.md": {
+      "sha256": "91e5f7f5e6d92f3362a54c5ee266363bd564772bcc4cbaee949d2f7ccd40c1d6",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-19/report.md": {
+      "sha256": "216897b1cdf302e967197a532e6ac4b6a2c33cfa0c689a5119eca4a6d64283b3",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-19/results.json": {
+      "sha256": "b0dbc87259685863924d767a0a465cc741ec79e5948e4f67f33ff69de91debf9",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-19/validation-plan.json": {
+      "sha256": "d50b3a36a8a783d9f700833583ce447dbc41a9d0a5a5109ea0af2fb8acc28ad0",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-29/changed-behavior-coverage.md": {
+      "sha256": "d084e6a33dacafb767da283be4a6f1239c0d4381a4064b4ecbf845e93f4fe13f",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-29/report.md": {
+      "sha256": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-29/results.json": {
+      "sha256": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-29/validation-plan.json": {
+      "sha256": "e23076514ba6119658e85429eb0483f2473915e0a3e66095ac809c464016502d",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-30/report.md": {
+      "sha256": "bdb94d8cd0b7ef19b0284b7c421a051471935d31b13ba1152633675f0bd09592",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-30/results.json": {
+      "sha256": "6e59cf17b55e2fe1991b4fd0d785fbc6f614940923fb6fa546be6b685e2ee6c8",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-30/validation-plan.json": {
+      "sha256": "4bbc44b613316056955ecd5b59678211efe4c76cd141d5a35a3309aaccb97744",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-30/visual-matrix.json": {
+      "sha256": "b594faeff1d218dde902558c02740a0a13d654fe847a459744338618ee8cda6a",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-32/README.md": {
+      "sha256": "e681ac63855f1f2b0fb87cba01957890a162ff90d081cb903c68825e9d820abb",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-32/report.md": {
+      "sha256": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-32/results.json": {
+      "sha256": "e9bd80ef2361a6fcca021b2f65782da02ef1ceaccb8f51084f6cc8b67c039852",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-32/run-matrix.mjs": {
+      "sha256": "267822341104feb84ee9d9b215df1cda74722b490d648d21f69d1dc0a0025fcc",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-32/validation-plan.json": {
+      "sha256": "ddcdbd2229c5154126990da1c78b3f228939434bd41db54d620ceaee21eb19ab",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-39/report.md": {
+      "sha256": "d50c80a902996ed8574ce85106fd5348bb2f64c8e985562c2263b9349ad4237c",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-39/results.json": {
+      "sha256": "a9d8cd0e4fc6cee504cc5a249e6f3f461806fd37cfe42b1bb32ee5b1aa08031e",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-39/validation-plan.json": {
+      "sha256": "506851ea66fea0ad060b5a05415231cd6eb2c606ebb8528e4c852ec87bb7b6d1",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json": {
+      "sha256": "975c83f3ca4b42d05e1823b170a0c5201794e3e8651aaca2ff7cc884ca7025e3",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-followup/validation-results.json": {
+      "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+      "exists": true
+    },
+    "docs/developer/final-acceptance/wave-03-integration/reconciliation.json": {
+      "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3",
+      "exists": true
+    },
+    "docs/developer/react-aria-final-acceptance.md": {
+      "sha256": "886adf45234d5d6499a10e2f10aebd1a51fbfdba94240b5ca4d70f0be751c694",
+      "exists": true
+    },
+    "docs/developer/react-aria-hardening-execution.md": {
+      "sha256": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e",
+      "exists": true
+    },
+    "docs/developer/react-aria-hardening-tasks.md": {
+      "sha256": "c382476325d9175c0970a66d12a2fd092ed2ae184d1f38f2aa14aca49fdf3fa3",
+      "exists": true
+    },
+    "docs/developer/react-aria-visual-baseline-review.md": {
+      "sha256": "4fe42bd5d9896441ffce34650569d1023881ca8c6b57aad8b9a273ce78214eb5",
+      "exists": true
+    },
+    "packages/ui/artifacts/wave03-integration/followup-color-results.json": {
+      "sha256": "129e3da3735becf00174e9dbd5d5d73ccecf92599190067b750f41636179c835",
+      "exists": true
+    },
+    "packages/ui/artifacts/wave03-integration/followup-final-results.json": {
+      "sha256": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+      "exists": true
+    },
+    "packages/ui/playwright.visual-acceptance.config.ts": {
+      "sha256": "c672d95ffe35107c34b03a85720346998c23a5c29e435118f3b88af8f69344a4",
+      "exists": true
+    },
+    "packages/ui/scripts/scope-hydration-proof.jsx": {
+      "sha256": "aa8c07ff2075e6a40972d26c1afa1d3d6330171af4136b712a2100b04fbe1c90",
+      "exists": true
+    },
+    "packages/ui/scripts/test-scoped-lifecycle-consumer.mjs": {
+      "sha256": "5e663cf53fcd4dd9278dcb0dd621690d89079d90cb75800d5ebc4ed2029d5bda",
+      "exists": true
+    },
+    "packages/ui/scripts/visual-baseline-review.d.mts": {
+      "sha256": "9684351c638d8a8c0721610eff6a3fb4c470f429e25fbb53698c76ee430c77a2",
+      "exists": true
+    },
+    "packages/ui/scripts/visual-baseline-review.mjs": {
+      "sha256": "035cc338b5fd71018060962dcc707145d430f79e55f23f0f0fd3041a905eb34f",
+      "exists": true
+    },
+    "packages/ui/scripts/visual-baseline-review.test.mjs": {
+      "sha256": "ddd36c5fbe7610451e91c4c2c454cb8c8d2d096880d2b9952b89edc74c213721",
+      "exists": true
+    },
+    "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx": {
+      "sha256": "7c043fb1c4db5bb47164cadaf5be8294c1e01697e6841a8c5dde5b44a8493a02",
+      "exists": true
+    },
+    "packages/ui/src/experimental/Provider/Provider.composed-ssr.test.tsx": {
+      "sha256": "0d2363bdad5bcbe3f3440d9a17108fff1509fd8cc8e13456f4fb86dce3f7a41b",
+      "exists": true
+    },
+    "packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx": {
+      "sha256": "a859b1e693a493a70dd2e51cacd3f78ce96f54e4f7c7ed2f9abb0ac6c6837e3c",
+      "exists": true
+    },
+    "packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx": {
+      "sha256": "13be06df7ea48caf52776205f078fc5f5d06284fb7aca0c34f9f0b3d8b7f2b84",
+      "exists": true
+    },
+    "packages/ui/tests/browser/batch01-grid-reorder.spec.ts": {
+      "sha256": "e5e5c46fa4e6b8adede64443e4b543fa15aa28fb3a29d9af116f758d40eb18e0",
+      "exists": true
+    },
+    "packages/ui/tests/browser/batch52-dialog-removed-opener.spec.ts": {
+      "sha256": "d69008e48ebf0827276f72df22a83b87d460f650c534f42f3be59cd09e2f1321",
+      "exists": true
+    },
+    "packages/ui/tests/browser/inventory-selection-boundary.spec.ts": {
+      "sha256": "39e1a9a49a3d819f0b523b5d5880de6a0b82229f44bef1a903773efb6d796c91",
+      "exists": true
+    },
+    "packages/ui/tests/browser/visual-acceptance.spec.ts": {
+      "sha256": "6d6a01aaf5f15425988504edefe386748cae0eb8f8afcb1fb828d9ce97c136e8",
+      "exists": true
+    },
+    "packages/ui/tests/browser/wave03-18-primitives.spec.ts": {
+      "sha256": "57129297301acf41bb421dfa0f8d0ddd6e52bd0b2f9e7efa02339ce8de3b6433",
+      "exists": true
+    },
+    "packages/ui/tests/browser/wave03-grid-successors.spec.ts": {
+      "sha256": "90600d9ff82d252f7a03b5b5fa4365c9ff90cd4095b2ab06e0a2051bc194abfc",
+      "exists": true
+    },
+    "packages/ui/tests/browser/wave03-overlay-successors.spec.ts": {
+      "sha256": "6687705c49aa06c61938ec3f8de8dc6ddde22e222c43272547ffca637904354b",
+      "exists": true
+    },
+    "packages/ui/tests/browser/wave03-selector-contracts.spec.ts": {
+      "sha256": "49a719ee6ca3f426465f0953dc38d658d31924e122229a9a978be7c70d70edf5",
+      "exists": true
+    },
+    "packages/ui/tests/browser/wave03-system-indications.spec.ts": {
+      "sha256": "8a7fc816c0fbdd8c06bcb7a213ea2be390621aac9ce1a1e9f820ccaec411cd2a",
+      "exists": true
+    }
+  },
+  "sourceComparison": {
+    "apps/docs/content/component-usage/presentation.json": {
+      "prior": "b715b3e275b0ddb53d7c95ceeab22bb4eb24f96bfabf43d5c876e6b37ed18f3e",
+      "current": "52e38083294d3540bd508a0a041c68fc7916818a3199f5b965070d6a9c73b468",
+      "match": false
+    },
+    "apps/docs/native-fixtures/scenarios/experimental/ComboBox/ComboBox.fixture.tsx": {
+      "prior": "66d13cb783853be6926666b5ffac45fb961e768e39788ee14e85dfecc8ead7c5",
+      "current": "66d13cb783853be6926666b5ffac45fb961e768e39788ee14e85dfecc8ead7c5",
+      "match": true
+    },
+    "apps/docs/native-fixtures/scenarios/experimental/Select/Select.fixture.tsx": {
+      "prior": "272f2249f4a44684a0ed4be43c2f2e1fe4aff246089cf877f05f8d320397c5a5",
+      "current": "272f2249f4a44684a0ed4be43c2f2e1fe4aff246089cf877f05f8d320397c5a5",
+      "match": true
+    },
+    "apps/docs/tests/button-neutral-pressed.spec.ts": {
+      "prior": "f3bcd56d98c9c9eee7f1de9fadcd072f7fa62143ed97c582ff0a530b8efed123",
+      "current": "f3bcd56d98c9c9eee7f1de9fadcd072f7fa62143ed97c582ff0a530b8efed123",
+      "match": true
+    },
+    "apps/docs/tests/foundation-examples.spec.ts": {
+      "prior": "967041c4cf94ae344e34906305ad6cb72af43ec1865377ef5aec561f45fcb1e4",
+      "current": "967041c4cf94ae344e34906305ad6cb72af43ec1865377ef5aec561f45fcb1e4",
+      "match": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx": {
+      "prior": "da15c3fd6463562a542b2ccf14e2b8869bddbb479cc0b72ce056ad22a114ac3b",
+      "current": "da15c3fd6463562a542b2ccf14e2b8869bddbb479cc0b72ce056ad22a114ac3b",
+      "match": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx": {
+      "prior": "66f9a08f34d24e3eb4c39c61646af69d9dacacf4e369bac7b18b705701ac94a9",
+      "current": "66f9a08f34d24e3eb4c39c61646af69d9dacacf4e369bac7b18b705701ac94a9",
+      "match": true
+    },
+    "packages/ui/src/experimental/Menu/Menu.test.tsx": {
+      "prior": "d944225a253aba4e3d8d4ef2ab61f8c0eb567f1b7e33635c1ee391cc35bdcf97",
+      "current": "d944225a253aba4e3d8d4ef2ab61f8c0eb567f1b7e33635c1ee391cc35bdcf97",
+      "match": true
+    },
+    "packages/ui/src/experimental/Menu/Menu.tsx": {
+      "prior": "c1791ca484cd0631d9994417b69240fb6f4938afa4dd0cc31c67819ad80b8cfb",
+      "current": "c1791ca484cd0631d9994417b69240fb6f4938afa4dd0cc31c67819ad80b8cfb",
+      "match": true
+    },
+    "packages/ui/src/foundation/tokens.css": {
+      "prior": "31cee489eb61aba2f5ba7ffe379783079fb0f93732db5919c59de41943d8df4d",
+      "current": "31cee489eb61aba2f5ba7ffe379783079fb0f93732db5919c59de41943d8df4d",
+      "match": true
+    },
+    "packages/ui/src/foundation/tokens.generated.ts": {
+      "prior": "ef28c92bccb8e0b7b8c42f34dcdfe302300404100878833e91b206b8358e0b8b",
+      "current": "ef28c92bccb8e0b7b8c42f34dcdfe302300404100878833e91b206b8358e0b8b",
+      "match": true
+    },
+    "packages/ui/src/foundation/tokens.json": {
+      "prior": "a08079fb20ae728521a29aabb3b411b9d6df82e1e7ce101bc1307f4799d88617",
+      "current": "a08079fb20ae728521a29aabb3b411b9d6df82e1e7ce101bc1307f4799d88617",
+      "match": true
+    },
+    "packages/ui/tests/browser/acceptance-touch-targets.spec.ts": {
+      "prior": "794c0b6436534c660e0bc4afc5df28396d9ae19bfef3336dec6494769a7a80fa",
+      "current": "794c0b6436534c660e0bc4afc5df28396d9ae19bfef3336dec6494769a7a80fa",
+      "match": true
+    },
+    "packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts": {
+      "prior": "fa2418dc6e2d804ae40651bc5d6f7cca0e77b4ac7faf546b341eaa06e4cb5f4c",
+      "current": "fa2418dc6e2d804ae40651bc5d6f7cca0e77b4ac7faf546b341eaa06e4cb5f4c",
+      "match": true
+    },
+    "packages/ui/tests/browser/wave03-selector-contracts.spec.ts": {
+      "prior": "49a719ee6ca3f426465f0953dc38d658d31924e122229a9a978be7c70d70edf5",
+      "current": "49a719ee6ca3f426465f0953dc38d658d31924e122229a9a978be7c70d70edf5",
+      "match": true
+    },
+    "packages/ui/tests/browser/wave03-system-indications.spec.ts": {
+      "prior": "8a7fc816c0fbdd8c06bcb7a213ea2be390621aac9ce1a1e9f820ccaec411cd2a",
+      "current": "8a7fc816c0fbdd8c06bcb7a213ea2be390621aac9ce1a1e9f820ccaec411cd2a",
+      "match": true
+    }
+  },
+  "rawNativeCases": [
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "responsive container, nested surfaces, wrapping and native Tab order",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "grouped text associations, required validation, canceled multiline reset and replaced owner",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "empty and disabled required choices are host-gated; delegated reset restores latest default silently",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "controlled tab requests preserve host authority at both densities and orientations",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "responsive container, nested surfaces, wrapping and native Tab order",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "grouped text associations, required validation, canceled multiline reset and replaced owner",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "empty and disabled required choices are host-gated; delegated reset restores latest default silently",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "controlled tab requests preserve host authority at both densities and orientations",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "responsive container, nested surfaces, wrapping and native Tab order",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "grouped text associations, required validation, canceled multiline reset and replaced owner",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "empty and disabled required choices are host-gated; delegated reset restores latest default silently",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "controlled tab requests preserve host authority at both densities and orientations",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-grid-successors.spec.ts",
+      "title": "native Tab and Shift+Tab enter and leave the remembered grid entry",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-grid-successors.spec.ts",
+      "title": "selected focused row disappearance preserves sibling selection, focus ownership and scroll",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-grid-successors.spec.ts",
+      "title": "optimistic row action rollback, retry, reorder cancel and late settlement remain per host",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-grid-successors.spec.ts",
+      "title": "native Tab and Shift+Tab enter and leave the remembered grid entry",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-grid-successors.spec.ts",
+      "title": "selected focused row disappearance preserves sibling selection, focus ownership and scroll",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-grid-successors.spec.ts",
+      "title": "optimistic row action rollback, retry, reorder cancel and late settlement remain per host",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-grid-successors.spec.ts",
+      "title": "native Tab and Shift+Tab enter and leave the remembered grid entry",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-grid-successors.spec.ts",
+      "title": "selected focused row disappearance preserves sibling selection, focus ownership and scroll",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-grid-successors.spec.ts",
+      "title": "optimistic row action rollback, retry, reorder cancel and late settlement remain per host",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "nested modal locks survive child close, block background scrolling and restore after final close",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "AppModal sizes and height modes retain bounded surfaces, editable state and return focus",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "nested modal locks survive child close, block background scrolling and restore after final close",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "AppModal sizes and height modes retain bounded surfaces, editable state and return focus",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "nested modal locks survive child close, block background scrolling and restore after final close",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "AppModal sizes and height modes retain bounded surfaces, editable state and return focus",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Select noneditable keys serialize distinct IDs, reset, and preserve rejecting host authority",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "ComboBox text editing/filtering, duplicate IDs, description, reset and controlled authority",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Menu key endpoints/typeahead skip disabled commands; Space acts once and Tab/Escape dismiss",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Popover exposes named dialog/form content and restores trigger after Escape",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Tooltip supplements keyboard trigger name with description and Escape retains focus",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Select noneditable keys serialize distinct IDs, reset, and preserve rejecting host authority",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "ComboBox text editing/filtering, duplicate IDs, description, reset and controlled authority",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Menu key endpoints/typeahead skip disabled commands; Space acts once and Tab/Escape dismiss",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Popover exposes named dialog/form content and restores trigger after Escape",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Tooltip supplements keyboard trigger name with description and Escape retains focus",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Select noneditable keys serialize distinct IDs, reset, and preserve rejecting host authority",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "ComboBox text editing/filtering, duplicate IDs, description, reset and controlled authority",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Menu key endpoints/typeahead skip disabled commands; Space acts once and Tab/Escape dismiss",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Popover exposes named dialog/form content and restores trigger after Escape",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Tooltip supplements keyboard trigger name with description and Escape retains focus",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "motion cancellation preserves rail drafts and focus (start)",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "motion cancellation preserves rail drafts and focus (end)",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "color-data exception preserves system selection and keyboard focus",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "motion cancellation preserves rail drafts and focus (start)",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "motion cancellation preserves rail drafts and focus (end)",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "color-data exception preserves system selection and keyboard focus",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "motion cancellation preserves rail drafts and focus (start)",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "motion cancellation preserves rail drafts and focus (end)",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "color-data exception preserves system selection and keyboard focus",
+      "project": "webkit",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-color-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "color-data exception preserves system selection and keyboard focus",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-color-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "color-data exception preserves system selection and keyboard focus",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "receipt": "packages/ui/artifacts/wave03-integration/followup-color-results.json",
+      "file": "wave03-system-indications.spec.ts",
+      "title": "color-data exception preserves system selection and keyboard focus",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "retry": 0
+        }
+      ]
+    }
+  ],
+  "rawReceiptChecks": [
+    {
+      "path": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "expected": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+      "actual": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+      "match": true
+    },
+    {
+      "path": "packages/ui/artifacts/wave03-integration/followup-color-results.json",
+      "expected": "129e3da3735becf00174e9dbd5d5d73ccecf92599190067b750f41636179c835",
+      "actual": "129e3da3735becf00174e9dbd5d5d73ccecf92599190067b750f41636179c835",
+      "match": true
+    },
+    {
+      "path": "apps/docs/test-results/wave03-followup-results.json",
+      "expected": "68ce1788f6a64c3d41a6597550108d584acadfc62cd96971082657989ae295b1",
+      "actual": "68ce1788f6a64c3d41a6597550108d584acadfc62cd96971082657989ae295b1",
+      "match": true
+    },
+    {
+      "path": "apps/docs/test-results/wave03-followup-corrected-results.json",
+      "expected": "8d26fbbdee05392d0477a1e7d28277c20c7bd18bd8409d5aee5403223bab8c34",
+      "actual": "8d26fbbdee05392d0477a1e7d28277c20c7bd18bd8409d5aee5403223bab8c34",
+      "match": true
+    }
+  ]
+}

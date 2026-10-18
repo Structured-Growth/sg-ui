@@ -81,8 +81,10 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   currentBusy.current = busy;
   const [availableWidth, setAvailableWidth] = useState(0);
   const resizing = useRef<string | null>(null);
+  const selectionObserver = useRef<ResizeObserver | null>(null);
+  const [selectionWidth, setSelectionWidth] = useState(80);
   const reorderWidth = props.rowDrag?.handleColumnWidth ?? 144;
-  const measured = measureOwnedGridWidths(visible, availableWidth - (selection ? 80 : 0) - (props.rowDrag ? reorderWidth : 0), layout.widths);
+  const measured = measureOwnedGridWidths(visible, availableWidth - (selection ? selectionWidth : 0) - (props.rowDrag ? reorderWidth : 0), layout.widths);
   const pageRows = processed.rows.map(row => ({ id: getOwnedGridRowId(row, getRowId), original: row }));
   const selectable = pageRows.filter(row => isRowSelectable?.(row.original) !== false).map(row => row.id);
   const pageSelection = getOwnedGridPageSelection(state.selectedRowIds, selectable);
@@ -122,6 +124,30 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
     const observer = new ResizeObserver(measure);
     observer.observe(node);
     return () => observer.disconnect();
+  }, []);
+  // A collection ref can arrive after the first layout effect. Observe it
+  // directly: storing this DOM node in state rerenders every grid cell on mount.
+  const observeSelectionControls = useCallback((controls: HTMLDivElement | null) => {
+    selectionObserver.current?.disconnect();
+    selectionObserver.current = null;
+    const header = controls?.closest("th");
+    if (!controls || !header) return;
+    const measure = () => {
+      const children = [...controls.children].map(child => child.getBoundingClientRect()).filter(box => box.width > 0 && box.height > 0);
+      const controlStyle = getComputedStyle(controls), headerStyle = getComputedStyle(header);
+      const pixels = (value: string) => Number.parseFloat(value) || 0;
+      const contentWidth = children.reduce((width, box) => width + box.width, 0) + Math.max(0, children.length - 1) * pixels(controlStyle.columnGap);
+      const chrome = pixels(headerStyle.paddingInlineStart) + pixels(headerStyle.paddingInlineEnd) + pixels(headerStyle.borderInlineStartWidth) + pixels(headerStyle.borderInlineEndWidth);
+      // Read actual token-sized children so coarse/touch and enlarged text fit,
+      // retaining the historical pointer allocation and one shared sizing budget.
+      setSelectionWidth(Math.max(80, Math.ceil(contentWidth + chrome)));
+    };
+    measure();
+    if (typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(controls);
+    for (const child of controls.children) observer.observe(child);
+    selectionObserver.current = observer;
   }, []);
   useBrowserLayoutEffect(() => {
     const saved = statusFocus.current;
@@ -381,8 +407,8 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
         if (row) onRowAction(row.original);
       } : undefined}>
       <TableHeader>
-        {selection && <Column id="__selection" width={80} minWidth={80} maxWidth={80} textValue={t("common.ui.grid.selection", { defaultMessage: "Selection" })} className={[styles.header, styles.selection].join(" ")}>
-          <div className={styles.selectionControls}><CheckboxContext.Provider value={null}><Checkbox label={t("common.ui.selectPage", { defaultMessage: "Select page" })} checked={pageSelection === "all"} mixed={pageSelection === "some"}
+        {selection && <Column id="__selection" width={selectionWidth} minWidth={selectionWidth} maxWidth={selectionWidth} textValue={t("common.ui.grid.selection", { defaultMessage: "Selection" })} className={[styles.header, styles.selection].join(" ")}>
+          <div ref={observeSelectionControls} className={styles.selectionControls}><CheckboxContext.Provider value={null}><Checkbox label={t("common.ui.selectPage", { defaultMessage: "Select page" })} checked={pageSelection === "all"} mixed={pageSelection === "some"}
             disabled={!selectable.length} onCheckedChange={checked => dispatch({ type: "selection", value: selectOwnedGridPage(state.selectedRowIds, selectable, checked) })} /></CheckboxContext.Provider>
           <Menu label={t("common.ui.grid.selectionActions", { defaultMessage: "Selection actions" })}
             trigger={<Button variant="text" density="compact" aria-label={t("common.ui.grid.selectionActions", { defaultMessage: "Selection actions" })}><ArrowDropDownIcon /></Button>}

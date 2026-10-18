@@ -11,6 +11,9 @@ approval is inferred from this technical component validation.
 The requested component is the sliding panel that replaces a menu level and
 provides a Back button. Dropdown/flyout submenus are outside this scope.
 Adopting the component in the current menu is a separate follow-up.
+HM-T-01 regression coverage is complete: seven menu tests and 63 related
+SideNavigation tests pass. HM-V-01 presentation validation is complete;
+HM-ADOPT-01 remains open.
 
 ## Reference and existing SGUI behavior
 
@@ -123,9 +126,9 @@ This plan is separate from historical F/T/V counts. Follow the
 - [x] HM-F-04 Establish the primary entry/Back/action flows using existing coverage
   and only 1–3 meaningful added/adapted smoke cases per affected component in total.
   Use a focused browser check to verify how motion, Back and scrolling appear.
-- [ ] HM-T-01 Cover deeper path/model changes, controlled ownership and independent
+- [x] HM-T-01 Cover deeper path/model changes, controlled ownership and independent
   panel instances after functionality.
-- [ ] HM-V-01 Validate direction, reduced motion, text enlargement, narrow hosts,
+- [x] HM-V-01 Validate direction, reduced motion, text enlargement, narrow hosts,
   focus and forced colors; retain explicit device/assistive-technology limits.
 - [ ] HM-ADOPT-01 Apply the component to the current menu in a follow-up, preserving
   host adapters and pending/error behavior.
@@ -135,7 +138,30 @@ and linked SGUI source/tests; verified document links and diff whitespace.
 HM-F-01–04 are complete: public build/catalog/source-copy checks pass; three
 strengthened units and nine native cases pass. Coordinator screenshot review
 found and corrected narrow Back-label wrapping; final geometry/captures pass
-across all three engines. Broader HM-T/HM-V and adoption retain their own scope.
+across all three engines. Adoption retains its own scope.
+
+HM-T-01 evidence (2026-10-17):
+[colocated regressions](../../packages/ui/src/experimental/HierarchicalMenu/HierarchicalMenu.test.tsx)
+cover missing/disabled/leaf ancestry, inline versus command paths, footer branches
+and object cycles; controlled forward/Back requests wait for host acceptance;
+external root updates restore focus; disabling a deep local ancestor repairs once
+to the valid parent without resetting from a changed defaultPath. Two active panels
+retain independent paths, action/path callbacks and inline disclosure state.
+All seven menu tests, all 63 SideNavigation tests and library typechecking pass
+on the working tree based on `bfed38a1f867f4493049c3a38541e6b26709bad7`.
+These are DOM-emulation regressions, not new native, visual, physical-device or
+assistive-technology evidence. No production implementation or public contract changed.
+
+HM-V-01 evidence (2026-10-17): [presentation closure](backlog-to-ten/menu-presentation-closure.json)
+joins nine effective Chromium/Firefox/WebKit cases. Real CSS animation keyframes
+reverse direction on Back in English/LTR and Arabic/RTL. Reduced-motion cases
+have zero active animations. At a 360px viewport and 200% text, forced-color
+emulation preserves usable scrolling, visible Back, focus and bounds on both
+edges. The fixture now constrains the outer scope as well as the panel; root
+review caught the original RTL underflow that a document scrollWidth check missed.
+All three final narrow captures were reviewed. Original animation-driver failures
+remain retained; the corrected driver waits for animationstart and resolves
+Firefox rem/calc keyframes through CSS. No physical-device or spoken-AT claim.
 
 
 ## Prepared owned contract

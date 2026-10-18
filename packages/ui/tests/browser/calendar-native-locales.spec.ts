@@ -23,8 +23,8 @@ for (const theme of ['light', 'dark']) {
   test(`native multiple selection, focus, unavailable day and deselection across two months: ${theme}`, async ({ page }) => {
     await story(page, 'sunday-first', theme);
     const start = page.getByRole('grid').nth(0).getByRole('button', { name: /Wednesday, February 28, 2024/ });
-    await page.getByRole('button', { name: 'Next month', exact: true }).focus();
-    await page.keyboard.press('Tab');
+    await page.getByRole('button', { name: 'Previous month', exact: true }).focus();
+    await page.keyboard.press('Shift+Tab');
     await expect(start).toBeFocused();
     await page.keyboard.press('Enter');
     await committed(page, ['2024-02-28'], 1);
@@ -76,8 +76,8 @@ for (const theme of ['light', 'dark']) {
     await expect(current).toHaveCount(1);
     await expect(current).toHaveAccessibleName(/فبراير/);
     await expect(current.locator('xpath=ancestor::*[@dir][1]')).toHaveAttribute('dir', 'rtl');
-    await page.getByRole('button', { name: 'Next month', exact: true }).focus();
-    await page.keyboard.press('Tab');
+    await page.getByRole('button', { name: 'Previous month', exact: true }).focus();
+    await page.keyboard.press('Shift+Tab');
     await expect(current).toBeFocused();
     await page.keyboard.press('Enter');
     await page.keyboard.press('ArrowLeft');
@@ -101,8 +101,8 @@ for (const theme of ['light', 'dark']) {
     await expect(page.getByText('Adar I 5784', { exact: true })).toBeVisible();
     await expect(page.getByText('Adar II 5784', { exact: true })).toBeVisible();
     const start = page.getByRole('button', { name: /19 Adar I 5784/ });
-    await page.getByRole('button', { name: 'Next month', exact: true }).focus();
-    await page.keyboard.press('Tab');
+    await page.getByRole('button', { name: 'Previous month', exact: true }).focus();
+    await page.keyboard.press('Shift+Tab');
     await expect(start).toBeFocused();
     await page.keyboard.press('Enter');
     await committed(page, ['2024-02-28'], 1);

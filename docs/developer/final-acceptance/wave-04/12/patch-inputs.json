@@ -1,0 +1,42 @@
+[
+  {
+    "path": "docs/developer/react-aria-visual-baseline-review.md",
+    "baseSha256": "4fe42bd5d9896441ffce34650569d1023881ca8c6b57aad8b9a273ce78214eb5",
+    "proposedSha256": "4fe42bd5d9896441ffce34650569d1023881ca8c6b57aad8b9a273ce78214eb5"
+  },
+  {
+    "path": "packages/ui/playwright.visual-acceptance.config.ts",
+    "baseSha256": "c672d95ffe35107c34b03a85720346998c23a5c29e435118f3b88af8f69344a4",
+    "proposedSha256": "c672d95ffe35107c34b03a85720346998c23a5c29e435118f3b88af8f69344a4"
+  },
+  {
+    "path": "packages/ui/playwright.wave04-browser-acceptance.config.ts",
+    "baseSha256": null,
+    "proposedSha256": "1ee8d656d22d7b41f8c47c585fac37995f291016a43a301a38916805d28cc9cf"
+  },
+  {
+    "path": "packages/ui/scripts/test-scoped-lifecycle-consumer.mjs",
+    "baseSha256": "5e663cf53fcd4dd9278dcb0dd621690d89079d90cb75800d5ebc4ed2029d5bda",
+    "proposedSha256": "5e663cf53fcd4dd9278dcb0dd621690d89079d90cb75800d5ebc4ed2029d5bda"
+  },
+  {
+    "path": "packages/ui/scripts/visual-baseline-review.d.mts",
+    "baseSha256": "9684351c638d8a8c0721610eff6a3fb4c470f429e25fbb53698c76ee430c77a2",
+    "proposedSha256": "9684351c638d8a8c0721610eff6a3fb4c470f429e25fbb53698c76ee430c77a2"
+  },
+  {
+    "path": "packages/ui/scripts/visual-baseline-review.mjs",
+    "baseSha256": "035cc338b5fd71018060962dcc707145d430f79e55f23f0f0fd3041a905eb34f",
+    "proposedSha256": "035cc338b5fd71018060962dcc707145d430f79e55f23f0f0fd3041a905eb34f"
+  },
+  {
+    "path": "packages/ui/scripts/visual-baseline-review.test.mjs",
+    "baseSha256": "ddd36c5fbe7610451e91c4c2c454cb8c8d2d096880d2b9952b89edc74c213721",
+    "proposedSha256": "ddd36c5fbe7610451e91c4c2c454cb8c8d2d096880d2b9952b89edc74c213721"
+  },
+  {
+    "path": "packages/ui/tests/browser/wave04-browser-acceptance.spec.ts",
+    "baseSha256": null,
+    "proposedSha256": "26448cf0ba74c2bc71f529e30c2762b580b73e1a79e778aeebf26827cf0a04e3"
+  }
+]

@@ -1,0 +1,560 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-04/04",
+  "baseline": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "branch": "dev",
+  "scope": [
+    "A-M-16",
+    "A-M-18",
+    "A-G-15",
+    "A-G-16",
+    "A-G-17",
+    "A-G-20",
+    "A-G-21",
+    "A-G-28",
+    "A-G-29"
+  ],
+  "summary": {
+    "complete": 3,
+    "partial": 6,
+    "blocked": 0
+  },
+  "results": [
+    {
+      "id": "A-M-16",
+      "originalObligation": "- [ ] A-M-16 Reconcile AppDataGrid final acceptance: Complete owned grid implementation, types and helpers; follow G tasks. Link its `F-C16`, `T-C16` and `V-C16` evidence and any unresolved defects.",
+      "recommendation": "partial",
+      "status": "partial",
+      "outcome": "Owned generic grid, types/helpers, status/cells, controller and host mutations have shipped. GRID-R1/BUG-0012 and Firefox overflow-pane extra Tab stop are resolved. Baseline/regression/visual mappings are retained; broad remaining G obligations still prevent final parent acceptance.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-02-02/results.json",
+          "sha256": "e6959822a30ce7b5992203bf2b46c90074e5186cba9c819436443febc1afa551",
+          "supports": "F-C16 shipped baseline reconciliation; original completed F leaves removed, no new sub-ID invented"
+        },
+        {
+          "path": "docs/developer/parallel-next100/next100-c16.md",
+          "sha256": "bc54100ee9c29eb1b6523cbbcf9710390ee51285d43783f5a19badd3096d403a",
+          "supports": "T-C16-01 through09/90/91 exact test mappings and original failures/corrected retries"
+        },
+        {
+          "path": "docs/developer/backlog-execution-2026-10-15.md",
+          "sha256": "75a4996497dd31574bd8a7fa82e01e2345aed262697ec0515de7ae3f60ad2809",
+          "supports": "HB17 V-C16-04/05 and primary native maps at218/334, accepted presentation32 configs plus14 regressions per engine"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+          "sha256": "52b7748e0e039295ac31db6318d934884d1a36b402a5cbcadab9ddd31a8a8b6e",
+          "supports": "Public generic renderer and controlled host contract"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/retained-grid-native.json",
+          "sha256": "795e137d3f48223af33501a1258c6428b4160c00d6a5916f36300f4f251aef3c",
+          "supports": "Nine exact successor engine results authenticated against original raw receipt"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "supports": "Retained unit/build/native receipt, not fresh current-head execution"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/input-evidence.json",
+          "sha256": "9b5eea0f5abb0411058d3a901bace6994a6db258452855d2d5114313fcdd3992",
+          "supports": "Current source/evidence hashes and prior-input comparison"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "A-G-15/A-G-16/A-G-17/A-G-20/A-G-21/A-G-29 successors below; other G owners retain their own original requirements. No broad acceptance inferred from V completion."
+      ],
+      "proposedChanges": [
+        "Five-file performance successor supplied; no runtime grid fix needed in this bounded read."
+      ],
+      "validationPlan": "docs/developer/final-acceptance/wave-04/04/validation-plan.json"
+    },
+    {
+      "id": "A-M-18",
+      "originalObligation": "- [ ] A-M-18 Reconcile AppDataGridRowDnd final acceptance: Replace DOM selectors/ghost styling; keyboard/touch/reorder/cancel behavior. Link its `F-C18`, `T-C18` and `V-C18` evidence and any unresolved defects.",
+      "recommendation": "partial",
+      "status": "partial",
+      "outcome": "Owned data hooks, themed preview/listener cleanup, keyboard/Move/rollback and criteria invalidation are implemented. Existing pointer and emulated touchscreen Move evidence remains distinct from physical dragging.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-02-02/results.json",
+          "sha256": "e6959822a30ce7b5992203bf2b46c90074e5186cba9c819436443febc1afa551",
+          "supports": "F-C18 implementation/phase reconciliation"
+        },
+        {
+          "path": "docs/developer/parallel-next100/next100-c18.md",
+          "sha256": "6d27bc0b9727de098b385ead6a8b564a87a86a4f930b6e62dfda54ecee145135",
+          "supports": "T-C18-01\u201305/90/91 exact unit/native mappings and historical hashes"
+        },
+        {
+          "path": "docs/developer/backlog-execution-2026-10-15.md",
+          "sha256": "75a4996497dd31574bd8a7fa82e01e2345aed262697ec0515de7ae3f60ad2809",
+          "supports": "HB17 V-C18-04/05 accepted; do not replay visual matrix"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+          "sha256": "88828425448aa70e650f4985b6701e0ebfcea042578c09481725b8583177dc75",
+          "supports": "Owned scoped selector and preview lifecycle"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.reorder-policy.test.tsx",
+          "sha256": "2a56a948e46c6c4b63f6d09196017fdd08d336d93dfd05cecfa8bacef9c5669f",
+          "supports": "Integrated seven processing-boundary/sibling cancellation cases from wave03-21"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-21/report.md",
+          "sha256": "bfc7af537e1f4d62640896dbec6ef078083c823ec3e1a423f942df6c51914616",
+          "supports": "Seven DOM policy passes and physical/AT successor protocol"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "supports": "Retained unit/build/native receipt, not fresh current-head execution"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/input-evidence.json",
+          "sha256": "9b5eea0f5abb0411058d3a901bace6994a6db258452855d2d5114313fcdd3992",
+          "supports": "Current source/evidence hashes and prior-input comparison"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "W04-04-SPOKEN-AND-PHYSICAL: real long-press before/after/cancel/rollback and current-data invalidation/colliding-ID sibling isolation; observed announcements distinct from request persistence."
+      ],
+      "proposedChanges": [
+        "Reuse integrated policy tests and existing passive physical-input recorder; no duplicate proposal."
+      ],
+      "validationPlan": "docs/developer/final-acceptance/wave-04/04/validation-plan.json"
+    },
+    {
+      "id": "A-G-15",
+      "originalObligation": "- [ ] A-G-15 Reconcile original `G-15`: Support empty, no-results, loading, refresh, error, and row-subheader states with appropriate announcements and preserved context. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "outcome": "Empty/no-results/loading/retained refresh/error/Retry and RowSubHeader states are implemented and have bounded DOM/native evidence. Actual announced status ordering/availability under aria-busy remains unobserved for these grid fixtures.",
+      "evidence": [
+        {
+          "path": "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+          "sha256": "d8914b3ed6ffcd7e87b4951821758ee788cb46ceed6e1fc7902770d7f032f1ec",
+          "supports": "Status implementation"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/ownedGridParts.test.tsx",
+          "sha256": "88659b0ebd8ac8b8b4d737fcea71e0958d2a47d3c5d2d94660a85e689e72af38",
+          "supports": "Distinct state/Retry assertions"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/components/RowSubHeader.test.tsx",
+          "sha256": "6adeb894520f6d34bb177a513f120bf89a52eaf95acf6129f87e70d57079f0ff",
+          "supports": "Section expansion/edit/trailing-action behavior"
+        },
+        {
+          "path": "packages/ui/tests/browser/batch05-grid-busy.spec.ts",
+          "sha256": "be9e28a13391e0b611232ef099df649bc6e6173599a1458f20ef4359ea4b76c2",
+          "supports": "Native busy lifecycle; markup does not prove speech"
+        },
+        {
+          "path": "packages/ui/tests/browser/batch08-grid-retry-focus.spec.ts",
+          "sha256": "1aae010e3572e9a5be06b5977d4f4e0407adc98ad22570b3e146d1818e7d702f",
+          "supports": "Empty/retained Retry removal and focus/scroll contract"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-20/operator-review.md",
+          "sha256": "0bc0cfe11fe89c9f9a22772516ee1928d2b9fdae1854df03ab354c76d163070e",
+          "supports": "Exact working routes and status/subheader speech sequence"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "supports": "Retained unit/build/native receipt, not fresh current-head execution"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/input-evidence.json",
+          "sha256": "9b5eea0f5abb0411058d3a901bace6994a6db258452855d2d5114313fcdd3992",
+          "supports": "Current source/evidence hashes and prior-input comparison"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "W04-04-SPOKEN-AND-PHYSICAL: execute empty and retained pending/success/error/Retry once, no-results/clear and section expand/edit/action; save actual speech, focus and both axes."
+      ],
+      "proposedChanges": [
+        "Bounded executable/operator plan supplied; no status markup rewrite without a reproduced defect."
+      ],
+      "validationPlan": "docs/developer/final-acceptance/wave-04/04/validation-plan.json"
+    },
+    {
+      "id": "A-G-16",
+      "originalObligation": "- [ ] A-G-16 Reconcile original `G-16`: Define keyboard navigation, tab stops, focus retention after updates, row actions, and table versus interactive-grid semantics based on actual behavior. Historical status: open.",
+      "recommendation": "complete",
+      "status": "complete",
+      "outcome": "Original obligation defines keyboard navigation, tab stops, focus retention, row actions and table-versus-grid semantics based on actual behavior. Owned implementation and retained native3engine entry plus existing arrow/action/focus cases satisfy those clauses. Precise guide section supplied. Earlier report overextended this definition leaf by requiring actual speech; spoken output remains required under its original AT/announcement leaves and is not claimed here.",
+      "evidence": [
+        {
+          "path": "docs/developer/react-aria-grid-contracts.md",
+          "sha256": "bc39e9a39ce99e4a812bf087410a8d4efadda701f2bba3202dd0faa7a0b033ed",
+          "supports": "Table-versus-interactive grid and focus contract"
+        },
+        {
+          "path": "packages/ui/tests/browser/batch01-grid-focus.spec.ts",
+          "sha256": "57d727810bcff5098e654ae1f3540611b52add84b3f061fd485a128f80183048",
+          "supports": "Body/nested arrows, Tab exit and row-action independence"
+        },
+        {
+          "path": "packages/ui/tests/browser/wave03-grid-successors.spec.ts",
+          "sha256": "90600d9ff82d252f7a03b5b5fa4365c9ff90cd4095b2ab06e0a2051bc194abfc",
+          "supports": "Native external Host-action entry/ShiftTab/remembered entry"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/retained-grid-native.json",
+          "sha256": "795e137d3f48223af33501a1258c6428b4160c00d6a5916f36300f4f251aef3c",
+          "supports": "All3 native entry passes, not merely proposed"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/controls-report.md",
+          "sha256": "0f82b5917cac051112577fcc802cd5caf764398e030b10ab82896a3167f88a54",
+          "supports": "Firefox extra overflow-pane Tab stop reproduction and source fix"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "supports": "Retained unit/build/native receipt, not fresh current-head execution"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/input-evidence.json",
+          "sha256": "9b5eea0f5abb0411058d3a901bace6994a6db258452855d2d5114313fcdd3992",
+          "supports": "Current source/evidence hashes and prior-input comparison"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/grid-closure/closure-decisions.json",
+          "sha256": "0657a385a6e3b9f7e1dc9e6fda50ecc1367fc7a4a26848037603b5797aea7684",
+          "supports": "Clause-specific closure decision using unchanged focus/controller source and retained3engine native cases; no spoken AT claim"
+        }
+      ],
+      "remainingConcreteSuccessors": [],
+      "proposedChanges": [
+        "Precise keyboard/table-versus-grid and transition focus/scroll documentation patch: grid-closure/keyboard-focus-contract.patch."
+      ],
+      "validationPlan": "docs/developer/final-acceptance/wave-04/04/validation-plan.json",
+      "rootReviewCondition": "Root reviews and integrates precise documentation clarification; no source behavior change or new browser rerun required solely for prose."
+    },
+    {
+      "id": "A-G-17",
+      "originalObligation": "- [ ] A-G-17 Reconcile original `G-17`: Define row reordering for pointer, touch, keyboard and non-drag actions; announce changes, support cancel, and define behavior when sorting/filtering/pagination is active. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "outcome": "Complete unsorted/unfiltered/search-free client page0 is required; partial/server/multipage/pending/error/multiselected views disable reorder. Pointer/keyboard/Move, cancel, request payload and host-owned rollback are covered; physical touch and spoken drag/request feedback remain absent.",
+      "evidence": [
+        {
+          "path": "docs/developer/react-aria-grid-reorder.md",
+          "sha256": "36cbc589348868afc3e85bf05ef5810ebe05301d0860d95432395b5071b94a8c",
+          "supports": "Public policy, keyboard/non-drag alternative, persistence ownership"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.reorder-policy.test.tsx",
+          "sha256": "2a56a948e46c6c4b63f6d09196017fdd08d336d93dfd05cecfa8bacef9c5669f",
+          "supports": "Criteria becoming active during keyboard drag and sibling cancellation"
+        },
+        {
+          "path": "packages/ui/tests/browser/inventory-pointer-reorder-invalidation.spec.ts",
+          "sha256": "1ccad19b2fd7844a3bb858f29ff99147506e9450604949b0c6c084f0dad92d56",
+          "supports": "Existing actual-pointer replacement/cross-grid isolation"
+        },
+        {
+          "path": "packages/ui/tests/browser/reorder.spec.ts",
+          "sha256": "569a945eb2df0cf461bc4d9576fa5e8d6092bf38f4a47b0bbf5674d7f9fda7b6",
+          "supports": "Pointer before/after/outside/rollback and emulated touchscreen Move"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-21/physical-touch-and-at.md",
+          "sha256": "8868137535c1b8737488c999c28424b87d094b10ba04e06d9f482bb856f043b9",
+          "supports": "Physical device/AT protocol; unrun remains unrun"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "supports": "Retained unit/build/native receipt, not fresh current-head execution"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/input-evidence.json",
+          "sha256": "9b5eea0f5abb0411058d3a901bace6994a6db258452855d2d5114313fcdd3992",
+          "supports": "Current source/evidence hashes and prior-input comparison"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "Same W04-04-SPOKEN-AND-PHYSICAL session as A-M-18; exactly0 requests on cancel/invalidated drag, exactly1 on valid commit, correct before/after and rollback/source focus."
+      ],
+      "proposedChanges": [
+        "Do not reapply wave03 reorder-policy patch: source and tests are already integrated."
+      ],
+      "validationPlan": "docs/developer/final-acceptance/wave-04/04/validation-plan.json"
+    },
+    {
+      "id": "A-G-20",
+      "originalObligation": "- [ ] A-G-20 Reconcile original `G-20`: Benchmark large row/column counts and frequent updates, including selection and text input; compare production builds against the baseline. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "outcome": "The integrated profiling host lacks AppDataGrid and overlaps neither selection nor typing with updates. Historical SSR measurements cannot answer production browser baseline comparison. Prepared a six-file successor adding catalog renderer, overlapping input/selection, queued event marks, source/fixture/runtime receipt and offline raw-sample comparator.",
+      "evidence": [
+        {
+          "path": "docs/developer/react-aria-performance.md",
+          "sha256": "d32b585ff5cb3ef6ba0bc8f1756844f1fd00248dc8383baf6ec01bc5e3998bb0",
+          "supports": "Existing workload/measurement limits and baseline policy"
+        },
+        {
+          "path": "packages/ui/tests/performance/fixture.tsx",
+          "sha256": "b649f3af9ce599d106d53aa4856e220d887ad5a74663ced38cbcc502290e5f98",
+          "supports": "Current processing-only sequential protocol inspected"
+        },
+        {
+          "path": "packages/ui/tests/performance/measure-browser.mjs",
+          "sha256": "caa692df70eb6ec168576a389efc5bb30a9da47368a4abb39461fc034eebcab1",
+          "supports": "Current runner inspected; no production browser measurements here"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-31/local-measurement-receipt.json",
+          "sha256": "41f0f13240ac54e9522b1d19b8e085c332fdd3c15faa9d64f59b74a3f755695d",
+          "supports": "Historical production SSR reference on Node26, explicitly not browser or supported-runtime acceptance"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/performance-successor.patch",
+          "sha256": "01be2e916b7569735a9ded7b8389bb691d659fdac093815b74306854a754e6d6",
+          "supports": "Ready-to-review6-file change, dry-run applies"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/proposed-types-node24.log",
+          "sha256": "924e2d69d8d0c12d0c33f66bfffb5b5387fdb33a6455900b9a847aaf102314c7",
+          "supports": "Public-declaration fixture overlay0diagnostics, Node24.19"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/comparator-check.log",
+          "sha256": "f701fcac142f026330047b4294976a573a5b7109cabb08dae983df7c55a6d26b",
+          "supports": "10synthetic comparator checks only, no timing data"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/host-operation-tests.log",
+          "sha256": "04d702433a163af839b3ae0925149b8097df7be3c324951d047c6a4e8eb51bde",
+          "supports": "Three maintained deterministic host-adapter tests pass against actual integrated controller on Node24.19"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "supports": "Retained unit/build/native receipt, not fresh current-head execution"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/input-evidence.json",
+          "sha256": "9b5eea0f5abb0411058d3a901bace6994a6db258452855d2d5114313fcdd3992",
+          "supports": "Current source/evidence hashes and prior-input comparison"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/frozen-preview-successor/readiness.json",
+          "sha256": "830316ddfd6016ef001aecc0ee8e838913a33ad98c6992e2d027e4b9f46a43e0",
+          "supports": "Three-file precise frozen-production proof successor; three deterministic tests and dry-run, no browser run"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "W04-04-PROFILING-INTEGRATE/BUILD/G20: coordinator builds one immutable older production baseline and candidate with identical new host/runner, measures catalog and processing separately, compares median/p95/raw samples/load/assets and investigates regressions. No threshold invented."
+      ],
+      "proposedChanges": [
+        "6 proposed files: fixture.tsx, measure-browser.mjs, vite.config.mjs, compare-performance.mjs performance guide and maintained private-host node:test file. Browser portions unbuilt/unexecuted; three deterministic host tests pass on Node24.19.",
+        "Further3file served-production/inventory/failure-receipt guard ready in frozen-preview-successor; no shared mutation during frozen pack window."
+      ],
+      "validationPlan": "docs/developer/final-acceptance/wave-04/04/validation-plan.json"
+    },
+    {
+      "id": "A-G-21",
+      "originalObligation": "- [ ] A-G-21 Reconcile original `G-21`: Preserve link adapter semantics, visible focus, copy success/error feedback, escaped JSON/text, date localization, and image fallback behavior in cells. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "outcome": "Text/JSON escaping, localized date/instant conversion, links/adapters, clipboard feedback and image fallback have unit/public-grid evidence. Preserve native clipboard/adapter original limits; native grid copy spoken success/error and missing Firefox real clipboard receipt remain open.",
+      "evidence": [
+        {
+          "path": "docs/developer/react-aria-grid-cell-acceptance.md",
+          "sha256": "f458cb2e66bbcb2b00e33125863b7d78502884de8862654a321704ee34e1ba9f",
+          "supports": "Nine cell/helper contract mappings"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/ownedGridCells.test.tsx",
+          "sha256": "eaf5aa24f2cf0651fe5f11c3ce23306e3842961bbc54b626d1e096770e246f52",
+          "supports": "Escaping/date/link/copy/image/fallback unit behaviors"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.cells.test.tsx",
+          "sha256": "50411f27e10ecf69d65d6037c35b1d7ae5e35f2bc838ac5071ccf5ad951289c7",
+          "supports": "Public composed cells and independent nested actions"
+        },
+        {
+          "path": "packages/ui/tests/browser/batch05-grid-clipboard.spec.ts",
+          "sha256": "77d19c8a4845005babfa06a93ba4d3103c40b90b726311202fded5cbfe2facae",
+          "supports": "Real paste/focus plus separate CDP denial and controlled rejection"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-20/report.md",
+          "sha256": "26e2d92d54d4b30e0e1a6f30934710ba7b31013baf3737d7ca5cc23c12a0b98f",
+          "supports": "Prior retained clipboard/adapter receipts and Firefox gap, no implicit pass"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "supports": "Retained unit/build/native receipt, not fresh current-head execution"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/input-evidence.json",
+          "sha256": "9b5eea0f5abb0411058d3a901bace6994a6db258452855d2d5114313fcdd3992",
+          "supports": "Current source/evidence hashes and prior-input comparison"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "Recover newer clipboard/adapter exact receipts before W04-04-G21-CLIPBOARD; if absent run only Firefox clipboard spec. Reuse adapter owner receipt for native modified-click/target/navigation. Capture actual independent copy speech; injected API rejection is not native permission denial."
+      ],
+      "proposedChanges": [
+        "Specific recovery/execution and speech steps in validation-plan.json; no duplication of accepted cell tests."
+      ],
+      "validationPlan": "docs/developer/final-acceptance/wave-04/04/validation-plan.json"
+    },
+    {
+      "id": "A-G-28",
+      "originalObligation": "- [ ] A-G-28 Reconcile original `G-28`: Define cancel/error/optimistic-update behavior for host-driven row actions and reorder requests; restore or reconcile visible state when persistence fails. Historical status: open.",
+      "recommendation": "complete",
+      "status": "complete",
+      "outcome": "Recommend completion of this host-behavior obligation. The integrated controller and guide define optimistic snapshot, latest-only response, confirmed rollback, retry, cancel, authoritative replacement and unmount cleanup. Pure race evidence plus all3 native host-operation executions establish visible rollback/retry/cancel and sibling independence. Client cancellation cannot undo server writes; revision/idempotency and ambiguous network reconciliation remain explicit host responsibilities.",
+      "evidence": [
+        {
+          "path": "docs/developer/react-aria-grid-host-operations.md",
+          "sha256": "11fd0534bc067df120f059472e77e7a5f6e0ea17823ead87faee7db2e772ff7f",
+          "supports": "Defined public callback/persistence ownership, rollback, cancel/error and server reconciliation contract"
+        },
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/gridHostOperation.ts",
+          "sha256": "e2d146de7a95cb7a1dc26e852489d28dea0f99b39132db1a2c206f4775687ad6",
+          "supports": "Integrated generic host controller, current hash matches accepted snapshot"
+        },
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/GridHostOperations.fixture.tsx",
+          "sha256": "f695e1750f8b9b504625c5895f6a86a5f8690522bb55a8fbfbd4f2232c00d28e",
+          "supports": "Rendered public row-menu/reorder host and independent sibling"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-20/host-operation-node24.txt",
+          "sha256": "ea6ab3e257495477d427f970aa9960c4bcd5ba3f5c57645625f3b8befd80289c",
+          "supports": "3pure controller cases: stale resolution/rejection, cancel/replace/unmount, sync throw and independence"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/retained-grid-native.json",
+          "sha256": "795e137d3f48223af33501a1258c6428b4160c00d6a5916f36300f4f251aef3c",
+          "supports": "Optimistic row-action rollback/retry/reorder cancel/late settlement passes Chromium/Firefox/WebKit"
+        },
+        {
+          "path": "packages/ui/tests/browser/wave03-grid-successors.spec.ts",
+          "sha256": "90600d9ff82d252f7a03b5b5fa4365c9ff90cd4095b2ab06e0a2051bc194abfc",
+          "supports": "Exact rendered test assertions retained"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "supports": "Retained unit/build/native receipt, not fresh current-head execution"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/input-evidence.json",
+          "sha256": "9b5eea0f5abb0411058d3a901bace6994a6db258452855d2d5114313fcdd3992",
+          "supports": "Current source/evidence hashes and prior-input comparison"
+        }
+      ],
+      "remainingConcreteSuccessors": [],
+      "proposedChanges": [
+        "No new host-operation source change. Earlier wave03 report said unrun; followup-final-results.json supersedes that execution gap for this exact test, not broad AT/device acceptance."
+      ],
+      "validationPlan": "docs/developer/final-acceptance/wave-04/04/validation-plan.json"
+    },
+    {
+      "id": "A-G-29",
+      "originalObligation": "- [ ] A-G-29 Reconcile original `G-29`: Define focus and scroll preservation when data refreshes, pages change, columns hide, or a selected row disappears; test multiple independent grids. Historical status: open.",
+      "recommendation": "complete",
+      "status": "complete",
+      "outcome": "Original definition and independent-grid test requirement has retained focused refresh/page/size/hidden/disappearing/Retry coverage, including3engine selected-row disappearance with exact scroll/focus/sibling assertions. Current identity/focus/controller/test inputs match captured validated source; later choice-label CSS is a markup-target correction, with no change to focus ownership, transition or scroll code. Do not expand this leaf into a fresh full visual/native matrix. Guide documents bounded native reveal/clamping rather than promising impossible offset retention after viewport invalidation.",
+      "evidence": [
+        {
+          "path": "packages/ui/tests/browser/batch01-grid-focus.spec.ts",
+          "sha256": "57d727810bcff5098e654ae1f3540611b52add84b3f061fd485a128f80183048",
+          "supports": "Five existing focus/scroll/page/size/hidden-row/sibling cases; HB17 retained"
+        },
+        {
+          "path": "packages/ui/tests/browser/batch08-grid-retry-focus.spec.ts",
+          "sha256": "1aae010e3572e9a5be06b5977d4f4e0407adc98ad22570b3e146d1818e7d702f",
+          "supports": "Retry removal empty/retained with host/sibling focus ownership"
+        },
+        {
+          "path": "packages/ui/tests/browser/wave03-grid-successors.spec.ts",
+          "sha256": "90600d9ff82d252f7a03b5b5fa4365c9ff90cd4095b2ab06e0a2051bc194abfc",
+          "supports": "Selected disappearing row + sibling checked state and both axes"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/retained-grid-native.json",
+          "sha256": "795e137d3f48223af33501a1258c6428b4160c00d6a5916f36300f4f251aef3c",
+          "supports": "Selected disappearing row passes in all3 engines"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css",
+          "sha256": "06d76bdecc8495ae7884ac4ea8b47c9b8c987ebaf1de57fe39d3d707b82d8f60",
+          "supports": "Later6ddf3326 change replaces label last-child selector with explicit choice-label; selection layout changed since followup snapshot"
+        },
+        {
+          "path": "docs/developer/backlog-execution-2026-10-15.md",
+          "sha256": "75a4996497dd31574bd8a7fa82e01e2345aed262697ec0515de7ae3f60ad2809",
+          "supports": "HB17 exact accepted broader focus scope, raw HB17 folder unavailable locally"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "supports": "Retained unit/build/native receipt, not fresh current-head execution"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/input-evidence.json",
+          "sha256": "9b5eea0f5abb0411058d3a901bace6994a6db258452855d2d5114313fcdd3992",
+          "supports": "Current source/evidence hashes and prior-input comparison"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/04/grid-closure/closure-decisions.json",
+          "sha256": "0657a385a6e3b9f7e1dc9e6fda50ecc1367fc7a4a26848037603b5797aea7684",
+          "supports": "Clause-specific closure decision using unchanged focus/controller source and retained3engine native cases; no spoken AT claim"
+        }
+      ],
+      "remainingConcreteSuccessors": [],
+      "proposedChanges": [
+        "Precise keyboard/table-versus-grid and transition focus/scroll documentation patch: grid-closure/keyboard-focus-contract.patch."
+      ],
+      "validationPlan": "docs/developer/final-acceptance/wave-04/04/validation-plan.json",
+      "rootReviewCondition": "Root reviews retained-native/source equivalence and documents explicit focus/scroll bounds; no central count changed here."
+    }
+  ],
+  "proposedPatch": "frozen-preview-successor/frozen-preview.patch",
+  "initialPatchIntegratedByCoordinator": true,
+  "patchApplied": false,
+  "executionLimits": [
+    "All writes within assigned folder; no shared implementation/build/index/branch edits or commit/push",
+    "No install, browser, simulator, production build or heavy suite executed",
+    "Actual new evidence: in-memory fixture typecheck Node24.19, MJS syntax, ten synthetic offline comparison cases and patch dry-run",
+    "Retained native receipt authenticated SHA256; not new execution or spoken AT",
+    "HB19/HB20 close editor V families only; no grid speech or touch inferred. Six future leaves remain separate; no release/legal approval inferred."
+  ],
+  "additionalConcreteSuccessor": {
+    "status": "ready-not-integrated",
+    "readiness": "frozen-preview-successor/readiness.json",
+    "patch": "frozen-preview-successor/frozen-preview.patch",
+    "checks": "4Node24deterministic tests, runner syntax, patch dry-run pass",
+    "frozenOutputsTouched": false,
+    "batchLead": 15,
+    "countsChanged": false
+  },
+  "peerReview": {
+    "hostOperations": "Existing3deterministic cases plus retained3engine rendered host case cover originalG28; no primary-flow omission found. Preserve coordinator closure.",
+    "performance": "Browser-close failure previously followed saved pass; now failure finalization precedes single receipt write, tested.",
+    "closureRecommendations": [
+      "A-G-16",
+      "A-G-29"
+    ],
+    "centralCountsChanged": false,
+    "original19closuresPreserved": true,
+    "documentationPatch": "grid-closure/keyboard-focus-contract.patch"
+  }
+}

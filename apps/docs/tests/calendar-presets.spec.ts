@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 import {checkSources} from './check-sources';
 
@@ -18,9 +18,16 @@ for(const months of [1,2])test(`range preset panel: ${months} calendars, fixed/r
  expect(side.x+side.width).toBeLessThan(calendar.x);
  await expect(presets.getByRole('option',{name:'This week',exact:true})).toHaveAttribute('aria-selected','true');
  const start=dialog.getByRole('textbox',{name:'Start date',exact:true}),end=dialog.getByRole('textbox',{name:'End date',exact:true});
+ const draft=async(a:string,b:string)=>{
+  if(months===1){
+   await expect(start).toHaveCount(0);await expect(end).toHaveCount(0);
+   const iso=(value:string)=>`${value.slice(6)}-${value.slice(0,2)}-${value.slice(3,5)}`;
+   await expect(dialog.locator('[data-sgui-part="date-range-draft"]')).toHaveText(`${iso(a)} – ${iso(b)}`);
+  }else {await expect(start).toHaveValue(a);await expect(end).toHaveValue(b);}
+ };
  for(const [label,a,b] of [['Autumn launch','09/01/2026','09/30/2026'],['This month','10/01/2026','10/31/2026'],['This year','01/01/2026','12/31/2026'],['Last year','01/01/2025','12/31/2025'],['Last business week','10/05/2026','10/09/2026']] as const){
   await presets.getByRole('option',{name:label,exact:true}).click();
-  await expect(start).toHaveValue(a);await expect(end).toHaveValue(b);
+  await draft(a,b);
   await expect(presets.getByRole('option',{name:label,exact:true})).toHaveAttribute('aria-selected','true');
   await expect(field).toHaveValue(initial!);
  }
@@ -36,6 +43,6 @@ for(const months of [1,2])test(`range preset panel: ${months} calendars, fixed/r
  const box=(await presets.boundingBox())!,grid=(await dialog.getByRole('grid').first().boundingBox())!;
  expect(box.y+box.height).toBeLessThan(grid.y);expect(box.x).toBeGreaterThanOrEqual(0);expect(box.x+box.width).toBeLessThanOrEqual(375);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
- await presets.getByRole('option',{name:'This month',exact:true}).click();await expect(start).toHaveValue('10/01/2026');
+ await presets.getByRole('option',{name:'This month',exact:true}).click();await draft('10/01/2026','10/31/2026');
  await dialog.getByRole('button',{name:'Apply',exact:true}).click();await expect(panel.getByRole('textbox',{name:'Reporting period',exact:true})).toHaveValue('10/01/2026 – 10/31/2026');
 });

@@ -1,0 +1,11 @@
+{
+  "sourceCommit": "f049b215e28e4157200f99ebf5fe52a7c04cae5a",
+  "rootCheckoutHead": "bfed38a1f867f4493049c3a38541e6b26709bad7",
+  "sourceFileCount": 874,
+  "allSourceFilesMatchCommit": true,
+  "nativeBuildSourceInputsMatch": true,
+  "sourceManifestSha256": "0065a8bc85153846403ff260967b6b70be958fcb095d0dc71480dfc82c0fc185",
+  "distribution": "902453680cd73b814aa646fec06356e836c6a2227f384f6f7de0b7f8a3a5569d",
+  "archiveSha256": "238c37c0b6c0c705cb4da9000f43ae4e6ddcb023c51dde955b8ef318e746a56c",
+  "limits": "Root checkout remains dev with local work. Library source exactly matches the separately committed draft candidate and fresh native-16 build; this is not dev integration or an official CI artifact."
+}

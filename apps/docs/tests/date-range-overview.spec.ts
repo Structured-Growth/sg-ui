@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 
 test('one-calendar preset example omits endpoint fields in its dropdown and source',async({page})=>{

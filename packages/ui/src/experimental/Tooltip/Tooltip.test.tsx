@@ -75,3 +75,26 @@ it("does not make a native disabled trigger focusable or show hover help", async
   fireEvent.mouseMove(document.body); await user.hover(screen.getByRole("button", {name:"Unavailable"}));
   expect(screen.queryByRole("tooltip")).toBeNull();
 });
+
+it("keeps keyboard-owned help when layout moves the pointer away, while Escape and pointer-only leave still dismiss", async () => {
+  const user = userEvent.setup(); const change = vi.fn();
+  render(<Tooltip trigger={<Button>Refresh</Button>} content="Refresh courses" onOpenChange={change} delay={0} closeDelay={0} />);
+  const button = screen.getByRole("button");
+  fireEvent.mouseMove(document.body);
+  await user.hover(button);
+  const tooltip = await screen.findByRole("tooltip");
+  await user.tab();
+  expect(document.activeElement).toBe(button);
+  await user.unhover(button);
+  expect(screen.getByRole("tooltip")).toBe(tooltip);
+  expect(button.getAttribute("aria-describedby")).toBe(tooltip.id);
+  expect(change).not.toHaveBeenCalledWith(false);
+  await user.keyboard("{Escape}");
+  await waitFor(() => expect(screen.queryByRole("tooltip")).toBeNull());
+  expect(document.activeElement).toBe(button);
+  // A later pointer-owned hover on a mouse-focused button still ends on leave.
+  await user.click(button); await user.unhover(button);
+  await user.hover(button); await screen.findByRole("tooltip");
+  await user.unhover(button);
+  await waitFor(() => expect(screen.queryByRole("tooltip")).toBeNull());
+});

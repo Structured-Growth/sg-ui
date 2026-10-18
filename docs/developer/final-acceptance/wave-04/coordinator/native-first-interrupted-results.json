@@ -1,0 +1,1316 @@
+{
+  "config": {
+    "argv": [
+      "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "/tmp/wave04-new-behavior.config.mjs"
+    ],
+    "configFile": "/tmp/wave04-new-behavior.config.mjs",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-new-behavior",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "hierarchical-menu.spec.ts",
+          "wave04-form-participation.spec.ts",
+          "wave04-toggle-presentation.spec.ts",
+          "wave04-browser-acceptance.spec.ts",
+          "editor-insertion-range-successors.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-new-behavior",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "hierarchical-menu.spec.ts",
+          "wave04-form-participation.spec.ts",
+          "wave04-toggle-presentation.spec.ts",
+          "wave04-browser-acceptance.spec.ts",
+          "editor-insertion-range-successors.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-new-behavior",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "hierarchical-menu.spec.ts",
+          "wave04-form-participation.spec.ts",
+          "wave04-toggle-presentation.spec.ts",
+          "wave04-browser-acceptance.spec.ts",
+          "editor-insertion-range-successors.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-new-behavior-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "node scripts/serve-browser-docs.mjs",
+      "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+      "url": "http://127.0.0.1:6173/fixtures/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "editor-insertion-range-successors.spec.ts",
+      "file": "editor-insertion-range-successors.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Image replaces same-node selection and retains exact saved history",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5803,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true })\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" aria-label=\"Undo\" data-variant=\"text\" data-tone=\"neutral\" data-sgui-part=\"button\" data-sgui-density=\"compact\" id=\"react-aria7443345646-_r_2_\" data-react-aria-pressable=\"true\" class=\"sgui_root_4900c47b sgui_action_5f7158ba\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true })\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" aria-label=\"Undo\" data-variant=\"text\" data-tone=\"neutral\" data-sgui-part=\"button\" data-sgui-density=\"compact\" id=\"react-aria7443345646-_r_2_\" data-react-aria-pressable=\"true\" class=\"sgui_root_4900c47b sgui_action_5f7158ba\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts:65:82",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts",
+                      "column": 82,
+                      "line": 65
+                    },
+                    "snippet": "  63 |   await expect.poll(() => saved(page)).toEqual(after);\n  64 |   if (command === 'Image') await expect.poll(() => root(page).getByRole('img', { name: 'Selected course cover', exact: true }).evaluate(n => (n as HTMLImageElement).naturalWidth)).toBe(1);\n> 65 |   await expect(toolbar(page).getByRole('button', { name: 'Undo', exact: true })).toBeDisabled();\n     |                                                                                  ^\n  66 |   expect(errors).toEqual([]);\n  67 |   await info.attach(`${command}-${shape}-documents`, { body: JSON.stringify({ before, after, reloaded: await saved(page) }), contentType: 'application/json' });\n  68 |  });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts",
+                        "column": 82,
+                        "line": 65
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true })\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" aria-label=\"Undo\" data-variant=\"text\" data-tone=\"neutral\" data-sgui-part=\"button\" data-sgui-density=\"compact\" id=\"react-aria7443345646-_r_2_\" data-react-aria-pressable=\"true\" class=\"sgui_root_4900c47b sgui_action_5f7158ba\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n\n\n  63 |   await expect.poll(() => saved(page)).toEqual(after);\n  64 |   if (command === 'Image') await expect.poll(() => root(page).getByRole('img', { name: 'Selected course cover', exact: true }).evaluate(n => (n as HTMLImageElement).naturalWidth)).toBe(1);\n> 65 |   await expect(toolbar(page).getByRole('button', { name: 'Undo', exact: true })).toBeDisabled();\n     |                                                                                  ^\n  66 |   expect(errors).toEqual([]);\n  67 |   await info.attach(`${command}-${shape}-documents`, { body: JSON.stringify({ before, after, reloaded: await saved(page) }), contentType: 'application/json' });\n  68 |  });\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts:65:82"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T22:00:34.016Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-new-behavior/editor-insertion-range-suc-8c899-retains-exact-saved-history-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-new-behavior/editor-insertion-range-suc-8c899-retains-exact-saved-history-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts",
+                    "column": 82,
+                    "line": 65
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "00dcd0f3f80f8b9658a6-8b0a1143aa92c303b98e",
+          "file": "editor-insertion-range-successors.spec.ts",
+          "line": 13,
+          "column": 2
+        },
+        {
+          "title": "Image replaces cross-node selection and retains exact saved history",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5581,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true })\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" aria-label=\"Undo\" data-variant=\"text\" data-tone=\"neutral\" data-sgui-part=\"button\" data-sgui-density=\"compact\" id=\"react-aria2883747256-_r_2_\" data-react-aria-pressable=\"true\" class=\"sgui_root_4900c47b sgui_action_5f7158ba\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true })\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" aria-label=\"Undo\" data-variant=\"text\" data-tone=\"neutral\" data-sgui-part=\"button\" data-sgui-density=\"compact\" id=\"react-aria2883747256-_r_2_\" data-react-aria-pressable=\"true\" class=\"sgui_root_4900c47b sgui_action_5f7158ba\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts:65:82",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts",
+                      "column": 82,
+                      "line": 65
+                    },
+                    "snippet": "  63 |   await expect.poll(() => saved(page)).toEqual(after);\n  64 |   if (command === 'Image') await expect.poll(() => root(page).getByRole('img', { name: 'Selected course cover', exact: true }).evaluate(n => (n as HTMLImageElement).naturalWidth)).toBe(1);\n> 65 |   await expect(toolbar(page).getByRole('button', { name: 'Undo', exact: true })).toBeDisabled();\n     |                                                                                  ^\n  66 |   expect(errors).toEqual([]);\n  67 |   await info.attach(`${command}-${shape}-documents`, { body: JSON.stringify({ before, after, reloaded: await saved(page) }), contentType: 'application/json' });\n  68 |  });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts",
+                        "column": 82,
+                        "line": 65
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true })\nExpected: disabled\nReceived: enabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Undo', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" aria-label=\"Undo\" data-variant=\"text\" data-tone=\"neutral\" data-sgui-part=\"button\" data-sgui-density=\"compact\" id=\"react-aria2883747256-_r_2_\" data-react-aria-pressable=\"true\" class=\"sgui_root_4900c47b sgui_action_5f7158ba\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n\n\n  63 |   await expect.poll(() => saved(page)).toEqual(after);\n  64 |   if (command === 'Image') await expect.poll(() => root(page).getByRole('img', { name: 'Selected course cover', exact: true }).evaluate(n => (n as HTMLImageElement).naturalWidth)).toBe(1);\n> 65 |   await expect(toolbar(page).getByRole('button', { name: 'Undo', exact: true })).toBeDisabled();\n     |                                                                                  ^\n  66 |   expect(errors).toEqual([]);\n  67 |   await info.attach(`${command}-${shape}-documents`, { body: JSON.stringify({ before, after, reloaded: await saved(page) }), contentType: 'application/json' });\n  68 |  });\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts:65:82"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T22:00:40.365Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-new-behavior/editor-insertion-range-suc-23519-retains-exact-saved-history-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-new-behavior/editor-insertion-range-suc-23519-retains-exact-saved-history-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts",
+                    "column": 82,
+                    "line": 65
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "00dcd0f3f80f8b9658a6-8d93847783d3f90d1110",
+          "file": "editor-insertion-range-successors.spec.ts",
+          "line": 13,
+          "column": 2
+        },
+        {
+          "title": "Columns Layout replaces same-node selection and retains exact saved history",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 60142,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts",
+                        "column": 96,
+                        "line": 35
+                      },
+                      "message": "Error: locator.check: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: 'Choose columns layout', exact: true }).getByRole('radio', { name: '3 columns (25% - 50% - 25%)', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <input title=\"\" type=\"radio\" tabindex=\"-1\" name=\"_r_36_\" value=\"three255025\" data-react-aria-pressable=\"true\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div data-sgui-part=\"dialog-body\" class=\"sgui_body_242a84f7 sgui_body_0f6594e9\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div data-sgui-part=\"dialog-body\" class=\"sgui_body_242a84f7 sgui_body_0f6594e9\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div data-sgui-part=\"dialog-body\" class=\"sgui_body_242a84f7 sgui_body_0f6594e9\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n\n  33 |    await dialog.getByLabel('Choose image').setInputFiles({ name: 'selected-cover.png', mimeType: 'image/png', buffer: pixel });\n  34 |    await dialog.getByRole('textbox', { name: 'Image description' }).fill('Selected course cover');\n> 35 |   } else await dialog.getByRole('radio', { name: '3 columns (25% - 50% - 25%)', exact: true }).check();\n     |                                                                                                ^\n  36 |   await dialog.getByRole('button', { name: 'Insert', exact: true }).click();\n  37 |   await expect(dialog).toHaveCount(0);\n  38 |   await expect(root(page)).toBeFocused();\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts:35:96"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T22:00:46.284Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-new-behavior/editor-insertion-range-suc-95b61-retains-exact-saved-history-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-new-behavior/editor-insertion-range-suc-95b61-retains-exact-saved-history-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "00dcd0f3f80f8b9658a6-62baaec0af2631def242",
+          "file": "editor-insertion-range-successors.spec.ts",
+          "line": 13,
+          "column": 2
+        },
+        {
+          "title": "Columns Layout replaces cross-node selection and retains exact saved history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "interrupted",
+                  "duration": 23446,
+                  "error": {
+                    "message": "Error: locator.check: Test ended.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: 'Choose columns layout', exact: true }).getByRole('radio', { name: '3 columns (25% - 50% - 25%)', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <input title=\"\" type=\"radio\" tabindex=\"-1\" name=\"_r_36_\" value=\"three255025\" data-react-aria-pressable=\"true\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div data-sgui-part=\"dialog-body\" class=\"sgui_body_242a84f7 sgui_body_0f6594e9\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    11 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div data-sgui-part=\"dialog-body\" class=\"sgui_body_242a84f7 sgui_body_0f6594e9\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+                    "stack": "Error: locator.check: Test ended.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: 'Choose columns layout', exact: true }).getByRole('radio', { name: '3 columns (25% - 50% - 25%)', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <input title=\"\" type=\"radio\" tabindex=\"-1\" name=\"_r_36_\" value=\"three255025\" data-react-aria-pressable=\"true\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div data-sgui-part=\"dialog-body\" class=\"sgui_body_242a84f7 sgui_body_0f6594e9\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    11 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div data-sgui-part=\"dialog-body\" class=\"sgui_body_242a84f7 sgui_body_0f6594e9\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts:35:96",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts",
+                      "column": 96,
+                      "line": 35
+                    },
+                    "snippet": "  33 |    await dialog.getByLabel('Choose image').setInputFiles({ name: 'selected-cover.png', mimeType: 'image/png', buffer: pixel });\n  34 |    await dialog.getByRole('textbox', { name: 'Image description' }).fill('Selected course cover');\n> 35 |   } else await dialog.getByRole('radio', { name: '3 columns (25% - 50% - 25%)', exact: true }).check();\n     |                                                                                                ^\n  36 |   await dialog.getByRole('button', { name: 'Insert', exact: true }).click();\n  37 |   await expect(dialog).toHaveCount(0);\n  38 |   await expect(root(page)).toBeFocused();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts",
+                        "column": 96,
+                        "line": 35
+                      },
+                      "message": "Error: locator.check: Test ended.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: 'Choose columns layout', exact: true }).getByRole('radio', { name: '3 columns (25% - 50% - 25%)', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <input title=\"\" type=\"radio\" tabindex=\"-1\" name=\"_r_36_\" value=\"three255025\" data-react-aria-pressable=\"true\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div data-sgui-part=\"dialog-body\" class=\"sgui_body_242a84f7 sgui_body_0f6594e9\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    11 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div data-sgui-part=\"dialog-body\" class=\"sgui_body_242a84f7 sgui_body_0f6594e9\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <span aria-hidden=\"true\" class=\"sgui_indicator_9604adf8\"></span> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  33 |    await dialog.getByLabel('Choose image').setInputFiles({ name: 'selected-cover.png', mimeType: 'image/png', buffer: pixel });\n  34 |    await dialog.getByRole('textbox', { name: 'Image description' }).fill('Selected course cover');\n> 35 |   } else await dialog.getByRole('radio', { name: '3 columns (25% - 50% - 25%)', exact: true }).check();\n     |                                                                                                ^\n  36 |   await dialog.getByRole('button', { name: 'Insert', exact: true }).click();\n  37 |   await expect(dialog).toHaveCount(0);\n  38 |   await expect(root(page)).toBeFocused();\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts:35:96"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T22:01:46.839Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-new-behavior/editor-insertion-range-suc-a1687-retains-exact-saved-history-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-new-behavior/editor-insertion-range-suc-a1687-retains-exact-saved-history-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-insertion-range-successors.spec.ts",
+                    "column": 96,
+                    "line": 35
+                  }
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "00dcd0f3f80f8b9658a6-e734edb97880aaddc208",
+          "file": "editor-insertion-range-successors.spec.ts",
+          "line": 13,
+          "column": 2
+        },
+        {
+          "title": "Image replaces same-node selection and retains exact saved history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "00dcd0f3f80f8b9658a6-9317b5a728872362c78a",
+          "file": "editor-insertion-range-successors.spec.ts",
+          "line": 13,
+          "column": 2
+        },
+        {
+          "title": "Image replaces cross-node selection and retains exact saved history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "00dcd0f3f80f8b9658a6-61ce8eee4f526a5bbcf1",
+          "file": "editor-insertion-range-successors.spec.ts",
+          "line": 13,
+          "column": 2
+        },
+        {
+          "title": "Columns Layout replaces same-node selection and retains exact saved history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "00dcd0f3f80f8b9658a6-fadc25d44244da879d69",
+          "file": "editor-insertion-range-successors.spec.ts",
+          "line": 13,
+          "column": 2
+        },
+        {
+          "title": "Columns Layout replaces cross-node selection and retains exact saved history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "00dcd0f3f80f8b9658a6-325c00f3c1ddfb131601",
+          "file": "editor-insertion-range-successors.spec.ts",
+          "line": 13,
+          "column": 2
+        },
+        {
+          "title": "Image replaces same-node selection and retains exact saved history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "00dcd0f3f80f8b9658a6-d18e99505e6068a64305",
+          "file": "editor-insertion-range-successors.spec.ts",
+          "line": 13,
+          "column": 2
+        },
+        {
+          "title": "Image replaces cross-node selection and retains exact saved history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "00dcd0f3f80f8b9658a6-ebb8875cbedbbf5d4f25",
+          "file": "editor-insertion-range-successors.spec.ts",
+          "line": 13,
+          "column": 2
+        },
+        {
+          "title": "Columns Layout replaces same-node selection and retains exact saved history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "00dcd0f3f80f8b9658a6-b27c7dc3a7c0accfb76d",
+          "file": "editor-insertion-range-successors.spec.ts",
+          "line": 13,
+          "column": 2
+        },
+        {
+          "title": "Columns Layout replaces cross-node selection and retains exact saved history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "00dcd0f3f80f8b9658a6-65fd41da475f98a0a3be",
+          "file": "editor-insertion-range-successors.spec.ts",
+          "line": 13,
+          "column": 2
+        }
+      ]
+    },
+    {
+      "title": "hierarchical-menu.spec.ts",
+      "file": "hierarchical-menu.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "three levels and mixed inline Back restore focus without changing the independent panel",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "687b38ddbbe0550577fa-78c8a6c5e799cf692c66",
+          "file": "hierarchical-menu.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "rejected path requests leave selection intact and removed ancestors reconcile safely",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "687b38ddbbe0550577fa-bf62456f9bbbdeb76160",
+          "file": "hierarchical-menu.spec.ts",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "command Escape unwinds child levels before dismissing the popup and reopening at root",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "687b38ddbbe0550577fa-45bf8d64c69a0ea9b34b",
+          "file": "hierarchical-menu.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "three levels and mixed inline Back restore focus without changing the independent panel",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "687b38ddbbe0550577fa-c4bbf9319787692bdda2",
+          "file": "hierarchical-menu.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "rejected path requests leave selection intact and removed ancestors reconcile safely",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "687b38ddbbe0550577fa-893fc483f94fc30439f1",
+          "file": "hierarchical-menu.spec.ts",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "command Escape unwinds child levels before dismissing the popup and reopening at root",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "687b38ddbbe0550577fa-fab21101e2eedb7fab91",
+          "file": "hierarchical-menu.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "three levels and mixed inline Back restore focus without changing the independent panel",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "687b38ddbbe0550577fa-d2dabc0106b157218929",
+          "file": "hierarchical-menu.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "rejected path requests leave selection intact and removed ancestors reconcile safely",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "687b38ddbbe0550577fa-61cec14903b861b966d3",
+          "file": "hierarchical-menu.spec.ts",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "command Escape unwinds child levels before dismissing the popup and reopening at root",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "687b38ddbbe0550577fa-7927ef097d819e40b278",
+          "file": "hierarchical-menu.spec.ts",
+          "line": 39,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "wave04-browser-acceptance.spec.ts",
+      "file": "wave04-browser-acceptance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "composed shell names, heading hierarchy and native form submit survive reflow (en-US)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "8388152fb505d13d5d51-13aaca4825b0a7aace40",
+          "file": "wave04-browser-acceptance.spec.ts",
+          "line": 52,
+          "column": 42
+        },
+        {
+          "title": "composed shell names, heading hierarchy and native form submit survive reflow (ar-EG)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "8388152fb505d13d5d51-7e838819d01acd917adc",
+          "file": "wave04-browser-acceptance.spec.ts",
+          "line": 52,
+          "column": 42
+        },
+        {
+          "title": "every tabbed-modal field and footer stop remains unobscured with text spacing and open resize",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "8388152fb505d13d5d51-59617ed23c34ec7567b9",
+          "file": "wave04-browser-acceptance.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "composed shell names, heading hierarchy and native form submit survive reflow (en-US)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "8388152fb505d13d5d51-e109aa3475a1a6df6895",
+          "file": "wave04-browser-acceptance.spec.ts",
+          "line": 52,
+          "column": 42
+        },
+        {
+          "title": "composed shell names, heading hierarchy and native form submit survive reflow (ar-EG)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "8388152fb505d13d5d51-99a7184468c52710794e",
+          "file": "wave04-browser-acceptance.spec.ts",
+          "line": 52,
+          "column": 42
+        },
+        {
+          "title": "every tabbed-modal field and footer stop remains unobscured with text spacing and open resize",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "8388152fb505d13d5d51-741ab7e95c0c657c00c7",
+          "file": "wave04-browser-acceptance.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "composed shell names, heading hierarchy and native form submit survive reflow (en-US)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "8388152fb505d13d5d51-b9a27040fdbc527d76e6",
+          "file": "wave04-browser-acceptance.spec.ts",
+          "line": 52,
+          "column": 42
+        },
+        {
+          "title": "composed shell names, heading hierarchy and native form submit survive reflow (ar-EG)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "8388152fb505d13d5d51-4b8e897c617dcf26cfd0",
+          "file": "wave04-browser-acceptance.spec.ts",
+          "line": 52,
+          "column": 42
+        },
+        {
+          "title": "every tabbed-modal field and footer stop remains unobscured with text spacing and open resize",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "8388152fb505d13d5d51-93a4773aa15e6cced0e0",
+          "file": "wave04-browser-acceptance.spec.ts",
+          "line": 83,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "wave04-form-participation.spec.ts",
+      "file": "wave04-form-participation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "native CDP contact autofill preserves uncontrolled host and form ownership",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e2c6bf16c4746ae373c5-1afa3a429e379cc6782c",
+          "file": "wave04-form-participation.spec.ts",
+          "line": 36,
+          "column": 3
+        },
+        {
+          "title": "native CDP contact autofill preserves accepting host and form ownership",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e2c6bf16c4746ae373c5-3a92b067db3595ca7d16",
+          "file": "wave04-form-participation.spec.ts",
+          "line": 36,
+          "column": 3
+        },
+        {
+          "title": "native CDP contact autofill preserves rejecting host and form ownership",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e2c6bf16c4746ae373c5-acc193579a32e540dc6b",
+          "file": "wave04-form-participation.spec.ts",
+          "line": 36,
+          "column": 3
+        },
+        {
+          "title": "independent fieldset names, help/errors and external multiline reset retain unique associations",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e2c6bf16c4746ae373c5-c2616832d32cd2cdf28a",
+          "file": "wave04-form-participation.spec.ts",
+          "line": 92,
+          "column": 1
+        },
+        {
+          "title": "native CDP contact autofill preserves uncontrolled host and form ownership",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e2c6bf16c4746ae373c5-2b0d642909947d435dec",
+          "file": "wave04-form-participation.spec.ts",
+          "line": 36,
+          "column": 3
+        },
+        {
+          "title": "native CDP contact autofill preserves accepting host and form ownership",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e2c6bf16c4746ae373c5-d40f8626754857afe7ce",
+          "file": "wave04-form-participation.spec.ts",
+          "line": 36,
+          "column": 3
+        },
+        {
+          "title": "native CDP contact autofill preserves rejecting host and form ownership",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e2c6bf16c4746ae373c5-6dfde7b2192b2e59f0b8",
+          "file": "wave04-form-participation.spec.ts",
+          "line": 36,
+          "column": 3
+        },
+        {
+          "title": "independent fieldset names, help/errors and external multiline reset retain unique associations",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e2c6bf16c4746ae373c5-4f085f6c18d8c118386b",
+          "file": "wave04-form-participation.spec.ts",
+          "line": 92,
+          "column": 1
+        },
+        {
+          "title": "native CDP contact autofill preserves uncontrolled host and form ownership",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e2c6bf16c4746ae373c5-124cd6e39769d97b6a7a",
+          "file": "wave04-form-participation.spec.ts",
+          "line": 36,
+          "column": 3
+        },
+        {
+          "title": "native CDP contact autofill preserves accepting host and form ownership",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e2c6bf16c4746ae373c5-158985aec6961e67f5e4",
+          "file": "wave04-form-participation.spec.ts",
+          "line": 36,
+          "column": 3
+        },
+        {
+          "title": "native CDP contact autofill preserves rejecting host and form ownership",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e2c6bf16c4746ae373c5-5fa20932c1d1a1c46a9d",
+          "file": "wave04-form-participation.spec.ts",
+          "line": 36,
+          "column": 3
+        },
+        {
+          "title": "independent fieldset names, help/errors and external multiline reset retain unique associations",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e2c6bf16c4746ae373c5-b686d82150966bd8d218",
+          "file": "wave04-form-participation.spec.ts",
+          "line": 92,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "wave04-toggle-presentation.spec.ts",
+      "file": "wave04-toggle-presentation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "toggle selection has independent geometry and focus (none)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "44ae21a8f085e595a7bd-1fbe427bd074f6fc7e07",
+          "file": "wave04-toggle-presentation.spec.ts",
+          "line": 4,
+          "column": 3
+        },
+        {
+          "title": "toggle selection has independent geometry and focus (active)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "44ae21a8f085e595a7bd-ecc2e04b4378d88927bc",
+          "file": "wave04-toggle-presentation.spec.ts",
+          "line": 4,
+          "column": 3
+        },
+        {
+          "title": "toggle selection has independent geometry and focus (none)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "44ae21a8f085e595a7bd-8bdc1b0fdf8c00ac6f7d",
+          "file": "wave04-toggle-presentation.spec.ts",
+          "line": 4,
+          "column": 3
+        },
+        {
+          "title": "toggle selection has independent geometry and focus (active)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "44ae21a8f085e595a7bd-7af0a04a51c0fb3553ee",
+          "file": "wave04-toggle-presentation.spec.ts",
+          "line": 4,
+          "column": 3
+        },
+        {
+          "title": "toggle selection has independent geometry and focus (none)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "44ae21a8f085e595a7bd-acfcf460218ad795bb66",
+          "file": "wave04-toggle-presentation.spec.ts",
+          "line": 4,
+          "column": 3
+        },
+        {
+          "title": "toggle selection has independent geometry and focus (active)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "44ae21a8f085e595a7bd-d8cebdcb56d7f0308461",
+          "file": "wave04-toggle-presentation.spec.ts",
+          "line": 4,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-17T22:00:33.622Z",
+    "duration": 97059.703,
+    "expected": 0,
+    "skipped": 45,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

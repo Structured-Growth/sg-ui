@@ -1,0 +1,11 @@
+{
+  "node": "v24.21.0",
+  "typescript": "5.9.3",
+  "typescriptSyntaxDiagnostics": [],
+  "swiftFrontendParse": "passed",
+  "patchApplicability": "passed",
+  "runtime": "unexecuted",
+  "limits": "Syntax parsing only; neither semantic typechecking nor XCTest/VoiceOver execution.",
+  "javascriptParse": "passed",
+  "proposalFiles": 3
+}

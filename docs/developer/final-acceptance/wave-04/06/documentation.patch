@@ -1,0 +1,37 @@
+--- a/docs/developer/react-aria-button.md
++++ b/docs/developer/react-aria-button.md
+@@ -60,8 +60,13 @@
+ deliver the owned `onPress` once from native click capture, before the form default
+ action; ordinary buttons retain React Aria press handling. Pointer, Enter and Space
+ ordering and current host callbacks are covered by [focused button evidence](parallel-batch-13/control-button.md).
+-The corrected frozen commit passed both Chromium/WebKit cases. Firefox, physical
+-touch and spoken assistive-technology acceptance remain separate.
++The later integrated [action-notification receipt](final-acceptance/wave-03-followup/validation-results.json)
++records pointer/Enter/Space, native submit/reset ordering and emulated-touch
++checks in Chromium, Firefox and WebKit. Exact cases are in
++`packages/ui/tests/browser/action-notifications.spec.ts`; the retained raw report
++is `packages/ui/artifacts/wave03-integration/followup-final-results.json`.
++Emulated touch is desktop automation. Physical touch and spoken
++assistive-technology acceptance remain separate.
+ 
+ 
+ ## Unreleased API consolidation
+--- a/docs/developer/react-aria-page-navigation.md
++++ b/docs/developer/react-aria-page-navigation.md
+@@ -32,7 +32,12 @@
+ 
+ Colocated behavior tests cover separated actions, controlled selection, rename
+ submission/dismissal/focus, portal theme, keyboard reorder, drag validation,
+-read-only mutations and last-page protection. Stories provide interactive host
+-state, read-only, last-page, dark and independent-scrolling examples. Full native
+-browser, touch, zoom and screen-reader acceptance gates remain in the master
+-backlog until independently verified.
++read-only mutations and last-page protection. The docs website and private native fixtures provide interactive host
++state, read-only, last-page, dark and independent-scrolling examples.
++Retained native authoring-list and translated presentation evidence is mapped in
++[the prior component reconciliation](final-acceptance/wave-02-01/report.md#a-m-10--partial)
++and HB-14 in [hardening execution](react-aria-hardening-execution.md).
++The original previous/next and link-semantics requirement still needs an explicit
++product/API owner disposition; reorder boundaries do not satisfy adjacent-route
++navigation. Actual browser zoom, physical touch and spoken screen-reader evidence
++remain separate; no owner decision is inferred from these examples.

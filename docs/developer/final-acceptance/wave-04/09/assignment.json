@@ -1,0 +1,29 @@
+{
+  "number": 9,
+  "title": "Package boundaries and performance",
+  "ids": [
+    "A-B-10",
+    "A-A-18",
+    "A-E-08",
+    "A-I-04",
+    "A-P-08",
+    "A-R-03",
+    "A-R-04",
+    "A-R-08",
+    "A-X-19",
+    "A-Z-09"
+  ],
+  "directory": "docs/developer/final-acceptance/wave-04/09",
+  "obligations": [
+    "- [ ] A-B-10 Reconcile original `B-10`: Measure production consumer bundles, CSS, editor/grid imports, initial render, and interactive updates with reproducible fixtures. Historical status: open.",
+    "- [ ] A-A-18 Reconcile original `A-18`: Keep heavyweight modules out of basic-control dependency paths; decide which require separate subpaths versus separate packages. Historical status: open.",
+    "- [ ] A-E-08 Reconcile original `E-08`: Put editor-only dependencies behind a granular import boundary and assess whether separate packages are required to avoid mandatory installation weight. Historical status: open.",
+    "- [ ] A-I-04 Reconcile original `I-04`: Keep icons individually importable; avoid pulling an entire icon catalog into basic components. Historical status: checked.",
+    "- [ ] A-P-08 Reconcile original `P-08`: Set reproducible performance budgets from baseline and representative consumer hardware; do not invent universal speed or size rankings. Historical status: open.",
+    "- [ ] A-R-03 Reconcile original `R-03`: Design root and granular entry points for core, theme/tokens/styles, primitives, icons, hooks, adapters, i18n, grid, editor and learning compositions. Historical status: open.",
+    "- [ ] A-R-04 Reconcile original `R-04`: Ensure barrels do not accidentally pull interactive/heavyweight dependencies into presentation-only imports or make server consumers import all editors. Historical status: open.",
+    "- [ ] A-R-08 Reconcile original `R-08`: Verify packed artifacts rather than only source imports; install the tarball in clean Vite and Next.js/SSR consumer fixtures and build production output. Historical status: checked.",
+    "- [ ] A-X-19 Reconcile original `X-19`: Record performance and memory budgets, profile large grids/selectors, and test listener/observer/timer/object-URL cleanup during mount/unmount. Historical status: open.",
+    "- [ ] A-Z-09 Reconcile original `Z-09`: Verify a clean consumer can install and use core, grid, editor and date components without installing any retired package or styling runtime. Historical status: open."
+  ]
+}

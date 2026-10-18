@@ -1,0 +1,1392 @@
+{
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "assignedBaseline": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "method": "Read-only SHA256 and JSON extraction. No new runtime/browser evidence. Scoped input inventory is not a complete transitive dependency or built-output equality claim.",
+  "receiptHashes": {
+    "docs/developer/final-acceptance/animated-tab-indicators/results.json": "cf0149e505ded3679309c74278626c6d51da744b676cd1bbba3b66f42d021b05",
+    "packages/ui/artifacts/wave03-integration/followup-final-results.json": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+    "docs/developer/final-acceptance/wave-03-integration/final-build-inputs.json": "6c4b614341d98c01ca1aab40becd183004da2d4c57ae9f3c957cfd7249ff9d57",
+    "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json": "975c83f3ca4b42d05e1823b170a0c5201794e3e8651aaca2ff7cc884ca7025e3",
+    "docs/developer/final-acceptance/wave-03-followup/validation-results.json": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+    "docs/developer/final-acceptance/rich-editor-presentation/results.json": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef",
+    "docs/developer/final-acceptance/rich-editor-presentation/tabs-regressions.log": "da4b1349a61728cdac4eb1f85a79ad8f7bca6937821cd4beb3cd759eac77026d",
+    "docs/developer/final-acceptance/editor-chrome-presentation/results.json": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea",
+    "docs/developer/react-aria-final-acceptance.md": "73ab51230f11b261c2b4a4a728a78f8c83c11f18ac7c51b36a5a63170b96b47a",
+    "docs/developer/react-aria-hardening-execution.md": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e",
+    "docs/developer/backlog-execution-2026-10-15.md": "75a4996497dd31574bd8a7fa82e01e2345aed262697ec0515de7ae3f60ad2809",
+    "docs/developer/react-aria-button.md": "8e4a2ca562fa5e0f75d6825f293ec3af71d1253362241791940cd8fed5a6fa28",
+    "docs/developer/react-aria-modal-shells.md": "6ef229f62836f5e7a0312becdfe20219ddf047c2b3ed20cecf95ea3d8daf5994",
+    "docs/developer/react-aria-page-navigation.md": "d905f33d7f1ec812167ff5dbf01f79e3bbb322ac26bd20b929bbe2177e135cb3",
+    "docs/developer/hierarchical-menu-scope.md": "44bc28bc875f015b90d28f37696595eef3ef7ab36316f308a3559813e8c85578",
+    "docs/developer/react-aria-host-adapter-acceptance.md": "1fd8ac971792a63ef8319432bf7645b86dc67f79c423c7ab273f480297bb1844",
+    "docs/developer/final-acceptance/wave-03-04/report.md": "a673da242c3dbce21b4c1789b7cf5fbd0b68b42bd4150424de7e9f5c69fd2d14",
+    "docs/developer/final-acceptance/wave-03-04/results.json": "ad5819474195934f26189eda0ab200a27e79436373730d39aaadfae36f5a1b55",
+    "docs/developer/final-acceptance/wave-03-14/report.md": "215b3fc4004584b5b330dd5cd764e313566cbca5de5bba22eb31817f498a30a6",
+    "docs/developer/final-acceptance/wave-03-14/results.json": "efdaddbbc78118d2e8bb66837a54f6ed0c3c4615c6258695be707ead37b3b0bc",
+    "docs/developer/final-acceptance/wave-03-16/report.md": "f7c9aa4652a41e17cc4c594098ad2d09a453589eb1e61a3d59d62ce91a571c56",
+    "docs/developer/final-acceptance/wave-03-16/results.json": "ce76230ef2791bf351766fc38601c1d09b2c71e1a846a67327a7a4f3a345d555",
+    "docs/developer/final-acceptance/wave-03-18/report.md": "d7d2b639d914e5566096b6d852fdbdc12b4509e38cf53705e3dc1a06fa35ee12",
+    "docs/developer/final-acceptance/wave-03-18/results.json": "dbd517467739b7f04d915a557b0bd47c15f52a80d07bad74cec050664ef0d60c",
+    "docs/developer/final-acceptance/wave-03-19/report.md": "216897b1cdf302e967197a532e6ac4b6a2c33cfa0c689a5119eca4a6d64283b3",
+    "docs/developer/final-acceptance/wave-03-19/results.json": "b0dbc87259685863924d767a0a465cc741ec79e5948e4f67f33ff69de91debf9",
+    "packages/ui/tests/browser/action-notifications.spec.ts": "5501b8f4ceb6674a67eab5aff4c3eb1e0cc68cde915de7052a4c18e62fee1014",
+    "packages/ui/tests/browser/navigation-composed.spec.ts": "ed6b706411ab6416d740a1abdb8826c4e3fb7a6c96162ec23f48798f45a61370",
+    "packages/ui/tests/browser/wave03-overlay-successors.spec.ts": "6687705c49aa06c61938ec3f8de8dc6ddde22e222c43272547ffca637904354b",
+    "packages/ui/tests/browser/wave03-selector-contracts.spec.ts": "49a719ee6ca3f426465f0953dc38d658d31924e122229a9a978be7c70d70edf5",
+    "packages/ui/tests/browser/wave03-18-primitives.spec.ts": "57129297301acf41bb421dfa0f8d0ddd6e52bd0b2f9e7efa02339ce8de3b6433",
+    "apps/docs/tests/tabs-overflow.spec.ts": "8d39da2ba54f8d554bf014ec48ccae07da85f91276402cb98005e39d979b51b7",
+    "apps/docs/tests/tab-indicator.spec.ts": "2043d27c178c9c4cef2087662753bcef0795cdf281fdad5ffce28f7746e66792",
+    "packages/ui/tests/apple/SimulatorAcceptance.swift": "eb213da863850b1de36a4d0a9832a9b2d0b40ab41da474ceb9c54d1b7dbad9c3",
+    "packages/ui/tests/apple/run-simulator.mjs": "7313c3cd74b93ff9c56d0107df0ff580eeb1657afaf4fc7c2a7da4c410437674",
+    "docs/developer/final-acceptance/wave-02-01/report.md": "c42411ca78e93ddc7547e9420c3135ca05ec2789928ff343a6ee048613c72ca1",
+    "docs/developer/final-acceptance/wave-02-08/report.md": "1b69b7a507672116740568d2bb833a5d0e8a7b79e7b37eec524013bae1e8ff37",
+    "docs/developer/final-acceptance/wave-02-09/report.md": "7bb62df28ec73d5d8cc4aa0378e9b9824e532fa3c721e5e4bbb9acac55844903"
+  },
+  "nativeCases": [
+    {
+      "file": "action-notifications.spec.ts",
+      "title": "owned ordinary/composed callbacks notify exactly once per pointer, Enter and Space",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "action-notifications.spec.ts",
+      "title": "submit/reset press precedes one native form event for pointer, Enter and Space",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "action-notifications.spec.ts",
+      "title": "emulated touch invokes one ordinary, anchor, toggle and native-form activation",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "action-notifications.spec.ts",
+      "title": "owned ordinary/composed callbacks notify exactly once per pointer, Enter and Space",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "action-notifications.spec.ts",
+      "title": "submit/reset press precedes one native form event for pointer, Enter and Space",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "action-notifications.spec.ts",
+      "title": "emulated touch invokes one ordinary, anchor, toggle and native-form activation",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "action-notifications.spec.ts",
+      "title": "owned ordinary/composed callbacks notify exactly once per pointer, Enter and Space",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "action-notifications.spec.ts",
+      "title": "submit/reset press precedes one native form event for pointer, Enter and Space",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "action-notifications.spec.ts",
+      "title": "emulated touch invokes one ordinary, anchor, toggle and native-form activation",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Fallback composed routes have one host owner for pointer and Enter",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Fallback consumer cancellation and callback order survive custom delegation",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Fallback modifier target download and external activation bypass host routing",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Custom composed routes have one host owner for pointer and Enter",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Custom consumer cancellation and callback order survive custom delegation",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Custom modifier target download and external activation bypass host routing",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Fallback composed routes have one host owner for pointer and Enter",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Fallback consumer cancellation and callback order survive custom delegation",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Fallback modifier target download and external activation bypass host routing",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Custom composed routes have one host owner for pointer and Enter",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Custom consumer cancellation and callback order survive custom delegation",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Custom modifier target download and external activation bypass host routing",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Fallback composed routes have one host owner for pointer and Enter",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Fallback consumer cancellation and callback order survive custom delegation",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Fallback modifier target download and external activation bypass host routing",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Custom composed routes have one host owner for pointer and Enter",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Custom consumer cancellation and callback order survive custom delegation",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "navigation-composed.spec.ts",
+      "title": "Custom modifier target download and external activation bypass host routing",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "responsive container, nested surfaces, wrapping and native Tab order",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "grouped text associations, required validation, canceled multiline reset and replaced owner",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "empty and disabled required choices are host-gated; delegated reset restores latest default silently",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "controlled tab requests preserve host authority at both densities and orientations",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "responsive container, nested surfaces, wrapping and native Tab order",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "grouped text associations, required validation, canceled multiline reset and replaced owner",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "empty and disabled required choices are host-gated; delegated reset restores latest default silently",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "controlled tab requests preserve host authority at both densities and orientations",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "responsive container, nested surfaces, wrapping and native Tab order",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "grouped text associations, required validation, canceled multiline reset and replaced owner",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "empty and disabled required choices are host-gated; delegated reset restores latest default silently",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-18-primitives.spec.ts",
+      "title": "controlled tab requests preserve host authority at both densities and orientations",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "nested modal locks survive child close, block background scrolling and restore after final close",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "AppModal sizes and height modes retain bounded surfaces, editable state and return focus",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "nested modal locks survive child close, block background scrolling and restore after final close",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "AppModal sizes and height modes retain bounded surfaces, editable state and return focus",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "nested modal locks survive child close, block background scrolling and restore after final close",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-overlay-successors.spec.ts",
+      "title": "AppModal sizes and height modes retain bounded surfaces, editable state and return focus",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Select noneditable keys serialize distinct IDs, reset, and preserve rejecting host authority",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "ComboBox text editing/filtering, duplicate IDs, description, reset and controlled authority",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Menu key endpoints/typeahead skip disabled commands; Space acts once and Tab/Escape dismiss",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Popover exposes named dialog/form content and restores trigger after Escape",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Tooltip supplements keyboard trigger name with description and Escape retains focus",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Select noneditable keys serialize distinct IDs, reset, and preserve rejecting host authority",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "ComboBox text editing/filtering, duplicate IDs, description, reset and controlled authority",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Menu key endpoints/typeahead skip disabled commands; Space acts once and Tab/Escape dismiss",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Popover exposes named dialog/form content and restores trigger after Escape",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Tooltip supplements keyboard trigger name with description and Escape retains focus",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Select noneditable keys serialize distinct IDs, reset, and preserve rejecting host authority",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "ComboBox text editing/filtering, duplicate IDs, description, reset and controlled authority",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Menu key endpoints/typeahead skip disabled commands; Space acts once and Tab/Escape dismiss",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Popover exposes named dialog/form content and restores trigger after Escape",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "wave03-selector-contracts.spec.ts",
+      "title": "Tooltip supplements keyboard trigger name with description and Escape retains focus",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": []
+        }
+      ]
+    }
+  ],
+  "inputComparison": {
+    "packages/ui/src/experimental/Tabs/Tabs.tsx": {
+      "sha256": "26e9ae79ccae4af261405ea1c8f3765a0cd4b1eea2b8647a0beb115dd0e74c0d",
+      "savedSha256": "26e9ae79ccae4af261405ea1c8f3765a0cd4b1eea2b8647a0beb115dd0e74c0d",
+      "match": true,
+      "savedReceipt": "animated-tab-indicators (later HB20 rerun)"
+    },
+    "packages/ui/src/experimental/Tabs/Tabs.module.css": {
+      "sha256": "7a5e23da7b11f777da1fe51bd7f657afee7d10a8341187e621f57e333af182e1",
+      "savedSha256": "7a5e23da7b11f777da1fe51bd7f657afee7d10a8341187e621f57e333af182e1",
+      "match": true,
+      "savedReceipt": "animated-tab-indicators (later HB20 rerun)"
+    },
+    "packages/ui/src/experimental/Tabs/useTabOverflow.ts": {
+      "sha256": "5a2b347c2e28c44bd296cd0d74e5e2b5444d525ba20e1b0d1c715a25359046f1",
+      "savedSha256": "5a2b347c2e28c44bd296cd0d74e5e2b5444d525ba20e1b0d1c715a25359046f1",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Tabs/Tabs.test.tsx": {
+      "sha256": "af6544e1645f9c9468cfef764a6e242a5a2272238e63d3eea115120e25a4c414",
+      "savedSha256": "af6544e1645f9c9468cfef764a6e242a5a2272238e63d3eea115120e25a4c414",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Tabs/tab-overflow.test.ts": {
+      "sha256": "220eaf2fa277819c160d798f1cf558ec20344c2d888ff127842f5045dc0cf093",
+      "savedSha256": "220eaf2fa277819c160d798f1cf558ec20344c2d888ff127842f5045dc0cf093",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Tabs/TabIndicator.module.css": {
+      "sha256": "4a6a80c82ac47dda22163ce36de861cc97f2349070e5bd04c48e5cc1897d6b30",
+      "savedSha256": "4a6a80c82ac47dda22163ce36de861cc97f2349070e5bd04c48e5cc1897d6b30",
+      "match": true,
+      "savedReceipt": "animated-tab-indicators (later HB20 rerun)"
+    },
+    "packages/ui/src/experimental/Tabs/tab-overflow.ts": {
+      "sha256": "6ab6bd0a97d72506a8ec39d905ac20ae90a6bea7bff96f071d8bdf18000adec5",
+      "savedSha256": "6ab6bd0a97d72506a8ec39d905ac20ae90a6bea7bff96f071d8bdf18000adec5",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Tabs/TabIndicator.tsx": {
+      "sha256": "f904db506a517b9b6b4bf93a61b3eca71f5642301fd9016cadb88f513488498c",
+      "savedSha256": "f904db506a517b9b6b4bf93a61b3eca71f5642301fd9016cadb88f513488498c",
+      "match": true,
+      "savedReceipt": "animated-tab-indicators (later HB20 rerun)"
+    },
+    "packages/ui/src/experimental/Tabs/scrollTabIntoView.ts": {
+      "sha256": "5730dbfc9024dd98ff9381d716bafb62c230b3fbaf289016b27e6d327b410618",
+      "savedSha256": "5730dbfc9024dd98ff9381d716bafb62c230b3fbaf289016b27e6d327b410618",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Tabs/Tabs.next100-regression.test.tsx": {
+      "sha256": "eca8df88a2bb35e86e564cff215a7419efb555f06b7f87ef15732321ef5d68ac",
+      "savedSha256": "eca8df88a2bb35e86e564cff215a7419efb555f06b7f87ef15732321ef5d68ac",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Dialog/Dialog.next100-regression.test.tsx": {
+      "sha256": "973290c225b9d3b5b453366e883dc984611e746ff54cd5d9818b285c88239f84",
+      "savedSha256": "973290c225b9d3b5b453366e883dc984611e746ff54cd5d9818b285c88239f84",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Dialog/Dialog.test.tsx": {
+      "sha256": "d5b73b2cd05067b944d94bc212733519a398e641d217574e2869b97bac20960f",
+      "savedSha256": "d5b73b2cd05067b944d94bc212733519a398e641d217574e2869b97bac20960f",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Dialog/Dialog.module.css": {
+      "sha256": "fc5dafaa09efdb601d4ffc001bbf9142f77c4801e91a69ed2de34b555567a41f",
+      "savedSha256": "fc5dafaa09efdb601d4ffc001bbf9142f77c4801e91a69ed2de34b555567a41f",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Dialog/Dialog.tsx": {
+      "sha256": "c20465eda40e26c6c501abfd5dd9d9dcc4f84f76f41b83027dcbe749089b00c7",
+      "savedSha256": "c20465eda40e26c6c501abfd5dd9d9dcc4f84f76f41b83027dcbe749089b00c7",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Menu/Menu.test.tsx": {
+      "sha256": "d944225a253aba4e3d8d4ef2ab61f8c0eb567f1b7e33635c1ee391cc35bdcf97",
+      "savedSha256": "d944225a253aba4e3d8d4ef2ab61f8c0eb567f1b7e33635c1ee391cc35bdcf97",
+      "match": true,
+      "savedReceipt": "wave03-followup"
+    },
+    "packages/ui/src/experimental/Menu/Menu.tsx": {
+      "sha256": "c1791ca484cd0631d9994417b69240fb6f4938afa4dd0cc31c67819ad80b8cfb",
+      "savedSha256": "c1791ca484cd0631d9994417b69240fb6f4938afa4dd0cc31c67819ad80b8cfb",
+      "match": true,
+      "savedReceipt": "wave03-followup"
+    },
+    "packages/ui/src/experimental/Menu/Menu.next100-regression.test.tsx": {
+      "sha256": "a6e247a9b5f9e176dd4e44e2aaad45fa308f92aa0590f329fee22ceee2dbc9d2",
+      "savedSha256": "a6e247a9b5f9e176dd4e44e2aaad45fa308f92aa0590f329fee22ceee2dbc9d2",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Menu/Menu.module.css": {
+      "sha256": "c1291a28693298ea9975a5dc4a68e84bad25093e7aa6999b0db073237a5b47c8",
+      "savedSha256": "c1291a28693298ea9975a5dc4a68e84bad25093e7aa6999b0db073237a5b47c8",
+      "match": true,
+      "savedReceipt": "HB20"
+    },
+    "packages/ui/src/experimental/Popover/Popover.tsx": {
+      "sha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "savedSha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Popover/Popover.test.tsx": {
+      "sha256": "10ac0d2290eb8b83452e8edbfe3fb3923b6a08453b7b38b51180ab2098efa102",
+      "savedSha256": "10ac0d2290eb8b83452e8edbfe3fb3923b6a08453b7b38b51180ab2098efa102",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Popover/Popover.next100-regression.test.tsx": {
+      "sha256": "4fabd39e5a98861e5b3323e0573e352cd1880cd4efdcb5823a7327a1249a05f2",
+      "savedSha256": "4fabd39e5a98861e5b3323e0573e352cd1880cd4efdcb5823a7327a1249a05f2",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Popover/Popover.module.css": {
+      "sha256": "a9b1f0fadeefd8498e024cd4aaea6db0a2f026951586c91e6df1bba9204817f4",
+      "savedSha256": "a9b1f0fadeefd8498e024cd4aaea6db0a2f026951586c91e6df1bba9204817f4",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Popover/Popover.collision.native-fixture.tsx": {
+      "sha256": "12912867c4160a01311bde996f9cdcd9d60da083f833b122e633f98a46b09957",
+      "savedSha256": "12912867c4160a01311bde996f9cdcd9d60da083f833b122e633f98a46b09957",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Popover/Popover.collision.test.tsx": {
+      "sha256": "8465921f32b419aa9c2eb3705515c5aed81dea28241d627dde7b3f55186a2163",
+      "savedSha256": "8465921f32b419aa9c2eb3705515c5aed81dea28241d627dde7b3f55186a2163",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Tooltip/Tooltip.tsx": {
+      "sha256": "432c9ccb28b951dfbca0ab271229f5f8d06cb7ff410fd339438d3dbb098f5e8c",
+      "savedSha256": "432c9ccb28b951dfbca0ab271229f5f8d06cb7ff410fd339438d3dbb098f5e8c",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Tooltip/Tooltip.lifetime.test.tsx": {
+      "sha256": "65fcce77f22d6fb3068589358fb1ad6c01220934879d3db86a396dd359768308",
+      "savedSha256": "65fcce77f22d6fb3068589358fb1ad6c01220934879d3db86a396dd359768308",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Tooltip/Tooltip.module.css": {
+      "sha256": "d5306f0a210618ab3e970c2dbfdeaeb127cec6d68827710b557521ebea24b85f",
+      "savedSha256": "d5306f0a210618ab3e970c2dbfdeaeb127cec6d68827710b557521ebea24b85f",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Tooltip/Tooltip.test.tsx": {
+      "sha256": "89816193c96e9ab5c0565cb735c11b578a419f52d1c25b929ab6e4f40b30dec5",
+      "savedSha256": "89816193c96e9ab5c0565cb735c11b578a419f52d1c25b929ab6e4f40b30dec5",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Link/Link.tsx": {
+      "sha256": "2deb54771cea81b8709f1ae9399510d22c0a7126886e2aa2068d09e7b27590b5",
+      "savedSha256": "2deb54771cea81b8709f1ae9399510d22c0a7126886e2aa2068d09e7b27590b5",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Link/Link.module.css": {
+      "sha256": "f186ff27f6c0dc93a0e7ca80c104aef354fbac242a631da16839ac7556ed2a67",
+      "savedSha256": "f186ff27f6c0dc93a0e7ca80c104aef354fbac242a631da16839ac7556ed2a67",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Link/Link.test.tsx": {
+      "sha256": "b7b9ec92030d99399d2ed18d0ed4a9a217548458d910c31517e4743f2c287bd3",
+      "savedSha256": "b7b9ec92030d99399d2ed18d0ed4a9a217548458d910c31517e4743f2c287bd3",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/Link/Link.next100-regression.test.tsx": {
+      "sha256": "1965796f8c55bbca2afac2ce21311dafe3f997fe517816c4a880f7d1908012df",
+      "savedSha256": "1965796f8c55bbca2afac2ce21311dafe3f997fe517816c4a880f7d1908012df",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/ToggleButton/ToggleButton.next100-regression.test.tsx": {
+      "sha256": "a603e79ad3b075baff18bab46b9c49541b5358d9b299092bad715a423b1cfb56",
+      "savedSha256": "a603e79ad3b075baff18bab46b9c49541b5358d9b299092bad715a423b1cfb56",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/ToggleButton/ToggleButton.tsx": {
+      "sha256": "f93a552afb444876b4aeacc2d0501048c0fc2a0d9ad693bb7168cb75efb1c373",
+      "savedSha256": "f93a552afb444876b4aeacc2d0501048c0fc2a0d9ad693bb7168cb75efb1c373",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/ToggleButton/ToggleButton.notifications.test.tsx": {
+      "sha256": "4b9055e5886dc12d8ddaf45cc6600f83392f1dc7a50fe0033784052795606b04",
+      "savedSha256": "4b9055e5886dc12d8ddaf45cc6600f83392f1dc7a50fe0033784052795606b04",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/ToggleButton/ToggleButton.module.css": {
+      "sha256": "b984a5519ee3d17ec8f2b1f5fe4a0b2f6fe5ddc609a1462fddd79e9a7067a4c9",
+      "savedSha256": "b984a5519ee3d17ec8f2b1f5fe4a0b2f6fe5ddc609a1462fddd79e9a7067a4c9",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/experimental/ToggleButton/ToggleButton.test.tsx": {
+      "sha256": "aee24b4972d80064e92ea35af42758966ebdcee3084a8169d28218a34f1168c5",
+      "savedSha256": "aee24b4972d80064e92ea35af42758966ebdcee3084a8169d28218a34f1168c5",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/AppModal/AppModal.tsx": {
+      "sha256": "dcd13c1bf1101e33a2f4fc379150cc74cd74616ba2eabd0a6d08ba0971f73873",
+      "savedSha256": "dcd13c1bf1101e33a2f4fc379150cc74cd74616ba2eabd0a6d08ba0971f73873",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/AppModal/AppModal.module.css": {
+      "sha256": "811bdbd4f695d6e54ac8d0528dacef97494a36e9522cf82c6d8314dd4218ab9c",
+      "savedSha256": "811bdbd4f695d6e54ac8d0528dacef97494a36e9522cf82c6d8314dd4218ab9c",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/AppModal/index.ts": {
+      "sha256": "a31a573a8e8fd6b84ff280c3e8fafe60d71b7e9373f1e88193c9b6bd6aa2d845",
+      "savedSha256": "a31a573a8e8fd6b84ff280c3e8fafe60d71b7e9373f1e88193c9b6bd6aa2d845",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/AppModal/AppModal.test.tsx": {
+      "sha256": "cc8789015d9564fd2af601e590dd8a69eb0a21087de886c95357ac000bfadc8f",
+      "savedSha256": "cc8789015d9564fd2af601e590dd8a69eb0a21087de886c95357ac000bfadc8f",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/AppModal/AppModal.next100-regression.test.tsx": {
+      "sha256": "962ad6f200ff8db9b86cfcd0904f57cb63d58652dbeedd68785290679dda5985",
+      "savedSha256": "962ad6f200ff8db9b86cfcd0904f57cb63d58652dbeedd68785290679dda5985",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.test.tsx": {
+      "sha256": "3cb01883c5c1ae663bc8b882b6142633d81a8988ada345b5aa418c53277cd00c",
+      "savedSha256": "3cb01883c5c1ae663bc8b882b6142633d81a8988ada345b5aa418c53277cd00c",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.next100-regression.test.tsx": {
+      "sha256": "ea0b959498bdd0514bedf415b1d1c7b4c92fabdeaec16d63119c85a7a2e88110",
+      "savedSha256": "ea0b959498bdd0514bedf415b1d1c7b4c92fabdeaec16d63119c85a7a2e88110",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.native-transactions.test.tsx": {
+      "sha256": "4bb57b212deb6cf7ece57287ba7d18b55b14a64893e1b7399fe7673119cba5b6",
+      "savedSha256": "4bb57b212deb6cf7ece57287ba7d18b55b14a64893e1b7399fe7673119cba5b6",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.native-transactions.native-fixture.tsx": {
+      "sha256": "af85f080541fbe435ae9fb87bc6c87f7ea5e3f39989650a5f656405c7e2d215c",
+      "savedSha256": "af85f080541fbe435ae9fb87bc6c87f7ea5e3f39989650a5f656405c7e2d215c",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.ssr.test.tsx": {
+      "sha256": "1e885a2a07534cf4c26c306e7f4c67898c13f7865f3449c4888315b19ac47875",
+      "savedSha256": "1e885a2a07534cf4c26c306e7f4c67898c13f7865f3449c4888315b19ac47875",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx": {
+      "sha256": "7f96f6471dcfc6671e687bbd375f35995b436b08b6ac544953dd0386dbf86a35",
+      "savedSha256": "7f96f6471dcfc6671e687bbd375f35995b436b08b6ac544953dd0386dbf86a35",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/ExperiencePageNavigator/index.ts": {
+      "sha256": "09384d5c12a9a502282d844d9b270829a3c35dbc0d50d546247742209978e340",
+      "savedSha256": "09384d5c12a9a502282d844d9b270829a3c35dbc0d50d546247742209978e340",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.module.css": {
+      "sha256": "da80cd9f48337e9446e92b842a44a27179e18243373f2ffcf90376ca84036bde",
+      "savedSha256": "da80cd9f48337e9446e92b842a44a27179e18243373f2ffcf90376ca84036bde",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/Button/Button.test.tsx": {
+      "sha256": "f96820a030a0442a7b8928fae9082cfac2332e3e8ff1765f4790b1afce417c98",
+      "savedSha256": "f96820a030a0442a7b8928fae9082cfac2332e3e8ff1765f4790b1afce417c98",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/Button/Button.module.css": {
+      "sha256": "2dae9fbc28de22a584671dbbe9d3466bf18b1f5088f1f6546cbb8dcf3b1a39db",
+      "savedSha256": "2dae9fbc28de22a584671dbbe9d3466bf18b1f5088f1f6546cbb8dcf3b1a39db",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/Button/Button.next100-regression.test.tsx": {
+      "sha256": "e86ac2867cf0bd924de3d6f85d42328eda4e4cae7b35fed3b9a12e85ccf8b293",
+      "savedSha256": "e86ac2867cf0bd924de3d6f85d42328eda4e4cae7b35fed3b9a12e85ccf8b293",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/Button/index.ts": {
+      "sha256": "e3b3d627a1fef1bfc1a6056115b697444e0383549cce84e243abe2f4b34522cb",
+      "savedSha256": "e3b3d627a1fef1bfc1a6056115b697444e0383549cce84e243abe2f4b34522cb",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/Button/Button.tsx": {
+      "sha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "savedSha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/Button/Button.public-contract.test.tsx": {
+      "sha256": "a6a889184067897c944c93993655ceb049692cb5a51453e71f37d33c21bc2db6",
+      "savedSha256": "a6a889184067897c944c93993655ceb049692cb5a51453e71f37d33c21bc2db6",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/Button/Button.public-contract.next100-regression.test.tsx": {
+      "sha256": "8817778de0c641797cd03cc78ad5ec4eb0fc36102e22458b6a443235d4045175",
+      "savedSha256": "8817778de0c641797cd03cc78ad5ec4eb0fc36102e22458b6a443235d4045175",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/AppPageTabs/AppPageTabs.module.css": {
+      "sha256": "b4b29147f4103d551a747b2abf540834f2bd9798c2293df5760beda01cc65f56",
+      "savedSha256": "b4b29147f4103d551a747b2abf540834f2bd9798c2293df5760beda01cc65f56",
+      "match": true,
+      "savedReceipt": "animated-tab-indicators (later HB20 rerun)"
+    },
+    "packages/ui/src/components/AppPageTabs/AppPageTabs.test.tsx": {
+      "sha256": "a7cff60793524ef62e57079c5e04ba9a2fa754c5c1e3ab423e5b3b2e59be66eb",
+      "savedSha256": "a7cff60793524ef62e57079c5e04ba9a2fa754c5c1e3ab423e5b3b2e59be66eb",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/AppPageTabs/AppPageTabs.next100-regression.test.tsx": {
+      "sha256": "064a3cd13603b38a23c3bc067aadb9db92e783a22038f34ba11adf2274726bdd",
+      "savedSha256": "064a3cd13603b38a23c3bc067aadb9db92e783a22038f34ba11adf2274726bdd",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/AppPageTabs/AppPageTabs.tsx": {
+      "sha256": "ba0336b35914bc396df657241064011a5aec811bef0deb3c016064c68d8d39d5",
+      "savedSha256": "ba0336b35914bc396df657241064011a5aec811bef0deb3c016064c68d8d39d5",
+      "match": true,
+      "savedReceipt": "animated-tab-indicators (later HB20 rerun)"
+    },
+    "packages/ui/src/components/AppPageTabs/index.ts": {
+      "sha256": "9908f58b741b72d756ec2020a8fc58d2621fce9f7f2d2180e9f186afbd0cce2a",
+      "savedSha256": "9908f58b741b72d756ec2020a8fc58d2621fce9f7f2d2180e9f186afbd0cce2a",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/SideNavigation/SideNavigation.action-diagnostics.test.tsx": {
+      "sha256": "9300a845cf5586a673280ea3afce093770f2709b39617a884d9a4945316b263f",
+      "savedSha256": "9300a845cf5586a673280ea3afce093770f2709b39617a884d9a4945316b263f",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/SideNavigation/SideNavigation.organization-lifetime.test.tsx": {
+      "sha256": "c4af8d1e7451eaaa86e772460755f6b04ffd60f33b6827fb651e1507ea53d786",
+      "savedSha256": "c4af8d1e7451eaaa86e772460755f6b04ffd60f33b6827fb651e1507ea53d786",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/SideNavigation/SideNavigation.tsx": {
+      "sha256": "b07ec6bc2768579d6f551c7507a3c334e44cd3e1ef3acbdd3333f37330f0626b",
+      "savedSha256": "b07ec6bc2768579d6f551c7507a3c334e44cd3e1ef3acbdd3333f37330f0626b",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/SideNavigation/SideNavigation.next100-regression.test.tsx": {
+      "sha256": "39e6f6f644da919f2860732e6c0134054dc6fd41bf9ea3e177fbb35965af32a8",
+      "savedSha256": "39e6f6f644da919f2860732e6c0134054dc6fd41bf9ea3e177fbb35965af32a8",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/SideNavigation/SideNavigation.helpers.test.ts": {
+      "sha256": "cdea5922b92fc968cc0307084d6a125ef6de78a77370d528dcd53fe4cf705222",
+      "savedSha256": "cdea5922b92fc968cc0307084d6a125ef6de78a77370d528dcd53fe4cf705222",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/SideNavigation/index.ts": {
+      "sha256": "9c8e4717a06a95dd246af84cf1472d995aa87de4e5e9fcf99155bd13bc8e0ac4",
+      "savedSha256": "9c8e4717a06a95dd246af84cf1472d995aa87de4e5e9fcf99155bd13bc8e0ac4",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/SideNavigation/SideNavigation.test.tsx": {
+      "sha256": "6ed6d8e64145f9681c79744399b41b79d8960eac2f960153e6f8771cd3bc8d61",
+      "savedSha256": "6ed6d8e64145f9681c79744399b41b79d8960eac2f960153e6f8771cd3bc8d61",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/components/SideNavigation/SideNavigation.module.css": {
+      "sha256": "e09d269b280e980af4bfb87335659a26c2137b6be98332c5e0747cf4ccc22848",
+      "savedSha256": "e09d269b280e980af4bfb87335659a26c2137b6be98332c5e0747cf4ccc22848",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/adapters/navigation.types.ts": {
+      "sha256": "7abcc5a2db2bf798c393c5a60af508f7261904f9804376de3fac9e4799f4e1c2",
+      "savedSha256": "7abcc5a2db2bf798c393c5a60af508f7261904f9804376de3fac9e4799f4e1c2",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/adapters/Link.tsx": {
+      "sha256": "632109fad519074531c2f305903bc2304a6ab01157a89950428d702adb3c05fa",
+      "savedSha256": "632109fad519074531c2f305903bc2304a6ab01157a89950428d702adb3c05fa",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/adapters/navigation.test.tsx": {
+      "sha256": "38f2d57d861ec5d14b331485614dde884d1fb86ef0951fef4adfd9ca55e43e49",
+      "savedSha256": "38f2d57d861ec5d14b331485614dde884d1fb86ef0951fef4adfd9ca55e43e49",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/adapters/NavigationAdapter.next100-regression.test.tsx": {
+      "sha256": "62044c22f5be8041951301160edb79d0e9da5fa8a1887d0c2243a6c74ac7de7d",
+      "savedSha256": "62044c22f5be8041951301160edb79d0e9da5fa8a1887d0c2243a6c74ac7de7d",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/adapters/accounts.test.tsx": {
+      "sha256": "ef1d4b12920d9e8a956241fd9bff61487643685f24e712ad810e64fcf2e33cca",
+      "savedSha256": "ef1d4b12920d9e8a956241fd9bff61487643685f24e712ad810e64fcf2e33cca",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/adapters/navigation.ssr.test.tsx": {
+      "sha256": "5b17c3e3526f19acfe582fe7649cd2c0f45edec61d1aaa1ff6eb02ac510c534a",
+      "savedSha256": "5b17c3e3526f19acfe582fe7649cd2c0f45edec61d1aaa1ff6eb02ac510c534a",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/adapters/accounts.tsx": {
+      "sha256": "30b2219c741d0472d14442bd628af68a434351f0a2a3cadb14bd62b574c5e493",
+      "savedSha256": "30b2219c741d0472d14442bd628af68a434351f0a2a3cadb14bd62b574c5e493",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/adapters/navigationContext.ts": {
+      "sha256": "144c32b8834f3709505be3bc1b627ae67a2fa1792a609856318d008a05ef3816",
+      "savedSha256": "144c32b8834f3709505be3bc1b627ae67a2fa1792a609856318d008a05ef3816",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/adapters/index.ts": {
+      "sha256": "631ebad537f309a64b61391442ed79f056312271fa3515418f832fba1019d46b",
+      "savedSha256": "631ebad537f309a64b61391442ed79f056312271fa3515418f832fba1019d46b",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/adapters/navigation.tsx": {
+      "sha256": "901c22179e377dd43926f8206bdfe9e87100b5105086f5febdfc361fc37c75d6",
+      "savedSha256": "901c22179e377dd43926f8206bdfe9e87100b5105086f5febdfc361fc37c75d6",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/adapters/adapters.test.tsx": {
+      "sha256": "f0362259d9bff6668db6697d1d03edfcede5fcc570b9f4cae220920619103f58",
+      "savedSha256": "f0362259d9bff6668db6697d1d03edfcede5fcc570b9f4cae220920619103f58",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/adapters/account.remaining-T-pending.test.tsx": {
+      "sha256": "67613a6d6c07b7424111943249b33530605b6d076a09e7c5f91810b0d2ef05d0",
+      "savedSha256": "67613a6d6c07b7424111943249b33530605b6d076a09e7c5f91810b0d2ef05d0",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/foundation/ThemeScope.module.css": {
+      "sha256": "eccd34329fc6f7e8e3933db5271b141bc07e16f1da3501ebdda011466d673052",
+      "savedSha256": "eccd34329fc6f7e8e3933db5271b141bc07e16f1da3501ebdda011466d673052",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/foundation/tokens.generated.ts": {
+      "sha256": "ef28c92bccb8e0b7b8c42f34dcdfe302300404100878833e91b206b8358e0b8b",
+      "savedSha256": "ef28c92bccb8e0b7b8c42f34dcdfe302300404100878833e91b206b8358e0b8b",
+      "match": true,
+      "savedReceipt": "wave03-followup"
+    },
+    "packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx": {
+      "sha256": "13be06df7ea48caf52776205f078fc5f5d06284fb7aca0c34f9f0b3d8b7f2b84",
+      "savedSha256": "13be06df7ea48caf52776205f078fc5f5d06284fb7aca0c34f9f0b3d8b7f2b84",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/foundation/scrollbar-activity.test.ts": {
+      "sha256": "7b2d46d08567a57f467bf5882cd283ca4dfe6a2acef7f5017868ecf1f3b5e0a0",
+      "savedSha256": "7b2d46d08567a57f467bf5882cd283ca4dfe6a2acef7f5017868ecf1f3b5e0a0",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/foundation/ThemeScope.test.tsx": {
+      "sha256": "b99c713ccbe211e67538d8cc19f1f2f544f763c7d8c6b834d54f1e3ee9d59a4f",
+      "savedSha256": "b99c713ccbe211e67538d8cc19f1f2f544f763c7d8c6b834d54f1e3ee9d59a4f",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/foundation/tokens.css": {
+      "sha256": "31cee489eb61aba2f5ba7ffe379783079fb0f93732db5919c59de41943d8df4d",
+      "savedSha256": "31cee489eb61aba2f5ba7ffe379783079fb0f93732db5919c59de41943d8df4d",
+      "match": true,
+      "savedReceipt": "wave03-followup"
+    },
+    "packages/ui/src/foundation/Scrollbars.module.css": {
+      "sha256": "a368a8e3d3eacee33e83b532211e909cbec5c94f18f76097e3b4c6c99ce3864f",
+      "savedSha256": "a368a8e3d3eacee33e83b532211e909cbec5c94f18f76097e3b4c6c99ce3864f",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/foundation/BaselineHostFlow.test.tsx": {
+      "sha256": "a8630b1e8c02222e2fd3866bbbe0701476a7cc66b476e31e37cdefada2f529ca",
+      "savedSha256": "a8630b1e8c02222e2fd3866bbbe0701476a7cc66b476e31e37cdefada2f529ca",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/foundation/ThemeScope.tsx": {
+      "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "savedSha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/foundation/Tokens.next100-regression.test.mjs": {
+      "sha256": "67e0314291b5889aeb529e3b5ecd6ed56c214195c7cdefea00f0b40c1e1b3264",
+      "savedSha256": "67e0314291b5889aeb529e3b5ecd6ed56c214195c7cdefea00f0b40c1e1b3264",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/foundation/index.ts": {
+      "sha256": "c4df607fb24f9a4ca660b6f75dd448b22dd3ba8549f480922a60eb602a596dba",
+      "savedSha256": "c4df607fb24f9a4ca660b6f75dd448b22dd3ba8549f480922a60eb602a596dba",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/foundation/ThemeScope.next100-regression.test.tsx": {
+      "sha256": "835209eb051493cd564ddba53ba9559497033d5d2e19e9e8443897211597cef1",
+      "savedSha256": "835209eb051493cd564ddba53ba9559497033d5d2e19e9e8443897211597cef1",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/foundation/BaselineHostFlow.native-fixture.tsx": {
+      "sha256": "aa10a5017898e6a1957549c8a37debf4b1bf12d465a167e460a027335b93681b",
+      "savedSha256": "aa10a5017898e6a1957549c8a37debf4b1bf12d465a167e460a027335b93681b",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    },
+    "packages/ui/src/foundation/tokens.json": {
+      "sha256": "a08079fb20ae728521a29aabb3b411b9d6df82e1e7ce101bc1307f4799d88617",
+      "savedSha256": "a08079fb20ae728521a29aabb3b411b9d6df82e1e7ce101bc1307f4799d88617",
+      "match": true,
+      "savedReceipt": "wave03-followup"
+    },
+    "packages/ui/src/foundation/scrollbar-activity.ts": {
+      "sha256": "f210ef3198366ad9f4ad930bd3c0fa073f43ca4764da94985b57a3b04ee70217",
+      "savedSha256": "f210ef3198366ad9f4ad930bd3c0fa073f43ca4764da94985b57a3b04ee70217",
+      "match": true,
+      "savedReceipt": "wave03-integration"
+    }
+  },
+  "comparisonSummary": {
+    "match": 97,
+    "changed": 0,
+    "notInSavedMap": 0
+  }
+}

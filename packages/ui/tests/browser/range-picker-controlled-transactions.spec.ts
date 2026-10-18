@@ -82,7 +82,10 @@ test('changed host endpoints while calendar focus stays inside invalidate draft 
   expect(await endpoints(page)).toEqual(replacement);
   await expect(requests(page)).toHaveText('[]');
   await page.getByRole('button', { name: 'Apply', exact: true }).click();
-  await expect(requests(page)).toHaveText(JSON.stringify([{ start: replacement[0], end: replacement[1] }]));
+  // The host already owns this range; Apply closes without a redundant change.
+  await expect(requests(page)).toHaveText('[]');
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(trigger(page)).toBeFocused();
   expect(await endpoints(page)).toEqual(replacement);
   await trigger(page).click();
   await expect(draft(page)).toHaveText(replacement.join(' – '));

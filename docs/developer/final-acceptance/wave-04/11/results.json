@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-04/11",
+  "capturedAt": "2026-10-17T21:53:52.518914+00:00",
+  "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "summary": {
+    "complete": 0,
+    "partial": 5,
+    "blocked": 0,
+    "newSwiftMethods": 4,
+    "retainedSelectMethods": 1,
+    "nativeExecutionsHere": 0
+  },
+  "leaves": [
+    {
+      "id": "A-X-07",
+      "originalRequirement": "- [ ] A-X-07 Reconcile original `X-07`: Verify target size/spacing against WCAG requirements and aim for comfortable primary touch targets; test coarse-pointer use rather than shrinking every hit area with density. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-10/report.md",
+          "sha256": "33ffca43cd9fc0ab686d96272bc214b83949a4852afea7be068290a4fa3adcd1"
+        },
+        {
+          "path": "packages/ui/tests/browser/acceptance-touch-targets.spec.ts",
+          "sha256": "794c0b6436534c660e0bc4afc5df28396d9ae19bfef3336dec6494769a7a80fa"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        }
+      ],
+      "newDeliverables": [
+        "apple-voiceover.patch",
+        "validation-plan.json",
+        "manual-review.md",
+        "manual-review.json"
+      ],
+      "residualSuccessors": [
+        "W04-11-X07: Retain attributable target geometry/trusted-touch attachments; audit uncovered calendar/inline/resize CSS-pixel targets, spacing and applicable exceptions; record Simulator and human comfort findings separately."
+      ],
+      "validationPlan": "validation-plan.json",
+      "nativeExecutionHere": "not-run",
+      "manualReview": "unrun"
+    },
+    {
+      "id": "A-X-08",
+      "originalRequirement": "- [ ] A-X-08 Reconcile original `X-08`: Provide both keyboard and single-pointer non-drag alternatives for drag operations where required; keyboard support alone does not satisfy every dragging requirement. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-10/report.md",
+          "sha256": "33ffca43cd9fc0ab686d96272bc214b83949a4852afea7be068290a4fa3adcd1"
+        },
+        {
+          "path": "packages/ui/src/experimental/DataGrid/GridColumnWidthControl.tsx",
+          "sha256": "94d6cf8a2732c12bc932e5a9427f98a8e84cb547602abebebd41170d8ecb409b"
+        },
+        {
+          "path": "packages/ui/tests/browser/acceptance-touch-targets.spec.ts",
+          "sha256": "794c0b6436534c660e0bc4afc5df28396d9ae19bfef3336dec6494769a7a80fa"
+        },
+        {
+          "path": "packages/ui/tests/browser/batch01-grid-reorder.spec.ts",
+          "sha256": "e5e5c46fa4e6b8adede64443e4b543fa15aa28fb3a29d9af116f758d40eb18e0"
+        }
+      ],
+      "newDeliverables": [
+        "apple-voiceover.patch",
+        "validation-plan.json",
+        "manual-review.md",
+        "manual-review.json"
+      ],
+      "residualSuccessors": [
+        "W04-11-X08: Validate equivalent single-pointer calendar movement/resizing under fields-hidden/variable/bounded/fixed/rejected-host policies and editor active drag/resize extensions; retain integrated grid step/Move evidence."
+      ],
+      "validationPlan": "validation-plan.json",
+      "nativeExecutionHere": "not-run",
+      "manualReview": "unrun"
+    },
+    {
+      "id": "A-X-10",
+      "originalRequirement": "- [ ] A-X-10 Reconcile original `X-10`: Establish supported Chrome/Firefox/WebKit browser checks and document representative touch and assistive-technology coverage. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-29/report.md",
+          "sha256": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/apple-simulator/results.json",
+          "sha256": "a72bef1a8a60fcd9720b78384c869dc011f4ac69c3772a1a1a081cb68499571c"
+        }
+      ],
+      "newDeliverables": [
+        "apple-voiceover.patch",
+        "validation-plan.json",
+        "manual-review.md",
+        "manual-review.json"
+      ],
+      "residualSuccessors": [
+        "W04-11-X10: Finish coordinator nine-method run, capture exact frozen host/platform/browser/AT versions and speech attachments, record representative touch/AT limits and unsupported pairings."
+      ],
+      "validationPlan": "validation-plan.json",
+      "nativeExecutionHere": "not-run",
+      "manualReview": "unrun"
+    },
+    {
+      "id": "A-X-11",
+      "originalRequirement": "- [ ] A-X-11 Reconcile original `X-11`: Perform manual screen-reader reviews of representative dialogs, selectors, calendars, navigation, tables and editors; document platform/version and findings. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-29/report.md",
+          "sha256": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1"
+        },
+        {
+          "path": "docs/developer/final-acceptance/apple-simulator/voiceover-utterances.txt",
+          "sha256": "050c6e8246ebb44d777d9ca8f88185f1f8c35ff32f5968c74841f6b02c3dfdf0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/apple-simulator/repeat-receipt.json",
+          "sha256": "fd4d95f7aca4ccd4e8362104e8811acd3cdbc22dc0aaa33346540dc3a12059b2"
+        }
+      ],
+      "newDeliverables": [
+        "apple-voiceover.patch",
+        "validation-plan.json",
+        "manual-review.md",
+        "manual-review.json"
+      ],
+      "residualSuccessors": [
+        "W04-11-X11-AUTO: Execute integrated nine methods; preserve all actual spoken requirements and failed artifacts; resolve focused failures and rerun only affected method.",
+        "W04-11-X11-MANUAL: Operator six-category actual navigation/activation review, speech/focus/findings with platform/version and follow-up speech after fixes."
+      ],
+      "validationPlan": "validation-plan.json",
+      "nativeExecutionHere": "not-run",
+      "manualReview": "unrun"
+    },
+    {
+      "id": "A-P-07",
+      "originalRequirement": "- [ ] A-P-07 Reconcile original `P-07`: Include keyboard, screen-reader, zoom, touch, dark theme, reduced-motion, SSR/hydration, and production bundle checks in prototype findings. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-30/report.md",
+          "sha256": "bdb94d8cd0b7ef19b0284b7c421a051471935d31b13ba1152633675f0bd09592"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-30/operator-findings.json",
+          "sha256": "623671a552a3d5616233288416d5c5c06bdbbfa0fac8e83c173d1802482bc03c"
+        },
+        {
+          "path": "docs/developer/react-aria-final-acceptance.md",
+          "sha256": "886adf45234d5d6499a10e2f10aebd1a51fbfdba94240b5ca4d70f0be751c694"
+        }
+      ],
+      "newDeliverables": [
+        "apple-voiceover.patch",
+        "validation-plan.json",
+        "manual-review.md",
+        "manual-review.json"
+      ],
+      "residualSuccessors": [
+        "W04-11-P07: Bind prototype findings to keyboard, actual screen reader, browser zoom, touch, dark, reduced-motion, executed React18/19 hydration and production bundle receipts; retain separate limits."
+      ],
+      "validationPlan": "validation-plan.json",
+      "nativeExecutionHere": "not-run",
+      "manualReview": "unrun"
+    }
+  ],
+  "authoringValidation": "authoring-validation.json",
+  "inputEvidence": "input-evidence.json",
+  "integrationObservation": {
+    "source": "coordinator message",
+    "status": "reported-in-progress, not a pass",
+    "methods": 9,
+    "output": "packages/ui/artifacts/wave04-apple-01",
+    "instruction": "Do not overwrite merged/running harness with whole-file proposal. Coordinator runtime receipt is authoritative when complete."
+  },
+  "artifactSha256": {
+    "apple-voiceover.patch": "b761c27c81c1bd889a397eb532789a465403d5f598f124eb633ac24f2bbeaa60",
+    "assignment.json": "b857708cda2e4d4d212699b85901e16ec580579fef612bc868d342a553b4d743",
+    "authoring-validation.json": "97292fbd7c90c21994eff749509566deaaca77a2d46dc10d370fe84bc3c5fa13",
+    "capture-evidence.py": "fcab5e5cc297cf20ef26c7d72585b7ed845287765b2a9cb0c3925310a4970451",
+    "input-evidence.json": "f1b6848edef43890f8df35ffaad9118e78f03af29f10c9047308b39ff6c2e10f",
+    "manual-review.json": "e28052251ea269ef9a91373f91de554a9d3b0c2d9694467e5428d1b39f2e3006",
+    "manual-review.md": "cdfbc4abf09c771ffbf226d62a2d8eeee7344b42ba0e9023609ff6736b08d7f8",
+    "node-syntax.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "patch-check.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "proposed-files/packages/ui/tests/apple/SimulatorAcceptance.swift": "6cef59fcb5ad1c2c4484c7d426e719e0a204bc4b11d1ca9f0ff3fea31e3fe882",
+    "proposed-files/packages/ui/tests/apple/run-simulator.mjs": "16d354866414ed7c14d14dc2b055f2df194cb34aab3fa6ef053518301c693aa6",
+    "report.md": "6c95d372b8727fe83bd1bb626a2d82f82a3867e03110f0af7ed1c148fae4cb47",
+    "swift-parse.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "validation-plan.json": "46f580e129504980a0e7be10f53d4091fb7ea4b6ea980ed58e36f0280c9a1264"
+  },
+  "limits": [
+    "Swift parse and Node syntax only; SDK typecheck/build/runtime pending coordinator.",
+    "Actual speech service output is distinct from manual usability.",
+    "Historical Apple output identity 11/298 only; prior Select proof remains dated.",
+    "Newer V300 complete; A139 open; no count/checklist mutation.",
+    "Proposals only inside assigned directory; no runtime downloads, physical device or human release/legal inference."
+  ]
+}

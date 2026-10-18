@@ -1,0 +1,19 @@
+{
+  "number": 11,
+  "title": "iPhone Simulator and VoiceOver",
+  "ids": [
+    "A-X-07",
+    "A-X-08",
+    "A-X-10",
+    "A-X-11",
+    "A-P-07"
+  ],
+  "directory": "docs/developer/final-acceptance/wave-04/11",
+  "obligations": [
+    "- [ ] A-X-07 Reconcile original `X-07`: Verify target size/spacing against WCAG requirements and aim for comfortable primary touch targets; test coarse-pointer use rather than shrinking every hit area with density. Historical status: open.",
+    "- [ ] A-X-08 Reconcile original `X-08`: Provide both keyboard and single-pointer non-drag alternatives for drag operations where required; keyboard support alone does not satisfy every dragging requirement. Historical status: open.",
+    "- [ ] A-X-10 Reconcile original `X-10`: Establish supported Chrome/Firefox/WebKit browser checks and document representative touch and assistive-technology coverage. Historical status: open.",
+    "- [ ] A-X-11 Reconcile original `X-11`: Perform manual screen-reader reviews of representative dialogs, selectors, calendars, navigation, tables and editors; document platform/version and findings. Historical status: open.",
+    "- [ ] A-P-07 Reconcile original `P-07`: Include keyboard, screen-reader, zoom, touch, dark theme, reduced-motion, SSR/hydration, and production bundle checks in prototype findings. Historical status: open."
+  ]
+}

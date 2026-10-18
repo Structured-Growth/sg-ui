@@ -1,5 +1,5 @@
 import {exampleName} from './example-name';
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {checkSources} from './check-sources';
 
 test('Typography accent alias and subtle tone follow themes with isolated source-backed examples',async({page,context})=>{

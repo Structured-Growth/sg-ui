@@ -1,0 +1,203 @@
+--- a/apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.fixture.tsx
++++ b/apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.fixture.tsx
+@@ -124,7 +124,14 @@
+   const [expanded, setExpanded] = useState(false);
+   const [events, setEvents] = useState<string[]>([]);
+   const record = (event: string) => setEvents(previous => [...previous, event]);
+-  return <Provider style={enlarged ? { "--sgui-label-size": "1.75rem", "--sgui-body-size": "2rem" } : undefined}>
++  // Controls consume density-specific text roles; enlarging only label/body roles
++  // no longer enlarges Button or TextField. Override the owned source tokens so
++  // explicit compact controls and inherited comfortable actions both double.
++  return <Provider style={enlarged ? {
++    "--sgui-label-size": "1.75rem", "--sgui-body-size": "2rem",
++    "--sgui-compact-control-text-size": "1.5rem",
++    "--sgui-comfortable-control-text-size": "1.75rem",
++  } : undefined}>
+     <Button onPress={() => setExpanded(value => !value)}>Resize narrow host</Button>
+     <div data-testid="outer-toolbar-container" style={{ inlineSize: 1120, container: "sgui-data-toolbar / inline-size" }}>
+       {(["Narrow", "Wide"] as const).map(name => <section key={name} aria-label={`${name} toolbar host`}
+--- a/packages/ui/tests/browser/toolbar-container-boundary.spec.ts
++++ b/packages/ui/tests/browser/toolbar-container-boundary.spec.ts
+@@ -1,4 +1,9 @@
++import { recordContainerBoundary, expectContainerFocusRing } from './container-boundary-observations';
+ import { expect, test, type Locator, type Page } from '@playwright/test';
++
++test.afterEach(async ({ page }, info) => {
++  await recordContainerBoundary(page, info, '[data-sgui-part="data-toolbar"]');
++});
+ 
+ async function tabTo(page: Page, target: Locator, key: 'Tab' | 'Shift+Tab' = 'Tab') {
+   for (let index = 0; index < 24; index++) {
+@@ -37,6 +42,19 @@
+     // Exact input widths distinguish adaptation from incidental flex shrinking.
+     await expect(narrowInput).toHaveCSS('width', '160px');
+     await expect(wideInput).toHaveCSS('width', '240px');
++    // Guard the stress fixture itself: old label/body token overrides left
++    // explicit compact controls at their ordinary 12px text size.
++    const rem = await page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).fontSize));
++    for (const input of [narrowInput, wideInput]) {
++      await expect.poll(() => input.evaluate(node => parseFloat(getComputedStyle(node).fontSize)))
++        .toBeCloseTo(rem * (enlarged ? 1.5 : .75), 1);
++    }
++    for (const toolbar of [narrow, wide]) {
++      await expect.poll(() => toolbar.getByRole('button', { name: 'Create course', exact: true })
++        .evaluate(node => parseFloat(getComputedStyle(node).fontSize)))
++        .toBeCloseTo(rem * (enlarged ? 1.75 : .875), 1);
++    }
++
+     const narrowAction = await narrow.getByRole('button', { name: 'Create course', exact: true }).boundingBox();
+     const narrowSearch = await narrowInput.boundingBox();
+     expect(narrowSearch!.y).toBeGreaterThanOrEqual(narrowAction!.y + narrowAction!.height);
+@@ -62,6 +80,7 @@
+     await expect(narrowInput).toHaveCSS('width', '160px');
+     await expect(narrowInput).toBeFocused();
+     await expect(narrowInput).toHaveAttribute('data-focus-visible', 'true');
++    await expectContainerFocusRing(page);
+     expect(await narrowInput.evaluate(node => getComputedStyle(node).outlineStyle)).not.toBe('none');
+     const trigger = narrow.getByRole('button', { name: 'Narrow course actions', exact: true });
+     // The trigger precedes this input. Traverse locally instead of wrapping
+--- a/packages/ui/tests/browser/navigation-shell-container-boundary.spec.ts
++++ b/packages/ui/tests/browser/navigation-shell-container-boundary.spec.ts
+@@ -1,4 +1,9 @@
++import { recordContainerBoundary, expectContainerFocusRing } from './container-boundary-observations';
+ import { test, expect, type Locator, type Page } from '@playwright/test';
++
++test.afterEach(async ({ page }, info) => {
++  await recordContainerBoundary(page, info, '[data-sgui-part="app-shell"]');
++});
+ import { waitForNativeScrollToSettle } from './native-scroll-settling';
+ 
+ async function openContainers(page: Page, theme: string, direction: string) {
+@@ -103,6 +108,7 @@
+       await checkLayout(first, width <= 640, 'ltr');
+       await checkLayout(second, false, 'ltr');
+       await visibleMainFocus(input);
++      await expectContainerFocusRing(page);
+       await expect(input).toHaveValue('Focused draft');
+     }
+     await first.evaluate(node => { (node as HTMLElement).style.inlineSize = '320px'; });
+@@ -128,6 +134,7 @@
+     for (let i = 1; i <= 12; i++) {
+       await page.keyboard.press(next);
+       await visibleMainFocus(first.getByRole('button', { name: `First host action ${i}`, exact: true }));
++      await expectContainerFocusRing(page);
+     }
+     expect(await navScroll.evaluate(node => node.scrollTop)).toBe(navAfter);
+     expect(await second.getByRole('main').evaluate(node => node.scrollTop)).toBe(0);
+--- a/packages/ui/tests/browser/modal-container-boundary.spec.ts
++++ b/packages/ui/tests/browser/modal-container-boundary.spec.ts
+@@ -1,4 +1,9 @@
++import { recordContainerBoundary, expectContainerFocusRing } from './container-boundary-observations';
+ import { expect, test, type Locator, type Page } from '@playwright/test';
++
++test.afterEach(async ({ page }, info) => {
++  await recordContainerBoundary(page, info, '[role="dialog"]');
++});
+ 
+ async function story(page: Page, theme = 'light', density = 'comfortable') {
+   await page.setViewportSize({ width: 1440, height: 900 });
+@@ -14,6 +19,7 @@
+     return rect.left >= 0 && rect.right <= innerWidth + 1 && rect.top >= 0 && rect.bottom <= innerHeight + 1
+       && Boolean(hit && (element.contains(hit) || hit.contains(element)));
+   })).toBe(true);
++  await expectContainerFocusRing(control.page());
+ }
+ 
+ async function arrangement(dialog: Locator, compact: boolean) {
+@@ -49,6 +55,7 @@
+     await expect.poll(() => dialog.evaluate(element => Math.round(element.getBoundingClientRect().width))).toBe(kind === 'narrow' ? 360 : 800);
+     expect(await dialog.evaluate(element => !document.querySelector('#sgui-fixture-root')?.contains(element))).toBe(true);
+     await arrangement(dialog, kind === 'narrow');
++    await recordContainerBoundary(page, test.info(), '[role="dialog"]');
+     await page.keyboard.press('Escape');
+     await expect(dialog).toHaveCount(0);
+     await expect(opener).toBeFocused();
+@@ -69,6 +76,7 @@
+     await arrangement(dialog, compact);
+     expect(await page.evaluate(() => innerWidth)).toBe(1440);
+   }
++  await recordContainerBoundary(page, test.info(), '[role="dialog"]');
+   await page.keyboard.press('Escape');
+   await expect(page.getByRole('button', { name: 'Open wide surface' })).toBeFocused();
+ });
+@@ -91,6 +99,7 @@
+   const after = await tabs.boundingBox();
+   expect(before && after && Math.abs(before.y - after.y) <= 1).toBe(true);
+   expect(await dialog.evaluate(element => element.scrollTop)).toBe(0);
++  await recordContainerBoundary(page, test.info(), '[role="dialog"]');
+   await page.keyboard.press('Escape');
+   await expect(page.getByRole('button', { name: 'Open narrow surface' })).toBeFocused();
+ });
+@@ -113,6 +122,7 @@
+   expect(await dialog.evaluate(element => element.scrollHeight > element.clientHeight && element.scrollTop > 0)).toBe(true);
+   expect(await dialog.evaluate(element => element.scrollWidth <= element.clientWidth + 1)).toBe(true);
+   await expect(dialog.locator('[data-sgui-part="dialog-footer"] > div')).toHaveCSS('flex-direction', 'column');
++  await recordContainerBoundary(page, test.info(), '[role="dialog"]');
+   await page.keyboard.press('Escape');
+   await expect(opener).toBeFocused();
+ });
+--- /dev/null
++++ b/packages/ui/tests/browser/container-boundary-observations.ts
+@@ -0,0 +1,62 @@
++import { expect, type Page, type TestInfo } from '@playwright/test';
++
++/** Attach real native geometry and captures even when an existing assertion fails.
++ * Read-only observations: never scroll a container, focus a control or rewrite CSS.
++ * These are enlarged-text/layout records, not browser-controls zoom or AT speech.
++ */
++export async function recordContainerBoundary(page: Page, info: TestInfo, selector: string) {
++  const observations = await page.locator(selector).evaluateAll(roots => roots.map(root => {
++    const rect = (node: Element) => {
++      const bounds = node.getBoundingClientRect();
++      return { x: bounds.x, y: bounds.y, width: bounds.width, height: bounds.height };
++    };
++    const style = getComputedStyle(root);
++    return {
++      part: root.getAttribute('data-sgui-part'), label: root.getAttribute('aria-label'), rect: rect(root),
++      clientWidth: root.clientWidth, scrollWidth: root.scrollWidth,
++      clientHeight: root.clientHeight, scrollHeight: root.scrollHeight,
++      scrollLeft: root.scrollLeft, scrollTop: root.scrollTop,
++      containerName: style.containerName, containerType: style.containerType, direction: style.direction,
++      controls: Array.from(root.querySelectorAll('button, input, [role="tab"]'), control => {
++        const computed = getComputedStyle(control);
++        return { text: control.getAttribute('aria-label') ?? control.textContent,
++          rect: rect(control), focused: document.activeElement === control,
++          fontSize: computed.fontSize, outlineStyle: computed.outlineStyle,
++          outlineWidth: computed.outlineWidth, outlineOffset: computed.outlineOffset };
++      }),
++    };
++  }));
++  const viewport = await page.evaluate(() => ({ width: innerWidth, height: innerHeight,
++    rootFontSize: getComputedStyle(document.documentElement).fontSize, devicePixelRatio,
++    visualViewportScale: visualViewport?.scale, focusedTag: document.activeElement?.tagName }));
++  await info.attach('container-boundary-geometry', {
++    body: JSON.stringify({ url: page.url(), project: info.project.name, status: info.status, viewport, observations }, null, 2),
++    contentType: 'application/json',
++  });
++  await info.attach('container-boundary-rendered', { body: await page.screenshot({ fullPage: true }), contentType: 'image/png' });
++}
++
++/** Ensure a keyboard focus indicator exists before checking its full bounds.
++ * Existing center-hit and focus assertions remain with their original owners.
++ */
++export async function expectContainerFocusRing(page: Page) {
++  const active = page.locator(':focus');
++  await expect(active).toHaveCount(1);
++  await expect.poll(() => active.evaluate(node => {
++    const style = getComputedStyle(node), rect = node.getBoundingClientRect();
++    if (style.outlineStyle === 'none' || parseFloat(style.outlineWidth) <= 0) return false;
++    const outside = Math.max(0, parseFloat(style.outlineWidth) + (parseFloat(style.outlineOffset) || 0));
++    const focus = { left: rect.left - outside, right: rect.right + outside,
++      top: rect.top - outside, bottom: rect.bottom + outside };
++    if (focus.left < -1 || focus.right > innerWidth + 1 || focus.top < -1 || focus.bottom > innerHeight + 1) return false;
++    for (let ancestor = node.parentElement; ancestor; ancestor = ancestor.parentElement) {
++      const computed = getComputedStyle(ancestor), bounds = ancestor.getBoundingClientRect();
++      const left = bounds.left + ancestor.clientLeft, top = bounds.top + ancestor.clientTop;
++      if (/(auto|scroll|hidden|clip)/.test(computed.overflowX)
++        && (focus.left < left - 1 || focus.right > left + ancestor.clientWidth + 1)) return false;
++      if (/(auto|scroll|hidden|clip)/.test(computed.overflowY)
++        && (focus.top < top - 1 || focus.bottom > top + ancestor.clientHeight + 1)) return false;
++    }
++    return true;
++  })).toBe(true);
++}

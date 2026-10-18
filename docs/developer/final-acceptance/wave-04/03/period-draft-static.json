@@ -1,0 +1,16 @@
+{
+  "node": "v24.21.0",
+  "typescript": "5.9.3",
+  "outputs": [
+    {
+      "path": "apps/docs/native-fixtures/scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
+      "diagnostics": []
+    },
+    {
+      "path": "packages/ui/tests/browser/calendar-period-draft-isolation.spec.ts",
+      "diagnostics": []
+    }
+  ],
+  "patchApplicability": "passed",
+  "runtime": "unexecuted; proposed-only"
+}

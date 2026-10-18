@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-18",
+  "currentSourceCommit": "dd3c08a63c8ccb7bdcc9d6cf6cfe0acb29f9a5f1",
+  "ciRun": 39170526984,
+  "pr": "https://github.com/Structured-Growth/sg-ui/pull/97",
+  "receipts": {
+    "native-09/results.json": "93c0b34ab1f60e916060df4e48d9deda94d44326659c8e01da423a9123a98eb7",
+    "native-09/execution.json": "ccc9d6cbd0133f88d1efc0969f3a2b5e0cbe7b6c5dd2b0c87a36f2f51a3d5276",
+    "native-10/execution.json": "1fd7954a1f057d2625cf1a710ffb942592afdf3133553896c3c32c11d465c69c",
+    "native-11/results.json": "27e5aac0c4f68637a8e8242b627e250b2ff7b5f1274cb066d8c59caba09d2719",
+    "native-11/execution.json": "9009ed10f50ece4f045f32c24439599fff98989fa2b03d621654b7241a4c8e39",
+    "native-12/results.json": "9a857157460b7c8a54c76c786ea2a19127d295ff5b5713aab89c88472f880941",
+    "native-12/execution.json": "19277dd8bae20577509b9668d9a8d805c688b872b779a99d762f9689fde312e1",
+    "checkpoint-commit-04.json": "25f83e8597614b50fe5d2600c646823e0d8fa1f68347b5d0cdeb5db3b2aad61e"
+  },
+  "progress": {
+    "native09": {
+      "pass": 89,
+      "fail": 19
+    },
+    "native10": "explicitly stopped after unrelated full-Chromium favicon404; no acceptance claim",
+    "native11": {
+      "pass": 74,
+      "fail": 19
+    },
+    "native12": {
+      "pass": 24,
+      "fail": 9
+    }
+  },
+  "findings": [
+    "Current native keyboard entry for linked calendars precedes the last month navigation header; enter backward from Previous month and preserve all native traversal/commit assertions.",
+    "Calendar static caption lives in the header; naming headings elsewhere remain independent.",
+    "The column-order proof now checks actual field order and visible labels separately from resizer glyph content.",
+    "Native macOS Meta+ArrowRight establishes a code-line insertion point; End only scrolled and left an accidental mid-token insertion.",
+    "Select anchor368.875 plus8 is positioned at whole-pixel376 by the retained interaction engine. Preserve the nominal gap within one CSS pixel and attach raw geometry."
+  ],
+  "limits": [
+    "Results retain all original failures; changes are not a full production acceptance or closure of an external owner gate."
+  ]
+}

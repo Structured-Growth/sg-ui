@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "status": "coordinator execution pending; no heavy validation performed by this worker",
+  "preconditions": [
+    "Review evidence.json proposedBaseHashes before serial application of the two proposed-files replacements. Preserve newer shared changes rather than overwrite.",
+    "Use supported Node 22/24 and the coordinator validation lease for build/browser work. Fresh immutable fixture bytes must match the candidate public package. The simulator driver acquires its own leases; do not wrap it in another lease.",
+    "Keep accepted card/layout native cases and 1851-unit checkpoint. Do not rerun them to replace a scope decision or speech receipt."
+  ],
+  "steps": [
+    {
+      "id": "W04-07-C03-SIMULATOR",
+      "cwd": ".",
+      "command": "node packages/ui/tests/apple/run-simulator.mjs --only-test testOperationStepsVoiceOverMilestones --output /Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/07/simulator-milestones",
+      "requires": "Apply both proposed replacements, review and compile the Swift candidate, then use current immutable native fixture output. Output path must not exist. No fixture implementation changes are proposed.",
+      "expected": "Only the new operation-steps XCTest executes. VoiceOver service is enabled; actual currentSpeech samples contain the full completion, failure and retry-completion messages after native button activation, without moving the VoiceOver cursor to Status. Preserve timestamped samples and screenshot on failure as well as success; runner retains exact source and fixture hashes, logs and xcresult.",
+      "limits": "UNEXECUTED. Swift parse and JS syntax checks do not establish XCTest types or Safari locator correctness. Polling is not continuous speech recording: operator still reviews quiet percentage changes, exact counts/duplicates, focus and keyboard flow using speech-review.md. Simulator is not physical-device or broad AT evidence."
+    },
+    {
+      "id": "W04-07-C08-BOUNDARIES",
+      "cwd": "packages/ui",
+      "command": "pnpm exec playwright test tests/browser/toolbar-container-boundary.spec.ts tests/browser/navigation-shell-container-boundary.spec.ts tests/browser/modal-container-boundary.spec.ts --project=chromium --project=firefox --project=webkit --workers=1",
+      "requires": "Coordinator admits a serial immutable-host browser window using existing browser-validation-pool infrastructure and an unused loopback port. Set unique SGUI_BROWSER_REPORT_DIR, SGUI_BROWSER_RESULTS_FILE and SGUI_BROWSER_OUTPUT_DIR under this evidence folder. No per-worker build/server startup. Apply container-evidence.patch serially after checking container-proposal-inputs.json base hashes, then coordinator refreshes native fixtures once. Five exact mirrors are under proposed-files. Do not mutate generated fixtures while Apple run is active.",
+      "expected": "Keep every existing assertion: narrow/wide sibling allocations in a wide viewport, resize with focus and draft preservation, toolbar menu/keyboard actions, LTR/RTL navigation and independent main scrolling, modal portaled surface/footer queries, sticky panels and enlarged-text whole-dialog fallback. Retain failures and rerun only corrected affected cases. Existing card-container-boundary and layout passes need no rerun for unchanged inputs. Existing 13 cases gain computed text-size checks and full focus-ring bounds assertions. Every case saves geometry/screenshot attachments; modal open states are captured before Escape. Any new clipping/overflow failure remains a failure to fix, not a reason to remove the assertion.",
+      "limits": "Prepared existing cases are not passing evidence. Unsupported capabilities must remain explicit; do not delete assertions to turn a run green."
+    },
+    {
+      "id": "W03-09-ZOOM",
+      "method": "Operator sets actual browser-controls 200% and 400% zoom on a fixed desktop window and exercises card, toolbar, navigation-shell and tabbed-modal fixtures.",
+      "record": [
+        "candidate HEAD plus source/fixture/served hashes",
+        "OS/browser/version and screenshot of actual browser zoom UI",
+        "outer window, innerWidth/innerHeight, DPR and visualViewport.scale",
+        "English/Arabic long labels, compact/comfortable density, font substitution and WCAG text-spacing overrides",
+        "Tab/Shift+Tab focused-control and outline bounds, scrolling ancestor bounds and offsets",
+        "overlay opening/Escape return focus and viewport resize",
+        "screenshots and actual rendered review for readable text and reachable actions"
+      ],
+      "limits": "Root font-size, CSS zoom, transforms, deviceScaleFactor and pinch/page scale are not substitutes. The existing rem/viewport evidence remains accepted separately."
+    },
+    {
+      "id": "W02-01-C14-intent-and-C15-status",
+      "method": "Product/API owner supplies explicit decisions in owner-decisions.json; proposed dispositions remain pending until then.",
+      "expected": "Attribute instructor menu/callback/date/icon clauses and learner status clause to shipped host/card contracts, or specify additional API and bounded criteria before implementation. Preserve original requirement text and F/T/V lineage. Do not treat a test pass or coordinator evidence integration as human scope approval."
+    },
+    {
+      "id": "W04-07-ACTUAL-ZOOM-200",
+      "status": "prepared; coordinator execution pending",
+      "plan": "browser-zoom/validation-plan.json",
+      "fixturePatch": "browser-zoom-fixture.patch",
+      "integration": "New fixture only; regenerate registry and refresh the coordinator native build serially. Helper/extension/runner stay in this owned folder. No browser installation or user profile.",
+      "cases": 8,
+      "boundary": "Actual extension-controlled browser zoom; no CSS/font/page/device scale substitution. Keep Apple/audio work paused. Optional400% run remains separate."
+    }
+  ]
+}

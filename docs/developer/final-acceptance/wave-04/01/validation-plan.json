@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-04/01",
+  "status": "documentation-only-integration-ready",
+  "preflight": {
+    "cwd": ".",
+    "command": "python3 docs/developer/final-acceptance/wave-04/01/verify.py",
+    "expected": "Four exact original obligations; accepted source/receipt hashes; unchanged HB-20 localized scenario/imports despite unrelated ImageSources drift; valid proposed links/base hashes; applicable two-file patch; retained logs contain named outcomes."
+  },
+  "integration": {
+    "cwd": ".",
+    "command": "git apply docs/developer/final-acceptance/wave-04/01/documentation.patch",
+    "owner": "coordinator",
+    "targets": ["docs/developer/react-aria-editor-layout.md", "docs/developer/react-aria-editor-chrome-acceptance.md"],
+    "precondition": "Preflight must pass; inspect proposal-targets.json before applying. Do not apply wave-03 superseded fixture/spec proposals or alter the concurrent upload changes.",
+    "afterIntegration": "Review and reconcile only A-M-21/A-M-22/A-M-23/A-M-25 using results.json. Coordinator owns checklist/count updates; no automatic changes from this handoff."
+  },
+  "runtime": {
+    "requiredForDocumentationOnly": false,
+    "rationale": "Accepted HB-19/HB-20 already execute the exact outstanding named successors. No implementation or assertion changes are proposed. No new component smoke cases are justified."
+  },
+  "conditionalSourceDriftPlan": [
+    {
+      "when": "A relevant chrome implementation/dependency/assertion changes after this snapshot",
+      "cwd": "packages/ui",
+      "command": "pnpm exec vitest run src/components/DocumentEditorLayout src/components/DocumentEditorToolbar src/components/ContentEditorChrome --maxWorkers=1",
+      "nativeCommand": "pnpm exec playwright test tests/browser/wave03-editor-chrome-acceptance.spec.ts --project=chromium --project=firefox --project=webkit",
+      "expected": "Retain unaffected evidence; rerun only changed cases/families if the diff permits. Three chrome cases per engine preserve native callbacks, 320px translated layout, scroll ownership and availability/focus assertions."
+    },
+    {
+      "when": "A relevant floating selection implementation/dependency/assertion or localized presentation changes",
+      "cwd": "packages/ui",
+      "command": "pnpm exec vitest run src/components/FloatingTextSelectionToolbar --maxWorkers=1",
+      "nativeCommand": "pnpm exec playwright test tests/browser/inventory-selection-boundary.spec.ts tests/browser/hardening-rich-editor-presentation.spec.ts --project=chromium --project=firefox --project=webkit",
+      "expected": "Four boundary cases and eight presentation configurations per engine; keep selected text/sibling content, focus/scroll, visible fragment and strict zero-page-error assertions. Review only changed screenshot configurations. Do not rerun unchanged families for credit."
+    }
+  ],
+  "conditionalNativePrerequisites": "Coordinator serializes validation under existing canonical leases and supported Node22.12+/24. A source change requires a fresh library/docs fixture build before the affected native run, once per settled source snapshot. Use pnpm build:browser-docs from packages/ui only under coordinator scheduling. Select an available loopback port other than3000; never build during another active native job. Set SGUI_BROWSER_PORT, SGUI_BROWSER_BASE_URL and unique SGUI_BROWSER_REPORT_DIR/SGUI_BROWSER_RESULTS_FILE/SGUI_BROWSER_OUTPUT_DIR. Retain raw failures, exact source/host/output hashes and engine versions; no assertion removal.",
+  "limits": ["No unit/build/browser/install/simulator/heavy command executed in this handoff.", "Hash/link/log checking is read-only reconciliation, not new runtime or spoken AT evidence.", "Physical device, OS IME, spoken AT and owner/legal/production gates remain independent."]
+}

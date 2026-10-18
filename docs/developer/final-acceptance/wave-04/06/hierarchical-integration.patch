@@ -1,0 +1,186 @@
+--- a/packages/ui/src/experimental/index.ts
++++ b/packages/ui/src/experimental/index.ts
+@@ -61,3 +61,5 @@
+ 
+ export {MonthPicker,type MonthPickerProps} from "./MonthPicker/MonthPicker";
+ export {YearPicker,type YearPickerProps} from "./YearPicker/YearPicker";
++
++export { HierarchicalMenu, type HierarchicalMenuProps, type HierarchicalMenuItem, type HierarchicalMenuLevel, type HierarchicalMenuSection } from "./HierarchicalMenu";
+--- a/packages/ui/src/components/primitives/index.ts
++++ b/packages/ui/src/components/primitives/index.ts
+@@ -24,3 +24,5 @@
+ export { SearchField, type SearchFieldProps, type SearchFieldItem } from "../../experimental/SearchField/SearchField";
+ 
+ export { FormFieldScope, type FormFieldScopeProps } from "../../experimental/FormFieldScope/FormFieldScope";
++
++export { HierarchicalMenu, type HierarchicalMenuProps, type HierarchicalMenuItem, type HierarchicalMenuLevel, type HierarchicalMenuSection } from "../../experimental/HierarchicalMenu";
+--- a/packages/ui/scripts/check-foundations.mjs
++++ b/packages/ui/scripts/check-foundations.mjs
+@@ -10,6 +10,7 @@
+ 
+ const interactionFiles = new Set(['SearchField', 'TextField', 'Provider', 'Dialog', 'Popover', 'Tabs', 'ComboBox', 'AsyncMultiSelect', 'DateRangeSelector', 'DateField', 'TimeField', 'Checkbox', 'DataGrid', 'Calendar', 'DatePicker', 'DateRangePicker', 'Menu', 'Switch', 'RadioGroup', 'Select', 'TextArea', 'ToggleButton', 'Tooltip', 'TagGroup', 'Progress']
+   .map(name => `src/experimental/${name}/${name}.tsx`));
++interactionFiles.add("src/experimental/HierarchicalMenu/HierarchicalMenu.tsx");
+ interactionFiles.add("src/components/Button/Button.tsx");
+ interactionFiles.add("src/experimental/Calendar/CalendarNavigation.tsx");
+ interactionFiles.add("src/experimental/Calendar/CalendarPeriodNavigation.tsx");
+--- a/apps/docs/examples/catalog/primitives-actions.tsx
++++ b/apps/docs/examples/catalog/primitives-actions.tsx
+@@ -1,4 +1,5 @@
+ 'use client';
++import { HierarchicalMenuExamples } from '../HierarchicalMenuExamples';
+ import { TabsOverflowExamples } from '../TabsOverflowExamples';
+ import { useState } from 'react';
+ import { Button, Dialog, Popover, Tabs, Typography, Box, Stack, Surface, Card, CardContent, Divider, IconButton, ButtonGroup, Menu, SplitAction, Link, Breadcrumbs, Tooltip, List, ListItem, ListItemButton, ListItemText, ListItemIcon, Navigation, NavigationItem, Disclosure, Collapse, Chip, Badge, Progress, Status, Avatar, Table, TableHead, TableBody, TableFoot, TableRow, TableCell, TableHeaderCell, TableCaption, Pagination, Select, Checkbox, TextField } from '@structured-growth/sg-ui/experimental';
+@@ -1802,6 +1803,7 @@
+ }
+ 
+ export const presentationEntries: CatalogEntry[] = [
++  {slug: "hierarchical-menu", title: "Hierarchical menu", exports: ["HierarchicalMenu"], description: "Sliding drilldown and Back navigation with native links or command menu semantics.", Playground: HierarchicalMenuExamples},
+   {slug:"icons", title:"Icons", description:"Search every owned public SVG icon and adjust sizing, stroke and accessible labels.", exports:["AccessTimeFilledIcon", "AccountCircleIcon", "AddIcon", "ApartmentIcon", "ArrowDropDownIcon", "ArrowForwardIcon", "AssignmentTurnedInIcon", "AutoStoriesIcon", "BookIcon", "BrushIcon", "BuildIcon", "BusinessCenterIcon", "CachedIcon", "CalendarTodayIcon", "CheckIcon", "ChevronRightIcon", "CircleIcon", "ClassIcon", "CloseIcon", "CodeIcon", "ComputerIcon", "ContentCopyIcon", "CorporateFareIcon", "DashboardIcon", "DeleteOutlineIcon", "DescriptionIcon", "DescriptionOutlinedIcon", "DnsIcon", "DragIndicatorIcon", "EditIcon", "EventIcon", "ExpandLessIcon", "ExpandMoreIcon", "ExploreIcon", "FactCheckOutlinedIcon", "FilterListIcon", "FontDownloadIcon", "FormatAlignCenterIcon", "FormatAlignJustifyIcon", "FormatAlignLeftIcon", "FormatAlignRightIcon", "FormatBoldIcon", "FormatClearIcon", "FormatColorFillIcon", "FormatColorTextIcon", "FormatIndentDecreaseIcon", "FormatIndentIncreaseIcon", "FormatItalicIcon", "FormatListBulletedIcon", "FormatListNumberedIcon", "FormatSizeIcon", "FormatStrikethroughIcon", "FormatUnderlinedIcon", "GroupIcon", "HighlightIcon", "HorizontalRuleIcon", "ImageIcon", "KeyboardArrowDownIcon", "KeyboardArrowLeftIcon", "LinkIcon", "LockIcon", "LockResetIcon", "LogoutIcon", "ManageAccountsIcon", "MenuBookIcon", "MenuBookOutlinedIcon", "MoreHorizIcon", "MoreVertIcon", "PaidIcon", "PeopleIcon", "PersonIcon", "PersonAddIcon", "PhotoCameraBackIcon", "QuizOutlinedIcon", "RedoIcon", "RemoveIcon", "SchoolIcon", "ScienceOutlinedIcon", "SearchIcon", "SortIcon", "StarIcon", "SubscriptIcon", "SuperscriptIcon", "TaskAltIcon", "TerminalIcon", "TranslateIcon", "TuneIcon", "UndoIcon", "UploadFileIcon", "ViewColumnIcon", "ViewListIcon", "ViewWeekIcon", "VisibilityOffIcon", "VpnKeyIcon", "WindowIcon", "WorkOutlineOutlinedIcon", "getActivityTypeIcon"], Playground:IconsPlayground},
+   {slug: "button", title: "Button", exports: ["Button"], description: "Trigger an action with a labelled button, optional icons and native interaction states.", Playground: ButtonExamples},
+   {slug: "owned-dialog", title: "Dialog", exports: ["Dialog"], description: "Controlled overlay dismissal and explicitly host-owned actions.", Playground: OwnedDialogPlayground},
+--- a/apps/docs/content/component-navigation.json
++++ b/apps/docs/content/component-navigation.json
+@@ -8,6 +8,7 @@
+       "button-group",
+       "split-action",
+       "menu",
++      "hierarchical-menu",
+       "toggle-button",
+       "toggle-button-group"
+     ]
+--- a/apps/docs/content/component-usage/presentation.json
++++ b/apps/docs/content/component-usage/presentation.json
+@@ -689,5 +689,30 @@
+         "label": "Scoped modal content"
+       }
+     ]
++  },
++  "hierarchical-menu": {
++    "when": "Use HierarchicalMenu for a reusable sliding drilldown panel with Back navigation. Use Menu for flat popup commands, Navigation for simple route lists, and Popover for arbitrary form content. The panel does not open a flyout or manage an overlay.",
++    "how": [
++      "Load /styles.css and provide Provider or ThemeScope. Supply a level with stable IDs, sections, optional titles and footerItems; IDs are unique within each level. Navigation renders links/buttons; commands renders a React Aria menu with arrow keys and disabled skipping.",
++      "Use children for drilldown. Navigation may mix childBehavior=\"inline\" sections with deeper drilldown; commands always drill down. Entering branches never invokes leaf actions or routes their href. Back returns to the prior displayed level and restores the opening branch, retaining inline expansion and scroll.",
++      "path and onPathChange form a controlled request contract; defaultPath starts a local stack. Removed/disabled ancestors render the longest valid path and request correction once. Accepted host focus outside the panel is preserved.",
++      "Give the host a bounded width/height when independent scrolling is needed. Back stays available above long navigation content; both densities use owned targets, directional motion respects RTL and reduced motion, and focus remains outlined in forced colors.",
++      "A popup host owns opening, positioning and dismissal. Pass onDismiss in command mode for root Escape; child Escape unwinds first. Unmounting popup content resets local path on reopening; controlled paths remain host-owned. Leaf href owns native/adapter routing, while onAction is a notification; do not navigate twice. Explicitly close the popup after a leaf action if desired. Persistent navigation has no popup Escape policy.",
++      "The host supplies translated item labels, router adapters, current markers, authorization and persistence. The library translates Back to the branch label. Avoid arbitrary forms inside the commands collection."
++    ],
++    "related": [
++      {
++        "slug": "menu",
++        "label": "Flat commands"
++      },
++      {
++        "slug": "navigation",
++        "label": "Native route lists"
++      },
++      {
++        "slug": "popover",
++        "label": "Anchored host surface"
++      }
++    ]
+   }
+ }
+--- a/docs/developer/hierarchical-menu-scope.md
++++ b/docs/developer/hierarchical-menu-scope.md
+@@ -1,6 +1,9 @@
+ # Sliding drilldown menu panel scope
+ 
+-Status: design scope only; no new public API ships with this document.
++Status: implementation prepared in wave-04/06. The new HierarchicalMenu source,
++three baseline tests and private native fixture are ready; shared public exports,
++website playground/metadata and guard registration await coordinator integration.
++No runtime/native validation or HM closure is inferred from that preparation.
+ The requested component is the sliding panel that replaces a menu level and
+ provides a Back button. Dropdown/flyout submenus are outside this scope.
+ Adopting the component in the current menu is a separate follow-up.
+@@ -125,4 +128,21 @@
+ 
+ HM-SCOPE-01 evidence: inspected the local reference SideNavigation source/stories
+ and linked SGUI source/tests; verified document links and diff whitespace.
+-No runtime or visual validation is claimed. Successor: HM-F-01.
++No runtime or visual validation is claimed. Successor: integrate wave-04/06/hierarchical-integration.patch and run its bounded
++validation plan. HM-F-01–04 remain unchecked until public build, docs source,
++three baseline unit and focused native evidence pass.
++
++
++## Prepared owned contract
++
++`HierarchicalMenu` is a surface-independent panel with `items` (a
++HierarchicalMenuLevel), `presentation="navigation" | "commands"`, controlled
++`path`/`onPathChange`, `defaultPath`, leaf `onAction`, optional root `onDismiss`,
++`backLabel`, density, native div ref/className/style. Levels own titles, labelled
++sections and optional footerItems. Item IDs are stable and unique within a level;
++children identify deeper levels and navigation supports mixed inline/drilldown.
++Commands use a React Aria menu collection, while navigation uses native Link and
++Button controls. Branches do not activate hrefs or leaf callbacks. The outer
++Popover or persistent host owns geometry/opening/dismissal. Reset follows remount;
++controlled paths remain authoritative. Existing SideNavigation is untouched;
++HM-ADOPT-01 remains separate.
+--- /dev/null
++++ b/apps/docs/examples/HierarchicalMenuExamples.tsx
+@@ -0,0 +1,62 @@
++'use client';
++import { useState } from 'react';
++import { Button, Checkbox, HierarchicalMenu, Popover, Select, Stack, TextField, type HierarchicalMenuLevel } from '@structured-growth/sg-ui/experimental';
++import { type Density } from '@structured-growth/sg-ui/theme';
++import { Example } from '../components/Example';
++
++const items: HierarchicalMenuLevel = { title: 'Course workspace', sections: [{ id: 'workspace', label: 'Workspace', items: [
++  { id: 'settings', label: 'Course settings', children: { title: 'Course settings', sections: [{ id: 'settings', items: [
++    { id: 'people', label: 'People', children: { title: 'People', sections: [{ id: 'people', items: [{ id: 'invite', label: 'Invite learner' }, { id: 'roster', label: 'Open roster', href: '#roster' }] }] } },
++    { id: 'unavailable', label: 'Unavailable', disabled: true },
++  ] }] } },
++  { id: 'resources', label: 'Resources', childBehavior: 'inline', children: { sections: [{ id: 'resources', items: [
++    { id: 'reports', label: 'Reports', children: { title: 'Reports', sections: [{ id: 'reports', items: [{ id: 'export', label: 'Export report' }] }] } },
++  ] }] } },
++  { id: 'overview', label: 'Overview', href: '#overview', current: true },
++] }], footerItems: [{ id: 'help', label: 'Help', href: 'https://example.org', target: '_blank' }] };
++const modelSource = `const items: HierarchicalMenuLevel = ${JSON.stringify(items, null, 2)};`;
++const imports = `import { useState } from 'react';\nimport { HierarchicalMenu, type HierarchicalMenuLevel } from '@structured-growth/sg-ui/experimental';`;
++const frame = { width: '18rem', height: '20rem', maxWidth: '100%' };
++
++function Playground() {
++  const [label, setLabel] = useState('Course navigation');
++  const [title, setTitle] = useState('Course workspace');
++  const [density, setDensity] = useState<Density>('comfortable');
++  const [presentation, setPresentation] = useState<'navigation' | 'commands'>('navigation');
++  const [disabled, setDisabled] = useState(false);
++  const [path, setPath] = useState<string[]>([]);
++  const model = { ...items, title, sections: items.sections.map(section => ({ ...section, items: section.items.map(item => item.id === 'settings' ? { ...item, disabled } : item) })) };
++  const source = `${imports}\n\nconst items: HierarchicalMenuLevel = ${JSON.stringify(model, null, 2)};\n\nexport function CourseMenu() {\n  const [path, setPath] = useState<string[]>(${JSON.stringify(path)});\n  return <HierarchicalMenu label={${JSON.stringify(label)}} items={items} presentation="${presentation}" density="${density}" path={path} onPathChange={setPath} style={${JSON.stringify(frame)}} />;\n}`;
++  return <Example title="Prop playground" density={density} source={source} controls={<Stack direction="row" wrap gap={3}>
++    <TextField label="label" value={label} onValueChange={setLabel} />
++    <TextField label="Level title" value={title} onValueChange={setTitle} />
++    <Select label="presentation" value={presentation} options={[{ id: 'navigation', label: 'Navigation' }, { id: 'commands', label: 'Commands' }]} onValueChange={value => setPresentation(value as typeof presentation)} />
++    <Select label="Preview density" value={density} options={[{ id: 'compact', label: 'Compact' }, { id: 'comfortable', label: 'Comfortable' }]} onValueChange={value => setDensity(value as Density)} />
++    <Checkbox label="Disable settings branch" checked={disabled} onCheckedChange={setDisabled} />
++  </Stack>}>
++    <HierarchicalMenu label={label} items={model} presentation={presentation} density={density} path={path} onPathChange={setPath} style={frame} />
++  </Example>;
++}
++function NavigationReference({ density }: { density: Density }) {
++  return <Example title={`Mixed navigation — ${density}`} density={density} description="Open Course settings, then People. Resources expands inline and contains its own Reports drilldown. The host owns real destinations." source={`${imports.replace("import { useState } from 'react';\n", '')}\n\n${modelSource}\n\nexport function WorkspaceNavigation() {\n  return <HierarchicalMenu label="Workspace navigation" items={items} density="${density}" style={${JSON.stringify(frame)}} />;\n}`}>
++    <HierarchicalMenu label="Workspace navigation" items={items} density={density} style={frame} />
++  </Example>;
++}
++function ControlledReference() {
++  const [path, setPath] = useState<string[]>([]);
++  const [accept, setAccept] = useState(false);
++  return <Example title="Controlled path authority" description="Requests are rejected until the host accepts them. No navigation or persistence is performed by opening a branch." source={`${imports}\nimport { Checkbox, Stack } from '@structured-growth/sg-ui/experimental';\n\n${modelSource}\n\nexport function ControlledMenu() {\n  const [path, setPath] = useState<string[]>(${JSON.stringify(path)});\n  const [accept, setAccept] = useState(${accept});\n  return <Stack gap={3}>\n    <Checkbox label="Accept path changes" checked={accept} onCheckedChange={setAccept} />\n    <HierarchicalMenu label="Controlled workspace" items={items} path={path} onPathChange={next => { if (accept) setPath(next); }} style={${JSON.stringify(frame)}} />\n  </Stack>;\n}`}>
++    <Stack gap={3}><Checkbox label="Accept path changes" checked={accept} onCheckedChange={setAccept} /><HierarchicalMenu label="Controlled workspace" items={items} path={path} onPathChange={next => { if (accept) setPath(next); }} style={frame} /></Stack>
++  </Example>;
++}
++function PopupReference() {
++  const [open, setOpen] = useState(false);
++  const [complete, setComplete] = useState(false);
++  const source = `${imports}\nimport { Button, Popover, Stack } from '@structured-growth/sg-ui/experimental';\n\n${modelSource}\n\nexport function CourseCommands() {\n  const [open, setOpen] = useState(${open});\n  const [complete, setComplete] = useState(${complete});\n  return <Stack gap={3}>\n    <Popover title="Course command popup" size="content" open={open} onOpenChange={setOpen} trigger={<Button>Open course commands</Button>}>\n      <HierarchicalMenu label="Course commands" presentation="commands" items={items} onDismiss={() => setOpen(false)} onAction={() => { setComplete(true); setOpen(false); }} style={${JSON.stringify(frame)}} />\n    </Popover>\n    {complete && <output role="status">Local command completed. The host owns persistence.</output>}\n  </Stack>;\n}`;
++  return <Example title="Popup commands and Escape" description="Escape returns one child level, then closes the root popup. Reopening mounts a fresh local path. Leaf action completion is local." source={source}>
++    <Stack gap={3}><Popover title="Course command popup" size="content" open={open} onOpenChange={setOpen} trigger={<Button>Open course commands</Button>}><HierarchicalMenu label="Course commands" presentation="commands" items={items} onDismiss={() => setOpen(false)} onAction={() => { setComplete(true); setOpen(false); }} style={frame} /></Popover>{complete && <output role="status">Local command completed. The host owns persistence.</output>}</Stack>
++  </Example>;
++}
++export function HierarchicalMenuExamples() {
++  return <Stack gap={4}><Playground /><NavigationReference density="compact" /><NavigationReference density="comfortable" /><ControlledReference /><PopupReference /></Stack>;
++}

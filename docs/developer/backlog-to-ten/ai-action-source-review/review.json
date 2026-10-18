@@ -1,0 +1,63 @@
+{
+  "capturedAt": "2026-10-18T22:52:51.871311+00:00",
+  "task": "A-R-21",
+  "status": "partial; maintainer review and authorized live fixture still required",
+  "actionCommit": "bdf19a4a223ec2549a3e2274a0cf61556bc07675",
+  "sourceReceipt": "source-receipt.json",
+  "observations": [
+    {
+      "boundary": "Trigger",
+      "evidence": [
+        "action.yml",
+        "src/checkActorPermissions.ts"
+      ],
+      "finding": "Manual dev-only dispatch; default action authorization checks write access; no allow-users or bot bypass configured."
+    },
+    {
+      "boundary": "API credential",
+      "evidence": [
+        "action.yml",
+        "src/writeProxyConfig.ts"
+      ],
+      "finding": "API key is supplied to the proxy start step, removed from the proxy inherited environment and supplied over stdin; model configuration references a local proxy endpoint. This inspection does not establish the installed proxy binary behavior."
+    },
+    {
+      "boundary": "Linux process privileges",
+      "evidence": [
+        "src/runCodexExec.ts",
+        "src/dropSudo.ts",
+        "src/linuxCredentials.ts"
+      ],
+      "finding": "Linux runner records original IDs; root phase disables sudo/service socket access; model descendants use nobody primary group, no supplementary groups, no_new_privs and empty host capability sets. Exact effective Ubuntu behavior remains unobserved."
+    },
+    {
+      "boundary": "Runtime dependency identity",
+      "evidence": [
+        "action.yml",
+        "cli-registry-metadata.json",
+        "cli-version.txt",
+        "cli-exec-help.txt",
+        "proxy-help.txt"
+      ],
+      "finding": "Unspecified codex-version installed a moving CLI and proxy. Proposed workflow pins both to 0.163.0 through the action input. Isolated Node24/macOS installation with lifecycle scripts disabled confirms CLI version and required help surfaces, without API requests."
+    },
+    {
+      "boundary": "Separate validation and publication credentials",
+      "evidence": [
+        "../../../../.github/workflows/ai-code.yml"
+      ],
+      "finding": "Fresh proposal validation executes generated code with read-only contents and no API/PR secret; separate draft writer retains original patch check. No automatic merge or release step exists in the implementation path."
+    }
+  ],
+  "remaining": [
+    "Maintainer must review pinned action distribution bundle, dependencies, CLI/proxy provenance, trusted configuration layers and actual job credentials.",
+    "Codex is followed by patch capture/artifact upload in its read-only job; assess this against the upstream last-step recommendation. Do not infer a complete host-isolation proof from source review.",
+    "Authorized harmless default-token draft fixture, independent full CI and observed draft/no-auto-merge behavior remain required. No live AI action or secret-backed request was run."
+  ],
+  "officialDocumentation": "https://learn.chatgpt.com/docs/github-action",
+  "additionalTests": "../ci-guards-10.log",
+  "checks": {
+    "workflowArtifactTests": 31,
+    "failures": 0
+  }
+}

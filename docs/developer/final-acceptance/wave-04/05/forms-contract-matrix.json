@@ -1,0 +1,109 @@
+{
+  "scope": "Eight form controls only; state-mode changes during a mount are unsupported. No fabricated loading/required/style/ref props. FormFieldScope changes message placement, not native grouping or value authority.",
+  "rows": [
+    {
+      "component": "TextField",
+      "source": {
+        "path": "packages/ui/src/experimental/TextField/TextField.tsx",
+        "sha256": "f4599709af946457ffdfc17d61d3505af60940de4fe95ef916a24eb36dffdc6b"
+      },
+      "pairs": "value/defaultValue/onValueChange",
+      "empty": "string; empty string is controlled empty; undefined selects local",
+      "reset": "latest default on accepted reset; canceled reset retains error/draft",
+      "states": "disabled omitted; readOnly retained; no loading prop",
+      "nativeAndIDs": "native input; generated association IDs; host id/form/aria-describedby supported",
+      "evidencePolicy": "See evidence.json for latest receipt comparison; source inspection is not a new runtime pass."
+    },
+    {
+      "component": "TextArea",
+      "source": {
+        "path": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+        "sha256": "0630b5dc4ef085bef18dcb7ec09049004b130806c20a68f7b41149ada57c3552"
+      },
+      "pairs": "value/defaultValue/onValueChange",
+      "empty": "same string contract as TextField",
+      "reset": "shared standalone reset helper; external textarea form ownership",
+      "states": "disabled omitted; readOnly retained; no loading prop",
+      "nativeAndIDs": "native textarea; multiline and host descriptions",
+      "evidencePolicy": "See evidence.json for latest receipt comparison; source inspection is not a new runtime pass."
+    },
+    {
+      "component": "Checkbox",
+      "source": {
+        "path": "packages/ui/src/experimental/Checkbox/Checkbox.tsx",
+        "sha256": "f799a8c32e3ab7b4b9460f3ec32d7d8711f27d7d6a40105f62996a69cdd4205e"
+      },
+      "pairs": "checked/defaultChecked/onCheckedChange",
+      "empty": "boolean; mixed is presentation independent of checked FormData",
+      "reset": "accepted reset latest default without edit request; controlled host owns reset",
+      "states": "disabled input omitted; readOnly prevents edit; collection selection slot is separate",
+      "nativeAndIDs": "label ref/control input; useId label/description/error; proposed mounted error-node correction",
+      "evidencePolicy": "See evidence.json for latest receipt comparison; source inspection is not a new runtime pass."
+    },
+    {
+      "component": "Switch",
+      "source": {
+        "path": "packages/ui/src/experimental/Switch/Switch.tsx",
+        "sha256": "2b09aaabd545fe8b8cf39e44f9f1b552833ae56641b057715cf39394ae34aaee"
+      },
+      "pairs": "checked/defaultChecked/onCheckedChange",
+      "empty": "boolean; false is controlled empty",
+      "reset": "deferred cancelable form reset; controlled host authority",
+      "states": "disabled omitted; readOnly retained; no required/invalid/error public props",
+      "nativeAndIDs": "label ref; generated label/description IDs",
+      "evidencePolicy": "See evidence.json for latest receipt comparison; source inspection is not a new runtime pass."
+    },
+    {
+      "component": "RadioGroup",
+      "source": {
+        "path": "packages/ui/src/experimental/RadioGroup/RadioGroup.tsx",
+        "sha256": "2d1ce9f65bb5ede574e4b36d1e0bcab493a23b4d3cbc65b4288235cc2e014042"
+      },
+      "pairs": "value/defaultValue/onValueChange",
+      "empty": "string/null controlled selection; default/callback string; no automatic replacement",
+      "reset": "accepted reset latest default; canceled reset preserves current value",
+      "states": "disabled options unavailable; required empty/all-disabled group needs host submit policy",
+      "nativeAndIDs": "group div ref; useId native name; radio labels and FieldError associations",
+      "evidencePolicy": "See evidence.json for latest receipt comparison; source inspection is not a new runtime pass."
+    },
+    {
+      "component": "Select",
+      "source": {
+        "path": "packages/ui/src/experimental/Select/Select.tsx",
+        "sha256": "f99a61a9f3f1c9f65e88fd13ff00ef9b15f8e6c6210b954ed4d295b1d632ada7"
+      },
+      "pairs": "value/defaultValue/onValueChange",
+      "empty": "stable string ID/null; duplicate labels do not merge IDs",
+      "reset": "owned reset restores wire select; host controlled value authoritative",
+      "states": "disabled options unavailable; readOnly disables trigger and retains submitted ID",
+      "nativeAndIDs": "button ref; native select name/key; connected label/description/error",
+      "evidencePolicy": "See evidence.json for latest receipt comparison; source inspection is not a new runtime pass."
+    },
+    {
+      "component": "ComboBox",
+      "source": {
+        "path": "packages/ui/src/experimental/ComboBox/ComboBox.tsx",
+        "sha256": "6d2f06abf1318194e6bbdb43193dedd050997b287a1b61a37be071d1e84238a9"
+      },
+      "pairs": "value/defaultValue/onValueChange",
+      "empty": "stable string ID/null; editable query is separate from selected key; local filtering",
+      "reset": "interaction engine native reset; host controls selected key",
+      "states": "disabled options unavailable; readOnly prevents edit; no loading API",
+      "nativeAndIDs": "native input ref; name serializes key; portal retains scope/direction",
+      "evidencePolicy": "See evidence.json for latest receipt comparison; source inspection is not a new runtime pass."
+    },
+    {
+      "component": "AsyncMultiSelect",
+      "source": {
+        "path": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx",
+        "sha256": "a8be9002729d1e24b21b2596bbded3b8c99f4d089fe77ec8aec0e3ae940ebbf8"
+      },
+      "pairs": "value/defaultValue/onValueChange + query/onQueryChange",
+      "empty": "record array; empty array clears; query required controlled string; host filtered options",
+      "reset": "selection latest default on accepted reset; query reset remains host-owned",
+      "states": "loading/error disables options; host owns requests, cancellation/staleness; retry callback",
+      "nativeAndIDs": "hidden repeated name/ID values; native aria-busy bridge; useId status; no native required or generic form prop",
+      "evidencePolicy": "See evidence.json for latest receipt comparison; source inspection is not a new runtime pass."
+    }
+  ]
+}

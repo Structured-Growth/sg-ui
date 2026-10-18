@@ -1,0 +1,13 @@
+{
+  "scope": "Coordinator-only after integrating the two-file proposal; no broad suite or repeated HB19/HB20 matrix.",
+  "preflight": ["Compare current base hashes with proposal-targets.json; rebase if shared fixture changed.", "git apply --check docs/developer/final-acceptance/wave-04/02/metadata-retry.patch", "Apply patch only after reviewing both proposed files. Preserve other exported fixtures."],
+  "runtime": "Supported Node22/24, existing frozen dependency graph, coordinator-owned serial validation lease. Do not install or reclaim another owner's lease.",
+  "steps": [
+    {"cwd":"packages/ui", "argv":["pnpm","build:browser-docs"], "expect":"Build public library and private fixtures once after integration; retain build/fixture hashes. Do not rebuild while another browser job uses the host."},
+    {"cwd":"packages/ui", "argv":["pnpm","exec","tsc","--noEmit","-p","tests/browser/tsconfig.json"], "expect":"Semantic browser types pass; syntax-only proposal check is not a replacement."},
+    {"cwd":"apps/docs", "argv":["pnpm","exec","tsc","--noEmit","-p","native-fixtures/tsconfig.json"], "expect":"Fixture callback cast is intentional untyped service data; all public fixture props continue to compile."},
+    {"cwd":"packages/ui", "argv":["pnpm","exec","playwright","test","tests/browser/editor-image-sources.spec.ts","--grep","unsupported address and malformed metadata","--project=chromium","--project=firefox","--project=webkit"], "expect":"Six retry cases: unsafe address rejects; safe address plus object assetId rejects with exact metadata alert; saved JSON/image count unchanged, same file/description retained; third result inserts exact valid metadata and decoded image, and survives reload. Existing zero-error/dialog diagnostics remain enforced."}
+  ],
+  "execution": "node docs/developer/final-acceptance/wave-04/02/run-validation.mjs --execute (coordinator must hold the normal serial validation lease before invoking). Without --execute it prints steps only. Set SGUI_BROWSER_PORT to a free loopback port; never use3000. Playwright owns and closes its server.",
+  "notCovered": ["Host URL revoke/asset cleanup policy is covered by retained lifecycle tests, not the new retry assertion.","No host backend security, OS chooser, physical clipboard, IME, spoken AT or whole-document recovery approval.","Only the metadata retry successor can close from this run; remaining E successors in results.json persist."]
+}

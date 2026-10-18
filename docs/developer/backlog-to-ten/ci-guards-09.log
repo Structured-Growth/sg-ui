@@ -1,0 +1,38 @@
+✔ current workflow configuration keeps production/infrastructure/main/reusable paths and default-token draft validation (1.182542ms)
+✔ rejects missing main path, infrastructure path bypass, narrowed matrix, ignored failures and skipped release prerequisite (1.850542ms)
+✔ rejects AI event dependency, wrong draft SHA, write-job package execution, secrets or non-draft creation (0.952125ms)
+✔ empty, API-denied and observed unprotected-main responses fail closed (0.194375ms)
+✔ both legacy and effective-ruleset fixtures can require observed contexts without mistaking legacy404 for no rules (0.2545ms)
+✔ stale check names, missing owner review and absent failed/missing-check blocking observations cannot pass (0.265083ms)
+✔ mandatory runtime and docs gates cannot silently skip inside a green job (0.843375ms)
+✔ both React generations and one unambiguous execution of each gate are required (0.606917ms)
+✔ production PR and title event filters cannot omit new heads or edited titles (0.62925ms)
+✔ title validation and patch identity cannot be skipped or have failures ignored (0.676625ms)
+✔ job permission overrides cannot broaden read-only CI or AI execution (0.822ms)
+✔ logical gates cannot collapse onto one context or reuse legacy settings after a404 (0.097ms)
+✔ YAML boolean false on an unconditional job is a skipped gate, not an absent condition (0.558667ms)
+✔ dependency policy rejects mutable external action/workflow refs without requiring remote execution (0.720792ms)
+✔ native engine prerequisites cannot become skipped green required contexts (0.662042ms)
+✔ native execution and collection cannot use partial grep or omit the package byte join (0.523666ms)
+✔ direct PR validation binds the proposal SHA rather than the synthetic merge ref (0.772833ms)
+✔ Firefox native clipboard coverage keeps its real display and complete execution (0.239792ms)
+✔ clean start removes stale dist, native host and tarballs; receipt binds current inputs and bytes (35.02575ms)
+✔ changed source or missing stylesheet cannot produce a successful receipt (26.239917ms)
+✔ extra stale package and symlink output fail closed (15.10375ms)
+✔ independent engine collections join the exact package inputs and compiled bytes (0.724833ms)
+✔ missing engines, wrong heads/runs and changed distributed bytes fail the native join (1.357375ms)
+✔ partial collections, absent executions and native runner errors cannot validate (0.804ms)
+✔ downloaded native JSON accepts data and rejects escaping and symlink paths (5.152334ms)
+✔ synthetic consistent bytes pass with explicit authenticity and approval limits (16.809ms)
+✔ rejects stale head, skipped check, missing/expired/wrong-run archive and altered archive bytes (7.803375ms)
+✔ rejects changed tarball, changed/extra extracted files and corrupted receipt inventory (7.858333ms)
+✔ rejects packaged notices that differ from the fingerprinted input (6.251875ms)
+✔ Node24 downloaded evidence requires all three complete engine proofs matching packaged bytes (20.049541ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 125.885875

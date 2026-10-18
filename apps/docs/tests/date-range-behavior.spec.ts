@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 import {checkSources} from './check-sources';
 for(const slug of ['date-range-picker','date-range-selector'])test(`${slug}: policies, reverse creation, source and prop documentation`,async({page})=>{

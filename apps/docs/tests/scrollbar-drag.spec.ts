@@ -1,9 +1,10 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 // Headless Chromium otherwise disables native scrollbar painting and hit testing.
 test.use({launchOptions:{ignoreDefaultArgs:['--hide-scrollbars']}});
 
 for(const name of ['main','sidebar'])test(`native ${name} scrollbar supports one continuous press and drag after wheel scrolling`,async({page})=>{
-  await page.setViewportSize({width:1280,height:650});
+  await page.setViewportSize({width:1280,height:450});
+  // Leave enough sidebar travel for both drag increments before its end stop.
   await page.goto('/docs/components/button');
   const pane=name==='main'?page.getByRole('main'):page.getByRole('navigation',{name:'Documentation',exact:true});
   const bounds=(await pane.boundingBox())!;

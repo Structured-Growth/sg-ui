@@ -1,0 +1,1396 @@
+[
+  {
+    "file": "README.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "README.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm run dev",
+        "filter": null,
+        "script": "dev",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm build:browser-docs",
+        "filter": null,
+        "script": "build:browser-docs",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm run dev",
+        "filter": null,
+        "script": "dev",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm build:docs",
+        "filter": null,
+        "script": "build:docs",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm check:docs",
+        "filter": null,
+        "script": "check:docs",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm test:docs",
+        "filter": null,
+        "script": "test:docs",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm test:browser",
+        "filter": null,
+        "script": "test:browser",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm test:hydration-consumer",
+        "filter": null,
+        "script": "test:hydration-consumer",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm test:next-consumer",
+        "filter": null,
+        "script": "test:next-consumer",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm dev:docs",
+        "filter": null,
+        "script": "dev:docs",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm run dev",
+        "filter": null,
+        "script": "dev",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm build:browser-docs",
+        "filter": null,
+        "script": "build:browser-docs",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm dev",
+        "filter": null,
+        "script": "dev",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm build:watch",
+        "filter": null,
+        "script": "build:watch",
+        "exists": true
+      },
+      {
+        "document": "README.md",
+        "command": "pnpm tokens:generate",
+        "filter": null,
+        "script": "tokens:generate",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/agent-guidance-migration.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/commercial-licensing.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/github-setup.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/github-setup.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/github-setup.md",
+        "command": "pnpm build:browser-docs",
+        "filter": null,
+        "script": "build:browser-docs",
+        "exists": true
+      },
+      {
+        "document": "docs/github-setup.md",
+        "command": "pnpm test:browser",
+        "filter": null,
+        "script": "test:browser",
+        "exists": true
+      },
+      {
+        "document": "docs/github-setup.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/github-setup.md",
+        "command": "pnpm check:docs",
+        "filter": null,
+        "script": "check:docs",
+        "exists": true
+      },
+      {
+        "document": "docs/github-setup.md",
+        "command": "pnpm build:docs",
+        "filter": null,
+        "script": "build:docs",
+        "exists": true
+      },
+      {
+        "document": "docs/github-setup.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/github-setup.md",
+        "command": "pnpm build:browser-docs",
+        "filter": null,
+        "script": "build:browser-docs",
+        "exists": true
+      },
+      {
+        "document": "docs/github-setup.md",
+        "command": "pnpm release",
+        "filter": null,
+        "script": "release",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/migration.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/backlog-execution-2026-10-15.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/backlog-execution-2026-10-15.md",
+        "command": "pnpm build:watch",
+        "filter": null,
+        "script": "build:watch",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/ci-release-readiness.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/component-architecture.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/component-architecture.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/dev-branch-consolidation.md",
+    "issues": [
+      "docs/developer/dev-branch-consolidation.md: unknown package/script in pnpm build-storybook"
+    ],
+    "commands": [
+      {
+        "document": "docs/developer/dev-branch-consolidation.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/dev-branch-consolidation.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/docs-fixture-migration.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/docs-website.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/docs-website.md",
+        "command": "pnpm dev:docs",
+        "filter": null,
+        "script": "dev:docs",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/docs-website.md",
+        "command": "pnpm build:watch",
+        "filter": null,
+        "script": "build:watch",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/docs-website.md",
+        "command": "pnpm dev",
+        "filter": null,
+        "script": "dev",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/docs-website.md",
+        "command": "pnpm tokens:generate",
+        "filter": null,
+        "script": "tokens:generate",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/docs-website.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/docs-website.md",
+        "command": "pnpm test:browser",
+        "filter": null,
+        "script": "test:browser",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/docs-website.md",
+        "command": "pnpm test:docs",
+        "filter": null,
+        "script": "test:docs",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/docs-website.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/extraction-lineage.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/form-field-message-placement.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/hierarchical-menu-scope.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/parallel-migration-batches.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/parallel-migration-batches.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/persistent-view-state.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-adoption-checklist.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-architecture.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-baseline-tasks.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-browser-acceptance.md",
+    "issues": [
+      "docs/developer/react-aria-browser-acceptance.md: unknown package/script in pnpm build-storybook"
+    ],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-browser-acceptance.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-browser-acceptance.md",
+        "command": "pnpm build:browser-docs",
+        "filter": null,
+        "script": "build:browser-docs",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-browser-acceptance.md",
+        "command": "pnpm test:browser",
+        "filter": null,
+        "script": "test:browser",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-browser-acceptance.md",
+        "command": "pnpm test:hydration-consumer",
+        "filter": null,
+        "script": "test:hydration-consumer",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-browser-acceptance.md",
+        "command": "pnpm test:next-consumer",
+        "filter": null,
+        "script": "test:next-consumer",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-browser-acceptance.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-browser-acceptance.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-browser-acceptance.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-browser-acceptance.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-browser-acceptance.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-browser-acceptance.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-button.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-calendar-contracts.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-card-frames.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-card-pagination.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-catalog-grid.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-checkpoint-recovery.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-checkpoint-recovery.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-component-recipe.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-component-recipe.md",
+        "command": "pnpm build:browser-docs",
+        "filter": null,
+        "script": "build:browser-docs",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-component-recipe.md",
+        "command": "pnpm test:browser",
+        "filter": null,
+        "script": "test:browser",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-css-composition.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-css-lint.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-data-toolbar.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-dependency-upgrades.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-dependency-upgrades.md",
+        "command": "pnpm build",
+        "filter": null,
+        "script": "build",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-dependency-upgrades.md",
+        "command": "pnpm test:package",
+        "filter": null,
+        "script": "test:package",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-dependency-upgrades.md",
+        "command": "pnpm test:browser",
+        "filter": null,
+        "script": "test:browser",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-dependency-upgrades.md",
+        "command": "pnpm build:browser-docs",
+        "filter": null,
+        "script": "build:browser-docs",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-dependency-upgrades.md",
+        "command": "pnpm test:browser",
+        "filter": null,
+        "script": "test:browser",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-dependency-upgrades.md",
+        "command": "pnpm build:docs",
+        "filter": null,
+        "script": "build:docs",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-dependency-upgrades.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-development-validation.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-development-validation.md",
+        "command": "pnpm build:browser-docs",
+        "filter": null,
+        "script": "build:browser-docs",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-development-validation.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-development-validation.md",
+        "command": "pnpm build:browser-docs",
+        "filter": null,
+        "script": "build:browser-docs",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-due-date-acceptance.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-editor-chrome-acceptance.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-editor-dialogs.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-editor-layout.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-editor-menus.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-editor-section.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-final-acceptance.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-final-acceptance.md",
+        "command": "pnpm --filter @structured-growth/sg-ui build",
+        "filter": "@structured-growth/sg-ui",
+        "script": "build",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-final-acceptance.md",
+        "command": "pnpm --filter @structured-growth/sg-ui test:package",
+        "filter": "@structured-growth/sg-ui",
+        "script": "test:package",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-final-acceptance.md",
+        "command": "pnpm --filter @structured-growth/sg-ui check",
+        "filter": "@structured-growth/sg-ui",
+        "script": "check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-formatting-toolbar.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-foundation-scales.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-governance-check.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-grid-cell-acceptance.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-grid-contracts.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-grid-decision.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-grid-host-operations.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-grid-presets.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-grid-reorder.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-hardening-execution.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-hardening-tasks.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-host-adapter-acceptance.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-i18n-acceptance.md",
+    "issues": [
+      "docs/developer/react-aria-i18n-acceptance.md: unknown package/script in pnpm build-storybook"
+    ],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-i18n-acceptance.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-i18n-acceptance.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-icon-panel-navigation.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-icons.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-import-boundaries.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-inventory-contract-reconciliation.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-layout-actions.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-license-inventory.md",
+    "issues": [
+      "docs/developer/react-aria-license-inventory.md: unknown package/script in pnpm\npython3"
+    ],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-license-inventory.md",
+        "command": "pnpm\npython3",
+        "filter": null,
+        "script": "python3",
+        "exists": false
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-master-task-list.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-migration-inventory-acceptance.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-modal-container.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-modal-shells.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-navigation-container.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-package-acceptance.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-package-acceptance.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-page-layout.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-page-navigation.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-pagination-state.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-parallel-browser-validation.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-parallel-browser-validation.md",
+        "command": "pnpm test:browser",
+        "filter": null,
+        "script": "test:browser",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-performance.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-performance.md",
+        "command": "pnpm build",
+        "filter": null,
+        "script": "build",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-primitives.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-progress-avatar.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-progress.md",
+    "issues": [
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook",
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook",
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook",
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook",
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook",
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook",
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook",
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook",
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook",
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook",
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook",
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook",
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook",
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook",
+      "docs/developer/react-aria-progress.md: unknown package/script in pnpm build-storybook"
+    ],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm build-storybook",
+        "filter": null,
+        "script": "build-storybook",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-progress.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-proof-controls.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-public-api-reconciliation.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-public-composition-contracts.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-public-contract-acceptance.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-public-contracts.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-regression-tasks.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-release-gate-audit.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-release-gate-audit.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-remaining-controls.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-removal-audit.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-removal-audit.md",
+        "command": "pnpm test:package",
+        "filter": null,
+        "script": "test:package",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-runtime-ci.md",
+    "issues": [
+      "docs/developer/react-aria-runtime-ci.md: unknown package/script in pnpm\nnode"
+    ],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-runtime-ci.md",
+        "command": "pnpm build:browser-docs",
+        "filter": null,
+        "script": "build:browser-docs",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-runtime-ci.md",
+        "command": "pnpm test:browser",
+        "filter": null,
+        "script": "test:browser",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-runtime-ci.md",
+        "command": "pnpm\nnode",
+        "filter": null,
+        "script": "node",
+        "exists": false
+      },
+      {
+        "document": "docs/developer/react-aria-runtime-ci.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-runtime-ci.md",
+        "command": "pnpm build:browser-docs",
+        "filter": null,
+        "script": "build:browser-docs",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-runtime-ci.md",
+        "command": "pnpm test:browser",
+        "filter": null,
+        "script": "test:browser",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-runtime-ci.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-scope-ledger.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-scope-ledger.md",
+        "command": "pnpm check",
+        "filter": null,
+        "script": "check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-server-components.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-server-components.md",
+        "command": "pnpm test:foundation-consumer",
+        "filter": null,
+        "script": "test:foundation-consumer",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-state-applicability.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-tabs-orientation.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-theme.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/react-aria-token-roles.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/react-aria-token-roles.md",
+        "command": "pnpm tokens:generate",
+        "filter": null,
+        "script": "tokens:generate",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/react-aria-token-roles.md",
+        "command": "pnpm tokens:check",
+        "filter": null,
+        "script": "tokens:check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/react-aria-visual-baseline-review.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/structured-growth-style-guide.md",
+    "issues": [],
+    "commands": []
+  },
+  {
+    "file": "docs/developer/theme-token-pipeline.md",
+    "issues": [],
+    "commands": [
+      {
+        "document": "docs/developer/theme-token-pipeline.md",
+        "command": "pnpm --filter @structured-growth/sg-ui build",
+        "filter": "@structured-growth/sg-ui",
+        "script": "build",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/theme-token-pipeline.md",
+        "command": "pnpm --filter @structured-growth/sg-ui test:foundations",
+        "filter": "@structured-growth/sg-ui",
+        "script": "test:foundations",
+        "exists": true
+      },
+      {
+        "document": "docs/developer/theme-token-pipeline.md",
+        "command": "pnpm --filter @structured-growth/docs theme:check",
+        "filter": "@structured-growth/docs",
+        "script": "theme:check",
+        "exists": true
+      }
+    ]
+  },
+  {
+    "file": "docs/developer/workflow-dependency-policy.md",
+    "issues": [],
+    "commands": []
+  }
+]

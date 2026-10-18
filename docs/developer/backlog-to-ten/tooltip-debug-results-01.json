@@ -1,0 +1,479 @@
+{
+  "config": {
+    "argv": [
+      "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+      "/home/runner/work/sg-ui/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--project=firefox",
+      "--headed",
+      "--grep",
+      "combined dialog, menu, tooltip and editor dialog",
+      "--repeat-each=3"
+    ],
+    "configFile": "/home/runner/work/sg-ui/sg-ui/packages/ui/playwright.config.ts",
+    "rootDir": "/home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/Structured-Growth/sg-ui/commit/7c6d0ec274526bf9e6186bb841116bd8b83476ca",
+        "commitHash": "7c6d0ec274526bf9e6186bb841116bd8b83476ca",
+        "buildHref": "https://github.com/Structured-Growth/sg-ui/actions/runs/39175854194"
+      },
+      "gitCommit": {
+        "shortHash": "7c6d0ec",
+        "hash": "7c6d0ec274526bf9e6186bb841116bd8b83476ca",
+        "subject": "chore: diagnose Firefox native tooltip viewport resizing",
+        "body": "chore: diagnose Firefox native tooltip viewport resizing\n",
+        "author": {
+          "name": "Thomas Hall",
+          "email": "thomaschall@gmail.com",
+          "time": 1792365416000
+        },
+        "committer": {
+          "name": "Thomas Hall",
+          "email": "thomaschall@gmail.com",
+          "time": 1792365416000
+        },
+        "branch": "codex/tooltip-viewport-debug-9ca3e666"
+      },
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/sg-ui/sg-ui/packages/ui/artifacts/browser-traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/Structured-Growth/sg-ui/commit/7c6d0ec274526bf9e6186bb841116bd8b83476ca",
+            "commitHash": "7c6d0ec274526bf9e6186bb841116bd8b83476ca",
+            "buildHref": "https://github.com/Structured-Growth/sg-ui/actions/runs/39175854194"
+          },
+          "gitCommit": {
+            "shortHash": "7c6d0ec",
+            "hash": "7c6d0ec274526bf9e6186bb841116bd8b83476ca",
+            "subject": "chore: diagnose Firefox native tooltip viewport resizing",
+            "body": "chore: diagnose Firefox native tooltip viewport resizing\n",
+            "author": {
+              "name": "Thomas Hall",
+              "email": "thomaschall@gmail.com",
+              "time": 1792365416000
+            },
+            "committer": {
+              "name": "Thomas Hall",
+              "email": "thomaschall@gmail.com",
+              "time": 1792365416000
+            },
+            "branch": "codex/tooltip-viewport-debug-9ca3e666"
+          },
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [
+          "visual-acceptance.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/runner/work/sg-ui/sg-ui/packages/ui/artifacts/browser-traces",
+        "repeatEach": 3,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/Structured-Growth/sg-ui/commit/7c6d0ec274526bf9e6186bb841116bd8b83476ca",
+            "commitHash": "7c6d0ec274526bf9e6186bb841116bd8b83476ca",
+            "buildHref": "https://github.com/Structured-Growth/sg-ui/actions/runs/39175854194"
+          },
+          "gitCommit": {
+            "shortHash": "7c6d0ec",
+            "hash": "7c6d0ec274526bf9e6186bb841116bd8b83476ca",
+            "subject": "chore: diagnose Firefox native tooltip viewport resizing",
+            "body": "chore: diagnose Firefox native tooltip viewport resizing\n",
+            "author": {
+              "name": "Thomas Hall",
+              "email": "thomaschall@gmail.com",
+              "time": 1792365416000
+            },
+            "committer": {
+              "name": "Thomas Hall",
+              "email": "thomaschall@gmail.com",
+              "time": 1792365416000
+            },
+            "branch": "codex/tooltip-viewport-debug-9ca3e666"
+          },
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [
+          "visual-acceptance.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/runner/work/sg-ui/sg-ui/packages/ui/artifacts/browser-traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/Structured-Growth/sg-ui/commit/7c6d0ec274526bf9e6186bb841116bd8b83476ca",
+            "commitHash": "7c6d0ec274526bf9e6186bb841116bd8b83476ca",
+            "buildHref": "https://github.com/Structured-Growth/sg-ui/actions/runs/39175854194"
+          },
+          "gitCommit": {
+            "shortHash": "7c6d0ec",
+            "hash": "7c6d0ec274526bf9e6186bb841116bd8b83476ca",
+            "subject": "chore: diagnose Firefox native tooltip viewport resizing",
+            "body": "chore: diagnose Firefox native tooltip viewport resizing\n",
+            "author": {
+              "name": "Thomas Hall",
+              "email": "thomaschall@gmail.com",
+              "time": 1792365416000
+            },
+            "committer": {
+              "name": "Thomas Hall",
+              "email": "thomaschall@gmail.com",
+              "time": 1792365416000
+            },
+            "branch": "codex/tooltip-viewport-debug-9ca3e666"
+          },
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [
+          "visual-acceptance.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "artifacts/browser-report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "artifacts/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "node scripts/serve-browser-docs.mjs",
+      "url": "http://127.0.0.1:6173/fixtures/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "wave03-overlay-successors.spec.ts",
+      "file": "wave03-overlay-successors.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7328,
+                  "error": {
+                    "message": "Error: Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: Timeout 5000ms exceeded while waiting on the predicate\n    at /home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts:80:11",
+                    "location": {
+                      "file": "/home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts",
+                      "column": 11,
+                      "line": 80
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 78 |\u001b[39m         \u001b[36mconst\u001b[39m r \u001b[33m=\u001b[39m element\u001b[33m.\u001b[39mgetBoundingClientRect()\u001b[33m;\u001b[39m\n \u001b[90m 79 |\u001b[39m         \u001b[36mreturn\u001b[39m r\u001b[33m.\u001b[39mleft \u001b[33m>=\u001b[39m \u001b[35m0\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39mright \u001b[33m<=\u001b[39m innerWidth \u001b[33m+\u001b[39m \u001b[35m1\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39mtop \u001b[33m>=\u001b[39m \u001b[35m0\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39mbottom \u001b[33m<=\u001b[39m innerHeight \u001b[33m+\u001b[39m \u001b[35m1\u001b[39m\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 80 |\u001b[39m       }))\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 81 |\u001b[39m       observations\u001b[33m.\u001b[39mpush({ stage\u001b[33m:\u001b[39m \u001b[32m`tooltip-narrow-${alternate}`\u001b[39m\u001b[33m,\u001b[39m overlays\u001b[33m:\u001b[39m \u001b[36mawait\u001b[39m snapshot(page) })\u001b[33m;\u001b[39m\n \u001b[90m 82 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39msetViewportSize({ width\u001b[33m:\u001b[39m \u001b[35m1100\u001b[39m\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m \u001b[35m900\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 83 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Escape'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts",
+                        "column": 11,
+                        "line": 80
+                      },
+                      "message": "Error: Timeout 5000ms exceeded while waiting on the predicate\n\n  78 |         const r = element.getBoundingClientRect();\n  79 |         return r.left >= 0 && r.right <= innerWidth + 1 && r.top >= 0 && r.bottom <= innerHeight + 1;\n> 80 |       })).toBe(true);\n     |           ^\n  81 |       observations.push({ stage: `tooltip-narrow-${alternate}`, overlays: await snapshot(page) });\n  82 |       await page.setViewportSize({ width: 1100, height: 900 });\n  83 |       await page.keyboard.press('Escape');\n    at /home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts:80:11"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T23:18:05.095Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "overlay-ownership",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJzdGFnZSI6ICJtZW51LWZhbHNlIiwKICAgICJvdmVybGF5cyI6IFsKICAgICAgewogICAgICAgICJyb2xlIjogbnVsbCwKICAgICAgICAicGFydCI6ICJkaWFsb2ctb3ZlcmxheSIsCiAgICAgICAgInBhcmVudCI6ICJCT0RZIiwKICAgICAgICAicmVjdCI6IHsKICAgICAgICAgICJ4IjogMCwKICAgICAgICAgICJ5IjogMCwKICAgICAgICAgICJ3aWR0aCI6IDExMDAsCiAgICAgICAgICAiaGVpZ2h0IjogOTAwLAogICAgICAgICAgInRvcCI6IDAsCiAgICAgICAgICAicmlnaHQiOiAxMTAwLAogICAgICAgICAgImJvdHRvbSI6IDkwMCwKICAgICAgICAgICJsZWZ0IjogMAogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICIxNDAwIiwKICAgICAgICAidGhlbWUiOiAibGlnaHQiLAogICAgICAgICJpbmVydCI6IHRydWUKICAgICAgfSwKICAgICAgewogICAgICAgICJyb2xlIjogIm1lbnUiLAogICAgICAgICJwYXJ0IjogbnVsbCwKICAgICAgICAicGFyZW50IjogIkRJViIsCiAgICAgICAgInJlY3QiOiB7CiAgICAgICAgICAieCI6IDExOSwKICAgICAgICAgICJ5IjogNTA4LAogICAgICAgICAgIndpZHRoIjogMTY4LAogICAgICAgICAgImhlaWdodCI6IDUyLAogICAgICAgICAgInRvcCI6IDUwOCwKICAgICAgICAgICJyaWdodCI6IDI4NywKICAgICAgICAgICJib3R0b20iOiA1NjAsCiAgICAgICAgICAibGVmdCI6IDExOQogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICJhdXRvIiwKICAgICAgICAidGhlbWUiOiAibGlnaHQiLAogICAgICAgICJpbmVydCI6IGZhbHNlCiAgICAgIH0KICAgIF0KICB9LAogIHsKICAgICJzdGFnZSI6ICJtZW51LW5hcnJvdy1mYWxzZSIsCiAgICAib3ZlcmxheXMiOiBbCiAgICAgIHsKICAgICAgICAicm9sZSI6IG51bGwsCiAgICAgICAgInBhcnQiOiAiZGlhbG9nLW92ZXJsYXkiLAogICAgICAgICJwYXJlbnQiOiAiQk9EWSIsCiAgICAgICAgInJlY3QiOiB7CiAgICAgICAgICAieCI6IDAsCiAgICAgICAgICAieSI6IDAsCiAgICAgICAgICAid2lkdGgiOiAzNjAsCiAgICAgICAgICAiaGVpZ2h0IjogNjQwLAogICAgICAgICAgInRvcCI6IDAsCiAgICAgICAgICAicmlnaHQiOiAzNjAsCiAgICAgICAgICAiYm90dG9tIjogNjQwLAogICAgICAgICAgImxlZnQiOiAwCiAgICAgICAgfSwKICAgICAgICAiekluZGV4IjogIjE0MDAiLAogICAgICAgICJ0aGVtZSI6ICJsaWdodCIsCiAgICAgICAgImluZXJ0IjogdHJ1ZQogICAgICB9LAogICAgICB7CiAgICAgICAgInJvbGUiOiAibWVudSIsCiAgICAgICAgInBhcnQiOiBudWxsLAogICAgICAgICJwYXJlbnQiOiAiRElWIiwKICAgICAgICAicmVjdCI6IHsKICAgICAgICAgICJ4IjogMzMsCiAgICAgICAgICAieSI6IDM4MCwKICAgICAgICAgICJ3aWR0aCI6IDE2OCwKICAgICAgICAgICJoZWlnaHQiOiA1MiwKICAgICAgICAgICJ0b3AiOiAzODAsCiAgICAgICAgICAicmlnaHQiOiAyMDEsCiAgICAgICAgICAiYm90dG9tIjogNDMyLAogICAgICAgICAgImxlZnQiOiAzMwogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICJhdXRvIiwKICAgICAgICAidGhlbWUiOiAibGlnaHQiLAogICAgICAgICJpbmVydCI6IGZhbHNlCiAgICAgIH0KICAgIF0KICB9LAogIHsKICAgICJzdGFnZSI6ICJ0b29sdGlwLWZhbHNlIiwKICAgICJvdmVybGF5cyI6IFsKICAgICAgewogICAgICAgICJyb2xlIjogbnVsbCwKICAgICAgICAicGFydCI6ICJkaWFsb2ctb3ZlcmxheSIsCiAgICAgICAgInBhcmVudCI6ICJCT0RZIiwKICAgICAgICAicmVjdCI6IHsKICAgICAgICAgICJ4IjogMCwKICAgICAgICAgICJ5IjogMCwKICAgICAgICAgICJ3aWR0aCI6IDExMDAsCiAgICAgICAgICAiaGVpZ2h0IjogOTAwLAogICAgICAgICAgInRvcCI6IDAsCiAgICAgICAgICAicmlnaHQiOiAxMTAwLAogICAgICAgICAgImJvdHRvbSI6IDkwMCwKICAgICAgICAgICJsZWZ0IjogMAogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICIxNDAwIiwKICAgICAgICAidGhlbWUiOiAibGlnaHQiLAogICAgICAgICJpbmVydCI6IGZhbHNlCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAicm9sZSI6ICJ0b29sdGlwIiwKICAgICAgICAicGFydCI6ICJ0b29sdGlwIiwKICAgICAgICAicGFyZW50IjogIkRJViIsCiAgICAgICAgInJlY3QiOiB7CiAgICAgICAgICAieCI6IDQzOCwKICAgICAgICAgICJ5IjogMzY1LjcwMDAxMjIwNzAzMTI1LAogICAgICAgICAgIndpZHRoIjogMjI0LjI1LAogICAgICAgICAgImhlaWdodCI6IDM4LjMwMDAwMzA1MTc1NzgxLAogICAgICAgICAgInRvcCI6IDM2NS43MDAwMTIyMDcwMzEyNSwKICAgICAgICAgICJyaWdodCI6IDY2Mi4yNSwKICAgICAgICAgICJib3R0b20iOiA0MDQuMDAwMDE1MjU4Nzg5MDYsCiAgICAgICAgICAibGVmdCI6IDQzOAogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICIxMDAwMDAiLAogICAgICAgICJ0aGVtZSI6ICJsaWdodCIsCiAgICAgICAgImluZXJ0IjogdHJ1ZQogICAgICB9CiAgICBdCiAgfQpd"
+                    },
+                    {
+                      "name": "overlay-final-viewport",
+                      "contentType": "application/json",
+                      "body": "eyJ3aWR0aCI6MzYwLCJoZWlnaHQiOjY0MCwidmlzdWFsIjp7IndpZHRoIjozNjAsImhlaWdodCI6NjQwLCJzY2FsZSI6MX0sImV2ZW50cyI6W3siZXZlbnQiOiJpbml0aWFsIiwidGltZSI6NTAsIndpZHRoIjoxMTAwLCJoZWlnaHQiOjkwMCwib3V0ZXJXaWR0aCI6MTEwMCwib3V0ZXJIZWlnaHQiOjk4NSwiZGV2aWNlUGl4ZWxSYXRpbyI6MSwic2FtZVZpZXdwb3J0T2JqZWN0Ijp0cnVlLCJpbml0aWFsVmlld3BvcnRTY2FsZSI6MSwidmlzdWFsIjp7IndpZHRoIjoxMTAwLCJoZWlnaHQiOjkwMCwic2NhbGUiOjF9fSx7ImV2ZW50IjoidmlzdWFsLXJlc2l6ZSIsInRpbWUiOjY1LCJ3aWR0aCI6MTEwMCwiaGVpZ2h0Ijo5MDAsIm91dGVyV2lkdGgiOjExMDAsIm91dGVySGVpZ2h0Ijo5ODUsImRldmljZVBpeGVsUmF0aW8iOjEsInNhbWVWaWV3cG9ydE9iamVjdCI6dHJ1ZSwiaW5pdGlhbFZpZXdwb3J0U2NhbGUiOjEsInZpc3VhbCI6eyJ3aWR0aCI6MTEwMCwiaGVpZ2h0Ijo5MDAsInNjYWxlIjoxfX0seyJldmVudCI6IndpbmRvdy1yZXNpemUiLCJ0aW1lIjo4OTYsIndpZHRoIjozNjAsImhlaWdodCI6NjQwLCJvdXRlcldpZHRoIjoxMTAwLCJvdXRlckhlaWdodCI6OTg1LCJkZXZpY2VQaXhlbFJhdGlvIjoxLCJzYW1lVmlld3BvcnRPYmplY3QiOnRydWUsImluaXRpYWxWaWV3cG9ydFNjYWxlIjoxLCJ2aXN1YWwiOnsid2lkdGgiOjM2MCwiaGVpZ2h0Ijo2NDAsInNjYWxlIjoxfX0seyJldmVudCI6InZpc3VhbC1yZXNpemUiLCJ0aW1lIjo5MTEsIndpZHRoIjozNjAsImhlaWdodCI6NjQwLCJvdXRlcldpZHRoIjoxMTAwLCJvdXRlckhlaWdodCI6OTg1LCJkZXZpY2VQaXhlbFJhdGlvIjoxLCJzYW1lVmlld3BvcnRPYmplY3QiOnRydWUsImluaXRpYWxWaWV3cG9ydFNjYWxlIjoxLCJ2aXN1YWwiOnsid2lkdGgiOjM2MCwiaGVpZ2h0Ijo2NDAsInNjYWxlIjoxfX0seyJldmVudCI6IndpbmRvdy1yZXNpemUiLCJ0aW1lIjo5NjksIndpZHRoIjoxMTAwLCJoZWlnaHQiOjkwMCwib3V0ZXJXaWR0aCI6NTAwLCJvdXRlckhlaWdodCI6NzI1LCJkZXZpY2VQaXhlbFJhdGlvIjoxLCJzYW1lVmlld3BvcnRPYmplY3QiOnRydWUsImluaXRpYWxWaWV3cG9ydFNjYWxlIjoxLCJ2aXN1YWwiOnsid2lkdGgiOjExMDAsImhlaWdodCI6OTAwLCJzY2FsZSI6MX19LHsiZXZlbnQiOiJ2aXN1YWwtcmVzaXplIiwidGltZSI6OTcyLCJ3aWR0aCI6MTEwMCwiaGVpZ2h0Ijo5MDAsIm91dGVyV2lkdGgiOjUwMCwib3V0ZXJIZWlnaHQiOjcyNSwiZGV2aWNlUGl4ZWxSYXRpbyI6MSwic2FtZVZpZXdwb3J0T2JqZWN0Ijp0cnVlLCJpbml0aWFsVmlld3BvcnRTY2FsZSI6MSwidmlzdWFsIjp7IndpZHRoIjoxMTAwLCJoZWlnaHQiOjkwMCwic2NhbGUiOjF9fSx7ImV2ZW50Ijoid2luZG93LXJlc2l6ZSIsInRpbWUiOjExNjcsIndpZHRoIjozNjAsImhlaWdodCI6NjQwLCJvdXRlcldpZHRoIjoxMTAwLCJvdXRlckhlaWdodCI6OTg1LCJkZXZpY2VQaXhlbFJhdGlvIjoxLCJzYW1lVmlld3BvcnRPYmplY3QiOnRydWUsImluaXRpYWxWaWV3cG9ydFNjYWxlIjoxLCJ2aXN1YWwiOnsid2lkdGgiOjM2MCwiaGVpZ2h0Ijo2NDAsInNjYWxlIjoxfX0seyJldmVudCI6InZpc3VhbC1yZXNpemUiLCJ0aW1lIjoxMTY3LCJ3aWR0aCI6MzYwLCJoZWlnaHQiOjY0MCwib3V0ZXJXaWR0aCI6MTEwMCwib3V0ZXJIZWlnaHQiOjk4NSwiZGV2aWNlUGl4ZWxSYXRpbyI6MSwic2FtZVZpZXdwb3J0T2JqZWN0Ijp0cnVlLCJpbml0aWFsVmlld3BvcnRTY2FsZSI6MSwidmlzdWFsIjp7IndpZHRoIjozNjAsImhlaWdodCI6NjQwLCJzY2FsZSI6MX19XSwidG9vbHRpcHMiOltdfQ=="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/sg-ui/sg-ui/packages/ui/artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/sg-ui/sg-ui/packages/ui/artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/sg-ui/sg-ui/packages/ui/artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts",
+                    "column": 11,
+                    "line": 80
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ae60b7ac83eca91fac87-f2696cd6b5ff8180e5e1",
+          "file": "wave03-overlay-successors.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6881,
+                  "error": {
+                    "message": "Error: Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: Timeout 5000ms exceeded while waiting on the predicate\n    at /home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts:80:11",
+                    "location": {
+                      "file": "/home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts",
+                      "column": 11,
+                      "line": 80
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 78 |\u001b[39m         \u001b[36mconst\u001b[39m r \u001b[33m=\u001b[39m element\u001b[33m.\u001b[39mgetBoundingClientRect()\u001b[33m;\u001b[39m\n \u001b[90m 79 |\u001b[39m         \u001b[36mreturn\u001b[39m r\u001b[33m.\u001b[39mleft \u001b[33m>=\u001b[39m \u001b[35m0\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39mright \u001b[33m<=\u001b[39m innerWidth \u001b[33m+\u001b[39m \u001b[35m1\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39mtop \u001b[33m>=\u001b[39m \u001b[35m0\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39mbottom \u001b[33m<=\u001b[39m innerHeight \u001b[33m+\u001b[39m \u001b[35m1\u001b[39m\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 80 |\u001b[39m       }))\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 81 |\u001b[39m       observations\u001b[33m.\u001b[39mpush({ stage\u001b[33m:\u001b[39m \u001b[32m`tooltip-narrow-${alternate}`\u001b[39m\u001b[33m,\u001b[39m overlays\u001b[33m:\u001b[39m \u001b[36mawait\u001b[39m snapshot(page) })\u001b[33m;\u001b[39m\n \u001b[90m 82 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39msetViewportSize({ width\u001b[33m:\u001b[39m \u001b[35m1100\u001b[39m\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m \u001b[35m900\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 83 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Escape'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts",
+                        "column": 11,
+                        "line": 80
+                      },
+                      "message": "Error: Timeout 5000ms exceeded while waiting on the predicate\n\n  78 |         const r = element.getBoundingClientRect();\n  79 |         return r.left >= 0 && r.right <= innerWidth + 1 && r.top >= 0 && r.bottom <= innerHeight + 1;\n> 80 |       })).toBe(true);\n     |           ^\n  81 |       observations.push({ stage: `tooltip-narrow-${alternate}`, overlays: await snapshot(page) });\n  82 |       await page.setViewportSize({ width: 1100, height: 900 });\n  83 |       await page.keyboard.press('Escape');\n    at /home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts:80:11"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T23:18:18.008Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "overlay-ownership",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJzdGFnZSI6ICJtZW51LWZhbHNlIiwKICAgICJvdmVybGF5cyI6IFsKICAgICAgewogICAgICAgICJyb2xlIjogbnVsbCwKICAgICAgICAicGFydCI6ICJkaWFsb2ctb3ZlcmxheSIsCiAgICAgICAgInBhcmVudCI6ICJCT0RZIiwKICAgICAgICAicmVjdCI6IHsKICAgICAgICAgICJ4IjogMCwKICAgICAgICAgICJ5IjogMCwKICAgICAgICAgICJ3aWR0aCI6IDExMDAsCiAgICAgICAgICAiaGVpZ2h0IjogOTAwLAogICAgICAgICAgInRvcCI6IDAsCiAgICAgICAgICAicmlnaHQiOiAxMTAwLAogICAgICAgICAgImJvdHRvbSI6IDkwMCwKICAgICAgICAgICJsZWZ0IjogMAogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICIxNDAwIiwKICAgICAgICAidGhlbWUiOiAibGlnaHQiLAogICAgICAgICJpbmVydCI6IHRydWUKICAgICAgfSwKICAgICAgewogICAgICAgICJyb2xlIjogIm1lbnUiLAogICAgICAgICJwYXJ0IjogbnVsbCwKICAgICAgICAicGFyZW50IjogIkRJViIsCiAgICAgICAgInJlY3QiOiB7CiAgICAgICAgICAieCI6IDExOSwKICAgICAgICAgICJ5IjogNTA4LAogICAgICAgICAgIndpZHRoIjogMTY4LAogICAgICAgICAgImhlaWdodCI6IDUyLAogICAgICAgICAgInRvcCI6IDUwOCwKICAgICAgICAgICJyaWdodCI6IDI4NywKICAgICAgICAgICJib3R0b20iOiA1NjAsCiAgICAgICAgICAibGVmdCI6IDExOQogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICJhdXRvIiwKICAgICAgICAidGhlbWUiOiAibGlnaHQiLAogICAgICAgICJpbmVydCI6IGZhbHNlCiAgICAgIH0KICAgIF0KICB9LAogIHsKICAgICJzdGFnZSI6ICJtZW51LW5hcnJvdy1mYWxzZSIsCiAgICAib3ZlcmxheXMiOiBbCiAgICAgIHsKICAgICAgICAicm9sZSI6IG51bGwsCiAgICAgICAgInBhcnQiOiAiZGlhbG9nLW92ZXJsYXkiLAogICAgICAgICJwYXJlbnQiOiAiQk9EWSIsCiAgICAgICAgInJlY3QiOiB7CiAgICAgICAgICAieCI6IDAsCiAgICAgICAgICAieSI6IDAsCiAgICAgICAgICAid2lkdGgiOiAzNjAsCiAgICAgICAgICAiaGVpZ2h0IjogNjQwLAogICAgICAgICAgInRvcCI6IDAsCiAgICAgICAgICAicmlnaHQiOiAzNjAsCiAgICAgICAgICAiYm90dG9tIjogNjQwLAogICAgICAgICAgImxlZnQiOiAwCiAgICAgICAgfSwKICAgICAgICAiekluZGV4IjogIjE0MDAiLAogICAgICAgICJ0aGVtZSI6ICJsaWdodCIsCiAgICAgICAgImluZXJ0IjogdHJ1ZQogICAgICB9LAogICAgICB7CiAgICAgICAgInJvbGUiOiAibWVudSIsCiAgICAgICAgInBhcnQiOiBudWxsLAogICAgICAgICJwYXJlbnQiOiAiRElWIiwKICAgICAgICAicmVjdCI6IHsKICAgICAgICAgICJ4IjogMzMsCiAgICAgICAgICAieSI6IDM4MCwKICAgICAgICAgICJ3aWR0aCI6IDE2OCwKICAgICAgICAgICJoZWlnaHQiOiA1MiwKICAgICAgICAgICJ0b3AiOiAzODAsCiAgICAgICAgICAicmlnaHQiOiAyMDEsCiAgICAgICAgICAiYm90dG9tIjogNDMyLAogICAgICAgICAgImxlZnQiOiAzMwogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICJhdXRvIiwKICAgICAgICAidGhlbWUiOiAibGlnaHQiLAogICAgICAgICJpbmVydCI6IGZhbHNlCiAgICAgIH0KICAgIF0KICB9LAogIHsKICAgICJzdGFnZSI6ICJ0b29sdGlwLWZhbHNlIiwKICAgICJvdmVybGF5cyI6IFsKICAgICAgewogICAgICAgICJyb2xlIjogbnVsbCwKICAgICAgICAicGFydCI6ICJkaWFsb2ctb3ZlcmxheSIsCiAgICAgICAgInBhcmVudCI6ICJCT0RZIiwKICAgICAgICAicmVjdCI6IHsKICAgICAgICAgICJ4IjogMCwKICAgICAgICAgICJ5IjogMCwKICAgICAgICAgICJ3aWR0aCI6IDExMDAsCiAgICAgICAgICAiaGVpZ2h0IjogOTAwLAogICAgICAgICAgInRvcCI6IDAsCiAgICAgICAgICAicmlnaHQiOiAxMTAwLAogICAgICAgICAgImJvdHRvbSI6IDkwMCwKICAgICAgICAgICJsZWZ0IjogMAogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICIxNDAwIiwKICAgICAgICAidGhlbWUiOiAibGlnaHQiLAogICAgICAgICJpbmVydCI6IGZhbHNlCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAicm9sZSI6ICJ0b29sdGlwIiwKICAgICAgICAicGFydCI6ICJ0b29sdGlwIiwKICAgICAgICAicGFyZW50IjogIkRJViIsCiAgICAgICAgInJlY3QiOiB7CiAgICAgICAgICAieCI6IDQzOCwKICAgICAgICAgICJ5IjogMzY1LjcwMDAxMjIwNzAzMTI1LAogICAgICAgICAgIndpZHRoIjogMjI0LjI1LAogICAgICAgICAgImhlaWdodCI6IDM4LjMwMDAwMzA1MTc1NzgxLAogICAgICAgICAgInRvcCI6IDM2NS43MDAwMTIyMDcwMzEyNSwKICAgICAgICAgICJyaWdodCI6IDY2Mi4yNSwKICAgICAgICAgICJib3R0b20iOiA0MDQuMDAwMDE1MjU4Nzg5MDYsCiAgICAgICAgICAibGVmdCI6IDQzOAogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICIxMDAwMDAiLAogICAgICAgICJ0aGVtZSI6ICJsaWdodCIsCiAgICAgICAgImluZXJ0IjogdHJ1ZQogICAgICB9CiAgICBdCiAgfQpd"
+                    },
+                    {
+                      "name": "overlay-final-viewport",
+                      "contentType": "application/json",
+                      "body": "eyJ3aWR0aCI6MzYwLCJoZWlnaHQiOjY0MCwidmlzdWFsIjp7IndpZHRoIjozNjAsImhlaWdodCI6NjQwLCJzY2FsZSI6MX0sImV2ZW50cyI6W3siZXZlbnQiOiJpbml0aWFsIiwidGltZSI6NDYsIndpZHRoIjoxMTAwLCJoZWlnaHQiOjkwMCwib3V0ZXJXaWR0aCI6MTEwMCwib3V0ZXJIZWlnaHQiOjk4NSwiZGV2aWNlUGl4ZWxSYXRpbyI6MSwic2FtZVZpZXdwb3J0T2JqZWN0Ijp0cnVlLCJpbml0aWFsVmlld3BvcnRTY2FsZSI6MSwidmlzdWFsIjp7IndpZHRoIjoxMTAwLCJoZWlnaHQiOjkwMCwic2NhbGUiOjF9fSx7ImV2ZW50IjoidmlzdWFsLXJlc2l6ZSIsInRpbWUiOjUyLCJ3aWR0aCI6MTEwMCwiaGVpZ2h0Ijo5MDAsIm91dGVyV2lkdGgiOjExMDAsIm91dGVySGVpZ2h0Ijo5ODUsImRldmljZVBpeGVsUmF0aW8iOjEsInNhbWVWaWV3cG9ydE9iamVjdCI6dHJ1ZSwiaW5pdGlhbFZpZXdwb3J0U2NhbGUiOjEsInZpc3VhbCI6eyJ3aWR0aCI6MTEwMCwiaGVpZ2h0Ijo5MDAsInNjYWxlIjoxfX0seyJldmVudCI6IndpbmRvdy1yZXNpemUiLCJ0aW1lIjo3NDYsIndpZHRoIjozNjAsImhlaWdodCI6NjQwLCJvdXRlcldpZHRoIjoxMTAwLCJvdXRlckhlaWdodCI6OTg1LCJkZXZpY2VQaXhlbFJhdGlvIjoxLCJzYW1lVmlld3BvcnRPYmplY3QiOnRydWUsImluaXRpYWxWaWV3cG9ydFNjYWxlIjoxLCJ2aXN1YWwiOnsid2lkdGgiOjM2MCwiaGVpZ2h0Ijo2NDAsInNjYWxlIjoxfX0seyJldmVudCI6InZpc3VhbC1yZXNpemUiLCJ0aW1lIjo3NTksIndpZHRoIjozNjAsImhlaWdodCI6NjQwLCJvdXRlcldpZHRoIjoxMTAwLCJvdXRlckhlaWdodCI6OTg1LCJkZXZpY2VQaXhlbFJhdGlvIjoxLCJzYW1lVmlld3BvcnRPYmplY3QiOnRydWUsImluaXRpYWxWaWV3cG9ydFNjYWxlIjoxLCJ2aXN1YWwiOnsid2lkdGgiOjM2MCwiaGVpZ2h0Ijo2NDAsInNjYWxlIjoxfX0seyJldmVudCI6IndpbmRvdy1yZXNpemUiLCJ0aW1lIjo4MTQsIndpZHRoIjoxMTAwLCJoZWlnaHQiOjkwMCwib3V0ZXJXaWR0aCI6NTAwLCJvdXRlckhlaWdodCI6NzI1LCJkZXZpY2VQaXhlbFJhdGlvIjoxLCJzYW1lVmlld3BvcnRPYmplY3QiOnRydWUsImluaXRpYWxWaWV3cG9ydFNjYWxlIjoxLCJ2aXN1YWwiOnsid2lkdGgiOjExMDAsImhlaWdodCI6OTAwLCJzY2FsZSI6MX19LHsiZXZlbnQiOiJ2aXN1YWwtcmVzaXplIiwidGltZSI6ODE4LCJ3aWR0aCI6MTEwMCwiaGVpZ2h0Ijo5MDAsIm91dGVyV2lkdGgiOjUwMCwib3V0ZXJIZWlnaHQiOjcyNSwiZGV2aWNlUGl4ZWxSYXRpbyI6MSwic2FtZVZpZXdwb3J0T2JqZWN0Ijp0cnVlLCJpbml0aWFsVmlld3BvcnRTY2FsZSI6MSwidmlzdWFsIjp7IndpZHRoIjoxMTAwLCJoZWlnaHQiOjkwMCwic2NhbGUiOjF9fSx7ImV2ZW50Ijoid2luZG93LXJlc2l6ZSIsInRpbWUiOjk2Niwid2lkdGgiOjM2MCwiaGVpZ2h0Ijo2NDAsIm91dGVyV2lkdGgiOjExMDAsIm91dGVySGVpZ2h0Ijo5ODUsImRldmljZVBpeGVsUmF0aW8iOjEsInNhbWVWaWV3cG9ydE9iamVjdCI6dHJ1ZSwiaW5pdGlhbFZpZXdwb3J0U2NhbGUiOjEsInZpc3VhbCI6eyJ3aWR0aCI6MzYwLCJoZWlnaHQiOjY0MCwic2NhbGUiOjF9fSx7ImV2ZW50IjoidmlzdWFsLXJlc2l6ZSIsInRpbWUiOjk3Nywid2lkdGgiOjM2MCwiaGVpZ2h0Ijo2NDAsIm91dGVyV2lkdGgiOjExMDAsIm91dGVySGVpZ2h0Ijo5ODUsImRldmljZVBpeGVsUmF0aW8iOjEsInNhbWVWaWV3cG9ydE9iamVjdCI6dHJ1ZSwiaW5pdGlhbFZpZXdwb3J0U2NhbGUiOjEsInZpc3VhbCI6eyJ3aWR0aCI6MzYwLCJoZWlnaHQiOjY0MCwic2NhbGUiOjF9fV0sInRvb2x0aXBzIjpbXX0="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/sg-ui/sg-ui/packages/ui/artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox-repeat1/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/sg-ui/sg-ui/packages/ui/artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox-repeat1/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/sg-ui/sg-ui/packages/ui/artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox-repeat1/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts",
+                    "column": 11,
+                    "line": 80
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ae60b7ac83eca91fac87-1339c8b3fdb969465894",
+          "file": "wave03-overlay-successors.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6858,
+                  "error": {
+                    "message": "Error: Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: Timeout 5000ms exceeded while waiting on the predicate\n    at /home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts:80:11",
+                    "location": {
+                      "file": "/home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts",
+                      "column": 11,
+                      "line": 80
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 78 |\u001b[39m         \u001b[36mconst\u001b[39m r \u001b[33m=\u001b[39m element\u001b[33m.\u001b[39mgetBoundingClientRect()\u001b[33m;\u001b[39m\n \u001b[90m 79 |\u001b[39m         \u001b[36mreturn\u001b[39m r\u001b[33m.\u001b[39mleft \u001b[33m>=\u001b[39m \u001b[35m0\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39mright \u001b[33m<=\u001b[39m innerWidth \u001b[33m+\u001b[39m \u001b[35m1\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39mtop \u001b[33m>=\u001b[39m \u001b[35m0\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39mbottom \u001b[33m<=\u001b[39m innerHeight \u001b[33m+\u001b[39m \u001b[35m1\u001b[39m\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 80 |\u001b[39m       }))\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 81 |\u001b[39m       observations\u001b[33m.\u001b[39mpush({ stage\u001b[33m:\u001b[39m \u001b[32m`tooltip-narrow-${alternate}`\u001b[39m\u001b[33m,\u001b[39m overlays\u001b[33m:\u001b[39m \u001b[36mawait\u001b[39m snapshot(page) })\u001b[33m;\u001b[39m\n \u001b[90m 82 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39msetViewportSize({ width\u001b[33m:\u001b[39m \u001b[35m1100\u001b[39m\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m \u001b[35m900\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 83 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Escape'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts",
+                        "column": 11,
+                        "line": 80
+                      },
+                      "message": "Error: Timeout 5000ms exceeded while waiting on the predicate\n\n  78 |         const r = element.getBoundingClientRect();\n  79 |         return r.left >= 0 && r.right <= innerWidth + 1 && r.top >= 0 && r.bottom <= innerHeight + 1;\n> 80 |       })).toBe(true);\n     |           ^\n  81 |       observations.push({ stage: `tooltip-narrow-${alternate}`, overlays: await snapshot(page) });\n  82 |       await page.setViewportSize({ width: 1100, height: 900 });\n  83 |       await page.keyboard.press('Escape');\n    at /home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts:80:11"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T23:18:26.204Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "overlay-ownership",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJzdGFnZSI6ICJtZW51LWZhbHNlIiwKICAgICJvdmVybGF5cyI6IFsKICAgICAgewogICAgICAgICJyb2xlIjogbnVsbCwKICAgICAgICAicGFydCI6ICJkaWFsb2ctb3ZlcmxheSIsCiAgICAgICAgInBhcmVudCI6ICJCT0RZIiwKICAgICAgICAicmVjdCI6IHsKICAgICAgICAgICJ4IjogMCwKICAgICAgICAgICJ5IjogMCwKICAgICAgICAgICJ3aWR0aCI6IDExMDAsCiAgICAgICAgICAiaGVpZ2h0IjogOTAwLAogICAgICAgICAgInRvcCI6IDAsCiAgICAgICAgICAicmlnaHQiOiAxMTAwLAogICAgICAgICAgImJvdHRvbSI6IDkwMCwKICAgICAgICAgICJsZWZ0IjogMAogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICIxNDAwIiwKICAgICAgICAidGhlbWUiOiAibGlnaHQiLAogICAgICAgICJpbmVydCI6IHRydWUKICAgICAgfSwKICAgICAgewogICAgICAgICJyb2xlIjogIm1lbnUiLAogICAgICAgICJwYXJ0IjogbnVsbCwKICAgICAgICAicGFyZW50IjogIkRJViIsCiAgICAgICAgInJlY3QiOiB7CiAgICAgICAgICAieCI6IDExOSwKICAgICAgICAgICJ5IjogNTA4LAogICAgICAgICAgIndpZHRoIjogMTY4LAogICAgICAgICAgImhlaWdodCI6IDUyLAogICAgICAgICAgInRvcCI6IDUwOCwKICAgICAgICAgICJyaWdodCI6IDI4NywKICAgICAgICAgICJib3R0b20iOiA1NjAsCiAgICAgICAgICAibGVmdCI6IDExOQogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICJhdXRvIiwKICAgICAgICAidGhlbWUiOiAibGlnaHQiLAogICAgICAgICJpbmVydCI6IGZhbHNlCiAgICAgIH0KICAgIF0KICB9LAogIHsKICAgICJzdGFnZSI6ICJtZW51LW5hcnJvdy1mYWxzZSIsCiAgICAib3ZlcmxheXMiOiBbCiAgICAgIHsKICAgICAgICAicm9sZSI6IG51bGwsCiAgICAgICAgInBhcnQiOiAiZGlhbG9nLW92ZXJsYXkiLAogICAgICAgICJwYXJlbnQiOiAiQk9EWSIsCiAgICAgICAgInJlY3QiOiB7CiAgICAgICAgICAieCI6IDAsCiAgICAgICAgICAieSI6IDAsCiAgICAgICAgICAid2lkdGgiOiAzNjAsCiAgICAgICAgICAiaGVpZ2h0IjogNjQwLAogICAgICAgICAgInRvcCI6IDAsCiAgICAgICAgICAicmlnaHQiOiAzNjAsCiAgICAgICAgICAiYm90dG9tIjogNjQwLAogICAgICAgICAgImxlZnQiOiAwCiAgICAgICAgfSwKICAgICAgICAiekluZGV4IjogIjE0MDAiLAogICAgICAgICJ0aGVtZSI6ICJsaWdodCIsCiAgICAgICAgImluZXJ0IjogdHJ1ZQogICAgICB9LAogICAgICB7CiAgICAgICAgInJvbGUiOiAibWVudSIsCiAgICAgICAgInBhcnQiOiBudWxsLAogICAgICAgICJwYXJlbnQiOiAiRElWIiwKICAgICAgICAicmVjdCI6IHsKICAgICAgICAgICJ4IjogMzMsCiAgICAgICAgICAieSI6IDM4MCwKICAgICAgICAgICJ3aWR0aCI6IDE2OCwKICAgICAgICAgICJoZWlnaHQiOiA1MiwKICAgICAgICAgICJ0b3AiOiAzODAsCiAgICAgICAgICAicmlnaHQiOiAyMDEsCiAgICAgICAgICAiYm90dG9tIjogNDMyLAogICAgICAgICAgImxlZnQiOiAzMwogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICJhdXRvIiwKICAgICAgICAidGhlbWUiOiAibGlnaHQiLAogICAgICAgICJpbmVydCI6IGZhbHNlCiAgICAgIH0KICAgIF0KICB9LAogIHsKICAgICJzdGFnZSI6ICJ0b29sdGlwLWZhbHNlIiwKICAgICJvdmVybGF5cyI6IFsKICAgICAgewogICAgICAgICJyb2xlIjogbnVsbCwKICAgICAgICAicGFydCI6ICJkaWFsb2ctb3ZlcmxheSIsCiAgICAgICAgInBhcmVudCI6ICJCT0RZIiwKICAgICAgICAicmVjdCI6IHsKICAgICAgICAgICJ4IjogMCwKICAgICAgICAgICJ5IjogMCwKICAgICAgICAgICJ3aWR0aCI6IDExMDAsCiAgICAgICAgICAiaGVpZ2h0IjogOTAwLAogICAgICAgICAgInRvcCI6IDAsCiAgICAgICAgICAicmlnaHQiOiAxMTAwLAogICAgICAgICAgImJvdHRvbSI6IDkwMCwKICAgICAgICAgICJsZWZ0IjogMAogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICIxNDAwIiwKICAgICAgICAidGhlbWUiOiAibGlnaHQiLAogICAgICAgICJpbmVydCI6IGZhbHNlCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAicm9sZSI6ICJ0b29sdGlwIiwKICAgICAgICAicGFydCI6ICJ0b29sdGlwIiwKICAgICAgICAicGFyZW50IjogIkRJViIsCiAgICAgICAgInJlY3QiOiB7CiAgICAgICAgICAieCI6IDQzOCwKICAgICAgICAgICJ5IjogMzY1LjcwMDAxMjIwNzAzMTI1LAogICAgICAgICAgIndpZHRoIjogMjI0LjI1LAogICAgICAgICAgImhlaWdodCI6IDM4LjMwMDAwMzA1MTc1NzgxLAogICAgICAgICAgInRvcCI6IDM2NS43MDAwMTIyMDcwMzEyNSwKICAgICAgICAgICJyaWdodCI6IDY2Mi4yNSwKICAgICAgICAgICJib3R0b20iOiA0MDQuMDAwMDE1MjU4Nzg5MDYsCiAgICAgICAgICAibGVmdCI6IDQzOAogICAgICAgIH0sCiAgICAgICAgInpJbmRleCI6ICIxMDAwMDAiLAogICAgICAgICJ0aGVtZSI6ICJsaWdodCIsCiAgICAgICAgImluZXJ0IjogdHJ1ZQogICAgICB9CiAgICBdCiAgfQpd"
+                    },
+                    {
+                      "name": "overlay-final-viewport",
+                      "contentType": "application/json",
+                      "body": "eyJ3aWR0aCI6MzYwLCJoZWlnaHQiOjY0MCwidmlzdWFsIjp7IndpZHRoIjozNjAsImhlaWdodCI6NjQwLCJzY2FsZSI6MX0sImV2ZW50cyI6W3siZXZlbnQiOiJpbml0aWFsIiwidGltZSI6NDYsIndpZHRoIjoxMTAwLCJoZWlnaHQiOjkwMCwib3V0ZXJXaWR0aCI6MTEwMCwib3V0ZXJIZWlnaHQiOjk4NSwiZGV2aWNlUGl4ZWxSYXRpbyI6MSwic2FtZVZpZXdwb3J0T2JqZWN0Ijp0cnVlLCJpbml0aWFsVmlld3BvcnRTY2FsZSI6MSwidmlzdWFsIjp7IndpZHRoIjoxMTAwLCJoZWlnaHQiOjkwMCwic2NhbGUiOjF9fSx7ImV2ZW50IjoidmlzdWFsLXJlc2l6ZSIsInRpbWUiOjU1LCJ3aWR0aCI6MTEwMCwiaGVpZ2h0Ijo5MDAsIm91dGVyV2lkdGgiOjExMDAsIm91dGVySGVpZ2h0Ijo5ODUsImRldmljZVBpeGVsUmF0aW8iOjEsInNhbWVWaWV3cG9ydE9iamVjdCI6dHJ1ZSwiaW5pdGlhbFZpZXdwb3J0U2NhbGUiOjEsInZpc3VhbCI6eyJ3aWR0aCI6MTEwMCwiaGVpZ2h0Ijo5MDAsInNjYWxlIjoxfX0seyJldmVudCI6IndpbmRvdy1yZXNpemUiLCJ0aW1lIjo3MTYsIndpZHRoIjozNjAsImhlaWdodCI6NjQwLCJvdXRlcldpZHRoIjoxMTAwLCJvdXRlckhlaWdodCI6OTg1LCJkZXZpY2VQaXhlbFJhdGlvIjoxLCJzYW1lVmlld3BvcnRPYmplY3QiOnRydWUsImluaXRpYWxWaWV3cG9ydFNjYWxlIjoxLCJ2aXN1YWwiOnsid2lkdGgiOjM2MCwiaGVpZ2h0Ijo2NDAsInNjYWxlIjoxfX0seyJldmVudCI6InZpc3VhbC1yZXNpemUiLCJ0aW1lIjo3MzEsIndpZHRoIjozNjAsImhlaWdodCI6NjQwLCJvdXRlcldpZHRoIjoxMTAwLCJvdXRlckhlaWdodCI6OTg1LCJkZXZpY2VQaXhlbFJhdGlvIjoxLCJzYW1lVmlld3BvcnRPYmplY3QiOnRydWUsImluaXRpYWxWaWV3cG9ydFNjYWxlIjoxLCJ2aXN1YWwiOnsid2lkdGgiOjM2MCwiaGVpZ2h0Ijo2NDAsInNjYWxlIjoxfX0seyJldmVudCI6IndpbmRvdy1yZXNpemUiLCJ0aW1lIjo3ODMsIndpZHRoIjoxMTAwLCJoZWlnaHQiOjkwMCwib3V0ZXJXaWR0aCI6NTAwLCJvdXRlckhlaWdodCI6NzI1LCJkZXZpY2VQaXhlbFJhdGlvIjoxLCJzYW1lVmlld3BvcnRPYmplY3QiOnRydWUsImluaXRpYWxWaWV3cG9ydFNjYWxlIjoxLCJ2aXN1YWwiOnsid2lkdGgiOjExMDAsImhlaWdodCI6OTAwLCJzY2FsZSI6MX19LHsiZXZlbnQiOiJ2aXN1YWwtcmVzaXplIiwidGltZSI6Nzg2LCJ3aWR0aCI6MTEwMCwiaGVpZ2h0Ijo5MDAsIm91dGVyV2lkdGgiOjUwMCwib3V0ZXJIZWlnaHQiOjcyNSwiZGV2aWNlUGl4ZWxSYXRpbyI6MSwic2FtZVZpZXdwb3J0T2JqZWN0Ijp0cnVlLCJpbml0aWFsVmlld3BvcnRTY2FsZSI6MSwidmlzdWFsIjp7IndpZHRoIjoxMTAwLCJoZWlnaHQiOjkwMCwic2NhbGUiOjF9fSx7ImV2ZW50Ijoid2luZG93LXJlc2l6ZSIsInRpbWUiOjkzNywid2lkdGgiOjM2MCwiaGVpZ2h0Ijo2NDAsIm91dGVyV2lkdGgiOjExMDAsIm91dGVySGVpZ2h0Ijo5ODUsImRldmljZVBpeGVsUmF0aW8iOjEsInNhbWVWaWV3cG9ydE9iamVjdCI6dHJ1ZSwiaW5pdGlhbFZpZXdwb3J0U2NhbGUiOjEsInZpc3VhbCI6eyJ3aWR0aCI6MzYwLCJoZWlnaHQiOjY0MCwic2NhbGUiOjF9fSx7ImV2ZW50IjoidmlzdWFsLXJlc2l6ZSIsInRpbWUiOjk0Niwid2lkdGgiOjM2MCwiaGVpZ2h0Ijo2NDAsIm91dGVyV2lkdGgiOjExMDAsIm91dGVySGVpZ2h0Ijo5ODUsImRldmljZVBpeGVsUmF0aW8iOjEsInNhbWVWaWV3cG9ydE9iamVjdCI6dHJ1ZSwiaW5pdGlhbFZpZXdwb3J0U2NhbGUiOjEsInZpc3VhbCI6eyJ3aWR0aCI6MzYwLCJoZWlnaHQiOjY0MCwic2NhbGUiOjF9fV0sInRvb2x0aXBzIjpbXX0="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/sg-ui/sg-ui/packages/ui/artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox-repeat2/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/sg-ui/sg-ui/packages/ui/artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox-repeat2/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/sg-ui/sg-ui/packages/ui/artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox-repeat2/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts",
+                    "column": 11,
+                    "line": 80
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ae60b7ac83eca91fac87-97d8afd1f3eab8d06713",
+          "file": "wave03-overlay-successors.spec.ts",
+          "line": 39,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T23:18:02.843Z",
+    "duration": 31070.693000000003,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

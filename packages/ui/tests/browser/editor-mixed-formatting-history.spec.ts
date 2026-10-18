@@ -114,8 +114,8 @@ for (const theme of ['light', 'dark']) {
       await expect.poll(() => editor.evaluate(canonicalMixedFormattingMarkup)).toBe(formattedMarkup);
       await page.getByRole('button', { name: 'Reload saved mixed document', exact: true }).click();
       await expect(editor).toHaveText('Bold plain Italic');
-      // The toolbar exposes the command, not history availability. An empty new history is inert.
-      await page.getByRole('button', { name: 'Undo', exact: true }).click();
+      // A replacement document starts with an empty history and exposes its availability.
+      await expect(page.getByRole('button', { name: 'Undo', exact: true })).toBeDisabled();
       await expect.poll(() => saved(page)).toEqual(formatted);
       await expect.poll(() => editor.evaluate(canonicalMixedFormattingMarkup)).toBe(formattedMarkup);
       // Select again after replacement: this proves the new editor is usable and emits its own JSON.

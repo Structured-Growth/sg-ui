@@ -1,0 +1,19 @@
+{
+  "directStandaloneFiles": [
+    {
+      "path": "packages/ui/scripts/check-docs-provenance-wave04.mjs",
+      "sha256": "7426705993b12093651455f0e0fdef9e203b14a45115df40f7a44d5ffed41ecc"
+    },
+    {
+      "path": "packages/ui/scripts/check-docs-provenance-wave04.test.mjs",
+      "sha256": "1575cde75b97215ccdff2c8ef9387e174b790b2423f1c1bc0a68e117dbb332b3"
+    }
+  ],
+  "coordinatorIntegratedGuide": {
+    "path": "docs/migration.md",
+    "sha256": "9e324b2f8bea5db3c67885460fb2e5edfc1715b1182247a65036717472889fa1",
+    "matchesReviewedProposal": true
+  },
+  "report": "docs/developer/final-acceptance/wave-04/15/report.md",
+  "results": "docs/developer/final-acceptance/wave-04/15/results.json"
+}

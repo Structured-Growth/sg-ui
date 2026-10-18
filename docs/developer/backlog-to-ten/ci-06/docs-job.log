@@ -1,0 +1,973 @@
+﻿2026-10-18T23:31:01.3072339Z Current runner version: '2.337.0'
+2026-10-18T23:31:01.3093835Z ##[group]Runner Image Provisioner
+2026-10-18T23:31:01.3094609Z Hosted Compute Agent
+2026-10-18T23:31:01.3095236Z Version: 20261012.601
+2026-10-18T23:31:01.3095755Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+2026-10-18T23:31:01.3096484Z Build Date: 2026-10-12T17:48:21Z
+2026-10-18T23:31:01.3097041Z Worker ID: {1d916755-a980-42f8-9740-4e27ad4365d6}
+2026-10-18T23:31:01.3097656Z Region: westus3
+2026-10-18T23:31:01.3098115Z Cloud: Azure
+2026-10-18T23:31:01.3098558Z ##[endgroup]
+2026-10-18T23:31:01.3099994Z ##[group]Operating System
+2026-10-18T23:31:01.3100513Z Ubuntu
+2026-10-18T23:31:01.3100988Z 24.04.5
+2026-10-18T23:31:01.3101429Z LTS
+2026-10-18T23:31:01.3101859Z ##[endgroup]
+2026-10-18T23:31:01.3102419Z ##[group]Runner Image
+2026-10-18T23:31:01.3102923Z Image: ubuntu-24.04
+2026-10-18T23:31:01.3103421Z Version: 20261012.334.1
+2026-10-18T23:31:01.3104460Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-18T23:31:01.3105907Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-18T23:31:01.3106749Z ##[endgroup]
+2026-10-18T23:31:01.3107669Z ##[group]GITHUB_TOKEN Permissions
+2026-10-18T23:31:01.3109449Z Contents: read
+2026-10-18T23:31:01.3110017Z Metadata: read
+2026-10-18T23:31:01.3110502Z ##[endgroup]
+2026-10-18T23:31:01.3112262Z Secret source: Actions
+2026-10-18T23:31:01.3113121Z Cache mode: write
+2026-10-18T23:31:01.3113700Z Prepare workflow directory
+2026-10-18T23:31:01.3440298Z Prepare all required actions
+2026-10-18T23:31:01.3479118Z Getting action download info
+2026-10-18T23:31:01.6660677Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-18T23:31:02.1219076Z Download action repository 'pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1' (SHA:b906affcce14559ad1aafd4ab0e942779e9f58b1)
+2026-10-18T23:31:02.9944817Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-18T23:31:03.1307881Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-18T23:31:03.3636862Z Complete job name: Next.js docs
+2026-10-18T23:31:03.4266623Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-18T23:31:03.4267298Z with:
+2026-10-18T23:31:03.4267604Z   ref: 165f7972c5fdc0f28def32290486525ac8703f23
+2026-10-18T23:31:03.4267983Z   persist-credentials: false
+2026-10-18T23:31:03.4268320Z   repository: Structured-Growth/sg-ui
+2026-10-18T23:31:03.4270595Z   token: ***
+2026-10-18T23:31:03.4270876Z   ssh-strict: true
+2026-10-18T23:31:03.4271151Z   ssh-user: git
+2026-10-18T23:31:03.4271422Z   clean: true
+2026-10-18T23:31:03.4271706Z   sparse-checkout-cone-mode: true
+2026-10-18T23:31:03.4272036Z   fetch-depth: 1
+2026-10-18T23:31:03.4272319Z   fetch-tags: false
+2026-10-18T23:31:03.4272638Z   show-progress: true
+2026-10-18T23:31:03.4272917Z   lfs: false
+2026-10-18T23:31:03.4273195Z   submodules: false
+2026-10-18T23:31:03.4273478Z   set-safe-directory: true
+2026-10-18T23:31:03.4273798Z   allow-unsafe-pr-checkout: false
+2026-10-18T23:31:03.4274254Z ##[endgroup]
+2026-10-18T23:31:03.5075965Z Syncing repository: Structured-Growth/sg-ui
+2026-10-18T23:31:03.5078138Z ##[group]Getting Git version info
+2026-10-18T23:31:03.5078792Z Working directory is '/home/runner/work/sg-ui/sg-ui'
+2026-10-18T23:31:03.5079698Z [command]/usr/bin/git version
+2026-10-18T23:31:03.5275288Z git version 2.55.0
+2026-10-18T23:31:03.5377637Z ##[endgroup]
+2026-10-18T23:31:03.5387660Z Temporarily overriding HOME='/home/runner/work/_temp/7a5be3c7-5f1c-41c2-945c-395ea116f19e' before making global git config changes
+2026-10-18T23:31:03.5389116Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-18T23:31:03.5390071Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/sg-ui/sg-ui
+2026-10-18T23:31:03.5392280Z Deleting the contents of '/home/runner/work/sg-ui/sg-ui'
+2026-10-18T23:31:03.5393387Z ##[group]Initializing the repository
+2026-10-18T23:31:03.5394223Z [command]/usr/bin/git init /home/runner/work/sg-ui/sg-ui
+2026-10-18T23:31:03.5864668Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-18T23:31:03.5866261Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-18T23:31:03.5867138Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-18T23:31:03.5867889Z hint: call:
+2026-10-18T23:31:03.5868265Z hint:
+2026-10-18T23:31:03.5868788Z hint: 	git config --global init.defaultBranch <name>
+2026-10-18T23:31:03.5869360Z hint:
+2026-10-18T23:31:03.5869861Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-18T23:31:03.5870633Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-18T23:31:03.5871331Z hint:
+2026-10-18T23:31:03.5871717Z hint: 	git branch -m <name>
+2026-10-18T23:31:03.5872113Z hint:
+2026-10-18T23:31:03.5872710Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-18T23:31:03.5873508Z Initialized empty Git repository in /home/runner/work/sg-ui/sg-ui/.git/
+2026-10-18T23:31:03.5877325Z [command]/usr/bin/git remote add origin https://github.com/Structured-Growth/sg-ui
+2026-10-18T23:31:03.5929503Z ##[endgroup]
+2026-10-18T23:31:03.5930232Z ##[group]Disabling automatic garbage collection
+2026-10-18T23:31:03.5933401Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-18T23:31:03.5964146Z ##[endgroup]
+2026-10-18T23:31:03.5964845Z ##[group]Setting up auth
+2026-10-18T23:31:03.5970002Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T23:31:03.5999526Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-18T23:31:03.6302618Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T23:31:03.6335207Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-18T23:31:03.6524715Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T23:31:03.6555388Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-18T23:31:03.6741235Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-18T23:31:03.6775034Z ##[endgroup]
+2026-10-18T23:31:03.6782109Z ##[group]Fetching the repository
+2026-10-18T23:31:03.6782870Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 165f7972c5fdc0f28def32290486525ac8703f23
+2026-10-18T23:31:06.7677924Z From https://github.com/Structured-Growth/sg-ui
+2026-10-18T23:31:06.7678769Z  * branch            165f7972c5fdc0f28def32290486525ac8703f23 -> FETCH_HEAD
+2026-10-18T23:31:06.7682372Z ##[endgroup]
+2026-10-18T23:31:06.7683017Z ##[group]Determining the checkout info
+2026-10-18T23:31:06.7684358Z ##[endgroup]
+2026-10-18T23:31:06.7690084Z [command]/usr/bin/git sparse-checkout disable
+2026-10-18T23:31:06.7738699Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-18T23:31:06.7797823Z ##[group]Checking out the ref
+2026-10-18T23:31:06.7798536Z [command]/usr/bin/git checkout --progress --force 165f7972c5fdc0f28def32290486525ac8703f23
+2026-10-18T23:31:07.1962281Z Note: switching to '165f7972c5fdc0f28def32290486525ac8703f23'.
+2026-10-18T23:31:07.1962723Z 
+2026-10-18T23:31:07.1963001Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-18T23:31:07.1963679Z changes and commit them, and you can discard any commits you make in this
+2026-10-18T23:31:07.1964566Z state without impacting any branches by switching back to a branch.
+2026-10-18T23:31:07.1964954Z 
+2026-10-18T23:31:07.1965530Z If you want to create a new branch to retain commits you create, you may
+2026-10-18T23:31:07.1966070Z do so (now or later) by using -c with the switch command. Example:
+2026-10-18T23:31:07.1966294Z 
+2026-10-18T23:31:07.1966392Z   git switch -c <new-branch-name>
+2026-10-18T23:31:07.1966545Z 
+2026-10-18T23:31:07.1966659Z Or undo this operation with:
+2026-10-18T23:31:07.1966805Z 
+2026-10-18T23:31:07.1966888Z   git switch -
+2026-10-18T23:31:07.1967060Z 
+2026-10-18T23:31:07.1967243Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-18T23:31:07.1967493Z 
+2026-10-18T23:31:07.1967653Z HEAD is now at 165f797 fix: reconcile native and docs checkpoint validation
+2026-10-18T23:31:07.2003567Z ##[endgroup]
+2026-10-18T23:31:07.2046958Z [command]/usr/bin/git log -1 --format=%H
+2026-10-18T23:31:07.2071185Z 165f7972c5fdc0f28def32290486525ac8703f23
+2026-10-18T23:31:07.2080192Z ##[group]Removing auth
+2026-10-18T23:31:07.2083034Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T23:31:07.2112284Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-18T23:31:07.2321261Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T23:31:07.2344653Z http.https://github.com/.extraheader
+2026-10-18T23:31:07.2358855Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-18T23:31:07.2382865Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-18T23:31:07.2588993Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T23:31:07.2626080Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-18T23:31:07.2818241Z ##[endgroup]
+2026-10-18T23:31:07.3004333Z ##[group]Run actual=$(git rev-parse HEAD)
+2026-10-18T23:31:07.3004662Z [36;1mactual=$(git rev-parse HEAD)[0m
+2026-10-18T23:31:07.3004918Z [36;1mtest "$actual" = "$EXPECTED_HEAD"[0m
+2026-10-18T23:31:07.3005451Z [36;1mecho "Validated checkout: $actual" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-10-18T23:31:07.3218779Z shell: /usr/bin/bash -e {0}
+2026-10-18T23:31:07.3219018Z env:
+2026-10-18T23:31:07.3219248Z   EXPECTED_HEAD: 165f7972c5fdc0f28def32290486525ac8703f23
+2026-10-18T23:31:07.3219513Z ##[endgroup]
+2026-10-18T23:31:07.3390072Z ##[group]Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1
+2026-10-18T23:31:07.3390383Z with:
+2026-10-18T23:31:07.3390553Z   dest: ~/setup-pnpm
+2026-10-18T23:31:07.3390753Z   run_install: null
+2026-10-18T23:31:07.3390923Z   cache: false
+2026-10-18T23:31:07.3391109Z   cache_dependency_path: pnpm-lock.yaml
+2026-10-18T23:31:07.3391347Z   package_json_file: package.json
+2026-10-18T23:31:07.3391553Z   standalone: false
+2026-10-18T23:31:07.3391725Z ##[endgroup]
+2026-10-18T23:31:07.4506266Z ##[group]Running self-installer...
+2026-10-18T23:31:07.7592627Z (node:2183) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-18T23:31:07.7593473Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-18T23:31:07.9244998Z Progress: resolved 1, reused 0, downloaded 0, added 0
+2026-10-18T23:31:07.9311440Z Packages: +1
+2026-10-18T23:31:07.9311935Z +
+2026-10-18T23:31:08.2619796Z Progress: resolved 1, reused 0, downloaded 1, added 1, done
+2026-10-18T23:31:08.3244121Z 
+2026-10-18T23:31:08.3255833Z dependencies:
+2026-10-18T23:31:08.3256393Z + pnpm 10.29.3 (12.14.0 is available)
+2026-10-18T23:31:08.3256919Z 
+2026-10-18T23:31:08.3275342Z Done in 738ms
+2026-10-18T23:31:08.3501505Z ##[endgroup]
+2026-10-18T23:31:08.3502176Z Installation Completed!
+2026-10-18T23:31:08.3661969Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-10-18T23:31:08.3662284Z with:
+2026-10-18T23:31:08.3662455Z   node-version: 24
+2026-10-18T23:31:08.3662636Z   cache: pnpm
+2026-10-18T23:31:08.3662828Z   cache-dependency-path: pnpm-lock.yaml
+2026-10-18T23:31:08.3663061Z   always-auth: false
+2026-10-18T23:31:08.3663247Z   check-latest: false
+2026-10-18T23:31:08.3665361Z   token: ***
+2026-10-18T23:31:08.3665537Z env:
+2026-10-18T23:31:08.3665752Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:31:08.3666011Z ##[endgroup]
+2026-10-18T23:31:08.4777116Z Found in cache @ /opt/hostedtoolcache/node/24.21.0/x64
+2026-10-18T23:31:08.4779940Z (node:2197) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-18T23:31:08.4780509Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-18T23:31:08.4782506Z ##[group]Environment details
+2026-10-18T23:31:08.9485304Z node: v24.21.0
+2026-10-18T23:31:08.9485551Z npm: 11.19.0
+2026-10-18T23:31:08.9485730Z yarn: 1.22.22
+2026-10-18T23:31:08.9486218Z ##[endgroup]
+2026-10-18T23:31:08.9501639Z [command]/home/runner/setup-pnpm/node_modules/.bin/pnpm store path --silent
+2026-10-18T23:31:09.2407681Z /home/runner/setup-pnpm/node_modules/.bin/store/v10
+2026-10-18T23:31:09.4599663Z Cache hit for: node-cache-Linux-x64-pnpm-8dd57037ea84b4b5cbde29b1cd67e6d68522e476737cbfa7a27627447af0920b
+2026-10-18T23:31:09.4681357Z (node:2197) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-18T23:31:10.6819032Z Received 37748736 of 151335351 (24.9%), 36.0 MBs/sec
+2026-10-18T23:31:11.6829212Z Received 147141047 of 151335351 (97.2%), 70.2 MBs/sec
+2026-10-18T23:31:11.7124613Z Received 151335351 of 151335351 (100.0%), 71.1 MBs/sec
+2026-10-18T23:31:11.7125487Z Cache Size: ~144 MB (151335351 B)
+2026-10-18T23:31:11.7150942Z [command]/usr/bin/tar -xf /home/runner/work/_temp/cf3550b6-d295-4b9d-a675-f3493f1e5c13/cache.tzst -P -C /home/runner/work/sg-ui/sg-ui --use-compress-program unzstd
+2026-10-18T23:31:13.8375308Z Cache restored successfully
+2026-10-18T23:31:13.8440110Z Cache restored from key: node-cache-Linux-x64-pnpm-8dd57037ea84b4b5cbde29b1cd67e6d68522e476737cbfa7a27627447af0920b
+2026-10-18T23:31:13.9056200Z ##[group]Run pnpm install --frozen-lockfile
+2026-10-18T23:31:13.9056529Z [36;1mpnpm install --frozen-lockfile[0m
+2026-10-18T23:31:13.9115481Z shell: /usr/bin/bash -e {0}
+2026-10-18T23:31:13.9115703Z env:
+2026-10-18T23:31:13.9115926Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:31:13.9116198Z ##[endgroup]
+2026-10-18T23:31:14.1578116Z Scope: all 3 workspace projects
+2026-10-18T23:31:14.1923119Z Lockfile is up to date, resolution step is skipped
+2026-10-18T23:31:14.2268416Z Progress: resolved 1, reused 0, downloaded 0, added 0
+2026-10-18T23:31:14.2937557Z Packages: +507
+2026-10-18T23:31:14.2967461Z ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-10-18T23:31:15.2278859Z Progress: resolved 507, reused 503, downloaded 0, added 156
+2026-10-18T23:31:15.9153790Z Progress: resolved 507, reused 503, downloaded 0, added 507, done
+2026-10-18T23:31:16.2743704Z 
+2026-10-18T23:31:16.2744339Z devDependencies:
+2026-10-18T23:31:16.2744776Z + @commitlint/cli 21.2.3
+2026-10-18T23:31:16.2745310Z + @commitlint/config-conventional 21.2.3
+2026-10-18T23:31:16.2745538Z 
+2026-10-18T23:31:16.2915975Z ╭ Warning ─────────────────────────────────────────────────────────────────────╮
+2026-10-18T23:31:16.2916815Z │                                                                              │
+2026-10-18T23:31:16.2918054Z │   Ignored build scripts: esbuild@0.28.2.                                     │
+2026-10-18T23:31:16.2918943Z │   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+2026-10-18T23:31:16.2919884Z │   to run scripts.                                                            │
+2026-10-18T23:31:16.2920599Z │                                                                              │
+2026-10-18T23:31:16.2921337Z ╰──────────────────────────────────────────────────────────────────────────────╯
+2026-10-18T23:31:16.2970245Z Done in 2.3s using pnpm v10.29.3
+2026-10-18T23:31:16.3298876Z ##[group]Run node --input-type=module <<'JS'
+2026-10-18T23:31:16.3299188Z [36;1mnode --input-type=module <<'JS'[0m
+2026-10-18T23:31:16.3299454Z [36;1mimport { rmSync, mkdirSync } from 'node:fs';[0m
+2026-10-18T23:31:16.3300056Z [36;1mfor (const path of ['apps/docs/.next', 'apps/docs/artifacts', 'apps/docs/test-results', 'apps/docs/playwright-report']) rmSync(path, { recursive: true, force: true });[0m
+2026-10-18T23:31:16.3300716Z [36;1mmkdirSync('apps/docs/artifacts/logs', { recursive: true });[0m
+2026-10-18T23:31:16.3301004Z [36;1mJS[0m
+2026-10-18T23:31:16.3301232Z [36;1mnode --version | tee apps/docs/artifacts/logs/node.txt[0m
+2026-10-18T23:31:16.3301560Z [36;1mpnpm --version | tee apps/docs/artifacts/logs/pnpm.txt[0m
+2026-10-18T23:31:16.3359385Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-18T23:31:16.3359671Z env:
+2026-10-18T23:31:16.3359890Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:31:16.3360156Z ##[endgroup]
+2026-10-18T23:31:16.3707765Z v24.21.0
+2026-10-18T23:31:16.5680065Z 10.29.3
+2026-10-18T23:31:16.5782234Z ##[group]Run pnpm check:docs 2>&1 | tee apps/docs/artifacts/logs/check.txt
+2026-10-18T23:31:16.5782670Z [36;1mpnpm check:docs 2>&1 | tee apps/docs/artifacts/logs/check.txt[0m
+2026-10-18T23:31:16.5839866Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-18T23:31:16.5840161Z env:
+2026-10-18T23:31:16.5840396Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:31:16.5840662Z ##[endgroup]
+2026-10-18T23:31:16.7940382Z 
+2026-10-18T23:31:16.7940952Z > sg-ui-workspace@ check:docs /home/runner/work/sg-ui/sg-ui
+2026-10-18T23:31:16.7941676Z > pnpm build && pnpm --filter @structured-growth/docs typecheck
+2026-10-18T23:31:16.7942035Z 
+2026-10-18T23:31:17.0113173Z 
+2026-10-18T23:31:17.0113996Z > sg-ui-workspace@ build /home/runner/work/sg-ui/sg-ui
+2026-10-18T23:31:17.0114618Z > pnpm --filter @structured-growth/sg-ui build
+2026-10-18T23:31:17.0114894Z 
+2026-10-18T23:31:17.2300724Z 
+2026-10-18T23:31:17.2301617Z > @structured-growth/sg-ui@0.0.0-development build /home/runner/work/sg-ui/sg-ui/packages/ui
+2026-10-18T23:31:17.2302077Z > node scripts/build.mjs
+2026-10-18T23:31:17.2302223Z 
+2026-10-18T23:31:25.4640291Z 
+2026-10-18T23:31:25.4643027Z > @structured-growth/docs@0.0.0 typecheck /home/runner/work/sg-ui/sg-ui/apps/docs
+2026-10-18T23:31:25.4643854Z > pnpm catalog:generate && pnpm theme:check && pnpm catalog:check && tsc --noEmit
+2026-10-18T23:31:25.4644261Z 
+2026-10-18T23:31:25.6851755Z 
+2026-10-18T23:31:25.6852741Z > @structured-growth/docs@0.0.0 catalog:generate /home/runner/work/sg-ui/sg-ui/apps/docs
+2026-10-18T23:31:25.6853528Z > node scripts/generate-catalog.mjs
+2026-10-18T23:31:25.6853796Z 
+2026-10-18T23:31:26.0142545Z 98 catalog pages generated
+2026-10-18T23:31:30.2959578Z 
+2026-10-18T23:31:30.2960517Z > @structured-growth/docs@0.0.0 theme:check /home/runner/work/sg-ui/sg-ui/apps/docs
+2026-10-18T23:31:30.2961248Z > node --test theme/theme-graph.test.mjs
+2026-10-18T23:31:30.2961537Z 
+2026-10-18T23:31:30.6067477Z ✔ app semantic role inventory matches the compiled public library contract (1.17764ms)
+2026-10-18T23:31:30.6069105Z ✔ all identity/appearance/contrast maps contain exactly42 palette-backed semantic roles (4.153413ms)
+2026-10-18T23:31:30.6078827Z ✔ graph validation rejects missing roles/references, directsemantic colors, cycles and missing modes (4.382183ms)
+2026-10-18T23:31:30.6080354Z ✔ standard identities preserve their established accent, surface and website neutral/error roles (1.201575ms)
+2026-10-18T23:31:30.6081948Z ✔ standard text, primary action, border and focus pairs retain their minimum contrast (3.139796ms)
+2026-10-18T23:31:30.6083229Z ✔ increased mode verifies named text, status, action, border and focus pairs across all identities (0.979886ms)
+2026-10-18T23:31:30.6084725Z ✔ forcedOS palette takes precedence over explicit appearance and contrast without affecting identity geometry (1.123199ms)
+2026-10-18T23:31:30.6136496Z ✔ None uses generated public library color defaults without website identity leakage (0.307327ms)
+2026-10-18T23:31:30.6290495Z ℹ tests 8
+2026-10-18T23:31:30.6290852Z ℹ suites 0
+2026-10-18T23:31:30.6291143Z ℹ pass 8
+2026-10-18T23:31:30.6291422Z ℹ fail 0
+2026-10-18T23:31:30.6291689Z ℹ cancelled 0
+2026-10-18T23:31:30.6291943Z ℹ skipped 0
+2026-10-18T23:31:30.6292123Z ℹ todo 0
+2026-10-18T23:31:30.6292350Z ℹ duration_ms 306.095806
+2026-10-18T23:31:30.8580433Z 
+2026-10-18T23:31:30.8581440Z > @structured-growth/docs@0.0.0 catalog:check /home/runner/work/sg-ui/sg-ui/apps/docs
+2026-10-18T23:31:30.8582519Z > pnpm examples:check && node scripts/check-catalog.mjs && node --test scripts/component-api.test.mjs
+2026-10-18T23:31:30.8583039Z 
+2026-10-18T23:31:31.0812625Z 
+2026-10-18T23:31:31.0813584Z > @structured-growth/docs@0.0.0 examples:check /home/runner/work/sg-ui/sg-ui/apps/docs
+2026-10-18T23:31:31.0814393Z > node --test scripts/example-isolation.test.mjs
+2026-10-18T23:31:31.0814697Z 
+2026-10-18T23:31:31.4747804Z 173 example component owners pass the single-panel isolation guard
+2026-10-18T23:31:31.4832087Z ✔ separate component instances may each own one panel (0.868291ms)
+2026-10-18T23:31:31.4835492Z ✔ multiple panels cannot share one component owner (0.662314ms)
+2026-10-18T23:31:31.4836063Z ✔ mapped panels cannot capture page state through an inline callback (0.26206ms)
+2026-10-18T23:31:31.4966006Z ℹ tests 3
+2026-10-18T23:31:31.4966447Z ℹ suites 0
+2026-10-18T23:31:31.4983845Z ℹ pass 3
+2026-10-18T23:31:31.4984244Z ℹ fail 0
+2026-10-18T23:31:31.4984560Z ℹ cancelled 0
+2026-10-18T23:31:31.4984907Z ℹ skipped 0
+2026-10-18T23:31:31.4985355Z ℹ todo 0
+2026-10-18T23:31:31.4985962Z ℹ duration_ms 386.630328
+2026-10-18T23:31:31.8617023Z 173 example component owners pass the single-panel isolation guard
+2026-10-18T23:31:31.8722860Z 98 pages cover all 209 public component/icon export names with when/how guidance
+2026-10-18T23:31:38.9764583Z ✔ prop reference covers every catalog export and includes required public callbacks (1.565817ms)
+2026-10-18T23:31:38.9766697Z ✔ defaults follow transparent wrappers while preserving explicit wrapper overrides (0.175781ms)
+2026-10-18T23:31:38.9772937Z ✔ icons share their actual contract without duplicate tables or private filesystem paths (2.177126ms)
+2026-10-18T23:31:38.9773951Z ✔ metadata checks are identical from repository and docs working directories (2900.113634ms)
+2026-10-18T23:31:38.9858672Z ℹ tests 4
+2026-10-18T23:31:38.9859015Z ℹ suites 0
+2026-10-18T23:31:38.9859323Z ℹ pass 4
+2026-10-18T23:31:38.9859694Z ℹ fail 0
+2026-10-18T23:31:38.9859900Z ℹ cancelled 0
+2026-10-18T23:31:38.9860186Z ℹ skipped 0
+2026-10-18T23:31:38.9860379Z ℹ todo 0
+2026-10-18T23:31:38.9860614Z ℹ duration_ms 2960.663265
+2026-10-18T23:31:42.8628906Z ##[group]Run pnpm build:docs 2>&1 | tee apps/docs/artifacts/logs/build.txt
+2026-10-18T23:31:42.8629324Z [36;1mpnpm build:docs 2>&1 | tee apps/docs/artifacts/logs/build.txt[0m
+2026-10-18T23:31:42.8686799Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-18T23:31:42.8687111Z env:
+2026-10-18T23:31:42.8687345Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:31:42.8687619Z ##[endgroup]
+2026-10-18T23:31:43.0896474Z 
+2026-10-18T23:31:43.0897353Z > sg-ui-workspace@ build:docs /home/runner/work/sg-ui/sg-ui
+2026-10-18T23:31:43.0898198Z > pnpm build && pnpm --filter @structured-growth/docs build
+2026-10-18T23:31:43.0898625Z 
+2026-10-18T23:31:43.3136695Z 
+2026-10-18T23:31:43.3137079Z > sg-ui-workspace@ build /home/runner/work/sg-ui/sg-ui
+2026-10-18T23:31:43.3137748Z > pnpm --filter @structured-growth/sg-ui build
+2026-10-18T23:31:43.3137938Z 
+2026-10-18T23:31:43.5454401Z 
+2026-10-18T23:31:43.5455578Z > @structured-growth/sg-ui@0.0.0-development build /home/runner/work/sg-ui/sg-ui/packages/ui
+2026-10-18T23:31:43.5456305Z > node scripts/build.mjs
+2026-10-18T23:31:43.5456514Z 
+2026-10-18T23:31:51.2235595Z 
+2026-10-18T23:31:51.2237973Z > @structured-growth/docs@0.0.0 build /home/runner/work/sg-ui/sg-ui/apps/docs
+2026-10-18T23:31:51.2238715Z > pnpm catalog:generate && pnpm theme:check && pnpm catalog:check && next build --webpack
+2026-10-18T23:31:51.2239128Z 
+2026-10-18T23:31:51.4422197Z 
+2026-10-18T23:31:51.4423139Z > @structured-growth/docs@0.0.0 catalog:generate /home/runner/work/sg-ui/sg-ui/apps/docs
+2026-10-18T23:31:51.4423623Z > node scripts/generate-catalog.mjs
+2026-10-18T23:31:51.4423802Z 
+2026-10-18T23:31:51.7747647Z 98 catalog pages generated
+2026-10-18T23:31:55.7871682Z 
+2026-10-18T23:31:55.7872574Z > @structured-growth/docs@0.0.0 theme:check /home/runner/work/sg-ui/sg-ui/apps/docs
+2026-10-18T23:31:55.7873349Z > node --test theme/theme-graph.test.mjs
+2026-10-18T23:31:55.7873622Z 
+2026-10-18T23:31:56.0992295Z ✔ app semantic role inventory matches the compiled public library contract (1.202748ms)
+2026-10-18T23:31:56.0993609Z ✔ all identity/appearance/contrast maps contain exactly42 palette-backed semantic roles (4.384766ms)
+2026-10-18T23:31:56.0994967Z ✔ graph validation rejects missing roles/references, directsemantic colors, cycles and missing modes (4.437344ms)
+2026-10-18T23:31:56.0996603Z ✔ standard identities preserve their established accent, surface and website neutral/error roles (0.854009ms)
+2026-10-18T23:31:56.0997890Z ✔ standard text, primary action, border and focus pairs retain their minimum contrast (3.100152ms)
+2026-10-18T23:31:56.0999111Z ✔ increased mode verifies named text, status, action, border and focus pairs across all identities (0.977432ms)
+2026-10-18T23:31:56.1000632Z ✔ forcedOS palette takes precedence over explicit appearance and contrast without affecting identity geometry (1.119974ms)
+2026-10-18T23:31:56.1001376Z ✔ None uses generated public library color defaults without website identity leakage (0.31572ms)
+2026-10-18T23:31:56.1216626Z ℹ tests 8
+2026-10-18T23:31:56.1216887Z ℹ suites 0
+2026-10-18T23:31:56.1218224Z ℹ pass 8
+2026-10-18T23:31:56.1218411Z ℹ fail 0
+2026-10-18T23:31:56.1218611Z ℹ cancelled 0
+2026-10-18T23:31:56.1218825Z ℹ skipped 0
+2026-10-18T23:31:56.1219008Z ℹ todo 0
+2026-10-18T23:31:56.1219228Z ℹ duration_ms 306.432983
+2026-10-18T23:31:56.3494727Z 
+2026-10-18T23:31:56.3495722Z > @structured-growth/docs@0.0.0 catalog:check /home/runner/work/sg-ui/sg-ui/apps/docs
+2026-10-18T23:31:56.3496786Z > pnpm examples:check && node scripts/check-catalog.mjs && node --test scripts/component-api.test.mjs
+2026-10-18T23:31:56.3497317Z 
+2026-10-18T23:31:56.5666175Z 
+2026-10-18T23:31:56.5667397Z > @structured-growth/docs@0.0.0 examples:check /home/runner/work/sg-ui/sg-ui/apps/docs
+2026-10-18T23:31:56.5668240Z > node --test scripts/example-isolation.test.mjs
+2026-10-18T23:31:56.5668546Z 
+2026-10-18T23:31:56.9607149Z 173 example component owners pass the single-panel isolation guard
+2026-10-18T23:31:56.9686646Z ✔ separate component instances may each own one panel (0.871966ms)
+2026-10-18T23:31:56.9687629Z ✔ multiple panels cannot share one component owner (0.622244ms)
+2026-10-18T23:31:56.9688686Z ✔ mapped panels cannot capture page state through an inline callback (0.253186ms)
+2026-10-18T23:31:56.9823959Z ℹ tests 3
+2026-10-18T23:31:56.9824273Z ℹ suites 0
+2026-10-18T23:31:56.9824544Z ℹ pass 3
+2026-10-18T23:31:56.9824808Z ℹ fail 0
+2026-10-18T23:31:56.9826146Z ℹ cancelled 0
+2026-10-18T23:31:56.9826365Z ℹ skipped 0
+2026-10-18T23:31:56.9826545Z ℹ todo 0
+2026-10-18T23:31:56.9826769Z ℹ duration_ms 388.424238
+2026-10-18T23:31:57.3476594Z 173 example component owners pass the single-panel isolation guard
+2026-10-18T23:31:57.3571364Z 98 pages cover all 209 public component/icon export names with when/how guidance
+2026-10-18T23:32:04.0401390Z ✔ prop reference covers every catalog export and includes required public callbacks (1.484606ms)
+2026-10-18T23:32:04.0402842Z ✔ defaults follow transparent wrappers while preserving explicit wrapper overrides (0.145837ms)
+2026-10-18T23:32:04.0404230Z ✔ icons share their actual contract without duplicate tables or private filesystem paths (2.09967ms)
+2026-10-18T23:32:04.0407565Z ✔ metadata checks are identical from repository and docs working directories (2821.980062ms)
+2026-10-18T23:32:04.0478547Z ℹ tests 4
+2026-10-18T23:32:04.0478867Z ℹ suites 0
+2026-10-18T23:32:04.0479147Z ℹ pass 4
+2026-10-18T23:32:04.0479410Z ℹ fail 0
+2026-10-18T23:32:04.0479682Z ℹ cancelled 0
+2026-10-18T23:32:04.0480178Z ℹ skipped 0
+2026-10-18T23:32:04.0480448Z ℹ todo 0
+2026-10-18T23:32:04.0480759Z ℹ duration_ms 2882.515865
+2026-10-18T23:32:04.3651149Z ▲ Next.js 16.4.0 (webpack)
+2026-10-18T23:32:04.3763293Z ✓ Running next.config.mjs took 11ms
+2026-10-18T23:32:04.3765860Z ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+2026-10-18T23:32:04.4007209Z Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2026-10-18T23:32:04.4008064Z This information is used to shape Next.js' roadmap and prioritize features.
+2026-10-18T23:32:04.4009139Z You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2026-10-18T23:32:04.4027955Z https://nextjs.org/telemetry
+2026-10-18T23:32:04.4028222Z 
+2026-10-18T23:32:04.4282259Z - Experiments (use with caution):
+2026-10-18T23:32:04.4283330Z   · cpus: 2
+2026-10-18T23:32:04.4283910Z 
+2026-10-18T23:32:04.4473268Z   Creating an optimized production build ...
+2026-10-18T23:32:20.2347450Z ✓ Compiled successfully in 14.0s
+2026-10-18T23:32:20.2366732Z   Running TypeScript ...
+2026-10-18T23:32:24.2411189Z   Finished TypeScript in 4.0s ...
+2026-10-18T23:32:24.2441514Z   Collecting page data using 2 workers ...
+2026-10-18T23:32:24.8245679Z   Generating static pages using 2 workers (0/106) ...
+2026-10-18T23:32:26.8076427Z   Generating static pages using 2 workers (26/106) 
+2026-10-18T23:32:27.0731955Z   Generating static pages using 2 workers (52/106) 
+2026-10-18T23:32:27.5286449Z   Generating static pages using 2 workers (79/106) 
+2026-10-18T23:32:28.3392912Z ✓ Generating static pages using 2 workers (106/106) in 3.5s
+2026-10-18T23:32:28.4807938Z   Finalizing page optimization ...
+2026-10-18T23:32:28.4808549Z   Collecting build traces ...
+2026-10-18T23:32:34.3119000Z 
+2026-10-18T23:32:34.3133280Z Route (app)
+2026-10-18T23:32:34.3133824Z ┌ ○ /
+2026-10-18T23:32:34.3134142Z ├ ○ /_not-found
+2026-10-18T23:32:34.3134467Z ├ ○ /docs/components
+2026-10-18T23:32:34.3134828Z ├   /docs/components/[slug]
+2026-10-18T23:32:34.3135413Z │ ├ ● /docs/components/hierarchical-menu
+2026-10-18T23:32:34.3135852Z │ ├ ● /docs/components/icons
+2026-10-18T23:32:34.3136282Z │ ├ ● /docs/components/owned-dialog
+2026-10-18T23:32:34.3136692Z │ └ ● [+93 more paths]
+2026-10-18T23:32:34.3137115Z ├ ○ /docs/components/button
+2026-10-18T23:32:34.3137495Z ├ ○ /docs/components/dialog
+2026-10-18T23:32:34.3137830Z ├ ○ /installation
+2026-10-18T23:32:34.3138137Z ├ ○ /licensing
+2026-10-18T23:32:34.3138675Z ├ ○ /releases
+2026-10-18T23:32:34.3138954Z └ ○ /theming
+2026-10-18T23:32:34.3139106Z 
+2026-10-18T23:32:34.3139113Z 
+2026-10-18T23:32:34.3139376Z ○  (Static)  prerendered as static content
+2026-10-18T23:32:34.3140015Z ●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+2026-10-18T23:32:34.3140518Z 
+2026-10-18T23:32:34.3750000Z ##[group]Run pnpm --filter @structured-growth/docs exec playwright install --with-deps chromium
+2026-10-18T23:32:34.3750585Z [36;1mpnpm --filter @structured-growth/docs exec playwright install --with-deps chromium[0m
+2026-10-18T23:32:34.3806730Z shell: /usr/bin/bash -e {0}
+2026-10-18T23:32:34.3806951Z env:
+2026-10-18T23:32:34.3807170Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:32:34.3807438Z ##[endgroup]
+2026-10-18T23:32:34.9841014Z Installing dependencies...
+2026-10-18T23:32:34.9906075Z Switching to root user to install dependencies...
+2026-10-18T23:32:35.0607820Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-18T23:32:35.0966479Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2026-10-18T23:32:35.0967818Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-10-18T23:32:35.1039087Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-10-18T23:32:35.1058114Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-10-18T23:32:35.1085056Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-10-18T23:32:35.2123795Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [618 kB]
+2026-10-18T23:32:35.2265678Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [557 kB]
+2026-10-18T23:32:35.2321468Z Get:9 https://packages.microsoft.com/ubuntu/24.04/prod noble/main armhf Packages [12.4 kB]
+2026-10-18T23:32:35.2456590Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1397 kB]
+2026-10-18T23:32:35.2508976Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [308 kB]
+2026-10-18T23:32:35.2556047Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1704 kB]
+2026-10-18T23:32:35.2598909Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [342 kB]
+2026-10-18T23:32:35.2619501Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1805 kB]
+2026-10-18T23:32:35.2708092Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [411 kB]
+2026-10-18T23:32:35.3366058Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1144 kB]
+2026-10-18T23:32:35.3420731Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [231 kB]
+2026-10-18T23:32:35.3436025Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1222 kB]
+2026-10-18T23:32:35.3485199Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [246 kB]
+2026-10-18T23:32:35.3945595Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1713 kB]
+2026-10-18T23:32:35.4015011Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [392 kB]
+2026-10-18T23:32:42.4257853Z Fetched 12.5 MB in 1s (11.9 MB/s)
+2026-10-18T23:32:43.1418743Z Reading package lists...
+2026-10-18T23:32:43.1622869Z Reading package lists...
+2026-10-18T23:32:43.3582823Z Building dependency tree...
+2026-10-18T23:32:43.3589125Z Reading state information...
+2026-10-18T23:32:43.4969977Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+2026-10-18T23:32:43.4970807Z libasound2t64 set to manually installed.
+2026-10-18T23:32:43.4971484Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-18T23:32:43.4972196Z libatk-bridge2.0-0t64 set to manually installed.
+2026-10-18T23:32:43.4972805Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-18T23:32:43.4973312Z libatk1.0-0t64 set to manually installed.
+2026-10-18T23:32:43.4973810Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-18T23:32:43.4974302Z libatspi2.0-0t64 set to manually installed.
+2026-10-18T23:32:43.4974636Z libcairo2 is already the newest version (1.18.0-3build1).
+2026-10-18T23:32:43.4975647Z libcairo2 set to manually installed.
+2026-10-18T23:32:43.4976015Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+2026-10-18T23:32:43.4976499Z libcups2t64 set to manually installed.
+2026-10-18T23:32:43.4976844Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+2026-10-18T23:32:43.4977173Z libdbus-1-3 set to manually installed.
+2026-10-18T23:32:43.4977510Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+2026-10-18T23:32:43.4977982Z libdrm2 set to manually installed.
+2026-10-18T23:32:43.4978424Z libgbm1 is already the newest version (25.2.8-0ubuntu0.24.04.4).
+2026-10-18T23:32:43.4978752Z libgbm1 set to manually installed.
+2026-10-18T23:32:43.4979084Z libglib2.0-0t64 is already the newest version (2.80.0-6ubuntu3.9).
+2026-10-18T23:32:43.4979423Z libglib2.0-0t64 set to manually installed.
+2026-10-18T23:32:43.4979769Z libnspr4 is already the newest version (2:4.35-1.1build1).
+2026-10-18T23:32:43.4980096Z libnspr4 set to manually installed.
+2026-10-18T23:32:43.4980426Z libnss3 is already the newest version (2:3.98-1ubuntu0.2).
+2026-10-18T23:32:43.4980723Z libnss3 set to manually installed.
+2026-10-18T23:32:43.4981174Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+2026-10-18T23:32:43.4981653Z libpango-1.0-0 set to manually installed.
+2026-10-18T23:32:43.4982168Z libx11-6 is already the newest version (2:1.8.7-1ubuntu0.1).
+2026-10-18T23:32:43.4982675Z libx11-6 set to manually installed.
+2026-10-18T23:32:43.4983128Z libxcb1 is already the newest version (1.15-1ubuntu2).
+2026-10-18T23:32:43.4983726Z libxcb1 set to manually installed.
+2026-10-18T23:32:43.4984108Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+2026-10-18T23:32:43.4984488Z libxcomposite1 set to manually installed.
+2026-10-18T23:32:43.4984824Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+2026-10-18T23:32:43.4985451Z libxdamage1 set to manually installed.
+2026-10-18T23:32:43.4985974Z libxext6 is already the newest version (2:1.3.4-1build2).
+2026-10-18T23:32:43.4986477Z libxext6 set to manually installed.
+2026-10-18T23:32:43.4986908Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+2026-10-18T23:32:43.4987226Z libxfixes3 set to manually installed.
+2026-10-18T23:32:43.4987565Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+2026-10-18T23:32:43.4987886Z libxkbcommon0 set to manually installed.
+2026-10-18T23:32:43.4988208Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+2026-10-18T23:32:43.4988532Z libxrandr2 set to manually installed.
+2026-10-18T23:32:43.4988845Z xvfb is already the newest version (2:21.1.12-1ubuntu1.8).
+2026-10-18T23:32:43.4989508Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+2026-10-18T23:32:43.4990269Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+2026-10-18T23:32:43.4990830Z libfontconfig1 set to manually installed.
+2026-10-18T23:32:43.4991408Z libfreetype6 is already the newest version (2.13.2+dfsg-1ubuntu0.2).
+2026-10-18T23:32:43.4991967Z libfreetype6 set to manually installed.
+2026-10-18T23:32:43.4992492Z fonts-liberation is already the newest version (1:2.1.5-3).
+2026-10-18T23:32:43.4993020Z fonts-liberation set to manually installed.
+2026-10-18T23:32:43.4993540Z The following additional packages will be installed:
+2026-10-18T23:32:43.4993990Z   xfonts-encodings xfonts-utils
+2026-10-18T23:32:43.4994351Z Recommended packages:
+2026-10-18T23:32:43.4994710Z   fonts-ipafont-mincho fonts-tlwg-loma
+2026-10-18T23:32:43.5139813Z The following NEW packages will be installed:
+2026-10-18T23:32:43.5140603Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-10-18T23:32:43.5145575Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+2026-10-18T23:32:43.5146120Z   xfonts-utils
+2026-10-18T23:32:43.5297044Z 0 upgraded, 9 newly installed, 0 to remove and 44 not upgraded.
+2026-10-18T23:32:43.5297459Z Need to get 21.1 MB of archives.
+2026-10-18T23:32:43.5298152Z After this operation, 79.5 MB of additional disk space will be used.
+2026-10-18T23:32:43.5298581Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-18T23:32:43.6107951Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+2026-10-18T23:32:43.7451824Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+2026-10-18T23:32:43.9232404Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+2026-10-18T23:32:43.9882263Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+2026-10-18T23:32:44.1131664Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+2026-10-18T23:32:44.3285051Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+2026-10-18T23:32:44.4037139Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+2026-10-18T23:32:44.4690269Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+2026-10-18T23:32:44.5402455Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+2026-10-18T23:32:44.7571986Z Fetched 21.1 MB in 1s (20.6 MB/s)
+2026-10-18T23:32:44.8833560Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-10-18T23:32:44.9078298Z (Reading database ... 
+2026-10-18T23:32:44.9078575Z (Reading database ... 5%
+2026-10-18T23:32:44.9079160Z (Reading database ... 10%
+2026-10-18T23:32:44.9079425Z (Reading database ... 15%
+2026-10-18T23:32:44.9079654Z (Reading database ... 20%
+2026-10-18T23:32:44.9079890Z (Reading database ... 25%
+2026-10-18T23:32:44.9080104Z (Reading database ... 30%
+2026-10-18T23:32:44.9080313Z (Reading database ... 35%
+2026-10-18T23:32:44.9080527Z (Reading database ... 40%
+2026-10-18T23:32:44.9080737Z (Reading database ... 45%
+2026-10-18T23:32:44.9081084Z (Reading database ... 50%
+2026-10-18T23:32:44.9138362Z (Reading database ... 55%
+2026-10-18T23:32:45.0384121Z (Reading database ... 60%
+2026-10-18T23:32:45.3450138Z (Reading database ... 65%
+2026-10-18T23:32:45.5489866Z (Reading database ... 70%
+2026-10-18T23:32:45.7533028Z (Reading database ... 75%
+2026-10-18T23:32:46.0073446Z (Reading database ... 80%
+2026-10-18T23:32:46.2059695Z (Reading database ... 85%
+2026-10-18T23:32:46.3677351Z (Reading database ... 90%
+2026-10-18T23:32:46.5014064Z (Reading database ... 95%
+2026-10-18T23:32:46.5014480Z (Reading database ... 100%
+2026-10-18T23:32:46.5015016Z (Reading database ... 203540 files and directories currently installed.)
+2026-10-18T23:32:46.5056272Z Preparing to unpack .../0-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+2026-10-18T23:32:46.5131131Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-18T23:32:46.7362418Z Selecting previously unselected package fonts-freefont-ttf.
+2026-10-18T23:32:46.7472727Z Preparing to unpack .../1-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+2026-10-18T23:32:46.7478624Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-18T23:32:46.8326854Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-10-18T23:32:46.8439413Z Preparing to unpack .../2-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+2026-10-18T23:32:46.8444899Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-18T23:32:46.8618892Z Selecting previously unselected package fonts-unifont.
+2026-10-18T23:32:46.8729077Z Preparing to unpack .../3-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+2026-10-18T23:32:46.8734996Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+2026-10-18T23:32:47.9604246Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-10-18T23:32:47.9718302Z Preparing to unpack .../4-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+2026-10-18T23:32:48.1294641Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-18T23:32:48.6313679Z Selecting previously unselected package xfonts-encodings.
+2026-10-18T23:32:48.6430005Z Preparing to unpack .../5-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+2026-10-18T23:32:48.6432025Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-18T23:32:48.6663326Z Selecting previously unselected package xfonts-utils.
+2026-10-18T23:32:48.6774632Z Preparing to unpack .../6-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+2026-10-18T23:32:48.6779796Z Unpacking xfonts-utils (1:7.7+6build3) ...
+2026-10-18T23:32:48.7066907Z Selecting previously unselected package xfonts-cyrillic.
+2026-10-18T23:32:48.7181771Z Preparing to unpack .../7-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+2026-10-18T23:32:48.7186770Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-18T23:32:48.7962518Z Selecting previously unselected package xfonts-scalable.
+2026-10-18T23:32:48.8075044Z Preparing to unpack .../8-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+2026-10-18T23:32:48.8081161Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-18T23:32:48.8458143Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-18T23:32:48.8549049Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-18T23:32:48.8562662Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-18T23:32:48.8575986Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-18T23:32:48.8589028Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-18T23:32:48.8644533Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-10-18T23:32:48.8656445Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+2026-10-18T23:32:48.8670233Z Setting up xfonts-utils (1:7.7+6build3) ...
+2026-10-18T23:32:48.8701398Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-18T23:32:48.8945511Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-18T23:32:48.9178989Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-10-18T23:32:48.9195025Z Not building database; man-db/auto-update is not 'true'.
+2026-10-18T23:32:48.9204891Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+2026-10-18T23:32:50.1132212Z 
+2026-10-18T23:32:50.1132808Z Running kernel seems to be up-to-date.
+2026-10-18T23:32:50.1133116Z 
+2026-10-18T23:32:50.1133300Z No services need to be restarted.
+2026-10-18T23:32:50.1133531Z 
+2026-10-18T23:32:50.1133713Z No containers need to be restarted.
+2026-10-18T23:32:50.1133940Z 
+2026-10-18T23:32:50.1134165Z No user sessions are running outdated binaries.
+2026-10-18T23:32:50.1134419Z 
+2026-10-18T23:32:50.1134810Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-10-18T23:32:51.1436643Z Downloading Chrome for Testing 153.0.8010.12 (playwright chromium v1243) from https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip
+2026-10-18T23:32:51.4924473Z |                                                                                |   0% of 186.8 MiB
+2026-10-18T23:32:51.6703638Z |■■■■■■■■                                                                        |  10% of 186.8 MiB
+2026-10-18T23:32:51.7508204Z |■■■■■■■■■■■■■■■■                                                                |  20% of 186.8 MiB
+2026-10-18T23:32:51.8299642Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 186.8 MiB
+2026-10-18T23:32:51.8917148Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 186.8 MiB
+2026-10-18T23:32:51.9587252Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 186.8 MiB
+2026-10-18T23:32:52.0588607Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 186.8 MiB
+2026-10-18T23:32:52.1312632Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 186.8 MiB
+2026-10-18T23:32:52.2184989Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 186.8 MiB
+2026-10-18T23:32:52.2812141Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 186.8 MiB
+2026-10-18T23:32:52.3550283Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 186.8 MiB
+2026-10-18T23:32:54.8147016Z Chrome for Testing 153.0.8010.12 (playwright chromium v1243) downloaded to /home/runner/.cache/ms-playwright/chromium-1243
+2026-10-18T23:32:54.8150457Z Downloading FFmpeg (playwright ffmpeg v1011) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip
+2026-10-18T23:32:55.1522930Z |                                                                                |   0% of 2.3 MiB
+2026-10-18T23:32:55.1550463Z |■■■■■■■■                                                                        |  10% of 2.3 MiB
+2026-10-18T23:32:55.1566503Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.3 MiB
+2026-10-18T23:32:55.1584955Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.3 MiB
+2026-10-18T23:32:55.1594696Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.3 MiB
+2026-10-18T23:32:55.1609861Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.3 MiB
+2026-10-18T23:32:55.1633954Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.3 MiB
+2026-10-18T23:32:55.1644555Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.3 MiB
+2026-10-18T23:32:55.1660858Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.3 MiB
+2026-10-18T23:32:55.1666443Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.3 MiB
+2026-10-18T23:32:55.1671476Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.3 MiB
+2026-10-18T23:32:55.2130463Z FFmpeg (playwright ffmpeg v1011) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1011
+2026-10-18T23:32:55.2133195Z Downloading Chrome Headless Shell 153.0.8010.12 (playwright chromium-headless-shell v1243) from https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-headless-shell-linux64.zip
+2026-10-18T23:32:55.5393850Z |                                                                                |   0% of 114.3 MiB
+2026-10-18T23:32:55.6592443Z |■■■■■■■■                                                                        |  10% of 114.3 MiB
+2026-10-18T23:32:55.7409287Z |■■■■■■■■■■■■■■■■                                                                |  20% of 114.3 MiB
+2026-10-18T23:32:55.7964192Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 114.3 MiB
+2026-10-18T23:32:55.8428782Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 114.3 MiB
+2026-10-18T23:32:55.8959168Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 114.3 MiB
+2026-10-18T23:32:55.9322123Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 114.3 MiB
+2026-10-18T23:32:55.9810722Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 114.3 MiB
+2026-10-18T23:32:56.0100523Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 114.3 MiB
+2026-10-18T23:32:56.0482160Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 114.3 MiB
+2026-10-18T23:32:56.1105251Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 114.3 MiB
+2026-10-18T23:32:57.8299701Z Chrome Headless Shell 153.0.8010.12 (playwright chromium-headless-shell v1243) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1243
+2026-10-18T23:32:57.8602266Z ##[group]Run pnpm --filter @structured-growth/docs test:e2e --reporter=list,json 2>&1 | tee apps/docs/artifacts/logs/browser.txt
+2026-10-18T23:32:57.8602961Z [36;1mpnpm --filter @structured-growth/docs test:e2e --reporter=list,json 2>&1 | tee apps/docs/artifacts/logs/browser.txt[0m
+2026-10-18T23:32:57.8660992Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-18T23:32:57.8661286Z env:
+2026-10-18T23:32:57.8661503Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:32:57.8661833Z   PLAYWRIGHT_JSON_OUTPUT_FILE: artifacts/browser-results.json
+2026-10-18T23:32:57.8662117Z ##[endgroup]
+2026-10-18T23:32:58.1035210Z 
+2026-10-18T23:32:58.1035845Z > @structured-growth/docs@0.0.0 test:e2e /home/runner/work/sg-ui/sg-ui/apps/docs
+2026-10-18T23:32:58.1036548Z > playwright test --reporter=list,json
+2026-10-18T23:32:58.1036804Z 
+2026-10-18T23:33:01.7507569Z GitCommitInfo: timeout of 3000ms exceeded while running "git fetch origin bfed38a1f867f4493049c3a38541e6b26709bad7 --no-auto-maintenance --no-auto-gc --no-tags --no-recurse-submodules --depth=1"
+2026-10-18T23:33:03.7715279Z 
+2026-10-18T23:33:03.7715871Z Running 245 tests using 1 worker
+2026-10-18T23:33:03.7716434Z 
+2026-10-18T23:33:06.0053197Z   ✓    1 [chromium] › tests/acceptance-picker-field-fixes.spec.ts:6:2 › period-picker: an open panel respects later disabled and read-only state (1.4s)
+2026-10-18T23:33:07.0655605Z   ✓    2 [chromium] › tests/acceptance-picker-field-fixes.spec.ts:6:2 › date-time-range-picker: an open panel respects later disabled and read-only state (1.1s)
+2026-10-18T23:33:08.0956534Z   ✓    3 [chromium] › tests/acceptance-picker-field-fixes.spec.ts:6:2 › date-range-comparison-picker: an open panel respects later disabled and read-only state (1.0s)
+2026-10-18T23:33:11.5200027Z   ✓    4 [chromium] › tests/acceptance-picker-field-fixes.spec.ts:31:1 › TextArea icon slots preserve multiline geometry, focus, source and sibling state (3.4s)
+2026-10-18T23:33:11.5685345Z   ✓    5 [chromium] › tests/appearance.spec.ts:11:1 › increased palettes retain enhanced text and visible control contrast in every identity and appearance (29ms)
+2026-10-18T23:33:16.5726192Z   ✓    6 [chromium] › tests/appearance.spec.ts:25:1 › native system changes, explicit overrides and forced colors remain scoped to live demonstrations (5.0s)
+2026-10-18T23:33:20.6240090Z   ✓    7 [chromium] › tests/appearance.spec.ts:75:1 › component tools belong to the shell and use an overlay on narrow screens (4.0s)
+2026-10-18T23:33:22.8704377Z   ✓    8 [chromium] › tests/button-documentation.spec.ts:6:1 › Button page presents the trial flow, stable anchors and complete prop reference (2.2s)
+2026-10-18T23:33:24.4675775Z   ✓    9 [chromium] › tests/button-documentation.spec.ts:47:1 › Button playground controls each icon and keeps source/copy current without changing examples (1.6s)
+2026-10-18T23:33:25.3634693Z   ✓   10 [chromium] › tests/button-documentation.spec.ts:78:1 › Button prop table and controls stay within a narrow page (887ms)
+2026-10-18T23:33:25.8762991Z   ✓   11 [chromium] › tests/button-documentation.spec.ts:92:1 › Button is the sole catalog action name and the former proof URL redirects (506ms)
+2026-10-18T23:33:26.6154600Z   ✓   12 [chromium] › tests/button-neutral-pressed.spec.ts:5:3 › neutral filled Button has keyboard pressed feedback in light (728ms)
+2026-10-18T23:33:27.4121490Z   ✓   13 [chromium] › tests/button-neutral-pressed.spec.ts:5:3 › neutral filled Button has keyboard pressed feedback in dark (790ms)
+2026-10-18T23:33:29.8290679Z   ✓   14 [chromium] › tests/calendar-birthday-time.spec.ts:6:1 › birthday supports a year jump, leap day, direct input and narrow popup (2.4s)
+2026-10-18T23:33:32.4507170Z   ✓   15 [chromium] › tests/calendar-birthday-time.spec.ts:40:28 › date/time 12: popup drafts, partial time guard and atomic Apply (2.6s)
+2026-10-18T23:33:36.0096595Z   ✓   16 [chromium] › tests/calendar-birthday-time.spec.ts:40:28 › date/time 24: popup drafts, partial time guard and atomic Apply (3.6s)
+2026-10-18T23:33:37.9720911Z   ✓   17 [chromium] › tests/calendar-birthday-time.spec.ts:82:1 › range month/year navigation changes view without committing the draft (2.0s)
+2026-10-18T23:33:41.0692471Z   ✓   18 [chromium] › tests/calendar-expansion.spec.ts:12:1 › resize endpoint days, move a two-day trip, cancel a drag and lock the current duration (3.1s)
+2026-10-18T23:33:44.3426065Z   ✓   19 [chromium] › tests/calendar-expansion.spec.ts:28:1 › independent months, scrolling browser, active endpoints and immediate commit are real configurations (3.3s)
+2026-10-18T23:33:46.6209465Z   ✓   20 [chromium] › tests/calendar-expansion.spec.ts:40:1 › whole period selection and responsive drawer retain the same draft (2.3s)
+2026-10-18T23:33:48.3741698Z   ✓   21 [chromium] › tests/calendar-expansion.spec.ts:51:1 › datetime interval normalizes compact times, increments minutes and guards reversed values (1.7s)
+2026-10-18T23:33:49.6440269Z   ✓   22 [chromium] › tests/calendar-expansion.spec.ts:59:1 › comparison selection is atomic and invalid child text blocks outer Apply (1.3s)
+2026-10-18T23:33:56.6669498Z   ✓   23 [chromium] › tests/calendar-expansion.spec.ts:66:1 › expanded calendar references compile against the public package (7.0s)
+2026-10-18T23:34:00.9302730Z   ✓   24 [chromium] › tests/calendar-expansion.spec.ts:91:1 › whole endpoint days resize, interior days move, and length limits push the opposite edge (4.3s)
+2026-10-18T23:34:05.7274048Z   ✓   25 [chromium] › tests/calendar-expansion.spec.ts:112:1 › single and two-day ranges use full day targets; move-only and fixed resize-only retain duration (4.8s)
+2026-10-18T23:34:07.6034896Z   ✓   26 [chromium] › tests/calendar-heading.spec.ts:5:88 › calendar: optional title keeps accessible naming and navigation shares month row (1.9s)
+2026-10-18T23:34:09.4235442Z   ✓   27 [chromium] › tests/calendar-heading.spec.ts:5:88 › date-picker: optional title keeps accessible naming and navigation shares month row (1.8s)
+2026-10-18T23:34:12.5153214Z   ✓   28 [chromium] › tests/calendar-heading.spec.ts:5:88 › date-range-selector: optional title keeps accessible naming and navigation shares month row (3.1s)
+2026-10-18T23:34:14.7564717Z   ✓   29 [chromium] › tests/calendar-heading.spec.ts:5:88 › date-range-picker: optional title keeps accessible naming and navigation shares month row (2.2s)
+2026-10-18T23:34:15.8184311Z   ✓   30 [chromium] › tests/calendar-heading.spec.ts:30:1 › Popover can hide its heading and retain its dialog name (1.1s)
+2026-10-18T23:34:19.9429697Z   ✓   31 [chromium] › tests/calendar-options.spec.ts:6:1 › Calendar navigation, compact footprints, stable months and centered days (4.1s)
+2026-10-18T23:34:21.8437186Z   ✓   32 [chromium] › tests/calendar-options.spec.ts:40:1 › date dropdown normalizes text, selects from calendar and keeps sibling examples isolated (1.9s)
+2026-10-18T23:34:24.4474594Z   ✓   33 [chromium] › tests/calendar-options.spec.ts:61:27 › range dropdown with 1 calendars supports typed and picked endpoints (2.6s)
+2026-10-18T23:34:27.3006385Z   ✓   34 [chromium] › tests/calendar-options.spec.ts:61:27 › range dropdown with 2 calendars supports typed and picked endpoints (2.8s)
+2026-10-18T23:34:30.4994358Z   ✓   35 [chromium] › tests/calendar-presets.spec.ts:5:27 › range preset panel: 1 calendars, fixed/relative/custom choices and responsive draft ownership (3.2s)
+2026-10-18T23:34:34.0030761Z   ✓   36 [chromium] › tests/calendar-presets.spec.ts:5:27 › range preset panel: 2 calendars, fixed/relative/custom choices and responsive draft ownership (3.5s)
+2026-10-18T23:34:35.4294123Z   ✓   37 [chromium] › tests/calendar-reference-layouts.spec.ts:9:12 › calendar: three months fit and wrap without widening day targets (1.4s)
+2026-10-18T23:34:37.8901190Z   ✓   38 [chromium] › tests/calendar-reference-layouts.spec.ts:9:12 › date-range-selector: three months fit and wrap without widening day targets (2.5s)
+2026-10-18T23:34:39.6452909Z   ✓   39 [chromium] › tests/calendar-reference-layouts.spec.ts:9:12 › date-range-picker: three months fit and wrap without widening day targets (1.7s)
+2026-10-18T23:34:43.0286235Z   ✓   40 [chromium] › tests/calendar-reference-layouts.spec.ts:28:32 › presets after calendars preserve visual and keyboard order: ltr (3.4s)
+2026-10-18T23:34:46.5456149Z   ✓   41 [chromium] › tests/calendar-reference-layouts.spec.ts:28:32 › presets after calendars preserve visual and keyboard order: rtl (3.5s)
+2026-10-18T23:36:23.3576605Z 98 routes; 1284 public setup and initial/changed example source snapshots verified
+2026-10-18T23:36:23.3727096Z   ✓   42 [chromium] › tests/catalog.spec.ts:10:1 › all public component catalog routes render documented examples and compilable current source (1.6m)
+2026-10-18T23:36:27.3829081Z   ✓   43 [chromium] › tests/catalog.spec.ts:88:1 › catalog search, component navigation and wide previews remain usable on narrow screens (4.0s)
+2026-10-18T23:36:30.5434877Z   ✓   44 [chromium] › tests/component-composition.spec.ts:5:1 › component composition navigation shows one level and keeps host content separate (3.1s)
+2026-10-18T23:36:31.7418401Z   ✓   45 [chromium] › tests/component-source-flow.spec.ts:13:1 › async playground source and copied code follow selected records, mock pending/failure and retry (1.2s)
+2026-10-18T23:36:32.8281285Z   ✓   46 [chromium] › tests/component-source-flow.spec.ts:49:1 › date playground source follows datetime shape, hour cycle, density and committed segment edits (1.1s)
+2026-10-18T23:36:32.8920955Z   ✓   47 [chromium] › tests/component-source-flow.spec.ts:79:1 › public production docs omit native fixture routes, manifests and fixture runtime bundles (59ms)
+2026-10-18T23:36:33.8671250Z   ✓   48 [chromium] › tests/content-integrations.spec.ts:5:1 › learner due matrix uses the fixed host clock and retains missing-date fallback (966ms)
+2026-10-18T23:36:36.0047191Z   ✓   49 [chromium] › tests/content-integrations.spec.ts:17:1 › saved rich documents render public JSON in independent editable and read-only panels (2.1s)
+2026-10-18T23:36:38.7712514Z   ✓   50 [chromium] › tests/content-integrations.spec.ts:39:1 › host image adapter preserves a rejected upload for retry and inserts a durable asset (2.8s)
+2026-10-18T23:36:40.4910360Z   ✓   51 [chromium] › tests/controls-batch-public.spec.ts:25:2 › hierarchical-menu public route compiles current controlled source/copy and preserves reference independence (1.7s)
+2026-10-18T23:36:42.2376393Z   ✓   52 [chromium] › tests/controls-batch-public.spec.ts:25:2 › experience-page-navigator public route compiles current controlled source/copy and preserves reference independence (1.7s)
+2026-10-18T23:36:43.9642933Z   ✓   53 [chromium] › tests/date-picker-availability-parity.spec.ts:5:2 › text: host availability guards typed values and native submission (1.7s)
+2026-10-18T23:36:45.3683894Z   ✓   54 [chromium] › tests/date-picker-availability-parity.spec.ts:5:2 › segments: host availability guards typed values and native submission (1.4s)
+2026-10-18T23:36:47.2727625Z   ✓   55 [chromium] › tests/date-picker-availability-parity.spec.ts:5:2 › datetime: host availability guards typed values and native submission (1.9s)
+2026-10-18T23:36:48.8333507Z   ✓   56 [chromium] › tests/date-picker-group.spec.ts:15:100 › joined date input: Compact, Date segments (1.6s)
+2026-10-18T23:36:50.3165584Z   ✓   57 [chromium] › tests/date-picker-group.spec.ts:15:100 › joined date input: Compact, Flexible text (1.5s)
+2026-10-18T23:36:51.8340576Z   ✓   58 [chromium] › tests/date-picker-group.spec.ts:15:100 › joined date input: Comfortable, Date segments (1.5s)
+2026-10-18T23:36:53.3003208Z   ✓   59 [chromium] › tests/date-picker-group.spec.ts:15:100 › joined date input: Comfortable, Flexible text (1.5s)
+2026-10-18T23:36:55.2757333Z   ✓   60 [chromium] › tests/date-picker-period-navigation.spec.ts:4:48 › month/year heading navigates through shared PeriodPicker at compact density (2.0s)
+2026-10-18T23:36:57.2572588Z   ✓   61 [chromium] › tests/date-picker-period-navigation.spec.ts:4:48 › month/year heading navigates through shared PeriodPicker at comfortable density (2.0s)
+2026-10-18T23:36:58.5183968Z   ✓   62 [chromium] › tests/date-picker-period-navigation.spec.ts:37:1 › inline period chooser cancels independently, returns focus, and preserves popup size on narrow viewports (1.3s)
+2026-10-18T23:37:00.1157265Z   ✓   63 [chromium] › tests/date-picker-period-navigation.spec.ts:53:1 › week-only event hides both heading controls and retains actual bounds (1.6s)
+2026-10-18T23:37:01.3109105Z   ✓   64 [chromium] › tests/date-picker-width.spec.ts:5:64 › date-picker dropdown fits its calendar with balanced padding: Compact density (1.2s)
+2026-10-18T23:37:02.7894615Z   ✓   65 [chromium] › tests/date-picker-width.spec.ts:5:64 › date-picker dropdown fits its calendar with balanced padding: Comfortable density (1.5s)
+2026-10-18T23:37:06.2626436Z   ✓   66 [chromium] › tests/date-picker-width.spec.ts:28:55 › date-picker: examples fit their controls and remain responsive (3.5s)
+2026-10-18T23:37:09.7220108Z   ✓   67 [chromium] › tests/date-picker-width.spec.ts:28:55 › date-range-picker: examples fit their controls and remain responsive (3.5s)
+2026-10-18T23:37:19.3166445Z   ✓   68 [chromium] › tests/date-range-behavior.spec.ts:4:63 › date-range-picker: policies, reverse creation, source and prop documentation (9.6s)
+2026-10-18T23:37:35.1373626Z   ✓   69 [chromium] › tests/date-range-behavior.spec.ts:4:63 › date-range-selector: policies, reverse creation, source and prop documentation (15.8s)
+2026-10-18T23:37:36.4380967Z   ✓   70 [chromium] › tests/date-range-behavior.spec.ts:55:65 › touch range policies › adjust-end rapid taps preserve the start; reverse creation completes (1.3s)
+2026-10-18T23:37:37.8703462Z   ✓   71 [chromium] › tests/date-range-behavior.spec.ts:55:65 › touch range policies › adjust-nearest rapid taps preserve the start; reverse creation completes (1.4s)
+2026-10-18T23:37:39.4590428Z   ✓   72 [chromium] › tests/date-range-flow.spec.ts:5:27 › bidirectional draft creation and default nearest-endpoint adjustment with 1 calendars (1.6s)
+2026-10-18T23:37:40.9620547Z   ✓   73 [chromium] › tests/date-range-flow.spec.ts:5:27 › bidirectional draft creation and default nearest-endpoint adjustment with 2 calendars (1.5s)
+2026-10-18T23:37:42.2571338Z   ✓   74 [chromium] › tests/date-range-flow.spec.ts:28:1 › range dropdown shifts within the viewport before scrolling (1.3s)
+2026-10-18T23:37:44.4683064Z   ✓   75 [chromium] › tests/date-range-gesture-continuation.spec.ts:6:1 › independent calendars resize across months, ignore unrelated cancellation, focus the endpoint, and cancel on window blur (2.2s)
+2026-10-18T23:37:46.5113367Z   ✓   76 [chromium] › tests/date-range-gesture-continuation.spec.ts:22:1 › drag endpoint restrictions use the actual boundary, independent of the active click endpoint (2.0s)
+2026-10-18T23:37:48.8043978Z   ✓   77 [chromium] › tests/date-range-gesture-continuation.spec.ts:42:2 › native touch range gestures › endpoint resizing, interior movement, pointer cancellation and the next tap remain independent (2.3s)
+2026-10-18T23:37:52.3868873Z   ✓   78 [chromium] › tests/date-range-independent-endpoints.spec.ts:5:112 › DateRangeSelector: independent From/To calendars edit their assigned endpoints (3.6s)
+2026-10-18T23:37:55.4438467Z   ✓   79 [chromium] › tests/date-range-independent-endpoints.spec.ts:5:112 › DateRangePicker: independent From/To calendars edit their assigned endpoints (3.1s)
+2026-10-18T23:37:56.5247626Z   ✓   80 [chromium] › tests/date-range-overview.spec.ts:4:1 › one-calendar preset example omits endpoint fields in its dropdown and source (1.1s)
+2026-10-18T23:37:58.5492858Z   ✓   81 [chromium] › tests/date-range-overview.spec.ts:18:112 › DateRangeSelector defaults omit presets and keep them opt-in (2.0s)
+2026-10-18T23:37:59.8057594Z   ✓   82 [chromium] › tests/date-range-overview.spec.ts:18:112 › DateRangePicker defaults omit presets and keep them opt-in (1.3s)
+2026-10-18T23:38:01.6479693Z   ✓   83 [chromium] › tests/date-range-overview.spec.ts:41:31 › range selector overview expands to its content at 1440px (1.8s)
+2026-10-18T23:38:03.4975729Z   ✓   84 [chromium] › tests/date-range-overview.spec.ts:41:31 › range selector overview expands to its content at 375px (1.8s)
+2026-10-18T23:38:06.1384755Z   ✓   85 [chromium] › tests/date-range-responsive.spec.ts:5:64 › host-supplied presets use a wide responsive dropdown: Compact density (2.6s)
+2026-10-18T23:38:08.7432726Z   ✓   86 [chromium] › tests/date-range-responsive.spec.ts:5:64 › host-supplied presets use a wide responsive dropdown: Comfortable density (2.6s)
+2026-10-18T23:38:10.6659236Z   ✓   87 [chromium] › tests/date-range-responsive.spec.ts:41:1 › optional endpoint fields use flexible text and preset rows support keyboard selection (1.9s)
+2026-10-18T23:38:13.0990631Z   ✓   88 [chromium] › tests/date-range-text.spec.ts:5:1 › range textbox: normalized dates, relative weeks, calendar transaction and isolated source (2.4s)
+2026-10-18T23:38:15.2679762Z   ✓   89 [chromium] › tests/date-range-text.spec.ts:36:1 › range field playground: week policy, bounds, native submission and button alternative (2.2s)
+2026-10-18T23:38:16.0627563Z   ✓   90 [chromium] › tests/date-validation-timing.spec.ts:7:12 › date-picker: typing is quiet, Enter and blur validate (784ms)
+2026-10-18T23:38:17.5834110Z   ✓   91 [chromium] › tests/date-validation-timing.spec.ts:7:12 › date-range-picker: typing is quiet, Enter and blur validate (1.5s)
+2026-10-18T23:38:18.2309575Z   ✓   92 [chromium] › tests/date-validation-timing.spec.ts:7:12 › time-field: typing is quiet, Enter and blur validate (640ms)
+2026-10-18T23:38:20.8554541Z   ✓   93 [chromium] › tests/default-demo-theme.spec.ts:7:1 › None shows global defaults independently of the website and preserves defaults in portals (2.6s)
+2026-10-18T23:38:26.3771324Z   ✓   94 [chromium] › tests/docs.spec.ts:17:1 › public package examples, navigation and themed dialog work in the production app (5.5s)
+2026-10-18T23:38:27.4682350Z   ✓   95 [chromium] › tests/dropdown-sizing.spec.ts:4:75 › Select popup fits its labels independently of the selected value at 1280px with native scrollbars (1.1s)
+2026-10-18T23:38:28.8134617Z   ✓   96 [chromium] › tests/dropdown-sizing.spec.ts:4:75 › Select popup fits its labels independently of the selected value at 1280px with classic scrollbars (1.3s)
+2026-10-18T23:38:29.8357932Z   ✓   97 [chromium] › tests/dropdown-sizing.spec.ts:4:75 › Select popup fits its labels independently of the selected value at 375px with native scrollbars (1.0s)
+2026-10-18T23:38:30.8051057Z   ✓   98 [chromium] › tests/dropdown-sizing.spec.ts:4:75 › Select popup fits its labels independently of the selected value at 375px with classic scrollbars (964ms)
+2026-10-18T23:38:31.5252477Z   ✓   99 [chromium] › tests/dropdown-sizing.spec.ts:41:39 › website compact controls and portaled version options share geometry (touch=false) (713ms)
+2026-10-18T23:38:32.2733441Z   ✓  100 [chromium] › tests/dropdown-sizing.spec.ts:41:39 › website compact controls and portaled version options share geometry (touch=true) (742ms)
+2026-10-18T23:38:33.2954146Z   ✓  101 [chromium] › tests/dropdown-sizing.spec.ts:64:33 › Select keeps its longest-option width and ellipsizes a host-constrained value at 375px (1.0s)
+2026-10-18T23:38:34.4921242Z   ✓  102 [chromium] › tests/dropdown-sizing.spec.ts:64:33 › Select keeps its longest-option width and ellipsizes a host-constrained value at 1280px (1.2s)
+2026-10-18T23:38:36.5076746Z   ✓  103 [chromium] › tests/editor-sample-content.spec.ts:8:12 › PageRichTextEditorSection starts with two sample paragraphs and no reset action (2.0s)
+2026-10-18T23:38:38.1756533Z   ✓  104 [chromium] › tests/editor-sample-content.spec.ts:8:12 › FloatingTextSelectionToolbar starts with two sample paragraphs and no reset action (1.6s)
+2026-10-18T23:38:38.9749772Z   ✓  105 [chromium] › tests/example-isolation.spec.ts:5:1 › owned button press and form actions preserve sibling examples (790ms)
+2026-10-18T23:40:31.7357394Z 453 catalog panel interactions; 193 current sources changed locally; sibling sources preserved
+2026-10-18T23:40:31.7526106Z   ✓  106 [chromium] › tests/example-isolation.spec.ts:29:1 › interacting with catalog panels leaves every sibling source snapshot unchanged (1.9m)
+2026-10-18T23:40:33.4210476Z   ✓  107 [chromium] › tests/example-matrices.spec.ts:4:1 › button groups show independent orientation/density/joined examples with live copyable source (1.7s)
+2026-10-18T23:40:34.2122698Z   ✓  108 [chromium] › tests/field-consistency.spec.ts:3:39 › adjacent select and text fields share geometry and typography (touch=false) (782ms)
+2026-10-18T23:40:34.9478725Z   ✓  109 [chromium] › tests/field-consistency.spec.ts:3:39 › adjacent select and text fields share geometry and typography (touch=true) (729ms)
+2026-10-18T23:40:44.3555040Z   ✓  110 [chromium] › tests/field-focus-boundary.spec.ts:9:101 › None — global defaults: field focus stays within control boundaries at both densities (9.4s)
+2026-10-18T23:40:53.3927094Z   ✓  111 [chromium] › tests/field-focus-boundary.spec.ts:9:101 › Material Design: field focus stays within control boundaries at both densities (9.0s)
+2026-10-18T23:41:02.6201119Z   ✓  112 [chromium] › tests/field-focus-boundary.spec.ts:9:101 › Apple Human Interface: field focus stays within control boundaries at both densities (9.2s)
+2026-10-18T23:41:11.9300197Z   ✓  113 [chromium] › tests/field-focus-boundary.spec.ts:9:101 › Editorial: field focus stays within control boundaries at both densities (9.3s)
+2026-10-18T23:41:13.3189478Z   ✓  114 [chromium] › tests/field-focus-boundary.spec.ts:29:1 › inset focus remains visible in dark and forced colors (1.4s)
+2026-10-18T23:41:18.5292705Z   ✓  115 [chromium] › tests/field-icons.spec.ts:7:76 › text-field: placeholders, logical icons, native interactions and isolated sources (5.2s)
+2026-10-18T23:41:23.8912890Z   ✓  116 [chromium] › tests/field-icons.spec.ts:7:76 › select: placeholders, logical icons, native interactions and isolated sources (5.4s)
+2026-10-18T23:41:29.2264793Z   ✓  117 [chromium] › tests/field-icons.spec.ts:7:76 › combo-box: placeholders, logical icons, native interactions and isolated sources (5.3s)
+2026-10-18T23:41:34.3795562Z   ✓  118 [chromium] › tests/field-icons.spec.ts:7:76 › async-multi-select: placeholders, logical icons, native interactions and isolated sources (5.1s)
+2026-10-18T23:41:35.8147867Z   ✓  119 [chromium] › tests/field-message-compositions.spec.ts:5:115 › period-picker: composed fields expose and forward message placement (1.4s)
+2026-10-18T23:41:37.2241594Z   ✓  120 [chromium] › tests/field-message-compositions.spec.ts:5:115 › date-time-range-picker: composed fields expose and forward message placement (1.4s)
+2026-10-18T23:41:38.5783337Z   ✓  121 [chromium] › tests/field-message-compositions.spec.ts:5:115 › date-range-comparison-picker: composed fields expose and forward message placement (1.3s)
+2026-10-18T23:41:42.4844857Z   ✓  122 [chromium] › tests/field-message-compositions.spec.ts:5:115 › date-range-selector: composed fields expose and forward message placement (3.9s)
+2026-10-18T23:41:43.6764980Z   ✓  123 [chromium] › tests/field-message-placement.spec.ts:6:90 › text-field: aligned above messages at compact density (1.2s)
+2026-10-18T23:41:45.1394192Z   ✓  124 [chromium] › tests/field-message-placement.spec.ts:6:90 › text-field: aligned below messages at compact density (1.5s)
+2026-10-18T23:41:46.3465465Z   ✓  125 [chromium] › tests/field-message-placement.spec.ts:6:90 › text-field: aligned above messages at comfortable density (1.2s)
+2026-10-18T23:41:47.5758467Z   ✓  126 [chromium] › tests/field-message-placement.spec.ts:6:90 › text-field: aligned below messages at comfortable density (1.2s)
+2026-10-18T23:41:48.9614904Z   ✓  127 [chromium] › tests/field-message-placement.spec.ts:30:2 › text-field: playground independently changes description/error placement and source (1.4s)
+2026-10-18T23:41:50.2597234Z   ✓  128 [chromium] › tests/field-message-placement.spec.ts:6:90 › text-area: aligned above messages at compact density (1.3s)
+2026-10-18T23:41:51.5203935Z   ✓  129 [chromium] › tests/field-message-placement.spec.ts:6:90 › text-area: aligned below messages at compact density (1.3s)
+2026-10-18T23:41:52.7632648Z   ✓  130 [chromium] › tests/field-message-placement.spec.ts:6:90 › text-area: aligned above messages at comfortable density (1.2s)
+2026-10-18T23:41:54.0247365Z   ✓  131 [chromium] › tests/field-message-placement.spec.ts:6:90 › text-area: aligned below messages at comfortable density (1.3s)
+2026-10-18T23:41:55.4774903Z   ✓  132 [chromium] › tests/field-message-placement.spec.ts:30:2 › text-area: playground independently changes description/error placement and source (1.4s)
+2026-10-18T23:41:56.9597003Z   ✓  133 [chromium] › tests/field-message-placement.spec.ts:48:172 › select: shared placement contract updates the field and its source (1.5s)
+2026-10-18T23:41:58.4648237Z   ✓  134 [chromium] › tests/field-message-placement.spec.ts:48:172 › combo-box: shared placement contract updates the field and its source (1.5s)
+2026-10-18T23:41:59.9435540Z   ✓  135 [chromium] › tests/field-message-placement.spec.ts:48:172 › checkbox: shared placement contract updates the field and its source (1.5s)
+2026-10-18T23:42:01.3647106Z   ✓  136 [chromium] › tests/field-message-placement.spec.ts:48:172 › radio-group: shared placement contract updates the field and its source (1.4s)
+2026-10-18T23:42:02.4787077Z   ✓  137 [chromium] › tests/field-message-placement.spec.ts:48:172 › switch: shared placement contract updates the field and its source (1.1s)
+2026-10-18T23:42:03.7343000Z   ✓  138 [chromium] › tests/field-message-placement.spec.ts:48:172 › async-multi-select: shared placement contract updates the field and its source (1.2s)
+2026-10-18T23:42:05.0918421Z   ✓  139 [chromium] › tests/field-message-placement.spec.ts:48:172 › date-field: shared placement contract updates the field and its source (1.4s)
+2026-10-18T23:42:06.4456069Z   ✓  140 [chromium] › tests/field-message-placement.spec.ts:48:172 › time-field: shared placement contract updates the field and its source (1.3s)
+2026-10-18T23:42:08.0584132Z   ✓  141 [chromium] › tests/field-message-placement.spec.ts:48:172 › date-picker: shared placement contract updates the field and its source (1.6s)
+2026-10-18T23:42:09.8622028Z   ✓  142 [chromium] › tests/field-message-placement.spec.ts:48:172 › date-range-picker: shared placement contract updates the field and its source (1.8s)
+2026-10-18T23:42:11.0597239Z   ✓  143 [chromium] › tests/field-message-placement.spec.ts:48:172 › search-field: shared placement contract updates the field and its source (1.2s)
+2026-10-18T23:42:11.6983038Z   ✓  144 [chromium] › tests/field-message-placement.spec.ts:70:55 › processing-grid: grid selection indicators remain visible with the shared choice-control structure (626ms)
+2026-10-18T23:42:12.5672280Z   ✓  145 [chromium] › tests/field-message-placement.spec.ts:70:55 › app-data-grid: grid selection indicators remain visible with the shared choice-control structure (862ms)
+2026-10-18T23:42:15.0404389Z   ✓  146 [chromium] › tests/form-field-scope.spec.ts:5:1 › shared defaults, nested scopes and explicit overrides remain independent (2.5s)
+2026-10-18T23:42:16.3167953Z   ✓  147 [chromium] › tests/form-integrations.spec.ts:5:1 › native reset restores both ownership modes (1.3s)
+2026-10-18T23:42:17.5874819Z   ✓  148 [chromium] › tests/form-integrations.spec.ts:23:1 › host timezone conversion rejects ambiguity and supports deliberate resolution (1.3s)
+2026-10-18T23:42:20.5887265Z   ✓  149 [chromium] › tests/form-integrations.spec.ts:36:1 › async search retains selection and rejects superseded results through failure and retry (3.0s)
+2026-10-18T23:42:23.2878796Z   ✓  150 [chromium] › tests/form-integrations.spec.ts:54:1 › locale scopes format the same civil range independently (2.7s)
+2026-10-18T23:42:24.5937306Z   ✓  151 [chromium] › tests/form-integrations.spec.ts:67:1 › long authentication form scrolls to fields, action and footer (1.3s)
+2026-10-18T23:42:25.8131396Z   ✓  152 [chromium] › tests/form-integrations.spec.ts:82:1 › page header supplies primary actions and condensed ancestors (1.2s)
+2026-10-18T23:42:26.9885940Z   ✓  153 [chromium] › tests/foundation-examples.spec.ts:3:1 › published foundations expose matching source and independent native focus (1.2s)
+2026-10-18T23:42:27.4725933Z   ✓  154 [chromium] › tests/foundation-examples.spec.ts:29:1 › published motion uses production reduced-motion CSS (477ms)
+2026-10-18T23:42:28.9884614Z   ✓  155 [chromium] › tests/general-routes.spec.ts:10:1 › general pages use root URLs, retain navigation and redirect old docs URLs (1.5s)
+2026-10-18T23:42:31.1636009Z   ✓  156 [chromium] › tests/grid-flex-resize.spec.ts:4:48 › AppDataGrid keeps a fill column after sequential resizing in compact density (2.2s)
+2026-10-18T23:42:33.4338738Z   ✓  157 [chromium] › tests/grid-flex-resize.spec.ts:4:48 › AppDataGrid keeps a fill column after sequential resizing in comfortable density (2.3s)
+2026-10-18T23:42:36.0687214Z   ✓  158 [chromium] › tests/grid-host-integrations.spec.ts:5:1 › isolated persisted view survives reload and reset restores declared defaults (2.6s)
+2026-10-18T23:42:41.2147798Z   ✓  159 [chromium] › tests/grid-host-integrations.spec.ts:25:1 › server criteria accept results, discard late responses and recover from rejection (5.1s)
+2026-10-18T23:42:43.6518417Z   ✓  160 [chromium] › tests/grouped-navigation.spec.ts:5:1 › sidebar slides into categories, restores Back focus and derives the level from the page (2.4s)
+2026-10-18T23:42:44.8447958Z   ✓  161 [chromium] › tests/grouped-navigation.spec.ts:35:1 › unlabelled visual search drops down pages across categories with keyboard and direct navigation (1.2s)
+2026-10-18T23:42:45.4432874Z   ✓  162 [chromium] › tests/grouped-navigation.spec.ts:66:1 › sidebar orders overview, search, component menus and general links between full-width dividers (592ms)
+2026-10-18T23:42:46.3935842Z   ✓  163 [chromium] › tests/grouped-navigation.spec.ts:88:1 › Structured Growth links and navigation use background hover feedback (942ms)
+2026-10-18T23:42:46.8133003Z   ✓  164 [chromium] › tests/grouped-navigation.spec.ts:125:1 › compact application navigation retains touch targets and supports enlarged labels (413ms)
+2026-10-18T23:42:47.3627768Z   ✓  165 [chromium] › tests/icon-button-alignment.spec.ts:3:39 › icon buttons center their icons at both densities (touch=false) (539ms)
+2026-10-18T23:42:47.9006763Z   ✓  166 [chromium] › tests/icon-button-alignment.spec.ts:3:39 › icon buttons center their icons at both densities (touch=true) (532ms)
+2026-10-18T23:42:51.4746718Z   ✓  167 [chromium] › tests/icon-panel-navigation.spec.ts:5:1 › icon rail opens independent sliding panels with keyboard names and retained drafts (3.6s)
+2026-10-18T23:42:52.5889644Z   ✓  168 [chromium] › tests/icon-panel-navigation.spec.ts:51:1 › icon rail composes beside a separate main menu and fits a narrow host (1.1s)
+2026-10-18T23:42:56.7177200Z   ✓  169 [chromium] › tests/icon-panel-navigation.spec.ts:78:1 › primary icon sections open separate menus with host-owned page navigation (4.1s)
+2026-10-18T23:42:58.2133510Z   ✓  170 [chromium] › tests/icons-acceptance.spec.ts:4:1 › icons: search, accessible label, live source/copy and panel independence (1.5s)
+2026-10-18T23:42:59.3703402Z   ✓  171 [chromium] › tests/independent-scroll.spec.ts:5:31 › docs sidebar and content scroll independently at 1280px (1.1s)
+2026-10-18T23:43:00.5237188Z   ✓  172 [chromium] › tests/independent-scroll.spec.ts:5:31 › docs sidebar and content scroll independently at 375px (1.1s)
+2026-10-18T23:43:01.6832990Z   ✓  173 [chromium] › tests/independent-scroll.spec.ts:27:1 › AppShell course navigation and lessons preserve separate scroll positions (1.2s)
+2026-10-18T23:43:02.3916855Z   ✓  174 [chromium] › tests/independent-scroll.spec.ts:49:31 › theming helpers stay inside the viewport shell at 1280px (700ms)
+2026-10-18T23:43:03.0488134Z   ✓  175 [chromium] › tests/independent-scroll.spec.ts:49:31 › theming helpers stay inside the viewport shell at 375px (650ms)
+2026-10-18T23:43:03.8583918Z   ✓  176 [chromium] › tests/independent-scroll.spec.ts:74:1 › sidebar thumb appears on hover and keyboard focus without shifting navigation (800ms)
+2026-10-18T23:43:04.6249252Z   ✓  177 [chromium] › tests/independent-scroll.spec.ts:106:1 › wide-page content scrollbar reaches the shell right edge while reading width stays bounded (760ms)
+2026-10-18T23:43:07.2390404Z   ✓  178 [chromium] › tests/independent-scroll.spec.ts:127:1 › AppShell mirrors an optional right column with independent scroll and collapse (2.6s)
+2026-10-18T23:43:09.9073816Z   ✓  179 [chromium] › tests/month-fit.spec.ts:4:48 › month choices adapt to host height and width at compact density (2.7s)
+2026-10-18T23:43:12.6236619Z   ✓  180 [chromium] › tests/month-fit.spec.ts:4:48 › month choices adapt to host height and width at comfortable density (2.7s)
+2026-10-18T23:43:13.8423784Z   ✓  181 [chromium] › tests/month-fit.spec.ts:21:88 › calendar: month chooser fills the reserved frame with two columns (1.2s)
+2026-10-18T23:43:14.9298641Z   ✓  182 [chromium] › tests/month-fit.spec.ts:21:88 › date-picker: month chooser fills the reserved frame with two columns (1.1s)
+2026-10-18T23:43:16.2429165Z   ✓  183 [chromium] › tests/month-fit.spec.ts:21:88 › date-range-picker: month chooser fills the reserved frame with two columns (1.3s)
+2026-10-18T23:43:18.7445340Z   ✓  184 [chromium] › tests/month-fit.spec.ts:21:88 › date-range-selector: month chooser fills the reserved frame with two columns (2.5s)
+2026-10-18T23:43:23.9343224Z   ✓  185 [chromium] › tests/picker-radius.spec.ts:5:89 › Material rounded fields: Compact, Light (5.2s)
+2026-10-18T23:43:29.2072136Z   ✓  186 [chromium] › tests/picker-radius.spec.ts:5:89 › Material rounded fields: Comfortable, Dark (5.3s)
+2026-10-18T23:43:29.9849054Z   ✓  187 [chromium] › tests/playground-control-alignment.spec.ts:3:74 › playground checkboxes align with adjacent input boxes at 1280px (touch=false) (768ms)
+2026-10-18T23:43:30.7407994Z   ✓  188 [chromium] › tests/playground-control-alignment.spec.ts:3:74 › playground checkboxes align with adjacent input boxes at 1280px (touch=true) (748ms)
+2026-10-18T23:43:31.4318519Z   ✓  189 [chromium] › tests/playground-control-alignment.spec.ts:3:74 › playground checkboxes align with adjacent input boxes at 600px (touch=false) (685ms)
+2026-10-18T23:43:32.1347226Z   ✓  190 [chromium] › tests/playground-control-alignment.spec.ts:3:74 › playground checkboxes align with adjacent input boxes at 600px (touch=true) (696ms)
+2026-10-18T23:43:32.8259616Z   ✓  191 [chromium] › tests/playground-control-alignment.spec.ts:3:74 › playground checkboxes align with adjacent input boxes at 375px (touch=false) (685ms)
+2026-10-18T23:43:33.4840635Z   ✓  192 [chromium] › tests/playground-control-alignment.spec.ts:3:74 › playground checkboxes align with adjacent input boxes at 375px (touch=true) (651ms)
+2026-10-18T23:43:35.7338662Z   ✓  193 [chromium] › tests/processing-grid.spec.ts:6:31 › DataGrid uses a full-width source-backed example and shared page-size dropdown at 1280px (2.2s)
+2026-10-18T23:43:37.8274754Z   ✓  194 [chromium] › tests/processing-grid.spec.ts:6:31 › DataGrid uses a full-width source-backed example and shared page-size dropdown at 375px (2.1s)
+2026-10-18T23:43:40.2398286Z   ✓  195 [chromium] › tests/processing-grid.spec.ts:53:1 › DataGrid retains a fill column after pointer-resizing every data column (2.4s)
+2026-10-18T23:43:41.3681012Z   ✓  196 [chromium] › tests/relative-date-entry.spec.ts:5:90 › date-field: relative text uses explicit shared reference and copies absolute state (1.1s)
+2026-10-18T23:43:43.3406297Z   ✓  197 [chromium] › tests/relative-date-entry.spec.ts:5:90 › date-picker: relative text uses explicit shared reference and copies absolute state (2.0s)
+2026-10-18T23:43:46.0677220Z   ✓  198 [chromium] › tests/relative-date-entry.spec.ts:5:90 › date-range-selector: relative text uses explicit shared reference and copies absolute state (2.7s)
+2026-10-18T23:43:47.6280715Z   ✓  199 [chromium] › tests/relative-date-entry.spec.ts:5:90 › date-range-picker: relative text uses explicit shared reference and copies absolute state (1.6s)
+2026-10-18T23:43:49.1759500Z   ✓  200 [chromium] › tests/resizable-panel.spec.ts:5:1 › documentation shelf resizes by pointer and keyboard and stays within narrow viewports (1.5s)
+2026-10-18T23:43:50.6906276Z   ✓  201 [chromium] › tests/resizable-panel.spec.ts:32:1 › reusable resize prop is opt-in and example source matches (1.5s)
+2026-10-18T23:43:53.9029118Z   ✓  202 [chromium] › tests/scrollbar-activity.spec.ts:5:1 › page and sidebar scroll thumbs remain visible during scrolling without hover or focus (3.2s)
+2026-10-18T23:43:54.5293561Z   ✓  203 [chromium] › tests/scrollbar-activity.spec.ts:29:1 › portal dropdown scroll activity uses the shared thumb style and preserves forced colors (619ms)
+2026-10-18T23:43:56.2876411Z   ✓  204 [chromium] › tests/scrollbar-layout.spec.ts:19:36 › page geometry stays stable during scroll locking at 1920px (1.7s)
+2026-10-18T23:43:58.0097096Z   ✓  205 [chromium] › tests/scrollbar-layout.spec.ts:19:36 › page geometry stays stable during scroll locking at 1280px (1.7s)
+2026-10-18T23:43:59.6916486Z   ✓  206 [chromium] › tests/scrollbar-layout.spec.ts:19:36 › page geometry stays stable during scroll locking at 375px (1.7s)
+2026-10-18T23:44:00.9092024Z   ✓  207 [chromium] › tests/scrollbar-layout.spec.ts:62:1 › AppModal preserves docs shell width through live locked viewport resize (1.2s)
+2026-10-18T23:44:03.0331185Z   ✓  208 [chromium] › tests/search-field.spec.ts:7:1 › standard SearchField: aliases, actions, clear, themes, keyboard and independent source (2.1s)
+2026-10-18T23:44:04.9896530Z   ✓  209 [chromium] › tests/search-field.spec.ts:23:1 › standard SearchField: remote states, retry, standalone input and site reuse (1.9s)
+2026-10-18T23:44:07.4687396Z   ✓  210 [chromium] › tests/shared-calendar-pickers.spec.ts:4:110 › date-range-picker shares month/year choices at compact density without committing (2.4s)
+2026-10-18T23:44:09.9355577Z   ✓  211 [chromium] › tests/shared-calendar-pickers.spec.ts:4:110 › date-range-picker shares month/year choices at comfortable density without committing (2.5s)
+2026-10-18T23:44:13.2825837Z   ✓  212 [chromium] › tests/shared-calendar-pickers.spec.ts:4:110 › date-range-selector shares month/year choices at compact density without committing (3.3s)
+2026-10-18T23:44:16.5927906Z   ✓  213 [chromium] › tests/shared-calendar-pickers.spec.ts:4:110 › date-range-selector shares month/year choices at comfortable density without committing (3.3s)
+2026-10-18T23:44:18.2101726Z   ✓  214 [chromium] › tests/shared-calendar-pickers.spec.ts:33:1 › independent range calendars use endpoint restrictions, one chooser, and preserve narrow reflow (1.6s)
+2026-10-18T23:44:20.2771626Z   ✓  215 [chromium] › tests/shared-calendar-pickers.spec.ts:47:1 › standalone shared pickers expose independent source-backed controls (2.1s)
+2026-10-18T23:44:23.7435033Z   ✓  216 [chromium] › tests/side-navigation-playground.spec.ts:5:1 › mixed navigation combines branch behaviors and keeps examples and copyable host state independent (3.5s)
+2026-10-18T23:44:26.4951081Z   ✓  217 [chromium] › tests/sizing-model.spec.ts:9:1 › scope playgrounds keep density and interaction independent, including overlay menus (2.7s)
+2026-10-18T23:44:27.9376727Z   ✓  218 [chromium] › tests/sizing-model.spec.ts:35:1 › auto sizing adapts to a touch-capable desktop without changing the desktop layout (1.4s)
+2026-10-18T23:44:28.9683152Z   ✓  219 [chromium] › tests/sizing-model.spec.ts:63:1 › a sizing theme customizes touch targets and navigation icons across nested scopes and portals (1.0s)
+2026-10-18T23:44:29.9955652Z   ✓  220 [chromium] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at compact density (1.0s)
+2026-10-18T23:44:31.0354461Z   ✓  221 [chromium] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at comfortable density (1.0s)
+2026-10-18T23:44:32.0423976Z   ✓  222 [chromium] › tests/tab-indicator.spec.ts:12:99 › vertical tab indicator slides at compact density (1.0s)
+2026-10-18T23:44:33.0714804Z   ✓  223 [chromium] › tests/tab-indicator.spec.ts:12:99 › vertical tab indicator slides at comfortable density (1.0s)
+2026-10-18T23:44:34.0506400Z   ✓  224 [chromium] › tests/tab-indicator.spec.ts:28:52 › horizontal manual tabs animate on activation and snap for reduced motion (972ms)
+2026-10-18T23:44:35.0441591Z   ✓  225 [chromium] › tests/tab-indicator.spec.ts:28:52 › vertical manual tabs animate on activation and snap for reduced motion (987ms)
+2026-10-18T23:44:35.7780934Z   ✓  226 [chromium] › tests/tab-indicator.spec.ts:36:1 › vertical RTL and forced colors retain an aligned visible indicator (727ms)
+2026-10-18T23:44:36.4929569Z   ✓  227 [chromium] › tests/tab-indicator.spec.ts:43:1 › route page tabs share the moving indicator (707ms)
+2026-10-18T23:44:38.5357692Z   ✓  228 [chromium] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=false) (2.0s)
+2026-10-18T23:44:40.5717852Z   ✓  229 [chromium] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=true) (2.0s)
+2026-10-18T23:44:42.1597282Z   ✓  230 [chromium] › tests/tabs-overflow.spec.ts:61:1 › secondary tabs remain in the menu with spare room and restore their priority after leaving (1.6s)
+2026-10-18T23:45:05.3329498Z   ✓  231 [chromium] › tests/theme-pipeline.spec.ts:8:1 › component aliases resolve locally through modes, density boundaries and live portals (23.2s)
+2026-10-18T23:45:08.7537474Z   ✓  232 [chromium] › tests/time-text-picker.spec.ts:6:28 › time textbox 12: shorthand, validation, dropdown transaction and source isolation (3.4s)
+2026-10-18T23:45:12.2649504Z   ✓  233 [chromium] › tests/time-text-picker.spec.ts:6:28 › time textbox 24: shorthand, validation, dropdown transaction and source isolation (3.5s)
+2026-10-18T23:45:13.7175814Z   ✓  234 [chromium] › tests/toggle-button-width.spec.ts:4:107 › toggle groups default to widest-option widths and offer content sizing at 1280px (touch=false) (1.4s)
+2026-10-18T23:45:15.0305361Z   ✓  235 [chromium] › tests/toggle-button-width.spec.ts:4:107 › toggle groups default to widest-option widths and offer content sizing at 1280px (touch=true) (1.3s)
+2026-10-18T23:45:16.2907124Z   ✓  236 [chromium] › tests/toggle-button-width.spec.ts:4:107 › toggle groups default to widest-option widths and offer content sizing at 375px (touch=false) (1.3s)
+2026-10-18T23:45:18.1438556Z   ✓  237 [chromium] › tests/typography-tones.spec.ts:5:1 › Typography accent alias and subtle tone follow themes with isolated source-backed examples (1.8s)
+2026-10-18T23:45:19.9795798Z   ✓  238 [chromium] › tests/year-scroll.spec.ts:4:195 › YearPicker: four-column scroll default and explicit pagination (1.8s)
+2026-10-18T23:45:22.4160881Z   ✓  239 [chromium] › tests/year-scroll.spec.ts:4:195 › DatePicker: four-column scroll default and explicit pagination (2.4s)
+2026-10-18T23:45:25.3105673Z   ✓  240 [chromium] › tests/year-scroll.spec.ts:4:195 › DateRangePicker: four-column scroll default and explicit pagination (2.9s)
+2026-10-18T23:45:30.2056732Z   ✓  241 [chromium] › tests/year-scroll.spec.ts:4:195 › DateRangeSelector: four-column scroll default and explicit pagination (4.9s)
+2026-10-18T23:45:32.7566062Z   ✓  242 [chromium] › tests/year-scroll.spec.ts:4:195 › Calendar: four-column scroll default and explicit pagination (2.5s)
+2026-10-18T23:45:34.6997708Z   ✓  243 [chromium] › tests/year-scroll.spec.ts:38:1 › Calendar: independent month/year changes keep sibling views and selection intact (1.9s)
+2026-10-18T23:45:39.0236717Z   ✓  244 [chromium] › tests/scrollbar-drag.spec.ts:5:38 › native main scrollbar supports one continuous press and drag after wheel scrolling (2.2s)
+2026-10-18T23:45:41.2698411Z   ✓  245 [chromium] › tests/scrollbar-drag.spec.ts:5:38 › native sidebar scrollbar supports one continuous press and drag after wheel scrolling (2.2s)
+2026-10-18T23:45:41.3337751Z 
+2026-10-18T23:45:41.3343186Z   245 passed (12.7m)
+2026-10-18T23:45:41.4052471Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-10-18T23:45:41.4052826Z with:
+2026-10-18T23:45:41.4053026Z   name: sgui-docs-validation-node-24
+2026-10-18T23:45:41.4053295Z   path: apps/docs/artifacts/
+apps/docs/test-results/
+
+2026-10-18T23:45:41.4053590Z   if-no-files-found: warn
+2026-10-18T23:45:41.4053785Z   retention-days: 14
+2026-10-18T23:45:41.4053973Z   compression-level: 6
+2026-10-18T23:45:41.4054156Z   overwrite: false
+2026-10-18T23:45:41.4054335Z   include-hidden-files: false
+2026-10-18T23:45:41.4054534Z env:
+2026-10-18T23:45:41.4054732Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:45:41.4054993Z ##[endgroup]
+2026-10-18T23:45:41.5435745Z (node:7008) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-18T23:45:41.5436829Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-18T23:45:41.5670959Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-18T23:45:41.5673154Z The least common ancestor is /home/runner/work/sg-ui/sg-ui/apps/docs. This will be the root directory of the artifact
+2026-10-18T23:45:41.5674120Z With the provided path, there will be 64 files uploaded
+2026-10-18T23:45:41.5678464Z Artifact name is valid!
+2026-10-18T23:45:41.5679237Z Root directory input is valid!
+2026-10-18T23:45:41.9081771Z Beginning upload of artifact content to blob storage
+2026-10-18T23:45:42.1199520Z (node:7008) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-18T23:45:42.8136754Z Uploaded bytes 5171100
+2026-10-18T23:45:42.8754732Z Finished uploading artifact content to blob storage!
+2026-10-18T23:45:42.8755695Z SHA256 digest of uploaded artifact zip is 85f5355811cc267f900ee45b3ccb7ca42c7fa9d2028c38b65f2d3baeb8bcd920
+2026-10-18T23:45:42.8757070Z Finalizing artifact upload
+2026-10-18T23:45:43.1251119Z Artifact sgui-docs-validation-node-24.zip successfully finalized. Artifact ID 12155226502
+2026-10-18T23:45:43.1252347Z Artifact sgui-docs-validation-node-24 has been successfully uploaded! Final size is 5171100 bytes. Artifact ID is 12155226502
+2026-10-18T23:45:43.1253643Z Artifact download URL: https://github.com/Structured-Growth/sg-ui/actions/runs/39176839957/artifacts/12155226502
+2026-10-18T23:45:43.1402569Z Post job cleanup.
+2026-10-18T23:45:43.2454801Z (node:7021) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-18T23:45:43.2455981Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-18T23:45:43.2457788Z Cache hit occurred on the primary key node-cache-Linux-x64-pnpm-8dd57037ea84b4b5cbde29b1cd67e6d68522e476737cbfa7a27627447af0920b, not saving cache.
+2026-10-18T23:45:43.2549907Z Post job cleanup.
+2026-10-18T23:45:43.3778352Z Pruning is unnecessary.
+2026-10-18T23:45:43.3947234Z Post job cleanup.
+2026-10-18T23:45:43.4747451Z [command]/usr/bin/git version
+2026-10-18T23:45:43.4784428Z git version 2.55.0
+2026-10-18T23:45:43.4813537Z Temporarily overriding HOME='/home/runner/work/_temp/7d21c79d-f7bf-41b2-85c9-41307711f1ca' before making global git config changes
+2026-10-18T23:45:43.4814743Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-18T23:45:43.4818527Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/sg-ui/sg-ui
+2026-10-18T23:45:43.4854854Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T23:45:43.4886680Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-18T23:45:43.5105372Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T23:45:43.5140837Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-18T23:45:43.5382312Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T23:45:43.5417643Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-18T23:45:43.5774489Z Cleaning up orphan processes
+2026-10-18T23:45:43.6033017Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02, pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

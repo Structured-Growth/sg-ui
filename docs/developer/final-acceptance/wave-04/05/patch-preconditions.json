@@ -1,0 +1,22 @@
+[
+  {
+    "path": "packages/ui/playwright.forms-wave04.config.ts",
+    "currentSha256": null,
+    "proposedSha256": "a5e98fe45fe269d409dfde22b880817a3b8dc13bbd87d7e55d30a31ba4c70725"
+  },
+  {
+    "path": "packages/ui/src/experimental/Checkbox/Checkbox.idrefs.test.tsx",
+    "currentSha256": null,
+    "proposedSha256": "ca6b5dc61357f9ec6bd3d5ab34477efca1190170d0fc7942ce4fb783f7a0bbb1"
+  },
+  {
+    "path": "packages/ui/src/experimental/Checkbox/Checkbox.tsx",
+    "currentSha256": "24a89ec82398b83ba5e084977844b68fa9cf72e16749597df5d1a1ceba3cea3c",
+    "proposedSha256": "f799a8c32e3ab7b4b9460f3ec32d7d8711f27d7d6a40105f62996a69cdd4205e"
+  },
+  {
+    "path": "packages/ui/tests/browser/wave04-checkbox-idrefs.spec.ts",
+    "currentSha256": null,
+    "proposedSha256": "8d3b7fedfdd4520fb633e69c0e9ef1d8a019ed5ab5678062532f690832b33f83"
+  }
+]

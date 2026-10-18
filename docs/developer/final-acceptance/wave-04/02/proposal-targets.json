@@ -1,0 +1,12 @@
+[
+  {
+    "path": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+    "baseSha256": "fd5e4d824df6604e1958b6d79a01d5c382a142701608c4c64d01b926377e8060",
+    "proposedSha256": "83a1238084f7623706888bf663015402c7df6b6bf8ce3ccdadf1e00ce8735cf0"
+  },
+  {
+    "path": "packages/ui/tests/browser/editor-image-sources.spec.ts",
+    "baseSha256": "6dc9b3fbfca435adb316687fd1d84508f3b9e724aa4b0c717534570d48ff2793",
+    "proposedSha256": "fbef4cd4cc50f8cbde2802f4abdda4b61c27540b418cdcefc1a0ddb086fe8654"
+  }
+]

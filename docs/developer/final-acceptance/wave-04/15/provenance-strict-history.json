@@ -1,0 +1,2378 @@
+{
+  "status": "failed",
+  "strictHistory": true,
+  "localBaseline": {
+    "commit": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+    "preDocs": "530bbc00465d9dbf1e9948f8a2c01b2e51b1a479^",
+    "originalSourceCommit": "8e63f1e16fc3d43d851908b312603a1099ca13d9"
+  },
+  "extractionRows": [
+    {
+      "source": "components/AdminDataGridOptions.ts",
+      "path": "packages/ui/src/components/AdminDataGridOptions.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppButton/AppButton.stories.tsx",
+      "path": "packages/ui/src/components/AppButton/AppButton.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/experimental/Button/Button.fixture.tsx",
+        "apps/docs/examples/ButtonDocumentation.tsx"
+      ]
+    },
+    {
+      "source": "components/AppButton/AppButton.test.tsx",
+      "path": "packages/ui/src/components/AppButton/AppButton.test.tsx",
+      "present": false,
+      "replacements": [
+        "packages/ui/src/components/Button/Button.public-contract.test.tsx"
+      ]
+    },
+    {
+      "source": "components/AppButton/AppButton.tsx",
+      "path": "packages/ui/src/components/AppButton/AppButton.tsx",
+      "present": false,
+      "replacements": [
+        "packages/ui/src/components/Button/Button.tsx"
+      ]
+    },
+    {
+      "source": "components/AppButton/index.ts",
+      "path": "packages/ui/src/components/AppButton/index.ts",
+      "present": false,
+      "replacements": [
+        "packages/ui/src/components/Button/index.ts"
+      ]
+    },
+    {
+      "source": "components/AppDataGrid/AppDataGrid.stories.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/AppDataGrid/AppDataGrid.test.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/AppDataGrid.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/RowSubHeader.test.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/RowSubHeader.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/RowSubHeader.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/RowSubHeader.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/TableLoaderOverlay.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/TableLoaderOverlay.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/TableNoResults.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/TableNoResults.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/baseGridSx.test.ts",
+      "path": "packages/ui/src/components/AppDataGrid/components/baseGridSx.test.ts",
+      "present": false,
+      "replacements": [
+        "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx"
+      ]
+    },
+    {
+      "source": "components/AppDataGrid/components/baseGridSx.ts",
+      "path": "packages/ui/src/components/AppDataGrid/components/baseGridSx.ts",
+      "present": false,
+      "replacements": [
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css",
+        "packages/ui/src/components/AppDataGrid/AppDataGrid.module.css",
+        "packages/ui/src/components/AppDataGrid/ownedGridCells.module.css",
+        "packages/ui/src/components/AppDataGrid/ownedGridParts.module.css"
+      ]
+    },
+    {
+      "source": "components/AppDataGrid/components/header/TableHeaderSortMenu.test.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/header/TableHeaderSortMenu.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/header/TableHeaderSortMenu.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/header/TableHeaderSortMenu.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CellFallback.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/CellFallback.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CopyableTableCell.test.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/CopyableTableCell.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CopyableTableCell.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/CopyableTableCell.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CustomTableCell.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/CustomTableCell.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/DateTableCell.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/DateTableCell.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/DateTimeTableCell.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/DateTimeTableCell.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/ImageTableCell.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/ImageTableCell.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/JsonTableCell.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/JsonTableCell.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TableCellLink.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellLink.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TableCellMenu.test.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellMenu.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TableCellMenu.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellMenu.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TextTableCell.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/TextTableCell.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/index.ts",
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/createActionMenuColumn.test.ts",
+      "path": "packages/ui/src/components/AppDataGrid/createActionMenuColumn.test.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/createActionMenuColumn.ts",
+      "path": "packages/ui/src/components/AppDataGrid/createActionMenuColumn.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/createDataGridColumns.test.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/createDataGridColumns.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/createDataGridColumns.tsx",
+      "path": "packages/ui/src/components/AppDataGrid/createDataGridColumns.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/index.ts",
+      "path": "packages/ui/src/components/AppDataGrid/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/types.ts",
+      "path": "packages/ui/src/components/AppDataGrid/types.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridRowDnd/DataGridDragHandle.stories.tsx",
+      "path": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/AppDataGridRowDnd/DataGridDragHandle.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "path": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridRowDnd/index.ts",
+      "path": "packages/ui/src/components/AppDataGridRowDnd/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridRowDnd/useDataGridRowDnd.test.ts",
+      "path": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.test.ts",
+      "present": false,
+      "replacements": [
+        "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.test.tsx"
+      ]
+    },
+    {
+      "source": "components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+      "path": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "path": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/AppDataGridShell/AppDataGridShell.test.tsx",
+      "path": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridShell/AppDataGridShell.tsx",
+      "path": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridShell/index.ts",
+      "path": "packages/ui/src/components/AppDataGridShell/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppInlineProgress/AppInlineProgress.stories.tsx",
+      "path": "packages/ui/src/components/AppInlineProgress/AppInlineProgress.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/AppInlineProgress/AppInlineProgress.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/AppInlineProgress/AppInlineProgress.test.tsx",
+      "path": "packages/ui/src/components/AppInlineProgress/AppInlineProgress.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppInlineProgress/AppInlineProgress.tsx",
+      "path": "packages/ui/src/components/AppInlineProgress/AppInlineProgress.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppInlineProgress/index.ts",
+      "path": "packages/ui/src/components/AppInlineProgress/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppModal/AppModal.stories.tsx",
+      "path": "packages/ui/src/components/AppModal/AppModal.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/AppModal/AppModal.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/AppModal/AppModal.test.tsx",
+      "path": "packages/ui/src/components/AppModal/AppModal.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppModal/AppModal.tsx",
+      "path": "packages/ui/src/components/AppModal/AppModal.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppModal/index.ts",
+      "path": "packages/ui/src/components/AppModal/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppOperationSteps/AppOperationSteps.stories.tsx",
+      "path": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/AppOperationSteps/AppOperationSteps.test.tsx",
+      "path": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppOperationSteps/AppOperationSteps.tsx",
+      "path": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppOperationSteps/index.ts",
+      "path": "packages/ui/src/components/AppOperationSteps/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageHeader/AppPageHeader.stories.tsx",
+      "path": "packages/ui/src/components/AppPageHeader/AppPageHeader.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/AppPageHeader/AppPageHeader.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/AppPageHeader/AppPageHeader.test.tsx",
+      "path": "packages/ui/src/components/AppPageHeader/AppPageHeader.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageHeader/AppPageHeader.tsx",
+      "path": "packages/ui/src/components/AppPageHeader/AppPageHeader.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageHeader/index.ts",
+      "path": "packages/ui/src/components/AppPageHeader/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageTabs/AppPageTabs.stories.tsx",
+      "path": "packages/ui/src/components/AppPageTabs/AppPageTabs.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/AppPageTabs/AppPageTabs.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/AppPageTabs/AppPageTabs.test.tsx",
+      "path": "packages/ui/src/components/AppPageTabs/AppPageTabs.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageTabs/AppPageTabs.tsx",
+      "path": "packages/ui/src/components/AppPageTabs/AppPageTabs.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageTabs/index.ts",
+      "path": "packages/ui/src/components/AppPageTabs/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppShell/AppShell.stories.tsx",
+      "path": "packages/ui/src/components/AppShell/AppShell.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/AppShell/AppShell.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/AppShell/AppShell.test.tsx",
+      "path": "packages/ui/src/components/AppShell/AppShell.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppShell/AppShell.tsx",
+      "path": "packages/ui/src/components/AppShell/AppShell.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppShell/index.ts",
+      "path": "packages/ui/src/components/AppShell/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AuthShell/AuthShell.stories.tsx",
+      "path": "packages/ui/src/components/AuthShell/AuthShell.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/AuthShell/AuthShell.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/AuthShell/AuthShell.test.tsx",
+      "path": "packages/ui/src/components/AuthShell/AuthShell.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AuthShell/AuthShell.tsx",
+      "path": "packages/ui/src/components/AuthShell/AuthShell.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AuthShell/index.ts",
+      "path": "packages/ui/src/components/AuthShell/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx",
+      "path": "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardCollectionWithFooter/CardCollectionWithFooter.tsx",
+      "path": "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardCollectionWithFooter/index.ts",
+      "path": "packages/ui/src/components/CardCollectionWithFooter/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardPaginationFooter/CardPaginationFooter.stories.tsx",
+      "path": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/CardPaginationFooter/CardPaginationFooter.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/CardPaginationFooter/CardPaginationFooter.test.tsx",
+      "path": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardPaginationFooter/CardPaginationFooter.tsx",
+      "path": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardPaginationFooter/index.ts",
+      "path": "packages/ui/src/components/CardPaginationFooter/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ClassCardFrame/ClassCardFrame.stories.tsx",
+      "path": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/ClassCardFrame/ClassCardFrame.test.tsx",
+      "path": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ClassCardFrame/ClassCardFrame.tsx",
+      "path": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ClassCardFrame/index.ts",
+      "path": "packages/ui/src/components/ClassCardFrame/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ColumnsLayoutModal/ColumnsLayoutModal.stories.tsx",
+      "path": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/ColumnsLayoutModal/ColumnsLayoutModal.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/ColumnsLayoutModal/ColumnsLayoutModal.test.tsx",
+      "path": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "path": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ColumnsLayoutModal/index.ts",
+      "path": "packages/ui/src/components/ColumnsLayoutModal/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ContentEditorChrome/ContentEditorChrome.stories.tsx",
+      "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+      "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ContentEditorChrome/ContentEditorChrome.tsx",
+      "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ContentEditorChrome/index.ts",
+      "path": "packages/ui/src/components/ContentEditorChrome/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/DataToolbar.stories.tsx",
+      "path": "packages/ui/src/components/DataToolbar/DataToolbar.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/DataToolbar/DataToolbar.test.tsx",
+      "path": "packages/ui/src/components/DataToolbar/DataToolbar.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/DataToolbar.tsx",
+      "path": "packages/ui/src/components/DataToolbar/DataToolbar.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/buildColumnOptions.test.ts",
+      "path": "packages/ui/src/components/DataToolbar/buildColumnOptions.test.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/buildColumnOptions.ts",
+      "path": "packages/ui/src/components/DataToolbar/buildColumnOptions.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarColumnsMenu.test.tsx",
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarColumnsMenu.tsx",
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarFilterMenu.test.tsx",
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarFilterMenu.tsx",
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSelectionMenu.test.tsx",
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSortMenu.test.tsx",
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSortMenu.tsx",
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/filterRuleValue.test.ts",
+      "path": "packages/ui/src/components/DataToolbar/filterRuleValue.test.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/filterRuleValue.ts",
+      "path": "packages/ui/src/components/DataToolbar/filterRuleValue.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/index.ts",
+      "path": "packages/ui/src/components/DataToolbar/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx",
+      "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/DocumentEditorLayout/DocumentEditorLayout.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+      "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+      "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorLayout/index.ts",
+      "path": "packages/ui/src/components/DocumentEditorLayout/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorToolbar/DocumentEditorToolbar.stories.tsx",
+      "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/DocumentEditorToolbar/DocumentEditorToolbar.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+      "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorToolbar/index.ts",
+      "path": "packages/ui/src/components/DocumentEditorToolbar/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/EditableTitleField/EditableTitleField.stories.tsx",
+      "path": "packages/ui/src/components/EditableTitleField/EditableTitleField.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/EditableTitleField/EditableTitleField.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/EditableTitleField/EditableTitleField.tsx",
+      "path": "packages/ui/src/components/EditableTitleField/EditableTitleField.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/EditableTitleField/index.ts",
+      "path": "packages/ui/src/components/EditableTitleField/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "path": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ExperiencePageNavigator/index.ts",
+      "path": "packages/ui/src/components/ExperiencePageNavigator/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx",
+      "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+      "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/FloatingTextSelectionToolbar/index.ts",
+      "path": "packages/ui/src/components/FloatingTextSelectionToolbar/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ImageUploadModal/ImageUploadModal.stories.tsx",
+      "path": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/ImageUploadModal/ImageUploadModal.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/ImageUploadModal/ImageUploadModal.tsx",
+      "path": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ImageUploadModal/index.ts",
+      "path": "packages/ui/src/components/ImageUploadModal/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InsertContentMenuControl/InsertContentMenuControl.stories.tsx",
+      "path": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/InsertContentMenuControl.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "path": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InsertContentMenuControl/index.ts",
+      "path": "packages/ui/src/components/InsertContentMenuControl/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InstructorClassCard/InstructorClassCard.stories.tsx",
+      "path": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/InstructorClassCard/InstructorClassCard.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/InstructorClassCard/InstructorClassCard.test.tsx",
+      "path": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InstructorClassCard/InstructorClassCard.tsx",
+      "path": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InstructorClassCard/index.ts",
+      "path": "packages/ui/src/components/InstructorClassCard/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InstructorDataGridOptions.ts",
+      "path": "packages/ui/src/components/InstructorDataGridOptions.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/LearnerClassCard.stories.tsx",
+      "path": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/LearnerClassCard/LearnerClassCard.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/LearnerClassCard/LearnerClassCard.test.tsx",
+      "path": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/LearnerClassCard.tsx",
+      "path": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/formatDueDateLabel.test.ts",
+      "path": "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.test.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/formatDueDateLabel.ts",
+      "path": "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/index.ts",
+      "path": "packages/ui/src/components/LearnerClassCard/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/LearnerClassesDataGrid.stories.tsx",
+      "path": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/LearnerClassesDataGrid/LearnerClassesDataGrid.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/LearnerClassesDataGrid.test.tsx",
+      "path": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+      "path": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/index.ts",
+      "path": "packages/ui/src/components/LearnerClassesDataGrid/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LinkUrlModal/LinkUrlModal.stories.tsx",
+      "path": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/LinkUrlModal/LinkUrlModal.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/LinkUrlModal/LinkUrlModal.tsx",
+      "path": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LinkUrlModal/index.ts",
+      "path": "packages/ui/src/components/LinkUrlModal/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.tsx",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/index.ts",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageNode.test.tsx",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/editorConfig.ts",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "path": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.stories.tsx",
+      "path": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/RichTextFormattingToolbar/RichTextFormattingToolbar.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx",
+      "path": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx",
+      "path": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/index.ts",
+      "path": "packages/ui/src/components/RichTextFormattingToolbar/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.helpers.test.ts",
+      "path": "packages/ui/src/components/SideNavigation/SideNavigation.helpers.test.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.stories.tsx",
+      "path": "packages/ui/src/components/SideNavigation/SideNavigation.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/SideNavigation/SideNavigation.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.test.tsx",
+      "path": "packages/ui/src/components/SideNavigation/SideNavigation.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.tsx",
+      "path": "packages/ui/src/components/SideNavigation/SideNavigation.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/SideNavigation/index.ts",
+      "path": "packages/ui/src/components/SideNavigation/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx",
+      "path": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/TextAlignMenuControl/TextAlignMenuControl.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/TextAlignMenuControl/TextAlignMenuControl.test.tsx",
+      "path": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "path": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextAlignMenuControl/index.ts",
+      "path": "packages/ui/src/components/TextAlignMenuControl/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "path": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.stories.tsx",
+      "path": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/TextColorPickerControl/TextColorPickerControl.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.test.tsx",
+      "path": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.tsx",
+      "path": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextColorPickerControl/index.ts",
+      "path": "packages/ui/src/components/TextColorPickerControl/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+      "path": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/TextStyleMenuControl/TextStyleMenuControl.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/TextStyleMenuControl/TextStyleMenuControl.test.tsx",
+      "path": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "path": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextStyleMenuControl/index.ts",
+      "path": "packages/ui/src/components/TextStyleMenuControl/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/Typefaces/Typefaces.stories.tsx",
+      "path": "packages/ui/src/components/Typefaces/Typefaces.stories.tsx",
+      "present": false,
+      "replacements": [
+        "apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx"
+      ]
+    },
+    {
+      "source": "components/icons/activityTypeIcon.tsx",
+      "path": "packages/ui/src/components/icons/activityTypeIcon.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/icons/index.ts",
+      "path": "packages/ui/src/components/icons/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/index.ts",
+      "path": "packages/ui/src/components/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "components/primitives/index.ts",
+      "path": "packages/ui/src/components/primitives/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentPaginationModel.hook.test.ts",
+      "path": "packages/ui/src/hooks/usePersistentPaginationModel.hook.test.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentPaginationModel.test.ts",
+      "path": "packages/ui/src/hooks/usePersistentPaginationModel.test.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentPaginationModel.ts",
+      "path": "packages/ui/src/hooks/usePersistentPaginationModel.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentState.test.ts",
+      "path": "packages/ui/src/hooks/usePersistentState.test.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentState.ts",
+      "path": "packages/ui/src/hooks/usePersistentState.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "index.ts",
+      "path": "packages/ui/src/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "theme/AppThemeProvider.test.tsx",
+      "path": "packages/ui/src/theme/AppThemeProvider.test.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "theme/AppThemeProvider.tsx",
+      "path": "packages/ui/src/theme/AppThemeProvider.tsx",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "theme/index.ts",
+      "path": "packages/ui/src/theme/index.ts",
+      "present": true,
+      "replacements": []
+    },
+    {
+      "source": "theme/mui-typography.d.ts",
+      "path": "packages/ui/src/theme/mui-typography.ts",
+      "present": false,
+      "replacements": [
+        "packages/ui/src/foundation/tokens.json",
+        "packages/ui/src/foundation/tokens.generated.ts",
+        "packages/ui/src/foundation/tokens.css"
+      ]
+    },
+    {
+      "source": "theme/theme.test.ts",
+      "path": "packages/ui/src/theme/theme.test.ts",
+      "present": false,
+      "replacements": [
+        "packages/ui/src/foundation/ThemeScope.test.tsx",
+        "packages/ui/src/theme/AppThemeProvider.test.tsx",
+        "packages/ui/src/experimental/Provider/Provider.test.tsx"
+      ]
+    },
+    {
+      "source": "theme/theme.ts",
+      "path": "packages/ui/src/theme/theme.ts",
+      "present": false,
+      "replacements": [
+        "packages/ui/src/foundation/ThemeScope.tsx",
+        "packages/ui/src/foundation/tokens.json",
+        "packages/ui/src/experimental/Provider/Provider.tsx"
+      ]
+    }
+  ],
+  "originalStoryModules": 33,
+  "transfers": [
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "previousExports": [
+        "BrowserPerformance",
+        "ClientDatasetShrink",
+        "Default",
+        "Error",
+        "HostOwnedReorder",
+        "Loading",
+        "Refreshing",
+        "ReorderUnavailableWhileSorted",
+        "RetainedSelection",
+        "UnknownServerTotal"
+      ],
+      "currentExports": [
+        "BrowserPerformance",
+        "ClientDatasetShrink",
+        "Default",
+        "Error",
+        "HostOwnedReorder",
+        "Loading",
+        "Refreshing",
+        "ReorderUnavailableWhileSorted",
+        "RetainedSelection",
+        "UnknownServerTotal"
+      ],
+      "missingExports": [],
+      "sourceSha256": "dc55c295c42339e98c984239bf38d4f7b6a4aeae066da6443d2d457ae362f219",
+      "fixtureSha256": "ce94ca1a740f7541fca53106192f702f4682a68f17a9c4c976b28b8cde49cbe5"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridRowDnd/DataGridDragHandle.fixture.tsx",
+      "previousExports": [
+        "Default",
+        "Disabled",
+        "StrictModeReorder"
+      ],
+      "currentExports": [
+        "Default",
+        "Disabled",
+        "StrictModeReorder"
+      ],
+      "missingExports": [],
+      "sourceSha256": "83766c13cea1887634b46ca98f024a6e84f3034558e357f8e67a54cb2ada8f8a",
+      "fixtureSha256": "b4a172cbb2536940351db33f8cd05dfe2c5f19b9a28227b27972c6990856b2ca"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "previousExports": [
+        "ClientDatasetShrink",
+        "ControlledHostResponses",
+        "IndependentGridAndCards",
+        "IndependentInstances",
+        "NativeResponsiveTransitions",
+        "ResetPersistedView",
+        "ServerLatestRequestWins",
+        "SharedListAndCards"
+      ],
+      "currentExports": [
+        "ClientDatasetShrink",
+        "ControlledHostResponses",
+        "IndependentGridAndCards",
+        "IndependentInstances",
+        "NativeResponsiveTransitions",
+        "ResetPersistedView",
+        "ServerLatestRequestWins",
+        "SharedListAndCards"
+      ],
+      "missingExports": [],
+      "sourceSha256": "bc05725c9d9a7a128876ea8cba3d5666412d7b90f0b34a34623d8a1492294454",
+      "fixtureSha256": "108009d686b001557ab928cd1095a18f5dad14d2470bac1af0e2c036b714396c"
+    },
+    {
+      "original": "packages/ui/src/components/AppInlineProgress/AppInlineProgress.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppInlineProgress/AppInlineProgress.fixture.tsx",
+      "previousExports": [
+        "Default",
+        "LayoutStates",
+        "Variants"
+      ],
+      "currentExports": [
+        "Default",
+        "LayoutStates",
+        "Variants"
+      ],
+      "missingExports": [],
+      "sourceSha256": "c0626090bd7dbe695d3c677870be2d6ba8c35f809f0b35cf2f15c7d01eabbc6a",
+      "fixtureSha256": "518bb8e43dc17abf8169d798bba436e14baf9bcc1b5920fb880edb899ac2b4c2"
+    },
+    {
+      "original": "packages/ui/src/components/AppModal/AppModal.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppModal/AppModal.fixture.tsx",
+      "previousExports": [
+        "ActionFocus",
+        "ContainerBoundary",
+        "CreateSiteForm",
+        "CustomSections",
+        "DarkTabbed",
+        "DisableBackdropClose",
+        "FixedHeights",
+        "FullScreen",
+        "LargeCustomChrome",
+        "MediumCustomChrome",
+        "MultiStepWizard",
+        "NestedOverlays",
+        "RemovedOpener",
+        "TextReflow"
+      ],
+      "currentExports": [
+        "ActionFocus",
+        "ContainerBoundary",
+        "ContractMatrix",
+        "CreateSiteForm",
+        "CustomSections",
+        "DarkTabbed",
+        "DisableBackdropClose",
+        "FixedHeights",
+        "FullScreen",
+        "LargeCustomChrome",
+        "LocalizedPresentation",
+        "MediumCustomChrome",
+        "MultiStepWizard",
+        "NestedOverlays",
+        "Ownership",
+        "RemovedOpener",
+        "TextReflow"
+      ],
+      "missingExports": [],
+      "sourceSha256": "e6f19d8821a8efa3365673c65602e7404e897be1ef6403d31365ee8d6a07e3c1",
+      "fixtureSha256": "dc46ab47609d63f8492f16fa62c75d3f5d3b98563040e4c94c0be9cb92278f56"
+    },
+    {
+      "original": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx",
+      "previousExports": [
+        "AllStates",
+        "Completed",
+        "Default",
+        "NativeStateTransitions",
+        "SingleOperation",
+        "Transitions"
+      ],
+      "currentExports": [
+        "AllStates",
+        "Completed",
+        "Default",
+        "LocalizedPresentation",
+        "NativeStateTransitions",
+        "SingleOperation",
+        "Transitions"
+      ],
+      "missingExports": [],
+      "sourceSha256": "bf54630f70b726f3024dae3773f81b8011c26d51e5a0cdec65db5a21c4c85a68",
+      "fixtureSha256": "f5a644682231bb219661ee059c1fa1a372fc87fdd3211c22afefaab1145e3153"
+    },
+    {
+      "original": "packages/ui/src/components/AppPageHeader/AppPageHeader.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppPageHeader/AppPageHeader.fixture.tsx",
+      "previousExports": [
+        "ActionButtons",
+        "CondensedBreadcrumbs",
+        "DetailStyle",
+        "Minimal",
+        "MoreMenu",
+        "Narrow",
+        "Primary",
+        "ReflowActions",
+        "ReflowMenu"
+      ],
+      "currentExports": [
+        "ActionButtons",
+        "CondensedBreadcrumbs",
+        "DetailStyle",
+        "LocalizedPresentation",
+        "Minimal",
+        "MoreMenu",
+        "Narrow",
+        "Primary",
+        "ReflowActions",
+        "ReflowMenu"
+      ],
+      "missingExports": [],
+      "sourceSha256": "d6b5cbeae68c798a4e078f1cb1c27f97196fd7248dd6cb45c4c03a7d67d62c09",
+      "fixtureSha256": "6609f8f6c55fa5f6b77440bf23e0ac663a7aae76b75895ea7765329796adc6b3"
+    },
+    {
+      "original": "packages/ui/src/components/AppPageTabs/AppPageTabs.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppPageTabs/AppPageTabs.fixture.tsx",
+      "previousExports": [
+        "Compact",
+        "Controlled",
+        "Disabled",
+        "LinkTabs",
+        "NativeKeyboard",
+        "Overflow"
+      ],
+      "currentExports": [
+        "Compact",
+        "Controlled",
+        "Disabled",
+        "LinkTabs",
+        "NativeKeyboard",
+        "Overflow"
+      ],
+      "missingExports": [],
+      "sourceSha256": "3140d1821f7a05fa11385c05e2764b4d388a0e39e0ab7b664cc8d6c7e37fc396",
+      "fixtureSha256": "e8311155b4830ea8dd9d04b41246d49fc1cccc176fbabb5a7cc7a38a48f1af71"
+    },
+    {
+      "original": "packages/ui/src/components/AppShell/AppShell.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppShell/AppShell.fixture.tsx",
+      "previousExports": [
+        "Default",
+        "IndependentContainers",
+        "IndependentScrollAndReflow",
+        "NativeResponsiveWorkspace"
+      ],
+      "currentExports": [
+        "Default",
+        "IndependentContainers",
+        "IndependentScrollAndReflow",
+        "LocalizedAuthPresentation",
+        "LocalizedPresentation",
+        "NativeResponsiveWorkspace"
+      ],
+      "missingExports": [],
+      "sourceSha256": "cb124d0ce95678484b950f3d8e63b9757c325077a220cbb144f4449c2043ba8d",
+      "fixtureSha256": "c71efcdf367a6a93a5dd1b8cb513c35419984046bacfb05859112136e2659fe5"
+    },
+    {
+      "original": "packages/ui/src/components/AuthShell/AuthShell.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AuthShell/AuthShell.fixture.tsx",
+      "previousExports": [
+        "EmbeddedScrollingHost",
+        "IndependentContent",
+        "Login",
+        "LongContent",
+        "NativeReflow"
+      ],
+      "currentExports": [
+        "EmbeddedScrollingHost",
+        "IndependentContent",
+        "Login",
+        "LongContent",
+        "NativeReflow"
+      ],
+      "missingExports": [],
+      "sourceSha256": "59a762527b8064736f137bf017419cb5f8d0b3c2a3be26a2ab6598dd26131a0b",
+      "fixtureSha256": "797bcbe4e881d57348ae7fefcdf5147498f01a210e23d97e4b54ae728debdc6a"
+    },
+    {
+      "original": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/CardPaginationFooter/CardPaginationFooter.fixture.tsx",
+      "previousExports": [
+        "Disabled",
+        "Interactive",
+        "UnknownTotal"
+      ],
+      "currentExports": [
+        "Disabled",
+        "Interactive",
+        "UnknownTotal"
+      ],
+      "missingExports": [],
+      "sourceSha256": "1c2ca8ae8203e6a1d9c89326dc08e6ff19ee8210890dbdfbd9ca73e7b48b8513",
+      "fixtureSha256": "8be6e6796146c65707dd21bfd2a6295ccf605ce6fae8206ea1401eac81f02dac"
+    },
+    {
+      "original": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx",
+      "previousExports": [
+        "Dark",
+        "Default",
+        "FlexParentResize",
+        "GridParentResize",
+        "ResponsiveSlots",
+        "StyledSlots",
+        "WidthStates",
+        "WithoutFooter"
+      ],
+      "currentExports": [
+        "ContainerBoundary",
+        "Dark",
+        "Default",
+        "FlexParentResize",
+        "GridParentResize",
+        "ResponsiveSlots",
+        "StyledSlots",
+        "WidthStates",
+        "WithoutFooter"
+      ],
+      "missingExports": [],
+      "sourceSha256": "0506c46997f5d8bfbf668b3e0df9147526e845fbd0d98fab4d0778ddf66f97dd",
+      "fixtureSha256": "2b5d58999e33c399c4780df52cf39283b9072709ebf7262b773192092c44857c"
+    },
+    {
+      "original": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/ColumnsLayoutModal/ColumnsLayoutModal.fixture.tsx",
+      "previousExports": [
+        "Dark",
+        "Default"
+      ],
+      "currentExports": [
+        "Dark",
+        "Default"
+      ],
+      "missingExports": [],
+      "sourceSha256": "7a350da532595c9a4bdc3e9953a63abfc8cdd816d6bffa1e95a7f669ab48ade4",
+      "fixtureSha256": "58627031379a792a42e15e7ba01a32eda0e83922b30fdc69845ebe90459d806e"
+    },
+    {
+      "original": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
+      "previousExports": [
+        "Default",
+        "ExtendedMenu",
+        "NarrowDark",
+        "NativeEditorChromeHost",
+        "NativeHostComposition",
+        "UnavailableAndPending"
+      ],
+      "currentExports": [
+        "AcceptanceComposition",
+        "Default",
+        "ExtendedMenu",
+        "NarrowDark",
+        "NativeEditorChromeHost",
+        "NativeHostComposition",
+        "UnavailableAndPending"
+      ],
+      "missingExports": [],
+      "sourceSha256": "c956b751f95687316c794179eef5ff03d326ef73a30d5d3950693bd98a7c9c60",
+      "fixtureSha256": "194beb0534e51d4f1719d6370499c3f079affeb6f3946b197df5baec96383ada"
+    },
+    {
+      "original": "packages/ui/src/components/DataToolbar/DataToolbar.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.fixture.tsx",
+      "previousExports": [
+        "ConfiguredToolbar",
+        "ContainerBoundary",
+        "ContainerBoundaryEnlarged",
+        "ContainerBoundaryPreview",
+        "DarkToolbar",
+        "NativeComposition",
+        "NativeCompositionPreview",
+        "NativeCompositionRtl",
+        "SelectedCards"
+      ],
+      "currentExports": [
+        "ConfiguredToolbar",
+        "ContainerBoundary",
+        "ContainerBoundaryEnlarged",
+        "ContainerBoundaryPreview",
+        "DarkToolbar",
+        "NativeComposition",
+        "NativeCompositionPreview",
+        "NativeCompositionRtl",
+        "PublicPresetHosts",
+        "SelectedCards"
+      ],
+      "missingExports": [],
+      "sourceSha256": "b2a0ff0536ea1f7878cfd366edfa5473368819ec1fa7638ebd4d5a31e4b2b12e",
+      "fixtureSha256": "5cda35a0470951a22e80c69b29989d5365f4d093fd0d7294557e12b1a949f817"
+    },
+    {
+      "original": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/DocumentEditorLayout/DocumentEditorLayout.fixture.tsx",
+      "previousExports": [
+        "CustomTitle",
+        "Default",
+        "NarrowDark",
+        "SlotReplacement"
+      ],
+      "currentExports": [
+        "CustomTitle",
+        "Default",
+        "NarrowDark",
+        "SlotReplacement"
+      ],
+      "missingExports": [],
+      "sourceSha256": "69ca7f3d749159ff2ff61949cd64cdeef29a1c684028e1449edc17c158693446",
+      "fixtureSha256": "072e40b6945f1dfb1e9f6e90913920b595cb3fe2c6f8e55b1150d9e5819ffcfa"
+    },
+    {
+      "original": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/DocumentEditorToolbar/DocumentEditorToolbar.fixture.tsx",
+      "previousExports": [
+        "CompactGroups",
+        "Interactive",
+        "NarrowDark",
+        "ReadOnly",
+        "UnavailableCommands"
+      ],
+      "currentExports": [
+        "CompactGroups",
+        "Interactive",
+        "NarrowDark",
+        "ReadOnly",
+        "UnavailableCommands"
+      ],
+      "missingExports": [],
+      "sourceSha256": "e80d628c0d29ad3067a6af151b3af52614b5c8543cd35870522c1428ee690056",
+      "fixtureSha256": "07a3c80a0122b0614aae2393323ca8abe5f77c32bf256f13908c3b72eec5eed5"
+    },
+    {
+      "original": "packages/ui/src/components/EditableTitleField/EditableTitleField.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/EditableTitleField/EditableTitleField.fixture.tsx",
+      "previousExports": [
+        "Dark",
+        "Default",
+        "Empty",
+        "HostReadOnlyAfterRejection",
+        "ReadOnly",
+        "SaveFailure"
+      ],
+      "currentExports": [
+        "Dark",
+        "Default",
+        "Empty",
+        "HostReadOnlyAfterRejection",
+        "ReadOnly",
+        "SaveFailure"
+      ],
+      "missingExports": [],
+      "sourceSha256": "34dbae7dd86bfdcd9acb6af528ee90bc854f23bd9b873e728b7156c8529cb66e",
+      "fixtureSha256": "048082efbabc992b68d0ceb9b67b44ed070a41c01e8ea045df238ad0e07f438d"
+    },
+    {
+      "original": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.fixture.tsx",
+      "previousExports": [
+        "Default",
+        "NarrowDark",
+        "NestedHostBoundary"
+      ],
+      "currentExports": [
+        "Default",
+        "NarrowDark",
+        "NestedHostBoundary"
+      ],
+      "missingExports": [],
+      "sourceSha256": "e89c2c9b4e59a73da006b98be82c15373699dd98ef7296665122289117166a9b",
+      "fixtureSha256": "99d26c5c2761ae7852f0d4458ab4745f013dec4ed4cc3d503f23b2653502fc35"
+    },
+    {
+      "original": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/ImageUploadModal/ImageUploadModal.fixture.tsx",
+      "previousExports": [
+        "Default",
+        "FileValidation",
+        "HostUploadAndDescription",
+        "HostUploadingError"
+      ],
+      "currentExports": [
+        "Default",
+        "FileValidation",
+        "HostUploadAndDescription",
+        "HostUploadingError"
+      ],
+      "missingExports": [],
+      "sourceSha256": "4ecdb3eefb42a2da0c32bc9954b3dadd7ab611ce3d1cba457ecc8062b95a624f",
+      "fixtureSha256": "65f63958ab3fc9e32dfce3edad77f73b2447695a8fa785e1bc3afaac7f121f7c"
+    },
+    {
+      "original": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/InsertContentMenuControl.fixture.tsx",
+      "previousExports": [
+        "Dark",
+        "Default",
+        "NativeInsertionHandoff",
+        "UnavailableCommands"
+      ],
+      "currentExports": [
+        "Dark",
+        "Default",
+        "NativeInsertionHandoff",
+        "UnavailableCommands"
+      ],
+      "missingExports": [],
+      "sourceSha256": "e8babab8c06c4deb6de8809b20e077de1139a6986aa7dade5b2bf256c33f37da",
+      "fixtureSha256": "be82a2f16881a754fb3f475653383c57b32b38731d5a753ccf678296ca991971"
+    },
+    {
+      "original": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/InstructorClassCard/InstructorClassCard.fixture.tsx",
+      "previousExports": [
+        "Active",
+        "Archived",
+        "Closed",
+        "Dark",
+        "Draft",
+        "NarrowLongNames",
+        "NativePresentation"
+      ],
+      "currentExports": [
+        "Active",
+        "Archived",
+        "Closed",
+        "Dark",
+        "Draft",
+        "NarrowLongNames",
+        "NativePresentation"
+      ],
+      "missingExports": [],
+      "sourceSha256": "394d81f8fb6ea136078826cfe4c468cf88c3343fd94cf33f2b6af43ba408e2e4",
+      "fixtureSha256": "120e2b2068429b56e732c962099380168d021ea6bcc73fe101ab6e1c5d732bd3"
+    },
+    {
+      "original": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/LearnerClassCard/LearnerClassCard.fixture.tsx",
+      "previousExports": [
+        "Dark",
+        "NarrowLongNames",
+        "NativeDueActions",
+        "NavigationActions",
+        "SingleCard",
+        "TimeVariants"
+      ],
+      "currentExports": [
+        "Dark",
+        "NarrowLongNames",
+        "NativeDueActions",
+        "NavigationActions",
+        "SingleCard",
+        "TimeVariants"
+      ],
+      "missingExports": [],
+      "sourceSha256": "1b4922964b9d31a546947f152130162dd09191d7dd2cae6631a5c40f51baf66c",
+      "fixtureSha256": "28e01b7ee86f3a626894cc41277c4c58d01a269a06494b970d215fbc53edcd15"
+    },
+    {
+      "original": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/LearnerClassesDataGrid/LearnerClassesDataGrid.fixture.tsx",
+      "previousExports": [
+        "Default"
+      ],
+      "currentExports": [
+        "Default"
+      ],
+      "missingExports": [],
+      "sourceSha256": "87f8d2196266f6e2ce6bf3fa2e7bd12f47f6775b1d707a9ded1a8ea8c56d4d1f",
+      "fixtureSha256": "a514c5fa34fb2e82853487eec91abb75f9cd56f73880daf245b5598655aaacdb"
+    },
+    {
+      "original": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/LinkUrlModal/LinkUrlModal.fixture.tsx",
+      "previousExports": [
+        "Default",
+        "NativeHostSelection",
+        "RemoveExistingLink",
+        "RestrictedProtocols"
+      ],
+      "currentExports": [
+        "Default",
+        "NativeHostSelection",
+        "RemoveExistingLink",
+        "RestrictedProtocols"
+      ],
+      "missingExports": [],
+      "sourceSha256": "32b4ddeddb9152735b62a538adb69595637b7455d8a0c8010f16570a537f7e20",
+      "fixtureSha256": "8ecffe0b0a3e16517e8f5131f401b4e9c713d740df60c62a7f445f45afafc2d9"
+    },
+    {
+      "original": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+      "previousExports": [
+        "BasePreset",
+        "ClipboardEditing",
+        "DarkReadOnly",
+        "FullTools",
+        "HostUploadLifecycle",
+        "ImageSources",
+        "LinkDestinations",
+        "LocalImageLifecycle",
+        "SavedRichDocument",
+        "TableHistory",
+        "WithDisabledTools"
+      ],
+      "currentExports": [
+        "BasePreset",
+        "ClipboardEditing",
+        "DarkReadOnly",
+        "FullTools",
+        "HostUploadLifecycle",
+        "ImageSources",
+        "LinkDestinations",
+        "LocalImageLifecycle",
+        "LocalizedPresentation",
+        "SavedRichDocument",
+        "TableHistory",
+        "WithDisabledTools"
+      ],
+      "missingExports": [],
+      "sourceSha256": "e15d0962ce728deba2d4c98a9119d68101995777447b66444fd1a35692d64a4d",
+      "fixtureSha256": "83a1238084f7623706888bf663015402c7df6b6bf8ce3ccdadf1e00ce8735cf0"
+    },
+    {
+      "original": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/RichTextFormattingToolbar/RichTextFormattingToolbar.fixture.tsx",
+      "previousExports": [
+        "CallbackReplacement",
+        "Default",
+        "DisabledControls",
+        "NarrowDark",
+        "NoFontSelectors",
+        "UnavailableCommands"
+      ],
+      "currentExports": [
+        "CallbackReplacement",
+        "Default",
+        "DisabledControls",
+        "NarrowDark",
+        "NoFontSelectors",
+        "UnavailableCommands"
+      ],
+      "missingExports": [],
+      "sourceSha256": "fa521df695cc735471627be92451b78522bba92ff90f896b9c6598fb99740dd9",
+      "fixtureSha256": "f3f0386c80ba38cc87a62843c88c5050b849c3d4551d36930202e24e82f8bd9b"
+    },
+    {
+      "original": "packages/ui/src/components/SideNavigation/SideNavigation.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
+      "previousExports": [
+        "Default",
+        "HostRouting",
+        "LogoutLifetime",
+        "NativeHierarchy"
+      ],
+      "currentExports": [
+        "ArabicDrillMotion",
+        "Default",
+        "EnglishDrillMotion",
+        "HostRouting",
+        "LogoutLifetime",
+        "NativeHierarchy"
+      ],
+      "missingExports": [],
+      "sourceSha256": "758d57f106d4e9b1586f63ccc98026606956911589207b2be4478ee58bda6333",
+      "fixtureSha256": "d82cfba8be4f38f8e0c24b9d4fd854dd37d0c833b4d7251775452b5edd9e0a60"
+    },
+    {
+      "original": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/TextAlignMenuControl/TextAlignMenuControl.fixture.tsx",
+      "previousExports": [
+        "Default",
+        "DirectionCommands",
+        "LogicalRightToLeft",
+        "UnavailableCommands"
+      ],
+      "currentExports": [
+        "Default",
+        "DirectionCommands",
+        "LogicalRightToLeft",
+        "UnavailableCommands"
+      ],
+      "missingExports": [],
+      "sourceSha256": "f1c080bfd116614c1c969b69800f6be9607dbde5107ae11ae931efe2d8ce7c31",
+      "fixtureSha256": "fc674110b2eba39e048fd4cb370c4a8e0deff56d8bad552e3b8da4ba268c92d4"
+    },
+    {
+      "original": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/TextColorPickerControl/TextColorPickerControl.fixture.tsx",
+      "previousExports": [
+        "Background",
+        "Default",
+        "Disabled",
+        "NativeTransactions",
+        "WithoutCallback"
+      ],
+      "currentExports": [
+        "Background",
+        "Default",
+        "Disabled",
+        "NativeTransactions",
+        "WithoutCallback"
+      ],
+      "missingExports": [],
+      "sourceSha256": "1ebd918317a2a7c27295035914bccda7b87ae7c45324d8a7e30f159a3dccc721",
+      "fixtureSha256": "cccc22b7b67ec27f041040325b57241c1005c931f0fecd05f7591df19e180d6c"
+    },
+    {
+      "original": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/TextStyleMenuControl/TextStyleMenuControl.fixture.tsx",
+      "previousExports": [
+        "Default",
+        "Disabled",
+        "LimitedCommands",
+        "ToolbarDensity"
+      ],
+      "currentExports": [
+        "Default",
+        "Disabled",
+        "LimitedCommands",
+        "ToolbarDensity"
+      ],
+      "missingExports": [],
+      "sourceSha256": "61aea5a3fe298db2e02269a1df164df6d716042294e6966d2a056ca85b9bf56e",
+      "fixtureSha256": "ac28a342a8cac861f3995eb2a7ff77d563e7835e7955e8423f42fd891338b1a2"
+    },
+    {
+      "original": "packages/ui/src/components/Typefaces/Typefaces.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx",
+      "previousExports": [
+        "Dark",
+        "Defaults"
+      ],
+      "currentExports": [
+        "Dark",
+        "Defaults"
+      ],
+      "missingExports": [],
+      "sourceSha256": "f98c5a37c72ddf7f25c8b80559e6d13d6e1d9ab71ad6fc7b4d79ad6d7c529340",
+      "fixtureSha256": "7c83ddb5136e9add9e50f6150452fd7848d398fcf6c021896370d7b9974300d5"
+    }
+  ],
+  "deliberateReplacements": [
+    {
+      "original": "packages/ui/src/components/AppButton/AppButton.stories.tsx",
+      "exports": [
+        "Default",
+        "NativeForm",
+        "PendingAndDisabled",
+        "Variants"
+      ],
+      "successors": [
+        "apps/docs/examples/ButtonDocumentation.tsx",
+        "apps/docs/native-fixtures/scenarios/experimental/Button/Button.fixture.tsx"
+      ],
+      "firstSha256": "5698ded82794a2e62ba54ce0c02921133cb27f8482cb4310605bf83f56f895e1",
+      "beforeDocsSha256": "ce01ae455fffdf24426aef0c8b5fd395d87feaeb5d33757752aed8bcb01af349",
+      "limit": "Documented deliberate replacement; no semantic-parity or runtime assertion inferred."
+    }
+  ],
+  "unresolvedEarlyScenarios": [
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "AllColumnTypes",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "BuiltInCheckboxAndRowDragHandle",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "BuiltInCheckboxSelection",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "BuiltInRowDragHandle",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "HeaderSortHookedUp",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "ListOnly",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "SectionedDropdownRows",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "SectionedDropdownRowsWithCheckboxAndDrag",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "StructuredCellTypes",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "name": "CardsAndListModes",
+      "initialSha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "name": "CollapsableSubheaders",
+      "initialSha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "name": "ListOnlyNoCheckboxes",
+      "initialSha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "name": "ListWithCheckboxes",
+      "initialSha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "name": "ListWithRowDragDrop",
+      "initialSha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "name": "ServerSearchAndDatabaseLoading",
+      "initialSha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "name": "SortHookedUp",
+      "initialSha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "status": "semantic-disposition-required"
+    }
+  ],
+  "commands": [
+    {
+      "document": "README.md",
+      "command": "pnpm check",
+      "filter": null,
+      "script": "check",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm run dev",
+      "filter": null,
+      "script": "dev",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm build:browser-docs",
+      "filter": null,
+      "script": "build:browser-docs",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm run dev",
+      "filter": null,
+      "script": "dev",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm build:docs",
+      "filter": null,
+      "script": "build:docs",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm check:docs",
+      "filter": null,
+      "script": "check:docs",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm test:docs",
+      "filter": null,
+      "script": "test:docs",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm check",
+      "filter": null,
+      "script": "check",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm test:browser",
+      "filter": null,
+      "script": "test:browser",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm test:hydration-consumer",
+      "filter": null,
+      "script": "test:hydration-consumer",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm test:next-consumer",
+      "filter": null,
+      "script": "test:next-consumer",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm dev:docs",
+      "filter": null,
+      "script": "dev:docs",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm run dev",
+      "filter": null,
+      "script": "dev",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm check",
+      "filter": null,
+      "script": "check",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm build:browser-docs",
+      "filter": null,
+      "script": "build:browser-docs",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm dev",
+      "filter": null,
+      "script": "dev",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm build:watch",
+      "filter": null,
+      "script": "build:watch",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "command": "pnpm tokens:generate",
+      "filter": null,
+      "script": "tokens:generate",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-component-recipe.md",
+      "command": "pnpm build:browser-docs",
+      "filter": null,
+      "script": "build:browser-docs",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-component-recipe.md",
+      "command": "pnpm test:browser",
+      "filter": null,
+      "script": "test:browser",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-dependency-upgrades.md",
+      "command": "pnpm build",
+      "filter": null,
+      "script": "build",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-dependency-upgrades.md",
+      "command": "pnpm test:package",
+      "filter": null,
+      "script": "test:package",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-dependency-upgrades.md",
+      "command": "pnpm test:browser",
+      "filter": null,
+      "script": "test:browser",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-dependency-upgrades.md",
+      "command": "pnpm build:browser-docs",
+      "filter": null,
+      "script": "build:browser-docs",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-dependency-upgrades.md",
+      "command": "pnpm test:browser",
+      "filter": null,
+      "script": "test:browser",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-dependency-upgrades.md",
+      "command": "pnpm build:docs",
+      "filter": null,
+      "script": "build:docs",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-dependency-upgrades.md",
+      "command": "pnpm check",
+      "filter": null,
+      "script": "check",
+      "exists": true
+    }
+  ],
+  "issues": [
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#AllColumnTypes",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#BuiltInCheckboxAndRowDragHandle",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#BuiltInCheckboxSelection",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#BuiltInRowDragHandle",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#HeaderSortHookedUp",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#ListOnly",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#SectionedDropdownRows",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#SectionedDropdownRowsWithCheckboxAndDrag",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#StructuredCellTypes",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx#CardsAndListModes",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx#CollapsableSubheaders",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx#ListOnlyNoCheckboxes",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx#ListWithCheckboxes",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx#ListWithRowDragDrop",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx#ServerSearchAndDatabaseLoading",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx#SortHookedUp"
+  ],
+  "limits": [
+    "Source/metadata/command existence only; no product, browser, spoken AT, legal, release or upstream authentication result.",
+    "Command code spans/fences checked only in four named current guides; script names/package filters, not shell flags, arguments or actual execution.",
+    "Structural success does not accept earlier semantic scenario losses; strict-history exposes them as failures."
+  ]
+}

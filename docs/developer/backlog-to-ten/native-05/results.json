@@ -1,0 +1,219 @@
+{
+  "config": {
+    "argv": [
+      "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native.config.cjs",
+      "hierarchical-menu-presentation.spec.ts",
+      "--project=firefox",
+      "--grep",
+      "menu motion"
+    ],
+    "configFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native.config.cjs",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native-05/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "hierarchical-menu-presentation.spec.ts",
+          "validation-contrast.spec.ts",
+          "current-target-sizes.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native-05/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "hierarchical-menu-presentation.spec.ts",
+          "validation-contrast.spec.ts",
+          "current-target-sizes.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native-05/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "hierarchical-menu-presentation.spec.ts",
+          "validation-contrast.spec.ts",
+          "current-target-sizes.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native-05/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "hierarchical-menu-presentation.spec.ts",
+      "file": "hierarchical-menu-presentation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "menu motion reverses on Back and follows ltr",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1226,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T04:38:56.417Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "forward-runtime",
+                      "contentType": "application/json",
+                      "body": "eyJhbmltYXRpb24iOiJub25lIiwicmVkdWNlZCI6ZmFsc2UsImFuaW1hdGlvbnMiOltdfQ=="
+                    },
+                    {
+                      "name": "motion",
+                      "contentType": "application/json",
+                      "body": "W3siZGlyZWN0aW9uIjoiZm9yd2FyZCIsImxvY2FsZURpcmVjdGlvbiI6Imx0ciIsIngiOjE2fSx7ImRpcmVjdGlvbiI6ImJhY2siLCJsb2NhbGVEaXJlY3Rpb24iOiJsdHIiLCJ4IjotMTZ9XQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c9734aea7ab8edf1d8e-e9448f01e6238d11d990",
+          "file": "hierarchical-menu-presentation.spec.ts",
+          "line": 3,
+          "column": 41
+        },
+        {
+          "title": "menu motion reverses on Back and follows rtl",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 371,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T04:38:58.146Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "forward-runtime",
+                      "contentType": "application/json",
+                      "body": "eyJkaXJlY3Rpb24iOiJmb3J3YXJkIiwiYW5pbWF0aW9uIjoiMC4xMnMgZWFzZS1vdXQgc2d1aV9mb3J3YXJkX2RhZDQ0Mjc0IiwicmVkdWNlZCI6ZmFsc2UsImFuaW1hdGlvbnMiOlt7InN0YXRlIjoicnVubmluZyIsImZyYW1lcyI6W3siY29tcG9zaXRlIjoiYXV0byIsImVhc2luZyI6ImVhc2Utb3V0Iiwib2Zmc2V0IjowLCJjb21wdXRlZE9mZnNldCI6MCwidHJhbnNmb3JtIjoidHJhbnNsYXRlKGNhbGMoLTFyZW0pKSIsIm9wYWNpdHkiOiIwIn0seyJjb21wb3NpdGUiOiJhdXRvIiwiZWFzaW5nIjoiZWFzZS1vdXQiLCJvZmZzZXQiOjEsImNvbXB1dGVkT2Zmc2V0IjoxLCJ0cmFuc2Zvcm0iOiJ0cmFuc2xhdGUoMHB4KSIsIm9wYWNpdHkiOiIxIn1dfV19"
+                    },
+                    {
+                      "name": "motion",
+                      "contentType": "application/json",
+                      "body": "W3siZGlyZWN0aW9uIjoiZm9yd2FyZCIsImxvY2FsZURpcmVjdGlvbiI6InJ0bCIsIngiOi0xNn0seyJkaXJlY3Rpb24iOiJiYWNrIiwibG9jYWxlRGlyZWN0aW9uIjoicnRsIiwieCI6MTZ9XQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c9734aea7ab8edf1d8e-4ba3020a9acff9da4a17",
+          "file": "hierarchical-menu-presentation.spec.ts",
+          "line": 3,
+          "column": 41
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T04:38:56.206Z",
+    "duration": 2492.4030000000002,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

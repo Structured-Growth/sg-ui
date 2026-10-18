@@ -1,0 +1,23 @@
+
+Running 12 tests using 1 worker
+
+(node:56757) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/calendar.spec.ts:19:3 › preset explanations remain associated and label rows fit before native keyboard commit: light (460ms)
+  ✓   2 [chromium] › tests/browser/calendar.spec.ts:52:3 › native calendar focus exposes unavailability without selecting; disclosure works without hover: light (265ms)
+  ✓   3 [chromium] › tests/browser/calendar.spec.ts:19:3 › preset explanations remain associated and label rows fit before native keyboard commit: dark (225ms)
+  ✓   4 [chromium] › tests/browser/calendar.spec.ts:52:3 › native calendar focus exposes unavailability without selecting; disclosure works without hover: dark (243ms)
+(node:56803) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [firefox] › tests/browser/calendar.spec.ts:19:3 › preset explanations remain associated and label rows fit before native keyboard commit: light (920ms)
+  ✓   6 [firefox] › tests/browser/calendar.spec.ts:52:3 › native calendar focus exposes unavailability without selecting; disclosure works without hover: light (439ms)
+  ✓   7 [firefox] › tests/browser/calendar.spec.ts:19:3 › preset explanations remain associated and label rows fit before native keyboard commit: dark (427ms)
+  ✓   8 [firefox] › tests/browser/calendar.spec.ts:52:3 › native calendar focus exposes unavailability without selecting; disclosure works without hover: dark (490ms)
+(node:56975) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [webkit] › tests/browser/calendar.spec.ts:19:3 › preset explanations remain associated and label rows fit before native keyboard commit: light (713ms)
+  ✓  10 [webkit] › tests/browser/calendar.spec.ts:52:3 › native calendar focus exposes unavailability without selecting; disclosure works without hover: light (473ms)
+  ✓  11 [webkit] › tests/browser/calendar.spec.ts:19:3 › preset explanations remain associated and label rows fit before native keyboard commit: dark (376ms)
+  ✓  12 [webkit] › tests/browser/calendar.spec.ts:52:3 › native calendar focus exposes unavailability without selecting; disclosure works without hover: dark (424ms)
+
+  12 passed (7.3s)

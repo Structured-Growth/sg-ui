@@ -1,0 +1,11 @@
+import {readFileSync,readdirSync,writeFileSync} from 'node:fs';
+import {resolve,dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {createRequire} from 'node:module';
+const here=dirname(fileURLToPath(import.meta.url));const root=resolve(here,'../../../../..');
+const parser=readdirSync(resolve(root,'node_modules/.pnpm')).find(name=>/^js-yaml@4\./.test(name));
+const yaml=createRequire(import.meta.url)(resolve(root,'node_modules/.pnpm',parser,'node_modules/js-yaml'));
+const load=name=>yaml.load(readFileSync(resolve(root,'.github/workflows',name),'utf8'));
+const raw=name=>JSON.parse(readFileSync(resolve(here,'remote',name+'.json'),'utf8'));
+const receipt={workflows:{ci:load('ci.yml'),ai:load('ai-code.yml'),release:load('release.yml'),title:load('pr-title.yml')},protection:{queries:{branchProtection:404,effectiveRules:200,rulesets:200},branchProtection:raw('main-protection'),effectiveRules:raw('main-rules'),rulesets:raw('rulesets'),observedContexts:null,ownerReview:null,blockingObservations:null},note:'Read-only collected metadata; observed context/owner/blocking fields intentionally null. This is not approval evidence.'};
+writeFileSync(resolve(here,'current-enforcement-receipt.json'),JSON.stringify(receipt,null,2)+'\n');

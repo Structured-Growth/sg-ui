@@ -1,0 +1,41 @@
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -58,6 +58,8 @@
+           pnpm --version | tee artifacts/logs/pnpm.txt
+       - name: Validate artifact freshness guards
+         run: node --test scripts/ci-artifacts.test.mjs 2>&1 | tee artifacts/logs/artifact-guards.txt
++      - name: Validate CI routing and release evidence guards
++        run: node --test scripts/check-ci-release-enforcement.test.mjs scripts/verify-ci-downloads.test.mjs 2>&1 | tee artifacts/logs/release-enforcement.txt
+       - name: Package and behavior checks
+         run: pnpm check 2>&1 | tee artifacts/logs/check.txt
+       - name: Build native docs fixtures
+--- a/docs/developer/ci-release-readiness.md
++++ b/docs/developer/ci-release-readiness.md
+@@ -106,3 +106,27 @@
+ Join any eventual authorized Actions publication, tarball digest, npm version,
+ tag, GitHub release and provenance in one identity record. Existing local builds
+ and all300 V completions cannot substitute for owner/legal approval or this chain.
++
++## Executable routing and protection receipt guard
++
++The new `packages/ui/scripts/check-ci-release-enforcement.mjs` accepts JSON with
++`workflows` (`ci`, `ai`, `release`, `title` parsed YAML objects) and `protection`
++(raw `branchProtection`, `effectiveRules`, query status codes, observed context
++mapping, owner review and failed/missing-check observations). It has no YAML parser
++runtime dependency and does not execute workflow text. Its fixture tests load the
++current YAML with the existing frozen test dependency. The proposed CI step runs
++these six routing/protection cases and four artifact-verifier cases after output
++cleanup, preserving their transcript in the existing validation-log artifact.
++
++```sh
++node --test packages/ui/scripts/check-ci-release-enforcement.test.mjs packages/ui/scripts/verify-ci-downloads.test.mjs
++node packages/ui/scripts/check-ci-release-enforcement.mjs /absolute/path/enforcement-receipt.json
++```
++
++The dated collected descriptor is
++`final-acceptance/wave-04/14/current-enforcement-receipt.json`; its expected result
++is exit1/incomplete with eight specific missing observations. Do not fill those
++fields from synthetic fixtures. Supported raw query status values do not by
++themselves supply actual observed check names, reviewed PR requirements, bypass
++review, tag authority review or proof that failed/missing checks block merging.
++A green structural receipt is still not authenticated platform or owner approval.

@@ -12,6 +12,19 @@ Original module paths below are provenance, not current import instructions. Eac
 
 ## Existing specs and preserved fixture identities
 
+### Build-independent grid unit fixtures — 2026-10-18
+
+The [sectioned/server lineage tests](../../packages/ui/src/components/AppDataGrid/AppDataGrid.sectioned-lineage.test.tsx)
+now use their colocated
+[source-context fixture](../../packages/ui/src/components/AppDataGrid/AppDataGrid.sectioned.native-fixture.tsx).
+Clean CI runs unit checks before compiled exports exist; mocking docs-owned public
+imports still required package resolution and failed in both runtime jobs of
+[run 39098705687](https://github.com/Structured-Growth/sg-ui/actions/runs/39098705687).
+The four existing behavior cases and assertions are retained and pass with a
+validation resolver that rejects built-package imports. Docs-owned native fixtures
+continue consuming public compiled exports. This is a unit-host ownership fix,
+not a change to the historical browser identities or their acceptance counts.
+
 | Existing spec path | Fixture IDs | Direct historical evidence references |
 |---|---|---|
 | [acceptance-pack-113.spec.ts](../../packages/ui/tests/browser/acceptance-pack-113.spec.ts) | `data-appdatagrid--retained-selection` | [acceptance-evidence](parallel-batch-113/acceptance-evidence.md)<br>[acceptance-evidence](parallel-batch-138/acceptance-evidence.md)<br>[checkpoint-recovery](parallel-batch-173/checkpoint-recovery.md) |
@@ -329,3 +342,17 @@ The following **12 bounded public-example obligations are delivered** by existin
 | `DOCS-005-b12` — Host image-upload integration and retry | `/docs/components/page-rich-text-editor-section` | `editors-pagerichtexteditorsection--host-upload-lifecycle`<br>[PageRichTextEditorSection.fixture.tsx](../../apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx) | The bounded onUploadImage mock rejects once and returns a predefined durable /course-guide.svg asset on retry. It explicitly does not transfer selected bytes; the host owns transport, authorization, asset metadata and storage. Source: [HostImageUploadExample](../../apps/docs/examples/SavedDocumentExamples.tsx). Existing check: [content-integrations.spec.ts](../../apps/docs/tests/content-integrations.spec.ts) — host image adapter preserves a rejected upload for retry and inserts a durable asset. |
 
 Framework retirement and private fixture transfers remain separate from these public examples. All twelve DOCS-005-b leaves have source-backed dispositions; the [website checklist](docs-website.md#docs-005-b-bounded-public-example-parity-follow-ups) retains their completed implementation status. No library/private-fixture runtime change or unsupported public API is required. Current catalog compilation and the twelve focused production flows have separate accepted-input/build/source receipts. This reconciliation does not edit historical acceptance IDs or infer deployment, physical-input or spoken-AT approval.
+
+The October18 checkpoint keeps the original unselected `FocusRetention` grid host
+and adds a distinct `SelectedFocusRetention` host for the later successor that
+requires an initially selected eighth row. Their tests retain separate initial
+states; a later proof must not silently change an earlier scenario. Historical
+calendar proofs explicitly choose linked navigation, static arrow headings and
+button field presentation where their original flow requires those configurations.
+Current public defaults remain covered by the production docs suite.
+
+The maintained Chromium native project uses Playwright's installed full Chromium
+channel so the required CDP Autofill cases execute against a build exposing that
+protocol. The private host supplies an empty data favicon, avoiding an unrelated
+favicon404 in the strict console-error assertions. Firefox/WebKit retain their
+explicitly reported Chromium-only protocol skips.

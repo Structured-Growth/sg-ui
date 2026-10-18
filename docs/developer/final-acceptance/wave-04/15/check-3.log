@@ -1,0 +1,145 @@
+{
+  "status": "failed",
+  "extractionRows": 201,
+  "originalStoryModules": 33,
+  "transfers": 32,
+  "deliberateReplacements": 1,
+  "unresolvedEarlyScenarios": [
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "AllColumnTypes",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "BuiltInCheckboxAndRowDragHandle",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "BuiltInCheckboxSelection",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "BuiltInRowDragHandle",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "HeaderSortHookedUp",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "ListOnly",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "SectionedDropdownRows",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "SectionedDropdownRowsWithCheckboxAndDrag",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "name": "StructuredCellTypes",
+      "initialSha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "name": "CardsAndListModes",
+      "initialSha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "name": "CollapsableSubheaders",
+      "initialSha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "name": "ListOnlyNoCheckboxes",
+      "initialSha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "name": "ListWithCheckboxes",
+      "initialSha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "name": "ListWithRowDragDrop",
+      "initialSha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "name": "ServerSearchAndDatabaseLoading",
+      "initialSha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "status": "semantic-disposition-required"
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "name": "SortHookedUp",
+      "initialSha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "status": "semantic-disposition-required"
+    }
+  ],
+  "commands": 27,
+  "issues": [
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#AllColumnTypes",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#BuiltInCheckboxAndRowDragHandle",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#BuiltInCheckboxSelection",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#BuiltInRowDragHandle",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#HeaderSortHookedUp",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#ListOnly",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#SectionedDropdownRows",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#SectionedDropdownRowsWithCheckboxAndDrag",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx#StructuredCellTypes",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx#CardsAndListModes",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx#CollapsableSubheaders",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx#ListOnlyNoCheckboxes",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx#ListWithCheckboxes",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx#ListWithRowDragDrop",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx#ServerSearchAndDatabaseLoading",
+    "Unresolved early extracted scenario: packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx#SortHookedUp"
+  ],
+  "limits": [
+    "Source/metadata/command existence only; no product, browser, spoken AT, legal, release or upstream authentication result.",
+    "Command code spans/fences checked only in four named current guides; script names/package filters, not shell flags, arguments or actual execution.",
+    "Structural success does not accept earlier semantic scenario losses; strict-history exposes them as failures."
+  ]
+}

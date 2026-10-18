@@ -1,0 +1,1004 @@
+{
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "branch": "dev",
+  "inputSha256": {
+    "AGENTS.md": "6787b3f78b52898596e8be2f0d0caed1cc95365c46a045c5b9077ebbe32d58a8",
+    "apps/docs/content/component-usage/editor.json": "aafe2451e9d131a9fb3e27179d8f9ceb36bfe5060cbfd32d9b09ac8485cdbf90",
+    "apps/docs/native-fixtures/registry.json": "6eefc562d28b6a986c237de16d80f5edfd734faac38bb1355c195a31abc3185b",
+    "apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx": "194beb0534e51d4f1719d6370499c3f079affeb6f3946b197df5baec96383ada",
+    "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx": "fd5e4d824df6604e1958b6d79a01d5c382a142701608c4c64d01b926377e8060",
+    "docs/developer/backlog-execution-2026-10-15.md": "75a4996497dd31574bd8a7fa82e01e2345aed262697ec0515de7ae3f60ad2809",
+    "docs/developer/final-acceptance/editor-chrome-presentation/browser.log": "adf095486891c5118c1053e68716bd20a98ee2b6f07c9330243eaa0a2758dd75",
+    "docs/developer/final-acceptance/editor-chrome-presentation/fixtures.log": "64085ee246936baceffcbc8159ee1e0dacc816f9ca8f7ad59b3d0f41b51c903a",
+    "docs/developer/final-acceptance/editor-chrome-presentation/results.json": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea",
+    "docs/developer/final-acceptance/editor-chrome-presentation/types.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/developer/final-acceptance/rich-editor-presentation/arabic-continuation.log": "4ffd2384e786937f2cb7e11a0098bd14afe3caccbb291766e8f6aeeefabc3540",
+    "docs/developer/final-acceptance/rich-editor-presentation/catalog.log": "bc0cc69473818a33042695c63c6372474c750bcc24bb62b14ebaf50403863f5b",
+    "docs/developer/final-acceptance/rich-editor-presentation/docs-build.log": "7dbd25c74df49cc7ee65c29b43bd36a8d7bea20a8b618e3db3c3c305540b930f",
+    "docs/developer/final-acceptance/rich-editor-presentation/docs-types.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/developer/final-acceptance/rich-editor-presentation/firefox-first-rect-failure.log": "121a220e5533e4f79a531c89db62851ea70dd0636104c82fcf4c4d2d60f0e86a",
+    "docs/developer/final-acceptance/rich-editor-presentation/first-rect-geometry-failure.json": "ed5b187ad5e4b76c617d259567c7875dbc2014a7b2b32a4ffb65e441330ea883",
+    "docs/developer/final-acceptance/rich-editor-presentation/foundation-guards.log": "460c6481313d8c45750767540b58151a1f23582a692573a0f786eea90e556647",
+    "docs/developer/final-acceptance/rich-editor-presentation/initial-failure.log": "6139444e7326f67459f9659650a61840e5480311b386a122686a567e4480d6c3",
+    "docs/developer/final-acceptance/rich-editor-presentation/initial-results.json": "526a0cc79c5722cdfdb932f63a889380be82741f53870fe0a0017d97928419f6",
+    "docs/developer/final-acceptance/rich-editor-presentation/library-build.log": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a",
+    "docs/developer/final-acceptance/rich-editor-presentation/matrix.log": "1e0147933aa154e6381edc6fda327ee43d481eb9fb281593f029bc6b85718d55",
+    "docs/developer/final-acceptance/rich-editor-presentation/menu-intrinsic-repeat.log": "982c784e0a488db563f10c7db0f0626cba6e05d8067b7e11d9845cbb3aa03552",
+    "docs/developer/final-acceptance/rich-editor-presentation/menu-max-height-experiment-reverted.log": "db1e0a42362f884f99260669be9d4f54a5273647d735b8c7040b6f676e962fed",
+    "docs/developer/final-acceptance/rich-editor-presentation/menu-trigger-width-experiment-reverted.log": "b62374a69ccfd36a0f1f32f7e596fe6417e3f3257ed17ed83dece2a643dcaee3",
+    "docs/developer/final-acceptance/rich-editor-presentation/native-fixtures.log": "c503cf80d5d43a40f583736d8b80388732e47b4e1a2e45bc0f1a906a789d6063",
+    "docs/developer/final-acceptance/rich-editor-presentation/native-types.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/developer/final-acceptance/rich-editor-presentation/package.log": "4c7d3a663fe9817690f2d4cd1ed0a684a9f2c0b2982e54855d7224a7fef7b103",
+    "docs/developer/final-acceptance/rich-editor-presentation/pre-intrinsic-results.json": "d60b3ef79b75c4ed60d0cd0510be83129ff793956167c7bfccde302ee3fed186",
+    "docs/developer/final-acceptance/rich-editor-presentation/pre-menu-fix-matrix.log": "14b6f6591ff95abd42c892af9478563ac1cf39c3dda3bb64a36ef1deb3771e40",
+    "docs/developer/final-acceptance/rich-editor-presentation/results.json": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef",
+    "docs/developer/final-acceptance/rich-editor-presentation/selection-regressions.log": "69103729e23c7ddc66270b2bc1a9df9a300ddace0ba358edeba9a69f2dd1f29f",
+    "docs/developer/final-acceptance/rich-editor-presentation/tabs-regressions.log": "da4b1349a61728cdac4eb1f85a79ad8f7bca6937821cd4beb3cd759eac77026d",
+    "docs/developer/final-acceptance/rich-editor-presentation/units.log": "c24864d5b772235a8ec413d274bb196fdc1c412ab145bf11b42294bfd5a38185",
+    "docs/developer/final-acceptance/wave-03-23/evidence.json": "3d4539ac2099aa707f915fda7cdca45f3ee8926162764f98ea8de0425fac5a08",
+    "docs/developer/final-acceptance/wave-03-23/report.md": "911cd31ac161e5fd3e72b398543f87597918bc475cc780b4ef432062c1fd3e1f",
+    "docs/developer/final-acceptance/wave-03-23/results.json": "12273a3b655d759db88d0a46247d6c15e8fec4ea214c9a69f9322c9baeda96da",
+    "docs/developer/final-acceptance/wave-03-24/evidence.json": "c079220ea96c1d4bda19831da8d659c53c0880d1c625f1b36542f753d6181089",
+    "docs/developer/final-acceptance/wave-03-24/report.md": "77ed3f7939b95dc4b51a7a8ca555cfeed35bb1963a9e532a588ba1dd34501df4",
+    "docs/developer/final-acceptance/wave-03-24/results.json": "e69e6fbe40ed8dee70a859c7e012dd81b5d310823230264b237d0020cffd98ee",
+    "docs/developer/final-acceptance/wave-03-25/evidence.json": "5722aa8f279d8e48007dec5873d3c5da7e7c8094db1618711383d76e6233b267",
+    "docs/developer/final-acceptance/wave-03-25/report.md": "33503b07414595bf8b433d552528cfa7bf594eaec969c320caf31dcac9e978ac",
+    "docs/developer/final-acceptance/wave-03-25/results.json": "16732c0cabe188647c9ed3700054cdd2da99e2f04acc231c37f0ce83e97c2090",
+    "docs/developer/final-acceptance/wave-03-26/evidence.json": "58badb997c69e2cce6bc5ffe12193c27a20ddae825ab11d7c964e2d415104bf7",
+    "docs/developer/final-acceptance/wave-03-26/report.md": "8cc22aae684d7f4c98dbe35b25729140812d2c9f37416f40469e3950e3514753",
+    "docs/developer/final-acceptance/wave-03-26/results.json": "64d8cba25e685f71693a17dd20c1453069a6517920ef668f2639903521079987",
+    "docs/developer/final-acceptance/wave-03-followup/browser-types-corrected.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/developer/final-acceptance/wave-03-followup/browser-types-final.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/developer/final-acceptance/wave-03-followup/checkpoint-first-results.json": "69d2afe2b169c522703fa752037a5c18b0d1398ce720df4b9c34a3a5e27c8460",
+    "docs/developer/final-acceptance/wave-03-followup/checkpoint-pre-type-fix-results.json": "7aae96c2df79524358571088fa1e623c701e1766071b621d4c158c362950ccef",
+    "docs/developer/final-acceptance/wave-03-followup/checkpoint-results.json": "46afa863a8637fd654e26d9fb8b3ebf48286eb7b04e8610d69bec0c74afb9c4e",
+    "docs/developer/final-acceptance/wave-03-followup/controls-button-token-unit.log": "e438b6aa0553189c95817067d19e01adb363fb97de92519ea352c8f59b73845d",
+    "docs/developer/final-acceptance/wave-03-followup/controls-monitor.json": "d315cea03d023b9b982aa2ba40f0625881f18d4691d5f99633c6c0f91749cffc",
+    "docs/developer/final-acceptance/wave-03-followup/docs-corrected.log": "31eaded03723a9748f2ff8ffa8c61df1f753c3bfe52444eee2b5a7ac4fb01fb6",
+    "docs/developer/final-acceptance/wave-03-followup/docs-final.log": "23bea475b207bcb85a13e0c27a30a9184f7a9cc92d4f45f54bb68344b677f0cf",
+    "docs/developer/final-acceptance/wave-03-followup/docs-first.log": "bb2d40423209180616be89210450859472fbcbbe17eb746e715d2dbc829e67d2",
+    "docs/developer/final-acceptance/wave-03-followup/editor-cancel-range-triage.json": "11848bbab7b30b1d3894ff83dc919cf90df4710e321a8a45daba7f0bffd03998",
+    "docs/developer/final-acceptance/wave-03-followup/editor-frame-restore-units.log": "92d844d08622e04ae04d7ecba942c2a8326b8355d4c8b36c9cdca8d18ef5cc84",
+    "docs/developer/final-acceptance/wave-03-followup/editor-frame-restore.json": "34145871f37ea8b69c46f8762a1a949a1d5d4b6bb7649fb2a2d9120de483aa2a",
+    "docs/developer/final-acceptance/wave-03-followup/foundation-final.log": "460c6481313d8c45750767540b58151a1f23582a692573a0f786eea90e556647",
+    "docs/developer/final-acceptance/wave-03-followup/library-final.log": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a",
+    "docs/developer/final-acceptance/wave-03-followup/library-type-first.log": "7d42b668fdecbd0dab02e678c8d19f307ff8b46ef5209e5e41de6d8ede0d9ad0",
+    "docs/developer/final-acceptance/wave-03-followup/menu-type-guard-units.log": "ab7c5d79812134c783da0e923bea2cc7579d7c359dad27a3f98225577f923fc4",
+    "docs/developer/final-acceptance/wave-03-followup/native-color-corrected.log": "b2d687f0d19f7c61d141eb321af23b79f3ecedccde6f94882d1778eb0bb28ebc",
+    "docs/developer/final-acceptance/wave-03-followup/native-final.log": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c",
+    "docs/developer/final-acceptance/wave-03-followup/native-first.log": "1414b204e0d01673db5ad6a26d6b7bbe8c1caef3f5c6cefca488ffc00b2f7474",
+    "docs/developer/final-acceptance/wave-03-followup/package-final.log": "e4481b45e7e572dc95cc5957924ae63f3de0c8ef4c28b1c651195004b342ac67",
+    "docs/developer/final-acceptance/wave-03-followup/status.md": "18de9dd3de6cb4bbb30263d4a39a75d752247f62ebb0831a434770c57a265480",
+    "docs/developer/final-acceptance/wave-03-followup/tokens-final.log": "dd9264817799bb7456c7709e250f6e16a5e04c65e9011ca6379f1ecb08acc50a",
+    "docs/developer/final-acceptance/wave-03-followup/units-final.log": "a8ab1edf90f816686eb77c168a0db9f8eb753b8e45a7dbf155c8f4a2eba8d631",
+    "docs/developer/final-acceptance/wave-03-followup/units-first.log": "a7f3b068339ad8caa37fc965021efabbedc47d0a832391d04a7b88e5d10c7c06",
+    "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json": "975c83f3ca4b42d05e1823b170a0c5201794e3e8651aaca2ff7cc884ca7025e3",
+    "docs/developer/final-acceptance/wave-03-followup/validation-results.json": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+    "docs/developer/final-acceptance/wave-03-integration/before.json": "f81f8585301be7fff1632530ecc1488b18f87960ea26c912747730f761a89a9f",
+    "docs/developer/final-acceptance/wave-03-integration/browser-types-final.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/developer/final-acceptance/wave-03-integration/browser-types.log": "513d0d5a162e5b0b4e6ce65d4f2968c1b83e4348a64a6bf7166cd36feb7de583",
+    "docs/developer/final-acceptance/wave-03-integration/build-checkpoint-results.json": "1185dd709b85aaccb15057149e03cc5ffc356d06dd9e293585b21f82f0498323",
+    "docs/developer/final-acceptance/wave-03-integration/build-checkpoint.log": "c69e3628c6b5168f5ea92e82ec4f2ad448509010a6f0730165c7adea632e3d06",
+    "docs/developer/final-acceptance/wave-03-integration/controls-application.json": "a333b334bd9178a3df12eb250e36ba2a2882658efe7a6c0d4f49240aaa31ff0b",
+    "docs/developer/final-acceptance/wave-03-integration/controls-firefox-scroll-entry-units.log": "149f04a37e04b7c059171c685455eaac2954ba6893eb72fee6aad06ad2a2b796",
+    "docs/developer/final-acceptance/wave-03-integration/controls-firefox-tab-diagnostic.json": "3dc4321a54023d1fb8c0fb1117fa3249e02f5f30b59122152904c544508f3419",
+    "docs/developer/final-acceptance/wave-03-integration/controls-firefox-tab-diagnostic.log": "1480b992448ea244e09e3f2710cffde032ae3b82220447907560c1191f5b2c53",
+    "docs/developer/final-acceptance/wave-03-integration/controls-graph-tests.log": "8dd9e7fd3a9263a8f03dac6e5423800123af68413d43600164c131b56e8682e1",
+    "docs/developer/final-acceptance/wave-03-integration/controls-grid-stale-assertion.log": "562a0fba9c6a00a2efa259bf68b03ce17bfe1127610a70585e16bae3ed3a6068",
+    "docs/developer/final-acceptance/wave-03-integration/controls-grid-visible-removal-corrected.log": "92d926d3f1d289589c617c639b223ba6a01bafba7336c5f5a849726aa42a5068",
+    "docs/developer/final-acceptance/wave-03-integration/controls-grid-visible-removal.log": "b11a226df67201fbbc96851da70bdd29cad3b54d73015f6dba82ce30d1b3773b",
+    "docs/developer/final-acceptance/wave-03-integration/controls-icon-boundary.log": "68cc71f517ff6895d9c203d0be712feebf68d1adc7e61683d50f41cdb30313cc",
+    "docs/developer/final-acceptance/wave-03-integration/controls-lifecycle-clipboard.log": "5689ec32707d79bec011eeb5b599c80bb71bdd7f53bb5421eb0d2685e7781c67",
+    "docs/developer/final-acceptance/wave-03-integration/controls-report.md": "0f82b5917cac051112577fcc802cd5caf764398e030b10ab82896a3167f88a54",
+    "docs/developer/final-acceptance/wave-03-integration/controls-units.log": "e0180a056b5ddd85a9200127636453af399cfb1b0168c722c6053664326f1e79",
+    "docs/developer/final-acceptance/wave-03-integration/controls-width-css-box-units.log": "b54d6da9a836cc35e652baaa37ee160c7c4272dfaf3c5328194c9975f0c41505",
+    "docs/developer/final-acceptance/wave-03-integration/controls-width-focus-units-corrected.log": "98bea9cc3b0d57ce000a5ee9ae09a61ec8fd4a598da7ccf63ec9aa8384253e5d",
+    "docs/developer/final-acceptance/wave-03-integration/controls-width-focus-units.log": "0feb2db3755c23ecd23fe1198192bf25da2d1bb508c5c2ae6c60f14c06f78bec",
+    "docs/developer/final-acceptance/wave-03-integration/controls-width-native-diagnostic.json": "594071e22f3938788560f2e5736225a7fb339f015caac116fc5354baf5b680ab",
+    "docs/developer/final-acceptance/wave-03-integration/controls-width-native-diagnostic.log": "e744c031ff2a37b19b0da07a3dc1e5f9b3cd0faf3dd5a156142211a950b2d3e0",
+    "docs/developer/final-acceptance/wave-03-integration/controls.json": "5f208fb056429ed99f0f655a5f6f717f4b66d795083f54cfbedd085291682bd3",
+    "docs/developer/final-acceptance/wave-03-integration/coordinator-application.json": "5ebb4775278113a1fa6f751e27b029d757cf61d9ea2ed5cd6a86396f2073c1ba",
+    "docs/developer/final-acceptance/wave-03-integration/coordinator-review.json": "f2a0c1471e28ca700abcb25fda05e1639129043e2433edcc98598ab904638a49",
+    "docs/developer/final-acceptance/wave-03-integration/docs-build.log": "9b8a70d6dcff8a9d1c2332c16fa828956b21900e18f004b9b53f68a5151ed14d",
+    "docs/developer/final-acceptance/wave-03-integration/docs-final.log": "a1033991164cd14e677989f5e1dc32f8bf509776f16fe44f9fcdb313ab08299a",
+    "docs/developer/final-acceptance/wave-03-integration/editor-current-units.log": "c6dc671525a35711f8c7a2c6afe8f12bcb22bc58f6fb5db7606d034ed3ed7f4d",
+    "docs/developer/final-acceptance/wave-03-integration/editor-modal-regressions.log": "e2a65a19b7b6500690b21144f99c1db16a4ca9f28fa95f45790e9af0161b132c",
+    "docs/developer/final-acceptance/wave-03-integration/editor-modal-triage.json": "d4fb134396b9a3756a99b456066144aa7f0fd09b8fd305885ff7863aa23123a2",
+    "docs/developer/final-acceptance/wave-03-integration/editor-native-triage.json": "d89abb2537bff1be6214bd1afb655caa519e6958e7025e9f302116154deb16c2",
+    "docs/developer/final-acceptance/wave-03-integration/editor-overlay-focus-rerun.log": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+    "docs/developer/final-acceptance/wave-03-integration/editor-overlay-triage.json": "04d4e6b7fd2ba6fd824f59d129a6fb670e0fe6d28321c7a1c2151d80dfb8d522",
+    "docs/developer/final-acceptance/wave-03-integration/editor-selection-rerun.log": "f2b35d55863b7526ef290d1dbd9f7ae1ddbd8b2ff45300f10fbd31f856d25972",
+    "docs/developer/final-acceptance/wave-03-integration/editor-typing-final.log": "f88908f634641a1907571418e1b7b796009c7e84d9203780d68be4267771b27e",
+    "docs/developer/final-acceptance/wave-03-integration/editor-typing-focus.log": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+    "docs/developer/final-acceptance/wave-03-integration/editors-corrected-units.log": "bca75de30ead2358aa602b6bbd77bcc0b1679977e2d613c2eb5f35e7bfacb888",
+    "docs/developer/final-acceptance/wave-03-integration/editors-report.md": "41b598ae173a54732c2e25194e3a1159d1b7d4b878b8fb9f1c5c65f8c3f13f0b",
+    "docs/developer/final-acceptance/wave-03-integration/editors-units-initial-failures.log": "a4b0f7d511116d9204b3c067b18385436499bc448d6547a8a86fccb1047cc570",
+    "docs/developer/final-acceptance/wave-03-integration/editors-units.log": "a4b0f7d511116d9204b3c067b18385436499bc448d6547a8a86fccb1047cc570",
+    "docs/developer/final-acceptance/wave-03-integration/editors.json": "57409652f8ba663cdc0fd73f0c34c79928be6e6ab0a2ba1f80a20bc9de5e200b",
+    "docs/developer/final-acceptance/wave-03-integration/final-build-inputs.json": "6c4b614341d98c01ca1aab40becd183004da2d4c57ae9f3c957cfd7249ff9d57",
+    "docs/developer/final-acceptance/wave-03-integration/final-script-regressions-corrected.log": "96ba97f93dfec6629b10b11f4571c24700667305d970d3ccd3d450d73cbda800",
+    "docs/developer/final-acceptance/wave-03-integration/final-script-regressions-pass.log": "fcdb9be0183fc1e27a2288ad2fd317f951c8d1d9bc3a4b92ebe1d1345480839f",
+    "docs/developer/final-acceptance/wave-03-integration/final-script-regressions.log": "837db8fdd86a4d2c5655736ed4990542c9d3a4fb109e23da55d6277df38a5f7e",
+    "docs/developer/final-acceptance/wave-03-integration/first-build-checkpoint-results.json": "37deab297c408e2cb921b13a0140a3b155c57a0ccbbc7a08d9019d7ae3c893aa",
+    "docs/developer/final-acceptance/wave-03-integration/first-foundation-final.log": "5592d95b8c8c1c17f7ebaf5a7592e1563a2fd6a3eb85a6262b1bba34c4fc0516",
+    "docs/developer/final-acceptance/wave-03-integration/foundation-final.log": "460c6481313d8c45750767540b58151a1f23582a692573a0f786eea90e556647",
+    "docs/developer/final-acceptance/wave-03-integration/grid-native-tab-final-units.log": "5e8f51a76026310ed3fd99da66559f84fe352d75fff6b8f27541e132b1feb72e",
+    "docs/developer/final-acceptance/wave-03-integration/grid-tabindex-type-failure-results.json": "bd773e54a3b390c5407e34532d9358b8341bb78f293e8f023f788bc8d8f62e39",
+    "docs/developer/final-acceptance/wave-03-integration/grid-tabindex-type-failure.log": "416cf04184ecfd6cf0c133d2b7cb000674b2a3835e3c43be644d52673128b923",
+    "docs/developer/final-acceptance/wave-03-integration/guidance-links.json": "0083b34947387b901de6d852ea35e5df5240b92ddc56414c4e517bb4881a7be1",
+    "docs/developer/final-acceptance/wave-03-integration/library-build.log": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a",
+    "docs/developer/final-acceptance/wave-03-integration/library-final.log": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a",
+    "docs/developer/final-acceptance/wave-03-integration/license-inventory.json": "4a8fb11789b95196c9d3529719c580adc4df7ad09abe3a5c7baeee006bad1c51",
+    "docs/developer/final-acceptance/wave-03-integration/native-build.log": "eee762826148f798c1e2c604cf9e9f1bb7f7666c8f2269f80ccb580304158f39",
+    "docs/developer/final-acceptance/wave-03-integration/native-chromium-first.log": "753df6e19af3c77d43d8297abf271d6f86a452692d10620f2b86d5b68d27f195",
+    "docs/developer/final-acceptance/wave-03-integration/native-chromium-second.log": "28c35903caa664cbd5847fe4132d2392d70bbe94de72d3daa6e78a04ce345ac4",
+    "docs/developer/final-acceptance/wave-03-integration/native-final-browser.log": "e42b8cbd743d0cc99a75d75e87a19e322691e81699eed9cd13d48ce32024a8c9",
+    "docs/developer/final-acceptance/wave-03-integration/native-final.log": "8f0f840cd8884086ffcc9172f22528884363597373fb6c758babd985dbe16333",
+    "docs/developer/final-acceptance/wave-03-integration/native-specs.json": "557aec225110cbf452b08274549bf06b565fa69b4abddc39c110a4cd52f03b1d",
+    "docs/developer/final-acceptance/wave-03-integration/package-final.log": "8b8ff3df876f6cba9313bb44e4cc1aae7adcf3f14fd71c18b2d999b34a24358d",
+    "docs/developer/final-acceptance/wave-03-integration/packed-reference-audit.json": "1736e7b2655ed9c44d3ba298dfa08154e5d99c4216d299e5509c227a8a0f1d60",
+    "docs/developer/final-acceptance/wave-03-integration/push-evidence.json": "2836d44de7ad5bbc2963b34ffd1a33d60827ed0ba01e533ba11a0d5504fa0d5c",
+    "docs/developer/final-acceptance/wave-03-integration/push-native-smoke.log": "a6accb938935ad7d94287d6fcf63466ce5ab0db633d7de58a1827e9238949524",
+    "docs/developer/final-acceptance/wave-03-integration/push-source-inputs.json": "ad807ce66bebf3cc395914c2e75cdc985997184824dc363689bd83a051a37fa2",
+    "docs/developer/final-acceptance/wave-03-integration/reconciliation-pending.json": "123d8f6e499674e7190c548521c446f08f0aaf0ddc481fe8ad8f4eba82fd5168",
+    "docs/developer/final-acceptance/wave-03-integration/reconciliation.json": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3",
+    "docs/developer/final-acceptance/wave-03-integration/release-policy-final.log": "fc2adf27fe03c5c4491d377254e5eef1576fba20d696d58f7b6c2de8b68a54fc",
+    "docs/developer/final-acceptance/wave-03-integration/selector-native-triage.json": "c54ec3e12d8b693d12e719d3380574c825a62dc370c09adcb9fe4e22552620bf",
+    "docs/developer/final-acceptance/wave-03-integration/selector-unit-final.log": "61e579c75a9a4310edb8d64b53d2a27b9293f20d48ea98e08d824b8621998763",
+    "docs/developer/final-acceptance/wave-03-integration/tokens-final.log": "dd9264817799bb7456c7709e250f6e16a5e04c65e9011ca6379f1ecb08acc50a",
+    "docs/developer/final-acceptance/wave-03-integration/tooling-applied.json": "18419379215a582c6127d026f89491b60034b74345e5cc86ca6c2aacf19265b9",
+    "docs/developer/final-acceptance/wave-03-integration/tooling-final-checks.json": "c88e5cfa3ba1d8778d0db6abd2e74afa49e893186a60e247369791d2724e61ec",
+    "docs/developer/final-acceptance/wave-03-integration/tooling-final-doc-links.json": "eff45a83266783cfc5af9285ad2b6a3321ceb90749095e0940e9c31cf76312ac",
+    "docs/developer/final-acceptance/wave-03-integration/tooling-final-governance.json": "798e0be39bd4309b3b4b98e241fe625cf3afe6769313ac0cccc39117f99ad3e0",
+    "docs/developer/final-acceptance/wave-03-integration/tooling-final-legal-bytes.json": "79054b6b3ac2f7e05ca2413b1bc2343e4bdc83a505f037149f1ec801778c1c05",
+    "docs/developer/final-acceptance/wave-03-integration/tooling-final-license-inventory.json": "4a8fb11789b95196c9d3529719c580adc4df7ad09abe3a5c7baeee006bad1c51",
+    "docs/developer/final-acceptance/wave-03-integration/tooling-governance.json": "798e0be39bd4309b3b4b98e241fe625cf3afe6769313ac0cccc39117f99ad3e0",
+    "docs/developer/final-acceptance/wave-03-integration/tooling-report.md": "6e5ee1300cfb437028c30846ef990f4766c754310133ff2285ef67adfeaf4677",
+    "docs/developer/final-acceptance/wave-03-integration/tooling-syntax.json": "9b085baf6882705c5d217d064d981a2489eaa46c93a3b4d8646a1b49e163e3cc",
+    "docs/developer/final-acceptance/wave-03-integration/tooling.json": "9558ce2aeb9108d9135bcc21bb9702f79115a0ed0509e76d6cc1390e8e15e269",
+    "docs/developer/final-acceptance/wave-03-integration/tracked-text-audit.json": "3c7284b2ba981c7626208e2f6a98b443ca8e83586aa015e49dd4c97840acfceb",
+    "docs/developer/final-acceptance/wave-03-integration/units-checkpoint.log": "75ffea55b2e052b92d34cd0b7be6ba63bf0e11c6459efc5cd98df33e214eed43",
+    "docs/developer/parallel-next100/next100-c26.md": "03a01f1d162f54a877fcbaab2d711d269d062c35a541ae853f5cce9a0ddaedb5",
+    "docs/developer/parallel-next100/next100-c27.md": "e878d065aab34a07ef18d09c9b443e2a337e73424e427ead56d2a5908b4a73d6",
+    "docs/developer/parallel-next100/next100-c28.md": "c6a87411f0dc6d3c387f32476f3771d0eefb46d53f1636de039ab812971521b9",
+    "docs/developer/parallel-next100/next100-c29.md": "098ae65e3ba566dd74fb58612e25f3f2ebc36d3d204277f7eb8b1be94cd499df",
+    "docs/developer/parallel-next100/next100-c30.md": "9d5fe98b05438c5c7fa1f9e4cccd061f55b60eb956d63fb4ef9135a71782ef5a",
+    "docs/developer/parallel-next100/next100-c34.md": "91847ccf156d1b5642aa75123577201513baaf91de826c680968443a03c606db",
+    "docs/developer/react-aria-baseline-tasks.md": "148c29c18b57d9e9917daad17d0bb0a73c293b28f63768968a0dc04084a29844",
+    "docs/developer/react-aria-final-acceptance.md": "73ab51230f11b261c2b4a4a728a78f8c83c11f18ac7c51b36a5a63170b96b47a",
+    "docs/developer/react-aria-hardening-execution.md": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e",
+    "docs/developer/react-aria-hardening-tasks.md": "c382476325d9175c0970a66d12a2fd092ed2ae184d1f38f2aa14aca49fdf3fa3",
+    "docs/developer/react-aria-regression-tasks.md": "912f7293365fdf77a3db49db1d0b6cc7bd766789b8063f1f48314c9ed27fdd39",
+    "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.module.css": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+    "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.next100-regression.test.tsx": "9d8dd1c54c7d563ee66785e2d6e3cb60b4cd912eb29974378f75a8b80a9861a9",
+    "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.test.tsx": "bc51d2f802962a159704dc2b8b327e9ffc98a4fcdc6a79b0b62035b1c5201abd",
+    "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx": "9806b5dd1349a4961916fb15c179effc8d7737930d5581822b5169ea41b046b5",
+    "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.module.css": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+    "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.next100-regression.test.tsx": "ef248f551acef10143eeec5531d3a021e6ebee0659c3fca59259d65b37b4e303",
+    "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx": "9233115d02d4ed62671ccb642760b14894a096c854fbaa92559b912fab3f2cbb",
+    "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.tsx": "d6ad85d669565d337b32c1a81eb8f9f8987783ac36a4445901be5e7314d2a3ff",
+    "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.native-fixture.tsx": "73e21fc0eeaae79f6daa0cfb7a5fe07116676962755015340f23fb51cf3af0b5",
+    "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.test.tsx": "8b4904dcda2c33713376a667c4039eb42c6d32c92d98fdbe8da7c33754b92c8a",
+    "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.module.css": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+    "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.next100-regression.test.tsx": "690b3b1fcb940dad931410c056691144e8f1031db88655228f45b6f503a93cb8",
+    "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx": "e59fb0d1e4c4eeb4cf5331cbfedbb19225bd511f67322d604d6441e3d226d2a8",
+    "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+    "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.module.css": "790ff260c6749b2571a4139e37175e38cf85be8471f28e936232bdc55c46902b",
+    "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.next100-regression.test.tsx": "6ea4695eefcf7617e8794c938e92df00c7c0fd2c16cf8d7a9acabcccaa21fc56",
+    "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx": "7c043fb1c4db5bb47164cadaf5be8294c1e01697e6841a8c5dde5b44a8493a02",
+    "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx": "efa988b430db84a03515476a3888256437d143581558560f73d3229512ecb63a",
+    "packages/ui/src/components/FloatingTextSelectionToolbar/index.ts": "28f71527a435fb4d05a2b9bb71a0ec426ff4c01d36595995ea8b5375db53466b",
+    "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.next100-regression.test.tsx": "531342833dd6f9b56899ffa785a373550b4646ef575d487a5cb900497c3804bb",
+    "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.test.tsx": "14776150b445adf2b3b8ef61117dcf1fe1a12e65c02dcad1e34864d4465b4adc",
+    "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx": "327506bd28002617c84b95e511ca2e8d17260d7e0f0eac07c62615968b4c0467",
+    "packages/ui/src/components/InsertContentMenuControl/NativeInsertionHost.native-fixture.tsx": "154958ed73cc7a36a77dbf5de41a6933eb88e1d39db81b1aed9c0877e6089cbc",
+    "packages/ui/src/components/InsertContentMenuControl/NativeInsertionHost.test.tsx": "01418453f64b0984f0742d249f13716a6067d9e7c6823dc91f4c95e8344a4dc7",
+    "packages/ui/src/components/InsertContentMenuControl/index.ts": "dea9b7e43d5027b133ee8fd9e222b3161c746440867cec3e4225b95bec8ab37e",
+    "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.test.tsx": "9799cc5bf1ee8be6daea9d5931e64767fc08c74696825f3f543fae91540e3baa",
+    "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.tsx": "442561ce61fb2972317c64b023ddc4d8e5596e092dc16c9b4a89da9dd6ad7dfb",
+    "packages/ui/src/components/PageRichTextEditorSection/EditorUploadLifetime.next100-regression.test.tsx": "fe28a2d12c6f8943bc4b16e421b3cf02e0b2f4fbd25cb92658dade79f08f8d31",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.command-transactions.test.tsx": "0b366e44ca87a65d38557f7e62a6b650c18da8186bc93d270af7f2545e920b64",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx": "da15c3fd6463562a542b2ccf14e2b8869bddbb479cc0b72ce056ad22a114ac3b",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.floating.test.tsx": "1ad57adb6e2177d00862a65c8cf70deb015068e60395f28603c6a77fad7e1d5c",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.formatting.test.tsx": "2b5691afd78c80795864e7e5ece23aff403c4d48071e6e72df239d00ddf28795",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx": "66f9a08f34d24e3eb4c39c61646af69d9dacacf4e369bac7b18b705701ac94a9",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.native-fixture.tsx": "5aca8af3798c8f136185f3f321c6e1ddd3fe4e0b72c34cf6aa5e31b7ee45abf8",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.test.tsx": "7c11815bc6427cd3600df4098c6e1360528538c3ff88dbe77ade5eb34a2487e8",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css": "1517b9831227350371747286df138b975f1c5774ec93e64af6a7de4a10ebc4dd",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.native-fixtures.ts": "da40807724e3e5f254c1310159d6c1434a7487a08480316c8f0dae8a2311daeb",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.next100-regression.test.tsx": "9acb1ab1a39b2c174dd7eb570fbb9d4cbcbfef5edc622a5f3eeb79403babc322",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.native-fixture.tsx": "1d4e7e0b1599952dc04c70231d07e963d5c09c8e047a6d4e1aebfa26b40801c3",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.test.tsx": "69eaa6da7f83f2a557e393d88a5562d18015799cc99d28508f8e604bec6b6fbd",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.scroll.test.tsx": "d3279262a1ba890201c03eb571430ecef0485f670de1c76cb4f58f722bcf49d0",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.table-history.test.tsx": "d8dbe919f5e60f1711176f5d43a9b9e5dc2f6e899715db4a1635b33fb8d21c7d",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx": "16bc776d2918487ba72ce5180d759efc6205fcf8da7ffa08ee151c9ca16ae0e1",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx": "444c156a66281def43c29bc8ae5d631a1794ef388c5d74c18c9332f98d75d240",
+    "packages/ui/src/components/PageRichTextEditorSection/index.ts": "f0295ecb274a4492d549dca92ae1085ee339edc5bfc4bb3d6258a442d83b6a5d",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx": "31c8e90cba0d0ab91a59ca02822f6970639ae94b8d486784486a92068658dce2",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx": "a88e2c6eec3624a29c4f8f6e64c7cde24fc9e32de97419a359085976fe178b23",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx": "1c628ea3dd9d38ba95eb4dd34b616ea9bb9f9d045d86d7e1d5037f770c9fafb0",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx": "dc93ca33bcb27f19e374231a777432d2b717e28ef22b014e36cafe4c51fe5b25",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx": "9a27a72ffb2b94f1b4ca649edc1438597cc1034d03943ed818c76051f15678cd",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.module.css": "078a397cfd0abd77137b6bbd4f735e047e8792b4251e7789e5a0901977c0a16e",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx": "50bedefc5519fd9a1584ecc21d764d3a7026dfc0cd8395712c10db636b104ae4",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx": "a8c17fbe35ada8fd518358d90100418f2ce49ff167e30ffe28f9395612e9198c",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.test.ts": "8f5286820349d68ba21b8eadb35b4723aeeb9c132b43fdf38dc2834dcf7837bb",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.tsx": "34293bf4ab6b0d3e273c82ac374ed721020b55e48189ef5a6cca1593dd7e1714",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.test.ts": "3edab46c07bb2ea8a566292e00afdb683b5f53700a22df0824e5a7b4622fa6d1",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.ts": "3bbe210e5924078e1c440ea9c9f2de8bad63252ff9d4d6714e5091106f7857ce",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.acceptance-successors.test.ts": "5ac20bcdeeed805f950d54fda1318d12e0458b696fd26ec0a5670bfe7793657b",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.test.ts": "4bc7e44328b4749b3512e5155ded653798ce48b0015f74de91bdc008f1a1de22",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts": "04f602901da068b508109399704df42ecef59b359a2abfddb9b7ecadcc3b1b80",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/imagePayloadPolicy.ts": "a11473b0bb8f0195b56ba7b6eb516507599881473c40fa5ea391fe672bf282f1",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.test.ts": "5e599f98aa1f48bf8e3e6797930aeb47790b00d47ded5250eb88e1ba641cea31",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.ts": "ef56953b5bc62531bc8ac841a9e6e940535f0bbab1fd0096a71c0776daeeaab1",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.test.ts": "675e661bd7200c01b6433dbbb2e3ce25da9fce46d0023a978987ff1a7e661b8f",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.ts": "679d75b3ebe56a158e63448ecf36626f87d3668822558817eed4c824860e164f",
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.module.css": "2846481ddb7808aa026db3c698bf2c1b3409eff5d3ae0062744db2a9dd3f4fab",
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.next100-regression.test.tsx": "1cef5c9f85d9e54b21d727501bdc1b3c9fa2ca8789066ede08bab95b620ad760",
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx": "011bb91c68950f93c485a986428be52cd062cf22a66a86d40cab5693ef244263",
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx": "329d9b8ce5e52ce67e4391deadc84736d6d0494a0f9fd96fd2a98828e7353028",
+    "packages/ui/src/components/RichTextFormattingToolbar/index.ts": "838939d5c35c4fb41ae342ef16fff1c80bf1276a17b51af557930784346dd12a",
+    "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.module.css": "f074672a97a88b76fe8f9dc9a2180b6d75f2a635b3293cef86e6b925385a9201",
+    "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.next100-regression.test.tsx": "32a876cf65e9e852d5730a8dd8dbbc60688a844694f23724ad91a560e5ed53df",
+    "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.test.tsx": "4b99c0caa978cdb30a4de3c0642315260793e3b35c18a3004efe682584123390",
+    "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx": "e692f8ae17c2b09babf5ea79fbe60d3d525da8b652ff4abbebbbdb121e2e7837",
+    "packages/ui/src/components/TextAlignMenuControl/index.ts": "58d150ba924811cb33c347acf0c0256a71b1922bc819c531e95a6c2bfc94ba71",
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx": "1aff1a85d3ab8feb041a1d607fcdf401f34b1dd9a53e2abf0ef298eab338c8a0",
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.module.css": "12cb76575286c114f9e93a136f84c32d013a2e0b71ef3344553261c4141d7cf8",
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.next100-regression.test.tsx": "29f5a276a7e4a39735c8da2fd26979696fefb16879a747a4b6e1088af8583e63",
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.test.tsx": "5abd54edd2004b3e956710f7436f553799cbf4053709ff62d6b2c91d44bfbc3b",
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.tsx": "ff0e947da7358f2d1853cd465bbd4774c35cd7c109b37db834db7873d743d86b",
+    "packages/ui/src/components/TextColorPickerControl/index.ts": "2a0b5431a8d8bfe9b945c38e097ba1a3dad935ab65acc67efa4ca2670a78547c",
+    "packages/ui/src/components/TextStyleMenuControl/NativeSelection.module.css": "1625320836e2ec8619bca3008dfed79560eb9e171054975a142f842bbb5ef099",
+    "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.module.css": "f19819e1222cd494f397b23cd5aa735c3a507c9989e4a9d6536a406d848c0f35",
+    "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.next100-regression.test.tsx": "813540744f064d43396a9c85e118860a96c509c595d944cb56fa29c79001816e",
+    "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx": "7e1a7f7cfd66d53d75dad025b5effd30d24e54b2a224677def714109873ae1d4",
+    "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx": "7e95472cca2d25a816ed88fc751f7b8582543050448b97ac593b0518e5ab2428",
+    "packages/ui/src/components/TextStyleMenuControl/index.ts": "e3ddeceb90a169b07884677c5aa909b7e3c678802750e0347e1a0976d2578724",
+    "packages/ui/src/experimental/Menu/Menu.module.css": "c1291a28693298ea9975a5dc4a68e84bad25093e7aa6999b0db073237a5b47c8",
+    "packages/ui/tests/browser/editor-clipboard.spec.ts": "09177794e10d3e27de07318a579acf0914576628b14141c6b9615c9d99f85860",
+    "packages/ui/tests/browser/editor-focus-presentation.spec.ts": "5531ba3ca5f16b9ae91aa451cbdba3cb179943ec1a51db34859a9314cd62baa9",
+    "packages/ui/tests/browser/editor-image-lifecycle.spec.ts": "e881a6011cae9428db3aaf929eac5c67dfd19bc78b27b23d70a27a1d2adb0194",
+    "packages/ui/tests/browser/editor-image-sources.spec.ts": "6dc9b3fbfca435adb316687fd1d84508f3b9e724aa4b0c717534570d48ff2793",
+    "packages/ui/tests/browser/editor-links.spec.ts": "2eed19ca7e7efa429fe9f573438f6f5b924db72cb1ed71d08cf9f1034f28c31b",
+    "packages/ui/tests/browser/editor-mixed-formatting-history.spec.ts": "f27945fc6b5972a2c0b3070c615ac9a31bd2c817f9f65517e3e95b0e4455b220",
+    "packages/ui/tests/browser/editor-paragraph-transactions.spec.ts": "30895275b8d2f192becc4884648aab52372da496614d3282d83e5558e73c40c6",
+    "packages/ui/tests/browser/editor-rich-document.spec.ts": "fc4fa87102f27ffec1d7f7e143b03c9f12030a644492537e15c55b16ec3f2b21",
+    "packages/ui/tests/browser/editor-selection-editing-successors.spec.ts": "cf04539db014005b3cf58eb019892fe6962f2b4fcc079de6e7ecc180373d8c07",
+    "packages/ui/tests/browser/editor-style-range-transactions.spec.ts": "d2b077de55d5da916a2354608927c38dae7f4df57152fbefa1e8aa9d452acc0e",
+    "packages/ui/tests/browser/editor-upload-lifecycle.spec.ts": "b6108d13b59f43dcdda542971091db108b3543687f9c6e6319ed01b60cdb8a75",
+    "packages/ui/tests/browser/hardening-editor-dialogs-presentation.spec.ts": "3cb1e5e5208aac12cc9c2eb567d6f3970662cfd6d7b0549f0b5e3e5deb2dccea",
+    "packages/ui/tests/browser/hardening-rich-editor-presentation.spec.ts": "69fd6929ba08ba4b1aca0bf985ada5c5fc05d30dd417db20314f4c412a6452fd",
+    "packages/ui/tests/browser/inventory-editor-chrome.spec.ts": "42a255a13a1f5130f8e364e594b6430060a3f67da7b90a2844d2225990efd020",
+    "packages/ui/tests/browser/inventory-editor-table-history.spec.ts": "4f318d4e4c42394cf6c3234c23b9183c364cb86d12213ec7b2cfe792eec79c9f",
+    "packages/ui/tests/browser/wave03-editor-chrome-acceptance.spec.ts": "ece29a77d65657c28f1fa1a90afac3750f0a0e56f6d651b82a99c802270b8383",
+    "packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts": "fa2418dc6e2d804ae40651bc5d6f7cca0e77b4ac7faf546b341eaa06e4cb5f4c"
+  },
+  "receiptComparisons": {
+    "rich-editor-presentation/results.json": [
+      {
+        "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+        "recordedSha256": "efa988b430db84a03515476a3888256437d143581558560f73d3229512ecb63a",
+        "currentSha256": "efa988b430db84a03515476a3888256437d143581558560f73d3229512ecb63a",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx",
+        "recordedSha256": "7c043fb1c4db5bb47164cadaf5be8294c1e01697e6841a8c5dde5b44a8493a02",
+        "currentSha256": "7c043fb1c4db5bb47164cadaf5be8294c1e01697e6841a8c5dde5b44a8493a02",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Menu/Menu.module.css",
+        "recordedSha256": "c1291a28693298ea9975a5dc4a68e84bad25093e7aa6999b0db073237a5b47c8",
+        "currentSha256": "c1291a28693298ea9975a5dc4a68e84bad25093e7aa6999b0db073237a5b47c8",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/tests/browser/hardening-rich-editor-presentation.spec.ts",
+        "recordedSha256": "69fd6929ba08ba4b1aca0bf985ada5c5fc05d30dd417db20314f4c412a6452fd",
+        "currentSha256": "69fd6929ba08ba4b1aca0bf985ada5c5fc05d30dd417db20314f4c412a6452fd",
+        "equal": true
+      },
+      {
+        "path": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+        "recordedSha256": "fd5e4d824df6604e1958b6d79a01d5c382a142701608c4c64d01b926377e8060",
+        "currentSha256": "fd5e4d824df6604e1958b6d79a01d5c382a142701608c4c64d01b926377e8060",
+        "equal": true
+      },
+      {
+        "path": "apps/docs/native-fixtures/registry.json",
+        "recordedSha256": "6eefc562d28b6a986c237de16d80f5edfd734faac38bb1355c195a31abc3185b",
+        "currentSha256": "6eefc562d28b6a986c237de16d80f5edfd734faac38bb1355c195a31abc3185b",
+        "equal": true
+      },
+      {
+        "path": "apps/docs/content/component-usage/editor.json",
+        "recordedSha256": "aafe2451e9d131a9fb3e27179d8f9ceb36bfe5060cbfd32d9b09ac8485cdbf90",
+        "currentSha256": "aafe2451e9d131a9fb3e27179d8f9ceb36bfe5060cbfd32d9b09ac8485cdbf90",
+        "equal": true
+      }
+    ],
+    "editor-chrome-presentation/results.json": [
+      {
+        "path": "packages/ui/tests/browser/wave03-editor-chrome-acceptance.spec.ts",
+        "recordedSha256": "ece29a77d65657c28f1fa1a90afac3750f0a0e56f6d651b82a99c802270b8383",
+        "currentSha256": "ece29a77d65657c28f1fa1a90afac3750f0a0e56f6d651b82a99c802270b8383",
+        "equal": true
+      },
+      {
+        "path": "apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
+        "recordedSha256": "194beb0534e51d4f1719d6370499c3f079affeb6f3946b197df5baec96383ada",
+        "currentSha256": "194beb0534e51d4f1719d6370499c3f079affeb6f3946b197df5baec96383ada",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.next100-regression.test.tsx",
+        "recordedSha256": "ef248f551acef10143eeec5531d3a021e6ebee0659c3fca59259d65b37b4e303",
+        "currentSha256": "ef248f551acef10143eeec5531d3a021e6ebee0659c3fca59259d65b37b4e303",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+        "recordedSha256": "d6ad85d669565d337b32c1a81eb8f9f8987783ac36a4445901be5e7314d2a3ff",
+        "currentSha256": "d6ad85d669565d337b32c1a81eb8f9f8987783ac36a4445901be5e7314d2a3ff",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.module.css",
+        "recordedSha256": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+        "currentSha256": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+        "recordedSha256": "9233115d02d4ed62671ccb642760b14894a096c854fbaa92559b912fab3f2cbb",
+        "currentSha256": "9233115d02d4ed62671ccb642760b14894a096c854fbaa92559b912fab3f2cbb",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.module.css",
+        "recordedSha256": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+        "currentSha256": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.next100-regression.test.tsx",
+        "recordedSha256": "690b3b1fcb940dad931410c056691144e8f1031db88655228f45b6f503a93cb8",
+        "currentSha256": "690b3b1fcb940dad931410c056691144e8f1031db88655228f45b6f503a93cb8",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+        "recordedSha256": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+        "currentSha256": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+        "recordedSha256": "e59fb0d1e4c4eeb4cf5331cbfedbb19225bd511f67322d604d6441e3d226d2a8",
+        "currentSha256": "e59fb0d1e4c4eeb4cf5331cbfedbb19225bd511f67322d604d6441e3d226d2a8",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.native-fixture.tsx",
+        "recordedSha256": "73e21fc0eeaae79f6daa0cfb7a5fe07116676962755015340f23fb51cf3af0b5",
+        "currentSha256": "73e21fc0eeaae79f6daa0cfb7a5fe07116676962755015340f23fb51cf3af0b5",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.test.tsx",
+        "recordedSha256": "8b4904dcda2c33713376a667c4039eb42c6d32c92d98fdbe8da7c33754b92c8a",
+        "currentSha256": "8b4904dcda2c33713376a667c4039eb42c6d32c92d98fdbe8da7c33754b92c8a",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.next100-regression.test.tsx",
+        "recordedSha256": "9d8dd1c54c7d563ee66785e2d6e3cb60b4cd912eb29974378f75a8b80a9861a9",
+        "currentSha256": "9d8dd1c54c7d563ee66785e2d6e3cb60b4cd912eb29974378f75a8b80a9861a9",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.module.css",
+        "recordedSha256": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+        "currentSha256": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+        "recordedSha256": "bc51d2f802962a159704dc2b8b327e9ffc98a4fcdc6a79b0b62035b1c5201abd",
+        "currentSha256": "bc51d2f802962a159704dc2b8b327e9ffc98a4fcdc6a79b0b62035b1c5201abd",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+        "recordedSha256": "9806b5dd1349a4961916fb15c179effc8d7737930d5581822b5169ea41b046b5",
+        "currentSha256": "9806b5dd1349a4961916fb15c179effc8d7737930d5581822b5169ea41b046b5",
+        "equal": true
+      }
+    ],
+    "wave-03-integration/push-source-inputs.json": [
+      {
+        "path": "packages/ui/src/experimental/Menu/Menu.module.css",
+        "recordedSha256": "229bcd8fb552cb23f8868c6d94d5f6bed43f238d9593ee76e0ccd797549cfdd5",
+        "currentSha256": "c1291a28693298ea9975a5dc4a68e84bad25093e7aa6999b0db073237a5b47c8",
+        "equal": false
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+        "recordedSha256": "98b8501136f1bb6defb62fe85483935ff4a9152e92e566e99acf7842f9c003c7",
+        "currentSha256": "66f9a08f34d24e3eb4c39c61646af69d9dacacf4e369bac7b18b705701ac94a9",
+        "equal": false
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.native-fixture.tsx",
+        "recordedSha256": "5aca8af3798c8f136185f3f321c6e1ddd3fe4e0b72c34cf6aa5e31b7ee45abf8",
+        "currentSha256": "5aca8af3798c8f136185f3f321c6e1ddd3fe4e0b72c34cf6aa5e31b7ee45abf8",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/EditorUploadLifetime.next100-regression.test.tsx",
+        "recordedSha256": "fe28a2d12c6f8943bc4b16e421b3cf02e0b2f4fbd25cb92658dade79f08f8d31",
+        "currentSha256": "fe28a2d12c6f8943bc4b16e421b3cf02e0b2f4fbd25cb92658dade79f08f8d31",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx",
+        "recordedSha256": "16bc776d2918487ba72ce5180d759efc6205fcf8da7ffa08ee151c9ca16ae0e1",
+        "currentSha256": "16bc776d2918487ba72ce5180d759efc6205fcf8da7ffa08ee151c9ca16ae0e1",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.native-fixture.tsx",
+        "recordedSha256": "1d4e7e0b1599952dc04c70231d07e963d5c09c8e047a6d4e1aebfa26b40801c3",
+        "currentSha256": "1d4e7e0b1599952dc04c70231d07e963d5c09c8e047a6d4e1aebfa26b40801c3",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.test.tsx",
+        "recordedSha256": "9799cc5bf1ee8be6daea9d5931e64767fc08c74696825f3f543fae91540e3baa",
+        "currentSha256": "9799cc5bf1ee8be6daea9d5931e64767fc08c74696825f3f543fae91540e3baa",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.command-transactions.test.tsx",
+        "recordedSha256": "0b366e44ca87a65d38557f7e62a6b650c18da8186bc93d270af7f2545e920b64",
+        "currentSha256": "0b366e44ca87a65d38557f7e62a6b650c18da8186bc93d270af7f2545e920b64",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.next100-regression.test.tsx",
+        "recordedSha256": "9acb1ab1a39b2c174dd7eb570fbb9d4cbcbfef5edc622a5f3eeb79403babc322",
+        "currentSha256": "9acb1ab1a39b2c174dd7eb570fbb9d4cbcbfef5edc622a5f3eeb79403babc322",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.scroll.test.tsx",
+        "recordedSha256": "d3279262a1ba890201c03eb571430ecef0485f670de1c76cb4f58f722bcf49d0",
+        "currentSha256": "d3279262a1ba890201c03eb571430ecef0485f670de1c76cb4f58f722bcf49d0",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx",
+        "recordedSha256": "f90ba9f571c7ae6e31b4c80a385de50de0a422e311f0e308d3b95edd997e256d",
+        "currentSha256": "da15c3fd6463562a542b2ccf14e2b8869bddbb479cc0b72ce056ad22a114ac3b",
+        "equal": false
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.test.tsx",
+        "recordedSha256": "7c11815bc6427cd3600df4098c6e1360528538c3ff88dbe77ade5eb34a2487e8",
+        "currentSha256": "7c11815bc6427cd3600df4098c6e1360528538c3ff88dbe77ade5eb34a2487e8",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.test.tsx",
+        "recordedSha256": "69eaa6da7f83f2a557e393d88a5562d18015799cc99d28508f8e604bec6b6fbd",
+        "currentSha256": "69eaa6da7f83f2a557e393d88a5562d18015799cc99d28508f8e604bec6b6fbd",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.formatting.test.tsx",
+        "recordedSha256": "2b5691afd78c80795864e7e5ece23aff403c4d48071e6e72df239d00ddf28795",
+        "currentSha256": "2b5691afd78c80795864e7e5ece23aff403c4d48071e6e72df239d00ddf28795",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/index.ts",
+        "recordedSha256": "f0295ecb274a4492d549dca92ae1085ee339edc5bfc4bb3d6258a442d83b6a5d",
+        "currentSha256": "f0295ecb274a4492d549dca92ae1085ee339edc5bfc4bb3d6258a442d83b6a5d",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.tsx",
+        "recordedSha256": "442561ce61fb2972317c64b023ddc4d8e5596e092dc16c9b4a89da9dd6ad7dfb",
+        "currentSha256": "442561ce61fb2972317c64b023ddc4d8e5596e092dc16c9b4a89da9dd6ad7dfb",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx",
+        "recordedSha256": "444c156a66281def43c29bc8ae5d631a1794ef388c5d74c18c9332f98d75d240",
+        "currentSha256": "444c156a66281def43c29bc8ae5d631a1794ef388c5d74c18c9332f98d75d240",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css",
+        "recordedSha256": "1517b9831227350371747286df138b975f1c5774ec93e64af6a7de4a10ebc4dd",
+        "currentSha256": "1517b9831227350371747286df138b975f1c5774ec93e64af6a7de4a10ebc4dd",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.floating.test.tsx",
+        "recordedSha256": "1ad57adb6e2177d00862a65c8cf70deb015068e60395f28603c6a77fad7e1d5c",
+        "currentSha256": "1ad57adb6e2177d00862a65c8cf70deb015068e60395f28603c6a77fad7e1d5c",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.table-history.test.tsx",
+        "recordedSha256": "d8dbe919f5e60f1711176f5d43a9b9e5dc2f6e899715db4a1635b33fb8d21c7d",
+        "currentSha256": "d8dbe919f5e60f1711176f5d43a9b9e5dc2f6e899715db4a1635b33fb8d21c7d",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.native-fixtures.ts",
+        "recordedSha256": "da40807724e3e5f254c1310159d6c1434a7487a08480316c8f0dae8a2311daeb",
+        "currentSha256": "da40807724e3e5f254c1310159d6c1434a7487a08480316c8f0dae8a2311daeb",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts",
+        "recordedSha256": "04f602901da068b508109399704df42ecef59b359a2abfddb9b7ecadcc3b1b80",
+        "currentSha256": "04f602901da068b508109399704df42ecef59b359a2abfddb9b7ecadcc3b1b80",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.ts",
+        "recordedSha256": "679d75b3ebe56a158e63448ecf36626f87d3668822558817eed4c824860e164f",
+        "currentSha256": "679d75b3ebe56a158e63448ecf36626f87d3668822558817eed4c824860e164f",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx",
+        "recordedSha256": "dc93ca33bcb27f19e374231a777432d2b717e28ef22b014e36cafe4c51fe5b25",
+        "currentSha256": "dc93ca33bcb27f19e374231a777432d2b717e28ef22b014e36cafe4c51fe5b25",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.test.ts",
+        "recordedSha256": "3edab46c07bb2ea8a566292e00afdb683b5f53700a22df0824e5a7b4622fa6d1",
+        "currentSha256": "3edab46c07bb2ea8a566292e00afdb683b5f53700a22df0824e5a7b4622fa6d1",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx",
+        "recordedSha256": "a88e2c6eec3624a29c4f8f6e64c7cde24fc9e32de97419a359085976fe178b23",
+        "currentSha256": "a88e2c6eec3624a29c4f8f6e64c7cde24fc9e32de97419a359085976fe178b23",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/imagePayloadPolicy.ts",
+        "recordedSha256": "a11473b0bb8f0195b56ba7b6eb516507599881473c40fa5ea391fe672bf282f1",
+        "currentSha256": "a11473b0bb8f0195b56ba7b6eb516507599881473c40fa5ea391fe672bf282f1",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.test.ts",
+        "recordedSha256": "8f5286820349d68ba21b8eadb35b4723aeeb9c132b43fdf38dc2834dcf7837bb",
+        "currentSha256": "8f5286820349d68ba21b8eadb35b4723aeeb9c132b43fdf38dc2834dcf7837bb",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx",
+        "recordedSha256": "9a27a72ffb2b94f1b4ca649edc1438597cc1034d03943ed818c76051f15678cd",
+        "currentSha256": "9a27a72ffb2b94f1b4ca649edc1438597cc1034d03943ed818c76051f15678cd",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.test.ts",
+        "recordedSha256": "675e661bd7200c01b6433dbbb2e3ce25da9fce46d0023a978987ff1a7e661b8f",
+        "currentSha256": "675e661bd7200c01b6433dbbb2e3ce25da9fce46d0023a978987ff1a7e661b8f",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.test.ts",
+        "recordedSha256": "4bc7e44328b4749b3512e5155ded653798ce48b0015f74de91bdc008f1a1de22",
+        "currentSha256": "4bc7e44328b4749b3512e5155ded653798ce48b0015f74de91bdc008f1a1de22",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx",
+        "recordedSha256": "1c628ea3dd9d38ba95eb4dd34b616ea9bb9f9d045d86d7e1d5037f770c9fafb0",
+        "currentSha256": "1c628ea3dd9d38ba95eb4dd34b616ea9bb9f9d045d86d7e1d5037f770c9fafb0",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.acceptance-successors.test.ts",
+        "recordedSha256": "5ac20bcdeeed805f950d54fda1318d12e0458b696fd26ec0a5670bfe7793657b",
+        "currentSha256": "5ac20bcdeeed805f950d54fda1318d12e0458b696fd26ec0a5670bfe7793657b",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx",
+        "recordedSha256": "31c8e90cba0d0ab91a59ca02822f6970639ae94b8d486784486a92068658dce2",
+        "currentSha256": "31c8e90cba0d0ab91a59ca02822f6970639ae94b8d486784486a92068658dce2",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+        "recordedSha256": "a8c17fbe35ada8fd518358d90100418f2ce49ff167e30ffe28f9395612e9198c",
+        "currentSha256": "a8c17fbe35ada8fd518358d90100418f2ce49ff167e30ffe28f9395612e9198c",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.test.ts",
+        "recordedSha256": "5e599f98aa1f48bf8e3e6797930aeb47790b00d47ded5250eb88e1ba641cea31",
+        "currentSha256": "5e599f98aa1f48bf8e3e6797930aeb47790b00d47ded5250eb88e1ba641cea31",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.ts",
+        "recordedSha256": "ef56953b5bc62531bc8ac841a9e6e940535f0bbab1fd0096a71c0776daeeaab1",
+        "currentSha256": "ef56953b5bc62531bc8ac841a9e6e940535f0bbab1fd0096a71c0776daeeaab1",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.ts",
+        "recordedSha256": "3bbe210e5924078e1c440ea9c9f2de8bad63252ff9d4d6714e5091106f7857ce",
+        "currentSha256": "3bbe210e5924078e1c440ea9c9f2de8bad63252ff9d4d6714e5091106f7857ce",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.module.css",
+        "recordedSha256": "078a397cfd0abd77137b6bbd4f735e047e8792b4251e7789e5a0901977c0a16e",
+        "currentSha256": "078a397cfd0abd77137b6bbd4f735e047e8792b4251e7789e5a0901977c0a16e",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.tsx",
+        "recordedSha256": "34293bf4ab6b0d3e273c82ac374ed721020b55e48189ef5a6cca1593dd7e1714",
+        "currentSha256": "34293bf4ab6b0d3e273c82ac374ed721020b55e48189ef5a6cca1593dd7e1714",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx",
+        "recordedSha256": "50bedefc5519fd9a1584ecc21d764d3a7026dfc0cd8395712c10db636b104ae4",
+        "currentSha256": "50bedefc5519fd9a1584ecc21d764d3a7026dfc0cd8395712c10db636b104ae4",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.module.css",
+        "recordedSha256": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+        "currentSha256": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.next100-regression.test.tsx",
+        "recordedSha256": "690b3b1fcb940dad931410c056691144e8f1031db88655228f45b6f503a93cb8",
+        "currentSha256": "690b3b1fcb940dad931410c056691144e8f1031db88655228f45b6f503a93cb8",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+        "recordedSha256": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+        "currentSha256": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+        "recordedSha256": "e59fb0d1e4c4eeb4cf5331cbfedbb19225bd511f67322d604d6441e3d226d2a8",
+        "currentSha256": "e59fb0d1e4c4eeb4cf5331cbfedbb19225bd511f67322d604d6441e3d226d2a8",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.native-fixture.tsx",
+        "recordedSha256": "73e21fc0eeaae79f6daa0cfb7a5fe07116676962755015340f23fb51cf3af0b5",
+        "currentSha256": "73e21fc0eeaae79f6daa0cfb7a5fe07116676962755015340f23fb51cf3af0b5",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.test.tsx",
+        "recordedSha256": "8b4904dcda2c33713376a667c4039eb42c6d32c92d98fdbe8da7c33754b92c8a",
+        "currentSha256": "8b4904dcda2c33713376a667c4039eb42c6d32c92d98fdbe8da7c33754b92c8a",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/InsertContentMenuControl/NativeInsertionHost.test.tsx",
+        "recordedSha256": "01418453f64b0984f0742d249f13716a6067d9e7c6823dc91f4c95e8344a4dc7",
+        "currentSha256": "01418453f64b0984f0742d249f13716a6067d9e7c6823dc91f4c95e8344a4dc7",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.test.tsx",
+        "recordedSha256": "14776150b445adf2b3b8ef61117dcf1fe1a12e65c02dcad1e34864d4465b4adc",
+        "currentSha256": "14776150b445adf2b3b8ef61117dcf1fe1a12e65c02dcad1e34864d4465b4adc",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/InsertContentMenuControl/NativeInsertionHost.native-fixture.tsx",
+        "recordedSha256": "154958ed73cc7a36a77dbf5de41a6933eb88e1d39db81b1aed9c0877e6089cbc",
+        "currentSha256": "154958ed73cc7a36a77dbf5de41a6933eb88e1d39db81b1aed9c0877e6089cbc",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+        "recordedSha256": "327506bd28002617c84b95e511ca2e8d17260d7e0f0eac07c62615968b4c0467",
+        "currentSha256": "327506bd28002617c84b95e511ca2e8d17260d7e0f0eac07c62615968b4c0467",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/InsertContentMenuControl/index.ts",
+        "recordedSha256": "dea9b7e43d5027b133ee8fd9e222b3161c746440867cec3e4225b95bec8ab37e",
+        "currentSha256": "dea9b7e43d5027b133ee8fd9e222b3161c746440867cec3e4225b95bec8ab37e",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.next100-regression.test.tsx",
+        "recordedSha256": "531342833dd6f9b56899ffa785a373550b4646ef575d487a5cb900497c3804bb",
+        "currentSha256": "531342833dd6f9b56899ffa785a373550b4646ef575d487a5cb900497c3804bb",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.next100-regression.test.tsx",
+        "recordedSha256": "6ea4695eefcf7617e8794c938e92df00c7c0fd2c16cf8d7a9acabcccaa21fc56",
+        "currentSha256": "6ea4695eefcf7617e8794c938e92df00c7c0fd2c16cf8d7a9acabcccaa21fc56",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+        "recordedSha256": "d400cbf32aacc9e2ac8337661f39d05f03af2b3646403230773720866a481905",
+        "currentSha256": "efa988b430db84a03515476a3888256437d143581558560f73d3229512ecb63a",
+        "equal": false
+      },
+      {
+        "path": "packages/ui/src/components/FloatingTextSelectionToolbar/index.ts",
+        "recordedSha256": "28f71527a435fb4d05a2b9bb71a0ec426ff4c01d36595995ea8b5375db53466b",
+        "currentSha256": "28f71527a435fb4d05a2b9bb71a0ec426ff4c01d36595995ea8b5375db53466b",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx",
+        "recordedSha256": "0e1713dfee913e965811a67fd6e27723377d5fe8f6e2a98af49186104a8580d3",
+        "currentSha256": "7c043fb1c4db5bb47164cadaf5be8294c1e01697e6841a8c5dde5b44a8493a02",
+        "equal": false
+      },
+      {
+        "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.module.css",
+        "recordedSha256": "790ff260c6749b2571a4139e37175e38cf85be8471f28e936232bdc55c46902b",
+        "currentSha256": "790ff260c6749b2571a4139e37175e38cf85be8471f28e936232bdc55c46902b",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.next100-regression.test.tsx",
+        "recordedSha256": "29f5a276a7e4a39735c8da2fd26979696fefb16879a747a4b6e1088af8583e63",
+        "currentSha256": "29f5a276a7e4a39735c8da2fd26979696fefb16879a747a4b6e1088af8583e63",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.tsx",
+        "recordedSha256": "ff0e947da7358f2d1853cd465bbd4774c35cd7c109b37db834db7873d743d86b",
+        "currentSha256": "ff0e947da7358f2d1853cd465bbd4774c35cd7c109b37db834db7873d743d86b",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.module.css",
+        "recordedSha256": "12cb76575286c114f9e93a136f84c32d013a2e0b71ef3344553261c4141d7cf8",
+        "currentSha256": "12cb76575286c114f9e93a136f84c32d013a2e0b71ef3344553261c4141d7cf8",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+        "recordedSha256": "1aff1a85d3ab8feb041a1d607fcdf401f34b1dd9a53e2abf0ef298eab338c8a0",
+        "currentSha256": "1aff1a85d3ab8feb041a1d607fcdf401f34b1dd9a53e2abf0ef298eab338c8a0",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextColorPickerControl/index.ts",
+        "recordedSha256": "2a0b5431a8d8bfe9b945c38e097ba1a3dad935ab65acc67efa4ca2670a78547c",
+        "currentSha256": "2a0b5431a8d8bfe9b945c38e097ba1a3dad935ab65acc67efa4ca2670a78547c",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.test.tsx",
+        "recordedSha256": "5abd54edd2004b3e956710f7436f553799cbf4053709ff62d6b2c91d44bfbc3b",
+        "currentSha256": "5abd54edd2004b3e956710f7436f553799cbf4053709ff62d6b2c91d44bfbc3b",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.next100-regression.test.tsx",
+        "recordedSha256": "1cef5c9f85d9e54b21d727501bdc1b3c9fa2ca8789066ede08bab95b620ad760",
+        "currentSha256": "1cef5c9f85d9e54b21d727501bdc1b3c9fa2ca8789066ede08bab95b620ad760",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.module.css",
+        "recordedSha256": "2846481ddb7808aa026db3c698bf2c1b3409eff5d3ae0062744db2a9dd3f4fab",
+        "currentSha256": "2846481ddb7808aa026db3c698bf2c1b3409eff5d3ae0062744db2a9dd3f4fab",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx",
+        "recordedSha256": "329d9b8ce5e52ce67e4391deadc84736d6d0494a0f9fd96fd2a98828e7353028",
+        "currentSha256": "329d9b8ce5e52ce67e4391deadc84736d6d0494a0f9fd96fd2a98828e7353028",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+        "recordedSha256": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+        "currentSha256": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx",
+        "recordedSha256": "011bb91c68950f93c485a986428be52cd062cf22a66a86d40cab5693ef244263",
+        "currentSha256": "011bb91c68950f93c485a986428be52cd062cf22a66a86d40cab5693ef244263",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/RichTextFormattingToolbar/index.ts",
+        "recordedSha256": "838939d5c35c4fb41ae342ef16fff1c80bf1276a17b51af557930784346dd12a",
+        "currentSha256": "838939d5c35c4fb41ae342ef16fff1c80bf1276a17b51af557930784346dd12a",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.next100-regression.test.tsx",
+        "recordedSha256": "ef248f551acef10143eeec5531d3a021e6ebee0659c3fca59259d65b37b4e303",
+        "currentSha256": "ef248f551acef10143eeec5531d3a021e6ebee0659c3fca59259d65b37b4e303",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+        "recordedSha256": "d6ad85d669565d337b32c1a81eb8f9f8987783ac36a4445901be5e7314d2a3ff",
+        "currentSha256": "d6ad85d669565d337b32c1a81eb8f9f8987783ac36a4445901be5e7314d2a3ff",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.module.css",
+        "recordedSha256": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+        "currentSha256": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+        "recordedSha256": "9233115d02d4ed62671ccb642760b14894a096c854fbaa92559b912fab3f2cbb",
+        "currentSha256": "9233115d02d4ed62671ccb642760b14894a096c854fbaa92559b912fab3f2cbb",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+        "recordedSha256": "e692f8ae17c2b09babf5ea79fbe60d3d525da8b652ff4abbebbbdb121e2e7837",
+        "currentSha256": "e692f8ae17c2b09babf5ea79fbe60d3d525da8b652ff4abbebbbdb121e2e7837",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.next100-regression.test.tsx",
+        "recordedSha256": "32a876cf65e9e852d5730a8dd8dbbc60688a844694f23724ad91a560e5ed53df",
+        "currentSha256": "32a876cf65e9e852d5730a8dd8dbbc60688a844694f23724ad91a560e5ed53df",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.module.css",
+        "recordedSha256": "f074672a97a88b76fe8f9dc9a2180b6d75f2a635b3293cef86e6b925385a9201",
+        "currentSha256": "f074672a97a88b76fe8f9dc9a2180b6d75f2a635b3293cef86e6b925385a9201",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.test.tsx",
+        "recordedSha256": "4b99c0caa978cdb30a4de3c0642315260793e3b35c18a3004efe682584123390",
+        "currentSha256": "4b99c0caa978cdb30a4de3c0642315260793e3b35c18a3004efe682584123390",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextAlignMenuControl/index.ts",
+        "recordedSha256": "58d150ba924811cb33c347acf0c0256a71b1922bc819c531e95a6c2bfc94ba71",
+        "currentSha256": "58d150ba924811cb33c347acf0c0256a71b1922bc819c531e95a6c2bfc94ba71",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.module.css",
+        "recordedSha256": "f19819e1222cd494f397b23cd5aa735c3a507c9989e4a9d6536a406d848c0f35",
+        "currentSha256": "f19819e1222cd494f397b23cd5aa735c3a507c9989e4a9d6536a406d848c0f35",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.next100-regression.test.tsx",
+        "recordedSha256": "813540744f064d43396a9c85e118860a96c509c595d944cb56fa29c79001816e",
+        "currentSha256": "813540744f064d43396a9c85e118860a96c509c595d944cb56fa29c79001816e",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextStyleMenuControl/NativeSelection.module.css",
+        "recordedSha256": "1625320836e2ec8619bca3008dfed79560eb9e171054975a142f842bbb5ef099",
+        "currentSha256": "1625320836e2ec8619bca3008dfed79560eb9e171054975a142f842bbb5ef099",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+        "recordedSha256": "7e95472cca2d25a816ed88fc751f7b8582543050448b97ac593b0518e5ab2428",
+        "currentSha256": "7e95472cca2d25a816ed88fc751f7b8582543050448b97ac593b0518e5ab2428",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx",
+        "recordedSha256": "7e1a7f7cfd66d53d75dad025b5effd30d24e54b2a224677def714109873ae1d4",
+        "currentSha256": "7e1a7f7cfd66d53d75dad025b5effd30d24e54b2a224677def714109873ae1d4",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/TextStyleMenuControl/index.ts",
+        "recordedSha256": "e3ddeceb90a169b07884677c5aa909b7e3c678802750e0347e1a0976d2578724",
+        "currentSha256": "e3ddeceb90a169b07884677c5aa909b7e3c678802750e0347e1a0976d2578724",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.next100-regression.test.tsx",
+        "recordedSha256": "9d8dd1c54c7d563ee66785e2d6e3cb60b4cd912eb29974378f75a8b80a9861a9",
+        "currentSha256": "9d8dd1c54c7d563ee66785e2d6e3cb60b4cd912eb29974378f75a8b80a9861a9",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.module.css",
+        "recordedSha256": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+        "currentSha256": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+        "recordedSha256": "bc51d2f802962a159704dc2b8b327e9ffc98a4fcdc6a79b0b62035b1c5201abd",
+        "currentSha256": "bc51d2f802962a159704dc2b8b327e9ffc98a4fcdc6a79b0b62035b1c5201abd",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+        "recordedSha256": "9806b5dd1349a4961916fb15c179effc8d7737930d5581822b5169ea41b046b5",
+        "currentSha256": "9806b5dd1349a4961916fb15c179effc8d7737930d5581822b5169ea41b046b5",
+        "equal": true
+      },
+      {
+        "path": "apps/docs/content/component-usage/editor.json",
+        "recordedSha256": "1f790cb1336462a810ccfe9229da79b788c28dde59cc3cb2a1344a112fe6ac2c",
+        "currentSha256": "aafe2451e9d131a9fb3e27179d8f9ceb36bfe5060cbfd32d9b09ac8485cdbf90",
+        "equal": false
+      },
+      {
+        "path": "apps/docs/native-fixtures/registry.json",
+        "recordedSha256": "bb4813701dff4b8d9929a83d1904f609d405e81d86ccf2de5b7aa4b277e8ea6e",
+        "currentSha256": "6eefc562d28b6a986c237de16d80f5edfd734faac38bb1355c195a31abc3185b",
+        "equal": false
+      },
+      {
+        "path": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+        "recordedSha256": "6fdf8e185542fbe7439629993f9c18edc2845d1c3f9785b8db6586ff9cb325ab",
+        "currentSha256": "fd5e4d824df6604e1958b6d79a01d5c382a142701608c4c64d01b926377e8060",
+        "equal": false
+      },
+      {
+        "path": "apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
+        "recordedSha256": "194beb0534e51d4f1719d6370499c3f079affeb6f3946b197df5baec96383ada",
+        "currentSha256": "194beb0534e51d4f1719d6370499c3f079affeb6f3946b197df5baec96383ada",
+        "equal": true
+      }
+    ],
+    "wave-03-followup/validated-source-inputs.json": [
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx",
+        "recordedSha256": "da15c3fd6463562a542b2ccf14e2b8869bddbb479cc0b72ce056ad22a114ac3b",
+        "currentSha256": "da15c3fd6463562a542b2ccf14e2b8869bddbb479cc0b72ce056ad22a114ac3b",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+        "recordedSha256": "66f9a08f34d24e3eb4c39c61646af69d9dacacf4e369bac7b18b705701ac94a9",
+        "currentSha256": "66f9a08f34d24e3eb4c39c61646af69d9dacacf4e369bac7b18b705701ac94a9",
+        "equal": true
+      },
+      {
+        "path": "packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts",
+        "recordedSha256": "fa2418dc6e2d804ae40651bc5d6f7cca0e77b4ac7faf546b341eaa06e4cb5f4c",
+        "currentSha256": "fa2418dc6e2d804ae40651bc5d6f7cca0e77b4ac7faf546b341eaa06e4cb5f4c",
+        "equal": true
+      }
+    ]
+  },
+  "limits": "Hash equality retains named prior results; it is not execution. Changed historical inputs require the later named correction receipt. No new runtime acceptance claimed."
+}

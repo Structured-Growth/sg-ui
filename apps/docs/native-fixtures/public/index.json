@@ -1941,6 +1941,16 @@
       "importPath": "./scenarios/components/AppDataGrid/ownedGridInteraction.fixture.tsx",
       "original": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.stories.tsx"
     },
+    "migration-proofs-catalog-grid-interaction--selected-focus-retention": {
+      "id": "migration-proofs-catalog-grid-interaction--selected-focus-retention",
+      "type": "fixture",
+      "title": "Migration proofs/Catalog grid interaction",
+      "name": "SelectedFocusRetention",
+      "exportName": "SelectedFocusRetention",
+      "module": "./scenarios/components/AppDataGrid/ownedGridInteraction.fixture.tsx",
+      "importPath": "./scenarios/components/AppDataGrid/ownedGridInteraction.fixture.tsx",
+      "original": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.stories.tsx"
+    },
     "migration-proofs-catalog-grid-interaction--busy-lifecycle": {
       "id": "migration-proofs-catalog-grid-interaction--busy-lifecycle",
       "type": "fixture",
@@ -5070,6 +5080,56 @@
       "module": "./scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx",
       "importPath": "./scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx",
       "original": "apps/docs/native-fixtures/scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx"
+    },
+    "acceptance-target-sizes--color-targets": {
+      "id": "acceptance-target-sizes--color-targets",
+      "type": "fixture",
+      "title": "Acceptance/Target sizes",
+      "name": "ColorTargets",
+      "exportName": "ColorTargets",
+      "module": "./scenarios/foundation/TargetSizes.fixture.tsx",
+      "importPath": "./scenarios/foundation/TargetSizes.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/foundation/TargetSizes.fixture.tsx"
+    },
+    "acceptance-target-sizes--label-targets": {
+      "id": "acceptance-target-sizes--label-targets",
+      "type": "fixture",
+      "title": "Acceptance/Target sizes",
+      "name": "LabelTargets",
+      "exportName": "LabelTargets",
+      "module": "./scenarios/foundation/TargetSizes.fixture.tsx",
+      "importPath": "./scenarios/foundation/TargetSizes.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/foundation/TargetSizes.fixture.tsx"
+    },
+    "acceptance-target-sizes--date-targets": {
+      "id": "acceptance-target-sizes--date-targets",
+      "type": "fixture",
+      "title": "Acceptance/Target sizes",
+      "name": "DateTargets",
+      "exportName": "DateTargets",
+      "module": "./scenarios/foundation/TargetSizes.fixture.tsx",
+      "importPath": "./scenarios/foundation/TargetSizes.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/foundation/TargetSizes.fixture.tsx"
+    },
+    "acceptance-target-sizes--resize-targets": {
+      "id": "acceptance-target-sizes--resize-targets",
+      "type": "fixture",
+      "title": "Acceptance/Target sizes",
+      "name": "ResizeTargets",
+      "exportName": "ResizeTargets",
+      "module": "./scenarios/foundation/TargetSizes.fixture.tsx",
+      "importPath": "./scenarios/foundation/TargetSizes.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/foundation/TargetSizes.fixture.tsx"
+    },
+    "acceptance-validation-contrast--success": {
+      "id": "acceptance-validation-contrast--success",
+      "type": "fixture",
+      "title": "Acceptance/Validation contrast",
+      "name": "Success",
+      "exportName": "Success",
+      "module": "./scenarios/foundation/ValidationContrast.fixture.tsx",
+      "importPath": "./scenarios/foundation/ValidationContrast.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/foundation/ValidationContrast.fixture.tsx"
     }
   }
 }

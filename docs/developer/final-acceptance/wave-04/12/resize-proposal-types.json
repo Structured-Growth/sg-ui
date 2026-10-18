@@ -1,0 +1,7 @@
+{
+  "node": "v24.19.0",
+  "typescript": "5.9.3",
+  "diagnostics": 0,
+  "detail": "",
+  "scope": "Proposed Dialog and imported source closure, in-memory no emit; no runtime validation"
+}

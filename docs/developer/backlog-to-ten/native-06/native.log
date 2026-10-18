@@ -1,0 +1,23 @@
+
+Running 12 tests using 1 worker
+
+(node:27092) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/current-target-sizes.spec.ts:76:1 › color targets keep pointer sizing and enlarge actual touch controls (1.6s)
+  ✓   2 [chromium] › tests/browser/current-target-sizes.spec.ts:78:1 › hidden and short labels expose active touch hit regions (2.9s)
+  ✓   3 [chromium] › tests/browser/current-target-sizes.spec.ts:92:1 › calendar quarter and inline range retain shared targets and prose exception (2.0s)
+  ✓   4 [chromium] › tests/browser/current-target-sizes.spec.ts:93:1 › resize equivalents meet touch geometry before narrow handle exception (2.8s)
+(node:27480) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [firefox] › tests/browser/current-target-sizes.spec.ts:76:1 › color targets keep pointer sizing and enlarge actual touch controls (1.8s)
+  ✓   6 [firefox] › tests/browser/current-target-sizes.spec.ts:78:1 › hidden and short labels expose active touch hit regions (2.4s)
+  ✓   7 [firefox] › tests/browser/current-target-sizes.spec.ts:92:1 › calendar quarter and inline range retain shared targets and prose exception (2.0s)
+  ✓   8 [firefox] › tests/browser/current-target-sizes.spec.ts:93:1 › resize equivalents meet touch geometry before narrow handle exception (2.4s)
+(node:27821) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [webkit] › tests/browser/current-target-sizes.spec.ts:76:1 › color targets keep pointer sizing and enlarge actual touch controls (2.4s)
+  ✓  10 [webkit] › tests/browser/current-target-sizes.spec.ts:78:1 › hidden and short labels expose active touch hit regions (3.0s)
+  ✓  11 [webkit] › tests/browser/current-target-sizes.spec.ts:92:1 › calendar quarter and inline range retain shared targets and prose exception (2.3s)
+  ✓  12 [webkit] › tests/browser/current-target-sizes.spec.ts:93:1 › resize equivalents meet touch geometry before narrow handle exception (3.0s)
+
+  12 passed (31.0s)

@@ -33,8 +33,9 @@ async function visibleFocus(control: Locator) {
     const main = element.closest('main')!.getBoundingClientRect();
     const hit = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2);
     const style = getComputedStyle(element);
+    const outline = Math.max(0, (parseFloat(style.outlineWidth) || 0) + (parseFloat(style.outlineOffset) || 0));
     return rect.left >= main.left && rect.right <= main.right + 1
-      && rect.top >= main.top && rect.bottom <= main.bottom + 1
+      && rect.top - outline >= main.top && rect.bottom + outline <= main.bottom + 1
       && rect.top >= 0 && rect.bottom <= innerHeight + 1
       && Boolean(hit && element.contains(hit))
       && style.outlineStyle !== 'none' && parseFloat(style.outlineWidth) > 0;

@@ -1,0 +1,48 @@
+{
+  "steps": [
+    {
+      "name": "package-audit",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/check-package.mjs",
+        "--retain-packed=/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/bundles-02/package"
+      ],
+      "passed": true
+    },
+    {
+      "name": "installed-consumer",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/run-acceptance-consumers.mjs",
+        "--tarball",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/bundles-02/package/structured-growth-sg-ui-0.0.0-development.tgz",
+        "--expected-sha256",
+        "238c37c0b6c0c705cb4da9000f43ae4e6ddcb023c51dde955b8ef318e746a56c",
+        "--output",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/bundles-02/matrix",
+        "--only",
+        "foundation19"
+      ],
+      "passed": true
+    },
+    {
+      "name": "import-bundles",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/audit-packed-import-boundaries.mjs",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/bundles-02/matrix/fixtures/sgui-foundation-consumer-ouwNUx",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/bundles-02/import-bundles.json"
+      ],
+      "passed": true
+    }
+  ],
+  "limits": [
+    "Local retained candidate only; no official Actions artifact or release claim.",
+    "React19.2.3/Node24 measured here; prior broader compatibility receipts retain their exact scope."
+  ],
+  "node": "v24.19.0",
+  "dist": "902453680cd73b814aa646fec06356e836c6a2227f384f6f7de0b7f8a3a5569d",
+  "archive": {
+    "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/bundles-02/package/structured-growth-sg-ui-0.0.0-development.tgz",
+    "sha256": "238c37c0b6c0c705cb4da9000f43ae4e6ddcb023c51dde955b8ef318e746a56c"
+  },
+  "complete": true,
+  "finishedAt": "2026-10-18T22:13:55.879Z"
+}

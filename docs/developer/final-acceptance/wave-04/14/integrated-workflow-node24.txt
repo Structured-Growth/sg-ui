@@ -1,0 +1,18 @@
+✔ merged workflow actions match captured upstream SHA identities; all shell blocks parse (113.762042ms)
+✔ freshness uploads and exact-head validation preserve mandatory matrix and production triggers (1.121709ms)
+✔ emitted prompt preserves hostile-looking task data and spells out semantic scope/evidence (2.245125ms)
+✔ capture and proposal enforce the same permitted component paths and shared-path exclusions (34.430375ms)
+✔ PR body retains multiline author evidence as data and selects only the title (0.792125ms)
+✔ missing/empty sections and absent title fail instead of generating a misleading PR (6.072ms)
+✔ receipt carries exact proposal identity, actual configured checks, run link and limitations (0.703292ms)
+✔ generated validation is separate from write credentials and draft head calls full CI explicitly (0.11775ms)
+✔ write job rejects patch bytes replaced during generated validation (0.608958ms)
+✔ missing draft identity fails before the full CI call (0.324667ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 187.564292

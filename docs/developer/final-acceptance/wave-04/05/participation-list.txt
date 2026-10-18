@@ -1,0 +1,8 @@
+Listing tests:
+  [chromium] › wave04-form-participation.spec.ts:36:3 › native CDP contact autofill preserves uncontrolled host and form ownership
+  [chromium] › wave04-form-participation.spec.ts:36:3 › native CDP contact autofill preserves accepting host and form ownership
+  [chromium] › wave04-form-participation.spec.ts:36:3 › native CDP contact autofill preserves rejecting host and form ownership
+  [chromium] › wave04-form-participation.spec.ts:92:1 › independent fieldset names, help/errors and external multiline reset retain unique associations
+  [firefox] › wave04-form-participation.spec.ts:92:1 › independent fieldset names, help/errors and external multiline reset retain unique associations
+  [webkit] › wave04-form-participation.spec.ts:92:1 › independent fieldset names, help/errors and external multiline reset retain unique associations
+Total: 6 tests in 1 file

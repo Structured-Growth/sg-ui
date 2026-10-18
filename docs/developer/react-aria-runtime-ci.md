@@ -65,12 +65,30 @@ R-12 artifacts are emitted separately for each runtime, with an explicit
 | `ai-proposal` | Proposed patch and summary from the manual AI workflow | Implementation job succeeds |
 
 The minimum-runtime validation job has a 30-minute limit; Node 24 has a 60-minute
-limit with a 45-minute browser step budget. The latest inspected full run
+limit. Three independent native jobs each retain one worker, zero retries and a
+45-minute browser step within a 60-minute job. The runtime jobs depend on all
+three; an explicit dependency-result check fails their stable required contexts
+when an engine fails or is skipped. Before packing validation is completed, Node24
+joins all three collected/executed test inventories and build receipts to its own
+head, run, source-input hash and exact compiled distribution.
+`sgui-native-{chromium,firefox,webkit}-node-24` artifacts retain engine receipts,
+complete collection/execution JSON and failure traces for fourteen days.
+`verify-native-ci.mjs` reads downloaded JSON as data with root-containment and
+regular-file checks; it never executes downloaded artifact content.
+This split follows run39140558308 reaching1645/2499 cases in the prior serial
+45-minute step. It changes execution placement, not collection, retries, workers
+or the ordinary-dev automatic-CI exception. A new successful full run remains
+required. The latest inspected full run
 [37873270629](https://github.com/Structured-Growth/sg-ui/actions/runs/37873270629)
 exhausted its former 30-minute job limit during browser execution (25m28s in that
 step, 1,132 of 1,521 executions started). This supports increasing the budget, not
 claiming the expanded suite passes; the new budget still needs a current full run.
-The separate docs job retains its 20-minute limit pending measured evidence.
+Run [39098705687](https://github.com/Structured-Growth/sg-ui/actions/runs/39098705687)
+reached 233 of 245 docs browser cases before the 20-minute job limit. The docs job
+now has 30 minutes, including build/setup and failure-artifact retention; the new
+budget still requires a successful current-candidate run. Its three original
+docs assertion failures and clean-output unit resolution failure remain retained
+in `backlog-to-ten/ci-01`; extending time does not repair those failures.
 
 The pnpm store cache is keyed explicitly by root `pnpm-lock.yaml`; neither dist,
 native fixture output nor Next output is restored from cache.
@@ -160,3 +178,30 @@ image width zero and mandatory image errors. A byte audit found an invalid IDAT
 CRC in that fixture and the initial SavedRichDocument fixture. Both now use a
 generated 1×1 RGBA PNG with valid chunk CRCs and a verified decompressed scanline.
 Native image-load/error gates remain unchanged; fresh Linux CI must verify them.
+
+The maintained forced-color proofs record two separate capabilities: whether the
+media query is active, and whether the engine implements `forced-color-adjust`.
+WebKit's media emulation alone does not establish UA forced painting. The checks
+retain its native keyboard/selection, structural geometry and authored system-color
+assertions, annotate the unsupported adjustment/paint branch, and leave its
+computed contrast in the observation rather than treating it as an accepted
+forced-paint result. Chromium and Firefox keep the actual contrast assertions.
+
+Direct PR jobs now explicitly select `pull_request.head.sha`, after an explicit
+reusable `inputs.ref` and before the push-event `github.sha` fallback. All three
+job types assert that exact value after checkout. On PR97 the inspected proposal
+SHA and GitHub synthetic merge SHA differ; validating one while labelling the
+artifact as the other breaks the download verifier's immutable-head binding.
+Main pushes and exact-ref reusable callers retain their existing source choice.
+The guard tests reject returning a PR job to the ambiguous merge-ref fallback.
+
+## Firefox native clipboard execution
+
+The next checkpoint runs the complete Firefox collection under a real X display
+with `xvfb-run --auto-servernum` and `--headed`. Run39171299366 failed the native
+custom-MIME clipboard scenario on Linux while its macOS counterpart passed. The
+new delivery attachment records trusted copy/paste events and exposed MIME types;
+no unsafe-content rejection, callback, selection or safe-content assertion is
+removed. This display change is a candidate correction, not a successful Linux
+clipboard claim until the complete current-head run passes. The workflow guard
+requires the exact unfiltered commands for both execution branches.

@@ -1,0 +1,10 @@
+{
+  "run": 39140558308,
+  "job": 117713943491,
+  "commit": "f8e97d6d4aa126ced1d0e747a65114dfd2a60565",
+  "failed": "Server debounce/sort scenario exceeded five seconds",
+  "passingUnits": 2003,
+  "failedUnits": 1,
+  "repair": "Scenario-specific 15-second bound, preserving real debounce and 200ms pre-commit assertion",
+  "logSha256": "2a2b35ace20db7b443ec9ab96e8134d9bb3ca0325c864e006ad089bb44e63cb0"
+}

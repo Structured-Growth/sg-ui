@@ -1,0 +1,717 @@
+{
+  "schemaVersion": 1,
+  "assignment": "wave-04/12",
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "dateLocal": "2026-10-17",
+  "status": "partial",
+  "summary": {
+    "complete": 0,
+    "partial": 13,
+    "blocked": 0
+  },
+  "originalCriteriaPreserved": true,
+  "noChecklistOrCountEdits": true,
+  "substantiveOutcome": "Eight-file reviewable patch: isolated three-case native spec and serial three-engine config, fail-closed 48-image review gate/config with five Node24 integrity tests, maintained review protocol, stronger existing packed SSR/hydration assertions. Raw accepted native successors reconciled; no duplicate browser run.",
+  "leaves": [
+    {
+      "id": "A-X-01",
+      "originalRequirement": "- [ ] A-X-01 Reconcile original `X-01`: Replace implementation-mirroring tests with behavior tests where needed; avoid mocks that hide the very focus/keyboard behavior under migration. Historical status: open.",
+      "status": "partial",
+      "recommendation": "partial",
+      "outcome": "Semantic toolbar behavior probes are integrated; HB20 retains239 affected unit passes and18 native selection-regression executions. The old wave03-39 unexecuted-patch state is superseded for its integrated assertions, without treating jsdom geometry as native focus.",
+      "priorSuccessor": {
+        "id": "A-X-01",
+        "originalChecklistText": "- [ ] A-X-01 Reconcile original `X-01`: Replace implementation-mirroring tests with behavior tests where needed; avoid mocks that hide the very focus/keyboard behavior under migration. Historical status: open.",
+        "owner": 39,
+        "report": "docs/developer/final-acceptance/wave-03-39/report.md",
+        "results": "docs/developer/final-acceptance/wave-03-39/results.json",
+        "reportSha256": "d50c80a902996ed8574ce85106fd5348bb2f64c8e985562c2263b9349ad4237c",
+        "resultsSha256": "a9d8cd0e4fc6cee504cc5a249e6f3f461806fd37cfe42b1bb32ee5b1aa08031e",
+        "status": "partial",
+        "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+        "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-39/report.md",
+          "sha256": "d50c80a902996ed8574ce85106fd5348bb2f64c8e985562c2263b9349ad4237c",
+          "exists": true
+        }
+      ],
+      "newDeliverables": [
+        "review-and-hydration.patch",
+        "patch-inputs.json",
+        "evidence.json",
+        "validation-plan.json"
+      ],
+      "remainingSuccessors": [
+        {
+          "id": "W04-12-X-01",
+          "deliverable": "Accept/reconcile the bounded remaining implementation-mirroring and interaction-mock review against the exact changed behavior set. Use current native selection/grid receipts; do not rerun the old seven-case proposal solely because its report predates integration.",
+          "owner": "coordinator / relevant operator",
+          "state": "pending"
+        }
+      ],
+      "limits": "Evidence is accepted only at its recorded input/host/runtime scope. No fresh browser, install, build, simulator, physical-input, speech or release result in this worker."
+    },
+    {
+      "id": "A-X-02",
+      "originalRequirement": "- [ ] A-X-02 Reconcile original `X-02`: Define keyboard contracts and verify Tab/Shift+Tab, arrows, Home/End, Enter/Space, Escape, and typeahead where appropriate. Historical status: open.",
+      "status": "partial",
+      "recommendation": "partial",
+      "outcome": "Raw followup receipt contains all5 selector/menu/popover/tooltip cases passing in all3engines; Home/End/arrows/typeahead/Space/Enter/Tab/Escape successors from wave03-19 have executed. HB19/20 adds current editor native keyboard and RTL presentation evidence.",
+      "priorSuccessor": {
+        "id": "A-X-02",
+        "originalChecklistText": "- [ ] A-X-02 Reconcile original `X-02`: Define keyboard contracts and verify Tab/Shift+Tab, arrows, Home/End, Enter/Space, Escape, and typeahead where appropriate. Historical status: open.",
+        "owner": 19,
+        "report": "docs/developer/final-acceptance/wave-03-19/report.md",
+        "results": "docs/developer/final-acceptance/wave-03-19/results.json",
+        "reportSha256": "216897b1cdf302e967197a532e6ac4b6a2c33cfa0c689a5119eca4a6d64283b3",
+        "resultsSha256": "b0dbc87259685863924d767a0a465cc741ec79e5948e4f67f33ff69de91debf9",
+        "status": "partial",
+        "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+        "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-19/matrix-delta.md",
+          "sha256": "91e5f7f5e6d92f3362a54c5ee266363bd564772bcc4cbaee949d2f7ccd40c1d6",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+          "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef",
+          "exists": true
+        }
+      ],
+      "newDeliverables": [
+        "review-and-hydration.patch",
+        "patch-inputs.json",
+        "evidence.json",
+        "validation-plan.json"
+      ],
+      "remainingSuccessors": [
+        {
+          "id": "W04-12-X-02",
+          "deliverable": "Retain executed flat selector cases; map remaining component-specific key applicability to accepted native cases, especially authoring/removal/reorder boundaries. This is not proof that every public composition supports every key.",
+          "owner": "coordinator / relevant operator",
+          "state": "pending"
+        }
+      ],
+      "limits": "Evidence is accepted only at its recorded input/host/runtime scope. No fresh browser, install, build, simulator, physical-input, speech or release result in this worker."
+    },
+    {
+      "id": "A-X-03",
+      "originalRequirement": "- [ ] A-X-03 Reconcile original `X-03`: Verify accessible names/descriptions, roles, state announcements, validation, heading hierarchy, landmarks, and native form semantics. Historical status: open.",
+      "status": "partial",
+      "recommendation": "partial",
+      "outcome": "New English/Arabic composed-shell cases verify main/navigation names, heading hierarchy, current links, native Enter/form submission and retained field DOM on reflow; prepared and typechecked, not executed. Selector role/description/IDREF/native reset and rejecting-control-authority cases pass in the retained native receipt. New hydration proposal checks initial hydrated label/description references before portals and preserves all named field wire values.",
+      "priorSuccessor": {
+        "id": "A-X-03",
+        "originalChecklistText": "- [ ] A-X-03 Reconcile original `X-03`: Verify accessible names/descriptions, roles, state announcements, validation, heading hierarchy, landmarks, and native form semantics. Historical status: open.",
+        "owner": 19,
+        "report": "docs/developer/final-acceptance/wave-03-19/report.md",
+        "results": "docs/developer/final-acceptance/wave-03-19/results.json",
+        "reportSha256": "216897b1cdf302e967197a532e6ac4b6a2c33cfa0c689a5119eca4a6d64283b3",
+        "resultsSha256": "b0dbc87259685863924d767a0a465cc741ec79e5948e4f67f33ff69de91debf9",
+        "status": "partial",
+        "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+        "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/apple-simulator/results.json",
+          "sha256": "a72bef1a8a60fcd9720b78384c869dc011f4ac69c3772a1a1a081cb68499571c",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-19/report.md",
+          "sha256": "216897b1cdf302e967197a532e6ac4b6a2c33cfa0c689a5119eca4a6d64283b3",
+          "exists": true
+        }
+      ],
+      "newDeliverables": [
+        "review-and-hydration.patch",
+        "patch-inputs.json",
+        "evidence.json",
+        "validation-plan.json"
+      ],
+      "remainingSuccessors": [
+        {
+          "id": "W04-12-X-03",
+          "deliverable": "Integrate and execute strengthened packed hydration assertion for bothReact versions. Reconcile composed route headings/landmarks/validation ownership outside this bounded selector slice. Record actual announcement speech separately; oneSelect simulator speech does not certify all states.",
+          "owner": "coordinator / relevant operator",
+          "state": "pending"
+        }
+      ],
+      "limits": "Evidence is accepted only at its recorded input/host/runtime scope. No fresh browser, install, build, simulator, physical-input, speech or release result in this worker."
+    },
+    {
+      "id": "A-X-04",
+      "originalRequirement": "- [ ] A-X-04 Reconcile original `X-04`: Verify initial focus, return focus, focus after removal/reorder/update, trapped focus in modals, and nested-overlay dismissal ordering. Historical status: open.",
+      "status": "partial",
+      "recommendation": "partial",
+      "outcome": "All3 overlay-successor cases pass in all3engines, including editor cancel/apply, two nested-child returns, menu-before-parent dismissal and trapped native Tab. Integrated grid-successor cases add focused selected-row disappearance/sibling ownership evidence.",
+      "priorSuccessor": {
+        "id": "A-X-04",
+        "originalChecklistText": "- [ ] A-X-04 Reconcile original `X-04`: Verify initial focus, return focus, focus after removal/reorder/update, trapped focus in modals, and nested-overlay dismissal ordering. Historical status: open.",
+        "owner": 14,
+        "report": "docs/developer/final-acceptance/wave-03-14/report.md",
+        "results": "docs/developer/final-acceptance/wave-03-14/results.json",
+        "reportSha256": "215b3fc4004584b5b330dd5cd764e313566cbca5de5bba22eb31817f498a30a6",
+        "resultsSha256": "efdaddbbc78118d2e8bb66837a54f6ed0c3c4615c6258695be707ead37b3b0bc",
+        "status": "partial",
+        "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+        "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-14/report.md",
+          "sha256": "215b3fc4004584b5b330dd5cd764e313566cbca5de5bba22eb31817f498a30a6",
+          "exists": true
+        }
+      ],
+      "newDeliverables": [
+        "review-and-hydration.patch",
+        "patch-inputs.json",
+        "evidence.json",
+        "validation-plan.json"
+      ],
+      "remainingSuccessors": [
+        {
+          "id": "W04-12-X-04",
+          "deliverable": "Reuse these concrete results. Recover matching batch52 removed-opener/explicit-host-focus two-frame result or run only that existing uncovered scope; map remaining reorder/update focus evidence without expanding to every overlay.",
+          "owner": "coordinator / relevant operator",
+          "state": "pending"
+        }
+      ],
+      "limits": "Evidence is accepted only at its recorded input/host/runtime scope. No fresh browser, install, build, simulator, physical-input, speech or release result in this worker."
+    },
+    {
+      "id": "A-X-05",
+      "originalRequirement": "- [ ] A-X-05 Reconcile original `X-05`: Ensure sticky headers/footers do not obscure focused controls; verify zoom/reflow/text-spacing behavior and scroll padding where needed. Historical status: open.",
+      "status": "partial",
+      "recommendation": "partial",
+      "outcome": "New finite native case traverses all20tabbed modal fields plusCancel/Next via realTab under200%rootfont/textspacing and open resize, with viewport/ancestor bounds and3point hit-tests; prepared, not run. Wave03-09 real Tab/Shift+Tab stress evidence remains bounded to CSS text/reflow, not browser-controls zoom. HB18 sharedDialog ring reveal and HB19/20 narrow editor scrolling/presentation supersede the old20-openV context. Retained overlay contract matrix checks resizing/open-state field/footer hitability.",
+      "priorSuccessor": {
+        "id": "A-X-05",
+        "originalChecklistText": "- [ ] A-X-05 Reconcile original `X-05`: Ensure sticky headers/footers do not obscure focused controls; verify zoom/reflow/text-spacing behavior and scroll padding where needed. Historical status: open.",
+        "owner": 9,
+        "report": "docs/developer/final-acceptance/wave-03-09/report.md",
+        "results": "docs/developer/final-acceptance/wave-03-09/results.json",
+        "reportSha256": "db57801395575cc03880ec54a5a5748900feffa7843748ef851b8fc4f42edfdf",
+        "resultsSha256": "9acb01ad3a130829d3960cc5d77577f9182130bb7dcf33e714b7ebc8cb86c484",
+        "status": "partial",
+        "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+        "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-09/report.md",
+          "sha256": "db57801395575cc03880ec54a5a5748900feffa7843748ef851b8fc4f42edfdf",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+          "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef",
+          "exists": true
+        }
+      ],
+      "newDeliverables": [
+        "review-and-hydration.patch",
+        "patch-inputs.json",
+        "evidence.json",
+        "validation-plan.json"
+      ],
+      "remainingSuccessors": [
+        {
+          "id": "W04-12-X-05",
+          "deliverable": "Record actual200%/400% browser-controls zoom with independent shell panes and named sticky field/footer focus stops; include text spacing and viewport changes while open. Root font scaling, screenshots and deviceScaleFactor cannot replace this observation.",
+          "owner": "coordinator / relevant operator",
+          "state": "pending"
+        }
+      ],
+      "limits": "Evidence is accepted only at its recorded input/host/runtime scope. No fresh browser, install, build, simulator, physical-input, speech or release result in this worker."
+    },
+    {
+      "id": "A-X-06",
+      "originalRequirement": "- [ ] A-X-06 Reconcile original `X-06`: Verify text/non-text contrast, visible focus, high contrast/forced colors, reduced motion, and state meaning beyond color. Historical status: open.",
+      "status": "partial",
+      "recommendation": "partial",
+      "outcome": "Integrated decorative swatch containment/system selection/focus checks executed; the original WebKit capability failure has a passing focused correction. Forced-color-adjust unsupported branch remains explicit. HB19/20 reviewed rendering is separate from computed contrast ratios.",
+      "priorSuccessor": {
+        "id": "A-X-06",
+        "originalChecklistText": "- [ ] A-X-06 Reconcile original `X-06`: Verify text/non-text contrast, visible focus, high contrast/forced colors, reduced motion, and state meaning beyond color. Historical status: open.",
+        "owner": 12,
+        "report": "docs/developer/final-acceptance/wave-03-12/report.md",
+        "results": "docs/developer/final-acceptance/wave-03-12/results.json",
+        "reportSha256": "27afc955c97106c874f77fec855784a6911328698e2a902649f13daa0f34b0ed",
+        "resultsSha256": "45db7be9f0c42bc236e1d3a2461a5ea22907436a1f54070104817035e9daa83d",
+        "status": "partial",
+        "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+        "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-12/report.md",
+          "sha256": "27afc955c97106c874f77fec855784a6911328698e2a902649f13daa0f34b0ed",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef",
+          "exists": true
+        }
+      ],
+      "newDeliverables": [
+        "review-and-hydration.patch",
+        "patch-inputs.json",
+        "evidence.json",
+        "validation-plan.json"
+      ],
+      "remainingSuccessors": [
+        {
+          "id": "W04-12-X-06",
+          "deliverable": "Complete named composed text/non-text/state contrast evidence and actual OS-high-contrast observations for claimed platforms. Retain unsupported capability limits and non-color state meaning; do not equate token ratios with rendered conformance.",
+          "owner": "coordinator / relevant operator",
+          "state": "pending"
+        }
+      ],
+      "limits": "Evidence is accepted only at its recorded input/host/runtime scope. No fresh browser, install, build, simulator, physical-input, speech or release result in this worker."
+    },
+    {
+      "id": "A-X-09",
+      "originalRequirement": "- [ ] A-X-09 Reconcile original `X-09`: Test real browser interaction, including pointer/touch, focus, layout, portals and clipboard; DOM-emulation tests alone are insufficient. Historical status: open.",
+      "status": "partial",
+      "recommendation": "partial",
+      "outcome": "Raw native followup contains trusted Tab entry/return for the grid, selector inputs, overlay focus/layout/portals and system-preference cases. Integrated grid version seeds only the external host button before real Tab. This supersedes wave03-29 missing-grid-entry successor.",
+      "priorSuccessor": {
+        "id": "A-X-09",
+        "originalChecklistText": "- [ ] A-X-09 Reconcile original `X-09`: Test real browser interaction, including pointer/touch, focus, layout, portals and clipboard; DOM-emulation tests alone are insufficient. Historical status: open.",
+        "owner": 29,
+        "report": "docs/developer/final-acceptance/wave-03-29/report.md",
+        "results": "docs/developer/final-acceptance/wave-03-29/results.json",
+        "reportSha256": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+        "resultsSha256": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+        "status": "partial",
+        "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+        "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-29/report.md",
+          "sha256": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/apple-simulator/results.json",
+          "sha256": "a72bef1a8a60fcd9720b78384c869dc011f4ac69c3772a1a1a081cb68499571c",
+          "exists": true
+        }
+      ],
+      "newDeliverables": [
+        "review-and-hydration.patch",
+        "patch-inputs.json",
+        "evidence.json",
+        "validation-plan.json"
+      ],
+      "remainingSuccessors": [
+        {
+          "id": "W04-12-X-09",
+          "deliverable": "Retain accepted desktop/clipboard results with exact permission/environment limits. Obtain named physical touch and real browser clipboard-policy observations where claimed; Firefox touch skip and simulator-versus-physical distinction remain. No generic browser rerun is required.",
+          "owner": "coordinator / relevant operator",
+          "state": "pending"
+        }
+      ],
+      "limits": "Evidence is accepted only at its recorded input/host/runtime scope. No fresh browser, install, build, simulator, physical-input, speech or release result in this worker."
+    },
+    {
+      "id": "A-X-13",
+      "originalRequirement": "- [ ] A-X-13 Reconcile original `X-13`: Add browser interaction stories/tests for all changed behavior; keep deterministic local fixtures and no authentication/database/network dependency. Historical status: open.",
+      "status": "partial",
+      "recommendation": "partial",
+      "outcome": "New isolated native spec and serial three-engine config add three finite cases on existing fixtures, with zero diagnostic/external-request assertions. Delivered changed-behavior delta below links integrated selectors, overlay focus/editor transaction, grid removal/entry and BUG0013/Menu fixes to native assertions and retained receipts; all300V completion includes formerly separate editor work.",
+      "priorSuccessor": {
+        "id": "A-X-13",
+        "originalChecklistText": "- [ ] A-X-13 Reconcile original `X-13`: Add browser interaction stories/tests for all changed behavior; keep deterministic local fixtures and no authentication/database/network dependency. Historical status: open.",
+        "owner": 29,
+        "report": "docs/developer/final-acceptance/wave-03-29/report.md",
+        "results": "docs/developer/final-acceptance/wave-03-29/results.json",
+        "reportSha256": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+        "resultsSha256": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+        "status": "partial",
+        "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+        "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-29/changed-behavior-coverage.md",
+          "sha256": "d084e6a33dacafb767da283be4a6f1239c0d4381a4064b4ecbf845e93f4fe13f",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef",
+          "exists": true
+        }
+      ],
+      "newDeliverables": [
+        "review-and-hydration.patch",
+        "patch-inputs.json",
+        "evidence.json",
+        "validation-plan.json"
+      ],
+      "remainingSuccessors": [
+        {
+          "id": "W04-12-X-13",
+          "deliverable": "Coordinator freezes the complete changed-contract inventory and accepts remaining specific gaps against it. Keep deterministic local fixtures/public imports. New review/hydration proposals need their bounded integration/validation; old editorV scope is completed, not an outstanding successor.",
+          "owner": "coordinator / relevant operator",
+          "state": "pending"
+        }
+      ],
+      "limits": "Evidence is accepted only at its recorded input/host/runtime scope. No fresh browser, install, build, simulator, physical-input, speech or release result in this worker."
+    },
+    {
+      "id": "A-X-14",
+      "originalRequirement": "- [ ] A-X-14 Reconcile original `X-14`: Add visual regression coverage for light/dark, density, narrow/wide containers, long/pseudo-localized labels, RTL, focus/error/loading/empty/selected states. Historical status: open.",
+      "status": "partial",
+      "recommendation": "partial",
+      "outcome": "Existing48-image matrix/fixture/comparator is integrated, but no accepted48-image baseline receipt was established by inspected newer evidence. HB19 andHB20 rendered reviews are retained for their exact component families and engine scopes. New config separates capture candidates from approved comparison and disables snapshot creation in comparison.",
+      "priorSuccessor": {
+        "id": "A-X-14",
+        "originalChecklistText": "- [ ] A-X-14 Reconcile original `X-14`: Add visual regression coverage for light/dark, density, narrow/wide containers, long/pseudo-localized labels, RTL, focus/error/loading/empty/selected states. Historical status: open.",
+        "owner": 30,
+        "report": "docs/developer/final-acceptance/wave-03-30/report.md",
+        "results": "docs/developer/final-acceptance/wave-03-30/results.json",
+        "reportSha256": "bdb94d8cd0b7ef19b0284b7c421a051471935d31b13ba1152633675f0bd09592",
+        "resultsSha256": "6e59cf17b55e2fe1991b4fd0d785fbc6f614940923fb6fa546be6b685e2ee6c8",
+        "status": "partial",
+        "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+        "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-30/report.md",
+          "sha256": "bdb94d8cd0b7ef19b0284b7c421a051471935d31b13ba1152633675f0bd09592",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-30/visual-matrix.json",
+          "sha256": "b594faeff1d218dde902558c02740a0a13d654fe847a459744338618ee8cda6a",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+          "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef",
+          "exists": true
+        }
+      ],
+      "newDeliverables": [
+        "review-and-hydration.patch",
+        "patch-inputs.json",
+        "evidence.json",
+        "validation-plan.json"
+      ],
+      "remainingSuccessors": [
+        {
+          "id": "W04-12-X-14",
+          "deliverable": "Integrate review gate; capture only missing representative48images on frozen host; inspect all images and bind exact hashes/runtime/source/host to dispositions, then run comparison without updates. Preserve existing hardening reviews; do not relabel them as the48-image comparator baseline.",
+          "owner": "coordinator / relevant operator",
+          "state": "pending"
+        }
+      ],
+      "limits": "Evidence is accepted only at its recorded input/host/runtime scope. No fresh browser, install, build, simulator, physical-input, speech or release result in this worker."
+    },
+    {
+      "id": "A-X-15",
+      "originalRequirement": "- [ ] A-X-15 Reconcile original `X-15`: Require deliberate review of screenshot changes; do not automatically accept new snapshots to silence regressions. Historical status: open.",
+      "status": "partial",
+      "recommendation": "partial",
+      "outcome": "Concrete proposed gate refuses pending/rejected/missing/duplicate/stale baseline images, checks source/host/interaction receipt hashes and current source-file bytes, requires48explicit review observations, rejects symlink escape and snapshot-update CLI flags. Five helper tests pass on Node24.19.0; proposed config typechecks.",
+      "priorSuccessor": {
+        "id": "A-X-15",
+        "originalChecklistText": "- [ ] A-X-15 Reconcile original `X-15`: Require deliberate review of screenshot changes; do not automatically accept new snapshots to silence regressions. Historical status: open.",
+        "owner": 29,
+        "report": "docs/developer/final-acceptance/wave-03-29/report.md",
+        "results": "docs/developer/final-acceptance/wave-03-29/results.json",
+        "reportSha256": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+        "resultsSha256": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+        "status": "partial",
+        "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+        "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-29/report.md",
+          "sha256": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-30/review-method.md",
+          "sha256": "277d5f8e485295a3817739de0afa19bb17dfce0b11b600150ea1c52509367921"
+        }
+      ],
+      "newDeliverables": [
+        "review-and-hydration.patch",
+        "patch-inputs.json",
+        "evidence.json",
+        "validation-plan.json"
+      ],
+      "remainingSuccessors": [
+        {
+          "id": "W04-12-X-15",
+          "deliverable": "Coordinator adopts eight-file patch, obtains actual image review and executes no-update comparison. The integrity helper cannot authenticate review or inspect a running host; it must not manufacture decisions or treat structural validity as image approval.",
+          "owner": "coordinator / relevant operator",
+          "state": "pending"
+        }
+      ],
+      "limits": "Evidence is accepted only at its recorded input/host/runtime scope. No fresh browser, install, build, simulator, physical-input, speech or release result in this worker."
+    },
+    {
+      "id": "A-X-16",
+      "originalRequirement": "- [ ] A-X-16 Reconcile original `X-16`: Test multiple independent component instances, nested themes/portals, stable IDs, React Strict Mode cleanup, and controlled/uncontrolled transitions. Historical status: open.",
+      "status": "partial",
+      "recommendation": "partial",
+      "outcome": "Integrated source portal/two-root StrictMode cleanup/composedSSR tests and retained selector/grid host-authority cases cover named slices. New packed lifecycle proposal snapshots every initial named field plus all server ID-bearing nodes, preserving existing portal live-update/isolation/focus behavior.",
+      "priorSuccessor": {
+        "id": "A-X-16",
+        "originalChecklistText": "- [ ] A-X-16 Reconcile original `X-16`: Test multiple independent component instances, nested themes/portals, stable IDs, React Strict Mode cleanup, and controlled/uncontrolled transitions. Historical status: open.",
+        "owner": 11,
+        "report": "docs/developer/final-acceptance/wave-03-11/report.md",
+        "results": "docs/developer/final-acceptance/wave-03-11/results.json",
+        "reportSha256": "55f3d92f55bc22cf025a7f269d7da33a0c28c82d671f0617f9dc4e30910324c5",
+        "resultsSha256": "332442e00631e181e150031d2d2eef672f5f0ab90daf8dd7ecd16aba5119922e",
+        "status": "partial",
+        "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+        "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-11/report.md",
+          "sha256": "55f3d92f55bc22cf025a7f269d7da33a0c28c82d671f0617f9dc4e30910324c5",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-11/lifecycle-matrix.json",
+          "sha256": "156ea2927b20a940eab6fb02dc30b161ba2f89b059b3499067208e8b2571df6f",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+          "exists": true
+        }
+      ],
+      "newDeliverables": [
+        "review-and-hydration.patch",
+        "patch-inputs.json",
+        "evidence.json",
+        "validation-plan.json"
+      ],
+      "remainingSuccessors": [
+        {
+          "id": "W04-12-X-16",
+          "deliverable": "Execute existing strengthened packed lifecycle runner once per React version; reconcile component-specific controlled/uncontrolled transition contracts. Do not invent live switching support for concerns with mount-fixed ownership.",
+          "owner": "coordinator / relevant operator",
+          "state": "pending"
+        }
+      ],
+      "limits": "Evidence is accepted only at its recorded input/host/runtime scope. No fresh browser, install, build, simulator, physical-input, speech or release result in this worker."
+    },
+    {
+      "id": "A-X-17",
+      "originalRequirement": "- [ ] A-X-17 Reconcile original `X-17`: Verify React 18.3 and 19 behavior and declaration compatibility using actual consumer fixtures, not just the development React version. Historical status: open.",
+      "status": "partial",
+      "recommendation": "partial",
+      "outcome": "Immutable installed-consumer driver already exists for React18.3.1/19.2.3 and pinnedmatching type sets. New proposal reuses its installed fixtures rather than introducing another install/matrix or relying on developmentReact19.",
+      "priorSuccessor": {
+        "id": "A-X-17",
+        "originalChecklistText": "- [ ] A-X-17 Reconcile original `X-17`: Verify React 18.3 and 19 behavior and declaration compatibility using actual consumer fixtures, not just the development React version. Historical status: open.",
+        "owner": 32,
+        "report": "docs/developer/final-acceptance/wave-03-32/report.md",
+        "results": "docs/developer/final-acceptance/wave-03-32/results.json",
+        "reportSha256": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2",
+        "resultsSha256": "e9bd80ef2361a6fcca021b2f65782da02ef1ceaccb8f51084f6cc8b67c039852",
+        "status": "partial",
+        "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+        "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-32/report.md",
+          "sha256": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-32/README.md",
+          "sha256": "e681ac63855f1f2b0fb87cba01957890a162ff90d081cb903c68825e9d820abb",
+          "exists": true
+        }
+      ],
+      "newDeliverables": [
+        "review-and-hydration.patch",
+        "patch-inputs.json",
+        "evidence.json",
+        "validation-plan.json"
+      ],
+      "remainingSuccessors": [
+        {
+          "id": "W04-12-X-17",
+          "deliverable": "Coordinator executes/reconciles same-tarball actual React18/19 consumer type/SSR/hydrated evidence on supportedNode22.12/24. Retain TS5.9.3/skipLibCheck fixture limits; no new consumer installation or browser result was obtained here.",
+          "owner": "coordinator / relevant operator",
+          "state": "pending"
+        }
+      ],
+      "limits": "Evidence is accepted only at its recorded input/host/runtime scope. No fresh browser, install, build, simulator, physical-input, speech or release result in this worker."
+    },
+    {
+      "id": "A-X-18",
+      "originalRequirement": "- [ ] A-X-18 Reconcile original `X-18`: Add SSR render and hydration tests with no window/document at import time, no mismatched IDs, and correct initial locale/theme/date values. Historical status: checked.",
+      "status": "partial",
+      "recommendation": "partial",
+      "outcome": "Historical checked status is preserved verbatim but wave03 correctly retained a partial broader hydration obligation. New proposal strengthens actual packed no-globalSSR/hydration checks: all server ID-node identity, exact initial ordered form wires/disabled flags and hydrated IDREF resolution before portal interaction.",
+      "priorSuccessor": {
+        "id": "A-X-18",
+        "originalChecklistText": "- [ ] A-X-18 Reconcile original `X-18`: Add SSR render and hydration tests with no window/document at import time, no mismatched IDs, and correct initial locale/theme/date values. Historical status: checked.",
+        "owner": 11,
+        "report": "docs/developer/final-acceptance/wave-03-11/report.md",
+        "results": "docs/developer/final-acceptance/wave-03-11/results.json",
+        "reportSha256": "55f3d92f55bc22cf025a7f269d7da33a0c28c82d671f0617f9dc4e30910324c5",
+        "resultsSha256": "332442e00631e181e150031d2d2eef672f5f0ab90daf8dd7ecd16aba5119922e",
+        "status": "partial",
+        "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+        "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-11/report.md",
+          "sha256": "55f3d92f55bc22cf025a7f269d7da33a0c28c82d671f0617f9dc4e30910324c5",
+          "exists": true
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-32/report.md",
+          "sha256": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2",
+          "exists": true
+        }
+      ],
+      "newDeliverables": [
+        "review-and-hydration.patch",
+        "patch-inputs.json",
+        "evidence.json",
+        "validation-plan.json"
+      ],
+      "remainingSuccessors": [
+        {
+          "id": "W04-12-X-18",
+          "deliverable": "Execute strengthened existing runner on already installed React18.3.1 and19.2.3 immutable consumers, retain exact source/tarball/output/browser receipts and zero-recoverable-error assertions. SourceSSR passes alone cannot close native hydration or all-export global-import safety.",
+          "owner": "coordinator / relevant operator",
+          "state": "pending"
+        }
+      ],
+      "limits": "Evidence is accepted only at its recorded input/host/runtime scope. No fresh browser, install, build, simulator, physical-input, speech or release result in this worker."
+    }
+  ],
+  "checksPerformed": [
+    {
+      "command": "SGUI_REVIEW_TEST_TMP=/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/12 /Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node --test docs/developer/final-acceptance/wave-04/12/proposed-files/packages/ui/scripts/visual-baseline-review.test.mjs",
+      "result": "5 passed",
+      "evidence": "review-gate-tests-node24.log",
+      "runtime": "Node24.19.0"
+    },
+    {
+      "command": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node docs/developer/final-acceptance/wave-04/12/check-proposals.cjs",
+      "result": "zero diagnostics",
+      "evidence": "proposal-types.json",
+      "scope": "Proposed visual config semantic typecheck only; no emit"
+    },
+    {
+      "command": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node --check docs/developer/final-acceptance/wave-04/12/proposed-files/packages/ui/scripts/test-scoped-lifecycle-consumer.mjs",
+      "result": "exit0",
+      "scope": "JavaScript syntax only"
+    },
+    {
+      "command": "python3 docs/developer/final-acceptance/wave-04/12/capture.py",
+      "result": "26/26 prior report hashes and 4/4 raw native/docs receipt hashes match",
+      "evidence": "evidence.json"
+    },
+    {
+      "command": "git apply --check docs/developer/final-acceptance/wave-04/12/review-and-hydration.patch",
+      "result": "exit0",
+      "evidence": "patch-check.log",
+      "scope": "Dry run, no integration"
+    },
+    {
+      "command": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node docs/developer/final-acceptance/wave-04/12/check-discovery.mjs",
+      "result": "36 tests discovered in2files across3engines; zero executed",
+      "evidence": "native-discovery.log",
+      "scope": "Isolated source transpilation and Playwright --list only; no host contacted/browser launched"
+    }
+  ],
+  "runtime": "Node24.19.0 / TypeScript5.9.3; first helper-test pass also recorded on defaultNode26.5.0, not used as supported-runtime acceptance",
+  "baselineContext": {
+    "VComplete": 300,
+    "VTotal": 300,
+    "AOpen": 139,
+    "source": "docs/developer/react-aria-final-acceptance.md",
+    "notRecomputed": true
+  },
+  "scopeDeviation": "The initial pure helper test used node:os tmpdir for five ephemeral test directories; all were removed by finally. Corrected supportedNode24 replay uses SGUI_REVIEW_TEST_TMP inside this assigned directory. No shared source or persistent files outside assignment were changed.",
+  "prohibitedActionsPerformed": [],
+  "persistentWritesOutsideAssignedDirectory": [],
+  "validationNotPerformed": [
+    "Browser/simulator/visual capture",
+    "Builds/installs/pack/consumer execution",
+    "Actual browser zoom / physical touch / real clipboard-policy observations",
+    "Broader actual screen-reader review / release-owner/legal decisions"
+  ]
+}

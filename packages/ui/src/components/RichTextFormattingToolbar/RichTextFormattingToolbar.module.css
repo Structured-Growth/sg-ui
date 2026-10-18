@@ -12,6 +12,6 @@
   .fontSize { padding: var(--sgui-space1) var(--sgui-space2); border: 1px solid var(--sgui-rich-text-formatting-toolbar-border); border-radius: var(--sgui-control-radius); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
   .link { display: inline-flex; }
   .slot { min-inline-size: 0; max-inline-size: 100%; overflow-wrap: anywhere; }
-  @media (forced-colors: active) { .action[aria-pressed="true"], .action[aria-pressed="mixed"] { border-color: Highlight; } }
-  @media (forced-colors: active) { .action[aria-pressed="true"]::after { border-color: Highlight; } }
+  @media (forced-colors: active) { .action[aria-pressed="true"], .action[aria-pressed="mixed"] { border-color: ButtonText; } }
+  @media (forced-colors: active) { .action[aria-pressed="true"]::after { border-color: ButtonText; } }
 }

@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "assignment": "wave-04/06",
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "branch": "dev",
+  "recommendationsOnly": true,
+  "countsChanged": false,
+  "sharedSourceChanged": true,
+  "newRuntimeExecutions": 3,
+  "summary": {
+    "complete": 4,
+    "partial": 5,
+    "blocked": 0
+  },
+  "readOnlyValidation": {
+    "extractedNativeExecutions": 63,
+    "passing": 63,
+    "scopedInputHashesMatched": 97,
+    "changed": 0,
+    "notInSavedMap": 0,
+    "limits": "Scoped sources only; no full transitive/built-output equality or fresh suite claim. Changed Menu/indicator inputs use later receipts; historical assertions retain dated host limitations."
+  },
+  "leaves": [
+    {
+      "id": "A-M-08",
+      "originalObligation": "- [ ] A-M-08 Reconcile AppModal final acceptance: Owned close reasons/size/parts, focus, sticky tabs, scroll, actions and steps. Link its `F-C08`, `T-C08` and `V-C08` evidence and any unresolved defects.",
+      "recommendation": "partial",
+      "status": "partial",
+      "outcome": "F-C08/T-C08 baseline and regression links remain in wave-02-01/report.md; V-C08 HB10/18 stays accepted. The formerly unrun 24 size\u00d7heightMode matrix plus custom540\u00d7440 override, lock/wheel and ownership cases now pass all three engines (9 native executions total). Owned reasons, actions and step assertions remain in AppModal units. Sticky tab and whole-dialog fallback remain separately documented in modal-container-boundary/display-preferences evidence.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-02-01/report.md",
+          "sha256": "c42411ca78e93ddc7547e9420c3135ca05ec2789928ff343a6ee048613c72ca1"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-14/results.json",
+          "sha256": "efdaddbbc78118d2e8bb66837a54f6ed0c3c4615c6258695be707ead37b3b0bc"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        }
+      ],
+      "exactInputAndRawCaseReceipt": "evidence.json",
+      "outstandingSuccessor": "M08-SPEECH: retain named dialog/menu/popover title/description, background virtual-cursor isolation, removed-opener and accepted host destination speech review from wave-03-14/operator-cases.md. No speech result found.",
+      "proposedChanges": "No implementation patch; remaining-cases.md gives exact speech successor."
+    },
+    {
+      "id": "A-M-10",
+      "originalObligation": "- [ ] A-M-10 Reconcile ExperiencePageNavigator final acceptance: Previous/next boundaries, labels, disabled states, link/action semantics. Link its `F-C10`, `T-C10` and `V-C10` evidence and any unresolved defects.",
+      "recommendation": "partial",
+      "status": "partial",
+      "outcome": "F-C10/T-C10 authoring-list units and HB14 V-C10 native presentation remain accepted. Current public model contains pages/activePageKey and add/select/rename/remove/reorder callbacks. Move up/down are reorder commands; there is no adjacent href or previous/next API.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-02-01/report.md",
+          "sha256": "c42411ca78e93ddc7547e9420c3135ca05ec2789928ff343a6ee048613c72ca1"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-16/results.json",
+          "sha256": "ce76230ef2791bf351766fc38601c1d09b2c71e1a846a67327a7a4f3a345d555"
+        }
+      ],
+      "exactInputAndRawCaseReceipt": "evidence.json",
+      "outstandingSuccessor": "M10-INTENT: product/API owner must explicitly dispose of previous/next and link clauses or approve adjacent navigation contract; use decision fields in remaining-cases.md. No decision is fabricated.",
+      "proposedChanges": "Proposed page-navigation guide removes stale Stories claim and identifies exact requirement mismatch."
+    },
+    {
+      "id": "A-U-07",
+      "originalObligation": "- [ ] A-U-07 Reconcile original `U-07`: Implement Menu/MenuItem, submenus when required, Popover, and Tooltip; distinguish menu commands from arbitrary form content in a popover. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "outcome": "Flat Menu commands, Home/End/typeahead/disabled skipping/Space/Tab/Escape, named form Popover and supplemental Tooltip all have passing native cases in three engines. HB14 presentation and HB20 intrinsic Menu width fix are retained. Later user steering authorized implementation: HierarchicalMenu source,3 unit cases,private fixture and3 native cases now exist; public exports/catalog/docs integration is prepared. No runtime pass claimed.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-19/results.json",
+          "sha256": "b0dbc87259685863924d767a0a465cc741ec79e5948e4f67f33ff69de91debf9"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        }
+      ],
+      "exactInputAndRawCaseReceipt": "evidence.json",
+      "outstandingSuccessor": "Review/apply hierarchical-integration.patch; run hierarchical-validation-plan.json for the approved HM-F01\u201304 path. Reconcile actual native/public example/rendered results before A-U07 closure; HM-ADOPT remains separate.",
+      "proposedChanges": "See hierarchical-ready.json for exact actual and proposed files/hashes; hierarchical-ready.md describes implementation and test scope."
+    },
+    {
+      "id": "A-U-08",
+      "originalObligation": "- [ ] A-U-08 Reconcile original `U-08`: Implement dialog primitives and modal composition with title/description, dismissal reasons, initial/return focus, scroll locking, background interaction handling, and nested overlays. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "outcome": "Dialog title/description and owned reason contracts are implemented; prior native trap/return/topmost/outside cases remain. New integrated overlay cases establish actual pre/post document scrollability, nested wheel locking, child Tab/Shift+Tab containment, repeated child return, live portals and final unlock in all engines.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-02-08/report.md",
+          "sha256": "1b69b7a507672116740568d2bb833a5d0e8a7b79e7b37eec524013bae1e8ff37"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-14/results.json",
+          "sha256": "efdaddbbc78118d2e8bb66837a54f6ed0c3c4615c6258695be707ead37b3b0bc"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        }
+      ],
+      "exactInputAndRawCaseReceipt": "evidence.json",
+      "outstandingSuccessor": "U08-SPEECH: preserve prior actual dialog announcement/modality successor. DOM focus/trap/hit tests do not establish virtual-cursor isolation or title/description speech. Use remaining-cases.md; existing simulator Select proof is not Dialog evidence.",
+      "proposedChanges": "Prepared concrete speech execution scope; no simulator or operator run claimed."
+    },
+    {
+      "id": "A-U-09",
+      "originalObligation": "- [ ] A-U-09 Reconcile original `U-09`: Implement Tabs with correct roles, panels, orientation, activation mode, disabled tabs, focus visibility, and overflow behavior. Historical status: open.",
+      "recommendation": "complete",
+      "status": "complete",
+      "outcome": "Original roles/panels/orientation/manual/automatic/disabled skipping/focus/overflow clauses have retained Tabs tests and native evidence. Controlled accepting/rejecting hosts run both densities/orientations/activation modes in3 engines. Six changed/new indicator files match animated-tab-indicators receipt; its two WebKit warnings are superseded by HB20 all33 tab/overflow passes with strict zero-page-error assertions intact.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-18/results.json",
+          "sha256": "dbd517467739b7f04d915a557b0bd47c15f52a80d07bad74cec050664ef0d60c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/animated-tab-indicators/results.json",
+          "sha256": "cf0149e505ded3679309c74278626c6d51da744b676cd1bbba3b66f42d021b05"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        }
+      ],
+      "exactInputAndRawCaseReceipt": "evidence.json",
+      "outstandingSuccessor": "None within original U09 implementation/behavior criterion. Broader actual zoom/device/spoken-AT gates stay separate; coordinator owns checkbox decision.",
+      "proposedChanges": "No new tests or implementation; do not repeat accepted33-case tabs matrix."
+    },
+    {
+      "id": "A-U-19",
+      "originalObligation": "- [ ] A-U-19 Reconcile original `U-19`: Define overlay collision/placement behavior at narrow widths and browser zoom; preserve theme/locale in portals and avoid clipped popovers. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "outcome": "Live Menu/Tooltip1100\u2194360 collision and theme/density/dir/lang scope tests now pass3 engines. Existing Popover edge/scroll-host assertions retained. HB20 Menu intrinsic width correction has matching source hash. Text enlargement/native CSS viewport cases are not actual browser zoom.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-02-09/report.md",
+          "sha256": "7bb62df28ec73d5d8cc4aa0378e9b9824e532fa3c721e5e4bbb9acac55844903"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-14/results.json",
+          "sha256": "efdaddbbc78118d2e8bb66837a54f6ed0c3c4615c6258695be707ead37b3b0bc"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        }
+      ],
+      "exactInputAndRawCaseReceipt": "evidence.json",
+      "outstandingSuccessor": "U19-ZOOM: execute real browser chrome100/200/400% collision/reachability for Menu/Tooltip/Popover/ComboBox/Select/DatePicker/DateRangePicker, recording chrome zoom evidence plus keyboard/resize/scope results.",
+      "proposedChanges": "New read-only zoom-probe.js, exact registry fixture-ids.json, and bounded remaining-cases.md procedure. None are execution results."
+    },
+    {
+      "id": "A-H-02",
+      "originalObligation": "- [ ] A-H-02 Reconcile original `H-02`: Verify modifier clicks, downloads, external links, targets, default prevention, and navigation callback ordering through browser tests. Exact-byte transfers and native semantics in all three engines, CI 37560065588; [browser evidence](react-aria-browser-acceptance.md). Historical status: checked.",
+      "recommendation": "complete",
+      "status": "complete",
+      "outcome": "Six composed browser cases\u00d73 engines =18 passes. Fallback and Custom modes assert native ControlOrMeta/target popup URLs, relative named download exact bytes/filename, external native bypass, download=false routing, cancellation and consumer\u2192navigate\u2192prevented bubble ordering. Historical all-three-engine exact transfers/CI37560065588 retained at original scope.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-16/results.json",
+          "sha256": "ce76230ef2791bf351766fc38601c1d09b2c71e1a846a67327a7a4f3a345d555"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        }
+      ],
+      "exactInputAndRawCaseReceipt": "evidence.json",
+      "outstandingSuccessor": "None within original H02 browser semantics criterion. No new CI, installed framework history or physical gesture claim.",
+      "proposedChanges": "No implementation change; retire prior unrun composed-routing successor after coordinator review."
+    },
+    {
+      "id": "A-H-03",
+      "originalObligation": "- [ ] A-H-03 Reconcile original `H-03`: Integrate React Aria routing where needed behind the existing host adapter; avoid two competing navigation systems or a runtime Next.js dependency. Historical status: open.",
+      "recommendation": "complete",
+      "status": "complete",
+      "outcome": "Integrated routing-ownership guide and composed Menu/Breadcrumbs/SideNavigation/Link fixture route through one host adapter. Native pointer/Enter one-owner counts, replace, disabled Menu item, host pathname replacement, current state and native anchor/ref identity pass both modes/all3 engines. Menu routing is internal to owned interactions; no competing router or runtime Next.js dependency added.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-16/results.json",
+          "sha256": "ce76230ef2791bf351766fc38601c1d09b2c71e1a846a67327a7a4f3a345d555"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        }
+      ],
+      "exactInputAndRawCaseReceipt": "evidence.json",
+      "outstandingSuccessor": "None within original H03 integration criterion; framework-specific host history remains host-owned.",
+      "proposedChanges": "No second routing system introduced. Retained public host-adapter documentation is integrated."
+    },
+    {
+      "id": "A-A-07",
+      "originalObligation": "- [ ] A-A-07 Reconcile original `A-07`: Specify native click versus normalized press semantics without surprising consumers; prevent duplicate callback invocation and document keyboard/touch activation. Historical status: open.",
+      "recommendation": "complete",
+      "status": "complete",
+      "outcome": "Integrated ToggleButton/DataGridDragHandle wrappers discard upstream event payloads. Owned callbacks notify once for pointer/Enter/Space; native submit/reset order and emulated touch pass9 native executions across3 engines. Button guide specifies ordinary normalized press, native click capture before form defaults, and distinct selection notification order as unspecified. Native Link click remains cancellable and separate.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-04/results.json",
+          "sha256": "ad5819474195934f26189eda0ab200a27e79436373730d39aaadfae36f5a1b55"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        }
+      ],
+      "exactInputAndRawCaseReceipt": "evidence.json",
+      "outstandingSuccessor": "None within original specify/prevent-duplicates/document-activation criterion. Actual physical touch and spoken AT remain separate; emulation is not a device claim.",
+      "proposedChanges": "Proposed button guide corrects obsolete Firefox hold, linking integrated results and retaining physical/AT limits."
+    }
+  ],
+  "artifacts": [
+    "documentation.patch",
+    "proposed-files",
+    "zoom-probe.js",
+    "remaining-cases.md",
+    "fixture-ids.json",
+    "validation-plan.json",
+    "evidence.json",
+    "capture.py",
+    "finalize.py",
+    "artifact-hashes.json",
+    "hierarchical-ready.md",
+    "hierarchical-ready.json",
+    "hierarchical-integration.patch",
+    "hierarchical-validation-plan.json",
+    "hierarchical-types.txt",
+    "hierarchical-integration-types.txt",
+    "hierarchical-model.txt",
+    "hierarchical-css.txt"
+  ],
+  "globalLimits": [
+    "No build/install/browser/package/simulator execution.",
+    "No actual speech, physical device, human approval or production release inferred.",
+    "No shared checklist, Git index, commit, push or branch mutation.",
+    "Native63-case extraction is a subset of retained report, not a new run. HB20 later passes supersede earlier tab failures without deleting them."
+  ],
+  "exclusiveNewImplementationPathsOnly": true,
+  "implementationSteering": "User authorized direct creation of new HierarchicalMenu/component/test/fixture paths. Shared barrels/catalog/docs remain proposed-files; no build/runtime suites launched.",
+  "implementationValidation": {
+    "sourceSha256": "82a2dd27b51265bf10f8f01477cdba74a22e271add68266fa76fb39d5d994cce",
+    "unitFile": "HierarchicalMenu.test.tsx",
+    "passed": 3,
+    "receipt": "hierarchical-units-stable-collection.txt",
+    "nativeOrBuildRun": false
+  }
+}

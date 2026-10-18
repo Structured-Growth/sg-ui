@@ -1,0 +1,14 @@
+{
+  "apps/docs/native-fixtures/scenarios/experimental/Calendar/Calendar.fixture.tsx": {
+    "beforeSha256": "ea7eb125e2faffbbd788cd3de594ba0fddd7bca9af48016fdd9b5e529bc4ea97",
+    "proposedSha256": "3ee614f940deaf7f62af48d044c2fdb9a0b4dae93258b3836c669d50fcb5c1e9"
+  },
+  "packages/ui/tests/apple/SimulatorAcceptance.swift": {
+    "beforeSha256": "eb213da863850b1de36a4d0a9832a9b2d0b40ab41da474ceb9c54d1b7dbad9c3",
+    "proposedSha256": "1b660b233444bcfd06ab93423e6ab1ce433603d28d0ac1f7cc4588c4dde7c949"
+  },
+  "packages/ui/tests/apple/run-simulator.mjs": {
+    "beforeSha256": "7313c3cd74b93ff9c56d0107df0ff580eeb1657afaf4fc7c2a7da4c410437674",
+    "proposedSha256": "f05369ebb13aae7b51196b0f8e4ecfb2a436c95985fa32d45181d92ea7405858"
+  }
+}

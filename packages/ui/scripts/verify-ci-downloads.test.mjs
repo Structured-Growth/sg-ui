@@ -10,7 +10,7 @@ async function fixture(t) {
  const root=await mkdtemp(resolve(process.env.SGUI_CI_EVIDENCE_SCRATCH ?? dirname(fileURLToPath(import.meta.url)),'.verify-ci-'));t.after(()=>rm(root,{recursive:true,force:true}));
  const put=async(path,value='bytes')=>{const full=resolve(root,path);await mkdir(dirname(full),{recursive:true});await writeFile(full,value);return full;};
  const head='a'.repeat(40),run={id:123,head_sha:head,status:'completed',conclusion:'success',html_url:'https://github.com/Structured-Growth/sg-ui/actions/runs/123',run_attempt:1};
- const names=['Package and behavior checks','Build native docs fixtures','Packed React 18.3 foundation consumer','Packed React 19 foundation and Flight consumer','Packed React 18.3 editor consumer','Packed React 19 editor consumer','Pack validated package','Bind fresh outputs and tarball to validated inputs'];
+ const names=['Require every native engine','Package and behavior checks','Build native docs fixtures','Packed React 18.3 foundation consumer','Packed React 19 foundation and Flight consumer','Packed React 18.3 editor consumer','Packed React 19 editor consumer','Pack validated package','Bind fresh outputs and tarball to validated inputs'];
  const job={run_id:123,run_attempt:1,name:'Validate Node 22.12.0',head_sha:head,status:'completed',conclusion:'success',steps:names.map(name=>({name,status:'completed',conclusion:'success'}))};
  const outputs={};for(const name of ['index.js','index.d.ts','styles.css']){await put('package/dist/'+name);outputs['packages/ui/dist/'+name]=hash('bytes');}await put('native/index.html');outputs['packages/ui/browser-docs-static/index.html']=hash('bytes');
  await put('native/assets/app.css');outputs['packages/ui/browser-docs-static/assets/app.css']=hash('bytes');
@@ -31,3 +31,21 @@ test('rejects changed tarball, changed/extra extracted files and corrupted recei
 });
 
 test('rejects packaged notices that differ from the fingerprinted input',async t=>{const f=await fixture(t);await f.put('package/THIRD_PARTY_NOTICES.md','changed notice');await assert.rejects(verifyCI(f.download),/legal-file digest/);});
+
+test('Node24 downloaded evidence requires all three complete engine proofs matching packaged bytes',async t=>{
+ const f=await fixture(t),d=f.download;d.runtime='24';d.job.name='Validate Node 24';f.receipt.node='v24.19.0';
+ for(const step of ['Verify native engine scope and compiled package identity','Packed Next.js production and browser consumer'])d.job.steps.push({name:step,status:'completed',conclusion:'success'});
+ for(const a of d.artifacts)a.name=a.name.replace('22.12.0','24');
+ for(const name of ['sgui-browser-node-24',...['chromium','firefox','webkit'].map(b=>`sgui-native-${b}-node-24`)])d.artifacts.push({name,expired:false,expires_at:'2099-01-01T00:00:00Z',workflow_run:{id:123,head_sha:d.expectedHead},digest:'sha256:'+hash('archive'),archivePath:await f.put(name+'.zip','archive')});
+ await f.put('receipt.json',JSON.stringify(f.receipt));
+ d.nativeProofRoot=dirname(await f.put('engines/root','data'));
+ for(const browser of ['chromium','firefox','webkit']){
+  const base=`engines/sgui-native-${browser}-node-24/`;
+  await f.put(base+'logs/build-receipt.json',JSON.stringify({...f.receipt,browser}));
+  const report={config:{workers:1},suites:[{specs:[{id:'one',tests:[{projectName:browser,projectId:browser,status:'expected',results:[{status:'passed'}]}]}]}],stats:{expected:1,unexpected:0,flaky:0,skipped:0},errors:[]};
+  await f.put(base+'logs/browser-collection.json',JSON.stringify(report));await f.put(base+'browser-results.json',JSON.stringify(report));
+ }
+ assert.equal((await verifyCI(d)).runtime,'24');
+ await f.put('engines/sgui-native-webkit-node-24/browser-results.json','{"suites":[]}');
+ await assert.rejects(verifyCI(d),/Empty native collection/);
+});

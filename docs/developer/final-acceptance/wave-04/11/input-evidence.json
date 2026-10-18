@@ -1,0 +1,1878 @@
+{
+  "capturedAt": "2026-10-17T21:53:12.560801+00:00",
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "inputsSha256": {
+    "AGENTS.md": "6787b3f78b52898596e8be2f0d0caed1cc95365c46a045c5b9077ebbe32d58a8",
+    "README.md": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac",
+    "docs/migration.md": "c57a990c1230814bef010f44238484640a33bb2376357b842ca0bc747f3307d0",
+    "docs/developer/component-architecture.md": "8ebc3c4c364166826ab09cc9a496afc9dae0f5e6e9173dd645f07b3e5cf4ea50",
+    "docs/developer/react-aria-final-acceptance.md": "886adf45234d5d6499a10e2f10aebd1a51fbfdba94240b5ca4d70f0be751c694",
+    "docs/developer/react-aria-hardening-execution.md": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e",
+    "docs/developer/final-acceptance/wave-03-integration/reconciliation.json": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3",
+    "docs/developer/final-acceptance/wave-03-followup/validation-results.json": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+    "docs/developer/final-acceptance/wave-03-10/report.md": "33ffca43cd9fc0ab686d96272bc214b83949a4852afea7be068290a4fa3adcd1",
+    "docs/developer/final-acceptance/wave-03-10/results.json": "1d5ef056d6ec5dba24e38797c57d0c2faf38f2acd2d403529a68a8679497bf28",
+    "docs/developer/final-acceptance/wave-03-29/report.md": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+    "docs/developer/final-acceptance/wave-03-29/results.json": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+    "docs/developer/final-acceptance/wave-03-29/screen-reader-operator.md": "e61f32e12584e3e4e1a93f74b47373309165d912f5d80a1c7d86ab740ec44d5e",
+    "docs/developer/final-acceptance/wave-03-30/report.md": "bdb94d8cd0b7ef19b0284b7c421a051471935d31b13ba1152633675f0bd09592",
+    "docs/developer/final-acceptance/wave-03-30/results.json": "6e59cf17b55e2fe1991b4fd0d785fbc6f614940923fb6fa546be6b685e2ee6c8",
+    "docs/developer/final-acceptance/wave-03-30/operator-findings.json": "623671a552a3d5616233288416d5c5c06bdbbfa0fac8e83c173d1802482bc03c",
+    "docs/developer/final-acceptance/apple-simulator/results.json": "a72bef1a8a60fcd9720b78384c869dc011f4ac69c3772a1a1a081cb68499571c",
+    "docs/developer/final-acceptance/apple-simulator/repeat-receipt.json": "fd4d95f7aca4ccd4e8362104e8811acd3cdbc22dc0aaa33346540dc3a12059b2",
+    "docs/developer/final-acceptance/apple-simulator/repeat-summary.json": "6f6f40ea8b7c882af3325a56eb98123d653b8b27ca9b61d22b44ffa155a9c656",
+    "docs/developer/final-acceptance/apple-simulator/voiceover-utterances.txt": "050c6e8246ebb44d777d9ca8f88185f1f8c35ff32f5968c74841f6b02c3dfdf0",
+    "packages/ui/tests/browser/acceptance-touch-targets.spec.ts": "794c0b6436534c660e0bc4afc5df28396d9ae19bfef3336dec6494769a7a80fa",
+    "packages/ui/tests/browser/batch01-grid-reorder.spec.ts": "e5e5c46fa4e6b8adede64443e4b543fa15aa28fb3a29d9af116f758d40eb18e0",
+    "apps/docs/native-fixtures/registry.json": "48f5a3df84035c01fc1f61df641b14844f86f7a867e5461a54076c1f8b5a77cf",
+    "packages/ui/tests/apple/run-simulator.mjs": "1ea8748c98778cf4a7f8bf7566228ee4574995254749c5997ab10fb6c59b5870",
+    "packages/ui/tests/apple/SimulatorAcceptance.swift": "ce06b24ec47f9d198fa5e77cb7880e14e890bab5f486ce8ca2f752c1d162fc4a",
+    "packages/ui/tests/apple/SimulatorAcceptance.xcodeproj/project.pbxproj": "303bc5811cb9fd69c0f93ba1f91f90795aa775241332ce066965d0686d47cb13",
+    "packages/ui/tests/apple/SimulatorAcceptance.xcodeproj/xcshareddata/xcschemes/SimulatorAcceptance.xcscheme": "47018d3bfd9406a9e12b68d77bbb7213fb7940f982f687e3859fe2882b565e6f",
+    "apps/docs/native-fixtures/scenarios/experimental/Dialog/Dialog.fixture.tsx": "f71f44346461123377d79f1d7e3717d95658f088d293a47aeab8fa0ff8bc167e",
+    "packages/ui/src/experimental/Dialog/Dialog.tsx": "c20465eda40e26c6c501abfd5dd9d9dcc4f84f76f41b83027dcbe749089b00c7",
+    "apps/docs/native-fixtures/scenarios/experimental/Select/Select.fixture.tsx": "272f2249f4a44684a0ed4be43c2f2e1fe4aff246089cf877f05f8d320397c5a5",
+    "packages/ui/src/experimental/Select/Select.tsx": "f99a61a9f3f1c9f65e88fd13ff00ef9b15f8e6c6210b954ed4d295b1d632ada7",
+    "apps/docs/native-fixtures/scenarios/experimental/Calendar/Calendar.fixture.tsx": "3ee614f940deaf7f62af48d044c2fdb9a0b4dae93258b3836c669d50fcb5c1e9",
+    "packages/ui/src/experimental/Calendar/Calendar.tsx": "014087f32659335ffa19d1170b9c067467a411e7204813241fa99c76f681946a",
+    "apps/docs/native-fixtures/scenarios/experimental/Navigation/Navigation.fixture.tsx": "20d43d20441e9bbdae2a671fef2053c84d535390588c348f0a9c3522f3bd840c",
+    "packages/ui/src/experimental/Navigation/Navigation.tsx": "d2a8c4bd6cc6ccf273f1763fb4b871a52fd7ee1efb6041fdd95b34ac5b673d60",
+    "apps/docs/native-fixtures/scenarios/experimental/Table/Table.fixture.tsx": "ff3092805ee92c9c229041134b6234aed6ead0909d0d324a0ff46fd033e94fe5",
+    "packages/ui/src/experimental/Table/Table.tsx": "fd16ddb941fc551cb6a9b39772b3a0de4d62ed96d56ddcc4120b04cba8e8adbb",
+    "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx": "83a1238084f7623706888bf663015402c7df6b6bf8ce3ccdadf1e00ce8735cf0",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx": "444c156a66281def43c29bc8ae5d631a1794ef388c5d74c18c9332f98d75d240",
+    "packages/ui/src/experimental/DataGrid/GridColumnWidthControl.tsx": "94d6cf8a2732c12bc932e5a9427f98a8e84cb547602abebebd41170d8ecb409b",
+    "packages/ui/src/experimental/TagGroup/TagGroup.module.css": "1208194d6e220cf00f8884ab4cb3b4c53fbea2a664208cb0e5aca2cd61b27d12"
+  },
+  "priorAppleComparison": {
+    "source": {
+      "same": 2,
+      "total": 4,
+      "files": [
+        {
+          "path": "packages/ui/tests/apple/SimulatorAcceptance.swift",
+          "acceptedSha256": "eb213da863850b1de36a4d0a9832a9b2d0b40ab41da474ceb9c54d1b7dbad9c3",
+          "currentSha256": "ce06b24ec47f9d198fa5e77cb7880e14e890bab5f486ce8ca2f752c1d162fc4a",
+          "same": false
+        },
+        {
+          "path": "packages/ui/tests/apple/SimulatorAcceptance.xcodeproj/project.pbxproj",
+          "acceptedSha256": "303bc5811cb9fd69c0f93ba1f91f90795aa775241332ce066965d0686d47cb13",
+          "currentSha256": "303bc5811cb9fd69c0f93ba1f91f90795aa775241332ce066965d0686d47cb13",
+          "same": true
+        },
+        {
+          "path": "packages/ui/tests/apple/SimulatorAcceptance.xcodeproj/xcshareddata/xcschemes/SimulatorAcceptance.xcscheme",
+          "acceptedSha256": "47018d3bfd9406a9e12b68d77bbb7213fb7940f982f687e3859fe2882b565e6f",
+          "currentSha256": "47018d3bfd9406a9e12b68d77bbb7213fb7940f982f687e3859fe2882b565e6f",
+          "same": true
+        },
+        {
+          "path": "packages/ui/tests/apple/run-simulator.mjs",
+          "acceptedSha256": "7313c3cd74b93ff9c56d0107df0ff580eeb1657afaf4fc7c2a7da4c410437674",
+          "currentSha256": "1ea8748c98778cf4a7f8bf7566228ee4574995254749c5997ab10fb6c59b5870",
+          "same": false
+        }
+      ]
+    },
+    "fixture": {
+      "same": 11,
+      "total": 298,
+      "files": [
+        {
+          "path": "packages/ui/browser-docs-static/assets/AccessTimeFilledIcon-Mf-jaEA6.js",
+          "acceptedSha256": "0dda386319f51153b0cec55aa04318079cf8d4edd65446249106197259cac4ce",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AddIcon-D5mRp__Y.js",
+          "acceptedSha256": "da186daf1d5b39b24ea676ce7d5163024103ef45f1d79c69a6a287cc6f65475d",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AdminDataGridOptions.fixture-BrdRfVqc.js",
+          "acceptedSha256": "fa3edf595f0ed84327f5abd1ca9cce8e8336f3ed5b347443ddc2ea37043edce9",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppDataGrid-COF6l-Z2.js",
+          "acceptedSha256": "315b3c458ccc4759dc930f581eb3e6a2ba1706f3ca7563f0877bc5c29289160b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppDataGrid.fixture-JxQHVAU_.js",
+          "acceptedSha256": "5476d6bea7ccc318aed4cdbdb76b9a1d5f674805dcd7de460d4ea6ae595e429a",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppDataGrid.reorder-invalidation.fixture-CZohDev4.js",
+          "acceptedSha256": "3898a2e89ce83f4d392aab2e6e54840c6c94a7e2eba4ae6776f791e8d305c24a",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppDataGridShell-Ci0uXpuD.js",
+          "acceptedSha256": "3e3d0d75e32d41dc296bc8603cf8e882fe4051cf9d3bfd82f3be9b8457ce4443",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppDataGridShell.fixture-DWkgFKlh.js",
+          "acceptedSha256": "373eb8c38776da34284e03ef2dcce56f52de110af852b610b741ddcd53e54132",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppDataGridShell.server-response-races.fixture-B_Dt7r2X.js",
+          "acceptedSha256": "2d590b39278399ce6972f27ecb238d3e1abb870b67303d16142c1cf2595822e4",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppInlineProgress-vVgic4bw.js",
+          "acceptedSha256": "78162218c19bb3aeae9273eb45e1833d2c2d48ee061b9ed010045063b238b849",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppInlineProgress.fixture-Db72M_ZU.js",
+          "acceptedSha256": "2a0c1685b8e6aaebc2f8be4ace179e7748ac6861056cfebf6861fc1bac592a3d",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppModal-srHIzi6a.js",
+          "acceptedSha256": "524f853e28df570876aa7d5de9a0129235b2b7cc05f904dcd2887a594725704c",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppModal.fixture-B9fLzsfK.js",
+          "acceptedSha256": "8a4fa74ebb375c09e7d2a81d8659c2d234d90595db85246127513c03b793e359",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppOperationSteps.fixture-pz_FxOKI.js",
+          "acceptedSha256": "7aae5ef6a12ff54d0d8d43e6830e1aba84a7dd2c19c730a328d7bb86ddfc4eec",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppOperationStepsNativeState.fixture.fixture-DeE1zofg.js",
+          "acceptedSha256": "8c8b780c863f0e63ad8b5feb966f868ad487483764ac8cb9980a623e4655d306",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppPageHeader.fixture-CDUci-7n.js",
+          "acceptedSha256": "fa36bb508b1359873e5c511828938ec701a797d96aedbf981b8edc3c15995d04",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppPageTabs-LfFTM4fR.js",
+          "acceptedSha256": "2f869f21b5b610d8218371389d6119fb0019c1c48e7e4a507a9ef43c4d8dcb3f",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppPageTabs.fixture-CwI9vjl2.js",
+          "acceptedSha256": "20bd32c9e7cd35947cf0b25d2a715b894ee4b9a4b388ea7470fb970368afebea",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppShell.fixture-DsTQ8tLo.js",
+          "acceptedSha256": "02ae5f98b1a1c537ef9380aa6e81cfd4f85c3efe813fad42e97107dbe3600ac5",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AppThemeProvider.fixture-DBSJIbNH.js",
+          "acceptedSha256": "d644385b942b9c63d80e0da3313e94fbd202196a0ec1c8d8d86d19869c6daa74",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ArrowDropDownIcon-BMZsbN_x.js",
+          "acceptedSha256": "50898a2959d1e14373bb40884c6d74eaa32db3fe26799dd728ed54c751b05b86",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AsyncMultiSelect-CCo2Z4Vs.js",
+          "acceptedSha256": "382e544241c80ea00c8f2b0b6038098d502e8dada25a29c099515f23fa748370",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AsyncMultiSelect.fixture-ywKXB-WD.js",
+          "acceptedSha256": "8bd87cc3830f54edfe16e1c006d2487405b6e56b828ed6e84c086cb86e25b803",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AuthShell-C6KoWWO5.js",
+          "acceptedSha256": "dd64457682b512832b94b712c8f18652a53c2fa8a861dc2ec8949e280000c2d3",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AuthShell.fixture-DjVmUaPX.js",
+          "acceptedSha256": "66f65d18ab4271cedb8957d4cd0d67cdcafb17a9d553470e73d9f1d07312f1aa",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/AutoStoriesIcon-CyAvXge4.js",
+          "acceptedSha256": "fefa512bd893fdfe1dd6e0e8a47b435a1bee1d67b7e70ca3aac55c7dfb311eea",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Autocomplete-C8Yn1SkJ.js",
+          "acceptedSha256": "9b21d125ad4cfcd6494eba0daad1d82453391c292bf802db8da02427e353f866",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Avatar-m2SIi6Qz.js",
+          "acceptedSha256": "8cef3c23bcef0b99fe1a81fd1e885e6e0a8f97343ce9191bb208d16b013ff14a",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Avatar.fixture-CnHI2TXs.js",
+          "acceptedSha256": "403deb8200d6c10f0c6973777ff2b83ee37f6936876dc03bd013bed3c02911de",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Badge-BYBcOLj3.js",
+          "acceptedSha256": "617d324948bb3ce58aef01c047bae8481b154ea4b7a04aa040402b3b2f1e997f",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Badge.fixture-CbjpjWw2.js",
+          "acceptedSha256": "5694a741ac1956a902869b9bafc670192d6258e9725939612a5f93892982a58d",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/BaselineHostFlow.fixture-D5cP7lwF.js",
+          "acceptedSha256": "dc3a98cde350b240d7806a356f68439015471f5104f019d1a50e68b8ac30f601",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Box-B_VFoqOO.js",
+          "acceptedSha256": "7bc88381a5138d660b16ed0eefc83c6f11df11e95ee8f45cdaa5044deac01d31",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Box.fixture-CHC2Ifr6.js",
+          "acceptedSha256": "6d87540405bb87e74e419c32873fe1108a3275713a6ee979bee26b9c8339507e",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Breadcrumbs-DiI8q6Vq.js",
+          "acceptedSha256": "b5e33d1a32c2e327810adb59ef5f6f36357531894f1de563839beceff48c577b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Breadcrumbs.fixture-DasOXX-b.js",
+          "acceptedSha256": "22f542bbca5b8987600c26426ee57591d15cd6f4a6fd7109def6860fa837a706",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/BrushIcon-CdcguQq9.js",
+          "acceptedSha256": "d8845c193fa0f1fb4880c815bb5293b2848cc40c37e253e3435e01a020f57da0",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/BuildIcon-FhWMn-ZL.js",
+          "acceptedSha256": "4b8a7e7c7df289763c9616bca52dd4bcb87346d16e6b403f2a2f8182c258d314",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Button-Dox7h5OW.js",
+          "acceptedSha256": "54c6f14601b66a4e01e41a6f6f94e2306256cc1854006c14680b5d733cf4e956",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Button.fixture-D0ZVpBu-.js",
+          "acceptedSha256": "af1901bbad33f0abd6f6391883b1857505b6f346d25bbd27ecd44e35ee8045bf",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ButtonGroup-B2HR1xKS.js",
+          "acceptedSha256": "b717e7dfd6448d4a78b269119cf24d7c5b8cea8fff8109157ace4d18ddc67178",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ButtonGroup.fixture-C9rkuHDX.js",
+          "acceptedSha256": "cbdc2c5cc0715a1d5d8b021d8dcab28e0de78d036df568fef06e7fac86be0a8b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Calendar-Bg0Dq19t.js",
+          "acceptedSha256": "c2f59593814223cb59f039129072dfd42233520a69552656e6881e43f557b3bd",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Calendar.fixture-zlr3S2lo.js",
+          "acceptedSha256": "e7afc6d774000a233a74ba24afd63fb15fa8211a565e7f47ef0bdd4e951fdd48",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Calendar.native-locales.fixture-B-QhHdQv.js",
+          "acceptedSha256": "e517d48759cb9b82e0e0b1af33d02121dc4f0abc02a1dca2a14b8fb9ffd2a83b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/CalendarTodayIcon-1CjSYV7F.js",
+          "acceptedSha256": "3bcb925fe6f15afa2d1b1b45319332650e615a9a3c1dc963c5292e671f8f60b0",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Card-DKalBAzO.js",
+          "acceptedSha256": "1979123560456031f556443116f1ea28c7850af370c680b5ba5b57e20a785fc0",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Card.fixture-DvsBSVtJ.js",
+          "acceptedSha256": "bbfb7d25b82351285ed9b50c5d2ad4cd5bf272d63f6e3c18848eb0f8152a3a21",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/CardCollectionWithFooter-BRnVnLXU.js",
+          "acceptedSha256": "e3d02631db9a8982daffcfa749302ef98b67e7ecba991bf5e14d8f698b17f823",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/CardCollectionWithFooter.fixture-BtZ6OY3O.js",
+          "acceptedSha256": "029e51ec1af5d70d40ae65c21c55098eb6fa4eb834fb4f2e8ed48ec8201b860f",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/CardPaginationFooter-BGCFoOfo.js",
+          "acceptedSha256": "315428974201f786025e04ae5bf004a5accdf0cb2354175eda688d5956437276",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/CardPaginationFooter.fixture-DRdt_8kX.js",
+          "acceptedSha256": "e918f7d1152fef6335595435bd6c9c9b968aba974582216d1cc37b588ff769e6",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/CheckIcon-B98OTJZR.js",
+          "acceptedSha256": "8c7dc784eb9414435277f86178b8487afa5d71eb90c60e3d0c86d19e53bd1222",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Checkbox-CWZrWEjh.js",
+          "acceptedSha256": "87cc3dc49bbc2dbc95336fd301c3aad508e6a69914c6dd864b9e7b91543aefb0",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Checkbox.fixture-dfNp7JdF.js",
+          "acceptedSha256": "cfe2866facb03e790392efd7d96998738a9f25ea3d48c727541af6562ac603d4",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ChevronRightIcon-O1OaWrKU.js",
+          "acceptedSha256": "c5d385007127fbb7a0d5eac85af1854ee7fce106759e44ac4b2ce968fcf32cb6",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Chip-B4WO6I85.js",
+          "acceptedSha256": "80247734a6c5c93191b58b1a871fce1a3af4485e9438cc24d10d91bf33827655",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Chip.fixture-C-25Cbj-.js",
+          "acceptedSha256": "20514d93cc4156e7c43b89525f4fc4a461c97b17bad9f59521e649085b9cd5a2",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/CircleIcon-CpSCYYGj.js",
+          "acceptedSha256": "053586b52180b0b49e3c60326cd1302420cd13a3151eb0a6c2ebc478a2b83ded",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ClassCardFrame-DBTCjrDe.js",
+          "acceptedSha256": "9fa6deefbb533a7c0d848ccfacf25d46f77160198f3bd4fb71da05ba3ac29b35",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ClassCardFrame.fixture-CeBYCt8x.js",
+          "acceptedSha256": "a88ef5eca2c097919e1562a0c2d3518f71440980af473f0ccb0a163e8f1260a5",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/CloseIcon-BDUHf7Vr.js",
+          "acceptedSha256": "95763bf4e65622223d9373b573326450a6135d5b26428364fa48f417565fd238",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/CodeIcon-4fbpIXQB.js",
+          "acceptedSha256": "92d710666353ede9134c53a531784b659843736943c360add7a0695c18ba2ae3",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Collapse-Co2x2U1k.js",
+          "acceptedSha256": "426c0b71399c345e2d1d65d85618c5a7556a9d48eeead3d3bdbd8dead7c89b0b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Collapse.fixture-D2xXRV9B.js",
+          "acceptedSha256": "22a52e11ecb6a943d97daa3851daa9e853f0a322c4c0696cde12a1b26418f729",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ColumnsLayoutModal-DK2A8DNs.js",
+          "acceptedSha256": "a09d3f2918c734377a2b0a9fd012fa3043c08322df6a7db2738d47d8b04bf453",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ColumnsLayoutModal.fixture-CwWEPI2n.js",
+          "acceptedSha256": "52604975ee888d4febd3f446cbe2f9a6410577c8067f7ff873c53bac5fb2e913",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ComboBox-DfMi96JU.js",
+          "acceptedSha256": "7ae7a003415afa6cd0e7099de73fd7193eaa7b5ebfe3885a3b08c5dab27b2c1d",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ComboBox.fixture-DPw43ovC.js",
+          "acceptedSha256": "4820785b7e6c0f16133832e9d7351004f5d63d6b57e79d2b27b831d9b4e2ce5c",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ComboBox.module.css-BeIQAg-Q.js",
+          "acceptedSha256": "39010340cec39edfdb5ce60b549dca7ace071c8b8a2e6da2ab37b709efbf68e6",
+          "currentSha256": "39010340cec39edfdb5ce60b549dca7ace071c8b8a2e6da2ab37b709efbf68e6",
+          "same": true
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ContentCopyIcon-Vi4VfZ4Y.js",
+          "acceptedSha256": "7d7679ab04691b1d3d18c0465aa3e8c4cdddcd9938e4acd134038993d284d2c8",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ContentEditorChrome-BqhD89g4.js",
+          "acceptedSha256": "02fd27958b542eccc1be03f64832691d29fcf1df2bdbf6596af91ab203fe4b41",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ContentEditorChrome.fixture-73tncK-e.js",
+          "acceptedSha256": "44183a7890409b1096e98ffc74e83dbbaf33794aea8ff157c3fa3f4950fa4d36",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DataGrid-ClWW9W4m.js",
+          "acceptedSha256": "ef0d2ba7b3c2c9511b01a64a37676ff981cc4fb9eaa9c1ed98f3fca965129647",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DataGrid.fixture-B8gfWi8v.js",
+          "acceptedSha256": "c7cbf1d66bdb6e4bcc0c4334dfdc22f30cfe8a804183e1bdfe5077b6c46fb1c6",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DataGridDragHandle-Ci6nkC8X.js",
+          "acceptedSha256": "bd3b01941b9c1819561b3c3aa6dd667158617f8bba54074e9d16c78211d83b56",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DataGridDragHandle.fixture-Dv3OcWFD.js",
+          "acceptedSha256": "af98a2582f395b52e1720cbcafa0f186af022f9266057cf528eceb7131910f0d",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DataToolbar-CN5QU8S6.js",
+          "acceptedSha256": "f51f30ad371f6fd357c9f1ca3489222547a69d0c2f473f32a0ad5a6f98d9b4d3",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DataToolbar.column-order.fixture-kZWCWKgN.js",
+          "acceptedSha256": "bbae97c19412156577cce2a21fc6a1f24cc7bf07e91300d90f9420b0ee9d1366",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DataToolbar.fixture-DMjTqZKw.js",
+          "acceptedSha256": "f5352bd72bd849d4e9ea3fc045c05e62efc3df552ffeb971a4233d857031ce4d",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DateField-BSpW7Rcj.js",
+          "acceptedSha256": "d7395b03f9188daa5efe63dc870ecdfd21be7464972bd06fba6fd35654f21613",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DateField.fixture-CxknXB1c.js",
+          "acceptedSha256": "bc73e2d5ad32305388bc61982cee1633beaafb20b67c7a054d565bceaa6ba7c1",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DateField.module.css-BcKyO75_.js",
+          "acceptedSha256": "3028dec26f2efab74fec6a303b4175b3d259e6f3a32d4b16d662d0ba0a4aef41",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DatePicker-Cu9rU0XN.js",
+          "acceptedSha256": "c111a8090db2bbcc51baf80c04137e7017be6ac362b48251abd7dff415efbbb0",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DatePicker.fixture-B3udmQSm.js",
+          "acceptedSha256": "c507fe2f6abc02d46d9dfbd0a11f90a54bdf430c98509e743b6b76c63eeee1e1",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DatePicker.native-transactions.fixture-BcTTS1OC.js",
+          "acceptedSha256": "124110ec1ec9da64a232f08f2bb39ffd0346da0b696d9a022c97f17357a76d21",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DateRangePicker-ClZTZhQL.js",
+          "acceptedSha256": "5cd4adfda843a78633913d7caf15014af1f2ccd2f380ceded0f2c3053e881f4b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DateRangePicker.controlled-transactions.fixture-C09m8sYN.js",
+          "acceptedSha256": "d06b9962e82285e32cbb0e554e44bf7605210311a2cda05b521eda1ce73f043e",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DateRangePicker.fixture-DfDOInQM.js",
+          "acceptedSha256": "ca336deaeb397b84e57a8f4c2ede848ac9c89368cf6e3a2dd8d55347ca9cf96d",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DateRangeSelector-Bc78wNCx.js",
+          "acceptedSha256": "1193fe1bea40ab3250f7797b98abe1c3bf89695a0a70f30c414032bb86095ca6",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DateRangeSelector.fixture-C2BrTR03.js",
+          "acceptedSha256": "4a81198dcaf0ad45373e02a24c5ee1a40cfebe9e09b73769c7de1ab1145a4ba8",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Dialog-BsPAAnVh.js",
+          "acceptedSha256": "d32a73ef5f8a5c0c1bc1e3763b70ccc8dc2f718efae051d58bf980d30bc72943",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Dialog-C9G-bArD.js",
+          "acceptedSha256": "9b3aa7e8e8d4aa8a00ea9f76e60be509b7b2c3ea27d3310701a1c524d7f8c483",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Dialog.fixture-Dfa_4Dvk.js",
+          "acceptedSha256": "5686f02f2508b8639e1287c51337af811edc656121693acb9616acfb02e24d70",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Disclosure-DPdXUrTl.js",
+          "acceptedSha256": "d6143048ecbc85766a9b65bfa83b0ba71e52ab6ca2a42d9af3b478ebade77f69",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Disclosure.fixture-CMxSfpRR.js",
+          "acceptedSha256": "f4ca256e8c94be13bc57652b94de91696986f5e0f6c15254727c752ebb83a511",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Divider-CBrviFbo.js",
+          "acceptedSha256": "9d8fcc8915fd8e92c10c1e35057440bf038ba84bd44259deabe9f9012f3ab05a",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Divider.fixture-DJUzPPag.js",
+          "acceptedSha256": "19f9bb4d1785a17d227661bd661aa61aa8b66be13b55bd65d9c65d91b8d44b2a",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DocumentEditorLayout-CHsEJDpP.js",
+          "acceptedSha256": "cd4449a85bc3036516165e6accd9e35a9d7c96907dc3b146186a8c6d6ab0c533",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DocumentEditorLayout.fixture-tUGasooR.js",
+          "acceptedSha256": "e407fa12929acab21ad2c24cfe88aeed15dc27f4ecb45e28575a6f5d4db83a36",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DocumentEditorToolbar-D2h1Q47V.js",
+          "acceptedSha256": "a07ca62c2da159b936a401c0fef735a1cb3b186d786a6e1799d44eb6941c5846",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DocumentEditorToolbar.fixture-Cp9sZH1v.js",
+          "acceptedSha256": "a1a1069bf3dfc01e6f0d78687b35607caa04038c7e0f09237b08b6ebde443410",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DocumentEditorToolbar.heading-lifetime.fixture-BoRoiyI0.js",
+          "acceptedSha256": "27e563437f7c053ef0194b9c7e91bbf3bf6c83250aaa6b781394bce48d96c4e5",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DragAndDrop-Ct8FLH6-.js",
+          "acceptedSha256": "5aa18818bddfa5b604b94965dddf929a32347d62c06331665f4ebb3fbbe27e87",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/DragIndicatorIcon-GVMrDzYR.js",
+          "acceptedSha256": "1446d99e66af92b0e06a976ee0a6b93d5a7e1571034e2d64997efeaa719bfb6a",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/EditIcon-M__R6786.js",
+          "acceptedSha256": "e83def28e1c3a9fd236f6716ddf53749cae205020b2265c4216c0d27ee182aee",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/EditableTitleField-CSxW-Eaq.js",
+          "acceptedSha256": "07efa03bd78e59e4d83905ca8b27858cb69c83e3f8bc8aa6776609568c2d1983",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/EditableTitleField.fixture-DBQv5wgY.js",
+          "acceptedSha256": "1461bb881835a54b6fc08d271a12867b007fb802be6e56c9776127f62b15c8fc",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ExpandMoreIcon-CanXVuUf.js",
+          "acceptedSha256": "37d9a2317778f8c2d3796757bae8c3a983ffa2f19b903d976d0af36c43788347",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ExperiencePageNavigator-CGBZ8mPR.js",
+          "acceptedSha256": "5910000570bf2328eb7d74caaa4af2d3448996b5546c90bd2b3b9b5e088e9ff4",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ExperiencePageNavigator.fixture-Ct_UczZs.js",
+          "acceptedSha256": "18b01d1f61cd35b678ab0f3aa6887cb84b3e789ba121f861ac6fcf3ccf16f5a4",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ExperiencePageNavigator.native-transactions.fixture-DMSvF2Ms.js",
+          "acceptedSha256": "c1f0cc927ca3651de77307a56a8da25d7b5635113826676aa48753a3a28ccd71",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ExploreIcon-cl3iP9r4.js",
+          "acceptedSha256": "861576d989b4a5f42298977f5c086998217cc729755ae59e6ce489e5818ab5f7",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/FieldError-qn2frsWv.js",
+          "acceptedSha256": "090979c2ff28acfe926644f31029f358f3d652baf83f3053fd4735a524b5674e",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/FloatingTextSelectionToolbar.fixture-QCSCA1DK.js",
+          "acceptedSha256": "04c6f6e435c330b7b433042abf9347f47130a0c252284971b639e03cc6a6097b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/FocusScope-__63Z4oU.js",
+          "acceptedSha256": "20d7c662714d6fe0839b62814f6c8fe663cc4467ff73989db9d3124d3a3c927f",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Form-DtX9Lvyp.js",
+          "acceptedSha256": "cf2299f65480578e895338f63c559cf382b0306778afe87178202d22466e967b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/FormatAlignJustifyIcon-CMrQYWLB.js",
+          "acceptedSha256": "d3d01970eb80edbccd05637123520a030b7bbcc80e3d8868faefceb712f4f68e",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/FormatColorFillIcon-dZyyrc9x.js",
+          "acceptedSha256": "3bf837ea40b7eca6debccb0db44721cec2da5db79d1f73d00e9490b47aead16b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/FormatIndentIncreaseIcon-5-VsSBL-.js",
+          "acceptedSha256": "79aeac1f26d342578b6b4c2f946b8ee5159759ab2ebd9a886e011031e153c9bb",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/FormatItalicIcon-C5Z_3xGU.js",
+          "acceptedSha256": "70a83837d23f92d7813230a8f7ae321f401bcfaf24d254f533a0e7605bd35058",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/FormatListNumberedIcon-CbHru43G.js",
+          "acceptedSha256": "dce03781d757dd4516ffeb477135127ee54039fe644e16d04c84dc663ed4a73c",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/FoundationCatalogue.fixture-CYCxapKt.js",
+          "acceptedSha256": "42de0efff029b67cec1ed4fc00fe3fcc7c15afc1dce2d7d4238ef5a6888a651f",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/GridColumnWidthControl-B2XlKhwl.js",
+          "acceptedSha256": "b946440166fb1e0875bca1712974f53028f28b42f739c727035e4c043dd29d3d",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/GridHostOperations.fixture-jglrEbJb.js",
+          "acceptedSha256": "8dcc4ecbdd425fcf3623d6ae758adc7753068c0eb646b07e156fe82c9571f084",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/GroupIcon-lZnkeQxM.js",
+          "acceptedSha256": "6ac723218bf2eef81a92a2652a07fe6b2a0f602e61193ff161d10068500f28d0",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/HighlightIcon-bt2G0paH.js",
+          "acceptedSha256": "867fe54537a6b2006ff48a667022e05a5456aec78081b1dfc80015d300613180",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/IconButton-DpfOJH8G.js",
+          "acceptedSha256": "68cf013b5684822b1d183ad6d8a7110d3b24eed9192b49fafd2a514a6577a3bf",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/IconButton.fixture-ruacZIan.js",
+          "acceptedSha256": "c88702ef0f18702392f173a4146cd4215e9d64d51999fc42b19e7a135353ed44",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ImageUploadModal-CLhatc_P.js",
+          "acceptedSha256": "99cbc1744bcadb76d102f75995999af668de1204427be5725e16cf565e0445be",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ImageUploadModal.fixture-DUHfxuvF.js",
+          "acceptedSha256": "2125037a2fef70e66966b344c25d18b2050975df800a92a6ba4b4ec7eaf936d8",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/InsertContentMenuControl-DhlvlvrY.js",
+          "acceptedSha256": "4b169981b2895110d0998b8a280418d9582a437f4a6069cd83bdf73ef4179733",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/InsertContentMenuControl.fixture-BDmFt9D5.js",
+          "acceptedSha256": "85276a2e2581dab4b9ee84ddca7510e8f926896d78a3f1d2ace554beee1a9a4e",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/InstructorClassCard-CSDQmIpd.js",
+          "acceptedSha256": "33c19c97d1c585cce8b95afdc1ecca995c2a18087fc488f1d94199c722bd565b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/InstructorClassCard.fixture-B3jaJ8NN.js",
+          "acceptedSha256": "d9fc6549d10a8b4928bebb65c37984459b1d804f00604582ee312c7c1854035c",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/InstructorDataGridOptions-B38r9nuz.js",
+          "acceptedSha256": "b8a581e0d0dca547a8c1c5c11a860f521c72cb652e5cc2251b51e1d8587304f8",
+          "currentSha256": "b8a581e0d0dca547a8c1c5c11a860f521c72cb652e5cc2251b51e1d8587304f8",
+          "same": true
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/KeyboardArrowDownIcon-Dn8m0Wjt.js",
+          "acceptedSha256": "753c57e7a163b22d6fa5b16f89c2c497c30e03b183e34beadffdddbfa7c8e87c",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/LearnerClassCard-B2FsVxCn.js",
+          "acceptedSha256": "bc9bbff12815a1f311cae4c07765442a06cec374faa92176ac70b234f29b574b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/LearnerClassCard.fixture-C_R7GRsE.js",
+          "acceptedSha256": "ed0380f2da840f378aff03d50180d4eba51725f9ab3c4956cd5463f0c16c73a0",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/LearnerClassesDataGrid-YYaQM9b1.js",
+          "acceptedSha256": "3e551028706d55e27b2a77f0bcb0a89d7765952629ace8e646ba16d5b50b7c62",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/LearnerClassesDataGrid.fixture-6EuwOy9L.js",
+          "acceptedSha256": "5241b4ce2f27601bab1537d7a69ea3191afdd2f7c0edf20060a0a889d0950704",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/LearnerClassesDataGrid.native.fixture-BtalFEvJ.js",
+          "acceptedSha256": "26e45d9052b25bc1f6ebae72c69433563c3c26c23fbd3871243a72b381a2ca2c",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/LexicalErrorBoundary.prod-CqJPA1kw.js",
+          "acceptedSha256": "8225feaf19e53fc90719d2777a24cbc36274512d3bf63127c9625e701723734e",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Link-DQyyGITN.js",
+          "acceptedSha256": "72ec95efe9c3002dccdd6704dba9a9d9b1084b234ddfe01e1f74bdf14c1fb9fd",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Link.fixture-Dk8yig_Y.js",
+          "acceptedSha256": "fc605a66bfdee8d50b996981b4b36acd000c3233d9aeca1b363e1468cfee6925",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/LinkIcon-jPpVRKjo.js",
+          "acceptedSha256": "6377bdb05cac31cbc21334f19674a44c184165856cd28b41442f66c291640bc5",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/LinkUrlModal-Cpvkw4LK.js",
+          "acceptedSha256": "098553910889ff798cd2ed8c290a987bf8711bd9338de6f5b79f5fdf1fee405a",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/LinkUrlModal.fixture-CWBv2c0F.js",
+          "acceptedSha256": "4e1f1fc36684db267d735237cafc5098f34ca986ae7d04c05ac823dcf78a4357",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/List-CEvdseLO.js",
+          "acceptedSha256": "e45424d2cab6be9e328027d1ddd066dc594b31faf28d45504c2a22e5edd962b9",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/List.fixture-CpQGcmFS.js",
+          "acceptedSha256": "57e09e7ca0fb304fa92ffe8ad933326570b7ffd006f122d4f3a0aaf850810f54",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ListBox-B7BeMMp-.js",
+          "acceptedSha256": "2ea5dc1ccfbe4b6d2f4c3be46aeb0728a113c0bce31d36beff00e77c67ac8d44",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/LogoutIcon-D0SB3m5G.js",
+          "acceptedSha256": "0ab13b23456271eef53ff22d8a3402b8c629f7fc67dcbe97cb574b603276df93",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Menu-BhDpsKIB.js",
+          "acceptedSha256": "757701cd1927079963850ec9982d77c4e9af81ae4365eca89b48766dbc846900",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Menu.fixture-kUU0Q8b_.js",
+          "acceptedSha256": "049f93475533ada8eeb49a30fbdd8f55814eb7cf8ccb4698a412f29869a460e6",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/MenuBookIcon-hqEI7w3C.js",
+          "acceptedSha256": "92f8ba6e48bf20421ba02904e253ea6649c616483ca5514989151c770a1d3d9b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/MoreHorizIcon-DHU8b_8y.js",
+          "acceptedSha256": "9eef2bc6af189e851c5815a8c17d317bcb40178fc28509b83e4de195188a5abc",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/MoreVertIcon-CA__DC1r.js",
+          "acceptedSha256": "27859654fd277d31afa3c3f02fe28289f6be1f2e57b1ea063240b4c12727cac3",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/NativeSelection-Col-VA7j.css",
+          "acceptedSha256": "44ba5e1ea411cf4ccdf0510a4a02a7aabdca75954e76a3aa9e9ff27cdc3fbbb9",
+          "currentSha256": "44ba5e1ea411cf4ccdf0510a4a02a7aabdca75954e76a3aa9e9ff27cdc3fbbb9",
+          "same": true
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/NativeSelection.fixture-DxBJstM6.js",
+          "acceptedSha256": "ff6278543792291103ee08551c0d84f0621d90daa91d5a612dcd079c39c528bd",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Navigation-COUm-p2o.js",
+          "acceptedSha256": "98a20d6c692750b3bd6625b8a79d88cf03087dbaa63706b01b7a790d8c3cb9f8",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Navigation.fixture-Czwb6wiI.js",
+          "acceptedSha256": "c7fcebd1c351aa223047aab079f6a1a2ef512573a3e242cb21c0a3b9382c2303",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/PageRichTextEditorSection.fixture-_3ab5Mhv.js",
+          "acceptedSha256": "24b938a25830284e801545a5cc16411204e38efb0667d879a753277107aa0226",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/PageRichTextEditorSection.impl-BfyaLYEx.js",
+          "acceptedSha256": "7bbdadfc3c27f4377a5129f1aa922ca57477bf15954ff4b110d863fb3a1698d2",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/PageRichTextEditorSection.mixed-formatting.fixture-B-dJ0BKz.js",
+          "acceptedSha256": "89702d7bfdf1fba006189eb651ab3c469622978c1d594f6719bb090ea27f2851",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/PageRichTextEditorSection.paragraph-transactions.fixture-D2JScbHv.js",
+          "acceptedSha256": "5b235b0d45462d330c03df70e7a65c3476ea4cd9262ae90c806ee0f90f80d711",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Pagination-XD2OGIK-.js",
+          "acceptedSha256": "e69f8ade857e98b23b74eb0c936fdcee4b211073ec513b1efaf36668d500ea5b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Pagination.fixture-CsfHn7JX.js",
+          "acceptedSha256": "ddd11a11bc128a542cf86456e60ea3701b1b944c3d485f5cf736639fc94b4969",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/PaidIcon-CPvRtHop.js",
+          "acceptedSha256": "144fa6895f0c4effb4ab196f3709e54839fa4163fbc0ed235af9aa112cac787d",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/PeopleIcon-mNkqTyIr.js",
+          "acceptedSha256": "9c270ea5c65c6ac447180cc5900645ceff63bb9936d2999e54d1a009d7029c2f",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Popover-BybiNOdP.js",
+          "acceptedSha256": "86803b615bd22b031c33949de8a4cf37e8ba0b01e29054e4924df80868a8c2c0",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Popover.collision.fixture-BW9LXPAq.js",
+          "acceptedSha256": "5e0a31be0bc4544a6fff41129479a26ada8d35fdd365996f3379deca6643d900",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Popover.fixture-C29JERR2.js",
+          "acceptedSha256": "27c39dc974d1abb185d3526115cc618e36b5dca945892401c11879239de5055a",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/PrimitiveAcceptance.fixture-BsYm1E9v.js",
+          "acceptedSha256": "413246df514ab552c120834c3daee3507e01fd814d832baedeaa88118a077725",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Progress-1JBsMwmS.js",
+          "acceptedSha256": "7a05d17c0c02efbe6879a40a1b5b685b533b50026710540d2cb41817b41ac370",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Progress-BCbKI5vr.js",
+          "acceptedSha256": "6d5ea11b131aa87c03f43bfb1079ff73f96442ec3def4286aaaa93d126622cc4",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Progress.fixture-BIPfQxUy.js",
+          "acceptedSha256": "e1235ebbaaa9c04b7ed120b8c95fc4a3615d2ac4b4ca23cf1ae66408ea8cbc63",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ProgressBar-DhhyxxLX.js",
+          "acceptedSha256": "b6465350914766a878000aae7c61d52f421702902c1369a4b22aee283e93d714",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Provider.fixture-B_odlIPz.js",
+          "acceptedSha256": "7908f8e8f5cac360cc20a460986f8deeab9448d0ea5ae2a7d23dbab628ade1dd",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/RadioGroup-B1qNufQa.js",
+          "acceptedSha256": "2c6989964fe93adbe02158fe3e0afef4e2aaa45f111cc5c2ea3b39430b42d841",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/RadioGroup.fixture-CfAXt8Hy.js",
+          "acceptedSha256": "22f582be7e5dd3ab1da6f292bbce8ba9e83efef633276be7720f7c8c8dcd2486",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/RemoveIcon-D-vwHqJk.js",
+          "acceptedSha256": "2f5315740813420c9704d1b4998180251bc17d2136176f252f03fa83a7afd1e9",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/RichTextFormattingToolbar.fixture-CdyVwnLh.js",
+          "acceptedSha256": "39849186a7de58d6d62860f4906fe97ea6176b357cc4b010ac768d87a11815e2",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/RichTextFormattingToolbar.impl-BeFPtn0Z.js",
+          "acceptedSha256": "4b56b7d2422b22e41f05cd932d53b119c918a2498e456500847ee1eb741f1540",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/SchoolIcon-TnlwGz4H.js",
+          "acceptedSha256": "8a464c1c7bb533c6be0a88ff222c5337e718e3a45898fb7954f5afd42ec62a70",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Select-B_JslyQ8.js",
+          "acceptedSha256": "2a79675bc5209927486a862f16fd476f82b3e02f55d64a06b096373b3a803a17",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Select.fixture-CVEbkb0q.js",
+          "acceptedSha256": "11fd3ecc624f9cd9da357874374d1259f0c7350947f655d0068da2c0915a7877",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/SelectionIndicator-BIGEuTHI.js",
+          "acceptedSha256": "1bc08ffe73031943ff15b43341690a78d43805699f10c11ec847a21c6663aa82",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/SelectorDirectionFixture-DpyVsShK.js",
+          "acceptedSha256": "8177a5f7fbab38be8e4fbccae734a7dd32f77666cd88209e5d73045427d1add6",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/SharedElementTransition-DG15l2wH.js",
+          "acceptedSha256": "ba6824ce1063c3672c966f8839510b6689598dd8845290a90db7445af23af4b0",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/SideNavigation-COBT6wmA.js",
+          "acceptedSha256": "6600ca2d1f177e887ef08f7563316635a3bd016bf0d29fe7264b3cb26688f207",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/SideNavigation.fixture-CqrbkpIO.js",
+          "acceptedSha256": "c1fcf0751330b9b92deeb9e312cd8230d59fc7a3c16f31ebdb87318d290f7f06",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/SideNavigation.organization-lifetime.fixture-DHH_et3c.js",
+          "acceptedSha256": "14fa01f8df3cafe9221ce2c4d6eb80c3fdef0672f0945db3d20f89f900fdacce",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/SortIcon-BzLzjTAo.js",
+          "acceptedSha256": "4c427deba6c9f9863e3d2512e33fd8148dabb45ea8a763f375e7f894baffd642",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/SplitAction-Dq8H_qO-.js",
+          "acceptedSha256": "e20a4b35ddb32ab97b3978f565c6a0235192df5949adcf5e3b5c453d61327504",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/SplitAction.fixture-fJyrxfIY.js",
+          "acceptedSha256": "b1c6510f0e80b8be5252459d86f4adb6c8772abb4c75866591aa7d0334d8a26c",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Stack-eRw6xDQ3.js",
+          "acceptedSha256": "98fc1c51c8f2136db5555b950675bc44875b2ba4daaacad837d3eb3fd8428e79",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Stack.fixture-DKzrtfvW.js",
+          "acceptedSha256": "3a3ad1aabade3a0e0ed121a1ac09941ff4f88a8435105ac6166d7c0842285456",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Status-Ca7LhuCk.js",
+          "acceptedSha256": "79dfb0c116f6a995235df6bf1d0a8577f5dd325832cdc3da8d00d2f5e424145d",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Status.fixture-ClYEEhRh.js",
+          "acceptedSha256": "790e026175398424c2078ae7511a6a0084594bf637d08df2c0c1a587008fccb9",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/SuperscriptIcon-CLNHkGC1.js",
+          "acceptedSha256": "eb790fc3f9802144858907f3cbfcd3089698ccb0157086c44ac4848a9c668dc4",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Surface-D2_DqjHU.js",
+          "acceptedSha256": "e38c65491fd5845b7de84fa76748f37c49a3b0a190a1e25945d3e341407ed1bf",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Surface.fixture-CIZz6uHD.js",
+          "acceptedSha256": "89319916b8491ff7783d7e2c647d8eab0a5cb1956fbd006bf18bc4853c096c8b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Switch-B3qHLy-S.js",
+          "acceptedSha256": "a92e7fba67299235cd85ebdacb7cffa3a8b8e6baf6b7a90331494fec780c2bd4",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Switch.fixture-BKWfba3T.js",
+          "acceptedSha256": "5d39945ec17e23ade16beaaff70394e9c178cf17a2db88ceb62ac3943b70fda1",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Table-BznxVRPF.js",
+          "acceptedSha256": "fcb303e39224b45db72a89e4afe1a8f6accad53570f8168ae9ad1e3eee34d708",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Table.fixture-C-vVwO1Q.js",
+          "acceptedSha256": "098ac40728340e4a1c4c3a6a63de65d097e7baf0af16883fe657104f9457f4dc",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Tabs-h2yQDcm0.js",
+          "acceptedSha256": "52c1d6d1d263125fa9830c19abcabeb931509986a99a13d8666e78fc5b556fdd",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Tabs.fixture-z4wl7sca.js",
+          "acceptedSha256": "47b58758d751bb03f569aca1283985a284dcdadba1693cecc2e2a3b675b59d8e",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TagGroup-D82mpCjU.js",
+          "acceptedSha256": "f57d174615e4a100add0afe6166b7c5c8364db679f4c9823e71c14062a29a0c1",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TagGroup.fixture-Ci-4vM_4.js",
+          "acceptedSha256": "5d9d0e52e969a04d55108b57dc2fdf40dd1884ccc3559ab77929ec3b98a7f50e",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Text-wH0XVPK1.js",
+          "acceptedSha256": "04e8b7ffddc4f85a6df9c649502ef9d1e2912d4d2bb5ab0e415a55ac01dadcb1",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TextAlignMenuControl-CP8GocRk.js",
+          "acceptedSha256": "70e83b6081520f8f0dae25c3c5d3a32ac124db06f917b32a5b6bd0a2951a05c4",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TextAlignMenuControl.fixture-Bc5zgD24.js",
+          "acceptedSha256": "e0278269d0a635b9e9d72663672aa9320d67ed78d48c56e1ffd84a83013cb841",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TextArea-Iz4QgokX.js",
+          "acceptedSha256": "8e83c74e69768036e40b52b4f3e843ecf984e602bb5a3191a20cc5e28d76f3b8",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TextArea.fixture-T_GyoyhU.js",
+          "acceptedSha256": "0d1cd67341867283d138849890d9af23212c10a9157a84a44ac5c8073be79c78",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TextColorPickerControl-CGp7159I.js",
+          "acceptedSha256": "122c537b7ad4512151187e433787a76a83c708446abb40449c26f93847a6ea1f",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TextColorPickerControl.fixture-Ba62KTdT.js",
+          "acceptedSha256": "505f3e5a2258f496efa1dd417c4910b0293a5474979ec8abbb85ce36164c1cf7",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TextField-BNcVf0F9.js",
+          "acceptedSha256": "ec292fb8e9e1b9e3e778dc2ed24c9252e7c7c07281b2e2254debfa99e61ad545",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TextField-CxIn4FVD.js",
+          "acceptedSha256": "60421efb17123c01f3ecd62b114e8e5647ed6a0f3948dcad0030321bbc0b6c71",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TextField.fixture-DNobs-bA.js",
+          "acceptedSha256": "5e78d3afd7acd541b6dceb2b47ef706cd36885750d4765098dc59287f9d7f06b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TextField.module.css-BRvKwHS-.js",
+          "acceptedSha256": "4ea5b12db49871c9dd1eeb00fe69953c1ab298a8b2657b47e3010818e074132a",
+          "currentSha256": "4ea5b12db49871c9dd1eeb00fe69953c1ab298a8b2657b47e3010818e074132a",
+          "same": true
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TextStyleMenuControl-9_96xH-y.js",
+          "acceptedSha256": "1fc0d08ca89d835ea0ec1daf8d7e7313b4d0de8b44f02fd9456e1b3dcbb945b4",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TextStyleMenuControl.fixture-DP2-VqtR.js",
+          "acceptedSha256": "727b7d6619d992cc4c0a49c3b55df39179cc48d757e5ac41438c62098f5f210d",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ThemeScope.fixture-Bk3TIXwD.js",
+          "acceptedSha256": "37abc4a6d080b9cefaeb7309388714b4260d02f0acfa93d3120880024a05fe1f",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TimeField-CIvhfvCd.js",
+          "acceptedSha256": "f6a1d31d6ef26a310b1c80a3363f6830820c7ed3236dc3b0e257bcd38b470aed",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TimeField.fixture-uB7DHdkF.js",
+          "acceptedSha256": "205520e4100e311346a3013b980aa2a701ca768967e75bc4407eb8d78772ae9f",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ToggleButton-CT4yjPnn.js",
+          "acceptedSha256": "198fda33eb4854a6906b8285917ff1f5d2faeaa6bf6ef07788d033fdbe044862",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ToggleButton.fixture-BGGqFbCy.js",
+          "acceptedSha256": "9377ad5275d5c8fa093e7e2975a3c3d2d89d2dae8e2ecedd8f843a06776d7020",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/TokenTierScope.fixture-BIZ6sqzC.js",
+          "acceptedSha256": "96ca128052984f83b6d691829140ef0cf7f1c4b02ce3371662fd9ca4dfee3192",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Tooltip-DRsYqd4m.js",
+          "acceptedSha256": "68add520ba0925b7148a19d63f671663ddeb168d88db3b10cf970029cbae2bb8",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Tooltip.fixture-DmOVK5Tk.js",
+          "acceptedSha256": "679aea02b4de648ac0c407cbc5f4991a328128d302b3372b3f4f690eea0d4122",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Translations.fixture-BbakWD7g.js",
+          "acceptedSha256": "055ddb325e6ac2ac85956486d577e941aa4e146dfda75d68452dd4a7328ede22",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Typefaces.fixture-DNmWhAyy.js",
+          "acceptedSha256": "c06f54e7026645a7f68f0bd79332382b8778025d64697453816a612363c9771b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Typography-B5y3I-k8.js",
+          "acceptedSha256": "014189d9be3cfd327d789235ee2523e6c6973984ef287debbb89154e2432a5cc",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/Typography.fixture-B4NcW9V2.js",
+          "acceptedSha256": "35c03b27536d5673be5cba4c3b459833dacb46a2202749452795c1388ed3c420",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/UploadFileIcon-BtEa0KTC.js",
+          "acceptedSha256": "0d675f1a943569b229d268c10527e615f6c5616bfe7f831323d9757f603b4b4d",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ViewWeekIcon-BS5qi5X4.js",
+          "acceptedSha256": "1f3ebae10796b15bc7616979aef44b6500d8bd879e8c72ddec11c904f2af355e",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/VisualAcceptance.fixture-D7Z68D0J.js",
+          "acceptedSha256": "df26a560cc2eedd4a68cfd13e518dfb08018c8375f8bedb16979ceb5a7b9bc65",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/VisuallyHidden-D-C0BPmv.js",
+          "acceptedSha256": "7268ec427e4aa69c304d462f1ff916a942f47fb7062b9dc0b7ebf6f2830e239b",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/WindowIcon-BaiqosFd.js",
+          "acceptedSha256": "20ee574013f5bff5e6068fb255e288b22f817865ff889a122767205eea70d880",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/adapters.fixture-DIAs7lrb.js",
+          "acceptedSha256": "4786fae31728c24324a618bcdd3ba9dd6fc49f0ef2834c9e2b7239c43d356d83",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/animation-Bt8vpBH5.js",
+          "acceptedSha256": "b854def49f2e5409818391cd7aabfa9de86ef4a9a060d80ce874ba107f119a15",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/book-open-BdwIxOqA.js",
+          "acceptedSha256": "001248b35fba9d2d08d5dbd24d6cc272535e0a1d994c519238f4d10d5c6482a5",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/chevron-down-PnJWtDY3.js",
+          "acceptedSha256": "6cbea915a4f629bd6a4031ff418cff134fec5748a9727c5c862e5ebe24e9afe0",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/columns-3-CuWpfEDL.js",
+          "acceptedSha256": "8edf56b868c2643e95bbf0455646cb77e9d96025203a35e6470ea8ff3fbdfa67",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/createActionMenuColumn-BsRPTAjR.js",
+          "acceptedSha256": "3b8ad004caf1bd3cc3a00ccac55e87d80db56bc745da5b8fb89d96302ea84949",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/createCalendar-CXQXWB8P.js",
+          "acceptedSha256": "189f0772d2e9825c501a6152b09fbc077e6528aab3204246ed1b8d4d7b8369cb",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/createVector-Cl_BqpkB.js",
+          "acceptedSha256": "91542ef787846ff4d299c69574b5738ac0dec5b6066471f857bde710b7f05466",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/date-contract-BCtXudhh.js",
+          "acceptedSha256": "b2b375ef17b81ad6547ea319fa23cddc1afcba286edcf2aac355bd1d6dc3d26d",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/filterDOMProps-BsfGkxzp.js",
+          "acceptedSha256": "fe5ac19a038ca6589a167b4182f9fd8441315832c1eb5f6cfa1b4636a4ed7964",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/filterRuleValue-BjAHLo2m.js",
+          "acceptedSha256": "9cf052cad33021a4201d98c2e34c1a6aa8af0b15f2dd8f19739519f06f20fd8a",
+          "currentSha256": "9cf052cad33021a4201d98c2e34c1a6aa8af0b15f2dd8f19739519f06f20fd8a",
+          "same": true
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/formatDueDateLabel-VDYAfS8J.js",
+          "acceptedSha256": "104df5f9b8bf575c4d89e2ab33d69bb72cff0daf67eb1044e023ccc2914ac31a",
+          "currentSha256": "104df5f9b8bf575c4d89e2ab33d69bb72cff0daf67eb1044e023ccc2914ac31a",
+          "same": true
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/icons.fixture-CvfEhGlD.js",
+          "acceptedSha256": "70cc13e1d8479cd1a9bd4987324fdf9bf5c424c16890d925884796279a02547a",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/icons.fixture-DriRwKgW.js",
+          "acceptedSha256": "2a005a504b3d82ae8e6d4826eeee3b27678b2426285a1e6797874e20c02b0369",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/index-C5dnbyDG.css",
+          "acceptedSha256": "f9da5828ab55dd4e0608939dec2d792b11b4cff791468c48913701c85a72d8b5",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/index-DHFzC36_.js",
+          "acceptedSha256": "53b415238a84d00db4aa044a8c8a0379da39fde374b8051cd61a16b7a67a2c98",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/index-TD5eAT0Q.js",
+          "acceptedSha256": "11adb2cb937e433d7660fcca501b6a61916ffe7af2c2b26f616e7b91703331b7",
+          "currentSha256": "11adb2cb937e433d7660fcca501b6a61916ffe7af2c2b26f616e7b91703331b7",
+          "same": true
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/intlStrings-BTHtKwgC.js",
+          "acceptedSha256": "1e0a1035232fd81c4aeb6d5fe0fa8f08da47cfd71a4fbeb9640a71479b7b2ec4",
+          "currentSha256": "1e0a1035232fd81c4aeb6d5fe0fa8f08da47cfd71a4fbeb9640a71479b7b2ec4",
+          "same": true
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/minus-DAi9wSq2.js",
+          "acceptedSha256": "eb9e803a2f423947732ad66959cea57399ac372d0cd87497b6e55c06a21351db",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/navigation-C2Ddg49a.js",
+          "acceptedSha256": "e9102e67c320b526ea2cd4383a773a5562c6139bab8887298d5a42ea4aafc821",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/navigationContext-CMBGqXbH.js",
+          "acceptedSha256": "296de9a96c184f77e23a3db4f80d53ae15cb020153307baaf21ef3ffaa8be347",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ownedGridCells.fixture-CQMv5F8E.js",
+          "acceptedSha256": "6bafe7f80db9a3c8980317de01263e1b340e3434e611bf2cd3964b131d643b2e",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ownedGridInteraction-Dt9m43TN.js",
+          "acceptedSha256": "d0c157f4de2b037e726d30102d0b9f5d93fecb0602de1336e29e35e73b0d8248",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ownedGridInteraction.fixture-B0mYsEGN.js",
+          "acceptedSha256": "5daaa89bc0c2725e247c6a9f84e10c30bdb24ced5ebf9b20b815ff3c099572f9",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ownedGridParts-i_OuOusN.js",
+          "acceptedSha256": "88cfd670abd9722b90144ba0947a5fa62a30dcfd63e3118df20e0c5336afc829",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ownedGridParts.fixture-DNCS8Att.js",
+          "acceptedSha256": "8b54abae3e2d4804f6d3ffc40a68cf04ac2407690be594d7a6338fb9856b5299",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ownedGridProcessing.fixture-Cb-sZCX5.js",
+          "acceptedSha256": "dc306ce01ec163bfdb3ec63c0d3fb32835ee9692fc25a0224f627836b652b601",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ownedGridSortAcceptance.fixture-D7me01UI.js",
+          "acceptedSha256": "4f3baf2f517e7a31dd98ba593d773593b325ae32e38e7535784f609bdce3e5e3",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/ownedGridState-C_kDX6xu.js",
+          "acceptedSha256": "ca18f16e43ee13ae7f43d91d349bd1d5de8f00a30587d5826fce26949888c2f9",
+          "currentSha256": "ca18f16e43ee13ae7f43d91d349bd1d5de8f00a30587d5826fce26949888c2f9",
+          "same": true
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/primitives.fixture-B90Jyvdk.js",
+          "acceptedSha256": "3fb10d3c87bc9e38244e57dafa3820167336b64b49daa7401d1fa22a7364f87c",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/token-source-kIfmxwAp.js",
+          "acceptedSha256": "e8c68f7f2674191c6097d6dee7d90029fa44ccb302f5243182e728d559eb1726",
+          "currentSha256": "e8c68f7f2674191c6097d6dee7d90029fa44ccb302f5243182e728d559eb1726",
+          "same": true
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useCollator-BRSm5VhW.js",
+          "acceptedSha256": "c400e9ed8fc3c7b5eab8daae6306bcd5a969a9153d1fe95ca739acf9cebe276f",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useControlledState-sEr_TujM.js",
+          "acceptedSha256": "0815f9d18bb3272f45c3f87ea2731e58ca7b71c8f2e31122a794a09ef4a02665",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useDateFormatter-nUvKrd7Z.js",
+          "acceptedSha256": "0d8e57f1c7c0a04b95eff4102b4b7734e8d1b1086bc69acf658d776f794c0560",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useField-DQQKIIAB.js",
+          "acceptedSha256": "963b813519122a61d6af1bb724a681983b12c23489222f10f4e303346beb60f1",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useFilter-kL8Hg58A.js",
+          "acceptedSha256": "73de9df94e337f19b1bcdd7261d9e557c93e0baf8ceb85eb7083e5a3433dbc95",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useFormReset-CJj9Rs2F.js",
+          "acceptedSha256": "6f76b7ced1330b77b5731365a99592641814277f4563b5ed84b11e0ca6572f62",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useFormValidation-DYtRbRTE.js",
+          "acceptedSha256": "f6fce410e70f158f8b6cdf501a76475f7eba06777f85ec3c9bb237beaa2e9a30",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useHasTabbableChild-CdriYq9m.js",
+          "acceptedSha256": "5a40d1ed97742c7868fa102813975952a980da495505e27d49674f1d6aebd2d9",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useHighlightSelectionDescription-BK8gUVkW.js",
+          "acceptedSha256": "c46adc5891500c058953cc0a9d0502cdd68e85af26e03737b2d2d3a7e93cedbd",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useHover-D8G0489u.js",
+          "acceptedSha256": "54b030e2be1ff4d9e0e5022a79d6bd6e34b06607e5e862351062472e5f59e784",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useListState-DAyAHmPQ.js",
+          "acceptedSha256": "a34a93657c4fd8113f9ec3a82bcf06eee07ea51e1d8a94f242ab84cc1f62b129",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useLocalizedStringFormatter-qOSEHaFU.js",
+          "acceptedSha256": "791a3c97053b2b410609a71ddeecf8e1444962591f235d8ddfb68c2f662272d2",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useMultipleSelectionState-D6xV86jS.js",
+          "acceptedSha256": "30a479e0eacf78d112544617399b01ea004f5bd33de16aa6c2d879bfeb3164da",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useNarrowWeekdays-BvQuSPEf.js",
+          "acceptedSha256": "31d6f46e85dcaa197f2ded232984ec254a371196770fc7c577eaddb8723dd7b7",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/usePersistentPaginationModel.fixture-Bs-glO_P.js",
+          "acceptedSha256": "d15f4e7a034dbdd89e7e6a08f0393a08eaee0c3a419ee3b4a575a21b5d096a21",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/usePersistentState-DI8cq1-M.js",
+          "acceptedSha256": "f79b3b37f0088a0ce65ef79e3deddb3adafea84eac22e7f6616036e0f51bc6de",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/usePersistentState.fixture-D1nFmBWH.js",
+          "acceptedSha256": "07ff7fb4171df4a67a8277b2497e9b9ad00ba6e3771e58262113e61bb0690d7e",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useSlot-680juvRq.js",
+          "acceptedSha256": "329e40e9c0bfac9d8046285405d88eca64cc6f619a9f4839802b84d2f4f7cffe",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useStandaloneFormReset-vEBa7saC.js",
+          "acceptedSha256": "e81b939f54327c2710b1e466bb9c4d1c03ea1160526579283d6cdbbae55716ad",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useTextField-CLxhy4ol.js",
+          "acceptedSha256": "37ae9e14f7902d977da7ce6399f2be6eb22058c3ecd6a01d5f9cb0878365005a",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useToggle-COoJi16G.js",
+          "acceptedSha256": "9acd4a30ee9846875aaf59c4653b5b1edb930e548dc8ecf214d759841b12b292",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useToggleState-DH0bEQFL.js",
+          "acceptedSha256": "20aaae0ed958e90a90ed909d4f9bbba426ef8b97ad9afae47363599b6c015e2a",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/useUpdateEffect-D4y7sRFa.js",
+          "acceptedSha256": "3ac1f3da340303f5c5e5c8f413d7873f27e290d8c438415cc0060defece5a21d",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/assets/users-BO7HsDrp.js",
+          "acceptedSha256": "7583122a2d8795a82cab7818dfd05de4effcce3afab7332da9efb0ffcc176b37",
+          "currentSha256": null,
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/composed-download.txt",
+          "acceptedSha256": "1411b9aa1202b13d21e27496c6f05a6e64e291748688979785bd6a74ddeb8180",
+          "currentSha256": "1411b9aa1202b13d21e27496c6f05a6e64e291748688979785bd6a74ddeb8180",
+          "same": true
+        },
+        {
+          "path": "packages/ui/browser-docs-static/index.html",
+          "acceptedSha256": "6a47e223c2826cece67087dc55f5bea4ba8c429edf0b01a15347f243412cdf99",
+          "currentSha256": "47825cbfd9afc965b7815580724a76db9eacafeb580a4511caec15e8ca20d9d0",
+          "same": false
+        },
+        {
+          "path": "packages/ui/browser-docs-static/index.json",
+          "acceptedSha256": "8fe3f9f0329993f2ba0a6fd22426656f2458a48a97d59e8f7f674bb4273951a4",
+          "currentSha256": "2a7b14abdfbafbbfc83f94fa1d04c3633cd308b6e3b811f47b8f8e0a1d42c8ef",
+          "same": false
+        }
+      ]
+    }
+  },
+  "sdkHeader": {
+    "path": "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCUIAutomation.framework/Headers/XCUIVoiceOverService.h",
+    "sha256": "8b095cd7f1d986fbb83f5aab289f5a1369cce81b29f3f02d68f3790f735dace4"
+  },
+  "limits": "Sequential selected hashes, not atomic/transitive runtime validation. Prior result remains dated; matching source/host bytes does not create a new simulator run."
+}

@@ -1,5 +1,49 @@
 # React Aria migration execution record
 
+## A-B-10/A-G-20/A-M-16 production measurement closure — 2026-10-18
+
+Complete | [bound measurements/source/F-T-V join](backlog-to-ten/performance-grid-closure.json) |
+committed draft candidate f049b215e28e4157200f99ebf5fe52a7c04cae5a;
+local fresh installed package and fourteen import boundaries pass;84 production
+navigations/4200 updates/seven disposal probes compare with the identical older
+owned baseline. The grid startup ref-state regression is corrected; raw selection
+tail and single-M4 limits remain under required P08/X19 budget/device work.
+Current totals303/320 A closed,17 A open;20 active leaves including docs/menu.
+The full CI packet remains a separate required gate; no dev merge or release inferred.
+
+## HM-V-01 hierarchical menu presentation closure — 2026-10-17
+
+HM-V-01 | complete | [bound native receipt](backlog-to-ten/menu-presentation-closure.json),
+[maintained presentation cases](../../packages/ui/tests/browser/hierarchical-menu-presentation.spec.ts) |
+working tree based on `bfed38a1f867f4493049c3a38541e6b26709bad7` |
+fresh library/private-host builds and browser types; nine effective native cases
+across Chromium/Firefox/WebKit; three final narrow captures reviewed | fixed
+fixture host underflow at enlarged text; retained/corrected animation driver
+failures; browser emulation is not device/AT evidence | HM-ADOPT-01 remains open.
+
+## A-X-06/A-X-07 composed contrast and target-size closure — 2026-10-17
+
+A-X-06/A-X-07 | complete | [bound closure receipt](backlog-to-ten/x06-x07-closure.json),
+[acceptance reconciliation](react-aria-final-acceptance.md#composed-contrast-and-coarse-pointer-targets-completed--2026-10-17) |
+working tree based on `bfed38a1f867f4493049c3a38541e6b26709bad7` |
+Node24 fresh library/private-host builds and browser types pass; 6 contrast and
+12 target-size executions pass across Chromium/Firefox/WebKit; theme graph tests
+fail before the owned success-color repair and pass afterward | three unrelated
+menu-motion driver failures remain recorded; emulation is not physical-device or
+spoken-AT evidence | A-X-10/A-X-11 and HM-V-01 retain their separate scopes.
+
+## HM-T-01 hierarchical menu regression closure — 2026-10-17
+
+HM-T-01 | complete | [menu tests](../../packages/ui/src/experimental/HierarchicalMenu/HierarchicalMenu.test.tsx),
+[scope checklist](hierarchical-menu-scope.md#delivery-and-acceptance-leaves) |
+working tree based on `bfed38a1f867f4493049c3a38541e6b26709bad7` |
+from `packages/ui`: `pnpm exec vitest run src/experimental/HierarchicalMenu/HierarchicalMenu.test.tsx`
+(7 pass), `pnpm exec vitest run src/components/SideNavigation` (63 pass),
+`pnpm typecheck` (pass) | four added regression cases cover model reconciliation,
+controlled host acceptance and independent active panels; no implementation/API
+change, browser build or native/device/AT claim | HM-V-01 and HM-ADOPT-01 remain open.
+Historical F/T/V/A counts are unchanged; this menu follow-up has its own checklist.
+
 Current-link maintenance (2026-10-17): links to removed story files now point to their docs-owned native fixture replacements. Historical execution claims below retain their original scope and dates.
 
 Current M-01–M-37 implementation, dev-commit, transitive-boundary and phase/acceptance tracking is in the [37-row migration map](react-aria-migration-inventory-acceptance.md). Historical execution entries below retain their original dates and scopes.
@@ -2576,3 +2620,20 @@ checks pass. This completes the original V review checklist at300/300;139 A and
 six deferred future leaves remain. No broad production/device/spoken-AT claim.
 The older Material calendar legacy-year label-fit follow-up remains for current
 reproduction; these changes do not silently close it.
+
+## Original commitment review — 2026-10-18
+
+A-Z-12 closes against the [17-conversation reconciliation](backlog-to-ten/conversation-reconciliation.md). Current architecture, later calendar defaults, docs migration and source-backed component attributions are mapped; remaining legal, hardware, manual review and release gates retain their IDs. No publication or migration-complete approval is inferred.
+
+## Browser coverage matrix — 2026-10-18
+
+A-X-10 closes against the [named browser/input/AT coverage matrix](react-aria-browser-support.md) and hash-verified successful actual iOS VoiceOver Select receipts. Current trusted coarse-input and all-three-engine presentation/contrast checks retain their scope. A-X-11 remains the explicit manual six-family review; no physical-device or current whole-library speech claim is inferred.
+
+
+## User-requested dev save and stop — 2026-10-18
+
+Saved current source and progress records to dev at the user's request.
+[Stop state](backlog-to-ten/STOP-STATE.md) records nine closed leaves, 20 active
+items, bounded validation, the still-running complete checkpoint and remaining
+owner evidence. The ten-item target is not reached; no full current-head pass or
+release approval is claimed.

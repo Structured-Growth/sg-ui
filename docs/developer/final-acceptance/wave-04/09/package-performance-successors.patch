@@ -1,0 +1,318 @@
+--- a/docs/developer/react-aria-package-acceptance.md
++++ b/docs/developer/react-aria-package-acceptance.md
+@@ -88,3 +88,27 @@
+ direct icon modules. Its fresh package audit imports declared routes, typechecks
+ the existing consumer fixture and verifies packed bytes against the current build.
+ It does not close the remaining editor presentation or broad release gates.
++
++
++## Reviewed immutable-consumer execution
++
++After the coordinator has frozen a reviewed tarball, the integrated-script launcher
++runs the existing five scopes serially and retains their independent installed
++fixtures, commands, stdout/stderr, installed graphs, browser artifacts and hashes:
++
++```sh
++node packages/ui/scripts/run-acceptance-consumers.mjs \
++  --tarball /absolute/reviewed-candidate.tgz \
++  --expected-sha256 REVIEWED_64_CHARACTER_SHA256 \
++  --output /absolute/new-consumer-evidence --browser
++```
++
++Use the existing validation lease and supported Node22.12/24 window. The launcher
++checks the reviewed hash before any consumer install, copies the current integrated
++scripts and existing assertions, and does not build/pack shared library output.
++The driver-only tool symlink does not replace independent tarball installations.
++Existing output paths are rejected. `--only foundation18,foundation19` (or editor18,
++editor19,next19) supports bounded continuations; keep original failed receipts.
++Next always executes browsers; Vite hydration requires `--browser`. This command
++is a prepared path until its actual matrix receipt is reviewed. It does not
++supply owner package-split decisions, CI/release approval, or new support promises.
+--- a/docs/developer/react-aria-performance.md
++++ b/docs/developer/react-aria-performance.md
+@@ -89,3 +89,40 @@
+ gzip bytes. This is a different artifact and must not be represented as a passing
+ old consumer budget or a minimal-import size. Editor-only, grid-only and composed
+ packed-consumer build graphs still require separate current-artifact receipts.
++
++
++## Instrumented same-document disposal successor
++
++`tests/performance/measure-memory.mjs` adds a separate Chromium/CDP profiling run.
++After the coordinator builds the reviewed fixture once and serves its immutable
++production output on loopback4179, run from `packages/ui`:
++
++```sh
++node tests/performance/measure-memory.mjs /absolute/new-memory-evidence --snapshots
++```
++
++Do this in a serialized validation window under the existing coordinator lease.
++The destination must be new. The runner checks every served fixture asset against
++local build hashes, saves the compiled library output inventory before and after,
++and records browser/runtime/hardware/load metadata. Each of the four existing
++workloads gets five warmup and 25 recorded same-document mount/unmount cycles.
++Grid cycles select/sort; selector cycles query/select and reopen the results
++portal. Each cycle starts periodic updates and disposes while updates are active.
++The fixture cancels its own interval/RAFs; the runner checks empty root/scopes/options,
++stopped updates, and no new samples during a later observation window. These
++assertions supplement the existing resource-owner unit checks.
++
++After explicit GC, raw whole-page DOM-node/listener/document and JS-heap counters
++are retained for every cycle. Optional warm/final heap snapshots (maximum256MiB,
++60s each) support manual retaining-path review. Snapshots may contain fixture data;
++use this synthetic workload. Failed/partial captures remain evidence, not valid
++heap snapshots. Counters include React/browser/runtime caches; a flat counter or
++absence of growth does not establish that every SGUI owner was released. Review
++retaining paths and repeated sessions before proposing a plateau/byte threshold.
++No new numeric memory budget is invented or automatically approved here.
++
++GC-instrumented runs are separate from uninstrumented latency runs and are not
++RSS, INP, Firefox/WebKit, physical-device or upload/editor allocation evidence.
++Existing ImageUploadModal URL and FloatingTextSelectionToolbar observer/queued
++command regressions remain independently attributable. Extend actual allocation
++profiling to those owners only if their broader A-X-19 successor requires it.
+--- /dev/null
++++ b/packages/ui/scripts/run-acceptance-consumers.mjs
+@@ -0,0 +1,100 @@
++// Coordinator execution only. No source build, pack, shared output or shared server.
++import assert from 'node:assert/strict';
++import { spawn, execFileSync } from 'node:child_process';
++import { createHash } from 'node:crypto';
++import { createWriteStream } from 'node:fs';
++import { finished } from 'node:stream/promises';
++import { chmod, copyFile, cp, mkdir, readFile, readdir, symlink, writeFile } from 'node:fs/promises';
++import { dirname, join, resolve } from 'node:path';
++import { fileURLToPath } from 'node:url';
++const here = dirname(fileURLToPath(import.meta.url));
++const argv = process.argv.slice(2);
++const option = key => { const i = argv.indexOf(key); return i < 0 ? undefined : argv[i + 1]; };
++const ui = resolve(here, '..');
++const major = Number(process.versions.node.split('.')[0]);
++assert([22, 24].includes(major) && (major !== 22 || Number(process.versions.node.split('.')[1]) >= 12), 'Use supported Node >=22.12 on 22, or Node24');
++assert(option('--tarball') && option('--output') && /^[a-f0-9]{64}$/.test(option('--expected-sha256') ?? ''), 'Required: --tarball /absolute/candidate.tgz --expected-sha256 REVIEWED_SHA256 --output /new/absolute/evidence-dir');
++const output = resolve(option('--output'));
++assert([option('--tarball'), option('--output')].every(value => value?.startsWith('/')), 'Use absolute tarball/output paths');
++await mkdir(output); // Existing destination is rejected; no evidence overwrite.
++const sha = async path => createHash('sha256').update(await readFile(path)).digest('hex');
++const artifact = join(output, 'candidate.tgz');
++await copyFile(resolve(option('--tarball')), artifact);
++await chmod(artifact, 0o444);
++const artifactSha256 = await sha(artifact);
++assert.equal(artifactSha256, option('--expected-sha256'), 'Reviewed tarball hash mismatch; no consumer install started');
++const driver = join(output, 'driver');
++const fixtures = join(output, 'fixtures');
++await mkdir(join(driver, 'scripts'), { recursive: true }); await mkdir(fixtures);
++// Tool dependencies belong to the driver only. Consumer installs are independent.
++await symlink(join(ui, 'node_modules'), join(driver, 'node_modules'), 'dir');
++for (const name of ['test-foundation-consumer.mjs', 'test-editor-consumer.mjs', 'test-next-consumer.mjs', 'consumer-artifact.mjs', 'consumer-css-proof.mjs', 'consumer-types-proof.mjs']) {
++  await copyFile(join(ui, 'scripts', name), join(driver, 'scripts', name));
++}
++for (const name of ['package-consumer.tsx', 'packed-browser.mjs']) await copyFile(join(ui, 'scripts', name), join(driver, 'scripts', name));
++await cp(join(ui, 'scripts/fixtures/editor-packed-browser'), join(driver, 'scripts/fixtures/editor-packed-browser'), { recursive: true });
++const inventory = async (root, prefix = '', accept = () => true) => {
++  const records = {};
++  for (const entry of await readdir(join(root, prefix), { withFileTypes: true })) {
++    const relative = join(prefix, entry.name);
++    if (entry.isDirectory() && !['node_modules', 'cache', '.git'].includes(entry.name)) Object.assign(records, await inventory(root, relative, accept));
++    else if (entry.isFile() && accept(relative)) records[relative] = await sha(join(root, relative));
++  }
++  return records;
++};
++const all = [
++  ['foundation18', 'test-foundation-consumer.mjs', '--react18'],
++  ['foundation19', 'test-foundation-consumer.mjs'],
++  ['editor18', 'test-editor-consumer.mjs', '--react18'],
++  ['editor19', 'test-editor-consumer.mjs'],
++  ['next19', 'test-next-consumer.mjs'],
++];
++const selected = option('--only')?.split(',');
++assert(!selected || selected.every(name => all.some(row => row[0] === name)), 'Unknown --only scope');
++const manifest = { startedAt: new Date().toISOString(), node: process.version, pnpm: execFileSync('pnpm', ['--version'], {encoding:'utf8'}).trim(),
++  artifactSha256, browserRequested: argv.includes('--browser'), engineSelection: process.env.SGUI_BROWSER_ENGINES || 'chromium,firefox,webkit',
++  driverInputs: await inventory(driver), cases: [], retainedFixtures: [], limits: ['Next always runs browsers; Vite browser hydration requires --browser.', 'Driver symlink supplies test tools only; no consumer aliases or workspace links.', 'TypeScript5.9.3 only; no broader supported TS range inferred.'] };
++const save = () => writeFile(join(output, 'matrix.json'), JSON.stringify(manifest, null, 2));
++await save();
++for (const [name, script, ...args] of all.filter(row => !selected || selected.includes(row[0]))) {
++  const command = [join(driver, 'scripts', script), ...args, ...(argv.includes('--browser') && name !== 'next19' ? ['--browser'] : [])];
++  const stdout = createWriteStream(join(output, name + '.stdout.txt'));
++  const stderr = createWriteStream(join(output, name + '.stderr.txt'));
++  const child = spawn(process.execPath, command, { cwd: driver, env: { ...process.env,
++    SGUI_CONSUMER_ROOT: fixtures, SGUI_CONSUMER_TARBALL: artifact, SGUI_CONSUMER_SHA256: artifactSha256 }, stdio: ['ignore', 'pipe', 'pipe'] });
++  child.stdout.pipe(stdout); child.stderr.pipe(stderr);
++  const result = await new Promise(resolve => {
++    child.on('error', error => resolve({ error: String(error), code: null }));
++    child.on('close', (code, signal) => resolve({ code, signal }));
++  });
++  await Promise.all([finished(stdout), finished(stderr)]);
++  manifest.cases.push({ name, command: [process.execPath, ...command], ...result, passed: result.code === 0 });
++  if (await sha(artifact) !== artifactSha256) { manifest.artifactChanged = true; await save(); throw Error('Frozen tarball mutated'); }
++  await save();
++}
++for (const name of await readdir(fixtures)) {
++  const path = join(fixtures, name);
++  const record = { name, files: await inventory(path) };
++  try {
++    record.installedGraph = JSON.parse(execFileSync('pnpm', ['list', '--depth', 'Infinity', '--json'], { cwd: path, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 }));
++    await writeFile(join(path, 'installed-graph.json'), JSON.stringify(record.installedGraph, null, 2));
++    // Traverse the actual installed graph, including nested dependencies.
++    const retired = [];
++    function visit(value) {
++      if (!value || typeof value !== 'object') return;
++      for (const [key, child] of Object.entries(value)) {
++        if (/^@(?:mui|emotion)\//.test(key)) retired.push(key);
++        visit(child);
++      }
++    }
++    visit(record.installedGraph); record.retiredDependencies = [...new Set(retired)];
++    if (retired.length) record.error = 'Retired dependency installed';
++    delete record.installedGraph;
++  } catch (error) { record.error = String(error); }
++  manifest.retainedFixtures.push(record);
++}
++manifest.finishedAt = new Date().toISOString();
++manifest.browserArtifacts = await inventory(join(driver, 'artifacts')).catch(() => ({}));
++await save();
++process.exitCode = manifest.cases.every(row => row.passed) && manifest.retainedFixtures.every(row => !row.error) ? 0 : 1;
++console.log(`Consumer matrix retained at ${output}; result ${process.exitCode === 0 ? 'pass' : 'fail'}`);
+--- a/packages/ui/tests/performance/fixture.tsx
++++ b/packages/ui/tests/performance/fixture.tsx
+@@ -4,15 +4,22 @@
+ import '@structured-growth/sg-ui/styles.css';
+ // Test host only. Production imports use public compiled entry points.
+ type Sample={action:string;ms:number};
+-declare global {interface Window {sguiPerf:{samples:Sample[];ready:boolean;updating:boolean;unmount:()=>void}}}
++declare global {interface Window {sguiPerf:{samples:Sample[];ready:boolean;updating:boolean;unmount:()=>void;mount:()=>void}}}
+ const params=new URLSearchParams(location.search);
+ const configurations={small:[1000,2,50],wide:[10000,20,50],largePage:[10000,20,200],selector:[2000,0,0]} as const;
+ const workload=(params.get('workload')??'small') as keyof typeof configurations;
+ if(!(workload in configurations))throw Error('Unknown workload');
+ const [count,columnCount,pageSize]=configurations[workload];
+-const started=performance.now();
+-const root=createRoot(document.getElementById('root')!);
+-window.sguiPerf={samples:[],ready:false,updating:false,unmount:()=>root.unmount()};
++let started=performance.now();
++let root:ReturnType<typeof createRoot>|null=null;
++window.sguiPerf={samples:[],ready:false,updating:false,
++  mount:()=>{
++    if(root)throw Error('Unmount the previous profiling owner first');
++    started=performance.now();window.sguiPerf.samples=[];window.sguiPerf.ready=false;
++    root=createRoot(document.getElementById('root')!);root.render(<Fixture/>);
++  },
++  unmount:()=>{root?.unmount();root=null;window.sguiPerf.ready=false;}
++};
+ function Fixture(){
+   const [rows,setRows]=useState(()=>Array.from({length:count},(_,id)=>({id:String(id),name:`Course ${id}`,count:id})));
+   const columns=useMemo(()=>Array.from({length:columnCount},(_,index)=>({id:index===0?'name':`count${index}`,label:index===0?'Name':`Count ${index}`,getValue:(row:typeof rows[number])=>index===0?row.name:row.count+index})),[]);
+@@ -42,4 +49,4 @@
+       :<DataGrid label="Courses" rows={rows} columns={columns} getRowId={row=>row.id} getRowLabel={row=>row.name} state={state} onStateChange={setState}/>}
+   </main></Provider>;
+ }
+-root.render(<Fixture/>);
++window.sguiPerf.mount();
+--- /dev/null
++++ b/packages/ui/tests/performance/measure-memory.mjs
+@@ -0,0 +1,104 @@
++// Coordinator only: separately instrumented Chromium run, never a latency budget.
++// node tests/performance/measure-memory.mjs /absolute/NEW-directory [--snapshots]
++import assert from 'node:assert/strict';
++import {mkdir, readFile, readdir, writeFile} from 'node:fs/promises';
++import {appendFileSync} from 'node:fs';
++import {dirname, isAbsolute, join} from 'node:path';
++import {fileURLToPath} from 'node:url';
++import {createHash} from 'node:crypto';
++import * as os from 'node:os';
++import {chromium} from '@playwright/test';
++const output=process.argv[2];
++assert(output&&isAbsolute(output),'Pass an absolute NEW evidence directory');
++assert(process.argv.slice(3).every(arg=>arg==='--snapshots'),'Unknown option');
++await mkdir(output); // Refuse overwrite; retain failures.
++const here=dirname(fileURLToPath(import.meta.url));
++const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
++async function inventory(directory){
++  const result={};
++  for(const item of await readdir(directory,{withFileTypes:true})){
++    if(item.isDirectory()) for(const [name,value] of Object.entries(await inventory(join(directory,item.name)))) result[item.name+'/'+name]=value;
++    else if(item.isFile())result[item.name]=hash(await readFile(join(directory,item.name)));
++  }
++  return result;
++}
++const receipt={startedAt:new Date().toISOString(),status:'running',environment:{node:process.version,os:os.type(),release:os.release(),arch:os.arch(),cpu:os.cpus()[0]?.model,totalMemoryBytes:os.totalmem(),loadAverage:os.loadavg()},
++  method:'Chromium CDP explicit GC after same-document disposal; 5 warmup +25 recorded cycles/workload; counters are whole-page observations, not attributed SGUI leaks or process RSS.',
++  limits:['No memory threshold/plateau approval inferred. Compare raw trends and inspect snapshot retaining paths.', 'GC/instrumentation changes execution; do not compare these samples with latency runs.', 'Grid/selector/Provider/selector portal only. Upload URL and editor observer cleanup retain separate existing test evidence.', 'Chromium-only instrumentation does not certify Firefox/WebKit or physical hardware.'],workloads:[],snapshots:[]};
++const save=()=>writeFile(join(output,'memory.json'),JSON.stringify(receipt,null,2)+'\n');
++let browser;
++try {
++  receipt.assets=await inventory(join(here,'dist'));
++  receipt.inputs={};
++  for(const name of ['fixture.tsx','vite.config.mjs','measure-memory.mjs'])receipt.inputs[name]=hash(await readFile(join(here,name)));
++  receipt.libraryOutput=await inventory(join(here,'../../dist'));
++  browser=await chromium.launch();receipt.environment.browser=browser.version();
++  const context=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'});
++  const page=await context.newPage();page.setDefaultTimeout(15000);page.setDefaultNavigationTimeout(15000);
++  const diagnostics=[];
++  page.on('pageerror',error=>diagnostics.push(String(error)));
++  page.on('console',message=>{if(['warning','error'].includes(message.type()))diagnostics.push(message.text());});
++  // Verify the already-running preview serves exactly the local immutable build.
++  for(const [name,sha] of Object.entries(receipt.assets)){
++    const response=await page.request.get('http://127.0.0.1:4179/'+name);
++    assert(response.ok(),'Missing served asset '+name);
++    assert.equal(hash(await response.body()),sha,'Preview differs from frozen build: '+name);
++  }
++  const cdp=await context.newCDPSession(page);
++  await cdp.send('Performance.enable');
++  const frames=()=>page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
++  const counters=async()=>{
++    await frames();await cdp.send('HeapProfiler.collectGarbage');
++    const dom=await cdp.send('Memory.getDOMCounters');
++    const {metrics}=await cdp.send('Performance.getMetrics');
++    return {...dom,...Object.fromEntries(metrics.filter(x=>['JSHeapUsedSize','JSHeapTotalSize'].includes(x.name)).map(x=>[x.name,x.value]))};
++  };
++  async function snapshot(name){
++    if(!process.argv.includes('--snapshots'))return;
++    const path=join(output,name+'.heapsnapshot');await writeFile(path,'',{flag:'wx'});
++    let bytes=0,exceeded=false;
++    const listener=({chunk})=>{bytes+=Buffer.byteLength(chunk);if(bytes>256*1024*1024){exceeded=true;return;}appendFileSync(path,chunk);};
++    cdp.on('HeapProfiler.addHeapSnapshotChunk',listener);
++    let timer;
++    try{
++      await Promise.race([cdp.send('HeapProfiler.takeHeapSnapshot',{reportProgress:false}),new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Heap snapshot exceeded 60s')),60000);})]);
++      assert(!exceeded,'Heap snapshot exceeded 256MiB; retained partial file is invalid');
++      receipt.snapshots.push({name,bytes,sha256:hash(await readFile(path))});
++    }finally{clearTimeout(timer);cdp.off('HeapProfiler.addHeapSnapshotChunk',listener);}
++  }
++  for(const workload of ['small','wide','largePage','selector']){
++    await page.goto('http://127.0.0.1:4179/?workload='+workload);
++    await page.waitForFunction(()=>window.sguiPerf?.ready);
++    await page.evaluate(()=>window.sguiPerf.unmount());
++    const record={workload,coldDisposed:await counters(),cycles:[]};receipt.workloads.push(record);await save();
++    for(let cycle=0;cycle<30;cycle++){
++      await page.evaluate(()=>window.sguiPerf.mount());await page.waitForFunction(()=>window.sguiPerf.ready);
++      if(workload==='selector'){
++        const input=page.getByRole('searchbox',{name:'Courses',exact:true});
++        await input.click();await input.pressSequentially('Course 9');await input.clear();
++        await page.getByRole('option',{name:'Course 0',exact:true}).click();
++        await input.click(); // Dispose with the results portal open.
++        await page.getByRole('option',{name:'Course 1',exact:true}).waitFor({state:'visible'});
++      }else{
++        await page.getByRole('checkbox',{name:'Select Course 0',exact:true}).check();
++        await page.getByRole('button',{name:'Sort Name',exact:true}).click();
++      }
++      await page.getByRole('button',{name:'Run 50 updates',exact:true}).click();
++      await page.waitForFunction(()=>window.sguiPerf.samples.filter(x=>x.action==='update').length>=3);
++      await page.evaluate(()=>{window.sguiPerf.unmount();window.sguiPerf.unmount();});
++      await page.waitForTimeout(250); // Intentional observation window for an incorrectly retained 100ms interval.
++      const disposed=await page.evaluate(()=>({children:document.getElementById('root').childElementCount,scopes:document.querySelectorAll('[data-sgui-scope]').length,options:document.querySelectorAll('[role=option]').length,updating:window.sguiPerf.updating,samples:window.sguiPerf.samples.length}));
++      assert.equal(disposed.children,0);assert.equal(disposed.scopes,0);assert.equal(disposed.options,0);assert.equal(disposed.updating,false);
++      await page.waitForTimeout(250);
++      assert.equal(await page.evaluate(()=>window.sguiPerf.samples.length),disposed.samples,'Disposed fixture kept producing samples');
++      record.cycles.push({cycle,warmup:cycle<5,disposed,afterGC:await counters()});
++      if(cycle===4)await snapshot(workload+'-warm');
++      if(cycle===29)await snapshot(workload+'-final');
++      assert.deepEqual(diagnostics,[],'Browser diagnostics');await save();
++    }
++  }
++  assert.deepEqual(await inventory(join(here,'dist')),receipt.assets,'Profiling assets changed');
++  assert.deepEqual(await inventory(join(here,'../../dist')),receipt.libraryOutput,'Library output changed');
++  receipt.status='pass';
++}catch(error){receipt.status='fail';receipt.failure=String(error.stack??error);process.exitCode=1;}
++finally{await browser?.close();receipt.finishedAt=new Date().toISOString();await save();}

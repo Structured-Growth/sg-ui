@@ -1,0 +1,205 @@
+{
+  "capturedAt": "2026-10-17T21:50:24.170190+00:00",
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "expectedBaseline": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "inputs": {
+    "AGENTS.md": "6787b3f78b52898596e8be2f0d0caed1cc95365c46a045c5b9077ebbe32d58a8",
+    "docs/developer/react-aria-final-acceptance.md": "886adf45234d5d6499a10e2f10aebd1a51fbfdba94240b5ca4d70f0be751c694",
+    "docs/developer/react-aria-hardening-execution.md": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e",
+    "docs/developer/react-aria-hardening-tasks.md": "c382476325d9175c0970a66d12a2fd092ed2ae184d1f38f2aa14aca49fdf3fa3",
+    "docs/developer/react-aria-public-contracts.md": "c20679855b4814bc46470f226d82f699b4a75000009be2bfec29e51ee3566926",
+    "docs/developer/react-aria-public-composition-contracts.md": "423de9e4508841742ee49a41bb6eab1425e4781747e2685f48f4cbdf70a459ea",
+    "docs/developer/react-aria-calendar-contracts.md": "59a6d6a7a46e20ea90fbf0c37c7d3f404cf1ccd130a3920db10581b8a4c30628",
+    "docs/developer/react-aria-runtime-ci.md": "31bb9b2c534d7fb4e938a9db0f23d333cc9f84d468e2247901b5483a9654f906",
+    "packages/ui/package.json": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+    "packages/ui/scripts/package-consumer.tsx": "673f49f2fcbfe2b62994f85db76f60815a3be3025585b9a23d16c519232c0aab",
+    "packages/ui/scripts/test-foundation-consumer.mjs": "f11a4905d06a49437affa9794f173ff783e8f3caec34ff8b578e00bd196cf79f",
+    "packages/ui/scripts/check-package.mjs": "5bc108368e950de19d312984312f3353f52b0f93e176defa66df95a7db06ecc9",
+    "packages/ui/release.config.mjs": "d03806a55bf45d609a66ed46aa781192eb58eea7d3f018bb134a23785e007eac",
+    "docs/developer/final-acceptance/wave-03-01/report.md": "a582dc1caf8f4ccc5d5bc9f04f6d80a091448e01e3aab8a122b6375a7a8c5654",
+    "docs/developer/final-acceptance/wave-03-01/results.json": "e0e78878b50f68f4fdde4d17438ac20cf53e0a7fa1d9a0d19a84471bca593085",
+    "docs/developer/final-acceptance/wave-03-01/normalized-defaults.json": "effbedbc86a080ddf8bed719b28a98db8f946f433a4632284c1ab65b3973a191",
+    "docs/developer/final-acceptance/wave-03-01/normalized-contracts.json": "e2e0ad6985fae203cff742bf900c19093ecef8be9b9efdfbaf48f7f737d611f6",
+    "docs/developer/final-acceptance/wave-03-01/breaking-change-map.json": "e89238c33a61071f7ad6e133ba469136647c498e71a704c424450a93cc099e42",
+    "docs/developer/final-acceptance/wave-03-01/historical-dependency-boundary.json": "e8494a5f67a0cc822adfdaa20cbb217ee600d06d0d078d06499f0a8741a0f14d",
+    "docs/developer/final-acceptance/wave-03-03/report.md": "fbe13da284363e97df7be82169f21552c369e8804d890da92ebea2fe10c843c2",
+    "docs/developer/final-acceptance/wave-03-03/results.json": "79bf183f3cbb8d16f0aaeacafd84e4fed1b652021408d892da45bd1446355695",
+    "docs/developer/final-acceptance/wave-03-13/report.md": "af603f44b5cc42e9a0da52cf8848c47de66711c7e9cbf4e7fe09ff6186a3da30",
+    "docs/developer/final-acceptance/wave-03-13/styling-migration-addendum.md": "be43f2cac2988745036075c5dae815f63cf34705efa7b5fa445b0667f0e9eb36",
+    "docs/developer/final-acceptance/wave-03-32/report.md": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2",
+    "docs/developer/final-acceptance/wave-03-32/results.json": "e9bd80ef2361a6fcca021b2f65782da02ef1ceaccb8f51084f6cc8b67c039852",
+    "docs/developer/final-acceptance/wave-03-32/validation-plan.json": "ddcdbd2229c5154126990da1c78b3f228939434bd41db54d620ceaee21eb19ab",
+    "docs/developer/final-acceptance/wave-03-32/run-matrix.mjs": "267822341104feb84ee9d9b215df1cda74722b490d648d21f69d1dc0a0025fcc",
+    "docs/developer/final-acceptance/wave-03-35/public-symbol-dispositions.json": "2be0d521fea0a6481b87728c4924ea3eab531020b95c3a2b8ba83d98672c5947",
+    "docs/developer/final-acceptance/wave-03-38/report.md": "12cb0644ed8d5a1338f889d40fbe2a9ff42a5c999d2e0ce1ed27d54639d292d2",
+    "docs/developer/final-acceptance/wave-03-38/results.json": "58e4fd7dd1a06fb34bf9d04725ce36990205231fae3675eeac84afc3645805aa",
+    "docs/developer/final-acceptance/wave-03-38/offline-release.txt": "623557edee1e40140930b87afcec532d9dd58fe5b8413fec23ae0e059d993f07",
+    "docs/developer/final-acceptance/wave-03-integration/reconciliation.json": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3",
+    "docs/developer/final-acceptance/wave-03-integration/push-evidence.json": "2836d44de7ad5bbc2963b34ffd1a33d60827ed0ba01e533ba11a0d5504fa0d5c",
+    "docs/developer/final-acceptance/wave-03-followup/validation-results.json": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+    "docs/developer/final-acceptance/wave-03-followup/package-final.log": "e4481b45e7e572dc95cc5957924ae63f3de0c8ef4c28b1c651195004b342ac67",
+    "docs/developer/final-acceptance/editor-chrome-presentation/results.json": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea",
+    "docs/developer/final-acceptance/rich-editor-presentation/results.json": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef",
+    "docs/developer/final-acceptance/parallel-01/api-snapshot.json": "617a3e059ec7e50cce563f3ac8859b64b0af3f3618a3216ef7e6b4927288ea3c",
+    "packages/ui/src/foundation/ThemeScope.tsx": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+    "packages/ui/src/experimental/Checkbox/Checkbox.tsx": "f799a8c32e3ab7b4b9460f3ec32d7d8711f27d7d6a40105f62996a69cdd4205e",
+    "packages/ui/src/experimental/TextField/TextField.tsx": "f4599709af946457ffdfc17d61d3505af60940de4fe95ef916a24eb36dffdc6b",
+    "packages/ui/src/experimental/Dialog/Dialog.tsx": "c20465eda40e26c6c501abfd5dd9d9dcc4f84f76f41b83027dcbe749089b00c7",
+    "packages/ui/src/experimental/Menu/Menu.tsx": "c1791ca484cd0631d9994417b69240fb6f4938afa4dd0cc31c67819ad80b8cfb",
+    "packages/ui/src/experimental/Popover/Popover.tsx": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+    "packages/ui/src/experimental/FormFieldScope/FormFieldScope.tsx": "1690b9f41bc1d5bca97d223c4522e4f50d10c056d8ba101ff16bbd4b710e7942",
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+    "packages/ui/src/experimental/Calendar/Calendar.tsx": "014087f32659335ffa19d1170b9c067467a411e7204813241fa99c76f681946a",
+    "packages/ui/src/experimental/DatePicker/DatePicker.tsx": "2bd44e9f0237d7501e146adb0397b57baece05aa46fb986fce781fc0e4b3df53",
+    "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx": "cc75272a86c5d24515d3bcd9b0447b4786b7d970091cd6805ab88e0931a6640b"
+  },
+  "laterReceiptInputComparison": {
+    "editor-chrome-presentation/results.json": [
+      {
+        "path": "packages/ui/tests/browser/wave03-editor-chrome-acceptance.spec.ts",
+        "recorded": "ece29a77d65657c28f1fa1a90afac3750f0a0e56f6d651b82a99c802270b8383",
+        "current": "ece29a77d65657c28f1fa1a90afac3750f0a0e56f6d651b82a99c802270b8383",
+        "unchanged": true
+      },
+      {
+        "path": "apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
+        "recorded": "194beb0534e51d4f1719d6370499c3f079affeb6f3946b197df5baec96383ada",
+        "current": "194beb0534e51d4f1719d6370499c3f079affeb6f3946b197df5baec96383ada",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.next100-regression.test.tsx",
+        "recorded": "ef248f551acef10143eeec5531d3a021e6ebee0659c3fca59259d65b37b4e303",
+        "current": "ef248f551acef10143eeec5531d3a021e6ebee0659c3fca59259d65b37b4e303",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+        "recorded": "d6ad85d669565d337b32c1a81eb8f9f8987783ac36a4445901be5e7314d2a3ff",
+        "current": "d6ad85d669565d337b32c1a81eb8f9f8987783ac36a4445901be5e7314d2a3ff",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.module.css",
+        "recorded": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+        "current": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+        "recorded": "9233115d02d4ed62671ccb642760b14894a096c854fbaa92559b912fab3f2cbb",
+        "current": "9233115d02d4ed62671ccb642760b14894a096c854fbaa92559b912fab3f2cbb",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.module.css",
+        "recorded": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+        "current": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.next100-regression.test.tsx",
+        "recorded": "690b3b1fcb940dad931410c056691144e8f1031db88655228f45b6f503a93cb8",
+        "current": "690b3b1fcb940dad931410c056691144e8f1031db88655228f45b6f503a93cb8",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+        "recorded": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+        "current": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+        "recorded": "e59fb0d1e4c4eeb4cf5331cbfedbb19225bd511f67322d604d6441e3d226d2a8",
+        "current": "e59fb0d1e4c4eeb4cf5331cbfedbb19225bd511f67322d604d6441e3d226d2a8",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.native-fixture.tsx",
+        "recorded": "73e21fc0eeaae79f6daa0cfb7a5fe07116676962755015340f23fb51cf3af0b5",
+        "current": "73e21fc0eeaae79f6daa0cfb7a5fe07116676962755015340f23fb51cf3af0b5",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.test.tsx",
+        "recorded": "8b4904dcda2c33713376a667c4039eb42c6d32c92d98fdbe8da7c33754b92c8a",
+        "current": "8b4904dcda2c33713376a667c4039eb42c6d32c92d98fdbe8da7c33754b92c8a",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.next100-regression.test.tsx",
+        "recorded": "9d8dd1c54c7d563ee66785e2d6e3cb60b4cd912eb29974378f75a8b80a9861a9",
+        "current": "9d8dd1c54c7d563ee66785e2d6e3cb60b4cd912eb29974378f75a8b80a9861a9",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.module.css",
+        "recorded": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+        "current": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+        "recorded": "bc51d2f802962a159704dc2b8b327e9ffc98a4fcdc6a79b0b62035b1c5201abd",
+        "current": "bc51d2f802962a159704dc2b8b327e9ffc98a4fcdc6a79b0b62035b1c5201abd",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+        "recorded": "9806b5dd1349a4961916fb15c179effc8d7737930d5581822b5169ea41b046b5",
+        "current": "9806b5dd1349a4961916fb15c179effc8d7737930d5581822b5169ea41b046b5",
+        "unchanged": true
+      }
+    ],
+    "rich-editor-presentation/results.json": [
+      {
+        "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+        "recorded": "efa988b430db84a03515476a3888256437d143581558560f73d3229512ecb63a",
+        "current": "efa988b430db84a03515476a3888256437d143581558560f73d3229512ecb63a",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx",
+        "recorded": "7c043fb1c4db5bb47164cadaf5be8294c1e01697e6841a8c5dde5b44a8493a02",
+        "current": "7c043fb1c4db5bb47164cadaf5be8294c1e01697e6841a8c5dde5b44a8493a02",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Menu/Menu.module.css",
+        "recorded": "c1291a28693298ea9975a5dc4a68e84bad25093e7aa6999b0db073237a5b47c8",
+        "current": "c1291a28693298ea9975a5dc4a68e84bad25093e7aa6999b0db073237a5b47c8",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/tests/browser/hardening-rich-editor-presentation.spec.ts",
+        "recorded": "69fd6929ba08ba4b1aca0bf985ada5c5fc05d30dd417db20314f4c412a6452fd",
+        "current": "69fd6929ba08ba4b1aca0bf985ada5c5fc05d30dd417db20314f4c412a6452fd",
+        "unchanged": true
+      },
+      {
+        "path": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+        "recorded": "fd5e4d824df6604e1958b6d79a01d5c382a142701608c4c64d01b926377e8060",
+        "current": "83a1238084f7623706888bf663015402c7df6b6bf8ce3ccdadf1e00ce8735cf0",
+        "unchanged": false
+      },
+      {
+        "path": "apps/docs/native-fixtures/registry.json",
+        "recorded": "6eefc562d28b6a986c237de16d80f5edfd734faac38bb1355c195a31abc3185b",
+        "current": "6eefc562d28b6a986c237de16d80f5edfd734faac38bb1355c195a31abc3185b",
+        "unchanged": true
+      },
+      {
+        "path": "apps/docs/content/component-usage/editor.json",
+        "recorded": "aafe2451e9d131a9fb3e27179d8f9ceb36bfe5060cbfd32d9b09ac8485cdbf90",
+        "current": "aafe2451e9d131a9fb3e27179d8f9ceb36bfe5060cbfd32d9b09ac8485cdbf90",
+        "unchanged": true
+      }
+    ]
+  },
+  "limits": [
+    "Lightweight read-only source/hash reconciliation. Unchanged source hashes preserve bounded prior evidence, not all transitive/build identities.",
+    "No remote publication/history or human release approval inferred.",
+    "No older editor presentation gap is reintroduced after HB19/HB20."
+  ]
+}

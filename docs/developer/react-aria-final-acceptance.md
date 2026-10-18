@@ -7,7 +7,68 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 296/320 A leaves closed; 24 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 303/320 A leaves closed; 17 A, 0 editor V review leaves and six future leaves remain.**
+
+### Production bundle/grid measurement and component row completed — 2026-10-18
+
+Closed A-B-10, A-G-20 and A-M-16 against the [bound measurement and phase join](backlog-to-ten/performance-grid-closure.json).
+The fresh installed tarball passes14 import-boundary builds. Seven production
+configurations complete84 current navigations,4200 updates and seven active-update
+cleanup probes; identical retained baseline bytes and strict raw-sample comparators
+pass. AppDataGrid's redundant DOM-ref state was removed: large-page startup median
+is370.8ms, compared with476.1ms before that correction and354.4ms in the older
+owned baseline. The selection tail remains explicit: p95514.5ms versus343.3ms,
+with nearly equal medians; representative-device repeats/budgets remain required
+under A-P-08/A-X-19. No all-faster, universal budget, MUI ranking or INP claim.
+Accepted F/T/V and the remaining completed G evidence close the AppDataGrid row;
+full current CI and broader manual/legal/release gates remain independent.
+Wave04 closes122/139;17 A leaves remain. Across the active backlog,20 leaves
+remain:17 A, two docs leaves and HM-ADOPT-01. The coordinator JSON also now includes
+the four previously accepted X06/X07/X10/Z12 closures; their original receipts
+remain unchanged.
+
+### Browser and representative input/AT coverage documented — 2026-10-18
+
+Closed A-X-10 against maintained three-engine browser checks, current twelve
+trusted coarse-input executions and the hash-verified retained iOS Safari/actual
+VoiceOver Select capture. The [coverage matrix](react-aria-browser-support.md)
+names distributions/platforms, historical source scope, unsupported pairings and
+physical/manual limits. This satisfies establishing checks and documenting
+representative coverage; the separate A-X-11 six-family manual review stays open.
+No new audible replay was run for checklist credit. Wave 04 now closes 119 of 139
+items; 20 remain.
+
+### Original conversation commitments reconciled — 2026-10-18
+
+Closed A-Z-12 after reviewing complete available turn streams of 17 SGUI project
+root conversations against imported principles, current instructions and accepted
+component attribution. The [reconciliation](backlog-to-ten/conversation-reconciliation.md)
+preserves source identities, policy choices, later superseding requests and every
+remaining required gate; private transcripts are excluded. The former M10/M14/M30
+questions are resolved by shipped successors and accepted source-bound evidence.
+No legal, publishing, manual-AT or release approval is inferred. Wave 04 now closes
+118 of 139 items; 21 remain.
+
+### Composed contrast and coarse-pointer targets completed — 2026-10-17
+
+Closed A-X-06 and A-X-07. The [closure receipt](backlog-to-ten/x06-x07-closure.json)
+binds the current source and native results to the retained requirements and fixes.
+The standard/light success role now uses the existing darker owned palette color;
+the expanded theme-pair test preserves the original failure and passes after the fix.
+Six composed normal/forced-color cases verify actual glyph paint, increased contrast,
+explicit success wording and independent keyboard focus in Chromium/Firefox/WebKit.
+All six full-scope validation captures were reviewed.
+Twelve target-size executions verify trusted coarse-pointer activation, actual
+hit regions, separation, grid-header containment and equivalent resize controls.
+Existing X07 corrections, 84 affected unit cases and eight reviewed captures are
+retained at matching implementation inputs. Registry differences add only the new
+validation composition. The three failed motion-driver cases in the same native
+run are outside these closures and remain recorded; the menu task stays open.
+Forced colors and coarse input are browser emulations; physical-device and spoken
+AT scope remains under its original open tasks. Earlier structural-state, focus,
+non-text and reduced-motion evidence remains as mapped in the
+[criterion map](final-acceptance/wave-04/02/contrast-runtime/criterion-map.md).
+Wave 04 now closes 117 of 139 items; 22 remain.
 
 ### Native nesting and shallow ownership completed — 2026-10-17
 

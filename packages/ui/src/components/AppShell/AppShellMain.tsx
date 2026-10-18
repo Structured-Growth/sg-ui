@@ -14,7 +14,22 @@ export function AppShellMain(props: HTMLAttributes<HTMLElement>) {
     frame.current = view.requestAnimationFrame(() => {
       frame.current = null;
       const focused = main.ownerDocument.activeElement;
-      if (focused instanceof view.HTMLElement) revealFocusedElement(main, focused, "instant");
+      if (!(focused instanceof view.HTMLElement)) return;
+      revealFocusedElement(main, focused, "instant");
+      if (!main.isConnected || !main.contains(focused) || focused.closest('[role="dialog"]')) return;
+      // scrollIntoView reveals the border box, not its keyboard focus outline.
+      // Finish native scrolling inside this pane without moving sibling regions.
+      const box = focused.getBoundingClientRect();
+      const css = view.getComputedStyle(focused);
+      const outline = css.outlineStyle === "none" ? 0
+        : Math.max(0, (parseFloat(css.outlineWidth) || 0) + (parseFloat(css.outlineOffset) || 0));
+      if (!main.clientHeight || !box.height || box.height + 2 * outline > main.clientHeight) return;
+      const top = main.getBoundingClientRect().top + main.clientTop;
+      const bottom = top + main.clientHeight;
+      const delta = box.top - outline < top ? box.top - outline - top
+        : box.bottom + outline > bottom ? box.bottom + outline - bottom : 0;
+      if (delta) main.scrollTop = Math.max(0,
+        Math.min(main.scrollHeight - main.clientHeight, main.scrollTop + delta));
     });
   }, []);
   useEffect(() => {

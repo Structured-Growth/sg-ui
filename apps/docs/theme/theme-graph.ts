@@ -35,7 +35,7 @@ function standardMap(core:CoreColors, mode:Appearance):SemanticMap {
     validationInfo:semantic('action'), validationSurface:semantic('surfaceSubtle'), focusOnRaised:semantic('focus'), focusOnOverlay:semantic('focus'),
     actionDestructiveHover:dark ? 'palette.shared.red300' : 'palette.shared.red800',
     actionDestructivePressed:dark ? 'palette.shared.red300' : 'palette.shared.red800',
-    validationSuccess:dark ? 'palette.shared.green400' : 'palette.shared.green700',
+    validationSuccess:dark ? 'palette.shared.green400' : 'palette.shared.green900',
     validationWarning:dark ? 'palette.shared.amber300' : 'palette.shared.amber800',
   };
 }

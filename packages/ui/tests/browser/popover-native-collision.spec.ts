@@ -14,8 +14,16 @@ async function wholeAndHitTested(locator: Locator) {
     const rect = element.getBoundingClientRect();
     const inside = rect.width > 0 && rect.height > 0 && rect.left >= 0 && rect.top >= 0 &&
       rect.right <= innerWidth && rect.bottom <= innerHeight;
-    const points = [[rect.left + 3, rect.top + 3], [rect.right - 3, rect.top + 3],
-      [rect.left + 3, rect.bottom - 3], [rect.right - 3, rect.bottom - 3],
+    const css = getComputedStyle(element);
+    const corners = [css.borderTopLeftRadius, css.borderTopRightRadius, css.borderBottomLeftRadius, css.borderBottomRightRadius];
+    const radius = (value: string, size: number) => parseFloat(value) * (value.endsWith('%') ? size / 100 : 1);
+    // Rounded corners exclude part of the bounding rectangle from native hit
+    // testing. Sample inside the painted curve, retaining all four corners and
+    // full viewport containment rather than requiring transparent corner pixels.
+    const insetX = Math.min(rect.width / 2, Math.max(3, Math.min(rect.width / 2, Math.max(...corners.map(value => radius(value.split(' ')[0], rect.width)))) / 2));
+    const insetY = Math.min(rect.height / 2, Math.max(3, Math.min(rect.height / 2, Math.max(...corners.map(value => radius(value.split(' ')[1] ?? value.split(' ')[0], rect.height)))) / 2));
+    const points = [[rect.left + insetX, rect.top + insetY], [rect.right - insetX, rect.top + insetY],
+      [rect.left + insetX, rect.bottom - insetY], [rect.right - insetX, rect.bottom - insetY],
       [rect.left + rect.width / 2, rect.top + rect.height / 2]];
     return inside && points.every(([x, y]) => {
       const hit = document.elementFromPoint(x, y);

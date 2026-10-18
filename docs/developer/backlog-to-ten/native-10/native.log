@@ -1,0 +1,48 @@
+
+Running 92 tests using 1 worker
+
+(node:98131) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   1 [chromium] › tests/browser/acceptance-pack-114.spec.ts:13:1 › batch114 native column resize commits only its field and host keyboard order keeps actions last (5.8s)
+(node:98412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   2 [chromium] › tests/browser/batch01-calendar.spec.ts:30:5 › civil range in America/Chicago › keyboard preview crosses leap/month boundary; only Apply changes form dates (661ms)
+(node:98480) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   3 [chromium] › tests/browser/batch01-calendar.spec.ts:30:5 › civil range in Asia/Tokyo › keyboard preview crosses leap/month boundary; only Apply changes form dates (737ms)
+(node:98544) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   4 [chromium] › tests/browser/batch01-calendar.spec.ts:55:1 › standalone Cancel/Clear/reset end previews; prevented reset preserves the draft (1.4s)
+(node:98633) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   5 [chromium] › tests/browser/batch01-calendar.spec.ts:93:1 › range picker Escape/Cancel discard drafts, Apply restores focus and native reset restores defaults (1.2s)
+(node:98730) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   6 [chromium] › tests/browser/batch01-calendar.spec.ts:123:1 › keyboard range traversal stops before an unavailable interior date (571ms)
+(node:98783) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [chromium] › tests/browser/batch08-selector-direction.spec.ts:4:3 › select keeps mixed visual scopes, live popup state and native keyboard focus (746ms)
+  ✓   8 [chromium] › tests/browser/batch08-selector-direction.spec.ts:4:3 › combobox keeps mixed visual scopes, live popup state and native keyboard focus (570ms)
+  ✓   9 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, normal text) (705ms)
+  ✓  10 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, 200% text) (798ms)
+  ✓  11 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, normal text) (798ms)
+  ✓  12 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, 200% text) (717ms)
+  ✓  13 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, normal text) (RTL, compact) (877ms)
+  ✓  14 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (light, 200% text) (RTL, compact) (701ms)
+  ✓  15 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, normal text) (RTL, compact) (832ms)
+  ✓  16 [chromium] › tests/browser/batch65-side-navigation-native-flow.spec.ts:114:5 › catalog hierarchy keyboard flow (dark, 200% text) (RTL, compact) (829ms)
+  ✘  17 [chromium] › tests/browser/calendar-native-locales.spec.ts:23:3 › native multiple selection, focus, unavailable day and deselection across two months: light (5.3s)
+(node:99336) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  18 [chromium] › tests/browser/calendar-native-locales.spec.ts:65:5 › explicit sunday-first headers in both months: light (383ms)
+(node:99387) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  19 [chromium] › tests/browser/calendar-native-locales.spec.ts:65:5 › explicit monday-first headers in both months: light (358ms)
+(node:99440) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  20 [chromium] › tests/browser/calendar-native-locales.spec.ts:73:3 › Arabic locale native RTL traversal preserves Gregorian values: light (5.5s)
+(node:99674) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  21 [chromium] › tests/browser/calendar-native-locales.spec.ts:99:3 › Hebrew calendar display emits exact Gregorian civil callbacks: light (5.3s)
+(node:99908) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

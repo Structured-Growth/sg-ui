@@ -1,0 +1,17 @@
+{
+  "number": 3,
+  "title": "Calendar and picker acceptance",
+  "ids": [
+    "A-K-04",
+    "A-K-05",
+    "A-K-07",
+    "A-K-17"
+  ],
+  "directory": "docs/developer/final-acceptance/wave-04/03",
+  "obligations": [
+    "- [ ] A-K-04 Reconcile original `K-04`: Support minimum/maximum, unavailable-date explanations, validation, required/optional input, and host-supplied availability without fetching business data. Historical status: open.",
+    "- [ ] A-K-05 Reconcile original `K-05`: Support multi-month presentation, responsive container sizing, month/year navigation, keyboard navigation, focus return, and meaningful date announcements. Historical status: open.",
+    "- [ ] A-K-07 Reconcile original `K-07`: Keep typed/segmented input and calendar selection synchronized; define invalid/partial typing, paste, blur, and form submission behavior. Historical status: open.",
+    "- [ ] A-K-17 Reconcile original `K-17`: Define keyboard and non-hover access to availability explanations, range previews, and preset descriptions; rich date-cell decorations must not replace meaningful date labels. Historical status: open."
+  ]
+}

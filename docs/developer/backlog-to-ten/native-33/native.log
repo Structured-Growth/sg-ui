@@ -1,0 +1,14 @@
+
+Running 3 tests using 1 worker
+
+(node:98163) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/browser/wave03-overlay-successors.spec.ts:29:1 › combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope (1.5s)
+(node:98274) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [firefox] › tests/browser/wave03-overlay-successors.spec.ts:29:1 › combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope (2.0s)
+(node:98393) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [webkit] › tests/browser/wave03-overlay-successors.spec.ts:29:1 › combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope (1.9s)
+
+  3 passed (7.6s)

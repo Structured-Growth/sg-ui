@@ -1,0 +1,94 @@
+
+Running 9 tests using 1 worker
+
+(node:39322) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows ltr (455ms)
+  ✓  2 [chromium] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows rtl (418ms)
+  ✓  3 [chromium] › tests/browser/hierarchical-menu-presentation.spec.ts:41:1 › menu retains focus and visible Back with enlarged text, reduced motion and forced colors in a narrow host (299ms)
+(node:39367) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  4 [firefox] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows ltr (5.8s)
+(node:39619) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  5 [firefox] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows rtl (5.7s)
+(node:39872) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  6 [firefox] › tests/browser/hierarchical-menu-presentation.spec.ts:41:1 › menu retains focus and visible Back with enlarged text, reduced motion and forced colors in a narrow host (1.0s)
+(node:39953) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  7 [webkit] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows ltr (672ms)
+  ✓  8 [webkit] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows rtl (418ms)
+  ✓  9 [webkit] › tests/browser/hierarchical-menu-presentation.spec.ts:41:1 › menu retains focus and visible Back with enlarged text, reduced motion and forced colors in a narrow host (423ms)
+
+
+  1) [firefox] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows ltr 
+
+    Error: expect(received).toContain(expected) // indexOf
+
+    Expected value: "forward"
+    Received array: []
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      24 |   // Focus commits before the browser's animationstart event. Observe forward
+      25 |   // motion before replacing its level with Back, otherwise the driver cancels it.
+    > 26 |   await expect.poll(directions).toContain('forward');
+         |                                 ^
+      27 |   await first.getByRole('button', { name: 'Back to Course settings' }).focus();
+      28 |   await page.keyboard.press('Enter');
+      29 |   await expect(first.getByRole('button', { name: 'Course settings', exact: true })).toBeFocused();
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hierarchical-menu-presentation.spec.ts:26:33
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-03/traces/hierarchical-menu-presenta-ed655-ses-on-Back-and-follows-ltr-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-03/traces/hierarchical-menu-presenta-ed655-ses-on-Back-and-follows-ltr-firefox/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-03/traces/hierarchical-menu-presenta-ed655-ses-on-Back-and-follows-ltr-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-03/traces/hierarchical-menu-presenta-ed655-ses-on-Back-and-follows-ltr-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [firefox] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows rtl 
+
+    Error: expect(received).toContain(expected) // indexOf
+
+    Expected value: "forward"
+    Received array: []
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      24 |   // Focus commits before the browser's animationstart event. Observe forward
+      25 |   // motion before replacing its level with Back, otherwise the driver cancels it.
+    > 26 |   await expect.poll(directions).toContain('forward');
+         |                                 ^
+      27 |   await first.getByRole('button', { name: 'Back to Course settings' }).focus();
+      28 |   await page.keyboard.press('Enter');
+      29 |   await expect(first.getByRole('button', { name: 'Course settings', exact: true })).toBeFocused();
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hierarchical-menu-presentation.spec.ts:26:33
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-03/traces/hierarchical-menu-presenta-d1083-ses-on-Back-and-follows-rtl-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-03/traces/hierarchical-menu-presenta-d1083-ses-on-Back-and-follows-rtl-firefox/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-03/traces/hierarchical-menu-presenta-d1083-ses-on-Back-and-follows-rtl-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-03/traces/hierarchical-menu-presenta-d1083-ses-on-Back-and-follows-rtl-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [firefox] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows ltr 
+    [firefox] › tests/browser/hierarchical-menu-presentation.spec.ts:3:41 › menu motion reverses on Back and follows rtl 
+  7 passed (18.7s)

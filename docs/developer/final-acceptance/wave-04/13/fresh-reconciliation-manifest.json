@@ -1,0 +1,12 @@
+{
+  "assignment.json": "d336afb71658102d914a9f8be51205bcc2da48a438c06dcbed8114fde7281e8f",
+  "report.md": "44b5dd3d0898919f61ac90623bbeb738e7356b39967f70b622f91e218f99e616",
+  "results.json": "76f64af7b1c2478c0fdc57bc668d320d8f2b9d15ddfc9e00ab2b80e402462978",
+  "fresh-reconciliation.json": "37d30be4e38b41f962cc24c5542bb3b11f7dd5575599d30d6bf62ab4fad01345",
+  "fresh-reconciliation.md": "0127d373137e84fe1bd6099ae16c3e0e74bb4da4a117adf6d2587671244e5261",
+  "fresh-receipt-review.json": "7317b6e311298867eb9e93395748d1cb77ec74dbd9ec3059c20ece184612f668",
+  "review-fresh-receipts.py": "0a967188d2353e34c0eaf742115b11f9b437870b70bb3ff9edceb35ed0426ef4",
+  "write-fresh-reconciliation.py": "f790de9f83811eb7aeb5d83efea75e4d8eb5c691ac96c738ad4b9aaa223a88a5",
+  "cli-e2e.test.py": "c73dbc66b9476172479d9654f20e65ee5d4a2cff6a893ec0fe98c2ede1ed6b0c",
+  "cli-e2e-fresh-candidate-results.txt": "643463438b738a2d63fb882014d61729490c8440ace5de7c9d92a1104c365dfe"
+}

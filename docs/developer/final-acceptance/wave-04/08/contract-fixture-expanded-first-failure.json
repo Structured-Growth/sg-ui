@@ -1,0 +1,277 @@
+{
+  "node": "v26.5.0",
+  "typescript": "5.9.3",
+  "fixtureSha256": "178645c18e048492fc02e76739ed09b0d904a9370636b6f9bbf92538c77699e9",
+  "limits": "Local existing dist declarations and matched repository types, using explicit public export paths. No emit/install/build/SSR/browser; not an isolated installed consumer.",
+  "runs": [
+    {
+      "skipLibCheck": true,
+      "diagnostics": [
+        {
+          "code": 2741,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4554,
+          "message": "Property 'children' is missing in type '{ label: string; }' but required in type 'IconButtonProps'."
+        }
+      ],
+      "negative": [
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 2848,
+          "message": "Type '{ action: string; }' is not assignable to type 'IntrinsicAttributes & FormFieldScopeProps'.\n  Property 'action' does not exist on type 'IntrinsicAttributes & FormFieldScopeProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3004,
+          "message": "Type 'string' is not assignable to type 'number'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3169,
+          "message": "Type '(range: { start: string; end: string; }) => undefined' is not assignable to type '(month: number) => void'.\n  Types of parameters 'range' and 'month' are incompatible.\n    Type 'number' is not assignable to type '{ start: string; end: string; }'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3326,
+          "message": "Type '20' is not assignable to type '12 | 16 | 24 | undefined'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3502,
+          "message": "Type '(_event: Event, _reason: string) => void' is not assignable to type '(reason: DialogDismissReason) => void'.\n  Target signature provides too few arguments. Expected 2 or more, but got 1."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3687,
+          "message": "Type 'RefObject<HTMLInputElement | null>' is not assignable to type 'Ref<HTMLLabelElement> | undefined'.\n  Type 'RefObject<HTMLInputElement | null>' is not assignable to type 'RefObject<HTMLLabelElement | null>'.\n    Type 'HTMLInputElement | null' is not assignable to type 'HTMLLabelElement | null'.\n      Type 'HTMLInputElement' is missing the following properties from type 'HTMLLabelElement': control, htmlFor"
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3847,
+          "message": "Type '{ label: string; style: { width: number; }; }' is not assignable to type 'IntrinsicAttributes & CalendarProps'.\n  Property 'style' does not exist on type 'IntrinsicAttributes & CalendarProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4013,
+          "message": "Type '{ label: string; style: { width: number; }; }' is not assignable to type 'IntrinsicAttributes & (TextFieldProps & RefAttributes<HTMLInputElement>)'.\n  Property 'style' does not exist on type 'IntrinsicAttributes & FieldOptions & { label: string; \"aria-label\"?: string | undefined; } & RefAttributes<HTMLInputElement>'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4193,
+          "message": "Type '{ label: string; items: never[]; trigger: Element; ref: RefObject<HTMLDivElement | null>; }' is not assignable to type 'IntrinsicAttributes & MenuProps'.\n  Property 'ref' does not exist on type 'IntrinsicAttributes & MenuProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4331,
+          "message": "Type '{}' is not assignable to type 'IntrinsicAttributes & (TextFieldProps & RefAttributes<HTMLInputElement>)'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4483,
+          "message": "Type '\"adjust-end\"' is not assignable to type '\"start\" | \"end\" | undefined'."
+        },
+        {
+          "code": 2741,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4554,
+          "message": "Property 'children' is missing in type '{ label: string; }' but required in type 'IconButtonProps'."
+        },
+        {
+          "code": 2739,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 5135,
+          "message": "Type '{}' is missing the following properties from type 'IconButtonProps': label, children"
+        },
+        {
+          "code": 2741,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 5259,
+          "message": "Property 'label' is missing in type '{ children: Element; }' but required in type 'ButtonGroupProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 5422,
+          "message": "Type '{ value: number; }' is not assignable to type 'IntrinsicAttributes & (ProgressProps & RefAttributes<HTMLDivElement>)'.\n  Property '\"aria-labelledby\"' is missing in type '{ value: number; }' but required in type '{ label?: undefined; \"aria-label\"?: undefined; \"aria-labelledby\": string; }'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 5545,
+          "message": "Type '{ items: never[]; }' is not assignable to type 'IntrinsicAttributes & (SearchFieldProps & RefAttributes<HTMLInputElement>)'.\n  Property '\"aria-label\"' is missing in type '{ items: never[]; }' but required in type '{ label?: undefined; \"aria-label\": string; }'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 5740,
+          "message": "Type 'RefObject<HTMLButtonElement | null>' is not assignable to type 'Ref<HTMLDivElement> | undefined'.\n  Type 'RefObject<HTMLButtonElement | null>' is not assignable to type 'RefObject<HTMLDivElement | null>'.\n    Type 'HTMLButtonElement | null' is not assignable to type 'HTMLDivElement | null'.\n      Property 'align' is missing in type 'HTMLButtonElement' but required in type 'HTMLDivElement'."
+        }
+      ],
+      "rejected": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": false
+    },
+    {
+      "skipLibCheck": false,
+      "diagnostics": [
+        {
+          "code": 2741,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4554,
+          "message": "Property 'children' is missing in type '{ label: string; }' but required in type 'IconButtonProps'."
+        }
+      ],
+      "negative": [
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 2848,
+          "message": "Type '{ action: string; }' is not assignable to type 'IntrinsicAttributes & FormFieldScopeProps'.\n  Property 'action' does not exist on type 'IntrinsicAttributes & FormFieldScopeProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3004,
+          "message": "Type 'string' is not assignable to type 'number'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3169,
+          "message": "Type '(range: { start: string; end: string; }) => undefined' is not assignable to type '(month: number) => void'.\n  Types of parameters 'range' and 'month' are incompatible.\n    Type 'number' is not assignable to type '{ start: string; end: string; }'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3326,
+          "message": "Type '20' is not assignable to type '16 | 12 | 24 | undefined'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3502,
+          "message": "Type '(_event: Event, _reason: string) => void' is not assignable to type '(reason: DialogDismissReason) => void'.\n  Target signature provides too few arguments. Expected 2 or more, but got 1."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3687,
+          "message": "Type 'RefObject<HTMLInputElement | null>' is not assignable to type 'Ref<HTMLLabelElement> | undefined'.\n  Type 'RefObject<HTMLInputElement | null>' is not assignable to type 'RefObject<HTMLLabelElement | null>'.\n    Type 'HTMLInputElement | null' is not assignable to type 'HTMLLabelElement | null'.\n      Type 'HTMLInputElement' is missing the following properties from type 'HTMLLabelElement': control, htmlFor"
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3847,
+          "message": "Type '{ label: string; style: { width: number; }; }' is not assignable to type 'IntrinsicAttributes & CalendarProps'.\n  Property 'style' does not exist on type 'IntrinsicAttributes & CalendarProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4013,
+          "message": "Type '{ label: string; style: { width: number; }; }' is not assignable to type 'IntrinsicAttributes & (TextFieldProps & RefAttributes<HTMLInputElement>)'.\n  Property 'style' does not exist on type 'IntrinsicAttributes & FieldOptions & { label: string; \"aria-label\"?: string | undefined; } & RefAttributes<HTMLInputElement>'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4193,
+          "message": "Type '{ label: string; items: never[]; trigger: Element; ref: RefObject<HTMLDivElement | null>; }' is not assignable to type 'IntrinsicAttributes & MenuProps'.\n  Property 'ref' does not exist on type 'IntrinsicAttributes & MenuProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4331,
+          "message": "Type '{}' is not assignable to type 'IntrinsicAttributes & (TextFieldProps & RefAttributes<HTMLInputElement>)'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4483,
+          "message": "Type '\"adjust-end\"' is not assignable to type '\"end\" | \"start\" | undefined'."
+        },
+        {
+          "code": 2741,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4554,
+          "message": "Property 'children' is missing in type '{ label: string; }' but required in type 'IconButtonProps'."
+        },
+        {
+          "code": 2739,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 5135,
+          "message": "Type '{}' is missing the following properties from type 'IconButtonProps': label, children"
+        },
+        {
+          "code": 2741,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 5259,
+          "message": "Property 'label' is missing in type '{ children: Element; }' but required in type 'ButtonGroupProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 5422,
+          "message": "Type '{ value: number; }' is not assignable to type 'IntrinsicAttributes & (ProgressProps & RefAttributes<HTMLDivElement>)'.\n  Property '\"aria-labelledby\"' is missing in type '{ value: number; }' but required in type '{ label?: undefined; \"aria-label\"?: undefined; \"aria-labelledby\": string; }'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 5545,
+          "message": "Type '{ items: never[]; }' is not assignable to type 'IntrinsicAttributes & (SearchFieldProps & RefAttributes<HTMLInputElement>)'.\n  Property '\"aria-label\"' is missing in type '{ items: never[]; }' but required in type '{ label?: undefined; \"aria-label\": string; }'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 5740,
+          "message": "Type 'RefObject<HTMLButtonElement | null>' is not assignable to type 'Ref<HTMLDivElement> | undefined'.\n  Type 'RefObject<HTMLButtonElement | null>' is not assignable to type 'RefObject<HTMLDivElement | null>'.\n    Type 'HTMLButtonElement | null' is not assignable to type 'HTMLDivElement | null'.\n      Property 'align' is missing in type 'HTMLButtonElement' but required in type 'HTMLDivElement'."
+        }
+      ],
+      "rejected": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": false
+    }
+  ],
+  "passed": false
+}

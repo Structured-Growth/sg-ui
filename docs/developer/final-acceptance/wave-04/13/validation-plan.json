@@ -1,0 +1,56 @@
+{
+  "scope": "Coordinator integrates only after review; commands below are not performed by this worker. No shared install/build/pack/browser/simulator or external mutation authorized in this folder.",
+  "steps": [
+    {
+      "id": "REVIEW-INTEGRATE",
+      "cwd": "repository root",
+      "commands": [
+        "git apply --check docs/developer/final-acceptance/wave-04/13/implementation.patch",
+        "python3 docs/developer/final-acceptance/wave-04/13/proposed-files/packages/ui/scripts/check-packed-license-evidence.test.py",
+        "python3 docs/developer/final-acceptance/wave-04/13/proposed-files/packages/ui/scripts/check-lock-provenance.test.py"
+      ],
+      "action": "Review input hashes in implementation-preconditions.json and integrate the combined eight-file patch once. It includes provenance-wording.patch plus both tools and tests; do not apply both patches. All legal fences preserved, no commercial terms changed.",
+      "expected": "Combined patch applies;9 focused tests pass. Actual package-manager execution is separate.",
+      "integrationObservation": "All8 targets already match at final observation. Skip applying patch again; verify integration-observation.json against coordinator candidate and run colocated tests."
+    },
+    {
+      "id": "INVENTORY",
+      "cwd": "repository root; supported development Node24",
+      "commands": [
+        "node packages/ui/scripts/check-license-inventory.mjs packages/ui"
+      ],
+      "expected": "Save JSON in a new coordinator-owned evidence path. Exit1 is evidence findings, not automatically a failure of legal compliance; never suppress findings or delete notices. Keep exact input hashes."
+    },
+    {
+      "id": "CANDIDATE",
+      "cwd": "packages/ui; frozen fresh validated output under coordinator leases",
+      "commands": [
+        "node scripts/check-package.mjs --retain-packed=/absolute/new/candidate-evidence"
+      ],
+      "expected": "Existing package assertions pass; retain exact archive and per-member manifest. Existing Oct16 archive is historical and must not be reused as current output. Source changes independently determine required fresh build/checks."
+    },
+    {
+      "id": "JOIN",
+      "cwd": "repository root",
+      "commands": [
+        "python3 packages/ui/scripts/check-packed-license-evidence.py /absolute/repository /absolute/new/candidate.tgz /absolute/new/license-inventory.json"
+      ],
+      "expected": "Save stdout with actual exit code. No stale-input/legal/output drift findings. client-only remains a runtime-legal-evidence-missing finding until verified legal/provenance resolution. Run existing wave03-35 audit via its importable audit() into coordinator-owned output (its CLI is intentionally write-confined). Join exact archive digest, all member hashes, fresh source/build receipt and reviewer decisions."
+    },
+    {
+      "id": "R-LOCK-GENERATE",
+      "cwd": "separate isolated checkout created by coordinator from frozen candidate; pnpm10.29.3 / Node24",
+      "commands": [
+        "python3 packages/ui/scripts/check-lock-provenance.py capture --repository /absolute/isolated-checkout --output /absolute/new-lock-evidence --expected-head FULL_40_HEX_HEAD --expected-lock-sha256 FULL_64_HEX_LOCK_DIGEST --node /absolute/node24 --pnpm /absolute/pnpm",
+        "python3 packages/ui/scripts/check-lock-provenance.py check --output /absolute/new-lock-evidence --expected-head FULL_40_HEX_HEAD --expected-lock-sha256 FULL_64_HEX_LOCK_DIGEST"
+      ],
+      "expected": "Run only in clean otherwise idle isolated checkout under coordinator lease. Capture retains all before bytes and exact command/log/exit evidence, stops on generation input drift or installation failure. Check returns0 only for defined receipt identity checks. Review full lockfile transitive/platform/optional/override/patched topology separately. Actual executed repository receipt remains pending; fixture tests are not that receipt."
+    },
+    {
+      "id": "PROVENANCE-OWNER",
+      "action": "Designated human reviewer resolves client-only rights/text, copied/adapted source/examples, inline attribution, modified Apache files and their prominent notices, Lucide/Feather vectors, fonts/assets and private docs bundle. Record origin/version/path/hash and archive members or explicit external-only scope, decision, reviewer/date/reference. Repository owner names license/dependency owner and backup and accepts workflow. Retain historical notices until associated source/asset absence and obligations are actually resolved.",
+      "expected": "Explicit signed/linked dispositions and real owner acceptance. No inferred legal, production or release approval."
+    }
+  ],
+  "browserPlan": "No new UI/native/AT cases are justified by this text/audit-helper proposal. Existing 300/300 V evidence remains separate. Coordinator runs only checks required by independent runtime changes and full production gates when production is explicitly authorized."
+}

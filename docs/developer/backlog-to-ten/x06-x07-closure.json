@@ -1,0 +1,42 @@
+{
+  "head": "bfed38a1f867f4493049c3a38541e6b26709bad7",
+  "workingTree": true,
+  "closed": [
+    "A-X-06",
+    "A-X-07"
+  ],
+  "nativeResults": "native-02/results.json",
+  "inputManifest": "native-02/inputs.json",
+  "resultsSha256": "7d8b4fcd523a6a8b22062afe38832be1ea112e50350898f022ca560e0d6ea295",
+  "reviewedValidationImages": [
+    "chromium-validation-scopes-focused-forced.png",
+    "chromium-validation-scopes-focused-standard.png",
+    "firefox-validation-scopes-focused-forced.png",
+    "firefox-validation-scopes-focused-standard.png",
+    "webkit-validation-scopes-focused-forced.png",
+    "webkit-validation-scopes-focused-standard.png"
+  ],
+  "priorX07InputsMatch": {
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.module.css": true,
+    "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.module.css": true,
+    "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.module.css": true,
+    "packages/ui/src/experimental/Checkbox/Checkbox.module.css": true,
+    "packages/ui/src/experimental/RadioGroup/RadioGroup.module.css": true,
+    "apps/docs/content/component-usage/editor.json": true,
+    "apps/docs/content/component-usage/forms.json": true,
+    "apps/docs/content/component-usage/data.json": true,
+    "apps/docs/native-fixtures/scenarios/foundation/TargetSizes.fixture.tsx": true,
+    "apps/docs/native-fixtures/migration-manifest.json": false,
+    "apps/docs/native-fixtures/registry.json": false,
+    "apps/docs/native-fixtures/public/index.json": false,
+    "packages/ui/tests/browser/current-target-sizes.spec.ts": true,
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css": true,
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx": true
+  },
+  "limits": [
+    "27 executions:24 passed,3 failed menu motion driver cases unrelated to these two closures.",
+    "All6validation contrast and all12target-size executions passed with0retries in Chromium/Firefox/WebKit.",
+    "Browser forced-color and coarse-pointer emulation only; no physical-device or spoken-AT certification.",
+    "The previous X07 captures and raw failures remain immutable; source corrections and geometry reviewed, no new unit tests duplicated."
+  ]
+}

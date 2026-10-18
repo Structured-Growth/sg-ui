@@ -1,0 +1,38 @@
+{
+  "capturedAt": "2026-10-18T23:41:29.482545+00:00",
+  "source": "7eaafdd6ab7307ba029d33d09a5df402aa8a41ab",
+  "cause": "AppShell main focus reveal checked border box; native scrolling can clip outward focus outline at 200% text in Linux WebKit.",
+  "fix": "After native focus scrolling, adjust only main vertical scroll position to include outward outline; skip nested dialogs and oversized controls.",
+  "evidence": {
+    "observedFailure": "ci-05/webkit-shell",
+    "units": {
+      "log": "shell-focus-unit.log",
+      "passed": 13
+    },
+    "native": {
+      "initial": "native-34",
+      "strengthenedOutlineAssertion": "native-35",
+      "passedEach": 18,
+      "engines": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "retries": 0
+    },
+    "linuxDiagnostic": {
+      "run": 39177499576,
+      "head": "cca91427f93a9cb7c7e02861f7fdb4191dc97e9a",
+      "status": "success",
+      "passed": 3,
+      "skipped": 0,
+      "flaky": 0,
+      "artifactId": 12154793221,
+      "artifactDigest": "sha256:1b8964cc7a9edb0df0494490923aece45710d859670909ec0871d79507c12a0d",
+      "partialDiagnosticOnly": true
+    },
+    "foundations": "shell-focus-foundations.log"
+  },
+  "acceptanceCount": 20,
+  "acceptanceClosures": []
+}

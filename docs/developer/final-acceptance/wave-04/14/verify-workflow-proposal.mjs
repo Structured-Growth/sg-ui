@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {readFileSync,readdirSync} from 'node:fs';
+import {resolve,dirname} from 'node:path';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+import {createRequire} from 'node:module';
+import {spawnSync} from 'node:child_process';
+const here=dirname(fileURLToPath(import.meta.url)),root=resolve(here,'../../../../..');
+const parser=readdirSync(resolve(root,'node_modules/.pnpm')).find(name=>/^js-yaml@4\./.test(name));
+const yaml=createRequire(import.meta.url)(resolve(root,'node_modules/.pnpm',parser,'node_modules/js-yaml'));
+const load=path=>yaml.load(readFileSync(path,'utf8'));
+const before=load(resolve(root,'.github/workflows/ci.yml')),after=load(resolve(here,'proposed-files/.github/workflows/ci.yml'));
+const addition=after.jobs.validate.steps.filter(s=>s.name==='Validate CI routing and release evidence guards');assert.equal(addition.length,1);
+const stripped=structuredClone(after);stripped.jobs.validate.steps=stripped.jobs.validate.steps.filter(s=>s.name!==addition[0].name);assert.deepEqual(stripped,before);
+assert.equal(spawnSync('bash',['-n'],{input:addition[0].run,encoding:'utf8'}).status,0);
+const {workflowFindings}=await import(pathToFileURL(resolve(root,'packages/ui/scripts/check-ci-release-enforcement.mjs')));
+assert.deepEqual(workflowFindings({ci:after,ai:load(resolve(root,'.github/workflows/ai-code.yml')),release:load(resolve(root,'.github/workflows/release.yml')),title:load(resolve(root,'.github/workflows/pr-title.yml'))}),[]);
+console.log(JSON.stringify({status:'pass',node:process.version,assertions:['YAML parsed','exactly one additive step; entire prior workflow object unchanged','new shell command parses','new CI satisfies workflow guards'],limit:'Source/configuration evidence only; actionlint/Actions execution still pending'},null,2));

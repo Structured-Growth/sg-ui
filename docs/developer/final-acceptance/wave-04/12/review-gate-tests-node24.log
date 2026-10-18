@@ -1,0 +1,13 @@
+✔ exact matrix is required; missing or pending image never becomes a baseline (39.9035ms)
+✔ changed image, source or host invalidates the matching review (25.620167ms)
+✔ reject duplicate/unknown image coverage and missing actual review metadata (22.209417ms)
+✔ reject hash-valid path traversal and symlink escape (24.125625ms)
+✔ malformed receipt or absent baseline rejects rather than grants review (11.04175ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 205.717958

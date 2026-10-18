@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 import {checkSources,type SourceSnapshot} from './check-sources';
 import {openSiteTool,closeSiteTool} from './site-tools';
@@ -38,7 +38,7 @@ for(const slug of ['text-field','select','combo-box','async-multi-select'])test(
  if(slug==='select'){
   await input.click();await page.getByRole('option',{name:'User research',exact:true}).click();await expect(input).toContainText('User research');await expect(input).toBeFocused();
  }else if(slug==='combo-box'){
-  await input.click();await input.pressSequentially('User');await expect(page.getByRole('option',{name:'User research',exact:true})).toBeVisible();await input.press('ArrowDown');await input.press('Enter');await expect(input).toHaveValue('User research');
+  await input.click();await input.pressSequentially('User');await expect(page.getByRole('option',{name:'User research',exact:true})).toBeVisible();await input.press('ArrowDown');await input.press('Enter');await expect(input).toHaveValue('User research');await input.press('Escape');await expect(page.getByRole('listbox',{name:'Suggestions Course subject',exact:true})).toBeHidden();
  }else if(slug==='async-multi-select'){
   await input.fill('research');await preview.getByRole('option',{name:'User research',exact:true}).click();await expect(preview.getByRole('button',{name:'Remove User research',exact:true})).toBeVisible();
  }else {await input.fill('Design');await expect(input).toHaveValue('Design');}

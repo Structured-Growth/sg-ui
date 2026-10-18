@@ -1,0 +1,30 @@
+{
+  "capturedAt": "2026-10-18T15:45:32.019782+00:00",
+  "readOnly": true,
+  "results": [
+    {
+      "command": [
+        "npm",
+        "whoami",
+        "--registry=https://registry.npmjs.org"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "npm error code ENEEDAUTH\nnpm error need auth This command requires you to be logged in.\nnpm error need auth You need to authorize this machine using `npm adduser`\nnpm error A complete log of this run can be found in: /Users/thomashall/.npm/_logs/2026-10-18T15_45_31_470Z-debug-0.log\n"
+    },
+    {
+      "command": [
+        "npm",
+        "access",
+        "list",
+        "collaborators",
+        "@structured-growth/sg-ui",
+        "--json",
+        "--registry=https://registry.npmjs.org"
+      ],
+      "exitCode": 1,
+      "stdout": "{\n  \"error\": {\n    \"code\": \"E403\",\n    \"summary\": \"403 Forbidden - GET https://registry.npmjs.org/-/package/@structured-growth%2fsg-ui/collaborators - Forbidden\",\n    \"detail\": \"In most cases, you or one of your dependencies are requesting a package version that is forbidden by your security policy, or on a server you do not have access to.\"\n  }\n}\n",
+      "stderr": "npm error code E403\nnpm error 403 403 Forbidden - GET https://registry.npmjs.org/-/package/@structured-growth%2fsg-ui/collaborators - Forbidden\nnpm error 403 In most cases, you or one of your dependencies are requesting a package version that is forbidden by your security policy, or on a server you do not have access to.\nnpm error A complete log of this run can be found in: /Users/thomashall/.npm/_logs/2026-10-18T15_45_31_791Z-debug-0.log\n"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "scope": "Read-only observation: coordinator integrated shared targets during this worker turn; no shared writes by this worker.",
+  "files": [
+    {
+      "file": "THIRD_PARTY_NOTICES.md",
+      "exists": true,
+      "proposedSha256": "0198180654a9cca234b4321287379724b8ab9d0d91a7a6f5ab21fa108e18443e",
+      "currentSha256": "d8451520a620b85a5ab61c4f8eebf6b68febd4f1fddd44529d8e8a5433a699fb",
+      "equal": false
+    },
+    {
+      "file": "docs/developer/react-aria-architecture.md",
+      "exists": true,
+      "proposedSha256": "47ccc2236a95d722a8b52cb0dbbf7188e347c077ef86e6a624089b2734907a7d",
+      "currentSha256": "47ccc2236a95d722a8b52cb0dbbf7188e347c077ef86e6a624089b2734907a7d",
+      "equal": true
+    },
+    {
+      "file": "docs/developer/react-aria-license-inventory.md",
+      "exists": true,
+      "proposedSha256": "c9d4c304dd81502c8a2255fedcbc98a50aca0ce5256b74eb644a0b31f4e876aa",
+      "currentSha256": "c9d4c304dd81502c8a2255fedcbc98a50aca0ce5256b74eb644a0b31f4e876aa",
+      "equal": true
+    },
+    {
+      "file": "packages/ui/THIRD_PARTY_NOTICES.md",
+      "exists": true,
+      "proposedSha256": "0198180654a9cca234b4321287379724b8ab9d0d91a7a6f5ab21fa108e18443e",
+      "currentSha256": "d8451520a620b85a5ab61c4f8eebf6b68febd4f1fddd44529d8e8a5433a699fb",
+      "equal": false
+    },
+    {
+      "file": "packages/ui/scripts/check-lock-provenance.py",
+      "exists": true,
+      "proposedSha256": "4988cd980acc85de02ea5ba0b3bfd5124f31ba4db564f125344ede5621f13dff",
+      "currentSha256": "4988cd980acc85de02ea5ba0b3bfd5124f31ba4db564f125344ede5621f13dff",
+      "equal": true
+    },
+    {
+      "file": "packages/ui/scripts/check-lock-provenance.test.py",
+      "exists": true,
+      "proposedSha256": "160a1846d23551db1c0313c43e117575511a1effcfb5b467515ede65925869d9",
+      "currentSha256": "160a1846d23551db1c0313c43e117575511a1effcfb5b467515ede65925869d9",
+      "equal": true
+    },
+    {
+      "file": "packages/ui/scripts/check-packed-license-evidence.py",
+      "exists": true,
+      "proposedSha256": "983e2f71f8ed885bd98c106863b15d38714db9b5abadddbcf64e4d2d79ae4af5",
+      "currentSha256": "983e2f71f8ed885bd98c106863b15d38714db9b5abadddbcf64e4d2d79ae4af5",
+      "equal": true
+    },
+    {
+      "file": "packages/ui/scripts/check-packed-license-evidence.test.py",
+      "exists": true,
+      "proposedSha256": "19bd2bb17239be4d0d552676c4ffa7a70bd0f6728bae7564186bda21e11a6849",
+      "currentSha256": "19bd2bb17239be4d0d552676c4ffa7a70bd0f6728bae7564186bda21e11a6849",
+      "equal": true
+    }
+  ]
+}

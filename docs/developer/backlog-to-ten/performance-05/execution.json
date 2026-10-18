@@ -1,0 +1,92 @@
+{
+  "node": "v24.19.0",
+  "baseline": {
+    "headReference": "6c485ed79d0d6a521d188e5bde8315722296f518",
+    "archive": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/09/batch-implementation/runs/package-01/matrix/fixtures/sgui-foundation-consumer-g6zSrj/pack/candidate.tgz",
+    "sha256": "08c25637e641540c38fe0d42f3d143f8edaabf19716c1c5718a18fb155211f35",
+    "dist": "b873e7efe8ab899c2141f0ce416a4614d3c8b562cd35fcaa13153d73fba12806"
+  },
+  "candidate": {
+    "headReference": "bfed38a1f867f4493049c3a38541e6b26709bad7",
+    "workingTree": true,
+    "dist": "524fad1ee36f516754cfdcb3f23373bd784604f596a786a80937b81f551e01dc"
+  },
+  "steps": [
+    {
+      "name": "selector-diagnostic",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/baseline/tests/performance/measure-browser.mjs",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/selector-diagnostic.json",
+        "processing",
+        "selector",
+        "1"
+      ],
+      "passed": true
+    },
+    {
+      "name": "baseline-processing",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/baseline/tests/performance/measure-browser.mjs",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/baseline-processing.json",
+        "processing"
+      ],
+      "passed": true
+    },
+    {
+      "name": "baseline-catalog",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/baseline/tests/performance/measure-browser.mjs",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/baseline-catalog.json",
+        "catalog"
+      ],
+      "passed": true
+    },
+    {
+      "name": "candidate-processing",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/candidate/tests/performance/measure-browser.mjs",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/candidate-processing.json",
+        "processing"
+      ],
+      "passed": true
+    },
+    {
+      "name": "candidate-catalog",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/candidate/tests/performance/measure-browser.mjs",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/candidate-catalog.json",
+        "catalog"
+      ],
+      "passed": true
+    },
+    {
+      "name": "compare-processing",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/performance/compare-performance.mjs",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/baseline-processing.json",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/candidate-processing.json",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/comparison-processing.json"
+      ],
+      "passed": true
+    },
+    {
+      "name": "compare-catalog",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/performance/compare-performance.mjs",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/baseline-catalog.json",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/candidate-catalog.json",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-05/comparison-catalog.json"
+      ],
+      "passed": true
+    }
+  ],
+  "limits": [
+    "Both artifacts use the owned foundation; no original MUI comparison.",
+    "Head references alone do not identify uncommitted package bytes; distribution manifests and baseline archive do.",
+    "Single Apple M4 host, Chromium desktop; no approved timing/memory budgets, physical input or INP claim."
+  ],
+  "startedAt": "2026-10-18T15:28:07.163Z",
+  "complete": true,
+  "diagnosticComplete": false,
+  "finishedAt": "2026-10-18T15:53:34.612Z"
+}

@@ -1,0 +1,144 @@
+{
+  "receipt": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+  "sha256": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+  "cases": [
+    {
+      "file": "wave03-grid-successors.spec.ts",
+      "line": 5,
+      "title": "native Tab and Shift+Tab enter and leave the remembered grid entry",
+      "project": "chromium",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration": 394,
+          "retry": 0,
+          "startTime": "2026-10-16T23:47:06.416Z"
+        }
+      ]
+    },
+    {
+      "file": "wave03-grid-successors.spec.ts",
+      "line": 27,
+      "title": "selected focused row disappearance preserves sibling selection, focus ownership and scroll",
+      "project": "chromium",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration": 613,
+          "retry": 0,
+          "startTime": "2026-10-16T23:47:06.813Z"
+        }
+      ]
+    },
+    {
+      "file": "wave03-grid-successors.spec.ts",
+      "line": 67,
+      "title": "optimistic row action rollback, retry, reorder cancel and late settlement remain per host",
+      "project": "chromium",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration": 745,
+          "retry": 0,
+          "startTime": "2026-10-16T23:47:07.429Z"
+        }
+      ]
+    },
+    {
+      "file": "wave03-grid-successors.spec.ts",
+      "line": 5,
+      "title": "native Tab and Shift+Tab enter and leave the remembered grid entry",
+      "project": "firefox",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration": 603,
+          "retry": 0,
+          "startTime": "2026-10-16T23:47:45.230Z"
+        }
+      ]
+    },
+    {
+      "file": "wave03-grid-successors.spec.ts",
+      "line": 27,
+      "title": "selected focused row disappearance preserves sibling selection, focus ownership and scroll",
+      "project": "firefox",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration": 780,
+          "retry": 0,
+          "startTime": "2026-10-16T23:47:45.836Z"
+        }
+      ]
+    },
+    {
+      "file": "wave03-grid-successors.spec.ts",
+      "line": 67,
+      "title": "optimistic row action rollback, retry, reorder cancel and late settlement remain per host",
+      "project": "firefox",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration": 1254,
+          "retry": 0,
+          "startTime": "2026-10-16T23:47:46.619Z"
+        }
+      ]
+    },
+    {
+      "file": "wave03-grid-successors.spec.ts",
+      "line": 5,
+      "title": "native Tab and Shift+Tab enter and leave the remembered grid entry",
+      "project": "webkit",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration": 584,
+          "retry": 0,
+          "startTime": "2026-10-16T23:48:30.736Z"
+        }
+      ]
+    },
+    {
+      "file": "wave03-grid-successors.spec.ts",
+      "line": 27,
+      "title": "selected focused row disappearance preserves sibling selection, focus ownership and scroll",
+      "project": "webkit",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration": 818,
+          "retry": 0,
+          "startTime": "2026-10-16T23:48:31.324Z"
+        }
+      ]
+    },
+    {
+      "file": "wave03-grid-successors.spec.ts",
+      "line": 67,
+      "title": "optimistic row action rollback, retry, reorder cancel and late settlement remain per host",
+      "project": "webkit",
+      "status": "expected",
+      "attempts": [
+        {
+          "status": "passed",
+          "duration": 1000,
+          "retry": 0,
+          "startTime": "2026-10-16T23:48:32.153Z"
+        }
+      ]
+    }
+  ],
+  "count": 9,
+  "expectedHashFromValidatedReceipt": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+  "note": "Retained native run, no new execution. Full run retains unrelated one CSS-property failure corrected separately."
+}

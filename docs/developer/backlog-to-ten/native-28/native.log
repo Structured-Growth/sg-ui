@@ -1,0 +1,120 @@
+
+Running 3 tests using 1 worker
+
+(node:87658) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/browser/calendar-compact-navigation.spec.ts:3:119 › clean compact calendar with a wide host font has tight cells and aligned navigation without default scrolling (1.0s)
+(node:87756) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [firefox] › tests/browser/calendar-compact-navigation.spec.ts:3:119 › clean compact calendar with a wide host font has tight cells and aligned navigation without default scrolling (1.1s)
+(node:87851) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [webkit] › tests/browser/calendar-compact-navigation.spec.ts:3:119 › clean compact calendar with a wide host font has tight cells and aligned navigation without default scrolling (1.0s)
+
+
+  1) [chromium] › tests/browser/calendar-compact-navigation.spec.ts:3:119 › clean compact calendar with a wide host font has tight cells and aligned navigation without default scrolling 
+
+    Error: expect(received).toBeCloseTo(expected, precision)
+
+    Expected: 328.796875
+    Received: 337.390625
+
+    Expected precision:    0
+    Expected difference: < 0.5
+    Received difference:   8.59375
+
+      23 |  await expect.poll(()=>root.locator('[inert]').count()).toBe(0);
+      24 |  await info.attach('calendar-after',{body:JSON.stringify(await geometry()),contentType:'application/json'});
+    > 25 |  expect((await root.boundingBox())!.height).toBeCloseTo(before!.height,0);
+         |                                             ^
+      26 |  await page.screenshot({path:info.outputPath(`calendar-${density}.png`)});
+      27 |  await page.setViewportSize({width:320,height:800});
+      28 |  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(321);
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/calendar-compact-navigation.spec.ts:25:45
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-28/traces/calendar-compact-navigatio-189d0-n-without-default-scrolling-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-28/traces/calendar-compact-navigatio-189d0-n-without-default-scrolling-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-28/traces/calendar-compact-navigatio-189d0-n-without-default-scrolling-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-28/traces/calendar-compact-navigatio-189d0-n-without-default-scrolling-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [firefox] › tests/browser/calendar-compact-navigation.spec.ts:3:119 › clean compact calendar with a wide host font has tight cells and aligned navigation without default scrolling 
+
+    Error: expect(received).toBeCloseTo(expected, precision)
+
+    Expected: 328.79998779296875
+    Received: 337.3999938964844
+
+    Expected precision:    0
+    Expected difference: < 0.5
+    Received difference:   8.600006103515625
+
+      23 |  await expect.poll(()=>root.locator('[inert]').count()).toBe(0);
+      24 |  await info.attach('calendar-after',{body:JSON.stringify(await geometry()),contentType:'application/json'});
+    > 25 |  expect((await root.boundingBox())!.height).toBeCloseTo(before!.height,0);
+         |                                             ^
+      26 |  await page.screenshot({path:info.outputPath(`calendar-${density}.png`)});
+      27 |  await page.setViewportSize({width:320,height:800});
+      28 |  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(321);
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/calendar-compact-navigation.spec.ts:25:45
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-28/traces/calendar-compact-navigatio-189d0-n-without-default-scrolling-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-28/traces/calendar-compact-navigatio-189d0-n-without-default-scrolling-firefox/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-28/traces/calendar-compact-navigatio-189d0-n-without-default-scrolling-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-28/traces/calendar-compact-navigatio-189d0-n-without-default-scrolling-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [webkit] › tests/browser/calendar-compact-navigation.spec.ts:3:119 › clean compact calendar with a wide host font has tight cells and aligned navigation without default scrolling 
+
+    Error: expect(received).toBeCloseTo(expected, precision)
+
+    Expected: 328.796875
+    Received: 337.390625
+
+    Expected precision:    0
+    Expected difference: < 0.5
+    Received difference:   8.59375
+
+      23 |  await expect.poll(()=>root.locator('[inert]').count()).toBe(0);
+      24 |  await info.attach('calendar-after',{body:JSON.stringify(await geometry()),contentType:'application/json'});
+    > 25 |  expect((await root.boundingBox())!.height).toBeCloseTo(before!.height,0);
+         |                                             ^
+      26 |  await page.screenshot({path:info.outputPath(`calendar-${density}.png`)});
+      27 |  await page.setViewportSize({width:320,height:800});
+      28 |  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(321);
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/calendar-compact-navigation.spec.ts:25:45
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-28/traces/calendar-compact-navigatio-189d0-n-without-default-scrolling-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-28/traces/calendar-compact-navigatio-189d0-n-without-default-scrolling-webkit/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-28/traces/calendar-compact-navigatio-189d0-n-without-default-scrolling-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-28/traces/calendar-compact-navigatio-189d0-n-without-default-scrolling-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [chromium] › tests/browser/calendar-compact-navigation.spec.ts:3:119 › clean compact calendar with a wide host font has tight cells and aligned navigation without default scrolling 
+    [firefox] › tests/browser/calendar-compact-navigation.spec.ts:3:119 › clean compact calendar with a wide host font has tight cells and aligned navigation without default scrolling 
+    [webkit] › tests/browser/calendar-compact-navigation.spec.ts:3:119 › clean compact calendar with a wide host font has tight cells and aligned navigation without default scrolling 

@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 import {checkSources} from './check-sources';
 for(const [slug,title] of [['year-picker','YearPicker'],['date-picker','DatePicker'],['date-range-picker','DateRangePicker'],['date-range-selector','DateRangeSelector'],['calendar','Calendar']])test(`${title}: four-column scroll default and explicit pagination`,async({page})=>{

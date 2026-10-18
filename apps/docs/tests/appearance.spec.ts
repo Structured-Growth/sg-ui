@@ -1,6 +1,6 @@
 import {openSiteTool,closeSiteTool} from './site-tools';
 import {exampleName} from './example-name';
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures';
 import { demoTokens, identities } from '../components/demo-theme';
 
 function luminance(hex: string) {
@@ -101,7 +101,7 @@ test('component tools belong to the shell and use an overlay on narrow screens',
    else expect(after.width).toBe(before.width);
    await openSiteTool(page,'Page documentation');
    await expect(settings).toBeHidden();
-   const documentation=tools.getByRole('region',{name:'Component documentation',exact:true});
+   const documentation=tools.getByRole('region',{name:'Page documentation',exact:true});
    await expect(documentation.getByRole('table',{name:'Button props'})).toBeVisible();
    await expect(main.getByRole('region',{name:'Component documentation',exact:true})).toHaveCount(0);
    const scroll=tools.locator('[data-sgui-part="icon-navigation-content"]').last();

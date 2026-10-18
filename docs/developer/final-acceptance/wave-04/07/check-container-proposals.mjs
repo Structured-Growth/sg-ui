@@ -1,0 +1,17 @@
+import {readFileSync, existsSync} from 'node:fs';
+import {createRequire} from 'node:module';
+import path from 'node:path';
+const root=process.cwd(), folder=path.join(root,'docs/developer/final-acceptance/wave-04/07');
+const ts=createRequire(path.join(root,'packages/ui/package.json'))('typescript');
+const input=JSON.parse(readFileSync(path.join(folder,'container-proposal-inputs.json'),'utf8'));
+const overlays=new Map(Object.keys(input.proposedHashes).map(p=>[path.join(root,p),readFileSync(path.join(folder,'proposed-files',p),'utf8')]));
+const options={target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext,moduleResolution:ts.ModuleResolutionKind.Bundler,jsx:ts.JsxEmit.ReactJSX,strict:true,skipLibCheck:true,noEmit:true,esModuleInterop:true,resolveJsonModule:true,lib:['lib.es2022.d.ts','lib.dom.d.ts','lib.dom.iterable.d.ts']};
+const host=ts.createCompilerHost(options),read=host.readFile.bind(host),exists=host.fileExists.bind(host);
+host.readFile=p=>overlays.get(p)??read(p);
+host.fileExists=p=>overlays.has(p)||exists(p);
+host.getSourceFile=(p,v)=>{const source=host.readFile(p);return source===undefined?undefined:ts.createSourceFile(p,source,v,true);};
+const program=ts.createProgram([...overlays.keys()],options,host);
+const diagnostics=ts.getPreEmitDiagnostics(program);
+if(diagnostics.length)console.log(ts.formatDiagnosticsWithColorAndContext(diagnostics,{getCanonicalFileName:p=>p,getCurrentDirectory:()=>root,getNewLine:()=> '\n'}));
+console.log(JSON.stringify({runtime:process.version,overlayRoots:overlays.size,diagnostics:diagnostics.length,mode:'strict noEmit TypeScript overlay at original source paths; public package declarations; no shared writes/build/browser'}));
+process.exitCode=diagnostics.length?1:0;

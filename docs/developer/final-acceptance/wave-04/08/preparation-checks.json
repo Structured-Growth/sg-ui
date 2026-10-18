@@ -1,0 +1,27 @@
+{
+  "node": "v26.5.0",
+  "checks": [
+    {
+      "command": [
+        "node",
+        "--check",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/08/proposed-files/packages/ui/scripts/acceptance-installed-types.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/08/public-contract-followup.patch"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "limits": "Syntax and unapplied patch applicability only. No type proof, package suite, install, build or browser executed."
+}

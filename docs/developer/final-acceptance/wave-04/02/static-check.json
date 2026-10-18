@@ -1,0 +1,14 @@
+{
+  "typescript": "5.9.3",
+  "check": "syntax only, not type or runtime validation",
+  "results": [
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+      "diagnostics": []
+    },
+    {
+      "path": "packages/ui/tests/browser/editor-image-sources.spec.ts",
+      "diagnostics": []
+    }
+  ]
+}

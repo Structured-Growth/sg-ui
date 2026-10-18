@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "status": "bounded-plan-not-runtime-result",
+  "cwd": "/Users/thomashall/Repositories/sg-ui",
+  "performedReadOnly": [
+    "python3 docs/developer/final-acceptance/wave-04/06/capture.py",
+    "node --check docs/developer/final-acceptance/wave-04/06/zoom-probe.js",
+    "git apply --check docs/developer/final-acceptance/wave-04/06/documentation.patch",
+    "python3 docs/developer/final-acceptance/wave-04/06/finalize.py"
+  ],
+  "integration": {
+    "review": "Review proposed-files and documentation.patch against evidence.json base hashes before applying serially. Documentation-only changes need no UI suite.",
+    "changes": ["docs/developer/react-aria-button.md", "docs/developer/react-aria-page-navigation.md"],
+    "repeatAcceptedSuites": false
+  },
+  "unexecutedSuccessors": [
+    {"id":"U19-ZOOM","procedure":"remaining-cases.md; use fixture-ids.json and read-only zoom-probe.js", "requires":"Coordinator serialized frozen host; actual browser chrome zoom screenshot and named observations", "acceptance":"All named family/engine/zoom observations preserved; failures remain failures; DOM probe alone cannot pass real zoom"},
+    {"id":"U08-M08-SPEECH","procedure":"remaining-cases.md and prior wave-03-14/operator-cases.md", "requires":"Actual speech/virtual-cursor operator receipt; admitted simulator extension may establish bounded returned utterances", "existingDriverCommand":"node packages/ui/tests/apple/run-simulator.mjs --output /absolute/new/coordinator-chosen-directory", "warning":"Existing driver only tests Select. Do not execute unchanged driver and claim Dialog speech."},
+    {"id":"M10-INTENT","procedure":"remaining-cases.md decision fields", "requires":"Explicit product/API-owner disposition; no approval supplied"},
+    {"id":"U07-HIERARCHY","procedure":"docs/developer/hierarchical-menu-scope.md HM-F-01 through HM-F-04", "requires":"Approved standalone drilldown implementation, examples and1–3 baseline smoke cases; no flyout scope expansion"}
+  ],
+  "constraints": ["No shared builds, installs, server, browser, package suite or simulator launched by this handoff.", "Do not weaken strict zero-page-error assertions or overwrite prior failures.", "Do not rerun unchanged accepted inventories or infer physical-device/AT/owner/release approval."]
+}

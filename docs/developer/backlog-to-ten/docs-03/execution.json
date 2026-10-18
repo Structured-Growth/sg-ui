@@ -1,0 +1,34 @@
+{
+  "node": "v24.19.0",
+  "steps": [
+    {
+      "name": "docs-build",
+      "executable": "pnpm",
+      "args": [
+        "--filter",
+        "@structured-growth/docs",
+        "build"
+      ],
+      "passed": true
+    },
+    {
+      "name": "docs-browser",
+      "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/@playwright+test@1.63.0/node_modules/@playwright/test/cli.js",
+        "test",
+        "--config",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/docs.config.cjs"
+      ],
+      "passed": true
+    }
+  ],
+  "selection": "ci-02/docs-selection-16.json",
+  "limits": [
+    "Focused docs corrections; no full production or AT claim."
+  ],
+  "dist": "53d17793dc20b19f05e5e40c3d61292fce24d451d219304903463217bf0f932a",
+  "complete": true,
+  "serverExit": "Error: /Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node /Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/next@16.4.0_@playwright+test@1.63.0_@types+node@22.20.5_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 3100 failed (143/null); group settled; ; ; see /Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/docs-03/server.log",
+  "finishedAt": "2026-10-18T16:09:51.845Z"
+}

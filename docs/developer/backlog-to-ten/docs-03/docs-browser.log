@@ -1,0 +1,23 @@
+
+Running 16 tests using 1 worker
+
+(node:57909) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/calendar-heading.spec.ts:5:88 › calendar: optional title keeps accessible naming and navigation shares month row (1.3s)
+  ✓   2 [chromium] › tests/calendar-heading.spec.ts:5:88 › date-picker: optional title keeps accessible naming and navigation shares month row (1.1s)
+  ✓   3 [chromium] › tests/calendar-heading.spec.ts:5:88 › date-range-selector: optional title keeps accessible naming and navigation shares month row (1.6s)
+  ✓   4 [chromium] › tests/calendar-heading.spec.ts:5:88 › date-range-picker: optional title keeps accessible naming and navigation shares month row (1.2s)
+  ✓   5 [chromium] › tests/calendar-options.spec.ts:61:27 › range dropdown with 2 calendars supports typed and picked endpoints (1.6s)
+  ✓   6 [chromium] › tests/calendar-presets.spec.ts:5:27 › range preset panel: 1 calendars, fixed/relative/custom choices and responsive draft ownership (1.8s)
+  ✓   7 [chromium] › tests/calendar-presets.spec.ts:5:27 › range preset panel: 2 calendars, fixed/relative/custom choices and responsive draft ownership (1.8s)
+  ✓   8 [chromium] › tests/calendar-reference-layouts.spec.ts:28:32 › presets after calendars preserve visual and keyboard order: ltr (1.6s)
+  ✓   9 [chromium] › tests/calendar-reference-layouts.spec.ts:28:32 › presets after calendars preserve visual and keyboard order: rtl (1.6s)
+  ✓  10 [chromium] › tests/date-range-responsive.spec.ts:5:64 › host-supplied presets use a wide responsive dropdown: Compact density (1.5s)
+  ✓  11 [chromium] › tests/date-range-responsive.spec.ts:5:64 › host-supplied presets use a wide responsive dropdown: Comfortable density (1.4s)
+  ✓  12 [chromium] › tests/date-range-responsive.spec.ts:41:1 › optional endpoint fields use flexible text and preset rows support keyboard selection (1.1s)
+  ✓  13 [chromium] › tests/dropdown-sizing.spec.ts:64:33 › Select keeps its longest-option width and ellipsizes a host-constrained value at 375px (832ms)
+  ✓  14 [chromium] › tests/dropdown-sizing.spec.ts:64:33 › Select keeps its longest-option width and ellipsizes a host-constrained value at 1280px (889ms)
+  ✓  15 [chromium] › tests/form-integrations.spec.ts:67:1 › long authentication form scrolls to fields, action and footer (868ms)
+  ✓  16 [chromium] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at comfortable density (705ms)
+
+  16 passed (21.6s)

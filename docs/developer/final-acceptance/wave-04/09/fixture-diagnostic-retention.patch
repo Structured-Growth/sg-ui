@@ -1,0 +1,24 @@
+--- a/packages/ui/tests/performance/fixture.tsx
++++ b/packages/ui/tests/performance/fixture.tsx
+@@ -1,7 +1,7 @@
+ import React, {useEffect,useLayoutEffect,useMemo,useRef,useState} from 'react';
+ import {createRoot} from 'react-dom/client';
+ import {Provider,DataGrid,AsyncMultiSelect,defaultGridState,type GridState,type MultiSelectOption} from '@structured-growth/sg-ui/experimental';
+-import {AppDataGrid} from '@structured-growth/sg-ui';
++import {AppDataGrid} from '@structured-growth/sg-ui/components/AppDataGrid';
+ import {TextField} from '@structured-growth/sg-ui/experimental';
+ import '@structured-growth/sg-ui/styles.css';
+ // Test host only. Production imports use public compiled entry points.
+@@ -22,7 +22,11 @@
+     started=performance.now();window.sguiPerf.samples=[];window.sguiPerf.ready=false;
+     root=createRoot(document.getElementById('root')!);root.render(<Fixture/>);
+   },
+-  unmount:()=>{root?.unmount();root=null;window.sguiPerf.ready=false;}
++  unmount:()=>{
++    root?.unmount();root=null;window.sguiPerf.ready=false;
++    // Release diagnostic getter closures as well as the actual React owner.
++    window.sguiPerf.lifecycle={...window.sguiPerf.lifecycle};
++  }
+ };
+ function Fixture(){
+   const [rows,setRows]=useState(()=>Array.from({length:count},(_,id)=>({id:String(id),name:`Course ${id}`,count:id})));

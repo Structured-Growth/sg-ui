@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "c7b2192dbb6d51284a64135ab5ebbebb4cd8fd91",
+  "rootCheckoutHead": "bfed38a1f867f4493049c3a38541e6b26709bad7",
+  "allSourceFilesMatchCommit": true,
+  "sourceFileCount": 874,
+  "nativeBuildSourceInputsMatch": true,
+  "nativeBuild": "native-27",
+  "sourceManifestSha256": "54b90bd230f262dd100c655c5d9ea98f366bf46f14f7e5e91d0c385d2e7fe5db",
+  "limits": "Unmerged local candidate and retained local build; official full CI remains separately tied to its exact remote head.",
+  "distribution": "393ebefedd7db8586ecba34b8564b52a67e91b92e7160967fefaff3fbc9b7871",
+  "archiveSha256": "885f3fd9fa90ad80dd1871dd77feab3283c992f219c49c4b1127adc780c57d68",
+  "bundleComparison": "bundles-03/comparison.json"
+}

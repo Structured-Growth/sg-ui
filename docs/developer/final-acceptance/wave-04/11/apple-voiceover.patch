@@ -1,0 +1,198 @@
+--- a/packages/ui/tests/apple/SimulatorAcceptance.swift
++++ b/packages/ui/tests/apple/SimulatorAcceptance.swift
+@@ -172,166 +172,4 @@
+         // Do not require one Apple-specific read-only wording. Operator must
+         // verify read-only discoverability and inability to edit in AT mode.
+     }
+-
+-    /// Returned utterances are actual VoiceOver speech; AX labels alone never pass.
+-    private func recordSpeech(_ safari: XCUIApplication, name: String,
+-                              until complete: ([String]) -> Bool) throws -> [String] {
+-        let voiceOver = XCUIDevice.shared.voiceOverService
+-        let wasEnabled = voiceOver.isEnabled
+-        defer { if !wasEnabled { try? voiceOver.disable() } }
+-        try voiceOver.enable()
+-        XCTAssertTrue(voiceOver.isEnabled)
+-        var utterances = [String]()
+-        defer {
+-            let speech = XCTAttachment(string: utterances.joined(separator: "\n"))
+-            speech.name = name; speech.lifetime = .keepAlways; add(speech)
+-            let tree = XCTAttachment(string: safari.debugDescription)
+-            tree.name = name + " accessibility tree (diagnostic only)"
+-            tree.lifetime = .keepAlways; add(tree)
+-            let screenshot = XCTAttachment(screenshot: safari.screenshot())
+-            screenshot.name = name + " screenshot"
+-            screenshot.lifetime = .keepAlways; add(screenshot)
+-        }
+-        utterances.append(try voiceOver.currentSpeech().utterance)
+-        for _ in 0..<100 {
+-            if complete(utterances) { break }
+-            utterances.append(try voiceOver.moveForward().utterance)
+-        }
+-        return utterances
+-    }
+-
+-    private func openSpeechFixture(_ id: String, waitingFor label: String) throws -> XCUIApplication {
+-        let base = ProcessInfo.processInfo.environment["SGUI_APPLE_BASE_URL"] ?? "http://127.0.0.1:6173"
+-        let url = try XCTUnwrap(URL(string: base + "/fixtures/?id=" + id + "&embed=true&globals=locale:en-US;theme:light;density:comfortable"))
+-        let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
+-        safari.open(url)
+-        let marker = safari.webViews.descendants(matching: .any)
+-            .matching(NSPredicate(format: "label CONTAINS %@", label)).firstMatch
+-        XCTAssertTrue(marker.waitForExistence(timeout: 30), safari.debugDescription)
+-        return safari
+-    }
+-
+-    func testCalendarDateNamesAndNonHoverReasonsVoiceOverSpeech() throws {
+-        continueAfterFailure = false
+-        let safari = try openSpeechFixture("migration-proofs-calendar--speech-semantics", waitingFor: "Unavailable dates")
+-        let disclosure = safari.webViews.descendants(matching: .any)
+-            .matching(NSPredicate(format: "label == %@", "Unavailable dates")).firstMatch
+-        XCTAssertTrue(disclosure.waitForExistence(timeout: 10), safari.debugDescription)
+-        disclosure.tap() // Native activation exposes both reasons without hover.
+-        func fullDate(_ speech: [String]) -> Bool {
+-            speech.contains { line in
+-                let text = line.lowercased()
+-                return text.contains("thursday") && text.contains("february") &&
+-                    text.contains("15") && text.contains("2024")
+-            }
+-        }
+-        let speech = try recordSpeech(safari, name: "Calendar actual VoiceOver date and disclosure") { lines in
+-            let text = lines.joined(separator: " ")
+-            return fullDate(lines) && text.contains("Static capacity closed") && text.contains("Callback capacity closed")
+-        }
+-        let transcript = speech.joined(separator: "\n")
+-        XCTAssertTrue(fullDate(speech), transcript)
+-        XCTAssertTrue(transcript.contains("Static capacity closed"), transcript)
+-        XCTAssertTrue(transcript.contains("Callback capacity closed"), transcript)
+-        XCTAssertFalse(transcript.contains("DECORATION_SENTINEL"), transcript)
+-    }
+-
+-    func testCalendarPresetDescriptionsVoiceOverSpeech() throws {
+-        continueAfterFailure = false
+-        let safari = try openSpeechFixture("migration-proofs-daterangeselector--availability", waitingFor: "Early February")
+-        let speech = try recordSpeech(safari, name: "Calendar actual VoiceOver preset descriptions") { lines in
+-            let text = lines.joined(separator: " ")
+-            return text.contains("First two weeks, before capacity closes") && text.contains("Includes the unavailable capacity date")
+-        }
+-        let transcript = speech.joined(separator: "\n")
+-        XCTAssertTrue(transcript.contains("Early February"), transcript)
+-        XCTAssertTrue(transcript.contains("February reporting period"), transcript)
+-        XCTAssertTrue(transcript.contains("First two weeks, before capacity closes"), transcript)
+-        XCTAssertTrue(transcript.contains("Includes the unavailable capacity date"), transcript)
+-    }
+-
+-    func testCalendarFocusedRangePreviewVoiceOverSpeech() throws {
+-        continueAfterFailure = false
+-        let safari = try openSpeechFixture("migration-proofs-daterangeselector--focused-endpoint-preview", waitingFor: "February 28")
+-        let anchor = safari.webViews.buttons
+-            .matching(NSPredicate(format: "label CONTAINS %@ AND label CONTAINS %@", "February 28", "2024")).firstMatch
+-        XCTAssertTrue(anchor.waitForExistence(timeout: 10), safari.debugDescription)
+-        anchor.tap() // Starts a draft; accepted Apply/Cancel authority has native coverage.
+-        let speech = try recordSpeech(safari, name: "Calendar actual VoiceOver focused range preview") { lines in
+-            let text = lines.joined(separator: " ")
+-            return text.contains("Range preview") && text.contains("Anchor") && text.contains("Focused endpoint") && text.contains("Apply commits the draft")
+-        }
+-        let transcript = speech.joined(separator: "\n")
+-        for content in ["Range preview", "Anchor", "Focused endpoint", "Apply commits the draft"] {
+-            XCTAssertTrue(transcript.contains(content), transcript)
+-        }
+-    }
+-
+-
+-
+-    /// Actual unsolicited milestone speech: do not move the VoiceOver cursor to the Status.
+-    /// This bounded service sampler does not prove exact announcement counts or quietness.
+-    func testOperationStepsVoiceOverMilestones() throws {
+-        continueAfterFailure = false
+-        let base = ProcessInfo.processInfo.environment["SGUI_APPLE_BASE_URL"] ?? "http://127.0.0.1:6173"
+-        let url = try XCTUnwrap(URL(string: base + "/fixtures/?id=components-appoperationsteps--native-state-transitions&embed=true"))
+-        let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
+-        safari.open(url)
+-        let web = safari.webViews.firstMatch
+-        let start = web.buttons["Start operation"]
+-        XCTAssertTrue(start.waitForExistence(timeout: 30), safari.debugDescription)
+-        let voiceOver = XCUIDevice.shared.voiceOverService
+-        let wasEnabled = voiceOver.isEnabled
+-        defer { if !wasEnabled { try? voiceOver.disable() } }
+-        try voiceOver.enable()
+-        XCTAssertTrue(voiceOver.isEnabled)
+-        var observations: [String] = []
+-        defer {
+-            let speech = XCTAttachment(string: observations.joined(separator: "\n"))
+-            speech.name = "Operation steps actual sampled VoiceOver speech (not a continuous recording)"
+-            speech.lifetime = .keepAlways
+-            add(speech)
+-            let screen = XCTAttachment(screenshot: safari.screenshot())
+-            screen.name = "Operation steps final Safari state"
+-            screen.lifetime = .keepAlways
+-            add(screen)
+-        }
+-        func sample(_ phase: String, seconds: TimeInterval, expecting: String? = nil) throws {
+-            let deadline = Date().addingTimeInterval(seconds)
+-            var heard = false
+-            repeat {
+-                let utterance = try voiceOver.currentSpeech().utterance
+-                // Preserve every sample and timestamp, including identical samples.
+-                observations.append("\(Date().timeIntervalSince1970) [\(phase)] \(utterance)")
+-                if let expecting, utterance.contains(expecting) { heard = true }
+-                Thread.sleep(forTimeInterval: 0.1)
+-            } while Date() < deadline
+-            if let expecting { XCTAssertTrue(heard, "Missing actual speech: \(expecting)\n" + observations.joined(separator: "\n")) }
+-        }
+-        // Let navigation/enable speech settle before triggering a milestone.
+-        try sample("initial", seconds: 2)
+-        start.tap()
+-        try sample("active", seconds: 2)
+-        let advance = web.buttons["Advance progress"]
+-        XCTAssertTrue(advance.exists)
+-        advance.tap()
+-        try sample("progress-25", seconds: 2)
+-        advance.tap()
+-        try sample("progress-50", seconds: 2)
+-        web.buttons["Complete operation"].tap()
+-        try sample("complete", seconds: 5, expecting: "Course operation completed")
+-        web.buttons["Fail operation"].tap()
+-        try sample("failure", seconds: 5, expecting: "Course operation failed; review the materials and retry")
+-        web.buttons["Reset operation"].tap()
+-        try sample("reset", seconds: 2)
+-        start.tap()
+-        try sample("retry-active", seconds: 2)
+-        web.buttons["Complete operation"].tap()
+-        try sample("retry-complete", seconds: 5, expecting: "Course operation completed")
+-        // Native keyboard ownership, single-step numbering and list semantics retain
+-        // their existing desktop receipts. Sampling cannot prove absence of speech
+-        // between observations or distinguish repeated currentSpeech snapshots from
+-        // repeated announcements. The operator receipt remains required for those.
+-    }
+-
+ }
+--- a/packages/ui/tests/apple/run-simulator.mjs
++++ b/packages/ui/tests/apple/run-simulator.mjs
+@@ -15,7 +15,7 @@
+ if (process.platform !== 'darwin') throw Error('Requires macOS, Xcode27+ and an installed iOS27+ Simulator runtime.');
+ const port = Number(option('--port') ?? 6183);
+ if (!Number.isInteger(port) || port < 1024 || port > 65535 || port === 3000) throw Error('Use a dedicated loopback test port, never user server3000.');
+-const only = option('--only');
++const only = option('--only') ?? 'testSafariSelectAndVoiceOverSpeech';
+ if (only && !/^test[A-Za-z0-9_]+$/.test(only)) throw Error('Use one XCTest method name for --only');
+ const fixtureDir = resolve(option('--fixture-dir') ?? join(ui, 'browser-docs-static'));
+ const output = resolve(option('--output') ?? join(ui, 'artifacts', 'apple-simulator-'+Date.now()));
+@@ -58,7 +58,7 @@
+  receipt.device={name:device.name,id:device.udid,runtime:device.runtime,originalState:device.state};
+  receipt.source=await inventory(join(ui,'tests/apple'));
+  receipt.fixture=await inventory(fixtureDir);
+- receipt.selectedTest=only ?? 'all integrated XCTest methods';
++ receipt.selectedTest=only;
+  receipt.interactionMode='XCTest setup; actual VoiceOver enable/currentSpeech/moveBackward/moveForward for speech';
+  receipt.baseURL='http://127.0.0.1:'+port;
+  await run('build','xcodebuild',['build-for-testing','-project',join(ui,'tests/apple/SimulatorAcceptance.xcodeproj'),'-scheme','SimulatorAcceptance','-destination','platform=iOS Simulator,id='+device.udid,'-derivedDataPath',join(output,'derived')]);
+@@ -84,7 +84,7 @@
+  server=await startServer({...process.env,SGUI_BROWSER_PORT:String(port),SGUI_BROWSER_BASE_URL:receipt.baseURL,SGUI_BROWSER_DOCS_DIR:fixtureDir,SGUI_BROWSER_IMMUTABLE:'1'});
+  startedDevice=device.state!=='Booted';
+  await run('boot','xcrun',['simctl','bootstatus',device.udid,'-b'],120000);
+- await run('test','xcodebuild',['test-without-building','-xctestrun',xctestrun,'-destination','platform=iOS Simulator,id='+device.udid,'-parallel-testing-enabled','NO','-collect-test-diagnostics','never','-test-timeouts-enabled','YES','-maximum-test-execution-time-allowance','300',...(only ? ['-only-testing:SimulatorAcceptance/SimulatorAcceptance/'+only] : []),'-resultBundlePath',join(output,'result.xcresult')],900000);
++ await run('test','xcodebuild',['test-without-building','-xctestrun',xctestrun,'-destination','platform=iOS Simulator,id='+device.udid,'-parallel-testing-enabled','NO','-collect-test-diagnostics','never','-test-timeouts-enabled','YES','-maximum-test-execution-time-allowance','300',...(only ? ['-only-testing:SimulatorAcceptance/SimulatorAcceptance/'+only] : []),'-resultBundlePath',join(output,'result.xcresult')],360000);
+  await run('summary','xcrun',['xcresulttool','get','test-results','summary','--path',join(output,'result.xcresult'),'--compact']);
+  receipt.status='passed';
+ } catch(error) { receipt.status='failed';receipt.error=String(error);process.exitCode=1; }

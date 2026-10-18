@@ -1,0 +1,7 @@
+{
+  "command": "git apply --check docs/developer/final-acceptance/wave-04/14/ci-release-readiness.patch",
+  "exitCode": 0,
+  "stdout": "",
+  "stderr": "",
+  "applied": false
+}

@@ -42,11 +42,19 @@ test('native copy and paste rejects unsafe same-namespace JSON, preserves select
  const errors:string[]=[];const requests:string[]=[];page.on('pageerror',e=>errors.push(e.message));
  await page.route('https://rejected-editor-style.example/**',route=>{requests.push(route.request().url());return route.abort();});await page.goto(url);
  const editor=page.getByRole('textbox',{name:'Admission document',exact:true});
+ await page.evaluate(()=>{
+  const observations:unknown[]=[];(window as unknown as {__admissionClipboard:unknown[]}).__admissionClipboard=observations;
+  for(const type of ['copy','paste'])document.addEventListener(type,event=>{
+   const clipboard=event as ClipboardEvent;
+   observations.push({type,trusted:event.isTrusted,target:(event.target as Element)?.getAttribute('aria-label'),types:[...(clipboard.clipboardData?.types??[])]});
+  });
+ });
  const copy=async()=>{await page.getByRole('textbox',{name:'Admission clipboard source',exact:true}).focus();await page.keyboard.press('ControlOrMeta+A');await page.keyboard.press('ControlOrMeta+C');};
  const caret=async()=>{await editor.locator('p').filter({hasText:/^Edit this ending$/}).click();await page.keyboard.press('End');};
  const range=()=>editor.evaluate(()=>{const s=window.getSelection();return{anchor:s?.anchorNode?.textContent,focus:s?.focusNode?.textContent,anchorOffset:s?.anchorOffset,focusOffset:s?.focusOffset};});
  await copy();await caret();const selected=await range();const before=await value(page,'Saved admission JSON');const callbacks=await page.getByLabel('Admission callback count',{exact:true}).textContent();
  await page.keyboard.press('ControlOrMeta+V');
+ await info.attach('native-clipboard-delivery',{body:JSON.stringify(await page.evaluate(()=>(window as unknown as {__admissionClipboard:unknown[]}).__admissionClipboard)),contentType:'application/json'});
  await expect(page.getByRole('alert')).toHaveText('This pasted content could not be inserted safely. The document has not been changed.');
  expect(await value(page,'Saved admission JSON')).toEqual(before);await expect(page.getByLabel('Admission callback count',{exact:true})).toHaveText(callbacks!);
  await expect(editor).toBeFocused();expect(await range()).toEqual(selected);await expect(editor).not.toContainText('Rejected clipboard text');

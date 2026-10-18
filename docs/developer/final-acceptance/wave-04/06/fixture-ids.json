@@ -1,0 +1,92 @@
+{
+  "overlays-appmodal--nested-overlays": {
+    "id": "overlays-appmodal--nested-overlays",
+    "type": "fixture",
+    "title": "Overlays/AppModal",
+    "name": "NestedOverlays",
+    "exportName": "NestedOverlays",
+    "module": "./scenarios/components/AppModal/AppModal.fixture.tsx",
+    "importPath": "./scenarios/components/AppModal/AppModal.fixture.tsx",
+    "original": "packages/ui/src/components/AppModal/AppModal.stories.tsx"
+  },
+  "overlays-appmodal--removed-opener": {
+    "id": "overlays-appmodal--removed-opener",
+    "type": "fixture",
+    "title": "Overlays/AppModal",
+    "name": "RemovedOpener",
+    "exportName": "RemovedOpener",
+    "module": "./scenarios/components/AppModal/AppModal.fixture.tsx",
+    "importPath": "./scenarios/components/AppModal/AppModal.fixture.tsx",
+    "original": "packages/ui/src/components/AppModal/AppModal.stories.tsx"
+  },
+  "overlays-appmodal--ownership": {
+    "id": "overlays-appmodal--ownership",
+    "type": "fixture",
+    "title": "Overlays/AppModal",
+    "name": "Ownership",
+    "exportName": "Ownership",
+    "module": "./scenarios/components/AppModal/AppModal.fixture.tsx",
+    "importPath": "./scenarios/components/AppModal/AppModal.fixture.tsx",
+    "original": "packages/ui/src/components/AppModal/AppModal.stories.tsx"
+  },
+  "migration-proofs-datepicker--default": {
+    "id": "migration-proofs-datepicker--default",
+    "type": "fixture",
+    "title": "Migration proofs/DatePicker",
+    "name": "Default",
+    "exportName": "Default",
+    "module": "./scenarios/experimental/DatePicker/DatePicker.fixture.tsx",
+    "importPath": "./scenarios/experimental/DatePicker/DatePicker.fixture.tsx",
+    "original": "packages/ui/src/experimental/DatePicker/DatePicker.stories.tsx"
+  },
+  "migration-proofs-combobox--independent": {
+    "id": "migration-proofs-combobox--independent",
+    "type": "fixture",
+    "title": "Migration proofs/ComboBox",
+    "name": "Independent",
+    "exportName": "Independent",
+    "module": "./scenarios/experimental/ComboBox/ComboBox.fixture.tsx",
+    "importPath": "./scenarios/experimental/ComboBox/ComboBox.fixture.tsx",
+    "original": "packages/ui/src/experimental/ComboBox/ComboBox.stories.tsx"
+  },
+  "migration-proofs-popover-collision--viewport-edge": {
+    "id": "migration-proofs-popover-collision--viewport-edge",
+    "type": "fixture",
+    "title": "Migration proofs/Popover collision",
+    "name": "ViewportEdge",
+    "exportName": "ViewportEdge",
+    "module": "./scenarios/experimental/Popover/Popover.collision.fixture.tsx",
+    "importPath": "./scenarios/experimental/Popover/Popover.collision.fixture.tsx",
+    "original": "packages/ui/src/experimental/Popover/Popover.collision.stories.tsx"
+  },
+  "migration-proofs-popover-collision--scrollable-host": {
+    "id": "migration-proofs-popover-collision--scrollable-host",
+    "type": "fixture",
+    "title": "Migration proofs/Popover collision",
+    "name": "ScrollableHost",
+    "exportName": "ScrollableHost",
+    "module": "./scenarios/experimental/Popover/Popover.collision.fixture.tsx",
+    "importPath": "./scenarios/experimental/Popover/Popover.collision.fixture.tsx",
+    "original": "packages/ui/src/experimental/Popover/Popover.collision.stories.tsx"
+  },
+  "migration-proofs-daterangepicker--default": {
+    "id": "migration-proofs-daterangepicker--default",
+    "type": "fixture",
+    "title": "Migration proofs/DateRangePicker",
+    "name": "Default",
+    "exportName": "Default",
+    "module": "./scenarios/experimental/DateRangePicker/DateRangePicker.fixture.tsx",
+    "importPath": "./scenarios/experimental/DateRangePicker/DateRangePicker.fixture.tsx",
+    "original": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.stories.tsx"
+  },
+  "migration-proofs-select--independent": {
+    "id": "migration-proofs-select--independent",
+    "type": "fixture",
+    "title": "Migration proofs/Select",
+    "name": "Independent",
+    "exportName": "Independent",
+    "module": "./scenarios/experimental/Select/Select.fixture.tsx",
+    "importPath": "./scenarios/experimental/Select/Select.fixture.tsx",
+    "original": "packages/ui/src/experimental/Select/Select.stories.tsx"
+  }
+}

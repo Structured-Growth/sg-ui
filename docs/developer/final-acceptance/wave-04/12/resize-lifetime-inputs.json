@@ -1,0 +1,7 @@
+{
+  "path": "packages/ui/src/experimental/Dialog/Dialog.test.tsx",
+  "baseSha256": "d5b73b2cd05067b944d94bc212733519a398e641d217574e2869b97bac20960f",
+  "proposalSha256": "e7def35b006d94397d5330c058583829d43fc306641fa395ee0480b5a9a2c880",
+  "casesAdded": 1,
+  "runtime": "not executed; coordinator review required"
+}

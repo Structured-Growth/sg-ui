@@ -1,0 +1,13 @@
+{
+  "node": "v24.21.0",
+  "projects": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ],
+  "testMatch": "calendar-period-draft-isolation.spec.ts",
+  "workers": 1,
+  "retries": 0,
+  "serverOwnership": "none",
+  "browserExecution": false
+}

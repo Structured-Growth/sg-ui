@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 115,
-  "closedTotal": 296,
-  "remaining": 24,
+  "closedThisReview": 122,
+  "closedTotal": 303,
+  "remaining": 17,
   "entries": [
     {
       "id": "A-M-21",
@@ -1028,11 +1028,75 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/c11-native-nesting-with-fallback.json",
       "sha256": "0fe34cfab012517701d376138f5c36a552d4dbb2631c82aad0f109fe33f39176",
       "limits": "Explicit-&support is documented separately from relaxed parsing. Current Chromium153/Firefox155/WebKit26.6 evidence does not certify historical minimum versions, physical Safari/mobile or legacy browsers. Flat fallback preserves the prior rule. No public API, numeric browser floor, baseline, broad catalog/fixture source or release change."
+    },
+    {
+      "id": "A-X-06",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/backlog-to-ten/x06-x07-closure.json",
+      "sha256": "5ea1356c7a0357cc8c0326831e2af14b034f6d152cdc521207cf3d70c1297bcd",
+      "criterion": "- [ ] A-X-06 Reconcile original `X-06`: Verify text/non-text contrast, visible focus, high contrast/forced colors, reduced motion, and state meaning beyond color. Historical status: open.",
+      "basis": "Composed paint/contrast and retained focus/motion/non-color evidence accepted with original limits.",
+      "recordedAt": "2026-10-18"
+    },
+    {
+      "id": "A-X-07",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/backlog-to-ten/x06-x07-closure.json",
+      "sha256": "5ea1356c7a0357cc8c0326831e2af14b034f6d152cdc521207cf3d70c1297bcd",
+      "criterion": "- [ ] A-X-07 Reconcile original `X-07`: Verify target size/spacing against WCAG requirements and aim for comfortable primary touch targets; test coarse-pointer use rather than shrinking every hit area with density. Historical status: open.",
+      "basis": "Twelve trusted coarse-pointer/geometry executions plus scoped unit evidence accepted; physical/manual scope remains separate.",
+      "recordedAt": "2026-10-18"
+    },
+    {
+      "id": "A-Z-12",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/backlog-to-ten/conversation-reconciliation.md",
+      "sha256": "b4bc4547e2736e4ec22aa64cb560d48c9c2a7e7b78507f0bbfca150d185378f5",
+      "criterion": "- [ ] A-Z-12 Reconcile original `Z-12`: Review the plan against every conversation commitment and imported UI principle; resolve duplicates, gaps, incompatible rules and unsupported feature claims. Historical status: open.",
+      "basis": "Complete discoverable17-project-root conversation turn streams reconciled to imported principles and current contracts without inferred owner/legal/release approval.",
+      "recordedAt": "2026-10-18"
+    },
+    {
+      "id": "A-X-10",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/backlog-to-ten/browser-support-closure.json",
+      "sha256": "949881949f274d82a4a09ba6721a3f2bdb2cd53dc6dcd4a1fe31b821837b83aa",
+      "criterion": "- [ ] A-X-10 Reconcile original `X-10`: Establish supported Chrome/Firefox/WebKit browser checks and document representative touch and assistive-technology coverage. Historical status: open.",
+      "basis": "Maintained three-engine checks and explicitly bounded touch/retained actual VoiceOver coverage documented; X11 manual six-family review remains required.",
+      "recordedAt": "2026-10-18"
+    },
+    {
+      "id": "A-B-10",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/backlog-to-ten/performance-grid-closure.json",
+      "sha256": "ef66c87eecd83fdab6d0dc5c1693e626c2994acf5e81c04614a88c8e17eadd6d",
+      "criterion": "- [ ] A-B-10 Reconcile original `B-10`: Measure production consumer bundles, CSS, editor/grid imports, initial render, and interactive updates with reproducible fixtures. Historical status: open.",
+      "basis": "Measured fresh installed production consumer JS/CSS for all14 import boundaries, including Button, catalog grid and editor; current production browser initial/input/update/selection samples cover both grid renderers and the selector. No minimum transfer or universal ranking claim.",
+      "recordedAt": "2026-10-18"
+    },
+    {
+      "id": "A-G-20",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/backlog-to-ten/performance-grid-closure.json",
+      "sha256": "ef66c87eecd83fdab6d0dc5c1693e626c2994acf5e81c04614a88c8e17eadd6d",
+      "criterion": "- [ ] A-G-20 Reconcile original `G-20`: Benchmark large row/column counts and frequent updates, including selection and text input; compare production builds against the baseline. Historical status: open.",
+      "basis": "Seven production configurations compare the identical host/runner against the retained older owned production baseline. Three warmups and nine recorded navigations per configuration; all50 updates and native typing/selection overlap preserved. All raw samples, median/p95, output hashes, load and seven successful active-update cleanup probes retained. The startup regression was investigated and redundant DOM-ref state removed; selection tail is explicitly retained for P08/X19, not hidden or turned into an invented budget.",
+      "recordedAt": "2026-10-18"
+    },
+    {
+      "id": "A-M-16",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/backlog-to-ten/performance-grid-closure.json",
+      "sha256": "ef66c87eecd83fdab6d0dc5c1693e626c2994acf5e81c04614a88c8e17eadd6d",
+      "criterion": "- [ ] A-M-16 Reconcile AppDataGrid final acceptance: Complete owned grid implementation, types and helpers; follow G tasks. Link its `F-C16`, `T-C16` and `V-C16` evidence and any unresolved defects.",
+      "basis": "Join accepted F-C16 baseline, T-C16 regression and V-C16 presentation evidence to the owned public grid/types/helpers and completed G successors. The remaining G20 measurement joins above; current39 affected units and preserved grid native focus/interaction checks support the ref correction. All other required original G obligations are already closed. Broader platform/manual/legal/production gates retain their own required leaves.",
+      "recordedAt": "2026-10-18"
     }
   ],
   "limits": [
     "All300V remain accepted. Six future leaves remain separate.",
     "No production promotion, release, manual AT or physical-device approval is inferred.",
     "New unexecuted patches and active simulator work earn no closure here."
-  ]
+  ],
+  "latestSourceCommit": "f049b215e28e4157200f99ebf5fe52a7c04cae5a"
 }

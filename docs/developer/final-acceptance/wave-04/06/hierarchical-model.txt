@@ -1,0 +1,1 @@
+7 pure path assertions pass: deep ancestry, inline final rejection, mixed ancestry, commands drilldown, disabled ancestor, removed descendant and cycle safety. No React, native or AT execution.

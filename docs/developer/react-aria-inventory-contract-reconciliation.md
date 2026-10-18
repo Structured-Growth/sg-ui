@@ -1,5 +1,11 @@
 # Inventory contract wording reconciliation
 
+Current disposition (2026-10-18): the M10/M14/M30 questions below are historical.
+Shipped adjacent navigation and accepted card/toolbar clause-attribution successors
+resolve them; see the [current commitment reconciliation](backlog-to-ten/conversation-reconciliation.md).
+The bounded historical evidence and proposed wording below are preserved unchanged.
+
+
 Current-link maintenance (2026-10-17): links to removed story files now point to their docs-owned native fixture replacements. Historical execution claims below retain their original scope and dates.
 
 Bounded W-19 / M-10 / M-14 / M-30 evidence, 2026-10-07. Inspected current

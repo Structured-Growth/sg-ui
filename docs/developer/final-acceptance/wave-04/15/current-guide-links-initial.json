@@ -1,0 +1,1280 @@
+{
+  "root": "/Users/thomashall/Repositories/sg-ui",
+  "files": 93,
+  "checkedLinks": 1944,
+  "excludedLinks": 152,
+  "findings": [
+    {
+      "file": "docs/developer/react-aria-inventory-contract-reconciliation.md",
+      "line": 73,
+      "column": 5,
+      "kind": "inline",
+      "destination": "../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.stories.tsx",
+      "target": "/Users/thomashall/Repositories/sg-ui/packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.stories.tsx",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-inventory-contract-reconciliation.md",
+      "line": 126,
+      "column": 1,
+      "kind": "inline",
+      "destination": "../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.stories.tsx",
+      "target": "/Users/thomashall/Repositories/sg-ui/packages/ui/src/components/InstructorClassCard/InstructorClassCard.stories.tsx",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-inventory-contract-reconciliation.md",
+      "line": 191,
+      "column": 1,
+      "kind": "inline",
+      "destination": "../../packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+      "target": "/Users/thomashall/Repositories/sg-ui/packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-migration-inventory-acceptance.md",
+      "line": 34,
+      "column": 28,
+      "kind": "inline",
+      "destination": "../../packages/ui/src/components/AppButton/AppButton.tsx",
+      "target": "/Users/thomashall/Repositories/sg-ui/packages/ui/src/components/AppButton/AppButton.tsx",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-migration-inventory-acceptance.md",
+      "line": 34,
+      "column": 96,
+      "kind": "inline",
+      "destination": "../../packages/ui/src/components/AppButton/AppButton.test.tsx",
+      "target": "/Users/thomashall/Repositories/sg-ui/packages/ui/src/components/AppButton/AppButton.test.tsx",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-migration-inventory-acceptance.md",
+      "line": 68,
+      "column": 28,
+      "kind": "inline",
+      "destination": "../../packages/ui/src/components/Typefaces/Typefaces.stories.tsx",
+      "target": "/Users/thomashall/Repositories/sg-ui/packages/ui/src/components/Typefaces/Typefaces.stories.tsx",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-progress.md",
+      "line": 221,
+      "column": 180,
+      "kind": "inline",
+      "destination": "../../packages/ui/src/components/Typefaces/Typefaces.stories.tsx",
+      "target": "/Users/thomashall/Repositories/sg-ui/packages/ui/src/components/Typefaces/Typefaces.stories.tsx",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-release-gate-audit.md",
+      "line": 120,
+      "column": 1,
+      "kind": "inline",
+      "destination": "../../release.config.mjs",
+      "target": "/Users/thomashall/Repositories/sg-ui/release.config.mjs",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 40,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/dialog",
+      "target": "/docs/components/dialog",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 41,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/icons",
+      "target": "/docs/components/icons",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 42,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/icons",
+      "target": "/docs/components/icons",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 43,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/button",
+      "target": "/docs/components/button",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 44,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/owned-dialog",
+      "target": "/docs/components/owned-dialog",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 45,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/popover",
+      "target": "/docs/components/popover",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 46,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/tabs",
+      "target": "/docs/components/tabs",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 47,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/typography",
+      "target": "/docs/components/typography",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 48,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/box",
+      "target": "/docs/components/box",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 49,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/stack",
+      "target": "/docs/components/stack",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 50,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/surface",
+      "target": "/docs/components/surface",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 51,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/card",
+      "target": "/docs/components/card",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 52,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/card",
+      "target": "/docs/components/card",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 53,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/divider",
+      "target": "/docs/components/divider",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 54,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/icon-button",
+      "target": "/docs/components/icon-button",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 55,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/button-group",
+      "target": "/docs/components/button-group",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 56,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/menu",
+      "target": "/docs/components/menu",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 57,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/split-action",
+      "target": "/docs/components/split-action",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 58,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/link",
+      "target": "/docs/components/link",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 59,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/breadcrumbs",
+      "target": "/docs/components/breadcrumbs",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 60,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/tooltip",
+      "target": "/docs/components/tooltip",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 61,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/list",
+      "target": "/docs/components/list",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 62,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/list",
+      "target": "/docs/components/list",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 63,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/list",
+      "target": "/docs/components/list",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 64,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/list",
+      "target": "/docs/components/list",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 65,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/list",
+      "target": "/docs/components/list",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 66,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/navigation",
+      "target": "/docs/components/navigation",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 67,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/navigation",
+      "target": "/docs/components/navigation",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 68,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/disclosure",
+      "target": "/docs/components/disclosure",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 69,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/collapse",
+      "target": "/docs/components/collapse",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 70,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/chip",
+      "target": "/docs/components/chip",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 71,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/badge",
+      "target": "/docs/components/badge",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 72,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/progress",
+      "target": "/docs/components/progress",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 73,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/progress",
+      "target": "/docs/components/progress",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 74,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/progress",
+      "target": "/docs/components/progress",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 75,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/status",
+      "target": "/docs/components/status",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 76,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/avatar",
+      "target": "/docs/components/avatar",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 77,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/table",
+      "target": "/docs/components/table",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 78,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/table",
+      "target": "/docs/components/table",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 79,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/table",
+      "target": "/docs/components/table",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 80,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/table",
+      "target": "/docs/components/table",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 81,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/table",
+      "target": "/docs/components/table",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 82,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/table",
+      "target": "/docs/components/table",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 83,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/table",
+      "target": "/docs/components/table",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 84,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/table",
+      "target": "/docs/components/table",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 85,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/pagination",
+      "target": "/docs/components/pagination",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 86,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/provider",
+      "target": "/docs/components/provider",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 87,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/provider",
+      "target": "/docs/components/provider",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 88,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/theme-scope",
+      "target": "/docs/components/theme-scope",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 89,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/period-picker",
+      "target": "/docs/components/period-picker",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 90,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/date-time-range-picker",
+      "target": "/docs/components/date-time-range-picker",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 91,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/date-range-comparison-picker",
+      "target": "/docs/components/date-range-comparison-picker",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 92,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/search-field",
+      "target": "/docs/components/search-field",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 93,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/text-field",
+      "target": "/docs/components/text-field",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 94,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/text-area",
+      "target": "/docs/components/text-area",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 95,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/select",
+      "target": "/docs/components/select",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 96,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/combo-box",
+      "target": "/docs/components/combo-box",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 97,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/combo-box",
+      "target": "/docs/components/combo-box",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 98,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/async-multi-select",
+      "target": "/docs/components/async-multi-select",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 99,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/checkbox",
+      "target": "/docs/components/checkbox",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 100,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/switch",
+      "target": "/docs/components/switch",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 101,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/radio-group",
+      "target": "/docs/components/radio-group",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 102,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/toggle-button",
+      "target": "/docs/components/toggle-button",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 103,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/toggle-button-group",
+      "target": "/docs/components/toggle-button-group",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 104,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/tag-group",
+      "target": "/docs/components/tag-group",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 105,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/date-field",
+      "target": "/docs/components/date-field",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 106,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/time-field",
+      "target": "/docs/components/time-field",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 107,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/calendar",
+      "target": "/docs/components/calendar",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 108,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/date-picker",
+      "target": "/docs/components/date-picker",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 109,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/date-range-picker",
+      "target": "/docs/components/date-range-picker",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 110,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/date-range-selector",
+      "target": "/docs/components/date-range-selector",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 111,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/date-range-selector",
+      "target": "/docs/components/date-range-selector",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 112,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/date-range-selector",
+      "target": "/docs/components/date-range-selector",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 113,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/icon-panel-navigation",
+      "target": "/docs/components/icon-panel-navigation",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 114,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/auth-shell",
+      "target": "/docs/components/auth-shell",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 115,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/app-shell",
+      "target": "/docs/components/app-shell",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 116,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/page-header",
+      "target": "/docs/components/page-header",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 117,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/page-tabs",
+      "target": "/docs/components/page-tabs",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 118,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/experience-page-navigator",
+      "target": "/docs/components/experience-page-navigator",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 119,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/side-navigation",
+      "target": "/docs/components/side-navigation",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 120,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/editable-title-field",
+      "target": "/docs/components/editable-title-field",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 121,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/document-editor-layout",
+      "target": "/docs/components/document-editor-layout",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 122,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/document-editor-toolbar",
+      "target": "/docs/components/document-editor-toolbar",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 123,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/content-editor-chrome",
+      "target": "/docs/components/content-editor-chrome",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 124,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/floating-text-selection-toolbar",
+      "target": "/docs/components/floating-text-selection-toolbar",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 125,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/rich-text-formatting-toolbar",
+      "target": "/docs/components/rich-text-formatting-toolbar",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 126,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/insert-content-menu-control",
+      "target": "/docs/components/insert-content-menu-control",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 127,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/text-align-menu-control",
+      "target": "/docs/components/text-align-menu-control",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 128,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/text-color-picker-control",
+      "target": "/docs/components/text-color-picker-control",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 129,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/text-style-menu-control",
+      "target": "/docs/components/text-style-menu-control",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 130,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/columns-layout-modal",
+      "target": "/docs/components/columns-layout-modal",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 131,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/link-url-modal",
+      "target": "/docs/components/link-url-modal",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 132,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/image-upload-modal",
+      "target": "/docs/components/image-upload-modal",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 133,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/page-rich-text-editor-section",
+      "target": "/docs/components/page-rich-text-editor-section",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 134,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/navigation-provider",
+      "target": "/docs/components/navigation-provider",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 135,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/sg-link",
+      "target": "/docs/components/sg-link",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 136,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/account-provider",
+      "target": "/docs/components/account-provider",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 137,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/translation-provider",
+      "target": "/docs/components/translation-provider",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 138,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/inline-progress",
+      "target": "/docs/components/inline-progress",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 139,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/operation-steps",
+      "target": "/docs/components/operation-steps",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 140,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/pagination-footer",
+      "target": "/docs/components/pagination-footer",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 141,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/card-frame",
+      "target": "/docs/components/card-frame",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 142,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/instructor-card",
+      "target": "/docs/components/instructor-card",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 143,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/learner-card",
+      "target": "/docs/components/learner-card",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 144,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/card-collection",
+      "target": "/docs/components/card-collection",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 145,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/app-data-grid",
+      "target": "/docs/components/app-data-grid",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 146,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/app-data-grid",
+      "target": "/docs/components/app-data-grid",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 147,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/app-data-grid",
+      "target": "/docs/components/app-data-grid",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 148,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/data-grid-shell",
+      "target": "/docs/components/data-grid-shell",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 149,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/data-toolbar",
+      "target": "/docs/components/data-toolbar",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 150,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/selection-menu",
+      "target": "/docs/components/selection-menu",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 151,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/row-reorder",
+      "target": "/docs/components/row-reorder",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 152,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/learner-grid",
+      "target": "/docs/components/learner-grid",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 153,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/processing-grid",
+      "target": "/docs/components/processing-grid",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 154,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/row-subheader",
+      "target": "/docs/components/row-subheader",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 155,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/grid-presets",
+      "target": "/docs/components/grid-presets",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 156,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/grid-presets",
+      "target": "/docs/components/grid-presets",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 157,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/grid-presets",
+      "target": "/docs/components/grid-presets",
+      "category": "document",
+      "code": "missing-path"
+    },
+    {
+      "file": "docs/developer/react-aria-state-applicability.md",
+      "line": 158,
+      "column": 3,
+      "kind": "inline",
+      "destination": "/docs/components/grid-presets",
+      "target": "/docs/components/grid-presets",
+      "category": "document",
+      "code": "missing-path"
+    }
+  ],
+  "defects": 127,
+  "retentionFindings": 0
+}

@@ -1,0 +1,13 @@
+{
+  "runtime": "v26.5.0",
+  "typescript": "5.9.3",
+  "kind": "semantic noEmit virtual-overlay typecheck against existing installed workspace declarations",
+  "targets": [
+    "apps/docs/native-fixtures/scenarios/experimental/ToggleButton/ToggleButton.fixture.tsx",
+    "packages/ui/tests/browser/wave04-toggle-presentation.spec.ts",
+    "packages/ui/tests/browser/wave04-state-indicators.spec.ts"
+  ],
+  "diagnostics": [],
+  "emitted": false,
+  "nativeExecuted": false
+}

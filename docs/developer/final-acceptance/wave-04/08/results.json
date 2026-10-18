@@ -1,0 +1,809 @@
+{
+  "schemaVersion": 1,
+  "assignment": 8,
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "scope": "Only docs/developer/final-acceptance/wave-04/08 written. No Git index/branch/source/build mutation.",
+  "recommendations": {
+    "complete": 4,
+    "partial": 5,
+    "blocked": 0
+  },
+  "validationActuallyExecuted": "Initial syntax/patch checks plus new read-only inventory generation, local existing-declaration strict fixture compilation with/without skipLibCheck (0 diagnostics,11 negative rejections each), two inventory harness tests and bounded source/declaration migration gate. Node26 preparation only; no isolated install/build/browser/package suite.",
+  "results": [
+    {
+      "id": "A-B-05",
+      "originalObligation": "- [ ] A-B-05 Reconcile original `B-05`: Snapshot public props, callbacks, models, defaults, subpaths, and deprecations; identify changes that are actually breaking. Historical status: open.",
+      "recommendation": "partial",
+      "concreteProgress": "Reused existing469 contracts/238 routes/678 candidates; reviewed all25 changed files in saved370 declarations, with345 unchanged. Classified29 saved derived candidates, leaving402 from that original queue unreviewed. No export inventory recaptured. Generated fresh resolved public API evidence:238 routes/475 contracts with inherited native properties, aliases, union branches, refs, callback signatures and generic parameters; no top-level any/unknown issues. Runtime defaults remain separately source-bound. Further implemented and executed exact-lock integrity recovery for28 unique historical packages;34 captured primitive/wrapper/model/event contracts resolve with zero unresolved modules/diagnostics;200 old styling/slot hooks are joined to actual current contracts, with deprecated tags retained. This supersedes prior claims that these captured declarations remain absent. Latest source-backed extension:110 non-icon/96 icon boundary definitions;16/16 negative type assertions reject with/without skipLibCheck; full original styling audit129 files/current guard533 files;740 SystemProps/visual/style/slot mappings across38 resolved analysis contracts (37 captured boundaries/models/branches plus one SystemProps helper), no unresolved modules or diagnostics.",
+      "priorEvidence": {
+        "path": "docs/developer/final-acceptance/wave-03-01/report.md",
+        "sha256": "a582dc1caf8f4ccc5d5bc9f04f6d80a091448e01e3aab8a122b6375a7a8c5654",
+        "integrationDecision": {
+          "id": "A-B-05",
+          "originalChecklistText": "- [ ] A-B-05 Reconcile original `B-05`: Snapshot public props, callbacks, models, defaults, subpaths, and deprecations; identify changes that are actually breaking. Historical status: open.",
+          "owner": 1,
+          "report": "docs/developer/final-acceptance/wave-03-01/report.md",
+          "results": "docs/developer/final-acceptance/wave-03-01/results.json",
+          "reportSha256": "a582dc1caf8f4ccc5d5bc9f04f6d80a091448e01e3aab8a122b6375a7a8c5654",
+          "resultsSha256": "e0e78878b50f68f4fdde4d17438ac20cf53e0a7fa1d9a0d19a84471bca593085",
+          "status": "partial",
+          "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+          "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+        }
+      },
+      "artifacts": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/reviewed-default-successors.json",
+          "sha256": "6865e0f38e7e29628a02f6861ac21c6255069cf25e881e902423da2d4c2d913f"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/declaration-successors.json",
+          "sha256": "f6b956343b9a7a0551b1035fad28a436eb3e7963d549dc5412fb1a8bea2b1edf"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/prior-input-comparison.json",
+          "sha256": "216981ba1fce34cf5b0f9577ec68c8c453bf99a1c7643c3af36a015ebb790caa"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/implementation-results.json",
+          "sha256": "61af2d7a0f2021870a63d5d05bd10e378b60a5ce5d850c46f07c55f15fe18b3e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/contract-fixture-proof.json",
+          "sha256": "161166371b8b84a1706d894ebcd7b309cf600d12d9d73b7248b34b2793e68b2c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/migration-proof.json",
+          "sha256": "a7fd53e29f967ebadc4984e6868816ca263c47bcb092a7333016ea059c686584"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/resolved-public-api-delta.json",
+          "sha256": "4a2408a465f00e0a0e80ca2ea48941821aede87514c25f3de693f40d095a61e6"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-recovery-results.json",
+          "sha256": "7d918db095fd137ff929769abfdf7680c37fc7f89d23fd9ce13e1e9ab0fcb831"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-resolved-props.json",
+          "sha256": "b7408588c130b5bdb46b208cd2be98a089d712dba2e22c8820c70f8fda6ca80d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-styling-mappings.json",
+          "sha256": "6097364492efd90fad2ce10dc2311a2d5e207c3db5e12328a9e592e27114e51b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/closure-recommendations.json",
+          "sha256": "06f93eeea9e48a87e473862b2b4a556281ead65ac336a6b97fcc423458f947ab"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/original-styling-audit.json",
+          "sha256": "a44a0484c6f599ed83123d179f2cf022f386ce19ed48d226b21ddc49d47c22a0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/current-styling-source-guard.json",
+          "sha256": "d580bd41772b09ffc6b5035ffa826777fe19457806e1866fca1bf2a4aee31b61"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/boundary-index-tests.log",
+          "sha256": "24bf1fd94c941cea3f08f3af4d2cb458cb7056b464a937986ff489d416876879"
+        }
+      ],
+      "evidenceReceipt": {
+        "path": "docs/developer/final-acceptance/wave-04/08/evidence.json",
+        "sha256": "72292ead7576afbee1e4654255f6de6efd44fa1f6454d9a29e887ef6a9f9c952"
+      },
+      "validationPlanSuccessors": [
+        "W04-08-HISTORY",
+        "W04-08-RELEASE"
+      ],
+      "outstandingSuccessor": "Complete historical inheritance/signature/default joins for remaining original public wrappers beyond captured34; review remaining indirect runtime/default expressions; reconcile final inventory and breaking-release dispositions. Captured upstream dependency recovery is now complete for the resolved graph.",
+      "proposedChanges": "Fifteen exact proposed files and unapplied refreshed patch; includes generated public boundary docs/metadata, generator/regression test and one nonbehavioral InstructorClassCard prop JSDoc clarification. Root/lead09 integrate serially."
+    },
+    {
+      "id": "A-A-08",
+      "originalObligation": "- [ ] A-A-08 Reconcile original `A-08`: Define public variant, size, tone, density, placement, dismissal-reason, and validation contracts independently of any foundation. Historical status: open.",
+      "recommendation": "complete",
+      "concreteProgress": "Prepared explicit migration/default guidance for calendar period navigation, independent months, adjust-nearest, hidden fields and FormFieldScope placement. Reviewed scope/field/header conditional defaults rather than calling private geometry public defaults. Implemented/executed a source+declaration migration gate for five changed direct default bindings, preserving explicit prior-behavior instructions. Further implemented and executed exact-lock integrity recovery for28 unique historical packages;34 captured primitive/wrapper/model/event contracts resolve with zero unresolved modules/diagnostics;200 old styling/slot hooks are joined to actual current contracts, with deprecated tags retained. This supersedes prior claims that these captured declarations remain absent. Latest source-backed extension:110 non-icon/96 icon boundary definitions;16/16 negative type assertions reject with/without skipLibCheck; full original styling audit129 files/current guard533 files;740 SystemProps/visual/style/slot mappings across38 resolved analysis contracts (37 captured boundaries/models/branches plus one SystemProps helper), no unresolved modules or diagnostics.",
+      "priorEvidence": {
+        "path": "docs/developer/final-acceptance/wave-03-01/report.md",
+        "sha256": "a582dc1caf8f4ccc5d5bc9f04f6d80a091448e01e3aab8a122b6375a7a8c5654",
+        "integrationDecision": {
+          "id": "A-A-08",
+          "originalChecklistText": "- [ ] A-A-08 Reconcile original `A-08`: Define public variant, size, tone, density, placement, dismissal-reason, and validation contracts independently of any foundation. Historical status: open.",
+          "owner": 1,
+          "report": "docs/developer/final-acceptance/wave-03-01/report.md",
+          "results": "docs/developer/final-acceptance/wave-03-01/results.json",
+          "reportSha256": "a582dc1caf8f4ccc5d5bc9f04f6d80a091448e01e3aab8a122b6375a7a8c5654",
+          "resultsSha256": "e0e78878b50f68f4fdde4d17438ac20cf53e0a7fa1d9a0d19a84471bca593085",
+          "status": "partial",
+          "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+          "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+        }
+      },
+      "artifacts": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/reviewed-default-successors.json",
+          "sha256": "6865e0f38e7e29628a02f6861ac21c6255069cf25e881e902423da2d4c2d913f"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/declaration-successors.json",
+          "sha256": "f6b956343b9a7a0551b1035fad28a436eb3e7963d549dc5412fb1a8bea2b1edf"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/public-contract-followup.patch",
+          "sha256": "5d73a7cafdfacf4320262a21c8e6c44cf7fc5a178736491457cf788ce92eb4e5"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/implementation-results.json",
+          "sha256": "61af2d7a0f2021870a63d5d05bd10e378b60a5ce5d850c46f07c55f15fe18b3e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/contract-fixture-proof.json",
+          "sha256": "161166371b8b84a1706d894ebcd7b309cf600d12d9d73b7248b34b2793e68b2c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/migration-proof.json",
+          "sha256": "a7fd53e29f967ebadc4984e6868816ca263c47bcb092a7333016ea059c686584"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/resolved-public-api-delta.json",
+          "sha256": "4a2408a465f00e0a0e80ca2ea48941821aede87514c25f3de693f40d095a61e6"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-recovery-results.json",
+          "sha256": "7d918db095fd137ff929769abfdf7680c37fc7f89d23fd9ce13e1e9ab0fcb831"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-resolved-props.json",
+          "sha256": "b7408588c130b5bdb46b208cd2be98a089d712dba2e22c8820c70f8fda6ca80d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-styling-mappings.json",
+          "sha256": "6097364492efd90fad2ce10dc2311a2d5e207c3db5e12328a9e592e27114e51b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/closure-recommendations.json",
+          "sha256": "06f93eeea9e48a87e473862b2b4a556281ead65ac336a6b97fcc423458f947ab"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/original-styling-audit.json",
+          "sha256": "a44a0484c6f599ed83123d179f2cf022f386ce19ed48d226b21ddc49d47c22a0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/current-styling-source-guard.json",
+          "sha256": "d580bd41772b09ffc6b5035ffa826777fe19457806e1866fca1bf2a4aee31b61"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/boundary-index-tests.log",
+          "sha256": "24bf1fd94c941cea3f08f3af4d2cb458cb7056b464a937986ff489d416876879"
+        }
+      ],
+      "evidenceReceipt": {
+        "path": "docs/developer/final-acceptance/wave-04/08/evidence.json",
+        "sha256": "72292ead7576afbee1e4654255f6de6efd44fa1f6454d9a29e887ef6a9f9c952"
+      },
+      "validationPlanSuccessors": [
+        "W04-08-DOCS",
+        "W04-08-HISTORY"
+      ],
+      "outstandingSuccessor": "Coordinator integration/review of concrete proposed definitions, index and mappings. No further work for this definition/mapping criterion is recommended after integration; preserve independent runtime/AT/default/release successors under their original IDs.",
+      "proposedChanges": "Fifteen exact proposed files and unapplied refreshed patch; includes generated public boundary docs/metadata, generator/regression test and one nonbehavioral InstructorClassCard prop JSDoc clarification. Root/lead09 integrate serially.",
+      "criterionReasoning": "Original wording is to define variant/size/tone/density/placement/dismissal/validation contracts independently of foundation. Current475 resolved public contracts and the new110+96 boundary index define exact domains; shipped public contracts/field/calendar guides define ownership and inherited/default rules. No leaked upstream types are introduced. Full default snapshot/dataflow and behavior matrices belong to B05 and their original behavior IDs, not this definition closure."
+    },
+    {
+      "id": "A-A-09",
+      "originalObligation": "- [ ] A-A-09 Reconcile original `A-09`: Define accessible naming and description requirements for icon-only and compound controls; choose typed requirements where practical. Historical status: open.",
+      "recommendation": "complete",
+      "concreteProgress": "Existing integrated naming guide and source/DOM/negative-typing receipts retained. New guide states that custom Dialog header replaces generated title/description; title alone with a custom header does not automatically establish name. Explicit aria-label example supplied. Added and passed supplemental public naming/type fixtures; custom-header Dialog example now uses the experimentally exported Dialog subpath. Types do not establish speech. Further implemented and executed exact-lock integrity recovery for28 unique historical packages;34 captured primitive/wrapper/model/event contracts resolve with zero unresolved modules/diagnostics;200 old styling/slot hooks are joined to actual current contracts, with deprecated tags retained. This supersedes prior claims that these captured declarations remain absent. Latest source-backed extension:110 non-icon/96 icon boundary definitions;16/16 negative type assertions reject with/without skipLibCheck; full original styling audit129 files/current guard533 files;740 SystemProps/visual/style/slot mappings across38 resolved analysis contracts (37 captured boundaries/models/branches plus one SystemProps helper), no unresolved modules or diagnostics.",
+      "priorEvidence": {
+        "path": "docs/developer/final-acceptance/wave-03-03/report.md",
+        "sha256": "fbe13da284363e97df7be82169f21552c369e8804d890da92ebea2fe10c843c2",
+        "integrationDecision": {
+          "id": "A-A-09",
+          "originalChecklistText": "- [ ] A-A-09 Reconcile original `A-09`: Define accessible naming and description requirements for icon-only and compound controls; choose typed requirements where practical. Historical status: open.",
+          "owner": 3,
+          "report": "docs/developer/final-acceptance/wave-03-03/report.md",
+          "results": "docs/developer/final-acceptance/wave-03-03/results.json",
+          "reportSha256": "fbe13da284363e97df7be82169f21552c369e8804d890da92ebea2fe10c843c2",
+          "resultsSha256": "79bf183f3cbb8d16f0aaeacafd84e4fed1b652021408d892da45bd1446355695",
+          "status": "partial",
+          "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+          "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+        }
+      },
+      "artifacts": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/public-contract-followup.patch",
+          "sha256": "5d73a7cafdfacf4320262a21c8e6c44cf7fc5a178736491457cf788ce92eb4e5"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/implementation-results.json",
+          "sha256": "61af2d7a0f2021870a63d5d05bd10e378b60a5ce5d850c46f07c55f15fe18b3e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/contract-fixture-proof.json",
+          "sha256": "161166371b8b84a1706d894ebcd7b309cf600d12d9d73b7248b34b2793e68b2c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/migration-proof.json",
+          "sha256": "a7fd53e29f967ebadc4984e6868816ca263c47bcb092a7333016ea059c686584"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/resolved-public-api-delta.json",
+          "sha256": "4a2408a465f00e0a0e80ca2ea48941821aede87514c25f3de693f40d095a61e6"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-recovery-results.json",
+          "sha256": "7d918db095fd137ff929769abfdf7680c37fc7f89d23fd9ce13e1e9ab0fcb831"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-resolved-props.json",
+          "sha256": "b7408588c130b5bdb46b208cd2be98a089d712dba2e22c8820c70f8fda6ca80d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-styling-mappings.json",
+          "sha256": "6097364492efd90fad2ce10dc2311a2d5e207c3db5e12328a9e592e27114e51b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/closure-recommendations.json",
+          "sha256": "06f93eeea9e48a87e473862b2b4a556281ead65ac336a6b97fcc423458f947ab"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/original-styling-audit.json",
+          "sha256": "a44a0484c6f599ed83123d179f2cf022f386ce19ed48d226b21ddc49d47c22a0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/current-styling-source-guard.json",
+          "sha256": "d580bd41772b09ffc6b5035ffa826777fe19457806e1866fca1bf2a4aee31b61"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/boundary-index-tests.log",
+          "sha256": "24bf1fd94c941cea3f08f3af4d2cb458cb7056b464a937986ff489d416876879"
+        }
+      ],
+      "evidenceReceipt": {
+        "path": "docs/developer/final-acceptance/wave-04/08/evidence.json",
+        "sha256": "72292ead7576afbee1e4654255f6de6efd44fa1f6454d9a29e887ef6a9f9c952"
+      },
+      "validationPlanSuccessors": [
+        "W04-08-DOCS",
+        "W04-08-INSTALLED"
+      ],
+      "outstandingSuccessor": "Coordinator integration/review of concrete proposed definitions, index and mappings. No further work for this definition/mapping criterion is recommended after integration; preserve independent runtime/AT/default/release successors under their original IDs.",
+      "proposedChanges": "Fifteen exact proposed files and unapplied refreshed patch; includes generated public boundary docs/metadata, generator/regression test and one nonbehavioral InstructorClassCard prop JSDoc clarification. Root/lead09 integrate serially.",
+      "criterionReasoning": "Original wording requires naming/description definitions and practical typed requirements. The integrated composition guide plus exhaustive boundary/union index defines host names, contextual compound descriptions, custom headers/icons/renderers and nonempty runtime responsibilities. Expanded local source fixture retains16 negative assertions, including icon/group/progress/search name requirements, both skipLibCheck modes. This closes definition/typing only; no speech, nonempty translation or AT conformance claim."
+    },
+    {
+      "id": "A-A-10",
+      "originalObligation": "- [ ] A-A-10 Reconcile original `A-10`: Define composition and escape hatches: supported slots/parts, render callbacks, refs, `className`/part classes, CSS variables, and native `style` where needed. Historical status: open.",
+      "recommendation": "complete",
+      "concreteProgress": "Retained integrated ref/part/slot/native-style contract and tests. Source-reviewed exact Dialog custom-header replacement, Checkbox label ref/selection slot and ThemeScope overlay custom-variable inheritance; no new unsupported ref/style props recommended. Added and passed wrong-ref, unsupported-style and no-root-Menu-ref rejections, alongside correct native field/label refs and alias imports. Further implemented and executed exact-lock integrity recovery for28 unique historical packages;34 captured primitive/wrapper/model/event contracts resolve with zero unresolved modules/diagnostics;200 old styling/slot hooks are joined to actual current contracts, with deprecated tags retained. This supersedes prior claims that these captured declarations remain absent. Latest source-backed extension:110 non-icon/96 icon boundary definitions;16/16 negative type assertions reject with/without skipLibCheck; full original styling audit129 files/current guard533 files;740 SystemProps/visual/style/slot mappings across38 resolved analysis contracts (37 captured boundaries/models/branches plus one SystemProps helper), no unresolved modules or diagnostics.",
+      "priorEvidence": {
+        "path": "docs/developer/final-acceptance/wave-03-03/report.md",
+        "sha256": "fbe13da284363e97df7be82169f21552c369e8804d890da92ebea2fe10c843c2",
+        "integrationDecision": {
+          "id": "A-A-10",
+          "originalChecklistText": "- [ ] A-A-10 Reconcile original `A-10`: Define composition and escape hatches: supported slots/parts, render callbacks, refs, `className`/part classes, CSS variables, and native `style` where needed. Historical status: open.",
+          "owner": 3,
+          "report": "docs/developer/final-acceptance/wave-03-03/report.md",
+          "results": "docs/developer/final-acceptance/wave-03-03/results.json",
+          "reportSha256": "fbe13da284363e97df7be82169f21552c369e8804d890da92ebea2fe10c843c2",
+          "resultsSha256": "79bf183f3cbb8d16f0aaeacafd84e4fed1b652021408d892da45bd1446355695",
+          "status": "partial",
+          "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+          "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+        }
+      },
+      "artifacts": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/reviewed-default-successors.json",
+          "sha256": "6865e0f38e7e29628a02f6861ac21c6255069cf25e881e902423da2d4c2d913f"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/public-contract-followup.patch",
+          "sha256": "5d73a7cafdfacf4320262a21c8e6c44cf7fc5a178736491457cf788ce92eb4e5"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/implementation-results.json",
+          "sha256": "61af2d7a0f2021870a63d5d05bd10e378b60a5ce5d850c46f07c55f15fe18b3e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/contract-fixture-proof.json",
+          "sha256": "161166371b8b84a1706d894ebcd7b309cf600d12d9d73b7248b34b2793e68b2c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/migration-proof.json",
+          "sha256": "a7fd53e29f967ebadc4984e6868816ca263c47bcb092a7333016ea059c686584"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/resolved-public-api-delta.json",
+          "sha256": "4a2408a465f00e0a0e80ca2ea48941821aede87514c25f3de693f40d095a61e6"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-recovery-results.json",
+          "sha256": "7d918db095fd137ff929769abfdf7680c37fc7f89d23fd9ce13e1e9ab0fcb831"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-resolved-props.json",
+          "sha256": "b7408588c130b5bdb46b208cd2be98a089d712dba2e22c8820c70f8fda6ca80d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-styling-mappings.json",
+          "sha256": "6097364492efd90fad2ce10dc2311a2d5e207c3db5e12328a9e592e27114e51b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/closure-recommendations.json",
+          "sha256": "06f93eeea9e48a87e473862b2b4a556281ead65ac336a6b97fcc423458f947ab"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/original-styling-audit.json",
+          "sha256": "a44a0484c6f599ed83123d179f2cf022f386ce19ed48d226b21ddc49d47c22a0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/current-styling-source-guard.json",
+          "sha256": "d580bd41772b09ffc6b5035ffa826777fe19457806e1866fca1bf2a4aee31b61"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/boundary-index-tests.log",
+          "sha256": "24bf1fd94c941cea3f08f3af4d2cb458cb7056b464a937986ff489d416876879"
+        }
+      ],
+      "evidenceReceipt": {
+        "path": "docs/developer/final-acceptance/wave-04/08/evidence.json",
+        "sha256": "72292ead7576afbee1e4654255f6de6efd44fa1f6454d9a29e887ef6a9f9c952"
+      },
+      "validationPlanSuccessors": [
+        "W04-08-DOCS",
+        "W04-08-INSTALLED"
+      ],
+      "outstandingSuccessor": "Coordinator integration/review of concrete proposed definitions, index and mappings. No further work for this definition/mapping criterion is recommended after integration; preserve independent runtime/AT/default/release successors under their original IDs.",
+      "proposedChanges": "Fifteen exact proposed files and unapplied refreshed patch; includes generated public boundary docs/metadata, generator/regression test and one nonbehavioral InstructorClassCard prop JSDoc clarification. Root/lead09 integrate serially.",
+      "criterionReasoning": "Original wording requires definition of composition and escape hatches. Current resolved public prop/parameter/ref inventory covers every callable alias and compound contract, the generated boundary index lists actual slots/ref/native style/parts, and source-backed guide defines renderer/token/variable/private DOM limits. Explicit Tooltip overlay-ref and InstructorClassCard content-className distinctions eliminate unsafe generic assumptions. Native runtime/ref behavior remains separately scoped."
+    },
+    {
+      "id": "A-C-04",
+      "originalObligation": "- [ ] A-C-04 Reconcile original `C-04`: Replace `sx`, `paperSx`, theme callbacks, object-style overrides, and retired DOM selectors with owned contracts and component styles; map each removed public styling prop. Historical status: open.",
+      "recommendation": "complete",
+      "concreteProgress": "Retained five wrapper styling mappings and wave03 addendum. New follow-up records exact historical locked packages and rejects exhaustive mapping from five rows; scope variable inheritance is explicitly distinguished from local style. Implemented/executed a gate checking12 absent baseline symbols against actual public replacement exports and consumer-guide files; retained inherited-styling gap. Further implemented and executed exact-lock integrity recovery for28 unique historical packages;34 captured primitive/wrapper/model/event contracts resolve with zero unresolved modules/diagnostics;200 old styling/slot hooks are joined to actual current contracts, with deprecated tags retained. This supersedes prior claims that these captured declarations remain absent. Latest source-backed extension:110 non-icon/96 icon boundary definitions;16/16 negative type assertions reject with/without skipLibCheck; full original styling audit129 files/current guard533 files;740 SystemProps/visual/style/slot mappings across38 resolved analysis contracts (37 captured boundaries/models/branches plus one SystemProps helper), no unresolved modules or diagnostics.",
+      "priorEvidence": {
+        "path": "docs/developer/final-acceptance/wave-03-13/report.md",
+        "sha256": "af603f44b5cc42e9a0da52cf8848c47de66711c7e9cbf4e7fe09ff6186a3da30",
+        "integrationDecision": {
+          "id": "A-C-04",
+          "originalChecklistText": "- [ ] A-C-04 Reconcile original `C-04`: Replace `sx`, `paperSx`, theme callbacks, object-style overrides, and retired DOM selectors with owned contracts and component styles; map each removed public styling prop. Historical status: open.",
+          "owner": 13,
+          "report": "docs/developer/final-acceptance/wave-03-13/report.md",
+          "results": "docs/developer/final-acceptance/wave-03-13/results.json",
+          "reportSha256": "af603f44b5cc42e9a0da52cf8848c47de66711c7e9cbf4e7fe09ff6186a3da30",
+          "resultsSha256": "69095322c05ce48f710e9910c4baf9c1f9bbb0b911abcef28a7bd39a62e6d880",
+          "status": "partial",
+          "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+          "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+        }
+      },
+      "artifacts": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/public-contract-followup.patch",
+          "sha256": "5d73a7cafdfacf4320262a21c8e6c44cf7fc5a178736491457cf788ce92eb4e5"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/implementation-results.json",
+          "sha256": "61af2d7a0f2021870a63d5d05bd10e378b60a5ce5d850c46f07c55f15fe18b3e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/contract-fixture-proof.json",
+          "sha256": "161166371b8b84a1706d894ebcd7b309cf600d12d9d73b7248b34b2793e68b2c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/migration-proof.json",
+          "sha256": "a7fd53e29f967ebadc4984e6868816ca263c47bcb092a7333016ea059c686584"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/resolved-public-api-delta.json",
+          "sha256": "4a2408a465f00e0a0e80ca2ea48941821aede87514c25f3de693f40d095a61e6"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-recovery-results.json",
+          "sha256": "7d918db095fd137ff929769abfdf7680c37fc7f89d23fd9ce13e1e9ab0fcb831"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-resolved-props.json",
+          "sha256": "b7408588c130b5bdb46b208cd2be98a089d712dba2e22c8820c70f8fda6ca80d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-styling-mappings.json",
+          "sha256": "6097364492efd90fad2ce10dc2311a2d5e207c3db5e12328a9e592e27114e51b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/closure-recommendations.json",
+          "sha256": "06f93eeea9e48a87e473862b2b4a556281ead65ac336a6b97fcc423458f947ab"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/original-styling-audit.json",
+          "sha256": "a44a0484c6f599ed83123d179f2cf022f386ce19ed48d226b21ddc49d47c22a0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/current-styling-source-guard.json",
+          "sha256": "d580bd41772b09ffc6b5035ffa826777fe19457806e1866fca1bf2a4aee31b61"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/boundary-index-tests.log",
+          "sha256": "24bf1fd94c941cea3f08f3af4d2cb458cb7056b464a937986ff489d416876879"
+        }
+      ],
+      "evidenceReceipt": {
+        "path": "docs/developer/final-acceptance/wave-04/08/evidence.json",
+        "sha256": "72292ead7576afbee1e4654255f6de6efd44fa1f6454d9a29e887ef6a9f9c952"
+      },
+      "validationPlanSuccessors": [
+        "W04-08-HISTORY"
+      ],
+      "outstandingSuccessor": "Coordinator integration/review of concrete proposed definitions, index and mappings. No further work for this definition/mapping criterion is recommended after integration; preserve independent runtime/AT/default/release successors under their original IDs.",
+      "proposedChanges": "Fifteen exact proposed files and unapplied refreshed patch; includes generated public boundary docs/metadata, generator/regression test and one nonbehavioral InstructorClassCard prop JSDoc clarification. Root/lead09 integrate serially.",
+      "criterionReasoning": "Original requirement replaces retired styling mechanisms and maps removed public styling props. The original129-source-file AST audit finds all five direct sx/*Sx fields/eight imported-prop reference edges. Exact original-lock packages resolve28 primitive props, eight wrapper/model/inherited branches, SelectChangeEvent and the real upstream SystemProps key set. The map now contains740 style/slot/system/visual rows with actual current supported hooks or explicit removals, including typography/spacing/theme grammar and scalar row-header variants. Current533-file production source guard has zero retired imports/selectors/props and current public declarations expose no retired fields. Definitions/mappings are complete on integration; broad runtime/default/release acceptance is not inferred."
+    },
+    {
+      "id": "A-X-20",
+      "originalObligation": "- [ ] A-X-20 Reconcile original `X-20`: Test API typing and package consumers, including generics, refs, callback payloads, CSS imports, isolated subpaths, and declaration dependency leakage. Historical status: open.",
+      "recommendation": "partial",
+      "concreteProgress": "Prepared read-only installed-types runner consuming existing package-consumer.tsx: positive compilation and every masked negative statement, both skipLibCheck modes, exact installed declaration/compiler/React hashes. Reuses generic/ref/payload assertions and immutable consumer plan. Added public-contract-consumer.tsx; local strict compilation with skipLibCheck true/false has zero diagnostics and rejects all11 stripped-negative assignments. Installed driver now includes it automatically without fixture writes. Further implemented and executed exact-lock integrity recovery for28 unique historical packages;34 captured primitive/wrapper/model/event contracts resolve with zero unresolved modules/diagnostics;200 old styling/slot hooks are joined to actual current contracts, with deprecated tags retained. This supersedes prior claims that these captured declarations remain absent. Latest source-backed extension:110 non-icon/96 icon boundary definitions;16/16 negative type assertions reject with/without skipLibCheck; full original styling audit129 files/current guard533 files;740 SystemProps/visual/style/slot mappings across38 resolved analysis contracts (37 captured boundaries/models/branches plus one SystemProps helper), no unresolved modules or diagnostics.",
+      "priorEvidence": {
+        "path": "docs/developer/final-acceptance/wave-03-32/report.md",
+        "sha256": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2",
+        "integrationDecision": {
+          "id": "A-X-20",
+          "originalChecklistText": "- [ ] A-X-20 Reconcile original `X-20`: Test API typing and package consumers, including generics, refs, callback payloads, CSS imports, isolated subpaths, and declaration dependency leakage. Historical status: open.",
+          "owner": 32,
+          "report": "docs/developer/final-acceptance/wave-03-32/report.md",
+          "results": "docs/developer/final-acceptance/wave-03-32/results.json",
+          "reportSha256": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2",
+          "resultsSha256": "e9bd80ef2361a6fcca021b2f65782da02ef1ceaccb8f51084f6cc8b67c039852",
+          "status": "partial",
+          "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+          "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+        }
+      },
+      "artifacts": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/proposed-files/packages/ui/scripts/acceptance-installed-types.mjs",
+          "sha256": "447f4b71edab200315d2554930a242a7980cac4cc6ac61d264c81f9190b5c6cd"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/preparation-checks.json",
+          "sha256": "ed4c6c563d43b9d1740f7c4ece49835554997dbe4036bb148bfa0e90438e4586"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/implementation-results.json",
+          "sha256": "61af2d7a0f2021870a63d5d05bd10e378b60a5ce5d850c46f07c55f15fe18b3e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/contract-fixture-proof.json",
+          "sha256": "161166371b8b84a1706d894ebcd7b309cf600d12d9d73b7248b34b2793e68b2c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/migration-proof.json",
+          "sha256": "a7fd53e29f967ebadc4984e6868816ca263c47bcb092a7333016ea059c686584"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/resolved-public-api-delta.json",
+          "sha256": "4a2408a465f00e0a0e80ca2ea48941821aede87514c25f3de693f40d095a61e6"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-recovery-results.json",
+          "sha256": "7d918db095fd137ff929769abfdf7680c37fc7f89d23fd9ce13e1e9ab0fcb831"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-resolved-props.json",
+          "sha256": "b7408588c130b5bdb46b208cd2be98a089d712dba2e22c8820c70f8fda6ca80d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-styling-mappings.json",
+          "sha256": "6097364492efd90fad2ce10dc2311a2d5e207c3db5e12328a9e592e27114e51b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/closure-recommendations.json",
+          "sha256": "06f93eeea9e48a87e473862b2b4a556281ead65ac336a6b97fcc423458f947ab"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/original-styling-audit.json",
+          "sha256": "a44a0484c6f599ed83123d179f2cf022f386ce19ed48d226b21ddc49d47c22a0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/current-styling-source-guard.json",
+          "sha256": "d580bd41772b09ffc6b5035ffa826777fe19457806e1866fca1bf2a4aee31b61"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/boundary-index-tests.log",
+          "sha256": "24bf1fd94c941cea3f08f3af4d2cb458cb7056b464a937986ff489d416876879"
+        }
+      ],
+      "evidenceReceipt": {
+        "path": "docs/developer/final-acceptance/wave-04/08/evidence.json",
+        "sha256": "72292ead7576afbee1e4654255f6de6efd44fa1f6454d9a29e887ef6a9f9c952"
+      },
+      "validationPlanSuccessors": [
+        "W04-08-INSTALLED",
+        "W04-08-MATRIX"
+      ],
+      "outstandingSuccessor": "Execute against both independently installed React fixtures tied to same frozen candidate. Retain isolated subpath/CSS imports/SSR/hydration proofs from existing matrix; syntax pass is not installed typing pass.",
+      "proposedChanges": "Fifteen exact proposed files and unapplied refreshed patch; includes generated public boundary docs/metadata, generator/regression test and one nonbehavioral InstructorClassCard prop JSDoc clarification. Root/lead09 integrate serially."
+    },
+    {
+      "id": "A-R-09",
+      "originalObligation": "- [ ] A-R-09 Reconcile original `R-09`: Test published type declarations with supported TypeScript versions and ensure no retired imports/augmentation or accidental private upstream types escape. Historical status: open.",
+      "recommendation": "partial",
+      "concreteProgress": "New runner adds missing no-skipLibCheck diagnostics and includes @internationalized/date in installed declaration deny scan. Optional explicit compiler directories make chosen version checks executable without downloads or fixture mutation. Existing TS5.9.3 pin is not silently expanded. Actual bounded no-skipLibCheck compile passes local current declarations and matched repo React types using TS5.9.3. The isolated installed/runtime/compiler matrix remains unexecuted. Further implemented and executed exact-lock integrity recovery for28 unique historical packages;34 captured primitive/wrapper/model/event contracts resolve with zero unresolved modules/diagnostics;200 old styling/slot hooks are joined to actual current contracts, with deprecated tags retained. This supersedes prior claims that these captured declarations remain absent. Latest source-backed extension:110 non-icon/96 icon boundary definitions;16/16 negative type assertions reject with/without skipLibCheck; full original styling audit129 files/current guard533 files;740 SystemProps/visual/style/slot mappings across38 resolved analysis contracts (37 captured boundaries/models/branches plus one SystemProps helper), no unresolved modules or diagnostics.",
+      "priorEvidence": {
+        "path": "docs/developer/final-acceptance/wave-03-32/report.md",
+        "sha256": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2",
+        "integrationDecision": {
+          "id": "A-R-09",
+          "originalChecklistText": "- [ ] A-R-09 Reconcile original `R-09`: Test published type declarations with supported TypeScript versions and ensure no retired imports/augmentation or accidental private upstream types escape. Historical status: open.",
+          "owner": 32,
+          "report": "docs/developer/final-acceptance/wave-03-32/report.md",
+          "results": "docs/developer/final-acceptance/wave-03-32/results.json",
+          "reportSha256": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2",
+          "resultsSha256": "e9bd80ef2361a6fcca021b2f65782da02ef1ceaccb8f51084f6cc8b67c039852",
+          "status": "partial",
+          "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+          "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+        }
+      },
+      "artifacts": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/proposed-files/packages/ui/scripts/acceptance-installed-types.mjs",
+          "sha256": "447f4b71edab200315d2554930a242a7980cac4cc6ac61d264c81f9190b5c6cd"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/preparation-checks.json",
+          "sha256": "ed4c6c563d43b9d1740f7c4ece49835554997dbe4036bb148bfa0e90438e4586"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/implementation-results.json",
+          "sha256": "61af2d7a0f2021870a63d5d05bd10e378b60a5ce5d850c46f07c55f15fe18b3e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/contract-fixture-proof.json",
+          "sha256": "161166371b8b84a1706d894ebcd7b309cf600d12d9d73b7248b34b2793e68b2c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/migration-proof.json",
+          "sha256": "a7fd53e29f967ebadc4984e6868816ca263c47bcb092a7333016ea059c686584"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/resolved-public-api-delta.json",
+          "sha256": "4a2408a465f00e0a0e80ca2ea48941821aede87514c25f3de693f40d095a61e6"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-recovery-results.json",
+          "sha256": "7d918db095fd137ff929769abfdf7680c37fc7f89d23fd9ce13e1e9ab0fcb831"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-resolved-props.json",
+          "sha256": "b7408588c130b5bdb46b208cd2be98a089d712dba2e22c8820c70f8fda6ca80d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-styling-mappings.json",
+          "sha256": "6097364492efd90fad2ce10dc2311a2d5e207c3db5e12328a9e592e27114e51b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/closure-recommendations.json",
+          "sha256": "06f93eeea9e48a87e473862b2b4a556281ead65ac336a6b97fcc423458f947ab"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/original-styling-audit.json",
+          "sha256": "a44a0484c6f599ed83123d179f2cf022f386ce19ed48d226b21ddc49d47c22a0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/current-styling-source-guard.json",
+          "sha256": "d580bd41772b09ffc6b5035ffa826777fe19457806e1866fca1bf2a4aee31b61"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/boundary-index-tests.log",
+          "sha256": "24bf1fd94c941cea3f08f3af4d2cb458cb7056b464a937986ff489d416876879"
+        }
+      ],
+      "evidenceReceipt": {
+        "path": "docs/developer/final-acceptance/wave-04/08/evidence.json",
+        "sha256": "72292ead7576afbee1e4654255f6de6efd44fa1f6454d9a29e887ef6a9f9c952"
+      },
+      "validationPlanSuccessors": [
+        "W04-08-INSTALLED"
+      ],
+      "outstandingSuccessor": "Run actual installed declarations/negative API checks with supported chosen TypeScript versions and both React type sets; settle broader range explicitly. New runner is syntax-checked only, not executed.",
+      "proposedChanges": "Fifteen exact proposed files and unapplied refreshed patch; includes generated public boundary docs/metadata, generator/regression test and one nonbehavioral InstructorClassCard prop JSDoc clarification. Root/lead09 integrate serially."
+    },
+    {
+      "id": "A-R-15",
+      "originalObligation": "- [ ] A-R-15 Reconcile original `R-15`: Mark breaking public API removals appropriately; if a release already exists, migration needs a major bump, while a first publication follows the configured initial-release policy. Historical status: open.",
+      "recommendation": "partial",
+      "concreteProgress": "Retained offline analyzer/first-vs-existing-major receipts and integrated release runbook. New proposal supplies explicit migration for four changed omitted calendar behaviors and flags literal token target change; local commits contain both feat! and ordinary feat titles. No authoritative published range or release decision invented. Executed migration map validation for12 removed names/five direct defaults. Release marking/history/approval remains separate; no publication action. Further implemented and executed exact-lock integrity recovery for28 unique historical packages;34 captured primitive/wrapper/model/event contracts resolve with zero unresolved modules/diagnostics;200 old styling/slot hooks are joined to actual current contracts, with deprecated tags retained. This supersedes prior claims that these captured declarations remain absent. Latest source-backed extension:110 non-icon/96 icon boundary definitions;16/16 negative type assertions reject with/without skipLibCheck; full original styling audit129 files/current guard533 files;740 SystemProps/visual/style/slot mappings across38 resolved analysis contracts (37 captured boundaries/models/branches plus one SystemProps helper), no unresolved modules or diagnostics.",
+      "priorEvidence": {
+        "path": "docs/developer/final-acceptance/wave-03-38/report.md",
+        "sha256": "12cb0644ed8d5a1338f889d40fbe2a9ff42a5c999d2e0ce1ed27d54639d292d2",
+        "integrationDecision": {
+          "id": "A-R-15",
+          "originalChecklistText": "- [ ] A-R-15 Reconcile original `R-15`: Mark breaking public API removals appropriately; if a release already exists, migration needs a major bump, while a first publication follows the configured initial-release policy. Historical status: open.",
+          "owner": 38,
+          "report": "docs/developer/final-acceptance/wave-03-38/report.md",
+          "results": "docs/developer/final-acceptance/wave-03-38/results.json",
+          "reportSha256": "12cb0644ed8d5a1338f889d40fbe2a9ff42a5c999d2e0ce1ed27d54639d292d2",
+          "resultsSha256": "58e4fd7dd1a06fb34bf9d04725ce36990205231fae3675eeac84afc3645805aa",
+          "status": "partial",
+          "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+          "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+        }
+      },
+      "artifacts": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/declaration-successors.json",
+          "sha256": "f6b956343b9a7a0551b1035fad28a436eb3e7963d549dc5412fb1a8bea2b1edf"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/public-contract-followup.patch",
+          "sha256": "5d73a7cafdfacf4320262a21c8e6c44cf7fc5a178736491457cf788ce92eb4e5"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/implementation-results.json",
+          "sha256": "61af2d7a0f2021870a63d5d05bd10e378b60a5ce5d850c46f07c55f15fe18b3e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/contract-fixture-proof.json",
+          "sha256": "161166371b8b84a1706d894ebcd7b309cf600d12d9d73b7248b34b2793e68b2c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/migration-proof.json",
+          "sha256": "a7fd53e29f967ebadc4984e6868816ca263c47bcb092a7333016ea059c686584"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/resolved-public-api-delta.json",
+          "sha256": "4a2408a465f00e0a0e80ca2ea48941821aede87514c25f3de693f40d095a61e6"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-recovery-results.json",
+          "sha256": "7d918db095fd137ff929769abfdf7680c37fc7f89d23fd9ce13e1e9ab0fcb831"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-resolved-props.json",
+          "sha256": "b7408588c130b5bdb46b208cd2be98a089d712dba2e22c8820c70f8fda6ca80d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-styling-mappings.json",
+          "sha256": "6097364492efd90fad2ce10dc2311a2d5e207c3db5e12328a9e592e27114e51b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/closure-recommendations.json",
+          "sha256": "06f93eeea9e48a87e473862b2b4a556281ead65ac336a6b97fcc423458f947ab"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/original-styling-audit.json",
+          "sha256": "a44a0484c6f599ed83123d179f2cf022f386ce19ed48d226b21ddc49d47c22a0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/current-styling-source-guard.json",
+          "sha256": "d580bd41772b09ffc6b5035ffa826777fe19457806e1866fca1bf2a4aee31b61"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/boundary-index-tests.log",
+          "sha256": "24bf1fd94c941cea3f08f3af4d2cb458cb7056b464a937986ff489d416876879"
+        }
+      ],
+      "evidenceReceipt": {
+        "path": "docs/developer/final-acceptance/wave-04/08/evidence.json",
+        "sha256": "72292ead7576afbee1e4654255f6de6efd44fa1f6454d9a29e887ef6a9f9c952"
+      },
+      "validationPlanSuccessors": [
+        "W04-08-HISTORY",
+        "W04-08-RELEASE"
+      ],
+      "outstandingSuccessor": "Finish exhaustive historical/default removal ledger, actual release-range marker reconciliation and authoritative publication history/owner release decision. Do not rewrite history or manually bump versions.",
+      "proposedChanges": "Fifteen exact proposed files and unapplied refreshed patch; includes generated public boundary docs/metadata, generator/regression test and one nonbehavioral InstructorClassCard prop JSDoc clarification. Root/lead09 integrate serially."
+    },
+    {
+      "id": "A-Z-13",
+      "originalObligation": "- [ ] A-Z-13 Reconcile original `Z-13`: Reconcile API snapshot with final declarations and consumer guide; verify every breaking change has migration instructions and correct Conventional Commit release marking. Historical status: open.",
+      "recommendation": "partial",
+      "concreteProgress": "Joined existing snapshot/default/breaking map to25 current saved-file deltas, new referenced type targets, current guide corrections and explicit conditional/default dispositions. Saved469/238 counts remain historical because new public picker/scope exports are visible. Generated full current resolved declaration inventory and four changed route-name sets; implemented and passed source/declaration/removal migration checks. Historical upstream closure and final release markers remain open. Further implemented and executed exact-lock integrity recovery for28 unique historical packages;34 captured primitive/wrapper/model/event contracts resolve with zero unresolved modules/diagnostics;200 old styling/slot hooks are joined to actual current contracts, with deprecated tags retained. This supersedes prior claims that these captured declarations remain absent. Latest source-backed extension:110 non-icon/96 icon boundary definitions;16/16 negative type assertions reject with/without skipLibCheck; full original styling audit129 files/current guard533 files;740 SystemProps/visual/style/slot mappings across38 resolved analysis contracts (37 captured boundaries/models/branches plus one SystemProps helper), no unresolved modules or diagnostics.",
+      "priorEvidence": {
+        "path": "docs/developer/final-acceptance/wave-03-01/report.md",
+        "sha256": "a582dc1caf8f4ccc5d5bc9f04f6d80a091448e01e3aab8a122b6375a7a8c5654",
+        "integrationDecision": {
+          "id": "A-Z-13",
+          "originalChecklistText": "- [ ] A-Z-13 Reconcile original `Z-13`: Reconcile API snapshot with final declarations and consumer guide; verify every breaking change has migration instructions and correct Conventional Commit release marking. Historical status: open.",
+          "owner": 1,
+          "report": "docs/developer/final-acceptance/wave-03-01/report.md",
+          "results": "docs/developer/final-acceptance/wave-03-01/results.json",
+          "reportSha256": "a582dc1caf8f4ccc5d5bc9f04f6d80a091448e01e3aab8a122b6375a7a8c5654",
+          "resultsSha256": "e0e78878b50f68f4fdde4d17438ac20cf53e0a7fa1d9a0d19a84471bca593085",
+          "status": "partial",
+          "decision": "Compatible proposal integrated; retain each original remaining successor in the linked report. Source integration/limited runtime checks alone do not close this whole obligation.",
+          "evidence": "docs/developer/final-acceptance/wave-03-integration/push-evidence.json"
+        }
+      },
+      "artifacts": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/declaration-successors.json",
+          "sha256": "f6b956343b9a7a0551b1035fad28a436eb3e7963d549dc5412fb1a8bea2b1edf"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/reviewed-default-successors.json",
+          "sha256": "6865e0f38e7e29628a02f6861ac21c6255069cf25e881e902423da2d4c2d913f"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/public-contract-followup.patch",
+          "sha256": "5d73a7cafdfacf4320262a21c8e6c44cf7fc5a178736491457cf788ce92eb4e5"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/implementation-results.json",
+          "sha256": "61af2d7a0f2021870a63d5d05bd10e378b60a5ce5d850c46f07c55f15fe18b3e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/contract-fixture-proof.json",
+          "sha256": "161166371b8b84a1706d894ebcd7b309cf600d12d9d73b7248b34b2793e68b2c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/migration-proof.json",
+          "sha256": "a7fd53e29f967ebadc4984e6868816ca263c47bcb092a7333016ea059c686584"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/resolved-public-api-delta.json",
+          "sha256": "4a2408a465f00e0a0e80ca2ea48941821aede87514c25f3de693f40d095a61e6"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-recovery-results.json",
+          "sha256": "7d918db095fd137ff929769abfdf7680c37fc7f89d23fd9ce13e1e9ab0fcb831"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-resolved-props.json",
+          "sha256": "b7408588c130b5bdb46b208cd2be98a089d712dba2e22c8820c70f8fda6ca80d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/historical-styling-mappings.json",
+          "sha256": "6097364492efd90fad2ce10dc2311a2d5e207c3db5e12328a9e592e27114e51b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/closure-recommendations.json",
+          "sha256": "06f93eeea9e48a87e473862b2b4a556281ead65ac336a6b97fcc423458f947ab"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/original-styling-audit.json",
+          "sha256": "a44a0484c6f599ed83123d179f2cf022f386ce19ed48d226b21ddc49d47c22a0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/current-styling-source-guard.json",
+          "sha256": "d580bd41772b09ffc6b5035ffa826777fe19457806e1866fca1bf2a4aee31b61"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/08/boundary-index-tests.log",
+          "sha256": "24bf1fd94c941cea3f08f3af4d2cb458cb7056b464a937986ff489d416876879"
+        }
+      ],
+      "evidenceReceipt": {
+        "path": "docs/developer/final-acceptance/wave-04/08/evidence.json",
+        "sha256": "72292ead7576afbee1e4654255f6de6efd44fa1f6454d9a29e887ef6a9f9c952"
+      },
+      "validationPlanSuccessors": [
+        "W04-08-DOCS",
+        "W04-08-HISTORY",
+        "W04-08-RELEASE"
+      ],
+      "outstandingSuccessor": "Use current475-contract inventory and recovered34 historical contracts/200 styling rows to finish remaining original wrapper/default joins, final consumer guide completeness and actual analyzed release markers. Preserve first-publication versus existing-release distinction.",
+      "proposedChanges": "Fifteen exact proposed files and unapplied refreshed patch; includes generated public boundary docs/metadata, generator/regression test and one nonbehavioral InstructorClassCard prop JSDoc clarification. Root/lead09 integrate serially."
+    }
+  ],
+  "laterEvidence": "HB19 source maps16/16 match; HB20 six/seven match, one fixture hash requires receipt reconciliation. Later accepted HB19/20 close original presentation gaps; neither constitutes spoken AT or installed consumer evidence.",
+  "implementationContinuation": {
+    "path": "docs/developer/final-acceptance/wave-04/08/implementation-results.json",
+    "sha256": "61af2d7a0f2021870a63d5d05bd10e378b60a5ce5d850c46f07c55f15fe18b3e"
+  },
+  "historicalImplementationContinuation": {
+    "path": "docs/developer/final-acceptance/wave-04/08/historical-recovery-results.json",
+    "sha256": "7d918db095fd137ff929769abfdf7680c37fc7f89d23fd9ce13e1e9ab0fcb831"
+  },
+  "closureReview": {
+    "path": "docs/developer/final-acceptance/wave-04/08/closure-recommendations.json",
+    "sha256": "06f93eeea9e48a87e473862b2b4a556281ead65ac336a6b97fcc423458f947ab",
+    "condition": "Coordinator reviews/applies exact proposals serially. Recommendations only; no root counts/checklist mutated."
+  }
+}

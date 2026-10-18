@@ -1,0 +1,7 @@
+{
+  "capturedAt": "2026-10-17T21:50:35.689482+00:00",
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "selectedInputDelta": [],
+  "sharedStatusAtEnd": "## dev...origin/dev\n M apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx\n M apps/docs/tests/picker-radius.spec.ts\n M docs/developer/react-aria-final-acceptance.md\n M packages/ui/src/experimental/Checkbox/Checkbox.tsx\n M packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css\n M packages/ui/tests/browser/editor-image-sources.spec.ts\n?? docs/developer/final-acceptance/wave-04/\n?? packages/ui/src/experimental/Checkbox/Checkbox.idrefs.test.tsx\n?? packages/ui/tests/browser/wave04-checkbox-idrefs.spec.ts\n",
+  "interpretation": "Other conversations/coordinator share checkout. This worker wrote only its assigned directory; do not assume global source/build immutability from static checks. Reconcile performance fixture transitive source inputs before serial build/validation."
+}

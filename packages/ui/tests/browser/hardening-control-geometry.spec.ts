@@ -56,7 +56,7 @@ for (const theme of ['light', 'dark']) for (const density of ['compact', 'comfor
     await page.getByRole('option', { name: long, exact: true }).click();
     await expect(select).toContainText(long);
     expect((await select.boundingBox())!.width).toBeCloseTo(initial, 0);
-    const value = select.locator('> span').last();
+    const value = select.getByText(long, { exact: true });
     await expect(value).toHaveCSS('text-overflow', 'ellipsis');
     expect(await value.evaluate(element => element.scrollWidth > element.clientWidth)).toBe(true);
     await checkboxLabel.click();

@@ -1,0 +1,121 @@
+{
+  "preconditions": [
+    "Coordinator serializes all shared validation and fixes a candidate head/input/output manifest. Preserve user server3000 and existing leases.",
+    "Use supported Node22.12+/24 and existing frozen dependencies; no installation or build is needed for metadata/tool tests.",
+    "The two new standalone scripts are direct working-tree changes authorized by later user steering; the consumer guide is an unapplied proposal. Do not reapply old wave03patches already integrated."
+  ],
+  "checks": [
+    {
+      "ids": [
+        "A-B-12",
+        "A-W-10",
+        "A-W-19"
+      ],
+      "cwd": "repository root",
+      "command": "node --test packages/ui/scripts/check-docs-provenance-wave04.test.mjs",
+      "expected": "Five tests pass; regressions reject missing replacements, changed provenance/identity, stale present flags, lost scenario aliases and stale package script/filter names.",
+      "executedHere": true,
+      "runtime": "Node26.5.0 authoring/tool evidence; supported runtime confirmation remains coordinator-owned."
+    },
+    {
+      "ids": [
+        "A-B-12",
+        "A-W-10",
+        "A-W-16",
+        "A-W-19"
+      ],
+      "cwd": "repository root",
+      "command": "node packages/ui/scripts/check-docs-provenance-wave04.mjs --json",
+      "expected": "structural-checks-pass;201rows,33original story modules,32direct pre-docs transfers,1deliberate Button replacement,27current-guide command snippets;16earlier grid semantic scenarios explicitly unresolved.",
+      "executedHere": true
+    },
+    {
+      "ids": [
+        "A-B-12",
+        "A-W-10"
+      ],
+      "cwd": "repository root",
+      "command": "node packages/ui/scripts/check-docs-provenance-wave04.mjs --strict-history --json",
+      "expected": "Currently exits1 with16specific unresolved scenario names. Obtain per-scenario accepted semantic mappings/required tests or explicit human dispositions before this can pass. Do not remove them, whitelist them silently or change the original extraction baseline.",
+      "executedHere": true,
+      "result": "Expected failure; retained as failed, not a completed history acceptance check."
+    },
+    {
+      "ids": [
+        "A-W-13"
+      ],
+      "cwd": "repository root",
+      "command": "git apply --check docs/developer/final-acceptance/wave-04/15/consumer-removed-exports.patch",
+      "expected": "Patch applies against reviewed docs/migration.md hash. After coordinator integration,all12removed names match the reviewed symbol table. Documentation-only table requires no UI suite.",
+      "executedHere": true
+    },
+    {
+      "ids": [
+        "A-W-19"
+      ],
+      "cwd": "repository root",
+      "command": "python3 docs/developer/final-acceptance/wave-04/15/audit-doc-links.py",
+      "expected": "Retain all tracked Markdown findings and parser limits. Review historical/evidence/mirror findings explicitly. No automatic history rewrite or blanket all-doc integrity pass.",
+      "executedHere": true
+    },
+    {
+      "ids": [
+        "A-M-38",
+        "A-Z-12",
+        "A-Z-15",
+        "A-Z-16"
+      ],
+      "cwd": "repository root",
+      "command": "python3 docs/developer/final-acceptance/wave-04/15/reconcile.py",
+      "expected": "Read-only inputs; writes only15.17prior reviewedreport/result pairs match,manifest identities survive,37rowtrace includes current source hashes,139A/0V canonical count preserved. Rerun only to capture a deliberate newer source snapshot; do not overwrite historical receipts as current runtime evidence.",
+      "executedHere": true
+    },
+    {
+      "ids": [
+        "A-I-08"
+      ],
+      "cwd": "repository root",
+      "command": "node docs/developer/final-acceptance/wave-03-15/bundle-probe.mjs",
+      "expected": "On supported Node,selected icon bundles prune unrelated glyphs and preserve required ones; preserve final package/input hashes. Existing Node26probes remain dated evidence.",
+      "executedHere": false
+    },
+    {
+      "ids": [
+        "A-I-08"
+      ],
+      "cwd": "repository root",
+      "command": "node docs/developer/final-acceptance/wave-03-15/prepare-native.mjs",
+      "expected": "Coordinator generates static public-export fixture from the admitted built package; then run the already prepared two-case/three-engine config in wave03-15 validation plan with owned private host. Inspect optical images separately.",
+      "executedHere": false
+    },
+    {
+      "ids": [
+        "A-H-08"
+      ],
+      "cwd": "repository root",
+      "command": "node packages/ui/tests/apple/run-simulator.mjs --output /absolute/new/evidence-directory",
+      "expected": "Existing driver currently proves only selector speech. Expand named English/Arabic count/clear scenarios first, then record actual utterances/operator findings; this command alone cannot close H08. No device download, physical gesture or six-family certification inferred.",
+      "executedHere": false
+    },
+    {
+      "ids": [
+        "A-D-20",
+        "A-W-19"
+      ],
+      "cwd": "repository root",
+      "command": "pnpm --filter @structured-growth/docs exec playwright test tests/foundation-examples.spec.ts tests/catalog.spec.ts",
+      "expected": "Reuse retained two foundation cases and94route/1138source snapshots for matching inputs. Run only relevant changed/missing cases after coordinated fresh production build,not solely for checklist credit. Config owns3100.",
+      "executedHere": false,
+      "reason": "Existing accepted scope retained; no uncoordinated browser/build."
+    }
+  ],
+  "nonExecutableDecisions": {
+    "A-B-14": "Original commit-bound upstream archive/status reference and authorized behavior capture.",
+    "A-M-38": "Actual per-row reviewed PR/commit/validation attribution.",
+    "A-W-18": "Accountable support/backport/cadence/intake/disclosure owner decisions.",
+    "A-Z-05": "Explicit provenance/literal-zero historical reference policy.",
+    "A-Z-12": "Complete actual human commitments and original M10/M14/M30 decisions.",
+    "A-Z-15": "All wave04integrated accepted results,final dependency/feature and required owner/legal decisions,exact PR/run/artifact records.",
+    "A-Z-16": "Required A completion before migration-complete decision; publishing separately requires explicit human release approval and production validation."
+  }
+}

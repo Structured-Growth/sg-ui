@@ -1,0 +1,11 @@
+{
+  "target": "apps/docs/native-fixtures/migration-manifest.json",
+  "inputSha256": "d460feabd0f4a65d5817fa398424ddbfec91b33c99ef20033564338379125401",
+  "appendTo": "modules",
+  "entry": {
+    "original": "apps/docs/native-fixtures/scenarios/experimental/FormParticipation/FormParticipation.fixture.tsx",
+    "fixture": "apps/docs/native-fixtures/scenarios/experimental/FormParticipation/FormParticipation.fixture.tsx",
+    "scenarioModule": true,
+    "provenance": "New docs-owned native/CDP autofill and grouped association acceptance; no historical Storybook source."
+  }
+}

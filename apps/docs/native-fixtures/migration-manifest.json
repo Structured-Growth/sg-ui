@@ -610,6 +610,16 @@
       "fixture": "apps/docs/native-fixtures/scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx",
       "scenarioModule": true,
       "provenance": "New docs-owned sliding drilldown acceptance; no historical Storybook source."
+    },
+    {
+      "original": "apps/docs/native-fixtures/scenarios/foundation/TargetSizes.fixture.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/foundation/TargetSizes.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "apps/docs/native-fixtures/scenarios/foundation/ValidationContrast.fixture.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/foundation/ValidationContrast.fixture.tsx",
+      "scenarioModule": true
     }
   ],
   "privateCompiledAliases": [

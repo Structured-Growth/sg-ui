@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 // Existing fixed, source-backed reference example; no new fixture or shared state.
 for (const colorScheme of ['light', 'dark'] as const) {

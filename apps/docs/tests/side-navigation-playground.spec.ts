@@ -1,5 +1,5 @@
 import {exampleName} from './example-name';
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {checkSources} from './check-sources';
 
 test('mixed navigation combines branch behaviors and keeps examples and copyable host state independent',async({page})=>{
@@ -36,14 +36,14 @@ test('mixed navigation combines branch behaviors and keeps examples and copyable
   const overviewRow=(await nav.getByRole('link',{name:'Overview',exact:true}).boundingBox())!;
   const practiceRow=(await nav.getByRole('button',{name:'Practice',exact:true}).boundingBox())!;
   expect(practiceRow.height).toBe(overviewRow.height);
-  await expect(nav.getByRole('button',{name:'Practice',exact:true})).toHaveCSS('font-size','12px');
+  await expect(nav.getByRole('button',{name:'Practice',exact:true})).toHaveCSS('font-size','14px');
   const heights=[];
   for(const owner of [compact,comfortable]) {
     const row=owner.getByRole('link',{name:'Overview',exact:true});
     heights.push((await row.boundingBox())!.height);
     expect((await row.locator('svg').boundingBox())!.width).toBe(16);
   }
-  expect(heights).toEqual([32,36]);
+  expect(heights).toEqual([32,44]);
   await expect(nav.getByRole('link',{name:'Overview',exact:true}).locator('svg')).toHaveAttribute('aria-hidden','true');
   await nav.getByRole('button',{name:'Course tools',exact:true}).click();
   await expect(nav.getByRole('button',{name:'Practice',exact:true})).toHaveCount(0);

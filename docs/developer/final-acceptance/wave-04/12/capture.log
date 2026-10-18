@@ -1,0 +1,34 @@
+{
+  "baselineMatches": true,
+  "priorReportHashChecks": 26,
+  "priorMatches": 26,
+  "priorSourceMatching": 15,
+  "priorSourceCompared": 16,
+  "rawReceiptChecks": [
+    {
+      "path": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "expected": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+      "actual": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+      "match": true
+    },
+    {
+      "path": "packages/ui/artifacts/wave03-integration/followup-color-results.json",
+      "expected": "129e3da3735becf00174e9dbd5d5d73ccecf92599190067b750f41636179c835",
+      "actual": "129e3da3735becf00174e9dbd5d5d73ccecf92599190067b750f41636179c835",
+      "match": true
+    },
+    {
+      "path": "apps/docs/test-results/wave03-followup-results.json",
+      "expected": "68ce1788f6a64c3d41a6597550108d584acadfc62cd96971082657989ae295b1",
+      "actual": "68ce1788f6a64c3d41a6597550108d584acadfc62cd96971082657989ae295b1",
+      "match": true
+    },
+    {
+      "path": "apps/docs/test-results/wave03-followup-corrected-results.json",
+      "expected": "8d26fbbdee05392d0477a1e7d28277c20c7bd18bd8409d5aee5403223bab8c34",
+      "actual": "8d26fbbdee05392d0477a1e7d28277c20c7bd18bd8409d5aee5403223bab8c34",
+      "match": true
+    }
+  ],
+  "patchTargets": 8
+}

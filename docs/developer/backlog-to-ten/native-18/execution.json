@@ -1,0 +1,5 @@
+{
+  "failure": "Error: /Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node /Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js test --config /Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native.config.cjs current-state-design --grep toggle selected hover failed (1/null); group settled; ; ; see /Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native-18/native.log",
+  "stable": true,
+  "completedAt": "2026-10-18T22:11:22.668Z"
+}

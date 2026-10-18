@@ -1,6 +1,6 @@
 import {openSiteTool,closeSiteTool} from './site-tools';
 import {exampleName} from './example-name';
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {checkSources, type SourceSnapshot} from './check-sources';
 import {writeFileSync} from 'node:fs';
 import catalog from '../content/catalog.json' with {type:'json'};

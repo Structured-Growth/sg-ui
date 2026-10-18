@@ -1,0 +1,13 @@
+✔ removed extraction requires an existing replacement and preserves upstream identity/order (0.966208ms)
+✔ legacy src replacement references resolve through library workspace and stale present flags fail (0.126125ms)
+✔ scenario transfer uses exported AST names, preserves aliases and detects a dropped scenario (3.952666ms)
+✔ package command checks reject stale root commands and unknown filters without executing them (0.343666ms)
+✔ prose tool versions are not treated as commands; inline and fenced commands remain audited (0.184666ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 224.419666

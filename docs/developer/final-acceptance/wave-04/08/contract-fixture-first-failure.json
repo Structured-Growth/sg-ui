@@ -1,0 +1,327 @@
+{
+  "node": "v26.5.0",
+  "typescript": "5.9.3",
+  "fixtureSha256": "6ff2f1b5b6706178007dd2040561de7c6d917091f6bcbf95c9930e7c0eb82156",
+  "limits": "Local existing dist declarations and matched repository types, using explicit public export paths. No emit/install/build/SSR/browser; not an isolated installed consumer.",
+  "runs": [
+    {
+      "skipLibCheck": true,
+      "diagnostics": [
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 62,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'Dialog'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 81,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'TextArea'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 115,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'Calendar'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 125,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'DateRangeSelector'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 146,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'DateRangePicker'."
+        },
+        {
+          "code": 7006,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 1774,
+          "message": "Parameter 'reason' implicitly has an 'any' type."
+        },
+        {
+          "code": 2578,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3292,
+          "message": "Unused '@ts-expect-error' directive."
+        },
+        {
+          "code": 2578,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3671,
+          "message": "Unused '@ts-expect-error' directive."
+        },
+        {
+          "code": 2578,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4289,
+          "message": "Unused '@ts-expect-error' directive."
+        }
+      ],
+      "negative": [
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 62,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'Dialog'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 81,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'TextArea'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 115,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'Calendar'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 125,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'DateRangeSelector'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 146,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'DateRangePicker'."
+        },
+        {
+          "code": 7006,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 1774,
+          "message": "Parameter 'reason' implicitly has an 'any' type."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 2793,
+          "message": "Type '{ action: string; }' is not assignable to type 'IntrinsicAttributes & FormFieldScopeProps'.\n  Property 'action' does not exist on type 'IntrinsicAttributes & FormFieldScopeProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 2949,
+          "message": "Type 'string' is not assignable to type 'number'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3114,
+          "message": "Type '(range: { start: string; end: string; }) => undefined' is not assignable to type '(month: number) => void'.\n  Types of parameters 'range' and 'month' are incompatible.\n    Type 'number' is not assignable to type '{ start: string; end: string; }'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3271,
+          "message": "Type '20' is not assignable to type '16 | 12 | 24 | undefined'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3632,
+          "message": "Type 'RefObject<HTMLInputElement | null>' is not assignable to type 'Ref<HTMLLabelElement> | undefined'.\n  Type 'RefObject<HTMLInputElement | null>' is not assignable to type 'RefObject<HTMLLabelElement | null>'.\n    Type 'HTMLInputElement | null' is not assignable to type 'HTMLLabelElement | null'.\n      Type 'HTMLInputElement' is missing the following properties from type 'HTMLLabelElement': control, htmlFor"
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3958,
+          "message": "Type '{ label: string; style: { width: number; }; }' is not assignable to type 'IntrinsicAttributes & (TextFieldProps & RefAttributes<HTMLInputElement>)'.\n  Property 'style' does not exist on type 'IntrinsicAttributes & FieldOptions & { label: string; \"aria-label\"?: string | undefined; } & RefAttributes<HTMLInputElement>'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4138,
+          "message": "Type '{ label: string; items: never[]; trigger: Element; ref: RefObject<HTMLDivElement | null>; }' is not assignable to type 'IntrinsicAttributes & MenuProps'.\n  Property 'ref' does not exist on type 'IntrinsicAttributes & MenuProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4276,
+          "message": "Type '{}' is not assignable to type 'IntrinsicAttributes & (TextFieldProps & RefAttributes<HTMLInputElement>)'."
+        }
+      ],
+      "rejected": [
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false
+      ],
+      "passed": false
+    },
+    {
+      "skipLibCheck": false,
+      "diagnostics": [
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 62,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'Dialog'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 81,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'TextArea'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 115,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'Calendar'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 125,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'DateRangeSelector'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 146,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'DateRangePicker'."
+        },
+        {
+          "code": 7006,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 1774,
+          "message": "Parameter 'reason' implicitly has an 'any' type."
+        },
+        {
+          "code": 2578,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3292,
+          "message": "Unused '@ts-expect-error' directive."
+        },
+        {
+          "code": 2578,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3671,
+          "message": "Unused '@ts-expect-error' directive."
+        },
+        {
+          "code": 2578,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4289,
+          "message": "Unused '@ts-expect-error' directive."
+        }
+      ],
+      "negative": [
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 62,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'Dialog'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 81,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'TextArea'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 115,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'Calendar'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 125,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'DateRangeSelector'."
+        },
+        {
+          "code": 2305,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 146,
+          "message": "Module '\"@structured-growth/sg-ui\"' has no exported member 'DateRangePicker'."
+        },
+        {
+          "code": 7006,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 1774,
+          "message": "Parameter 'reason' implicitly has an 'any' type."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 2793,
+          "message": "Type '{ action: string; }' is not assignable to type 'IntrinsicAttributes & FormFieldScopeProps'.\n  Property 'action' does not exist on type 'IntrinsicAttributes & FormFieldScopeProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 2949,
+          "message": "Type 'string' is not assignable to type 'number'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3114,
+          "message": "Type '(range: { start: string; end: string; }) => undefined' is not assignable to type '(month: number) => void'.\n  Types of parameters 'range' and 'month' are incompatible.\n    Type 'number' is not assignable to type '{ start: string; end: string; }'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3271,
+          "message": "Type '20' is not assignable to type '16 | 12 | 24 | undefined'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3632,
+          "message": "Type 'RefObject<HTMLInputElement | null>' is not assignable to type 'Ref<HTMLLabelElement> | undefined'.\n  Type 'RefObject<HTMLInputElement | null>' is not assignable to type 'RefObject<HTMLLabelElement | null>'.\n    Type 'HTMLInputElement | null' is not assignable to type 'HTMLLabelElement | null'.\n      Type 'HTMLInputElement' is missing the following properties from type 'HTMLLabelElement': control, htmlFor"
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3958,
+          "message": "Type '{ label: string; style: { width: number; }; }' is not assignable to type 'IntrinsicAttributes & (TextFieldProps & RefAttributes<HTMLInputElement>)'.\n  Property 'style' does not exist on type 'IntrinsicAttributes & FieldOptions & { label: string; \"aria-label\"?: string | undefined; } & RefAttributes<HTMLInputElement>'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4138,
+          "message": "Type '{ label: string; items: never[]; trigger: Element; ref: RefObject<HTMLDivElement | null>; }' is not assignable to type 'IntrinsicAttributes & MenuProps'.\n  Property 'ref' does not exist on type 'IntrinsicAttributes & MenuProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4276,
+          "message": "Type '{}' is not assignable to type 'IntrinsicAttributes & (TextFieldProps & RefAttributes<HTMLInputElement>)'."
+        }
+      ],
+      "rejected": [
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false
+      ],
+      "passed": false
+    }
+  ],
+  "passed": false
+}

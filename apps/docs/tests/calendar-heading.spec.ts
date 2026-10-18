@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 import {checkSources} from './check-sources';
 
@@ -11,12 +11,12 @@ for(const slug of ['calendar','date-picker','date-range-selector','date-range-pi
  await open();
  await expect(host.getByRole('heading',{name:'Course schedule',exact:true})).toHaveCount(0);
  const previous=host.getByRole('button',{name:'Previous month',exact:true}),next=host.getByRole('button',{name:'Next month',exact:true});
- const heading=host.locator('header').getByText('October 2026',{exact:true});
+ const heading=host.getByRole('button',{name:'Choose month, October',exact:true}).first();
  for(const button of [previous,next]){
   const a=(await button.boundingBox())!,b=(await heading.boundingBox())!;
   expect(Math.abs(a.y+a.height/2-b.y-b.height/2)).toBeLessThan(1);
  }
- await next.click();await expect(host.locator('header').getByText('November 2026',{exact:true})).toBeVisible();
+ await next.click();await expect(host.getByRole('button',{name:'Choose month, November',exact:true}).first()).toBeVisible();
  await previous.click();await expect(heading).toBeVisible();
  if(popup)await page.keyboard.press('Escape');
  const toggle=panel.getByRole('checkbox',{name:'Show title',exact:true});await toggle.focus();await toggle.press('Space');

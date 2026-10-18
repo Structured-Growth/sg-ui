@@ -1,0 +1,11 @@
+{
+  "node": "v24.21.0",
+  "typescript": "5.9.3",
+  "kind": "virtual-source semantic types",
+  "targets": [
+    "apps/docs/native-fixtures/scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
+    "packages/ui/tests/browser/calendar-period-draft-isolation.spec.ts"
+  ],
+  "diagnostics": 0,
+  "behavioralExecution": false
+}

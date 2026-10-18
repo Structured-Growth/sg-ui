@@ -1,0 +1,220 @@
+{
+  "scope": "Review of changed inputs in the existing 370-file saved declaration set; no export inventory recaptured. Additional explicitly referenced type targets are hashed below.",
+  "records": [
+    {
+      "path": "packages/ui/dist/experimental/TextField/TextField.d.ts",
+      "recordedSha256": "9e782c82e72290f502b127adfbc78434db83c5a0fa9c99a2c161382c5ca66bac",
+      "currentSha256": "0ab1ec7854c8b3ad287b4f3d2ec960c7233ecb369d472989e89baff70ee12897",
+      "classification": "additive-owned-message-placement",
+      "reviewedMeaning": "Adds optional owned message placement through FieldMessagePlacementProps; old required signatures retained. Follow inherited scope/root placement for omitted behavior.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/Checkbox/Checkbox.d.ts",
+      "recordedSha256": "1850d59d693b321d34cd3386106b33d02040778415fcecb7e4357972beb7c9bd",
+      "currentSha256": "38e544995639d1d9a571d19e7f1ee4ec1853fc21a33248d3a35c0c0300312570",
+      "classification": "additive-owned-message-placement",
+      "reviewedMeaning": "Adds optional owned message placement through FieldMessagePlacementProps; old required signatures retained. Follow inherited scope/root placement for omitted behavior.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/Select/Select.d.ts",
+      "recordedSha256": "f938a1d4784162a5c3b4d2eba22055a483f7e492b3e2a082a9d1e891c0f98741",
+      "currentSha256": "5886ed8a16bb605119b50a6f218865b0081b10d5a0277acd24df155c62491c37",
+      "classification": "additive-owned-message-placement",
+      "reviewedMeaning": "Adds optional owned message placement through FieldMessagePlacementProps; old required signatures retained. Follow inherited scope/root placement for omitted behavior.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/ComboBox/ComboBox.d.ts",
+      "recordedSha256": "52f8db592e68c43082883b2efa3a0fe906833b6a84d5b0abbf0c7f0176707214",
+      "currentSha256": "9786c78939580c6973184e4cf63f0d9ed385a3020e20e56423f450c62063ed48",
+      "classification": "additive-owned-message-placement",
+      "reviewedMeaning": "Adds optional owned message placement through FieldMessagePlacementProps; old required signatures retained. Follow inherited scope/root placement for omitted behavior.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/Switch/Switch.d.ts",
+      "recordedSha256": "a9337e81bcc330fee9819281ffd769b5f18a574c6ef3fb4cfc960e23cfcdcdfe",
+      "currentSha256": "ad10a5f989e162c0805c478caa9b0baa906cac022114f2b762fe1e038cafc71d",
+      "classification": "additive-owned-message-placement",
+      "reviewedMeaning": "Adds optional owned message placement through FieldMessagePlacementProps; old required signatures retained. Follow inherited scope/root placement for omitted behavior.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/SearchField/SearchField.d.ts",
+      "recordedSha256": "857fdcc8ddb0320914d6db3bfe40237d1f96053398012fc14e1a522b30a23bf7",
+      "currentSha256": "57e55cf14abaed40b2ef597f29a32b35ae06bdc6c926bb2ffd4a8f0e1f0319e5",
+      "classification": "additive-owned-message-placement",
+      "reviewedMeaning": "Adds optional owned message placement through FieldMessagePlacementProps; old required signatures retained. Follow inherited scope/root placement for omitted behavior.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/components/primitives/index.d.ts",
+      "recordedSha256": "9b2f5af923e1138a64911facbe527a45c7b9c58817533390cd3fb6c0caf8224a",
+      "currentSha256": "d692d06b1898c4caad6632aaa5a4546bd4c1a7af04635b1bec24e2253c56ea1d",
+      "classification": "additive-route-exports",
+      "reviewedMeaning": "FormFieldScope and its props added to primitives barrel.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/components/AppDataGrid/ownedGridModel.d.ts",
+      "recordedSha256": "73fa915c65d1598c470dfc3ee571213b5650acd206f1cf5af44ef1e1992e7e2b",
+      "currentSha256": "16454689fe21539de9882b7b9fe154e9740d9927d793d73525ca953272ce354f",
+      "classification": "private-helper-addition",
+      "reviewedMeaning": "isReservedOwnedGridField internal helper added; public grid column contract unchanged here.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/components/AppDataGrid/ownedGridColumns.d.ts",
+      "recordedSha256": "14d80bc52a07c99cb5f75f14bde3e55718a3c51c47f698d6a91e3c48579e98ce",
+      "currentSha256": "8119deac7e2e2775a17a3f648bdd1ef2ae19cfdaf8d9dcb4a124b22cc8248350",
+      "classification": "equivalent-type-import",
+      "reviewedMeaning": "Import type spelling only.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/components/IconPanelNavigation/IconPanelNavigation.d.ts",
+      "recordedSha256": "c3ad30222e65767a5979538c2c28ddb62359f7089327117fb1b038f04e1da62e",
+      "currentSha256": "36216ecd8cbc79d0976be14fa4ee4e37483b60e0bd858520b5f29021a12f3c82",
+      "classification": "additive-resize-contract",
+      "reviewedMeaning": "Optional resizable false/min240/max960/onPanelWidthChange(width,id); requested width is not controlled width.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/components/index.d.ts",
+      "recordedSha256": "578506f09541094e6b34d46f93c503d26e1d1da09dd886d45a14e2d986607921",
+      "currentSha256": "2d35ab486d6e16b7b299aec85c186ffe2f1d83c4717dc29f8f5f699457f89d05",
+      "classification": "additive-route-exports",
+      "reviewedMeaning": "MonthPicker/YearPicker and their props added to components barrel.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/adapters/navigation.d.ts",
+      "recordedSha256": "e3de28f79ba28ea410b3aaea74ef70e73aa6761f1e24514ad9b0a2ab4a168ede",
+      "currentSha256": "24fe2b5294c34922548349ba6c67563aa87a18bbfb8c41597f036582e0b98014",
+      "classification": "declaration-relocation",
+      "reviewedMeaning": "SGNavigationAdapter/SGLinkProps reexported from navigation.types; resolved replacement definitions retain original fields.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/AsyncMultiSelect/AsyncMultiSelect.d.ts",
+      "recordedSha256": "27814d8d81f33482ab721911b05f95e53d05f87faed3cb3e08066cf339eb16a9",
+      "currentSha256": "178553a06b6bb735f4c8d2781ed90511b18daf39ad95aae3931bee64ea84943f",
+      "classification": "additive-owned-message-placement",
+      "reviewedMeaning": "Adds optional owned message placement through FieldMessagePlacementProps; old required signatures retained. Follow inherited scope/root placement for omitted behavior.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/DateRangeSelector.d.ts",
+      "recordedSha256": "e2ad33d7d2df2a4cbb2915cc273a555baa9f50e85dfee125380f24168635b4cc",
+      "currentSha256": "0376e62dcd202b52409a079ffc35083b2396aa68816483592bac128582f3eda1",
+      "classification": "additive-contract-and-changed-defaults",
+      "reviewedMeaning": "Period heading/navigation options, adjust-nearest/tie-break, calendarEndpoints and placement added. navigation arrows\u2192period, rangeClickBehavior adjust-end\u2192adjust-nearest, showFields true\u2192false, calendarNavigation linked\u2192independent are observable omitted-behavior changes.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateField.d.ts",
+      "recordedSha256": "915eee67519c06b355d7c795e0a42efd1b145f3b6deb988dbbb89c699e96c9fe",
+      "currentSha256": "0a8d388b464ef003f38168e9b017a63f769815e0531eecb9f03c90f99b7dad0e",
+      "classification": "declaration-relocation-and-placement",
+      "reviewedMeaning": "Props move to matching .types declaration, retaining original fields and adding FieldMessagePlacementProps. Import through public route remains valid.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TimeField.d.ts",
+      "recordedSha256": "03a59561181981942ebb091ba292308f4ca1587a0b308c408d0d77f9ec37d02c",
+      "currentSha256": "a7f27a67896c5b401988302df89491e443f34d8eaf10236b0434c4e67b0b1db3",
+      "classification": "declaration-relocation-and-placement",
+      "reviewedMeaning": "Props move to matching .types declaration, retaining original fields and adding FieldMessagePlacementProps. Import through public route remains valid.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/Calendar.d.ts",
+      "recordedSha256": "db21d064c2f3c12e53efd8b562377b304b0ea7014bf57d779c854b9e487b49bd",
+      "currentSha256": "f8ebe3444267fa989587ca628149b2056790908716adfee4195228430e714287",
+      "classification": "additive-contract-and-changed-defaults",
+      "reviewedMeaning": "Period navigation options and independent/linked domain added; navigation arrows\u2192period. Current calendarNavigation independent; selection unchanged by navigation.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/DatePicker/DatePicker.d.ts",
+      "recordedSha256": "12020544bf17d840c7b8678e8790cd734a1131a8b34916efc2758349431b96be",
+      "currentSha256": "57976a6c5052a0101fcf682f48d60cf2063d8ccf37679d373d93cd9d4c9ff9b9",
+      "classification": "additive-forwarded-options-and-composed-default",
+      "reviewedMeaning": "Calendar period options forwarded; inherited Calendar omitted navigation now period.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/DateRangePicker.d.ts",
+      "recordedSha256": "a63c3cabd3b8cdd8e551ab37d4f731f4cf1a308f56e1316f32108b8a3b58957d",
+      "currentSha256": "1df4124cd1150195186e424ba7b2126dee0b541b775a7becf8dd2c82cd38908c",
+      "classification": "additive-owned-message-placement",
+      "reviewedMeaning": "Adds optional owned message placement through FieldMessagePlacementProps; old required signatures retained. Follow inherited scope/root placement for omitted behavior.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/RadioGroup/RadioGroup.d.ts",
+      "recordedSha256": "c82bdc0ddcc3729e1c6bc26360f479def8c3ccff60a5c1a45bfe62826fd68be7",
+      "currentSha256": "18e58cc546b477a0c2cd4247c55f32f6884f6b310f852dddb2beedecf3e41299",
+      "classification": "additive-owned-message-placement",
+      "reviewedMeaning": "Adds optional owned message placement through FieldMessagePlacementProps; old required signatures retained. Follow inherited scope/root placement for omitted behavior.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/PeriodPicker/PeriodPicker.d.ts",
+      "recordedSha256": "50ce5cc6b388531e8c40eebdb5edf4d7e7dda5e266b1c84ccaaff9cfa02da159",
+      "currentSha256": "7851f59d95b16ccd4228bdbf003846d5c08f94dfc867dcdba6e224a81601557b",
+      "classification": "additive-inline-navigation-contract",
+      "reviewedMeaning": "Optional display/cancel/year/purpose/navigationView/bounds and message placement; popup/selection baseline remains distinct from immediate inline navigation.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateTimeRangePicker/DateTimeRangePicker.d.ts",
+      "recordedSha256": "dc35b2047f836993edc86c7926650ba76d91157c555e836417c640fe0d82f375",
+      "currentSha256": "cceb9988a838be096c83bfccc533498287e42ff2acdab4ba43d887810b1ae242",
+      "classification": "additive-owned-message-placement",
+      "reviewedMeaning": "Adds optional owned message placement through FieldMessagePlacementProps; old required signatures retained. Follow inherited scope/root placement for omitted behavior.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.d.ts",
+      "recordedSha256": "f724107ad9f1030db75e13d6712233090a8b0f6609ccaed704725b08c11e643a",
+      "currentSha256": "2ccfe40b2ab516f58c9781cf4c1cb24b8e660b83bd56c7f865b7f92689776b85",
+      "classification": "additive-owned-message-placement",
+      "reviewedMeaning": "Adds optional owned message placement through FieldMessagePlacementProps; old required signatures retained. Follow inherited scope/root placement for omitted behavior.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/experimental/index.d.ts",
+      "recordedSha256": "04b8ff7622a2e5e4462379e22892e42e47f8b3ca0fa254f06693c4bf3a29c39c",
+      "currentSha256": "e0ce051c7b176ce96a897d3aa42a6c88694fde4fbbc7cf68e3777be1ddf2b0c8",
+      "classification": "additive-route-exports",
+      "reviewedMeaning": "FormFieldScope/MonthPicker/YearPicker and props added to experimental barrel.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    },
+    {
+      "path": "packages/ui/dist/foundation/tokens.generated.d.ts",
+      "recordedSha256": "2c990e3d1b2a87d1d1b584c0a3cf7f05c5d14a6f6feb040a198dde9ba3cb07f7",
+      "currentSha256": "bcb223e8eb3f1f41e2a9b2a3ed494da4ba8afb2632060d7efe52822d03f4aa9f",
+      "classification": "observable-token-mapping-change",
+      "reviewedMeaning": "buttonSubtleInteractionBackground target moves surfaceSubtle to surfaceHover. Key/domain retained; literal introspection type and hover appearance change. Release review required; not silently classified equivalent.",
+      "closure": "Source/declaration review only; final installed typing/native/release-range evidence separate."
+    }
+  ],
+  "referencedTargets": {
+    "packages/ui/dist/adapters/navigation.types.d.ts": "101a7492efcba77a6df58244fce4495825bce8fd502e3d9f94da30c24b92ab4f",
+    "packages/ui/dist/experimental/DateField/DateField.types.d.ts": "a322837092fe59b3a14ed6cf3604ad990ce8c54de8fae6a8c7b4a98345ded76c",
+    "packages/ui/dist/experimental/TimeField/TimeField.types.d.ts": "75124c685cd34cc00d5dcafac4c3f06dc27cdf094926e25b069097cb733faba7",
+    "packages/ui/dist/experimental/TextField/FieldMessages.d.ts": "16149a0edb22db533e09383dccdfa9e66ec18772ecfcd527afcbf5bf7733cad1",
+    "packages/ui/dist/experimental/FormFieldScope/FormFieldScope.d.ts": "689ec60ef9a600aa4bda83dc8ec807b3795663f6a93f3340f446fd179ccc2b50",
+    "packages/ui/dist/experimental/Calendar/CalendarPeriodNavigation.d.ts": "bed819b95a78899d012b6effc1ef3c22b8f4b8ca6d602043c6f43d7de65b5cd5",
+    "packages/ui/dist/experimental/MonthPicker/MonthPicker.d.ts": "9bfdafa482538b965b89f75fd17982195f0831af159187cd1b8185a3da9535ee",
+    "packages/ui/dist/experimental/YearPicker/YearPicker.d.ts": "aa5cb6a4960ed15ba64834dd00b35ae7d81d674aa111e1bffb18392d9a3f51eb"
+  },
+  "limits": [
+    "Saved 469-contract/238-route counts remain historical: new MonthPicker/YearPicker/FormFieldScope contracts are not represented there.",
+    "Matching declaration text does not establish unchanged internal behavior or transitive type identity.",
+    "No final exhaustive inherited/default compatibility or release approval inferred."
+  ]
+}

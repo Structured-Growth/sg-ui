@@ -1,0 +1,1239 @@
+﻿2026-10-18T23:17:02.9209180Z Current runner version: '2.337.0'
+2026-10-18T23:17:02.9229526Z ##[group]Runner Image Provisioner
+2026-10-18T23:17:02.9230292Z Hosted Compute Agent
+2026-10-18T23:17:02.9230746Z Version: 20261012.601
+2026-10-18T23:17:02.9231224Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+2026-10-18T23:17:02.9231789Z Build Date: 2026-10-12T17:48:21Z
+2026-10-18T23:17:02.9232324Z Worker ID: {39bdd970-ccd2-42a0-98cb-97651031d37f}
+2026-10-18T23:17:02.9233532Z Region: centralus
+2026-10-18T23:17:02.9234035Z Cloud: Azure
+2026-10-18T23:17:02.9234465Z ##[endgroup]
+2026-10-18T23:17:02.9235635Z ##[group]Operating System
+2026-10-18T23:17:02.9236171Z Ubuntu
+2026-10-18T23:17:02.9236551Z 24.04.5
+2026-10-18T23:17:02.9236964Z LTS
+2026-10-18T23:17:02.9237360Z ##[endgroup]
+2026-10-18T23:17:02.9237766Z ##[group]Runner Image
+2026-10-18T23:17:02.9238250Z Image: ubuntu-24.04
+2026-10-18T23:17:02.9238682Z Version: 20261012.334.1
+2026-10-18T23:17:02.9239746Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-18T23:17:02.9240912Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-18T23:17:02.9241663Z ##[endgroup]
+2026-10-18T23:17:02.9242515Z ##[group]GITHUB_TOKEN Permissions
+2026-10-18T23:17:02.9244562Z Contents: read
+2026-10-18T23:17:02.9244999Z Metadata: read
+2026-10-18T23:17:02.9245476Z ##[endgroup]
+2026-10-18T23:17:02.9247132Z Secret source: Actions
+2026-10-18T23:17:02.9247865Z Cache mode: write
+2026-10-18T23:17:02.9248389Z Prepare workflow directory
+2026-10-18T23:17:02.9558699Z Prepare all required actions
+2026-10-18T23:17:02.9599212Z Getting action download info
+2026-10-18T23:17:03.1997752Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-18T23:17:03.3003356Z Download action repository 'pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1' (SHA:b906affcce14559ad1aafd4ab0e942779e9f58b1)
+2026-10-18T23:17:03.7940145Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-18T23:17:03.8980512Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-18T23:17:04.1009164Z Complete job name: Firefox viewport diagnostic
+2026-10-18T23:17:04.1557568Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-18T23:17:04.1558283Z with:
+2026-10-18T23:17:04.1558719Z   persist-credentials: false
+2026-10-18T23:17:04.1559154Z   repository: Structured-Growth/sg-ui
+2026-10-18T23:17:04.1562151Z   token: ***
+2026-10-18T23:17:04.1562496Z   ssh-strict: true
+2026-10-18T23:17:04.1563086Z   ssh-user: git
+2026-10-18T23:17:04.1563484Z   clean: true
+2026-10-18T23:17:04.1563868Z   sparse-checkout-cone-mode: true
+2026-10-18T23:17:04.1564282Z   fetch-depth: 1
+2026-10-18T23:17:04.1564651Z   fetch-tags: false
+2026-10-18T23:17:04.1565028Z   show-progress: true
+2026-10-18T23:17:04.1565480Z   lfs: false
+2026-10-18T23:17:04.1565828Z   submodules: false
+2026-10-18T23:17:04.1566237Z   set-safe-directory: true
+2026-10-18T23:17:04.1566646Z   allow-unsafe-pr-checkout: false
+2026-10-18T23:17:04.1567201Z ##[endgroup]
+2026-10-18T23:17:04.2386256Z Syncing repository: Structured-Growth/sg-ui
+2026-10-18T23:17:04.2388441Z ##[group]Getting Git version info
+2026-10-18T23:17:04.2389190Z Working directory is '/home/runner/work/sg-ui/sg-ui'
+2026-10-18T23:17:04.2390300Z [command]/usr/bin/git version
+2026-10-18T23:17:04.2396032Z git version 2.55.0
+2026-10-18T23:17:04.2410614Z ##[endgroup]
+2026-10-18T23:17:04.2420557Z Temporarily overriding HOME='/home/runner/work/_temp/a933ef28-8e3e-45ba-9d1a-54d4d2a55be6' before making global git config changes
+2026-10-18T23:17:04.2422287Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-18T23:17:04.2424261Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/sg-ui/sg-ui
+2026-10-18T23:17:04.2467072Z Deleting the contents of '/home/runner/work/sg-ui/sg-ui'
+2026-10-18T23:17:04.2476105Z ##[group]Initializing the repository
+2026-10-18T23:17:04.2481033Z [command]/usr/bin/git init /home/runner/work/sg-ui/sg-ui
+2026-10-18T23:17:04.2556290Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-18T23:17:04.2558030Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-18T23:17:04.2559194Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-18T23:17:04.2560085Z hint: call:
+2026-10-18T23:17:04.2560616Z hint:
+2026-10-18T23:17:04.2561320Z hint: 	git config --global init.defaultBranch <name>
+2026-10-18T23:17:04.2562050Z hint:
+2026-10-18T23:17:04.2562989Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-18T23:17:04.2564160Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-18T23:17:04.2565181Z hint:
+2026-10-18T23:17:04.2565940Z hint: 	git branch -m <name>
+2026-10-18T23:17:04.2566789Z hint:
+2026-10-18T23:17:04.2568096Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-18T23:17:04.2569314Z Initialized empty Git repository in /home/runner/work/sg-ui/sg-ui/.git/
+2026-10-18T23:17:04.2571258Z [command]/usr/bin/git remote add origin https://github.com/Structured-Growth/sg-ui
+2026-10-18T23:17:04.2604904Z ##[endgroup]
+2026-10-18T23:17:04.2606929Z ##[group]Disabling automatic garbage collection
+2026-10-18T23:17:04.2607995Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-18T23:17:04.2629742Z ##[endgroup]
+2026-10-18T23:17:04.2630753Z ##[group]Setting up auth
+2026-10-18T23:17:04.2635551Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T23:17:04.2657553Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-18T23:17:04.2933537Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T23:17:04.2958581Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-18T23:17:04.3109241Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T23:17:04.3133344Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-18T23:17:04.3273727Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-18T23:17:04.3361357Z ##[endgroup]
+2026-10-18T23:17:04.3362302Z ##[group]Fetching the repository
+2026-10-18T23:17:04.3368583Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +7c6d0ec274526bf9e6186bb841116bd8b83476ca:refs/remotes/origin/codex/tooltip-viewport-debug-9ca3e666
+2026-10-18T23:17:06.7876069Z From https://github.com/Structured-Growth/sg-ui
+2026-10-18T23:17:06.7877348Z  * [new ref]         7c6d0ec274526bf9e6186bb841116bd8b83476ca -> origin/codex/tooltip-viewport-debug-9ca3e666
+2026-10-18T23:17:06.7880527Z ##[endgroup]
+2026-10-18T23:17:06.7881627Z ##[group]Determining the checkout info
+2026-10-18T23:17:06.7882603Z ##[endgroup]
+2026-10-18T23:17:06.7888194Z [command]/usr/bin/git sparse-checkout disable
+2026-10-18T23:17:06.7938672Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-18T23:17:06.7964745Z ##[group]Checking out the ref
+2026-10-18T23:17:06.7969134Z [command]/usr/bin/git checkout --progress --force -B codex/tooltip-viewport-debug-9ca3e666 refs/remotes/origin/codex/tooltip-viewport-debug-9ca3e666
+2026-10-18T23:17:07.2059522Z Switched to a new branch 'codex/tooltip-viewport-debug-9ca3e666'
+2026-10-18T23:17:07.2063160Z branch 'codex/tooltip-viewport-debug-9ca3e666' set up to track 'origin/codex/tooltip-viewport-debug-9ca3e666'.
+2026-10-18T23:17:07.2080246Z ##[endgroup]
+2026-10-18T23:17:07.2116322Z [command]/usr/bin/git log -1 --format=%H
+2026-10-18T23:17:07.2136468Z 7c6d0ec274526bf9e6186bb841116bd8b83476ca
+2026-10-18T23:17:07.2145308Z ##[group]Removing auth
+2026-10-18T23:17:07.2148625Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T23:17:07.2173519Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-18T23:17:07.2340097Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T23:17:07.2360548Z http.https://github.com/.extraheader
+2026-10-18T23:17:07.2364982Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-18T23:17:07.2393655Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-18T23:17:07.2555760Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T23:17:07.2577588Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-18T23:17:07.2730476Z ##[endgroup]
+2026-10-18T23:17:07.2920559Z ##[group]Run pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1
+2026-10-18T23:17:07.2921010Z with:
+2026-10-18T23:17:07.2921280Z   dest: ~/setup-pnpm
+2026-10-18T23:17:07.2921531Z   run_install: null
+2026-10-18T23:17:07.2921772Z   cache: false
+2026-10-18T23:17:07.2922051Z   cache_dependency_path: pnpm-lock.yaml
+2026-10-18T23:17:07.2922409Z   package_json_file: package.json
+2026-10-18T23:17:07.2922738Z   standalone: false
+2026-10-18T23:17:07.2923270Z ##[endgroup]
+2026-10-18T23:17:07.4032586Z ##[group]Running self-installer...
+2026-10-18T23:17:07.7060873Z (node:2186) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-18T23:17:07.7062014Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-18T23:17:07.9671697Z Progress: resolved 1, reused 0, downloaded 0, added 0
+2026-10-18T23:17:07.9739678Z Packages: +1
+2026-10-18T23:17:07.9740326Z +
+2026-10-18T23:17:08.3359611Z Progress: resolved 1, reused 0, downloaded 1, added 1, done
+2026-10-18T23:17:08.3951710Z 
+2026-10-18T23:17:08.3952267Z dependencies:
+2026-10-18T23:17:08.3952953Z + pnpm 10.29.3 (12.14.0 is available)
+2026-10-18T23:17:08.3953148Z 
+2026-10-18T23:17:08.3976157Z Done in 847ms
+2026-10-18T23:17:08.4095149Z ##[endgroup]
+2026-10-18T23:17:08.4095600Z Installation Completed!
+2026-10-18T23:17:08.4244186Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-10-18T23:17:08.4244590Z with:
+2026-10-18T23:17:08.4244843Z   node-version-file: .nvmrc
+2026-10-18T23:17:08.4245100Z   cache: pnpm
+2026-10-18T23:17:08.4245373Z   cache-dependency-path: pnpm-lock.yaml
+2026-10-18T23:17:08.4245659Z   always-auth: false
+2026-10-18T23:17:08.4245968Z   check-latest: false
+2026-10-18T23:17:08.4248076Z   token: ***
+2026-10-18T23:17:08.4248300Z env:
+2026-10-18T23:17:08.4248586Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:17:08.4248894Z ##[endgroup]
+2026-10-18T23:17:08.5339774Z Resolved .nvmrc as 24
+2026-10-18T23:17:08.5381942Z Found in cache @ /opt/hostedtoolcache/node/24.21.0/x64
+2026-10-18T23:17:08.5385612Z (node:2200) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-18T23:17:08.5386435Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-18T23:17:08.5387635Z ##[group]Environment details
+2026-10-18T23:17:08.8698024Z node: v24.21.0
+2026-10-18T23:17:08.8698473Z npm: 11.19.0
+2026-10-18T23:17:08.8699201Z yarn: 1.22.22
+2026-10-18T23:17:08.8699890Z ##[endgroup]
+2026-10-18T23:17:08.8720515Z [command]/home/runner/setup-pnpm/node_modules/.bin/pnpm store path --silent
+2026-10-18T23:17:09.1611439Z /home/runner/setup-pnpm/node_modules/.bin/store/v10
+2026-10-18T23:17:09.3088883Z pnpm cache is not found
+2026-10-18T23:17:09.3189308Z ##[group]Run pnpm install --frozen-lockfile
+2026-10-18T23:17:09.3189771Z [36;1mpnpm install --frozen-lockfile[0m
+2026-10-18T23:17:09.3360456Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-18T23:17:09.3360908Z env:
+2026-10-18T23:17:09.3361193Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:17:09.3361513Z ##[endgroup]
+2026-10-18T23:17:09.5375555Z Scope: all 3 workspace projects
+2026-10-18T23:17:09.6146291Z ../..                                    | Progress: resolved 1, reused 0, downloaded 0, added 0
+2026-10-18T23:17:09.6768068Z ../..                                    | +507 ++++++++++++++++++++++++++++++++
+2026-10-18T23:17:10.6216400Z ../..                                    | Progress: resolved 507, reused 0, downloaded 143, added 145
+2026-10-18T23:17:11.6208619Z ../..                                    | Progress: resolved 507, reused 0, downloaded 166, added 154
+2026-10-18T23:17:12.6210960Z ../..                                    | Progress: resolved 507, reused 0, downloaded 353, added 354
+2026-10-18T23:17:13.2073346Z ../..                                    | Progress: resolved 507, reused 0, downloaded 503, added 507, done
+2026-10-18T23:17:13.5158343Z 
+2026-10-18T23:17:13.5159688Z dependencies:
+2026-10-18T23:17:13.5160242Z + @internationalized/date 3.12.4
+2026-10-18T23:17:13.5165858Z + @lexical/code 0.41.0
+2026-10-18T23:17:13.5166621Z + @lexical/history 0.41.0
+2026-10-18T23:17:13.5167256Z + @lexical/link 0.41.0
+2026-10-18T23:17:13.5167826Z + @lexical/list 0.41.0
+2026-10-18T23:17:13.5169052Z + @lexical/react 0.41.0
+2026-10-18T23:17:13.5170234Z + @lexical/rich-text 0.41.0
+2026-10-18T23:17:13.5170546Z + @lexical/selection 0.41.0
+2026-10-18T23:17:13.5170904Z + @lexical/table 0.41.0
+2026-10-18T23:17:13.5171152Z + @lexical/utils 0.41.0
+2026-10-18T23:17:13.5171450Z + @tanstack/react-table 8.21.3
+2026-10-18T23:17:13.5171711Z + lexical 0.41.0
+2026-10-18T23:17:13.5171970Z + lucide-react 1.52.0
+2026-10-18T23:17:13.5172249Z + react-aria 3.52.1
+2026-10-18T23:17:13.5172520Z + react-aria-components 1.21.1
+2026-10-18T23:17:13.5172965Z + react-stately 3.50.0
+2026-10-18T23:17:13.5173155Z 
+2026-10-18T23:17:13.5173283Z devDependencies:
+2026-10-18T23:17:13.5173538Z + @axe-core/playwright 4.13.0
+2026-10-18T23:17:13.5173938Z + @commitlint/cli 21.2.3
+2026-10-18T23:17:13.5174224Z + @commitlint/config-conventional 21.2.3
+2026-10-18T23:17:13.5174498Z + @playwright/test 1.63.0
+2026-10-18T23:17:13.5174827Z + @semantic-release/commit-analyzer 13.0.1
+2026-10-18T23:17:13.5175185Z + @semantic-release/github 12.0.10
+2026-10-18T23:17:13.5175496Z + @semantic-release/npm 13.2.0
+2026-10-18T23:17:13.5175869Z + @semantic-release/release-notes-generator 14.1.1
+2026-10-18T23:17:13.5176198Z + @testing-library/react 16.3.3
+2026-10-18T23:17:13.5176530Z + @testing-library/user-event 14.6.1
+2026-10-18T23:17:13.5176805Z + @types/css.escape 1.5.2
+2026-10-18T23:17:13.5177184Z + @types/node 20.19.43
+2026-10-18T23:17:13.5177422Z + @types/react 19.3.0
+2026-10-18T23:17:13.5177652Z + @types/react-dom 19.3.0
+2026-10-18T23:17:13.5177987Z + conventional-changelog-conventionalcommits 10.4.1
+2026-10-18T23:17:13.5178316Z + css.escape 1.5.1
+2026-10-18T23:17:13.5178547Z + jsdom 26.1.0
+2026-10-18T23:17:13.5178806Z + postcss 8.5.6
+2026-10-18T23:17:13.5179019Z + postcss-modules 6.0.1
+2026-10-18T23:17:13.5179271Z + react 19.2.3
+2026-10-18T23:17:13.5179505Z + react-dom 19.2.3
+2026-10-18T23:17:13.5179737Z + semantic-release 25.0.9
+2026-10-18T23:17:13.5179986Z + typescript 5.9.3
+2026-10-18T23:17:13.5180214Z + vite 7.3.6
+2026-10-18T23:17:13.5180446Z + vitest 4.1.11
+2026-10-18T23:17:13.5180551Z 
+2026-10-18T23:17:13.5330782Z ╭ Warning ─────────────────────────────────────────────────────────────────────╮
+2026-10-18T23:17:13.5331606Z │                                                                              │
+2026-10-18T23:17:13.5332138Z │   Ignored build scripts: esbuild@0.28.2.                                     │
+2026-10-18T23:17:13.5333018Z │   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+2026-10-18T23:17:13.5333607Z │   to run scripts.                                                            │
+2026-10-18T23:17:13.5334024Z │                                                                              │
+2026-10-18T23:17:13.5334478Z ╰──────────────────────────────────────────────────────────────────────────────╯
+2026-10-18T23:17:13.5396633Z Done in 4.1s using pnpm v10.29.3
+2026-10-18T23:17:13.5747717Z ##[group]Run mkdir -p artifacts/logs
+2026-10-18T23:17:13.5748023Z [36;1mmkdir -p artifacts/logs[0m
+2026-10-18T23:17:13.5748345Z [36;1mgit rev-parse HEAD > artifacts/logs/head.txt[0m
+2026-10-18T23:17:13.5748705Z [36;1mnode --version > artifacts/logs/node.txt[0m
+2026-10-18T23:17:13.5783235Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-18T23:17:13.5783615Z env:
+2026-10-18T23:17:13.5783897Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:17:13.5784189Z ##[endgroup]
+2026-10-18T23:17:13.5913283Z ##[group]Run pnpm build
+2026-10-18T23:17:13.5913563Z [36;1mpnpm build[0m
+2026-10-18T23:17:13.5938493Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-18T23:17:13.5938856Z env:
+2026-10-18T23:17:13.5939118Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:17:13.5939407Z ##[endgroup]
+2026-10-18T23:17:13.7905974Z 
+2026-10-18T23:17:13.7907153Z > @structured-growth/sg-ui@0.0.0-development build /home/runner/work/sg-ui/sg-ui/packages/ui
+2026-10-18T23:17:13.7907895Z > node scripts/build.mjs
+2026-10-18T23:17:13.7908087Z 
+2026-10-18T23:17:20.6816103Z ##[group]Run pnpm build:browser-docs
+2026-10-18T23:17:20.6816596Z [36;1mpnpm build:browser-docs[0m
+2026-10-18T23:17:20.6855028Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-18T23:17:20.6855503Z env:
+2026-10-18T23:17:20.6855845Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:17:20.6856253Z ##[endgroup]
+2026-10-18T23:17:20.8833246Z 
+2026-10-18T23:17:20.8834284Z > @structured-growth/sg-ui@0.0.0-development build:browser-docs /home/runner/work/sg-ui/sg-ui/packages/ui
+2026-10-18T23:17:20.8843683Z > pnpm build && node scripts/build-browser-docs.mjs
+2026-10-18T23:17:20.8844069Z 
+2026-10-18T23:17:21.0856109Z 
+2026-10-18T23:17:21.0857372Z > @structured-growth/sg-ui@0.0.0-development build /home/runner/work/sg-ui/sg-ui/packages/ui
+2026-10-18T23:17:21.0858005Z > node scripts/build.mjs
+2026-10-18T23:17:21.0858292Z 
+2026-10-18T23:17:31.9833736Z 513 fixture IDs
+2026-10-18T23:17:32.0003778Z [36mvite v7.3.6 [32mbuilding client environment for production...[36m[39m
+2026-10-18T23:17:32.0630004Z transforming...
+2026-10-18T23:17:32.1162941Z [33mdist/i18n/index.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/i18n/index.js" was ignored.[39m
+2026-10-18T23:17:32.2993379Z [33mdist/theme/AppThemeProvider.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/theme/AppThemeProvider.js" was ignored.[39m
+2026-10-18T23:17:32.2996899Z [33mdist/experimental/Provider/Provider.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Provider/Provider.js" was ignored.[39m
+2026-10-18T23:17:32.3009121Z [33mdist/foundation/ThemeScope.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/foundation/ThemeScope.js" was ignored.[39m
+2026-10-18T23:17:32.4316440Z [33mdist/components/AppDataGrid/ownedGridParts.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridParts.js" was ignored.[39m
+2026-10-18T23:17:32.4331104Z [33mdist/components/AppDataGrid/ownedGridCells.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridCells.js" was ignored.[39m
+2026-10-18T23:17:32.4707875Z [33mdist/components/AppDataGrid/ownedGridController.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridController.js" was ignored.[39m
+2026-10-18T23:17:32.4713195Z [33mdist/components/AppDataGrid/ownedGridInteraction.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridInteraction.js" was ignored.[39m
+2026-10-18T23:17:32.4761295Z [33mdist/components/AppDataGrid/ownedGridLayoutController.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridLayoutController.js" was ignored.[39m
+2026-10-18T23:17:32.5708657Z [33mdist/experimental/MonthPicker/MonthPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/MonthPicker/MonthPicker.js" was ignored.[39m
+2026-10-18T23:17:32.5721302Z [33mdist/hooks/usePersistentPaginationModel.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/hooks/usePersistentPaginationModel.js" was ignored.[39m
+2026-10-18T23:17:32.5728867Z [33mdist/hooks/usePersistentState.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/hooks/usePersistentState.js" was ignored.[39m
+2026-10-18T23:17:32.5739865Z [33mdist/experimental/YearPicker/YearPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/YearPicker/YearPicker.js" was ignored.[39m
+2026-10-18T23:17:32.5757768Z [33mdist/components/Button/Button.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/Button/Button.js" was ignored.[39m
+2026-10-18T23:17:32.5767531Z [33mdist/experimental/TextField/TextField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/TextField.js" was ignored.[39m
+2026-10-18T23:17:32.5780138Z [33mdist/experimental/Tabs/Tabs.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/Tabs.js" was ignored.[39m
+2026-10-18T23:17:32.5802322Z [33mdist/experimental/ComboBox/ComboBox.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/ComboBox/ComboBox.js" was ignored.[39m
+2026-10-18T23:17:32.5818768Z [33mdist/experimental/AsyncMultiSelect/AsyncMultiSelect.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/AsyncMultiSelect/AsyncMultiSelect.js" was ignored.[39m
+2026-10-18T23:17:32.5829922Z [33mdist/experimental/Dialog/Dialog.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Dialog/Dialog.js" was ignored.[39m
+2026-10-18T23:17:32.5851385Z [33mdist/experimental/Popover/Popover.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Popover/Popover.js" was ignored.[39m
+2026-10-18T23:17:32.5868442Z [33mdist/experimental/DateField/DateField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/DateField.js" was ignored.[39m
+2026-10-18T23:17:32.5888608Z [33mdist/experimental/TimeField/TimeField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TimeField/TimeField.js" was ignored.[39m
+2026-10-18T23:17:32.5916529Z [33mdist/experimental/Checkbox/Checkbox.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Checkbox/Checkbox.js" was ignored.[39m
+2026-10-18T23:17:32.5954152Z [33mdist/experimental/DatePicker/DatePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DatePicker/DatePicker.js" was ignored.[39m
+2026-10-18T23:17:32.5956042Z [33mdist/experimental/DateRangeSelector/DateRangeSelector.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/DateRangeSelector.js" was ignored.[39m
+2026-10-18T23:17:32.6004072Z [33mdist/experimental/DateRangePicker/DateRangePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangePicker/DateRangePicker.js" was ignored.[39m
+2026-10-18T23:17:32.6026428Z [33mdist/experimental/Calendar/Calendar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/Calendar.js" was ignored.[39m
+2026-10-18T23:17:32.6062219Z [33mdist/experimental/IconButton/IconButton.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/IconButton/IconButton.js" was ignored.[39m
+2026-10-18T23:17:32.6066813Z [33mdist/experimental/DataGrid/DataGrid.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DataGrid/DataGrid.js" was ignored.[39m
+2026-10-18T23:17:32.6087363Z [33mdist/experimental/SplitAction/SplitAction.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/SplitAction/SplitAction.js" was ignored.[39m
+2026-10-18T23:17:32.6093411Z [33mdist/experimental/Menu/Menu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Menu/Menu.js" was ignored.[39m
+2026-10-18T23:17:32.6106055Z [33mdist/experimental/Switch/Switch.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Switch/Switch.js" was ignored.[39m
+2026-10-18T23:17:32.6114568Z [33mdist/experimental/RadioGroup/RadioGroup.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/RadioGroup/RadioGroup.js" was ignored.[39m
+2026-10-18T23:17:32.6124662Z [33mdist/experimental/Select/Select.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Select/Select.js" was ignored.[39m
+2026-10-18T23:17:32.6138962Z [33mdist/experimental/Link/Link.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Link/Link.js" was ignored.[39m
+2026-10-18T23:17:32.6144644Z [33mdist/experimental/TextArea/TextArea.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextArea/TextArea.js" was ignored.[39m
+2026-10-18T23:17:32.6153851Z [33mdist/experimental/Breadcrumbs/Breadcrumbs.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Breadcrumbs/Breadcrumbs.js" was ignored.[39m
+2026-10-18T23:17:32.6159945Z [33mdist/experimental/ToggleButton/ToggleButton.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/ToggleButton/ToggleButton.js" was ignored.[39m
+2026-10-18T23:17:32.6167618Z [33mdist/experimental/Tooltip/Tooltip.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tooltip/Tooltip.js" was ignored.[39m
+2026-10-18T23:17:32.6174172Z [33mdist/experimental/List/List.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/List/List.js" was ignored.[39m
+2026-10-18T23:17:32.6180497Z [33mdist/experimental/Navigation/Navigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Navigation/Navigation.js" was ignored.[39m
+2026-10-18T23:17:32.6186628Z [33mdist/experimental/Disclosure/Disclosure.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Disclosure/Disclosure.js" was ignored.[39m
+2026-10-18T23:17:32.6199936Z [33mdist/experimental/TagGroup/TagGroup.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TagGroup/TagGroup.js" was ignored.[39m
+2026-10-18T23:17:32.6212038Z [33mdist/experimental/Progress/Progress.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Progress/Progress.js" was ignored.[39m
+2026-10-18T23:17:32.6219776Z [33mdist/experimental/Avatar/Avatar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Avatar/Avatar.js" was ignored.[39m
+2026-10-18T23:17:32.6233673Z [33mdist/experimental/Pagination/Pagination.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Pagination/Pagination.js" was ignored.[39m
+2026-10-18T23:17:32.6241023Z [33mdist/experimental/SearchField/SearchField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/SearchField/SearchField.js" was ignored.[39m
+2026-10-18T23:17:32.6257376Z [33mdist/experimental/DateTimeRangePicker/DateTimeRangePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateTimeRangePicker/DateTimeRangePicker.js" was ignored.[39m
+2026-10-18T23:17:32.6271502Z [33mdist/experimental/FormFieldScope/FormFieldScope.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/FormFieldScope/FormFieldScope.js" was ignored.[39m
+2026-10-18T23:17:32.6283479Z [33mdist/experimental/PeriodPicker/PeriodPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/PeriodPicker/PeriodPicker.js" was ignored.[39m
+2026-10-18T23:17:32.6305173Z [33mdist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.js" was ignored.[39m
+2026-10-18T23:17:32.6639228Z [33m../../apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/NativeInsertionHost.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.[39m
+2026-10-18T23:17:32.6641134Z [33m../../apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/NativeInsertionHost.tsx (1:0): Module level directives cause errors when bundled, "use client" in "../../apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/NativeInsertionHost.tsx" was ignored.[39m
+2026-10-18T23:17:32.6680598Z [33mdist/adapters/navigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/navigation.js" was ignored.[39m
+2026-10-18T23:17:32.6684843Z [33mdist/adapters/Link.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/Link.js" was ignored.[39m
+2026-10-18T23:17:32.6689997Z [33mdist/adapters/accounts.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/accounts.js" was ignored.[39m
+2026-10-18T23:17:32.6735701Z [33m../../node_modules/.pnpm/react-error-boundary@6.1.6_@types+react@19.3.0_react@19.2.3/node_modules/react-error-boundary/dist/react-error-boundary.js (1:0): Module level directives cause errors when bundled, "use client" in "../../node_modules/.pnpm/react-error-boundary@6.1.6_@types+react@19.3.0_react@19.2.3/node_modules/react-error-boundary/dist/react-error-boundary.js" was ignored.[39m
+2026-10-18T23:17:32.6853700Z [33mdist/components/AppDataGridRowDnd/DataGridDragHandle.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGridRowDnd/DataGridDragHandle.js" was ignored.[39m
+2026-10-18T23:17:32.6867934Z [33mdist/experimental/DataGrid/GridColumnWidthControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DataGrid/GridColumnWidthControl.js" was ignored.[39m
+2026-10-18T23:17:32.6876415Z [33m../../apps/docs/native-fixtures/scenarios/experimental/Select/SelectorDirectionFixture.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.[39m
+2026-10-18T23:17:32.6878065Z [33m../../apps/docs/native-fixtures/scenarios/experimental/Select/SelectorDirectionFixture.tsx (1:0): Module level directives cause errors when bundled, "use client" in "../../apps/docs/native-fixtures/scenarios/experimental/Select/SelectorDirectionFixture.tsx" was ignored.[39m
+2026-10-18T23:17:32.7105625Z [33mdist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.js" was ignored.[39m
+2026-10-18T23:17:32.7142143Z [33mdist/components/AppInlineProgress/AppInlineProgress.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppInlineProgress/AppInlineProgress.js" was ignored.[39m
+2026-10-18T23:17:32.7144027Z [33mdist/components/AuthShell/AuthShell.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AuthShell/AuthShell.js" was ignored.[39m
+2026-10-18T23:17:32.7158330Z [33mdist/components/AppOperationSteps/AppOperationSteps.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppOperationSteps/AppOperationSteps.js" was ignored.[39m
+2026-10-18T23:17:32.7166608Z [33mdist/components/AppPageHeader/AppPageHeader.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppPageHeader/AppPageHeader.js" was ignored.[39m
+2026-10-18T23:17:32.7197725Z [33mdist/components/AppPageTabs/AppPageTabs.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppPageTabs/AppPageTabs.js" was ignored.[39m
+2026-10-18T23:17:32.7214638Z [33mdist/components/DocumentEditorLayout/DocumentEditorLayout.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DocumentEditorLayout/DocumentEditorLayout.js" was ignored.[39m
+2026-10-18T23:17:32.7233167Z [33mdist/components/AppModal/AppModal.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppModal/AppModal.js" was ignored.[39m
+2026-10-18T23:17:32.7235220Z [33mdist/components/DocumentEditorToolbar/DocumentEditorToolbar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DocumentEditorToolbar/DocumentEditorToolbar.js" was ignored.[39m
+2026-10-18T23:17:32.7237039Z [33mdist/components/ColumnsLayoutModal/ColumnsLayoutModal.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/ColumnsLayoutModal/ColumnsLayoutModal.js" was ignored.[39m
+2026-10-18T23:17:32.7239075Z [33mdist/components/ContentEditorChrome/ContentEditorChrome.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/ContentEditorChrome/ContentEditorChrome.js" was ignored.[39m
+2026-10-18T23:17:32.7241109Z [33mdist/components/EditableTitleField/EditableTitleField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/EditableTitleField/EditableTitleField.js" was ignored.[39m
+2026-10-18T23:17:32.7247829Z [33mdist/components/InsertContentMenuControl/InsertContentMenuControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/InsertContentMenuControl/InsertContentMenuControl.js" was ignored.[39m
+2026-10-18T23:17:32.7256673Z [33mdist/components/TextColorPickerControl/TextColorPickerControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/TextColorPickerControl/TextColorPickerControl.js" was ignored.[39m
+2026-10-18T23:17:32.7260292Z [33mdist/components/LinkUrlModal/LinkUrlModal.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/LinkUrlModal/LinkUrlModal.js" was ignored.[39m
+2026-10-18T23:17:32.7270746Z [33mdist/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.js" was ignored.[39m
+2026-10-18T23:17:32.7288468Z [33mdist/components/TextAlignMenuControl/TextAlignMenuControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/TextAlignMenuControl/TextAlignMenuControl.js" was ignored.[39m
+2026-10-18T23:17:32.7298075Z [33mdist/components/primitives/Progress.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/primitives/Progress.js" was ignored.[39m
+2026-10-18T23:17:32.7303358Z [33mdist/components/TextStyleMenuControl/TextStyleMenuControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/TextStyleMenuControl/TextStyleMenuControl.js" was ignored.[39m
+2026-10-18T23:17:32.7311292Z [33mdist/components/ImageUploadModal/ImageUploadModal.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/ImageUploadModal/ImageUploadModal.js" was ignored.[39m
+2026-10-18T23:17:32.7323885Z [33mdist/components/AppDataGrid/AppDataGrid.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/AppDataGrid.js" was ignored.[39m
+2026-10-18T23:17:32.7335540Z [33mdist/components/PageRichTextEditorSection/PageRichTextEditorSection.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/PageRichTextEditorSection.js" was ignored.[39m
+2026-10-18T23:17:32.7337639Z [33mdist/components/AppDataGridRowDnd/useDataGridRowDnd.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGridRowDnd/useDataGridRowDnd.js" was ignored.[39m
+2026-10-18T23:17:32.7348540Z [33mdist/components/DataToolbar/components/DataToolbarSelectionMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/components/DataToolbarSelectionMenu.js" was ignored.[39m
+2026-10-18T23:17:32.7354632Z [33mdist/components/ExperiencePageNavigator/ExperiencePageNavigator.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/ExperiencePageNavigator/ExperiencePageNavigator.js" was ignored.[39m
+2026-10-18T23:17:32.7366664Z [33mdist/components/DataToolbar/DataToolbar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/DataToolbar.js" was ignored.[39m
+2026-10-18T23:17:32.7378946Z [33mdist/components/AppDataGridShell/AppDataGridShell.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGridShell/AppDataGridShell.js" was ignored.[39m
+2026-10-18T23:17:32.7402405Z [33mdist/components/CardPaginationFooter/CardPaginationFooter.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/CardPaginationFooter/CardPaginationFooter.js" was ignored.[39m
+2026-10-18T23:17:32.7408239Z [33mdist/components/CardCollectionWithFooter/CardCollectionWithFooter.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/CardCollectionWithFooter/CardCollectionWithFooter.js" was ignored.[39m
+2026-10-18T23:17:32.7415968Z [33mdist/components/InstructorClassCard/InstructorClassCard.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/InstructorClassCard/InstructorClassCard.js" was ignored.[39m
+2026-10-18T23:17:32.7423873Z [33mdist/components/LearnerClassCard/LearnerClassCard.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/LearnerClassCard/LearnerClassCard.js" was ignored.[39m
+2026-10-18T23:17:32.7436155Z [33mdist/components/LearnerClassesDataGrid/LearnerClassesDataGrid.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/LearnerClassesDataGrid/LearnerClassesDataGrid.js" was ignored.[39m
+2026-10-18T23:17:32.7442402Z [33mdist/components/IconPanelNavigation/IconPanelNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/IconPanelNavigation/IconPanelNavigation.js" was ignored.[39m
+2026-10-18T23:17:32.7463764Z [33mdist/components/SideNavigation/SideNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/SideNavigation/SideNavigation.js" was ignored.[39m
+2026-10-18T23:17:32.7488994Z [33mdist/experimental/TextField/FieldMessages.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/FieldMessages.js" was ignored.[39m
+2026-10-18T23:17:32.7503218Z [33mdist/experimental/TextField/useStandaloneFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/useStandaloneFormReset.js" was ignored.[39m
+2026-10-18T23:17:32.7511605Z [33mdist/experimental/Tabs/TabIndicator.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/TabIndicator.js" was ignored.[39m
+2026-10-18T23:17:32.7520845Z [33mdist/experimental/Tabs/useTabOverflow.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/useTabOverflow.js" was ignored.[39m
+2026-10-18T23:17:32.7539873Z [33mdist/experimental/useFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/useFormReset.js" was ignored.[39m
+2026-10-18T23:17:32.7573964Z [33mdist/experimental/DateField/TextDateField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/TextDateField.js" was ignored.[39m
+2026-10-18T23:17:32.7585929Z [33mdist/experimental/DateField/DateFieldControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/DateFieldControl.js" was ignored.[39m
+2026-10-18T23:17:32.7597816Z [33mdist/experimental/TimeField/TextTimeField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TimeField/TextTimeField.js" was ignored.[39m
+2026-10-18T23:17:32.7618058Z [33mdist/experimental/Calendar/CalendarNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarNavigation.js" was ignored.[39m
+2026-10-18T23:17:32.7624962Z [33mdist/experimental/Calendar/CalendarMonthTransition.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarMonthTransition.js" was ignored.[39m
+2026-10-18T23:17:32.7637444Z [33mdist/experimental/DateRangeSelector/useCalendarFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/useCalendarFormReset.js" was ignored.[39m
+2026-10-18T23:17:32.7647186Z [33mdist/experimental/Calendar/CalendarPeriodNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarPeriodNavigation.js" was ignored.[39m
+2026-10-18T23:17:32.7664959Z [33mdist/experimental/DateRangeSelector/RangeAdjustmentControls.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/RangeAdjustmentControls.js" was ignored.[39m
+2026-10-18T23:17:32.7675353Z [33mdist/experimental/DateRangeSelector/CalendarFormValidity.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/CalendarFormValidity.js" was ignored.[39m
+2026-10-18T23:17:32.7680682Z [33mdist/experimental/DateRangeSelector/RangeGestures.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/RangeGestures.js" was ignored.[39m
+2026-10-18T23:17:32.7881710Z [33mdist/experimental/Select/FramePositionedPopover.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Select/FramePositionedPopover.js" was ignored.[39m
+2026-10-18T23:17:32.7915356Z [33mdist/experimental/HierarchicalMenu/HierarchicalMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/HierarchicalMenu/HierarchicalMenu.js" was ignored.[39m
+2026-10-18T23:17:32.9036353Z [33mdist/adapters/navigationContext.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/navigationContext.js" was ignored.[39m
+2026-10-18T23:17:33.0571784Z [33mdist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.js" was ignored.[39m
+2026-10-18T23:17:33.1250340Z [33mdist/components/TextColorPickerControl/TextColorPickerControl.impl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/TextColorPickerControl/TextColorPickerControl.impl.js" was ignored.[39m
+2026-10-18T23:17:33.1264102Z [33mdist/components/AppDataGrid/ownedGridPersistence.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridPersistence.js" was ignored.[39m
+2026-10-18T23:17:33.1273247Z [33mdist/components/AppShell/AppShellMain.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppShell/AppShellMain.js" was ignored.[39m
+2026-10-18T23:17:33.1279268Z [33mdist/components/DataToolbar/components/DataToolbarColumnsMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/components/DataToolbarColumnsMenu.js" was ignored.[39m
+2026-10-18T23:17:33.1287539Z [33mdist/components/DataToolbar/components/DataToolbarSortMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/components/DataToolbarSortMenu.js" was ignored.[39m
+2026-10-18T23:17:33.1303850Z [33mdist/components/DataToolbar/components/DataToolbarFilterMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/components/DataToolbarFilterMenu.js" was ignored.[39m
+2026-10-18T23:17:33.1318558Z [33mdist/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.js" was ignored.[39m
+2026-10-18T23:17:33.1361406Z [33mdist/components/IconPanelNavigation/PanelResizeHandle.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/IconPanelNavigation/PanelResizeHandle.js" was ignored.[39m
+2026-10-18T23:17:33.4729083Z [33m../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/context.mjs (2:0): Module level directives cause errors when bundled, "use client" in "../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/context.mjs" was ignored.[39m
+2026-10-18T23:17:33.4814981Z [33m../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/Icon.mjs (2:0): Module level directives cause errors when bundled, "use client" in "../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/Icon.mjs" was ignored.[39m
+2026-10-18T23:17:33.5587636Z [33mdist/components/PageRichTextEditorSection/lexical/EditorClipboardSafetyPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/EditorClipboardSafetyPlugin.js" was ignored.[39m
+2026-10-18T23:17:33.5674706Z [33mdist/components/PageRichTextEditorSection/DocumentContentEditable.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/DocumentContentEditable.js" was ignored.[39m
+2026-10-18T23:17:33.5705186Z [33mdist/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.js" was ignored.[39m
+2026-10-18T23:17:33.7498778Z [33mdist/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.js" was ignored.[39m
+2026-10-18T23:17:33.7501480Z [33mdist/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.js" was ignored.[39m
+2026-10-18T23:17:33.7510083Z [33mdist/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.js" was ignored.[39m
+2026-10-18T23:17:36.6920684Z [32m✓[39m 3871 modules transformed.
+2026-10-18T23:17:37.1264821Z rendering chunks...
+2026-10-18T23:17:37.5195086Z computing gzip size...
+2026-10-18T23:17:37.6095569Z [2m../../../packages/ui/browser-docs-static/[22m[32mindex.html                                                                   [39m[1m[2m  0.54 kB[22m[1m[22m[2m │ gzip:  0.36 kB[22m
+2026-10-18T23:17:37.6124800Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[35mNativeSelection-Col-VA7j.css                                          [39m[1m[2m  0.89 kB[22m[1m[22m[2m │ gzip:  0.37 kB[22m
+2026-10-18T23:17:37.6148751Z [33m
+2026-10-18T23:17:37.6163931Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2026-10-18T23:17:37.6164511Z - Using dynamic import() to code-split the application
+2026-10-18T23:17:37.6165440Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2026-10-18T23:17:37.6166456Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+2026-10-18T23:17:37.6167888Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[35mindex-DE4ZVnWY.css                                                    [39m[1m[2m253.95 kB[22m[1m[22m[2m │ gzip: 22.77 kB[22m
+2026-10-18T23:17:37.6214560Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mnavigationContext-CIPlPyHX.js                                         [39m[1m[2m  0.09 kB[22m[1m[22m[2m │ gzip:  0.10 kB[22m
+2026-10-18T23:17:37.6244406Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mForm-DabPQPoV.js                                                      [39m[1m[2m  0.09 kB[22m[1m[22m[2m │ gzip:  0.10 kB[22m
+2026-10-18T23:17:37.6274612Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSelectionIndicator-ComLGC4e.js                                        [39m[1m[2m  0.10 kB[22m[1m[22m[2m │ gzip:  0.11 kB[22m
+2026-10-18T23:17:37.6304418Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAutocomplete-CrLbAYno.js                                              [39m[1m[2m  0.12 kB[22m[1m[22m[2m │ gzip:  0.11 kB[22m
+2026-10-18T23:17:37.6364396Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mGroupIcon-C40Bd5lC.js                                                 [39m[1m[2m  0.13 kB[22m[1m[22m[2m │ gzip:  0.13 kB[22m
+2026-10-18T23:17:37.6394222Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mRemoveIcon-CUqcrfQ0.js                                                [39m[1m[2m  0.13 kB[22m[1m[22m[2m │ gzip:  0.13 kB[22m
+2026-10-18T23:17:37.6424290Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mPeopleIcon-CW1vVZ7u.js                                                [39m[1m[2m  0.13 kB[22m[1m[22m[2m │ gzip:  0.13 kB[22m
+2026-10-18T23:17:37.6454185Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mMenuBookIcon-DB4GJGGs.js                                              [39m[1m[2m  0.14 kB[22m[1m[22m[2m │ gzip:  0.13 kB[22m
+2026-10-18T23:17:37.6455618Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mcreateActionMenuColumn-lcHFeJRd.js                                    [39m[1m[2m  0.14 kB[22m[1m[22m[2m │ gzip:  0.14 kB[22m
+2026-10-18T23:17:37.6484189Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAutoStoriesIcon-140HjTnl.js                                           [39m[1m[2m  0.14 kB[22m[1m[22m[2m │ gzip:  0.14 kB[22m
+2026-10-18T23:17:37.6514165Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mExpandMoreIcon-B7pVBGuQ.js                                            [39m[1m[2m  0.14 kB[22m[1m[22m[2m │ gzip:  0.14 kB[22m
+2026-10-18T23:17:37.6544123Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mArrowDropDownIcon-C0wPv6T6.js                                         [39m[1m[2m  0.14 kB[22m[1m[22m[2m │ gzip:  0.14 kB[22m
+2026-10-18T23:17:37.6574250Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mKeyboardArrowDownIcon-CD6Olt77.js                                     [39m[1m[2m  0.15 kB[22m[1m[22m[2m │ gzip:  0.15 kB[22m
+2026-10-18T23:17:37.6575745Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mfilterRuleValue-BjAHLo2m.js                                           [39m[1m[2m  0.15 kB[22m[1m[22m[2m │ gzip:  0.15 kB[22m
+2026-10-18T23:17:37.6577216Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mminus-DepwSB2R.js                                                     [39m[1m[2m  0.16 kB[22m[1m[22m[2m │ gzip:  0.16 kB[22m
+2026-10-18T23:17:37.6606419Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mComboBox.module.css-BeIQAg-Q.js                                       [39m[1m[2m  0.17 kB[22m[1m[22m[2m │ gzip:  0.13 kB[22m
+2026-10-18T23:17:37.6634175Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mchevron-down-COd0B9kS.js                                              [39m[1m[2m  0.17 kB[22m[1m[22m[2m │ gzip:  0.16 kB[22m
+2026-10-18T23:17:37.6635939Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCheckIcon-Ch26fjrA.js                                                 [39m[1m[2m  0.19 kB[22m[1m[22m[2m │ gzip:  0.18 kB[22m
+2026-10-18T23:17:37.6694114Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCircleIcon-Bxjim6Lx.js                                                [39m[1m[2m  0.20 kB[22m[1m[22m[2m │ gzip:  0.18 kB[22m
+2026-10-18T23:17:37.6724147Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mChevronRightIcon-CBdR67_i.js                                          [39m[1m[2m  0.21 kB[22m[1m[22m[2m │ gzip:  0.19 kB[22m
+2026-10-18T23:17:37.6754131Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mKeyboardArrowLeftIcon-331IqFFt.js                                     [39m[1m[2m  0.21 kB[22m[1m[22m[2m │ gzip:  0.20 kB[22m
+2026-10-18T23:17:37.6755594Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAddIcon-CzQ-vru1.js                                                   [39m[1m[2m  0.21 kB[22m[1m[22m[2m │ gzip:  0.19 kB[22m
+2026-10-18T23:17:37.6756849Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSharedElementTransition-CBHl5ddb.js                                   [39m[1m[2m  0.21 kB[22m[1m[22m[2m │ gzip:  0.19 kB[22m
+2026-10-18T23:17:37.6758161Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCloseIcon-BqDLlI3l.js                                                 [39m[1m[2m  0.22 kB[22m[1m[22m[2m │ gzip:  0.20 kB[22m
+2026-10-18T23:17:37.6759447Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCollapse-BH3K8jhX.js                                                  [39m[1m[2m  0.24 kB[22m[1m[22m[2m │ gzip:  0.21 kB[22m
+2026-10-18T23:17:37.6760746Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAccessTimeFilledIcon-CGO0a6Da.js                                      [39m[1m[2m  0.25 kB[22m[1m[22m[2m │ gzip:  0.22 kB[22m
+2026-10-18T23:17:37.6762068Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDivider.fixture-DwxmnC53.js                                           [39m[1m[2m  0.26 kB[22m[1m[22m[2m │ gzip:  0.21 kB[22m
+2026-10-18T23:17:37.6763808Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mProgress-B4as9Qqm.js                                                  [39m[1m[2m  0.28 kB[22m[1m[22m[2m │ gzip:  0.19 kB[22m
+2026-10-18T23:17:37.6765134Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mcolumns-3-CZCEJHLj.js                                                 [39m[1m[2m  0.29 kB[22m[1m[22m[2m │ gzip:  0.24 kB[22m
+2026-10-18T23:17:37.6766412Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTextField.module.css-BRvKwHS-.js                                      [39m[1m[2m  0.30 kB[22m[1m[22m[2m │ gzip:  0.16 kB[22m
+2026-10-18T23:17:37.6767704Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mContentCopyIcon-CvgciSGb.js                                           [39m[1m[2m  0.30 kB[22m[1m[22m[2m │ gzip:  0.25 kB[22m
+2026-10-18T23:17:37.6769141Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSortIcon-KikveWpb.js                                                  [39m[1m[2m  0.31 kB[22m[1m[22m[2m │ gzip:  0.23 kB[22m
+2026-10-18T23:17:37.6794068Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSurface.fixture-DTArSrzl.js                                           [39m[1m[2m  0.31 kB[22m[1m[22m[2m │ gzip:  0.24 kB[22m
+2026-10-18T23:17:37.6824139Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museSlot-DlUqrHPl.js                                                   [39m[1m[2m  0.32 kB[22m[1m[22m[2m │ gzip:  0.25 kB[22m
+2026-10-18T23:17:37.6825465Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mMoreHorizIcon-BSdL2iQA.js                                             [39m[1m[2m  0.33 kB[22m[1m[22m[2m │ gzip:  0.23 kB[22m
+2026-10-18T23:17:37.6854369Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mMoreVertIcon-IYR7fdxS.js                                              [39m[1m[2m  0.33 kB[22m[1m[22m[2m │ gzip:  0.23 kB[22m
+2026-10-18T23:17:37.6884031Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSurface--SXBDcLq.js                                                   [39m[1m[2m  0.33 kB[22m[1m[22m[2m │ gzip:  0.26 kB[22m
+2026-10-18T23:17:37.6914075Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museUpdateEffect-ByKJlOsK.js                                           [39m[1m[2m  0.33 kB[22m[1m[22m[2m │ gzip:  0.24 kB[22m
+2026-10-18T23:17:37.6944066Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mbook-open-D7g5gr-N.js                                                 [39m[1m[2m  0.33 kB[22m[1m[22m[2m │ gzip:  0.25 kB[22m
+2026-10-18T23:17:37.6974092Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCard.fixture-baaBJTaR.js                                              [39m[1m[2m  0.33 kB[22m[1m[22m[2m │ gzip:  0.25 kB[22m
+2026-10-18T23:17:37.7004163Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTypography-CldLGeA-.js                                                [39m[1m[2m  0.34 kB[22m[1m[22m[2m │ gzip:  0.27 kB[22m
+2026-10-18T23:17:37.7034054Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mEditIcon-BGdHoYem.js                                                  [39m[1m[2m  0.34 kB[22m[1m[22m[2m │ gzip:  0.27 kB[22m
+2026-10-18T23:17:37.7064067Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mText-Dj1GAwuN.js                                                      [39m[1m[2m  0.34 kB[22m[1m[22m[2m │ gzip:  0.26 kB[22m
+2026-10-18T23:17:37.7094220Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museToggleState-B3I1doml.js                                            [39m[1m[2m  0.34 kB[22m[1m[22m[2m │ gzip:  0.24 kB[22m
+2026-10-18T23:17:37.7121794Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36musers-DCH_qLMU.js                                                     [39m[1m[2m  0.35 kB[22m[1m[22m[2m │ gzip:  0.25 kB[22m
+2026-10-18T23:17:37.7134305Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mButtonGroup-BBtFN9mW.js                                               [39m[1m[2m  0.35 kB[22m[1m[22m[2m │ gzip:  0.27 kB[22m
+2026-10-18T23:17:37.7230008Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCard-CwvWrD5g.js                                                      [39m[1m[2m  0.36 kB[22m[1m[22m[2m │ gzip:  0.24 kB[22m
+2026-10-18T23:17:37.7233464Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mstate-indicator-host-D22oxnh7.js                                      [39m[1m[2m  0.36 kB[22m[1m[22m[2m │ gzip:  0.27 kB[22m
+2026-10-18T23:17:37.7235040Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDivider-dVKT7m8K.js                                                   [39m[1m[2m  0.37 kB[22m[1m[22m[2m │ gzip:  0.28 kB[22m
+2026-10-18T23:17:37.7236466Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mBuildIcon-CdLQkUoh.js                                                 [39m[1m[2m  0.37 kB[22m[1m[22m[2m │ gzip:  0.29 kB[22m
+2026-10-18T23:17:37.7301634Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mChip-BlNzL2rN.js                                                      [39m[1m[2m  0.37 kB[22m[1m[22m[2m │ gzip:  0.28 kB[22m
+2026-10-18T23:17:37.7303583Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mBox-MafSYnuu.js                                                       [39m[1m[2m  0.39 kB[22m[1m[22m[2m │ gzip:  0.30 kB[22m
+2026-10-18T23:17:37.7315204Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSchoolIcon-Bd5yRJKu.js                                                [39m[1m[2m  0.40 kB[22m[1m[22m[2m │ gzip:  0.29 kB[22m
+2026-10-18T23:17:37.7323185Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mStatus-60z5vEQ1.js                                                    [39m[1m[2m  0.41 kB[22m[1m[22m[2m │ gzip:  0.30 kB[22m
+2026-10-18T23:17:37.7324831Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mnavigation-UAE_pulQ.js                                                [39m[1m[2m  0.42 kB[22m[1m[22m[2m │ gzip:  0.29 kB[22m
+2026-10-18T23:17:37.7326678Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mUploadFileIcon-C2PdNrrs.js                                            [39m[1m[2m  0.43 kB[22m[1m[22m[2m │ gzip:  0.30 kB[22m
+2026-10-18T23:17:37.7329009Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museField-C6vTt41C.js                                                  [39m[1m[2m  0.44 kB[22m[1m[22m[2m │ gzip:  0.29 kB[22m
+2026-10-18T23:17:37.7338855Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDragIndicatorIcon-2wdPgelj.js                                         [39m[1m[2m  0.45 kB[22m[1m[22m[2m │ gzip:  0.25 kB[22m
+2026-10-18T23:17:37.7340549Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mIconButton-D_cNBP64.js                                                [39m[1m[2m  0.45 kB[22m[1m[22m[2m │ gzip:  0.31 kB[22m
+2026-10-18T23:17:37.7342026Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museFormReset-c1N0HfOK.js                                              [39m[1m[2m  0.45 kB[22m[1m[22m[2m │ gzip:  0.29 kB[22m
+2026-10-18T23:17:37.7343638Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mStack-B0KUNLGR.js                                                     [39m[1m[2m  0.48 kB[22m[1m[22m[2m │ gzip:  0.34 kB[22m
+2026-10-18T23:17:37.7345688Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mViewWeekIcon-B-wGhrv1.js                                              [39m[1m[2m  0.48 kB[22m[1m[22m[2m │ gzip:  0.35 kB[22m
+2026-10-18T23:17:37.7347455Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museHasTabbableChild-BTX6w6G7.js                                       [39m[1m[2m  0.49 kB[22m[1m[22m[2m │ gzip:  0.34 kB[22m
+2026-10-18T23:17:37.7349167Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museControlledState-BOyHT-hp.js                                        [39m[1m[2m  0.49 kB[22m[1m[22m[2m │ gzip:  0.33 kB[22m
+2026-10-18T23:17:37.7350641Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mFormatItalicIcon-74H592xD.js                                          [39m[1m[2m  0.50 kB[22m[1m[22m[2m │ gzip:  0.32 kB[22m
+2026-10-18T23:17:37.7352024Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mIconButton.fixture-JwKGRhlf.js                                        [39m[1m[2m  0.51 kB[22m[1m[22m[2m │ gzip:  0.34 kB[22m
+2026-10-18T23:17:37.7353691Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mBadge-DzDuNuzD.js                                                     [39m[1m[2m  0.52 kB[22m[1m[22m[2m │ gzip:  0.34 kB[22m
+2026-10-18T23:17:37.7355028Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mLinkIcon-CgCno5o5.js                                                  [39m[1m[2m  0.53 kB[22m[1m[22m[2m │ gzip:  0.33 kB[22m
+2026-10-18T23:17:37.7356911Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCalendarTodayIcon-CeYRCKjK.js                                         [39m[1m[2m  0.57 kB[22m[1m[22m[2m │ gzip:  0.32 kB[22m
+2026-10-18T23:17:37.7363275Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mLogoutIcon-BziuGCxm.js                                                [39m[1m[2m  0.59 kB[22m[1m[22m[2m │ gzip:  0.37 kB[22m
+2026-10-18T23:17:37.7365666Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mNavigation-DtIPozIY.js                                                [39m[1m[2m  0.59 kB[22m[1m[22m[2m │ gzip:  0.34 kB[22m
+2026-10-18T23:17:37.7367220Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppInlineProgress-C7cOoSEV.js                                         [39m[1m[2m  0.60 kB[22m[1m[22m[2m │ gzip:  0.40 kB[22m
+2026-10-18T23:17:37.7384587Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDataGridDragHandle-DG45HACs.js                                        [39m[1m[2m  0.60 kB[22m[1m[22m[2m │ gzip:  0.41 kB[22m
+2026-10-18T23:17:37.7414606Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mFieldError-DXvJ8ZQE.js                                                [39m[1m[2m  0.63 kB[22m[1m[22m[2m │ gzip:  0.40 kB[22m
+2026-10-18T23:17:37.7434355Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTypography.fixture-99qQXSlw.js                                        [39m[1m[2m  0.63 kB[22m[1m[22m[2m │ gzip:  0.42 kB[22m
+2026-10-18T23:17:37.7454179Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCodeIcon-Cd-3Ar7Y.js                                                  [39m[1m[2m  0.66 kB[22m[1m[22m[2m │ gzip:  0.36 kB[22m
+2026-10-18T23:17:37.7489428Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museFilter-d2l3qW-D.js                                                 [39m[1m[2m  0.66 kB[22m[1m[22m[2m │ gzip:  0.34 kB[22m
+2026-10-18T23:17:37.7514499Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mFormatIndentIncreaseIcon-ClbYzdYQ.js                                  [39m[1m[2m  0.68 kB[22m[1m[22m[2m │ gzip:  0.31 kB[22m
+2026-10-18T23:17:37.7544441Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mVisuallyHidden-CHYtjH5S.js                                            [39m[1m[2m  0.69 kB[22m[1m[22m[2m │ gzip:  0.47 kB[22m
+2026-10-18T23:17:37.7560616Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSuperscriptIcon-BG1Y9n9I.js                                           [39m[1m[2m  0.70 kB[22m[1m[22m[2m │ gzip:  0.39 kB[22m
+2026-10-18T23:17:37.7604206Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAvatar.fixture-BLSN8rRp.js                                            [39m[1m[2m  0.71 kB[22m[1m[22m[2m │ gzip:  0.47 kB[22m
+2026-10-18T23:17:37.7624594Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mThemeScope.fixture-Bh3ugMzY.js                                        [39m[1m[2m  0.71 kB[22m[1m[22m[2m │ gzip:  0.38 kB[22m
+2026-10-18T23:17:37.7654410Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mBreadcrumbs.fixture-xevQ7g9i.js                                       [39m[1m[2m  0.72 kB[22m[1m[22m[2m │ gzip:  0.42 kB[22m
+2026-10-18T23:17:37.7664339Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mStatus.fixture-DkM5oKpU.js                                            [39m[1m[2m  0.72 kB[22m[1m[22m[2m │ gzip:  0.47 kB[22m
+2026-10-18T23:17:37.7684575Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mProgress.fixture-D6UvzLdV.js                                          [39m[1m[2m  0.74 kB[22m[1m[22m[2m │ gzip:  0.44 kB[22m
+2026-10-18T23:17:37.7714404Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mStack.fixture-BoEN_ega.js                                             [39m[1m[2m  0.74 kB[22m[1m[22m[2m │ gzip:  0.47 kB[22m
+2026-10-18T23:17:37.7744448Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mExploreIcon-CUiyLnuU.js                                               [39m[1m[2m  0.75 kB[22m[1m[22m[2m │ gzip:  0.44 kB[22m
+2026-10-18T23:17:37.7754394Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mFormatListNumberedIcon-CTt95pGA.js                                    [39m[1m[2m  0.76 kB[22m[1m[22m[2m │ gzip:  0.38 kB[22m
+2026-10-18T23:17:37.7784171Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mChip.fixture-CfnC1BjB.js                                              [39m[1m[2m  0.76 kB[22m[1m[22m[2m │ gzip:  0.42 kB[22m
+2026-10-18T23:17:37.7804600Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museStandaloneFormReset-CYFeSOjO.js                                    [39m[1m[2m  0.77 kB[22m[1m[22m[2m │ gzip:  0.44 kB[22m
+2026-10-18T23:17:37.7834462Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCollapse.fixture-CPYHRtQ2.js                                          [39m[1m[2m  0.77 kB[22m[1m[22m[2m │ gzip:  0.46 kB[22m
+2026-10-18T23:17:37.7844015Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAvatar-B55t2pLo.js                                                    [39m[1m[2m  0.80 kB[22m[1m[22m[2m │ gzip:  0.47 kB[22m
+2026-10-18T23:17:37.7874144Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppInlineProgress.fixture-09odUrLr.js                                 [39m[1m[2m  0.81 kB[22m[1m[22m[2m │ gzip:  0.43 kB[22m
+2026-10-18T23:17:37.7897572Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSplitAction-Uts246wa.js                                               [39m[1m[2m  0.83 kB[22m[1m[22m[2m │ gzip:  0.51 kB[22m
+2026-10-18T23:17:37.7899170Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mFormatColorFillIcon-kPsVW1Dk.js                                       [39m[1m[2m  0.84 kB[22m[1m[22m[2m │ gzip:  0.47 kB[22m
+2026-10-18T23:17:37.7900780Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mHighlightIcon-BvYNs5Zk.js                                             [39m[1m[2m  0.85 kB[22m[1m[22m[2m │ gzip:  0.47 kB[22m
+2026-10-18T23:17:37.7902429Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mBreadcrumbs-BKNuvrA0.js                                               [39m[1m[2m  0.89 kB[22m[1m[22m[2m │ gzip:  0.51 kB[22m
+2026-10-18T23:17:37.7904129Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mClassCardFrame-CfVnU2NH.js                                            [39m[1m[2m  0.89 kB[22m[1m[22m[2m │ gzip:  0.39 kB[22m
+2026-10-18T23:17:37.7905985Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDragAndDrop-Do4aFYK7.js                                               [39m[1m[2m  0.96 kB[22m[1m[22m[2m │ gzip:  0.52 kB[22m
+2026-10-18T23:17:37.7912448Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCardPaginationFooter.fixture-C1QmC-e8.js                              [39m[1m[2m  1.00 kB[22m[1m[22m[2m │ gzip:  0.56 kB[22m
+2026-10-18T23:17:37.7914347Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mFormatAlignJustifyIcon-BhrgUjmN.js                                    [39m[1m[2m  1.04 kB[22m[1m[22m[2m │ gzip:  0.44 kB[22m
+2026-10-18T23:17:37.7915703Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDataToolbarSelectionMenu-CojTD_OT.js                                  [39m[1m[2m  1.04 kB[22m[1m[22m[2m │ gzip:  0.55 kB[22m
+2026-10-18T23:17:37.7917107Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mdate-contract-BWwjX8WG.js                                             [39m[1m[2m  1.07 kB[22m[1m[22m[2m │ gzip:  0.59 kB[22m
+2026-10-18T23:17:37.7918371Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSelectorDirectionFixture-Ck-ouMbK.js                                  [39m[1m[2m  1.09 kB[22m[1m[22m[2m │ gzip:  0.63 kB[22m
+2026-10-18T23:17:37.7919376Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mLink-CDb8_7Z7.js                                                      [39m[1m[2m  1.09 kB[22m[1m[22m[2m │ gzip:  0.63 kB[22m
+2026-10-18T23:17:37.7920514Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTable.fixture-TFbFOkoj.js                                             [39m[1m[2m  1.10 kB[22m[1m[22m[2m │ gzip:  0.52 kB[22m
+2026-10-18T23:17:37.7921471Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTypefaces.fixture-YsypgAYS.js                                         [39m[1m[2m  1.11 kB[22m[1m[22m[2m │ gzip:  0.58 kB[22m
+2026-10-18T23:17:37.7922461Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mInsertContentMenuControl-BrIFDPlY.js                                  [39m[1m[2m  1.15 kB[22m[1m[22m[2m │ gzip:  0.58 kB[22m
+2026-10-18T23:17:37.7923761Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mColumnsLayoutModal-Mqv9UW_l.js                                        [39m[1m[2m  1.21 kB[22m[1m[22m[2m │ gzip:  0.60 kB[22m
+2026-10-18T23:17:37.7924764Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTable-BgrxPXcr.js                                                     [39m[1m[2m  1.33 kB[22m[1m[22m[2m │ gzip:  0.45 kB[22m
+2026-10-18T23:17:37.7925740Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mList-2Ref3kzW.js                                                      [39m[1m[2m  1.33 kB[22m[1m[22m[2m │ gzip:  0.53 kB[22m
+2026-10-18T23:17:37.7926668Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDisclosure-CVtrAdXb.js                                                [39m[1m[2m  1.35 kB[22m[1m[22m[2m │ gzip:  0.73 kB[22m
+2026-10-18T23:17:37.7927689Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDocumentEditorLayout-FDtsfb7z.js                                      [39m[1m[2m  1.35 kB[22m[1m[22m[2m │ gzip:  0.52 kB[22m
+2026-10-18T23:17:37.7928772Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mBadge.fixture-DoAW2uY_.js                                             [39m[1m[2m  1.39 kB[22m[1m[22m[2m │ gzip:  0.63 kB[22m
+2026-10-18T23:17:37.7929750Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mProgress-CD6TLpQF.js                                                  [39m[1m[2m  1.39 kB[22m[1m[22m[2m │ gzip:  0.70 kB[22m
+2026-10-18T23:17:37.7930845Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mNavigation.fixture-uO9nDwgL.js                                        [39m[1m[2m  1.40 kB[22m[1m[22m[2m │ gzip:  0.71 kB[22m
+2026-10-18T23:17:37.7931883Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mLearnerClassesDataGrid-CIlMJflS.js                                    [39m[1m[2m  1.41 kB[22m[1m[22m[2m │ gzip:  0.74 kB[22m
+2026-10-18T23:17:37.7933042Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppPageTabs-nId8UT1K.js                                               [39m[1m[2m  1.44 kB[22m[1m[22m[2m │ gzip:  0.72 kB[22m
+2026-10-18T23:17:37.7934033Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mToggleButton.fixture-BZ1qipjC.js                                      [39m[1m[2m  1.46 kB[22m[1m[22m[2m │ gzip:  0.71 kB[22m
+2026-10-18T23:17:37.7935014Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCardPaginationFooter-CjHDkewC.js                                      [39m[1m[2m  1.47 kB[22m[1m[22m[2m │ gzip:  0.73 kB[22m
+2026-10-18T23:17:37.7935982Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mWindowIcon-B6cX74Ip.js                                                [39m[1m[2m  1.49 kB[22m[1m[22m[2m │ gzip:  0.70 kB[22m
+2026-10-18T23:17:37.7936945Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mButtonGroup.fixture-Dcu5Up_q.js                                       [39m[1m[2m  1.54 kB[22m[1m[22m[2m │ gzip:  0.67 kB[22m
+2026-10-18T23:17:37.7937995Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mColumnsLayoutModal.fixture-CGigI_Lh.js                                [39m[1m[2m  1.59 kB[22m[1m[22m[2m │ gzip:  0.85 kB[22m
+2026-10-18T23:17:37.7938958Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSwitch.fixture-q_nDTIA2.js                                            [39m[1m[2m  1.61 kB[22m[1m[22m[2m │ gzip:  0.80 kB[22m
+2026-10-18T23:17:37.7939947Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mContentEditorChrome-xQaMGnKL.js                                       [39m[1m[2m  1.67 kB[22m[1m[22m[2m │ gzip:  0.77 kB[22m
+2026-10-18T23:17:37.7941003Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mPagination.fixture-CzFVZiZS.js                                        [39m[1m[2m  1.67 kB[22m[1m[22m[2m │ gzip:  0.84 kB[22m
+2026-10-18T23:17:37.7942055Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mList.fixture-D0WR6Gc1.js                                              [39m[1m[2m  1.67 kB[22m[1m[22m[2m │ gzip:  0.81 kB[22m
+2026-10-18T23:17:37.7943182Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mformatDueDateLabel-VDYAfS8J.js                                        [39m[1m[2m  1.69 kB[22m[1m[22m[2m │ gzip:  0.75 kB[22m
+2026-10-18T23:17:37.7944163Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppModal-7ncytc41.js                                                  [39m[1m[2m  1.75 kB[22m[1m[22m[2m │ gzip:  0.95 kB[22m
+2026-10-18T23:17:37.7945100Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDisclosure.fixture-B4IkmHJa.js                                        [39m[1m[2m  1.77 kB[22m[1m[22m[2m │ gzip:  0.84 kB[22m
+2026-10-18T23:17:37.7946135Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppThemeProvider.fixture-RoLQ-jCi.js                                  [39m[1m[2m  1.80 kB[22m[1m[22m[2m │ gzip:  0.94 kB[22m
+2026-10-18T23:17:37.7947190Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAuthShell-Ct8J5bmv.js                                                 [39m[1m[2m  1.86 kB[22m[1m[22m[2m │ gzip:  0.87 kB[22m
+2026-10-18T23:17:37.7948173Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCardCollectionWithFooter-DkolkoxV.js                                  [39m[1m[2m  1.86 kB[22m[1m[22m[2m │ gzip:  0.94 kB[22m
+2026-10-18T23:17:37.7949297Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTextStyleMenuControl.fixture-cH6B9D2Q.js                              [39m[1m[2m  1.87 kB[22m[1m[22m[2m │ gzip:  0.95 kB[22m
+2026-10-18T23:17:37.7950368Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36musePersistentPaginationModel.fixture-CppgShgP.js                      [39m[1m[2m  1.89 kB[22m[1m[22m[2m │ gzip:  0.93 kB[22m
+2026-10-18T23:17:37.7951397Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mEditableTitleField.fixture-T7XIXVlc.js                                [39m[1m[2m  1.89 kB[22m[1m[22m[2m │ gzip:  0.93 kB[22m
+2026-10-18T23:17:37.7952417Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTooltip.fixture-BOh_qLxO.js                                           [39m[1m[2m  1.97 kB[22m[1m[22m[2m │ gzip:  1.00 kB[22m
+2026-10-18T23:17:37.7953506Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTextField-CdaR5Z80.js                                                 [39m[1m[2m  2.03 kB[22m[1m[22m[2m │ gzip:  0.95 kB[22m
+2026-10-18T23:17:37.7954498Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTextAlignMenuControl-CpGxOwMe.js                                      [39m[1m[2m  2.04 kB[22m[1m[22m[2m │ gzip:  1.01 kB[22m
+2026-10-18T23:17:37.7955480Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museLocalizedStringFormatter-C_wwBi1A.js                               [39m[1m[2m  2.10 kB[22m[1m[22m[2m │ gzip:  0.98 kB[22m
+2026-10-18T23:17:37.7956617Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mPagination-DFiyLYZx.js                                                [39m[1m[2m  2.12 kB[22m[1m[22m[2m │ gzip:  0.91 kB[22m
+2026-10-18T23:17:37.7957566Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mLinkUrlModal-FesprOZ_.js                                              [39m[1m[2m  2.12 kB[22m[1m[22m[2m │ gzip:  1.12 kB[22m
+2026-10-18T23:17:37.7958507Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTextArea-C97ypNXu.js                                                  [39m[1m[2m  2.17 kB[22m[1m[22m[2m │ gzip:  1.00 kB[22m
+2026-10-18T23:17:37.7959597Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museListState-D5hZ9FP4.js                                              [39m[1m[2m  2.18 kB[22m[1m[22m[2m │ gzip:  0.90 kB[22m
+2026-10-18T23:17:37.7960951Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museToggle-CUNp7HnB.js                                                 [39m[1m[2m  2.21 kB[22m[1m[22m[2m │ gzip:  0.96 kB[22m
+2026-10-18T23:17:37.7962326Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTextStyleMenuControl-Duoy90__.js                                      [39m[1m[2m  2.27 kB[22m[1m[22m[2m │ gzip:  0.90 kB[22m
+2026-10-18T23:17:37.7963639Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTextField-gASvwT-n.js                                                 [39m[1m[2m  2.28 kB[22m[1m[22m[2m │ gzip:  1.08 kB[22m
+2026-10-18T23:17:37.7964867Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSplitAction.fixture-BhAbBKlG.js                                       [39m[1m[2m  2.33 kB[22m[1m[22m[2m │ gzip:  1.17 kB[22m
+2026-10-18T23:17:37.7965887Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mEditableTitleField-vupldjgV.js                                        [39m[1m[2m  2.38 kB[22m[1m[22m[2m │ gzip:  1.14 kB[22m
+2026-10-18T23:17:37.7966969Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mMenu.fixture-DgE7pdNE.js                                              [39m[1m[2m  2.40 kB[22m[1m[22m[2m │ gzip:  1.04 kB[22m
+2026-10-18T23:17:37.7968659Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTextAlignMenuControl.fixture-D1MMdF0N.js                              [39m[1m[2m  2.41 kB[22m[1m[22m[2m │ gzip:  1.21 kB[22m
+2026-10-18T23:17:37.7969996Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTabs.fixture-QqByPaid.js                                              [39m[1m[2m  2.44 kB[22m[1m[22m[2m │ gzip:  1.02 kB[22m
+2026-10-18T23:17:37.7971374Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mPopover.collision.fixture-ADkx-qEV.js                                 [39m[1m[2m  2.45 kB[22m[1m[22m[2m │ gzip:  1.18 kB[22m
+2026-10-18T23:17:37.7972978Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mLink.fixture-D1hNNIYu.js                                              [39m[1m[2m  2.49 kB[22m[1m[22m[2m │ gzip:  1.09 kB[22m
+2026-10-18T23:17:37.7974443Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mRadioGroup.fixture-tPzZfAPw.js                                        [39m[1m[2m  2.51 kB[22m[1m[22m[2m │ gzip:  1.11 kB[22m
+2026-10-18T23:17:37.7975615Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mLearnerClassCard-DD4SKfc5.js                                          [39m[1m[2m  2.55 kB[22m[1m[22m[2m │ gzip:  1.04 kB[22m
+2026-10-18T23:17:37.7976685Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTranslations.fixture-BTqcV1-q.js                                      [39m[1m[2m  2.56 kB[22m[1m[22m[2m │ gzip:  1.12 kB[22m
+2026-10-18T23:17:37.7977815Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCalendar.native-locales.fixture-CRoTNyt1.js                           [39m[1m[2m  2.60 kB[22m[1m[22m[2m │ gzip:  1.27 kB[22m
+2026-10-18T23:17:37.7979009Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mPaidIcon-DUibVAML.js                                                  [39m[1m[2m  2.61 kB[22m[1m[22m[2m │ gzip:  1.02 kB[22m
+2026-10-18T23:17:37.7980613Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAsyncMultiSelect-Bp2zE1_E.js                                          [39m[1m[2m  2.69 kB[22m[1m[22m[2m │ gzip:  1.24 kB[22m
+2026-10-18T23:17:37.7982134Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mownedGridParts.fixture-o8DSFW-8.js                                    [39m[1m[2m  2.70 kB[22m[1m[22m[2m │ gzip:  1.27 kB[22m
+2026-10-18T23:17:37.7983361Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museTextField-BhMnuxKy.js                                              [39m[1m[2m  2.72 kB[22m[1m[22m[2m │ gzip:  1.23 kB[22m
+2026-10-18T23:17:37.7984425Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mInstructorClassCard-Cx03YWUR.js                                       [39m[1m[2m  2.75 kB[22m[1m[22m[2m │ gzip:  1.01 kB[22m
+2026-10-18T23:17:37.7985495Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAdminDataGridOptions.fixture-CZb1ihBw.js                              [39m[1m[2m  2.84 kB[22m[1m[22m[2m │ gzip:  1.38 kB[22m
+2026-10-18T23:17:37.7986687Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCalendar.fixture-CAOO-K5F.js                                          [39m[1m[2m  2.87 kB[22m[1m[22m[2m │ gzip:  1.37 kB[22m
+2026-10-18T23:17:37.7987828Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppPageTabs.fixture-Bsqkve9Z.js                                       [39m[1m[2m  2.94 kB[22m[1m[22m[2m │ gzip:  1.29 kB[22m
+2026-10-18T23:17:37.7988942Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSelect.fixture-BAnRi1EK.js                                            [39m[1m[2m  2.94 kB[22m[1m[22m[2m │ gzip:  1.28 kB[22m
+2026-10-18T23:17:37.7990170Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDocumentEditorToolbar.fixture-530LXnnF.js                             [39m[1m[2m  2.95 kB[22m[1m[22m[2m │ gzip:  1.35 kB[22m
+2026-10-18T23:17:37.7991473Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mprimitives.fixture-CzS6nLZg.js                                        [39m[1m[2m  2.95 kB[22m[1m[22m[2m │ gzip:  1.40 kB[22m
+2026-10-18T23:17:37.7992665Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mInstructorClassCard.fixture-CbvCxeJH.js                               [39m[1m[2m  2.98 kB[22m[1m[22m[2m │ gzip:  1.40 kB[22m
+2026-10-18T23:17:37.7994071Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDateRangePicker.fixture-KuuWn9mU.js                                   [39m[1m[2m  3.02 kB[22m[1m[22m[2m │ gzip:  1.47 kB[22m
+2026-10-18T23:17:37.7995235Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDatePicker.fixture-DZTgxoTU.js                                        [39m[1m[2m  3.03 kB[22m[1m[22m[2m │ gzip:  1.45 kB[22m
+2026-10-18T23:17:37.7996575Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mProvider.fixture-DYC4-WtB.js                                          [39m[1m[2m  3.09 kB[22m[1m[22m[2m │ gzip:  1.48 kB[22m
+2026-10-18T23:17:37.7997828Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mImageUploadModal.fixture-CJznhRfn.js                                  [39m[1m[2m  3.15 kB[22m[1m[22m[2m │ gzip:  1.34 kB[22m
+2026-10-18T23:17:37.7999108Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mFloatingTextSelectionToolbar.fixture-C37JNlFh.js                      [39m[1m[2m  3.17 kB[22m[1m[22m[2m │ gzip:  1.42 kB[22m
+2026-10-18T23:17:37.8000441Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCheckbox.fixture-TISjVIQQ.js                                          [39m[1m[2m  3.17 kB[22m[1m[22m[2m │ gzip:  1.29 kB[22m
+2026-10-18T23:17:37.8001733Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDataGrid.fixture-nom2o_jp.js                                          [39m[1m[2m  3.21 kB[22m[1m[22m[2m │ gzip:  1.61 kB[22m
+2026-10-18T23:17:37.8003181Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mLearnerClassesDataGrid.fixture-SVmQAFBL.js                            [39m[1m[2m  3.21 kB[22m[1m[22m[2m │ gzip:  1.54 kB[22m
+2026-10-18T23:17:37.8004431Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDocumentEditorToolbar-BPz7RJvB.js                                     [39m[1m[2m  3.25 kB[22m[1m[22m[2m │ gzip:  1.44 kB[22m
+2026-10-18T23:17:37.8005657Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSectionedRows-KFrR-ptg.js                                             [39m[1m[2m  3.37 kB[22m[1m[22m[2m │ gzip:  1.56 kB[22m
+2026-10-18T23:17:37.8006849Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36musePersistentState-B6dDZExe.js                                        [39m[1m[2m  3.45 kB[22m[1m[22m[2m │ gzip:  1.40 kB[22m
+2026-10-18T23:17:37.8008114Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSideNavigation.organization-lifetime.fixture-jYiqpq7M.js              [39m[1m[2m  3.51 kB[22m[1m[22m[2m │ gzip:  1.61 kB[22m
+2026-10-18T23:17:37.8009455Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTextColorPickerControl.fixture-BRJWutok.js                            [39m[1m[2m  3.55 kB[22m[1m[22m[2m │ gzip:  1.63 kB[22m
+2026-10-18T23:17:37.8010680Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mInsertContentMenuControl.fixture-DVtsCrA4.js                          [39m[1m[2m  3.56 kB[22m[1m[22m[2m │ gzip:  1.58 kB[22m
+2026-10-18T23:17:37.8011932Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mcreateVector-DP753DZt.js                                              [39m[1m[2m  3.56 kB[22m[1m[22m[2m │ gzip:  1.69 kB[22m
+2026-10-18T23:17:37.8013335Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSwitch-BqOBxjzI.js                                                    [39m[1m[2m  3.57 kB[22m[1m[22m[2m │ gzip:  1.51 kB[22m
+2026-10-18T23:17:37.8014670Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDocumentEditorLayout.fixture-BXC_TyWv.js                              [39m[1m[2m  3.57 kB[22m[1m[22m[2m │ gzip:  1.54 kB[22m
+2026-10-18T23:17:37.8015954Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppOperationStepsNativeState.fixture.fixture-7RGYhjBn.js              [39m[1m[2m  3.58 kB[22m[1m[22m[2m │ gzip:  1.50 kB[22m
+2026-10-18T23:17:37.8017186Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDateField.fixture-DutJPK65.js                                         [39m[1m[2m  3.62 kB[22m[1m[22m[2m │ gzip:  1.45 kB[22m
+2026-10-18T23:17:37.8018445Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mLinkUrlModal.fixture-CEgW_HnN.js                                      [39m[1m[2m  3.67 kB[22m[1m[22m[2m │ gzip:  1.64 kB[22m
+2026-10-18T23:17:37.8019699Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mImageUploadModal-Cjc8IwDO.js                                          [39m[1m[2m  3.67 kB[22m[1m[22m[2m │ gzip:  1.61 kB[22m
+2026-10-18T23:17:37.8020962Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mLearnerClassCard.fixture-DR796Q8f.js                                  [39m[1m[2m  3.68 kB[22m[1m[22m[2m │ gzip:  1.60 kB[22m
+2026-10-18T23:17:37.8022174Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mPopover-vWYOSWq0.js                                                   [39m[1m[2m  3.68 kB[22m[1m[22m[2m │ gzip:  1.73 kB[22m
+2026-10-18T23:17:37.8023565Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDatePicker-DH8KR0-Y.js                                                [39m[1m[2m  3.69 kB[22m[1m[22m[2m │ gzip:  1.51 kB[22m
+2026-10-18T23:17:37.8024843Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mPageRichTextEditorSection.mixed-formatting.fixture-Biluu0r8.js        [39m[1m[2m  3.69 kB[22m[1m[22m[2m │ gzip:  1.75 kB[22m
+2026-10-18T23:17:37.8026096Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTextArea.fixture-D7XPg3yv.js                                          [39m[1m[2m  3.71 kB[22m[1m[22m[2m │ gzip:  1.43 kB[22m
+2026-10-18T23:17:37.8027290Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museCollator-B-rk1Bhc.js                                               [39m[1m[2m  3.79 kB[22m[1m[22m[2m │ gzip:  1.57 kB[22m
+2026-10-18T23:17:37.8028539Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mExperiencePageNavigator.native-transactions.fixture-D0MWJGk8.js       [39m[1m[2m  3.80 kB[22m[1m[22m[2m │ gzip:  1.69 kB[22m
+2026-10-18T23:17:37.8029788Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36musePersistentState.fixture-MToVwdJQ.js                                [39m[1m[2m  3.82 kB[22m[1m[22m[2m │ gzip:  1.60 kB[22m
+2026-10-18T23:17:37.8031042Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mMenu-cu0Brw9W.js                                                      [39m[1m[2m  3.82 kB[22m[1m[22m[2m │ gzip:  1.78 kB[22m
+2026-10-18T23:17:37.8032208Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDataToolbar.column-order.fixture-RflvGs0c.js                          [39m[1m[2m  3.83 kB[22m[1m[22m[2m │ gzip:  1.76 kB[22m
+2026-10-18T23:17:37.8033664Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mExperiencePageNavigator.fixture-BtheaTKq.js                           [39m[1m[2m  3.90 kB[22m[1m[22m[2m │ gzip:  1.76 kB[22m
+2026-10-18T23:17:37.8035031Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDateRangePicker.controlled-transactions.fixture-BBDfywy3.js           [39m[1m[2m  3.90 kB[22m[1m[22m[2m │ gzip:  1.77 kB[22m
+2026-10-18T23:17:37.8036442Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCardCollectionWithFooter.fixture-D1wHo_-e.js                          [39m[1m[2m  3.91 kB[22m[1m[22m[2m │ gzip:  1.81 kB[22m
+2026-10-18T23:17:37.8037654Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTextColorPickerControl-CDYEGEHa.js                                    [39m[1m[2m  3.93 kB[22m[1m[22m[2m │ gzip:  1.64 kB[22m
+2026-10-18T23:17:37.8038860Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTagGroup.fixture-vDI9zVD_.js                                          [39m[1m[2m  3.95 kB[22m[1m[22m[2m │ gzip:  1.71 kB[22m
+2026-10-18T23:17:37.8040144Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTimeField.fixture-B7NfPuBT.js                                         [39m[1m[2m  3.98 kB[22m[1m[22m[2m │ gzip:  1.69 kB[22m
+2026-10-18T23:17:37.8041364Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mComboBox.fixture-D7xAQmRi.js                                          [39m[1m[2m  4.00 kB[22m[1m[22m[2m │ gzip:  1.64 kB[22m
+2026-10-18T23:17:37.8042657Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDocumentEditorToolbar.heading-lifetime.fixture-BctK-ne_.js            [39m[1m[2m  4.02 kB[22m[1m[22m[2m │ gzip:  1.87 kB[22m
+2026-10-18T23:17:37.8044097Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mNativeSelection.fixture-BrTqtcpO.js                                   [39m[1m[2m  4.14 kB[22m[1m[22m[2m │ gzip:  1.83 kB[22m
+2026-10-18T23:17:37.8045481Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mownedGridParts-DPD5_tcr.js                                            [39m[1m[2m  4.18 kB[22m[1m[22m[2m │ gzip:  1.54 kB[22m
+2026-10-18T23:17:37.8046654Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mButton-vAJYVTLZ.js                                                    [39m[1m[2m  4.18 kB[22m[1m[22m[2m │ gzip:  1.91 kB[22m
+2026-10-18T23:17:37.8047889Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mownedGridSortAcceptance.fixture-DklhR56A.js                           [39m[1m[2m  4.20 kB[22m[1m[22m[2m │ gzip:  1.92 kB[22m
+2026-10-18T23:17:37.8049143Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDataGridDragHandle.fixture-Dy0W5luX.js                                [39m[1m[2m  4.23 kB[22m[1m[22m[2m │ gzip:  2.05 kB[22m
+2026-10-18T23:17:37.8050358Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppOperationSteps.fixture-Ctm2OAAi.js                                 [39m[1m[2m  4.28 kB[22m[1m[22m[2m │ gzip:  1.90 kB[22m
+2026-10-18T23:17:37.8051563Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mtoken-source-kIfmxwAp.js                                              [39m[1m[2m  4.32 kB[22m[1m[22m[2m │ gzip:  0.59 kB[22m
+2026-10-18T23:17:37.8052822Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mPopover.fixture-DdXC6C_Q.js                                           [39m[1m[2m  4.33 kB[22m[1m[22m[2m │ gzip:  2.05 kB[22m
+2026-10-18T23:17:37.8053994Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mHierarchicalMenu.fixture-CjxO4Zem.js                                  [39m[1m[2m  4.35 kB[22m[1m[22m[2m │ gzip:  1.77 kB[22m
+2026-10-18T23:17:37.8055273Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppDataGrid.reorder-invalidation.fixture-CFRcpy5O.js                  [39m[1m[2m  4.35 kB[22m[1m[22m[2m │ gzip:  1.91 kB[22m
+2026-10-18T23:17:37.8056555Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mButton.fixture-BBVmojUG.js                                            [39m[1m[2m  4.42 kB[22m[1m[22m[2m │ gzip:  1.81 kB[22m
+2026-10-18T23:17:37.8057852Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAuthShell.fixture-DJGkGws1.js                                         [39m[1m[2m  4.53 kB[22m[1m[22m[2m │ gzip:  1.73 kB[22m
+2026-10-18T23:17:37.8059436Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museFormValidation-DYgOTg5a.js                                         [39m[1m[2m  4.62 kB[22m[1m[22m[2m │ gzip:  1.75 kB[22m
+2026-10-18T23:17:37.8061118Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mLearnerClassesDataGrid.native.fixture-F4U3qiyL.js                     [39m[1m[2m  4.69 kB[22m[1m[22m[2m │ gzip:  2.17 kB[22m
+2026-10-18T23:17:37.8062444Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDatePicker.native-transactions.fixture-CdSNefcn.js                    [39m[1m[2m  4.70 kB[22m[1m[22m[2m │ gzip:  1.90 kB[22m
+2026-10-18T23:17:37.8063796Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mInstructorDataGridOptions-B38r9nuz.js                                 [39m[1m[2m  4.75 kB[22m[1m[22m[2m │ gzip:  0.84 kB[22m
+2026-10-18T23:17:37.8065055Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mRichTextFormattingToolbar.fixture-Pf0QoE2-.js                         [39m[1m[2m  4.83 kB[22m[1m[22m[2m │ gzip:  2.15 kB[22m
+2026-10-18T23:17:37.8066673Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDateRangePicker-DJEdL6Cv.js                                           [39m[1m[2m  4.89 kB[22m[1m[22m[2m │ gzip:  2.19 kB[22m
+2026-10-18T23:17:37.8067804Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36micons.fixture-HvlXpYEo.js                                             [39m[1m[2m  4.93 kB[22m[1m[22m[2m │ gzip:  2.16 kB[22m
+2026-10-18T23:17:37.8069096Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mBaselineHostFlow.fixture-DcgalfV6.js                                  [39m[1m[2m  5.08 kB[22m[1m[22m[2m │ gzip:  2.21 kB[22m
+2026-10-18T23:17:37.8070286Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mExperiencePageNavigator-D8-7R8Im.js                                   [39m[1m[2m  5.09 kB[22m[1m[22m[2m │ gzip:  2.02 kB[22m
+2026-10-18T23:17:37.8071540Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mownedGridProcessing.fixture-BRTpOBt-.js                               [39m[1m[2m  5.13 kB[22m[1m[22m[2m │ gzip:  2.27 kB[22m
+2026-10-18T23:17:37.8072920Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mClassCardFrame.fixture-BG280nQd.js                                    [39m[1m[2m  5.34 kB[22m[1m[22m[2m │ gzip:  2.12 kB[22m
+2026-10-18T23:17:37.8074310Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mPageRichTextEditorSection.paragraph-transactions.fixture-Cs7l9Bl-.js  [39m[1m[2m  5.38 kB[22m[1m[22m[2m │ gzip:  2.44 kB[22m
+2026-10-18T23:17:37.8075910Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mFormParticipation.fixture-ONS3AU7t.js                                 [39m[1m[2m  5.44 kB[22m[1m[22m[2m │ gzip:  2.06 kB[22m
+2026-10-18T23:17:37.8077054Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAsyncMultiSelect.fixture-BksUCJfw.js                                  [39m[1m[2m  5.46 kB[22m[1m[22m[2m │ gzip:  2.10 kB[22m
+2026-10-18T23:17:37.8078639Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mRichTextFormattingToolbar.impl-B6GaC9vi.js                            [39m[1m[2m  5.48 kB[22m[1m[22m[2m │ gzip:  2.05 kB[22m
+2026-10-18T23:17:37.8080106Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTooltip-CRzH5I68.js                                                   [39m[1m[2m  5.53 kB[22m[1m[22m[2m │ gzip:  2.36 kB[22m
+2026-10-18T23:17:37.8081209Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mToggleButton-D5L4WDLf.js                                              [39m[1m[2m  5.54 kB[22m[1m[22m[2m │ gzip:  2.14 kB[22m
+2026-10-18T23:17:37.8082373Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCheckbox-Co96Y2y1.js                                                  [39m[1m[2m  5.57 kB[22m[1m[22m[2m │ gzip:  2.14 kB[22m
+2026-10-18T23:17:37.8083659Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTokenTierScope.fixture-BPAFbXZi.js                                    [39m[1m[2m  5.60 kB[22m[1m[22m[2m │ gzip:  1.87 kB[22m
+2026-10-18T23:17:37.8084832Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mintlStrings-BTHtKwgC.js                                               [39m[1m[2m  5.63 kB[22m[1m[22m[2m │ gzip:  2.20 kB[22m
+2026-10-18T23:17:37.8085935Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDialog.fixture-QP89ymu3.js                                            [39m[1m[2m  5.66 kB[22m[1m[22m[2m │ gzip:  2.31 kB[22m
+2026-10-18T23:17:37.8087054Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCalendar-hL5kb-6K.js                                                  [39m[1m[2m  5.66 kB[22m[1m[22m[2m │ gzip:  2.18 kB[22m
+2026-10-18T23:17:37.8088217Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mProgressBar-sCPFT3JV.js                                               [39m[1m[2m  5.78 kB[22m[1m[22m[2m │ gzip:  2.28 kB[22m
+2026-10-18T23:17:37.8089342Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36micons.fixture-DC54UCO6.js                                             [39m[1m[2m  5.85 kB[22m[1m[22m[2m │ gzip:  2.45 kB[22m
+2026-10-18T23:17:37.8090505Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mfilterDOMProps--n1LO6n2.js                                            [39m[1m[2m  5.91 kB[22m[1m[22m[2m │ gzip:  2.52 kB[22m
+2026-10-18T23:17:37.8091767Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mVisualAcceptance.fixture-D7bWlJxs.js                                  [39m[1m[2m  6.14 kB[22m[1m[22m[2m │ gzip:  2.51 kB[22m
+2026-10-18T23:17:37.8093089Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mGridHostOperations.fixture-DyHUJKTf.js                                [39m[1m[2m  6.29 kB[22m[1m[22m[2m │ gzip:  2.89 kB[22m
+2026-10-18T23:17:37.8094275Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppDataGrid.fixture-omrKzB9q.js                                       [39m[1m[2m  6.75 kB[22m[1m[22m[2m │ gzip:  2.94 kB[22m
+2026-10-18T23:17:37.8095499Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36madapters.fixture-DxH9TVtf.js                                          [39m[1m[2m  6.81 kB[22m[1m[22m[2m │ gzip:  2.57 kB[22m
+2026-10-18T23:17:37.8096670Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSideNavigation.fixture-ESP6NvpX.js                                    [39m[1m[2m  6.91 kB[22m[1m[22m[2m │ gzip:  2.60 kB[22m
+2026-10-18T23:17:37.8097917Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppDataGridShell.server-response-races.fixture-NdZbX8Uh.js            [39m[1m[2m  7.05 kB[22m[1m[22m[2m │ gzip:  3.19 kB[22m
+2026-10-18T23:17:37.8099202Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTargetSizes.fixture-DinLo1m-.js                                       [39m[1m[2m  7.09 kB[22m[1m[22m[2m │ gzip:  2.93 kB[22m
+2026-10-18T23:17:37.8100444Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTextField.fixture-D6G_F-IE.js                                         [39m[1m[2m  7.19 kB[22m[1m[22m[2m │ gzip:  2.28 kB[22m
+2026-10-18T23:17:37.8101627Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDataToolbar.fixture-Dm_W1swt.js                                       [39m[1m[2m  7.29 kB[22m[1m[22m[2m │ gzip:  2.75 kB[22m
+2026-10-18T23:17:37.8102892Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mownedGridCells.fixture-PqCNr8b_.js                                    [39m[1m[2m  7.45 kB[22m[1m[22m[2m │ gzip:  3.23 kB[22m
+2026-10-18T23:17:37.8104208Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDateField-CcPoiiSR.js                                                 [39m[1m[2m  7.53 kB[22m[1m[22m[2m │ gzip:  3.11 kB[22m
+2026-10-18T23:17:37.8105367Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppDataGrid-BJ9VyuUb.js                                               [39m[1m[2m  7.66 kB[22m[1m[22m[2m │ gzip:  2.77 kB[22m
+2026-10-18T23:17:37.8106560Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mHierarchicalMenu-e0iY1YvY.js                                          [39m[1m[2m  7.90 kB[22m[1m[22m[2m │ gzip:  3.01 kB[22m
+2026-10-18T23:17:37.8107788Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mPrimitiveAcceptance.fixture-D03KFw76.js                               [39m[1m[2m  8.00 kB[22m[1m[22m[2m │ gzip:  2.92 kB[22m
+2026-10-18T23:17:37.8109009Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDateRangeSelector.fixture-p0e5wl71.js                                 [39m[1m[2m  8.29 kB[22m[1m[22m[2m │ gzip:  3.14 kB[22m
+2026-10-18T23:17:37.8110182Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mownedGridState-C_kDX6xu.js                                            [39m[1m[2m  8.57 kB[22m[1m[22m[2m │ gzip:  3.08 kB[22m
+2026-10-18T23:17:37.8111342Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppPageHeader.fixture-C4qv3OTh.js                                     [39m[1m[2m  8.69 kB[22m[1m[22m[2m │ gzip:  3.44 kB[22m
+2026-10-18T23:17:37.8112578Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mBrushIcon-CcHF1jB5.js                                                 [39m[1m[2m  8.98 kB[22m[1m[22m[2m │ gzip:  3.42 kB[22m
+2026-10-18T23:17:37.8113872Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mRadioGroup-Cp2m05OS.js                                                [39m[1m[2m  9.01 kB[22m[1m[22m[2m │ gzip:  3.44 kB[22m
+2026-10-18T23:17:37.8114983Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDialog-D8mFFOxj.js                                                    [39m[1m[2m  9.30 kB[22m[1m[22m[2m │ gzip:  3.46 kB[22m
+2026-10-18T23:17:37.8116130Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDataGrid-C7d-kW8_.js                                                  [39m[1m[2m  9.35 kB[22m[1m[22m[2m │ gzip:  3.46 kB[22m
+2026-10-18T23:17:37.8117280Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppDataGridShell-BmqM-h19.js                                          [39m[1m[2m  9.89 kB[22m[1m[22m[2m │ gzip:  3.46 kB[22m
+2026-10-18T23:17:37.8118417Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppShell.fixture-R1kyYwnw.js                                          [39m[1m[2m  9.99 kB[22m[1m[22m[2m │ gzip:  3.85 kB[22m
+2026-10-18T23:17:37.8119622Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mListBox-DS9rKLp0.js                                                   [39m[1m[2m 10.27 kB[22m[1m[22m[2m │ gzip:  3.75 kB[22m
+2026-10-18T23:17:37.8120786Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mownedGridInteraction.fixture-QzwZ5CYh.js                              [39m[1m[2m 10.61 kB[22m[1m[22m[2m │ gzip:  4.00 kB[22m
+2026-10-18T23:17:37.8121964Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTimeField-1blJpIg7.js                                                 [39m[1m[2m 10.64 kB[22m[1m[22m[2m │ gzip:  4.32 kB[22m
+2026-10-18T23:17:37.8123256Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36manimation-CwOc71fU.js                                                 [39m[1m[2m 10.88 kB[22m[1m[22m[2m │ gzip:  4.28 kB[22m
+2026-10-18T23:17:37.8124440Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mContentEditorChrome.fixture-DLKJoB1-.js                               [39m[1m[2m 11.12 kB[22m[1m[22m[2m │ gzip:  4.43 kB[22m
+2026-10-18T23:17:37.8125715Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppDataGridShell.fixture-Ap5NI7Ed.js                                  [39m[1m[2m 12.40 kB[22m[1m[22m[2m │ gzip:  4.44 kB[22m
+2026-10-18T23:17:37.8126844Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSideNavigation-BtYnX7Vg.js                                            [39m[1m[2m 12.80 kB[22m[1m[22m[2m │ gzip:  4.75 kB[22m
+2026-10-18T23:17:37.8128048Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mFocusScope-BpSna3IC.js                                                [39m[1m[2m 13.47 kB[22m[1m[22m[2m │ gzip:  4.18 kB[22m
+2026-10-18T23:17:37.8129164Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mcreateCalendar-_mmbP2Oj.js                                            [39m[1m[2m 13.87 kB[22m[1m[22m[2m │ gzip:  5.72 kB[22m
+2026-10-18T23:17:37.8130325Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mAppModal.fixture-_bzUlVx3.js                                          [39m[1m[2m 14.06 kB[22m[1m[22m[2m │ gzip:  5.06 kB[22m
+2026-10-18T23:17:37.8131449Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mPeriodPicker-v6_pNds7.js                                              [39m[1m[2m 14.61 kB[22m[1m[22m[2m │ gzip:  4.98 kB[22m
+2026-10-18T23:17:37.8132591Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mSelect-9o8zsegr.js                                                    [39m[1m[2m 14.68 kB[22m[1m[22m[2m │ gzip:  5.39 kB[22m
+2026-10-18T23:17:37.8133946Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTabs-Be2f9J6g.js                                                      [39m[1m[2m 15.69 kB[22m[1m[22m[2m │ gzip:  5.78 kB[22m
+2026-10-18T23:17:37.8135009Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mValidationContrast.fixture-Dzr-_8kU.js                                [39m[1m[2m 16.80 kB[22m[1m[22m[2m │ gzip:  4.49 kB[22m
+2026-10-18T23:17:37.8136310Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museHighlightSelectionDescription-BgHuRLsM.js                          [39m[1m[2m 17.48 kB[22m[1m[22m[2m │ gzip:  5.03 kB[22m
+2026-10-18T23:17:37.8137496Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDataToolbar-ZgNPyXFh.js                                               [39m[1m[2m 17.81 kB[22m[1m[22m[2m │ gzip:  5.24 kB[22m
+2026-10-18T23:17:37.8138680Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mTagGroup-CTViKBUM.js                                                  [39m[1m[2m 18.15 kB[22m[1m[22m[2m │ gzip:  7.21 kB[22m
+2026-10-18T23:17:37.8139877Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museDateFormatter-gsYiaJGf.js                                          [39m[1m[2m 19.60 kB[22m[1m[22m[2m │ gzip:  6.48 kB[22m
+2026-10-18T23:17:37.8141074Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mPageRichTextEditorSection.fixture-DxRPSGmJ.js                         [39m[1m[2m 22.39 kB[22m[1m[22m[2m │ gzip:  7.13 kB[22m
+2026-10-18T23:17:37.8142308Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mownedGridInteraction-IQJjEqeg.js                                      [39m[1m[2m 25.95 kB[22m[1m[22m[2m │ gzip:  8.64 kB[22m
+2026-10-18T23:17:37.8143554Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mCalendarFormValidity-Ci_kkrnR.js                                      [39m[1m[2m 29.19 kB[22m[1m[22m[2m │ gzip:  9.57 kB[22m
+2026-10-18T23:17:37.8144730Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museHover-CYVPFyyx.js                                                  [39m[1m[2m 30.73 kB[22m[1m[22m[2m │ gzip: 10.52 kB[22m
+2026-10-18T23:17:37.8145933Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mBox.fixture-Dm8nnUeG.js                                               [39m[1m[2m 32.16 kB[22m[1m[22m[2m │ gzip: 10.39 kB[22m
+2026-10-18T23:17:37.8147035Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDialog-zRnIHhuL.js                                                    [39m[1m[2m 34.57 kB[22m[1m[22m[2m │ gzip: 13.49 kB[22m
+2026-10-18T23:17:37.8148188Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mComboBox-BpAa0DNE.js                                                  [39m[1m[2m 38.79 kB[22m[1m[22m[2m │ gzip: 10.51 kB[22m
+2026-10-18T23:17:37.8149373Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museMultipleSelectionState-etooGCVb.js                                 [39m[1m[2m 49.05 kB[22m[1m[22m[2m │ gzip: 14.36 kB[22m
+2026-10-18T23:17:37.8150529Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mindex-TD5eAT0Q.js                                                     [39m[1m[2m 49.77 kB[22m[1m[22m[2m │ gzip: 13.21 kB[22m
+2026-10-18T23:17:37.8151702Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mDateField.module.css-Bq3FQ1g9.js                                      [39m[1m[2m 60.23 kB[22m[1m[22m[2m │ gzip: 19.98 kB[22m
+2026-10-18T23:17:37.8152970Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36museNarrowWeekdays-ByxqsnF8.js                                         [39m[1m[2m 62.40 kB[22m[1m[22m[2m │ gzip: 19.26 kB[22m
+2026-10-18T23:17:37.8154306Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mPageRichTextEditorSection.impl-CiOnWrRq.js                            [39m[1m[2m172.93 kB[22m[1m[22m[2m │ gzip: 54.50 kB[22m
+2026-10-18T23:17:37.8155580Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mLexicalErrorBoundary.prod-C5yJVt9n.js                                 [39m[1m[2m177.70 kB[22m[1m[22m[2m │ gzip: 57.84 kB[22m
+2026-10-18T23:17:37.8156847Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mGridColumnWidthControl-Cpn3DE4H.js                                    [39m[1m[2m210.39 kB[22m[1m[22m[2m │ gzip: 53.64 kB[22m
+2026-10-18T23:17:37.8158068Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mFoundationCatalogue.fixture-DBxjfQ7E.js                               [39m[1m[2m264.76 kB[22m[1m[22m[2m │ gzip: 63.55 kB[22m
+2026-10-18T23:17:37.8159259Z [2m../../../packages/ui/browser-docs-static/[22m[2massets/[22m[36mindex-DdcwWay-.js                                                     [39m[1m[33m508.48 kB[39m[22m[2m │ gzip: 97.43 kB[22m
+2026-10-18T23:17:37.8160070Z [32m✓ built in 5.60s[39m
+2026-10-18T23:17:37.8534819Z ##[group]Run pnpm exec playwright install --with-deps firefox
+2026-10-18T23:17:37.8535209Z [36;1mpnpm exec playwright install --with-deps firefox[0m
+2026-10-18T23:17:37.8570807Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-18T23:17:37.8571218Z env:
+2026-10-18T23:17:37.8571476Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:17:37.8571790Z ##[endgroup]
+2026-10-18T23:17:38.3857913Z Installing dependencies...
+2026-10-18T23:17:38.3915639Z Switching to root user to install dependencies...
+2026-10-18T23:17:38.4456033Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-18T23:17:38.4766084Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2026-10-18T23:17:38.4821969Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-10-18T23:17:38.4841759Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-10-18T23:17:38.4864657Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-10-18T23:17:38.4869052Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-10-18T23:17:38.5498323Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1397 kB]
+2026-10-18T23:17:38.5624364Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [308 kB]
+2026-10-18T23:17:38.5643567Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1704 kB]
+2026-10-18T23:17:38.5704322Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [342 kB]
+2026-10-18T23:17:38.5715897Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1805 kB]
+2026-10-18T23:17:38.5786283Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [411 kB]
+2026-10-18T23:17:38.6199838Z Get:13 https://packages.microsoft.com/ubuntu/24.04/prod noble/main armhf Packages [12.4 kB]
+2026-10-18T23:17:38.6234484Z Get:14 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [618 kB]
+2026-10-18T23:17:38.6341787Z Get:15 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [557 kB]
+2026-10-18T23:17:38.6530121Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1144 kB]
+2026-10-18T23:17:38.6571164Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [231 kB]
+2026-10-18T23:17:38.6581350Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1222 kB]
+2026-10-18T23:17:38.6620996Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [246 kB]
+2026-10-18T23:17:38.7065788Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1713 kB]
+2026-10-18T23:17:38.7120049Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [392 kB]
+2026-10-18T23:17:44.2883636Z Fetched 12.5 MB in 1s (12.6 MB/s)
+2026-10-18T23:17:45.1287002Z Reading package lists...
+2026-10-18T23:17:45.1517218Z Reading package lists...
+2026-10-18T23:17:45.3409697Z Building dependency tree...
+2026-10-18T23:17:45.3416758Z Reading state information...
+2026-10-18T23:17:45.4905736Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+2026-10-18T23:17:45.4906782Z libasound2t64 set to manually installed.
+2026-10-18T23:17:45.4907386Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-18T23:17:45.4907875Z libatk1.0-0t64 set to manually installed.
+2026-10-18T23:17:45.4908363Z libcairo-gobject2 is already the newest version (1.18.0-3build1).
+2026-10-18T23:17:45.4908877Z libcairo-gobject2 set to manually installed.
+2026-10-18T23:17:45.4909391Z libcairo2 is already the newest version (1.18.0-3build1).
+2026-10-18T23:17:45.4909870Z libcairo2 set to manually installed.
+2026-10-18T23:17:45.4910360Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+2026-10-18T23:17:45.4910845Z libdbus-1-3 set to manually installed.
+2026-10-18T23:17:45.4911905Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+2026-10-18T23:17:45.4912610Z libfontconfig1 set to manually installed.
+2026-10-18T23:17:45.4913415Z libfreetype6 is already the newest version (2.13.2+dfsg-1ubuntu0.2).
+2026-10-18T23:17:45.4913914Z libfreetype6 set to manually installed.
+2026-10-18T23:17:45.4914491Z libgdk-pixbuf-2.0-0 is already the newest version (2.42.10+dfsg-3ubuntu3.3).
+2026-10-18T23:17:45.4915107Z libgdk-pixbuf-2.0-0 set to manually installed.
+2026-10-18T23:17:45.4915657Z libglib2.0-0t64 is already the newest version (2.80.0-6ubuntu3.9).
+2026-10-18T23:17:45.4916224Z libglib2.0-0t64 set to manually installed.
+2026-10-18T23:17:45.4916916Z libgtk-3-0t64 is already the newest version (3.24.41-4ubuntu1.3).
+2026-10-18T23:17:45.4917535Z libgtk-3-0t64 set to manually installed.
+2026-10-18T23:17:45.4918146Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+2026-10-18T23:17:45.4918737Z libpango-1.0-0 set to manually installed.
+2026-10-18T23:17:45.4919397Z libpangocairo-1.0-0 is already the newest version (1.52.1+ds-1build1).
+2026-10-18T23:17:45.4920232Z libpangocairo-1.0-0 set to manually installed.
+2026-10-18T23:17:45.4921205Z libx11-6 is already the newest version (2:1.8.7-1ubuntu0.1).
+2026-10-18T23:17:45.4921813Z libx11-6 set to manually installed.
+2026-10-18T23:17:45.4922407Z libx11-xcb1 is already the newest version (2:1.8.7-1ubuntu0.1).
+2026-10-18T23:17:45.4923209Z libx11-xcb1 set to manually installed.
+2026-10-18T23:17:45.4923890Z libxcb-shm0 is already the newest version (1.15-1ubuntu2).
+2026-10-18T23:17:45.4924346Z libxcb-shm0 set to manually installed.
+2026-10-18T23:17:45.4924807Z libxcb1 is already the newest version (1.15-1ubuntu2).
+2026-10-18T23:17:45.4925237Z libxcb1 set to manually installed.
+2026-10-18T23:17:45.4925659Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+2026-10-18T23:17:45.4926087Z libxcomposite1 set to manually installed.
+2026-10-18T23:17:45.4926527Z libxcursor1 is already the newest version (1:1.2.1-1build1).
+2026-10-18T23:17:45.4926968Z libxcursor1 set to manually installed.
+2026-10-18T23:17:45.4927470Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+2026-10-18T23:17:45.4927851Z libxdamage1 set to manually installed.
+2026-10-18T23:17:45.4928253Z libxext6 is already the newest version (2:1.3.4-1build2).
+2026-10-18T23:17:45.4929399Z libxext6 set to manually installed.
+2026-10-18T23:17:45.4929838Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+2026-10-18T23:17:45.4930256Z libxfixes3 set to manually installed.
+2026-10-18T23:17:45.4930620Z libxi6 is already the newest version (2:1.8.1-1build1).
+2026-10-18T23:17:45.4930997Z libxi6 set to manually installed.
+2026-10-18T23:17:45.4931366Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+2026-10-18T23:17:45.4931771Z libxrandr2 set to manually installed.
+2026-10-18T23:17:45.4932222Z libxrender1 is already the newest version (1:0.9.10-1.1build1).
+2026-10-18T23:17:45.4932672Z libxrender1 set to manually installed.
+2026-10-18T23:17:45.4934191Z xvfb is already the newest version (2:21.1.12-1ubuntu1.8).
+2026-10-18T23:17:45.4934812Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+2026-10-18T23:17:45.4935394Z fonts-liberation is already the newest version (1:2.1.5-3).
+2026-10-18T23:17:45.4935824Z fonts-liberation set to manually installed.
+2026-10-18T23:17:45.4936228Z The following additional packages will be installed:
+2026-10-18T23:17:45.4936709Z   libavutil58 libcodec2-1.2 libdav1d7 libgsm1 libhwy1t64 libjxl0.7 libmp3lame0
+2026-10-18T23:17:45.4937441Z   libopus0 librav1e0 librsvg2-2 libshine3 libsoxr0 libspeex1 libsvtav1enc1d1
+2026-10-18T23:17:45.4938124Z   libswresample4 libtheora0 libtwolame0 libva-drm2 libva-x11-2 libva2
+2026-10-18T23:17:45.4938641Z   libvdpau1 libvorbisenc2 libvpl2 libvpx9 libx264-164 libx265-199 libxvidcore4
+2026-10-18T23:17:45.4939151Z   libzvbi-common libzvbi0t64 ocl-icd-libopencl1 xfonts-encodings xfonts-utils
+2026-10-18T23:17:45.4939575Z Suggested packages:
+2026-10-18T23:17:45.4940116Z   libcuda1 libnvcuvid1 libnvidia-encode1 opus-tools librsvg2-bin speex
+2026-10-18T23:17:45.4940564Z   opencl-icd
+2026-10-18T23:17:45.4940926Z Recommended packages:
+2026-10-18T23:17:45.4941593Z   fonts-ipafont-mincho fonts-tlwg-loma librsvg2-common va-driver-all
+2026-10-18T23:17:45.4942399Z   | va-driver vdpau-driver-all | vdpau-driver
+2026-10-18T23:17:45.5217848Z The following NEW packages will be installed:
+2026-10-18T23:17:45.5218725Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-10-18T23:17:45.5219370Z   fonts-wqy-zenhei libavcodec60 libavutil58 libcodec2-1.2 libdav1d7 libgsm1
+2026-10-18T23:17:45.5223485Z   libhwy1t64 libjxl0.7 libmp3lame0 libopus0 librav1e0 librsvg2-2 libshine3
+2026-10-18T23:17:45.5224175Z   libsoxr0 libspeex1 libsvtav1enc1d1 libswresample4 libtheora0 libtwolame0
+2026-10-18T23:17:45.5224705Z   libva-drm2 libva-x11-2 libva2 libvdpau1 libvorbisenc2 libvpl2 libvpx9
+2026-10-18T23:17:45.5225322Z   libx264-164 libx265-199 libxvidcore4 libzvbi-common libzvbi0t64
+2026-10-18T23:17:45.5227081Z   ocl-icd-libopencl1 xfonts-cyrillic xfonts-encodings xfonts-scalable
+2026-10-18T23:17:45.5227729Z   xfonts-utils
+2026-10-18T23:17:45.5379526Z 0 upgraded, 40 newly installed, 0 to remove and 44 not upgraded.
+2026-10-18T23:17:45.5379991Z Need to get 48.8 MB of archives.
+2026-10-18T23:17:45.5380564Z After this operation, 168 MB of additional disk space will be used.
+2026-10-18T23:17:45.5381052Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-18T23:17:45.5963479Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+2026-10-18T23:17:45.6887072Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+2026-10-18T23:17:45.8499761Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+2026-10-18T23:17:45.9075621Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+2026-10-18T23:17:45.9886895Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+2026-10-18T23:17:46.1595759Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 libva2 amd64 2.20.0-2ubuntu0.2 [66.4 kB]
+2026-10-18T23:17:46.2083208Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 libva-drm2 amd64 2.20.0-2ubuntu0.2 [7124 B]
+2026-10-18T23:17:46.2477407Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 libva-x11-2 amd64 2.20.0-2ubuntu0.2 [12.0 kB]
+2026-10-18T23:17:46.2880615Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libvdpau1 amd64 1.5-2build1 [27.8 kB]
+2026-10-18T23:17:46.3386331Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libvpl2 amd64 2023.3.0-1build1 [99.8 kB]
+2026-10-18T23:17:46.3775436Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 ocl-icd-libopencl1 amd64 2.3.2-1build1 [38.5 kB]
+2026-10-18T23:17:46.4108347Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libavutil58 amd64 7:6.1.1-3ubuntu5 [401 kB]
+2026-10-18T23:17:46.4713172Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libcodec2-1.2 amd64 1.2.0-2build1 [8998 kB]
+2026-10-18T23:17:46.5930283Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libdav1d7 amd64 1.4.1-1build1 [604 kB]
+2026-10-18T23:17:46.6317228Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libgsm1 amd64 1.0.22-1build1 [27.8 kB]
+2026-10-18T23:17:46.6634042Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libhwy1t64 amd64 1.0.7-8.1build1 [584 kB]
+2026-10-18T23:17:46.7109726Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 libjxl0.7 amd64 0.7.0-10.2ubuntu6.1 [1001 kB]
+2026-10-18T23:17:46.8024146Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libmp3lame0 amd64 3.100-6build1 [142 kB]
+2026-10-18T23:17:46.9634763Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libopus0 amd64 1.4-1build1 [208 kB]
+2026-10-18T23:17:47.0007788Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 librav1e0 amd64 0.7.1-2 [1022 kB]
+2026-10-18T23:17:47.0513729Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 librsvg2-2 amd64 2.58.0+dfsg-1ubuntu0.1 [2141 kB]
+2026-10-18T23:17:47.1037646Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libshine3 amd64 3.1.1-2build1 [23.2 kB]
+2026-10-18T23:17:47.1356690Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libspeex1 amd64 1.2.1-2ubuntu2.24.04.1 [59.6 kB]
+2026-10-18T23:17:47.1677627Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libsvtav1enc1d1 amd64 1.7.0+dfsg-2build1 [2425 kB]
+2026-10-18T23:17:47.2234898Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libsoxr0 amd64 0.1.3-4build3 [80.0 kB]
+2026-10-18T23:17:47.2555547Z Get:27 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libswresample4 amd64 7:6.1.1-3ubuntu5 [63.8 kB]
+2026-10-18T23:17:47.2875518Z Get:28 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libtheora0 amd64 1.1.1+dfsg.1-16.1build3 [211 kB]
+2026-10-18T23:17:47.3209573Z Get:29 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libtwolame0 amd64 0.4.0-2build3 [52.3 kB]
+2026-10-18T23:17:47.3530003Z Get:30 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libvorbisenc2 amd64 1.3.7-1build3 [80.8 kB]
+2026-10-18T23:17:47.3861749Z Get:31 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libvpx9 amd64 1.14.0-1ubuntu2.3 [1143 kB]
+2026-10-18T23:17:47.4283281Z Get:32 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libx264-164 amd64 2:0.164.3108+git31e19f9-1 [604 kB]
+2026-10-18T23:17:47.4610784Z Get:33 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libx265-199 amd64 3.5-2build1 [1226 kB]
+2026-10-18T23:17:47.4941409Z Get:34 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libxvidcore4 amd64 2:1.3.7-1build1 [219 kB]
+2026-10-18T23:17:47.5235773Z Get:35 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libzvbi-common all 0.2.42-2 [42.4 kB]
+2026-10-18T23:17:47.5515088Z Get:36 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libzvbi0t64 amd64 0.2.42-2 [261 kB]
+2026-10-18T23:17:47.5806083Z Get:37 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 libavcodec60 amd64 7:6.1.1-3ubuntu5 [5851 kB]
+2026-10-18T23:17:47.6473618Z Get:38 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+2026-10-18T23:17:47.7257300Z Get:39 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+2026-10-18T23:17:47.7560444Z Get:40 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+2026-10-18T23:17:47.7884553Z Get:41 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+2026-10-18T23:17:48.0116277Z Fetched 48.8 MB in 2s (21.6 MB/s)
+2026-10-18T23:17:48.0301210Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-10-18T23:17:48.0480233Z (Reading database ... 
+2026-10-18T23:17:48.0480634Z (Reading database ... 5%
+2026-10-18T23:17:48.0480972Z (Reading database ... 10%
+2026-10-18T23:17:48.0481220Z (Reading database ... 15%
+2026-10-18T23:17:48.0481507Z (Reading database ... 20%
+2026-10-18T23:17:48.0481889Z (Reading database ... 25%
+2026-10-18T23:17:48.0482146Z (Reading database ... 30%
+2026-10-18T23:17:48.0482381Z (Reading database ... 35%
+2026-10-18T23:17:48.0482620Z (Reading database ... 40%
+2026-10-18T23:17:48.0483281Z (Reading database ... 45%
+2026-10-18T23:17:48.0483564Z (Reading database ... 50%
+2026-10-18T23:17:48.0509636Z (Reading database ... 55%
+2026-10-18T23:17:48.1935120Z (Reading database ... 60%
+2026-10-18T23:17:48.4008425Z (Reading database ... 65%
+2026-10-18T23:17:48.5929913Z (Reading database ... 70%
+2026-10-18T23:17:48.7930421Z (Reading database ... 75%
+2026-10-18T23:17:48.9401865Z (Reading database ... 80%
+2026-10-18T23:17:49.1463370Z (Reading database ... 85%
+2026-10-18T23:17:49.3113474Z (Reading database ... 90%
+2026-10-18T23:17:49.5013792Z (Reading database ... 95%
+2026-10-18T23:17:49.5014201Z (Reading database ... 100%
+2026-10-18T23:17:49.5014848Z (Reading database ... 203540 files and directories currently installed.)
+2026-10-18T23:17:49.5057041Z Preparing to unpack .../00-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+2026-10-18T23:17:49.5132266Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-18T23:17:49.7526023Z Selecting previously unselected package fonts-freefont-ttf.
+2026-10-18T23:17:49.7631071Z Preparing to unpack .../01-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+2026-10-18T23:17:49.7639441Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-18T23:17:49.8494668Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-10-18T23:17:49.8597381Z Preparing to unpack .../02-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+2026-10-18T23:17:49.8604428Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-18T23:17:49.8759616Z Selecting previously unselected package fonts-unifont.
+2026-10-18T23:17:49.8862515Z Preparing to unpack .../03-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+2026-10-18T23:17:49.8870097Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+2026-10-18T23:17:50.0946340Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-10-18T23:17:50.1052116Z Preparing to unpack .../04-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+2026-10-18T23:17:50.1130700Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-18T23:17:50.5647503Z Selecting previously unselected package libva2:amd64.
+2026-10-18T23:17:50.5752450Z Preparing to unpack .../05-libva2_2.20.0-2ubuntu0.2_amd64.deb ...
+2026-10-18T23:17:50.5771636Z Unpacking libva2:amd64 (2.20.0-2ubuntu0.2) ...
+2026-10-18T23:17:50.5939738Z Selecting previously unselected package libva-drm2:amd64.
+2026-10-18T23:17:50.6044207Z Preparing to unpack .../06-libva-drm2_2.20.0-2ubuntu0.2_amd64.deb ...
+2026-10-18T23:17:50.6199808Z Unpacking libva-drm2:amd64 (2.20.0-2ubuntu0.2) ...
+2026-10-18T23:17:50.6366077Z Selecting previously unselected package libva-x11-2:amd64.
+2026-10-18T23:17:50.6471143Z Preparing to unpack .../07-libva-x11-2_2.20.0-2ubuntu0.2_amd64.deb ...
+2026-10-18T23:17:50.6479552Z Unpacking libva-x11-2:amd64 (2.20.0-2ubuntu0.2) ...
+2026-10-18T23:17:50.6642691Z Selecting previously unselected package libvdpau1:amd64.
+2026-10-18T23:17:50.6747670Z Preparing to unpack .../08-libvdpau1_1.5-2build1_amd64.deb ...
+2026-10-18T23:17:50.6756548Z Unpacking libvdpau1:amd64 (1.5-2build1) ...
+2026-10-18T23:17:50.6924564Z Selecting previously unselected package libvpl2.
+2026-10-18T23:17:50.7031828Z Preparing to unpack .../09-libvpl2_2023.3.0-1build1_amd64.deb ...
+2026-10-18T23:17:50.7039964Z Unpacking libvpl2 (2023.3.0-1build1) ...
+2026-10-18T23:17:50.7220343Z Selecting previously unselected package ocl-icd-libopencl1:amd64.
+2026-10-18T23:17:50.7330261Z Preparing to unpack .../10-ocl-icd-libopencl1_2.3.2-1build1_amd64.deb ...
+2026-10-18T23:17:50.7338384Z Unpacking ocl-icd-libopencl1:amd64 (2.3.2-1build1) ...
+2026-10-18T23:17:50.7621781Z Selecting previously unselected package libavutil58:amd64.
+2026-10-18T23:17:50.7739591Z Preparing to unpack .../11-libavutil58_7%3a6.1.1-3ubuntu5_amd64.deb ...
+2026-10-18T23:17:50.7746984Z Unpacking libavutil58:amd64 (7:6.1.1-3ubuntu5) ...
+2026-10-18T23:17:50.7994806Z Selecting previously unselected package libcodec2-1.2:amd64.
+2026-10-18T23:17:50.8109925Z Preparing to unpack .../12-libcodec2-1.2_1.2.0-2build1_amd64.deb ...
+2026-10-18T23:17:50.8117737Z Unpacking libcodec2-1.2:amd64 (1.2.0-2build1) ...
+2026-10-18T23:17:50.9536906Z Selecting previously unselected package libdav1d7:amd64.
+2026-10-18T23:17:50.9655920Z Preparing to unpack .../13-libdav1d7_1.4.1-1build1_amd64.deb ...
+2026-10-18T23:17:50.9664421Z Unpacking libdav1d7:amd64 (1.4.1-1build1) ...
+2026-10-18T23:17:50.9898201Z Selecting previously unselected package libgsm1:amd64.
+2026-10-18T23:17:51.0013552Z Preparing to unpack .../14-libgsm1_1.0.22-1build1_amd64.deb ...
+2026-10-18T23:17:51.0021849Z Unpacking libgsm1:amd64 (1.0.22-1build1) ...
+2026-10-18T23:17:51.0187149Z Selecting previously unselected package libhwy1t64:amd64.
+2026-10-18T23:17:51.0308055Z Preparing to unpack .../15-libhwy1t64_1.0.7-8.1build1_amd64.deb ...
+2026-10-18T23:17:51.0317143Z Unpacking libhwy1t64:amd64 (1.0.7-8.1build1) ...
+2026-10-18T23:17:51.0788631Z Selecting previously unselected package libjxl0.7:amd64.
+2026-10-18T23:17:51.0900723Z Preparing to unpack .../16-libjxl0.7_0.7.0-10.2ubuntu6.1_amd64.deb ...
+2026-10-18T23:17:51.0909233Z Unpacking libjxl0.7:amd64 (0.7.0-10.2ubuntu6.1) ...
+2026-10-18T23:17:51.1266155Z Selecting previously unselected package libmp3lame0:amd64.
+2026-10-18T23:17:51.1372859Z Preparing to unpack .../17-libmp3lame0_3.100-6build1_amd64.deb ...
+2026-10-18T23:17:51.1380477Z Unpacking libmp3lame0:amd64 (3.100-6build1) ...
+2026-10-18T23:17:51.1551712Z Selecting previously unselected package libopus0:amd64.
+2026-10-18T23:17:51.1655125Z Preparing to unpack .../18-libopus0_1.4-1build1_amd64.deb ...
+2026-10-18T23:17:51.1664241Z Unpacking libopus0:amd64 (1.4-1build1) ...
+2026-10-18T23:17:51.1836525Z Selecting previously unselected package librav1e0:amd64.
+2026-10-18T23:17:51.1937833Z Preparing to unpack .../19-librav1e0_0.7.1-2_amd64.deb ...
+2026-10-18T23:17:51.1945628Z Unpacking librav1e0:amd64 (0.7.1-2) ...
+2026-10-18T23:17:51.2261150Z Selecting previously unselected package librsvg2-2:amd64.
+2026-10-18T23:17:51.2366062Z Preparing to unpack .../20-librsvg2-2_2.58.0+dfsg-1ubuntu0.1_amd64.deb ...
+2026-10-18T23:17:51.2374431Z Unpacking librsvg2-2:amd64 (2.58.0+dfsg-1ubuntu0.1) ...
+2026-10-18T23:17:51.3035017Z Selecting previously unselected package libshine3:amd64.
+2026-10-18T23:17:51.3136249Z Preparing to unpack .../21-libshine3_3.1.1-2build1_amd64.deb ...
+2026-10-18T23:17:51.3145307Z Unpacking libshine3:amd64 (3.1.1-2build1) ...
+2026-10-18T23:17:51.3303297Z Selecting previously unselected package libspeex1:amd64.
+2026-10-18T23:17:51.3407957Z Preparing to unpack .../22-libspeex1_1.2.1-2ubuntu2.24.04.1_amd64.deb ...
+2026-10-18T23:17:51.3417020Z Unpacking libspeex1:amd64 (1.2.1-2ubuntu2.24.04.1) ...
+2026-10-18T23:17:51.3574212Z Selecting previously unselected package libsvtav1enc1d1:amd64.
+2026-10-18T23:17:51.3679199Z Preparing to unpack .../23-libsvtav1enc1d1_1.7.0+dfsg-2build1_amd64.deb ...
+2026-10-18T23:17:51.3688182Z Unpacking libsvtav1enc1d1:amd64 (1.7.0+dfsg-2build1) ...
+2026-10-18T23:17:51.4354526Z Selecting previously unselected package libsoxr0:amd64.
+2026-10-18T23:17:51.4463425Z Preparing to unpack .../24-libsoxr0_0.1.3-4build3_amd64.deb ...
+2026-10-18T23:17:51.4472002Z Unpacking libsoxr0:amd64 (0.1.3-4build3) ...
+2026-10-18T23:17:51.4710941Z Selecting previously unselected package libswresample4:amd64.
+2026-10-18T23:17:51.4818769Z Preparing to unpack .../25-libswresample4_7%3a6.1.1-3ubuntu5_amd64.deb ...
+2026-10-18T23:17:51.4827583Z Unpacking libswresample4:amd64 (7:6.1.1-3ubuntu5) ...
+2026-10-18T23:17:51.4996227Z Selecting previously unselected package libtheora0:amd64.
+2026-10-18T23:17:51.5102158Z Preparing to unpack .../26-libtheora0_1.1.1+dfsg.1-16.1build3_amd64.deb ...
+2026-10-18T23:17:51.5112561Z Unpacking libtheora0:amd64 (1.1.1+dfsg.1-16.1build3) ...
+2026-10-18T23:17:51.5297031Z Selecting previously unselected package libtwolame0:amd64.
+2026-10-18T23:17:51.5397216Z Preparing to unpack .../27-libtwolame0_0.4.0-2build3_amd64.deb ...
+2026-10-18T23:17:51.5404380Z Unpacking libtwolame0:amd64 (0.4.0-2build3) ...
+2026-10-18T23:17:51.5560065Z Selecting previously unselected package libvorbisenc2:amd64.
+2026-10-18T23:17:51.5663553Z Preparing to unpack .../28-libvorbisenc2_1.3.7-1build3_amd64.deb ...
+2026-10-18T23:17:51.5670783Z Unpacking libvorbisenc2:amd64 (1.3.7-1build3) ...
+2026-10-18T23:17:51.5836871Z Selecting previously unselected package libvpx9:amd64.
+2026-10-18T23:17:51.5936893Z Preparing to unpack .../29-libvpx9_1.14.0-1ubuntu2.3_amd64.deb ...
+2026-10-18T23:17:51.5946340Z Unpacking libvpx9:amd64 (1.14.0-1ubuntu2.3) ...
+2026-10-18T23:17:51.6230667Z Selecting previously unselected package libx264-164:amd64.
+2026-10-18T23:17:51.6331381Z Preparing to unpack .../30-libx264-164_2%3a0.164.3108+git31e19f9-1_amd64.deb ...
+2026-10-18T23:17:51.6341642Z Unpacking libx264-164:amd64 (2:0.164.3108+git31e19f9-1) ...
+2026-10-18T23:17:51.6733544Z Selecting previously unselected package libx265-199:amd64.
+2026-10-18T23:17:51.6839994Z Preparing to unpack .../31-libx265-199_3.5-2build1_amd64.deb ...
+2026-10-18T23:17:51.6849384Z Unpacking libx265-199:amd64 (3.5-2build1) ...
+2026-10-18T23:17:51.8051769Z Selecting previously unselected package libxvidcore4:amd64.
+2026-10-18T23:17:51.8158080Z Preparing to unpack .../32-libxvidcore4_2%3a1.3.7-1build1_amd64.deb ...
+2026-10-18T23:17:51.8165632Z Unpacking libxvidcore4:amd64 (2:1.3.7-1build1) ...
+2026-10-18T23:17:51.8334539Z Selecting previously unselected package libzvbi-common.
+2026-10-18T23:17:51.8436783Z Preparing to unpack .../33-libzvbi-common_0.2.42-2_all.deb ...
+2026-10-18T23:17:51.8444653Z Unpacking libzvbi-common (0.2.42-2) ...
+2026-10-18T23:17:51.9174667Z Selecting previously unselected package libzvbi0t64:amd64.
+2026-10-18T23:17:51.9280368Z Preparing to unpack .../34-libzvbi0t64_0.2.42-2_amd64.deb ...
+2026-10-18T23:17:51.9289595Z Unpacking libzvbi0t64:amd64 (0.2.42-2) ...
+2026-10-18T23:17:51.9476558Z Selecting previously unselected package libavcodec60:amd64.
+2026-10-18T23:17:51.9581171Z Preparing to unpack .../35-libavcodec60_7%3a6.1.1-3ubuntu5_amd64.deb ...
+2026-10-18T23:17:51.9590191Z Unpacking libavcodec60:amd64 (7:6.1.1-3ubuntu5) ...
+2026-10-18T23:17:52.1233013Z Selecting previously unselected package xfonts-encodings.
+2026-10-18T23:17:52.1338918Z Preparing to unpack .../36-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+2026-10-18T23:17:52.1347994Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-18T23:17:52.1547826Z Selecting previously unselected package xfonts-utils.
+2026-10-18T23:17:52.1652950Z Preparing to unpack .../37-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+2026-10-18T23:17:52.1661729Z Unpacking xfonts-utils (1:7.7+6build3) ...
+2026-10-18T23:17:52.1919889Z Selecting previously unselected package xfonts-cyrillic.
+2026-10-18T23:17:52.2025074Z Preparing to unpack .../38-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+2026-10-18T23:17:52.2034557Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-18T23:17:52.2246471Z Selecting previously unselected package xfonts-scalable.
+2026-10-18T23:17:52.2350594Z Preparing to unpack .../39-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+2026-10-18T23:17:52.2358407Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-18T23:17:52.2979949Z Setting up libhwy1t64:amd64 (1.0.7-8.1build1) ...
+2026-10-18T23:17:52.3006087Z Setting up libspeex1:amd64 (1.2.1-2ubuntu2.24.04.1) ...
+2026-10-18T23:17:52.3027809Z Setting up libshine3:amd64 (3.1.1-2build1) ...
+2026-10-18T23:17:52.3051049Z Setting up libvpl2 (2023.3.0-1build1) ...
+2026-10-18T23:17:52.3219445Z Setting up libx264-164:amd64 (2:0.164.3108+git31e19f9-1) ...
+2026-10-18T23:17:52.3239705Z Setting up libtwolame0:amd64 (0.4.0-2build3) ...
+2026-10-18T23:17:52.3260886Z Setting up libgsm1:amd64 (1.0.22-1build1) ...
+2026-10-18T23:17:52.3282596Z Setting up libsoxr0:amd64 (0.1.3-4build3) ...
+2026-10-18T23:17:52.3303278Z Setting up libcodec2-1.2:amd64 (1.2.0-2build1) ...
+2026-10-18T23:17:52.3325367Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-18T23:17:52.3507564Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-18T23:17:52.3528793Z Setting up libsvtav1enc1d1:amd64 (1.7.0+dfsg-2build1) ...
+2026-10-18T23:17:52.3550238Z Setting up libxvidcore4:amd64 (2:1.3.7-1build1) ...
+2026-10-18T23:17:52.3573458Z Setting up librav1e0:amd64 (0.7.1-2) ...
+2026-10-18T23:17:52.3594373Z Setting up librsvg2-2:amd64 (2.58.0+dfsg-1ubuntu0.1) ...
+2026-10-18T23:17:52.3616334Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-18T23:17:52.3637468Z Setting up libva2:amd64 (2.20.0-2ubuntu0.2) ...
+2026-10-18T23:17:52.3659025Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-18T23:17:52.3681759Z Setting up libopus0:amd64 (1.4-1build1) ...
+2026-10-18T23:17:52.3703977Z Setting up libjxl0.7:amd64 (0.7.0-10.2ubuntu6.1) ...
+2026-10-18T23:17:52.3725417Z Setting up libx265-199:amd64 (3.5-2build1) ...
+2026-10-18T23:17:52.3746635Z Setting up libvpx9:amd64 (1.14.0-1ubuntu2.3) ...
+2026-10-18T23:17:52.3767929Z Setting up libdav1d7:amd64 (1.4.1-1build1) ...
+2026-10-18T23:17:52.3789940Z Setting up libva-drm2:amd64 (2.20.0-2ubuntu0.2) ...
+2026-10-18T23:17:52.3811150Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-18T23:17:52.3867811Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-10-18T23:17:52.3884695Z Setting up ocl-icd-libopencl1:amd64 (2.3.2-1build1) ...
+2026-10-18T23:17:52.3905107Z Setting up libvdpau1:amd64 (1.5-2build1) ...
+2026-10-18T23:17:52.3933390Z Setting up libtheora0:amd64 (1.1.1+dfsg.1-16.1build3) ...
+2026-10-18T23:17:52.3955144Z Setting up libva-x11-2:amd64 (2.20.0-2ubuntu0.2) ...
+2026-10-18T23:17:52.3976813Z Setting up libzvbi-common (0.2.42-2) ...
+2026-10-18T23:17:52.3998540Z Setting up libmp3lame0:amd64 (3.100-6build1) ...
+2026-10-18T23:17:52.4019719Z Setting up libvorbisenc2:amd64 (1.3.7-1build3) ...
+2026-10-18T23:17:52.4041419Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+2026-10-18T23:17:52.4064179Z Setting up libzvbi0t64:amd64 (0.2.42-2) ...
+2026-10-18T23:17:52.4086194Z Setting up libavutil58:amd64 (7:6.1.1-3ubuntu5) ...
+2026-10-18T23:17:52.4106954Z Setting up xfonts-utils (1:7.7+6build3) ...
+2026-10-18T23:17:52.4149027Z Setting up libswresample4:amd64 (7:6.1.1-3ubuntu5) ...
+2026-10-18T23:17:52.4170805Z Setting up libavcodec60:amd64 (7:6.1.1-3ubuntu5) ...
+2026-10-18T23:17:52.4197475Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-18T23:17:52.4438263Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-18T23:17:52.5018741Z Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+2026-10-18T23:17:54.3800690Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-10-18T23:17:54.3823185Z Not building database; man-db/auto-update is not 'true'.
+2026-10-18T23:17:54.3837332Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+2026-10-18T23:17:54.9153742Z 
+2026-10-18T23:17:54.9154599Z Running kernel seems to be up-to-date.
+2026-10-18T23:17:54.9154881Z 
+2026-10-18T23:17:54.9155054Z No services need to be restarted.
+2026-10-18T23:17:54.9155221Z 
+2026-10-18T23:17:54.9155428Z No containers need to be restarted.
+2026-10-18T23:17:54.9155633Z 
+2026-10-18T23:17:54.9155827Z No user sessions are running outdated binaries.
+2026-10-18T23:17:54.9156054Z 
+2026-10-18T23:17:54.9156295Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-10-18T23:17:55.7200180Z Downloading Firefox 155.0 (playwright firefox v1543) from https://cdn.playwright.dev/dbazure/download/playwright/builds/firefox/1543/firefox-ubuntu-24.04.zip
+2026-10-18T23:17:56.0706991Z |                                                                                |   0% of 109.5 MiB
+2026-10-18T23:17:56.2160826Z |■■■■■■■■                                                                        |  10% of 109.5 MiB
+2026-10-18T23:17:56.2736906Z |■■■■■■■■■■■■■■■■                                                                |  20% of 109.5 MiB
+2026-10-18T23:17:56.3339316Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 109.5 MiB
+2026-10-18T23:17:56.3944097Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 109.5 MiB
+2026-10-18T23:17:56.4589286Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 109.5 MiB
+2026-10-18T23:17:56.5084273Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 109.5 MiB
+2026-10-18T23:17:56.5647084Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 109.5 MiB
+2026-10-18T23:17:56.6143582Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 109.5 MiB
+2026-10-18T23:17:56.6714264Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 109.5 MiB
+2026-10-18T23:17:56.7448267Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 109.5 MiB
+2026-10-18T23:17:58.6669101Z Firefox 155.0 (playwright firefox v1543) downloaded to /home/runner/.cache/ms-playwright/firefox-1543
+2026-10-18T23:17:58.6671172Z Downloading FFmpeg (playwright ffmpeg v1011) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip
+2026-10-18T23:17:59.0169609Z |                                                                                |   0% of 2.3 MiB
+2026-10-18T23:17:59.0634649Z |■■■■■■■■                                                                        |  10% of 2.3 MiB
+2026-10-18T23:17:59.0919279Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.3 MiB
+2026-10-18T23:17:59.1118864Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.3 MiB
+2026-10-18T23:17:59.1286630Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.3 MiB
+2026-10-18T23:17:59.1383927Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.3 MiB
+2026-10-18T23:17:59.1528886Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.3 MiB
+2026-10-18T23:17:59.1577248Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.3 MiB
+2026-10-18T23:17:59.1623995Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.3 MiB
+2026-10-18T23:17:59.1742521Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.3 MiB
+2026-10-18T23:17:59.1796024Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.3 MiB
+2026-10-18T23:17:59.2306037Z FFmpeg (playwright ffmpeg v1011) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1011
+2026-10-18T23:17:59.3087315Z ##[group]Run xvfb-run --auto-servernum pnpm test:browser --project=firefox --headed --grep 'combined dialog, menu, tooltip and editor dialog' --repeat-each=3 2>&1 | tee artifacts/logs/browser.txt
+2026-10-18T23:17:59.3088266Z [36;1mxvfb-run --auto-servernum pnpm test:browser --project=firefox --headed --grep 'combined dialog, menu, tooltip and editor dialog' --repeat-each=3 2>&1 | tee artifacts/logs/browser.txt[0m
+2026-10-18T23:17:59.3123911Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-18T23:17:59.3124227Z env:
+2026-10-18T23:17:59.3124560Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:17:59.3124875Z ##[endgroup]
+2026-10-18T23:17:59.9086499Z 
+2026-10-18T23:17:59.9087717Z > @structured-growth/sg-ui@0.0.0-development test:browser /home/runner/work/sg-ui/sg-ui/packages/ui
+2026-10-18T23:17:59.9089233Z > tsc --noEmit -p tests/browser/tsconfig.json && playwright test --project=firefox --headed --grep 'combined dialog, menu, tooltip and editor dialog' --repeat-each=3
+2026-10-18T23:17:59.9089887Z 
+2026-10-18T23:18:04.8076188Z 
+2026-10-18T23:18:04.8076893Z Running 3 tests using 1 worker
+2026-10-18T23:18:17.7047187Z 
+2026-10-18T23:18:17.7048298Z   ✘  1 [firefox] › tests/browser/wave03-overlay-successors.spec.ts:39:1 › combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope (7.3s)
+2026-10-18T23:18:25.9054228Z   ✘  2 [firefox] › tests/browser/wave03-overlay-successors.spec.ts:39:1 › combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope (6.9s)
+2026-10-18T23:18:33.8664389Z   ✘  3 [firefox] › tests/browser/wave03-overlay-successors.spec.ts:39:1 › combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope (6.9s)
+2026-10-18T23:18:33.9151006Z 
+2026-10-18T23:18:33.9153787Z 
+2026-10-18T23:18:33.9165798Z   1) [firefox] › tests/browser/wave03-overlay-successors.spec.ts:39:1 › combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope 
+2026-10-18T23:18:33.9166503Z 
+2026-10-18T23:18:33.9166775Z     Error: Timeout 5000ms exceeded while waiting on the predicate
+2026-10-18T23:18:33.9167032Z 
+2026-10-18T23:18:33.9167247Z       78 |         const r = element.getBoundingClientRect();
+2026-10-18T23:18:33.9167702Z       79 |         return r.left >= 0 && r.right <= innerWidth + 1 && r.top >= 0 && r.bottom <= innerHeight + 1;
+2026-10-18T23:18:33.9168089Z     > 80 |       })).toBe(true);
+2026-10-18T23:18:33.9168300Z          |           ^
+2026-10-18T23:18:33.9168719Z       81 |       observations.push({ stage: `tooltip-narrow-${alternate}`, overlays: await snapshot(page) });
+2026-10-18T23:18:33.9169176Z       82 |       await page.setViewportSize({ width: 1100, height: 900 });
+2026-10-18T23:18:33.9169520Z       83 |       await page.keyboard.press('Escape');
+2026-10-18T23:18:33.9169973Z         at /home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts:80:11
+2026-10-18T23:18:33.9170263Z 
+2026-10-18T23:18:33.9170660Z     attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-18T23:18:33.9176602Z     artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox/test-failed-1.png
+2026-10-18T23:18:33.9177664Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-18T23:18:33.9177973Z 
+2026-10-18T23:18:33.9178523Z     Error Context: artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox/error-context.md
+2026-10-18T23:18:33.9179105Z 
+2026-10-18T23:18:33.9179544Z     attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-18T23:18:33.9180326Z     artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox/trace.zip
+2026-10-18T23:18:33.9180918Z     Usage:
+2026-10-18T23:18:33.9181031Z 
+2026-10-18T23:18:33.9181857Z         pnpm exec playwright show-trace artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox/trace.zip
+2026-10-18T23:18:33.9182302Z 
+2026-10-18T23:18:33.9182591Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-18T23:18:33.9183251Z 
+2026-10-18T23:18:33.9183910Z   2) [firefox] › tests/browser/wave03-overlay-successors.spec.ts:39:1 › combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope 
+2026-10-18T23:18:33.9184338Z 
+2026-10-18T23:18:33.9184513Z     Error: Timeout 5000ms exceeded while waiting on the predicate
+2026-10-18T23:18:33.9184720Z 
+2026-10-18T23:18:33.9184862Z       78 |         const r = element.getBoundingClientRect();
+2026-10-18T23:18:33.9185284Z       79 |         return r.left >= 0 && r.right <= innerWidth + 1 && r.top >= 0 && r.bottom <= innerHeight + 1;
+2026-10-18T23:18:33.9185654Z     > 80 |       })).toBe(true);
+2026-10-18T23:18:33.9185848Z          |           ^
+2026-10-18T23:18:33.9186222Z       81 |       observations.push({ stage: `tooltip-narrow-${alternate}`, overlays: await snapshot(page) });
+2026-10-18T23:18:33.9186673Z       82 |       await page.setViewportSize({ width: 1100, height: 900 });
+2026-10-18T23:18:33.9187001Z       83 |       await page.keyboard.press('Escape');
+2026-10-18T23:18:33.9187437Z         at /home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts:80:11
+2026-10-18T23:18:33.9187722Z 
+2026-10-18T23:18:33.9188040Z     attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-18T23:18:33.9188674Z     artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox-repeat1/test-failed-1.png
+2026-10-18T23:18:33.9189328Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-18T23:18:33.9189551Z 
+2026-10-18T23:18:33.9190020Z     Error Context: artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox-repeat1/error-context.md
+2026-10-18T23:18:33.9190435Z 
+2026-10-18T23:18:33.9190737Z     attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-18T23:18:33.9191337Z     artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox-repeat1/trace.zip
+2026-10-18T23:18:33.9191778Z     Usage:
+2026-10-18T23:18:33.9191874Z 
+2026-10-18T23:18:33.9192319Z         pnpm exec playwright show-trace artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox-repeat1/trace.zip
+2026-10-18T23:18:33.9192934Z 
+2026-10-18T23:18:33.9193302Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-18T23:18:33.9193533Z 
+2026-10-18T23:18:33.9194061Z   3) [firefox] › tests/browser/wave03-overlay-successors.spec.ts:39:1 › combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope 
+2026-10-18T23:18:33.9194494Z 
+2026-10-18T23:18:33.9194758Z     Error: Timeout 5000ms exceeded while waiting on the predicate
+2026-10-18T23:18:33.9194953Z 
+2026-10-18T23:18:33.9195101Z       78 |         const r = element.getBoundingClientRect();
+2026-10-18T23:18:33.9195542Z       79 |         return r.left >= 0 && r.right <= innerWidth + 1 && r.top >= 0 && r.bottom <= innerHeight + 1;
+2026-10-18T23:18:33.9195893Z     > 80 |       })).toBe(true);
+2026-10-18T23:18:33.9196098Z          |           ^
+2026-10-18T23:18:33.9196462Z       81 |       observations.push({ stage: `tooltip-narrow-${alternate}`, overlays: await snapshot(page) });
+2026-10-18T23:18:33.9196906Z       82 |       await page.setViewportSize({ width: 1100, height: 900 });
+2026-10-18T23:18:33.9197223Z       83 |       await page.keyboard.press('Escape');
+2026-10-18T23:18:33.9197642Z         at /home/runner/work/sg-ui/sg-ui/packages/ui/tests/browser/wave03-overlay-successors.spec.ts:80:11
+2026-10-18T23:18:33.9197932Z 
+2026-10-18T23:18:33.9198239Z     attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-18T23:18:33.9198865Z     artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox-repeat2/test-failed-1.png
+2026-10-18T23:18:33.9199589Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-18T23:18:33.9199814Z 
+2026-10-18T23:18:33.9200216Z     Error Context: artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox-repeat2/error-context.md
+2026-10-18T23:18:33.9200698Z 
+2026-10-18T23:18:33.9201023Z     attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-18T23:18:33.9201644Z     artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox-repeat2/trace.zip
+2026-10-18T23:18:33.9202106Z     Usage:
+2026-10-18T23:18:33.9202220Z 
+2026-10-18T23:18:33.9202687Z         pnpm exec playwright show-trace artifacts/browser-traces/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox-repeat2/trace.zip
+2026-10-18T23:18:33.9203254Z 
+2026-10-18T23:18:33.9203561Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-18T23:18:33.9203800Z 
+2026-10-18T23:18:33.9203892Z   3 failed
+2026-10-18T23:18:33.9204502Z     [firefox] › tests/browser/wave03-overlay-successors.spec.ts:39:1 › combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope 
+2026-10-18T23:18:33.9205465Z     [firefox] › tests/browser/wave03-overlay-successors.spec.ts:39:1 › combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope 
+2026-10-18T23:18:33.9206380Z     [firefox] › tests/browser/wave03-overlay-successors.spec.ts:39:1 › combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope 
+2026-10-18T23:18:33.9946327Z  ELIFECYCLE  Command failed with exit code 1.
+2026-10-18T23:18:34.0280761Z ##[error]Process completed with exit code 1.
+2026-10-18T23:18:34.0336054Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-10-18T23:18:34.0336339Z with:
+2026-10-18T23:18:34.0336518Z   name: sgui-firefox-tooltip-diagnostic
+2026-10-18T23:18:34.0337008Z   path: packages/ui/artifacts/logs/
+packages/ui/artifacts/browser-results.json
+packages/ui/artifacts/browser-report/
+packages/ui/artifacts/browser-traces/
+
+2026-10-18T23:18:34.0337455Z   retention-days: 14
+2026-10-18T23:18:34.0337621Z   if-no-files-found: warn
+2026-10-18T23:18:34.0337791Z   compression-level: 6
+2026-10-18T23:18:34.0337992Z   overwrite: false
+2026-10-18T23:18:34.0338168Z   include-hidden-files: false
+2026-10-18T23:18:34.0338338Z env:
+2026-10-18T23:18:34.0338516Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2026-10-18T23:18:34.0338726Z ##[endgroup]
+2026-10-18T23:18:34.1593004Z (node:4358) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-18T23:18:34.1593853Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-18T23:18:34.1704769Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-18T23:18:34.1707154Z The least common ancestor is /home/runner/work/sg-ui/sg-ui/packages/ui/artifacts. This will be the root directory of the artifact
+2026-10-18T23:18:34.1708494Z With the provided path, there will be 37 files uploaded
+2026-10-18T23:18:34.1709818Z Artifact name is valid!
+2026-10-18T23:18:34.1710376Z Root directory input is valid!
+2026-10-18T23:18:34.4426191Z Beginning upload of artifact content to blob storage
+2026-10-18T23:18:34.6042366Z (node:4358) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-18T23:18:34.9615813Z Uploaded bytes 3207825
+2026-10-18T23:18:35.0033453Z Finished uploading artifact content to blob storage!
+2026-10-18T23:18:35.0034573Z SHA256 digest of uploaded artifact zip is e681493f69efb7d93b68dd01952623f861184df50a92c4cfb6f6f61c6e752a59
+2026-10-18T23:18:35.0035222Z Finalizing artifact upload
+2026-10-18T23:18:35.2076831Z Artifact sgui-firefox-tooltip-diagnostic.zip successfully finalized. Artifact ID 12154332695
+2026-10-18T23:18:35.2077790Z Artifact sgui-firefox-tooltip-diagnostic has been successfully uploaded! Final size is 3207825 bytes. Artifact ID is 12154332695
+2026-10-18T23:18:35.2082243Z Artifact download URL: https://github.com/Structured-Growth/sg-ui/actions/runs/39175854194/artifacts/12154332695
+2026-10-18T23:18:35.2226620Z Post job cleanup.
+2026-10-18T23:18:35.3248868Z Pruning is unnecessary.
+2026-10-18T23:18:35.3356261Z Post job cleanup.
+2026-10-18T23:18:35.4027496Z [command]/usr/bin/git version
+2026-10-18T23:18:35.4058083Z git version 2.55.0
+2026-10-18T23:18:35.4081408Z Temporarily overriding HOME='/home/runner/work/_temp/3a82c41b-9f17-4804-8033-5cb40db019c0' before making global git config changes
+2026-10-18T23:18:35.4082475Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-18T23:18:35.4085093Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/sg-ui/sg-ui
+2026-10-18T23:18:35.4114161Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-18T23:18:35.4138649Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-18T23:18:35.4346254Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-18T23:18:35.4366893Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-18T23:18:35.4553656Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-18T23:18:35.4588775Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-18T23:18:35.4860526Z Cleaning up orphan processes
+2026-10-18T23:18:35.5083404Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02, pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

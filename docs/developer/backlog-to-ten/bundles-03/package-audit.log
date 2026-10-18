@@ -1,0 +1,4 @@
+All package entry points import successfully.
+Consumer imports and owned theme/typography contracts typecheck.
+Retained exact candidate archive and SHA-256 file manifest in /Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/bundles-03/package
+Packed JS, declarations, CSS, maps and assets match the fresh build; exports and notices are retained.

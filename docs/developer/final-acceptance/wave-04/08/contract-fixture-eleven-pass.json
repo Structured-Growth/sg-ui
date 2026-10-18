@@ -1,0 +1,190 @@
+{
+  "node": "v26.5.0",
+  "typescript": "5.9.3",
+  "fixtureSha256": "da12fbd515038097929fd77376f9001f1776bce5d5a0628f77ff0769a7dfd622",
+  "limits": "Local existing dist declarations and matched repository types, using explicit public export paths. No emit/install/build/SSR/browser; not an isolated installed consumer.",
+  "runs": [
+    {
+      "skipLibCheck": true,
+      "diagnostics": [],
+      "negative": [
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 2791,
+          "message": "Type '{ action: string; }' is not assignable to type 'IntrinsicAttributes & FormFieldScopeProps'.\n  Property 'action' does not exist on type 'IntrinsicAttributes & FormFieldScopeProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 2947,
+          "message": "Type 'string' is not assignable to type 'number'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3112,
+          "message": "Type '(range: { start: string; end: string; }) => undefined' is not assignable to type '(month: number) => void'.\n  Types of parameters 'range' and 'month' are incompatible.\n    Type 'number' is not assignable to type '{ start: string; end: string; }'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3269,
+          "message": "Type '20' is not assignable to type '12 | 16 | 24 | undefined'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3445,
+          "message": "Type '(_event: Event, _reason: string) => void' is not assignable to type '(reason: DialogDismissReason) => void'.\n  Target signature provides too few arguments. Expected 2 or more, but got 1."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3630,
+          "message": "Type 'RefObject<HTMLInputElement | null>' is not assignable to type 'Ref<HTMLLabelElement> | undefined'.\n  Type 'RefObject<HTMLInputElement | null>' is not assignable to type 'RefObject<HTMLLabelElement | null>'.\n    Type 'HTMLInputElement | null' is not assignable to type 'HTMLLabelElement | null'.\n      Type 'HTMLInputElement' is missing the following properties from type 'HTMLLabelElement': control, htmlFor"
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3790,
+          "message": "Type '{ label: string; style: { width: number; }; }' is not assignable to type 'IntrinsicAttributes & CalendarProps'.\n  Property 'style' does not exist on type 'IntrinsicAttributes & CalendarProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3956,
+          "message": "Type '{ label: string; style: { width: number; }; }' is not assignable to type 'IntrinsicAttributes & (TextFieldProps & RefAttributes<HTMLInputElement>)'.\n  Property 'style' does not exist on type 'IntrinsicAttributes & FieldOptions & { label: string; \"aria-label\"?: string | undefined; } & RefAttributes<HTMLInputElement>'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4136,
+          "message": "Type '{ label: string; items: never[]; trigger: Element; ref: RefObject<HTMLDivElement | null>; }' is not assignable to type 'IntrinsicAttributes & MenuProps'.\n  Property 'ref' does not exist on type 'IntrinsicAttributes & MenuProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4274,
+          "message": "Type '{}' is not assignable to type 'IntrinsicAttributes & (TextFieldProps & RefAttributes<HTMLInputElement>)'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4426,
+          "message": "Type '\"adjust-end\"' is not assignable to type '\"start\" | \"end\" | undefined'."
+        }
+      ],
+      "rejected": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "skipLibCheck": false,
+      "diagnostics": [],
+      "negative": [
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 2791,
+          "message": "Type '{ action: string; }' is not assignable to type 'IntrinsicAttributes & FormFieldScopeProps'.\n  Property 'action' does not exist on type 'IntrinsicAttributes & FormFieldScopeProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 2947,
+          "message": "Type 'string' is not assignable to type 'number'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3112,
+          "message": "Type '(range: { start: string; end: string; }) => undefined' is not assignable to type '(month: number) => void'.\n  Types of parameters 'range' and 'month' are incompatible.\n    Type 'number' is not assignable to type '{ start: string; end: string; }'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3269,
+          "message": "Type '20' is not assignable to type '16 | 12 | 24 | undefined'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3445,
+          "message": "Type '(_event: Event, _reason: string) => void' is not assignable to type '(reason: DialogDismissReason) => void'.\n  Target signature provides too few arguments. Expected 2 or more, but got 1."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3630,
+          "message": "Type 'RefObject<HTMLInputElement | null>' is not assignable to type 'Ref<HTMLLabelElement> | undefined'.\n  Type 'RefObject<HTMLInputElement | null>' is not assignable to type 'RefObject<HTMLLabelElement | null>'.\n    Type 'HTMLInputElement | null' is not assignable to type 'HTMLLabelElement | null'.\n      Type 'HTMLInputElement' is missing the following properties from type 'HTMLLabelElement': control, htmlFor"
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3790,
+          "message": "Type '{ label: string; style: { width: number; }; }' is not assignable to type 'IntrinsicAttributes & CalendarProps'.\n  Property 'style' does not exist on type 'IntrinsicAttributes & CalendarProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 3956,
+          "message": "Type '{ label: string; style: { width: number; }; }' is not assignable to type 'IntrinsicAttributes & (TextFieldProps & RefAttributes<HTMLInputElement>)'.\n  Property 'style' does not exist on type 'IntrinsicAttributes & FieldOptions & { label: string; \"aria-label\"?: string | undefined; } & RefAttributes<HTMLInputElement>'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4136,
+          "message": "Type '{ label: string; items: never[]; trigger: Element; ref: RefObject<HTMLDivElement | null>; }' is not assignable to type 'IntrinsicAttributes & MenuProps'.\n  Property 'ref' does not exist on type 'IntrinsicAttributes & MenuProps'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4274,
+          "message": "Type '{}' is not assignable to type 'IntrinsicAttributes & (TextFieldProps & RefAttributes<HTMLInputElement>)'."
+        },
+        {
+          "code": 2322,
+          "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/__wave04_contract_fixture.tsx",
+          "start": 4426,
+          "message": "Type '\"adjust-end\"' is not assignable to type '\"end\" | \"start\" | undefined'."
+        }
+      ],
+      "rejected": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "inputDeclarationManifestSha256": "e0980399dbb6c68b130caeb971672ff93a615abc12b031df8f98fa480ead0b27",
+  "versions": {
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "5.9.3"
+  },
+  "compilerEntrySha256": "3ae902c92cc44dace175c0e69e13a4b0899f6983c6121d76b9ab8dd5795e7675"
+}

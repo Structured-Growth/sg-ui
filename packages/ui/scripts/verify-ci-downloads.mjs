@@ -3,6 +3,7 @@ import { readFile, lstat, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { resolve, relative, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import {verifyNativeRecords,readNativeJSON} from './verify-native-ci.mjs';
 const hash = value => createHash('sha256').update(value).digest('hex');
 const requireThat = (condition, message) => { if (!condition) throw new Error(message); };
 async function file(path) {
@@ -27,11 +28,11 @@ export async function verifyCI(download) {
   requireThat(job?.head_sha===expectedHead && job.status==='completed' && job.conclusion==='success' && job.name===`Validate Node ${runtime}`,'Runtime job failed, incomplete, or wrong head/name');
   requireThat(new URL(run.html_url).origin==='https://github.com' && run.html_url===`https://github.com/Structured-Growth/sg-ui/actions/runs/${run.id}`,'Wrong producing run URL');
   requireThat(job.run_id===run.id && job.run_attempt===run.run_attempt,'Job belongs to another run/attempt');
-  for(const name of ['Package and behavior checks','Build native docs fixtures','Packed React 18.3 foundation consumer','Packed React 19 foundation and Flight consumer','Packed React 18.3 editor consumer','Packed React 19 editor consumer','Pack validated package','Bind fresh outputs and tarball to validated inputs',...(runtime==='24'?['Browser interactions, accessibility and performance smoke','Packed Next.js production and browser consumer']:[])]) {
+  for(const name of ['Require every native engine','Package and behavior checks','Build native docs fixtures','Packed React 18.3 foundation consumer','Packed React 19 foundation and Flight consumer','Packed React 18.3 editor consumer','Packed React 19 editor consumer','Pack validated package','Bind fresh outputs and tarball to validated inputs',...(runtime==='24'?['Verify native engine scope and compiled package identity','Packed Next.js production and browser consumer']:[])]) {
     const matches=job.steps?.filter(step=>step.name===name)??[];
     requireThat(matches.length===1 && matches[0].status==='completed' && matches[0].conclusion==='success',`Missing/unsuccessful required step: ${name}`);
   }
-  for(const name of [`sgui-package-node-${runtime}`,`sgui-browser-docs-node-${runtime}`,`sgui-validation-node-${runtime}`,...(runtime==='24'?['sgui-browser-node-24']:[])]) {
+  for(const name of [`sgui-package-node-${runtime}`,`sgui-browser-docs-node-${runtime}`,`sgui-validation-node-${runtime}`,...(runtime==='24'?['sgui-browser-node-24',...['chromium','firefox','webkit'].map(browser=>`sgui-native-${browser}-node-24`)]:[])]) {
     const matches=artifacts?.filter(a=>a.name===name)??[];
     requireThat(matches.length===1,`Missing/ambiguous artifact: ${name}`);
     const artifact=matches[0];
@@ -52,6 +53,16 @@ export async function verifyCI(download) {
   requireThat(JSON.stringify(sort(actual))===JSON.stringify(sort(receipt.outputs??{})),'Extracted native/package output inventory mismatch');
   for(const key of ['packages/ui/dist/index.js','packages/ui/dist/index.d.ts','packages/ui/dist/styles.css','packages/ui/browser-docs-static/index.html'])requireThat(actual[key] && actual[key]!==hash(''),`Required output missing/empty: ${key}`);
   requireThat(Object.entries(actual).some(([path,digest])=>path.startsWith('packages/ui/browser-docs-static/') && path.endsWith('.css') && digest!==hash('')),'Native CSS missing/empty');
+  if(runtime==='24') {
+    requireThat(download.nativeProofRoot,'Native engine artifact directory required');
+    const records={};
+    for(const browser of ['chromium','firefox','webkit']) {
+      records[browser]={};
+      for(const [key,path]of Object.entries({receipt:'logs/build-receipt.json',collection:'logs/browser-collection.json',results:'browser-results.json'}))
+        records[browser][key]=(await readNativeJSON(download.nativeProofRoot,`sgui-native-${browser}-node-24/${path}`)).value;
+    }
+    verifyNativeRecords(records,{head:expectedHead,node:receipt.node,runURL:run.html_url,runAttempt:String(run.run_attempt),inputHash:receipt.inputHash,outputs:actual,dist:Object.fromEntries(Object.entries(actual).filter(([path])=>path.startsWith('packages/ui/dist/')))});
+  }
   for(const name of ['LICENSE','THIRD_PARTY_NOTICES.md']) requireThat(receipt.inputs[`packages/ui/${name}`]===hash(await file(resolve(packageDirectory,name))),`Packaged legal-file digest mismatch: ${name}`);
   return {status:'consistent-downloaded-ci-evidence',head:expectedHead,runtime,runURL:run.html_url,outputs:Object.keys(actual).length,limitations:'Operator must independently bind extracted files/receipt to verified archives and inspect browser results/skips. This checks supplied metadata consistency, not API authenticity, behavior, effective branch protection, licensing, npm control, provenance or release approval.'};
 }

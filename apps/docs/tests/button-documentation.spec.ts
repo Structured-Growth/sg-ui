@@ -1,9 +1,9 @@
 import {openSiteTool,closeSiteTool} from './site-tools';
 import {exampleName} from './example-name';
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {checkSources} from './check-sources';
 
-test('Button page presents the trial flow, numbered anchors and complete prop reference',async({page})=>{
+test('Button page presents the trial flow, stable anchors and complete prop reference',async({page})=>{
   await page.goto('/docs/components/button');
   const order=await page.locator('h2').allTextContents();
   const required=['Prop playground','Examples','Button: Filled primary action','Button: Native submit and reset','Contains','Used In'];

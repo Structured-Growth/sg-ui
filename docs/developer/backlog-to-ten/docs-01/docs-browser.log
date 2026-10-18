@@ -1,0 +1,10 @@
+
+Running 3 tests using 1 worker
+
+(node:79720) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/calendar-expansion.spec.ts:12:1 › resize endpoint days, move a two-day trip, cancel a drag and lock the current duration (2.1s)
+  ✓  2 [chromium] › tests/calendar-expansion.spec.ts:28:1 › independent months, scrolling browser, active endpoints and immediate commit are real configurations (1.9s)
+  ✓  3 [chromium] › tests/theme-pipeline.spec.ts:8:1 › component aliases resolve locally through modes, density boundaries and live portals (17.3s)
+
+  3 passed (22.1s)

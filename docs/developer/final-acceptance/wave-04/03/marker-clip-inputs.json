@@ -1,0 +1,14 @@
+{
+  "target": "apps/docs/native-fixtures/scenarios/experimental/Calendar/Calendar.fixture.tsx",
+  "beforeSha256": "3ee614f940deaf7f62af48d044c2fdb9a0b4dae93258b3836c669d50fcb5c1e9",
+  "proposedSha256": "8dcfd5cf761dc465457adb752471fd1ab06ecd3ec670bb0e2c129d294c5f77d7",
+  "proposal": "proposed-files/apps/docs/native-fixtures/scenarios/experimental/Calendar/Calendar.fixture.tsx",
+  "scope": "Fixture-only native inline layout; no library source, API, ARIA boundary or speech assertion change.",
+  "state": "Unexecuted proposed-only. Current fixture/build frozen while coordinator XCTest runs.",
+  "checksForCoordinator": [
+    "After running Xcode settles, apply marker-clip.patch against beforeSha256 and rebuild private native fixtures under coordinator serial admission.",
+    "Open migration-proofs-calendar--speech-semantics and capture the complete calendar. Date labels, both availability reasons and full native day targets must remain usable.",
+    "Each [data-testid=\"calendar-speech-decoration\"] has full textContent DECORATION_SENTINEL, overflow-x hidden, white-space nowrap, and a bounding width within its parent decorative slot/day cell. No new aria-hidden attribute is added to the fixture child.",
+    "Existing actual speech assertions remain unchanged: sentinel absent from utterances; complete date and static/callback reason content present. Record changed fixture digest and original failed geometry screenshot separately."
+  ]
+}

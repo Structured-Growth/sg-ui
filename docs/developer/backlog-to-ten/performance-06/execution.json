@@ -1,0 +1,64 @@
+{
+  "node": "v24.19.0",
+  "baseline": {
+    "headReference": "6c485ed79d0d6a521d188e5bde8315722296f518",
+    "archive": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/09/batch-implementation/runs/package-01/matrix/fixtures/sgui-foundation-consumer-g6zSrj/pack/candidate.tgz",
+    "sha256": "08c25637e641540c38fe0d42f3d143f8edaabf19716c1c5718a18fb155211f35",
+    "dist": "b873e7efe8ab899c2141f0ce416a4614d3c8b562cd35fcaa13153d73fba12806"
+  },
+  "candidate": {
+    "headReference": "bfed38a1f867f4493049c3a38541e6b26709bad7",
+    "workingTree": true,
+    "dist": "902453680cd73b814aa646fec06356e836c6a2227f384f6f7de0b7f8a3a5569d"
+  },
+  "steps": [
+    {
+      "name": "candidate-processing",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-06/candidate/tests/performance/measure-browser.mjs",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-06/candidate-processing.json",
+        "processing"
+      ],
+      "passed": true
+    },
+    {
+      "name": "candidate-catalog",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-06/candidate/tests/performance/measure-browser.mjs",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-06/candidate-catalog.json",
+        "catalog"
+      ],
+      "passed": true
+    },
+    {
+      "name": "compare-processing",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/performance/compare-performance.mjs",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-06/baseline-processing.json",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-06/candidate-processing.json",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-06/comparison-processing.json"
+      ],
+      "passed": true
+    },
+    {
+      "name": "compare-catalog",
+      "args": [
+        "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/performance/compare-performance.mjs",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-06/baseline-catalog.json",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-06/candidate-catalog.json",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/performance-06/comparison-catalog.json"
+      ],
+      "passed": true
+    }
+  ],
+  "limits": [
+    "Both artifacts use the owned foundation; no original MUI comparison.",
+    "Head references alone do not identify uncommitted package bytes; distribution manifests and baseline archive do.",
+    "Single Apple M4 host, Chromium desktop; no approved timing/memory budgets, physical input or INP claim."
+  ],
+  "startedAt": "2026-10-18T22:14:08.964Z",
+  "reusedBaseline": "performance-05",
+  "complete": true,
+  "diagnosticComplete": false,
+  "finishedAt": "2026-10-18T22:26:48.928Z"
+}

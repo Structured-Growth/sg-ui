@@ -1,13 +1,17 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 import {waitForNativeScrollToSettle} from '../../../packages/ui/tests/browser/native-scroll-settling';
 
-for(const months of [1,2])test(`bidirectional creation and default end adjustment with ${months} calendars`,async({page})=>{
+for(const months of [1,2])test(`bidirectional draft creation and default nearest-endpoint adjustment with ${months} calendars`,async({page})=>{
  await page.setViewportSize({width:1440,height:1100});await page.goto('/docs/components/date-range-picker');
  const panel=page.getByRole('region',{name:exampleName(`Range dropdown with ${months===1?'one calendar':'two calendars'}`),exact:true});
  const trigger=panel.getByRole('button',{name:'Choose Travel dates',exact:true});await trigger.click();
  const dialog=page.getByRole('dialog',{name:'Travel dates',exact:true});
  const start=dialog.getByRole('textbox',{name:'Start date',exact:true}),end=dialog.getByRole('textbox',{name:'End date',exact:true});
+ // Explicitly clear the draft to exercise creation, rather than adjusting the
+ // supplied range under the later user-approved nearest-endpoint default.
+ await dialog.getByRole('button',{name:'Clear',exact:true}).click();
+ await expect(start).toHaveValue('');await expect(end).toHaveValue('');
  const first=dialog.getByRole('button',{name:/Saturday, October 10, 2026/}).first();
  if(months===2){await first.focus();await first.press('Enter');}else await first.click();
  await expect(start).toHaveValue('10/10/2026');await expect(end).toHaveValue('');

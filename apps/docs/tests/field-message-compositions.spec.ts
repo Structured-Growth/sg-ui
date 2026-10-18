@@ -1,4 +1,4 @@
-import {test,expect,type Locator} from '@playwright/test';
+import {test,expect,type Locator} from './fixtures';
 import {exampleName} from './example-name';
 import {checkSources} from './check-sources';
 

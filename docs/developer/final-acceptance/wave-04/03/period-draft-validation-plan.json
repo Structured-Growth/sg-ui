@@ -1,0 +1,29 @@
+{
+  "integration": [
+    "git apply --check docs/developer/final-acceptance/wave-04/03/period-draft-isolation.patch",
+    "git apply docs/developer/final-acceptance/wave-04/03/period-draft-isolation.patch"
+  ],
+  "serialCoordinatorChecks": [
+    "pnpm --filter @structured-growth/sg-ui exec node scripts/build-browser-docs.mjs",
+    "pnpm --filter @structured-growth/sg-ui exec tsc --noEmit -p tests/browser/tsconfig.json",
+    "SGUI_FORMS_ACCEPTANCE_URL=<coordinator-frozen-origin> pnpm --filter @structured-growth/sg-ui exec playwright test --config ../../docs/developer/final-acceptance/wave-04/03/playwright.period-draft.config.mjs"
+  ],
+  "boundedScope": "One compact/light/en-US case in Chromium/Firefox/WebKit; three executions, zero retries. Reuse existing compiled library if it matches frozen coordinator sources; no new library implementation/build required. Fixture build discovers new export; browser typecheck verifies the spec. Do not run full accepted independent-calendar matrices again.",
+  "requiredAssertions": [
+    "Target calendar changes November 2026 -> March 2026 -> March 2027; first remains October 2026.",
+    "Valid local draft 2026-10-09..16 stays distinct from committed 2026-10-07..16.",
+    "End partial text 10/, invalid state and the exact existing input node survive both choices.",
+    "Controlled Start endpoint remains pressed; draft/endpoint/value callbacks do not fire from navigation.",
+    "Chooser focus returns to target month/year heading; Apply remains disabled while text is partial.",
+    "Correcting the same end field then Apply commits the preserved edited range exactly once.",
+    "Zero page errors or console warnings/errors."
+  ],
+  "outputEvidence": "Attach JSON per-engine statuses, fixture/source digests, trace on failure and screenshot. Any failure remains red; inspect whether a real component defect or fixture/driver issue caused it before proposing a fix.",
+  "currentStatus": "Unexecuted. Coordinator is freezing/building; do not mutate shared sources or registry until admitted.",
+  "runner": "Existing-host only; no webServer, shared source build or install. Uses the lead05 SGUI_FORMS_ACCEPTANCE_URL/output/results conventions. Run inside coordinator admitted window.",
+  "semanticTypeCheck": {
+    "diagnostics": 0,
+    "log": "period-draft-types.txt",
+    "command": "node docs/developer/final-acceptance/wave-04/03/check-period-draft.cjs"
+  }
+}

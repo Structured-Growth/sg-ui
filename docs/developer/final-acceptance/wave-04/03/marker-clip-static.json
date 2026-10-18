@@ -1,0 +1,7 @@
+{
+  "node": "v24.21.0",
+  "typescript": "5.9.3",
+  "syntaxDiagnostics": [],
+  "patchApplicability": "passed",
+  "visualAndSpeechRuntime": "unexecuted; coordinator frozen build retained"
+}

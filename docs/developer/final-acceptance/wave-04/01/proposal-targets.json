@@ -1,0 +1,14 @@
+[
+  {
+    "path": "docs/developer/react-aria-editor-chrome-acceptance.md",
+    "baseSha256": null,
+    "proposedSha256": "44cdf35b02100b738421d82094d63112f13c2dbf3c510fe7add2e0ee2e512cc4",
+    "kind": "new"
+  },
+  {
+    "path": "docs/developer/react-aria-editor-layout.md",
+    "baseSha256": "81fd2e25e6ee2dec65372e26f449d95a8ffe9044b9929b75226096086915cdac",
+    "proposedSha256": "71adc4827f84667f9868ac9d6469b4c16245e599352fefa02b5717feddf82678",
+    "kind": "replacement"
+  }
+]

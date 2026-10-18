@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {checkSources} from './check-sources';
 const longName='Accessibility and accommodations with a deliberately very long section name';
 for(const hasTouch of [false,true])test(`15 tabs promote hidden selections and preserve focus through resize (touch=${hasTouch})`,async({browser,baseURL})=>{

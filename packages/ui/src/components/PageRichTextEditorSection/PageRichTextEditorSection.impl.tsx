@@ -701,6 +701,8 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
       modalRestoreFrameRef.current = requestAnimationFrame(() => {
         modalRestoreFrameRef.current = null;
         if (!editor.getRootElement()?.isConnected || !editor.isEditable()) return;
+        const root = editor.getRootElement()!;
+        const focusOwner = root.ownerDocument.activeElement;
         editor.update(() => {
           if (!$getNodeByKey(snapshot.anchorKey) || !$getNodeByKey(snapshot.focusKey)) return;
           const range = $createRangeSelection();
@@ -708,6 +710,11 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
           range.focus.set(snapshot.focusKey, snapshot.focusOffset, snapshot.focusType);
           $setSelection(range);
         }, { discrete: true, tag: SKIP_SELECTION_FOCUS_TAG });
+        // WebKit may focus contenteditable when its native range is restored,
+        // even though Lexical skips its own focus call. Keep the surviving
+        // modal return owner without scrolling or replacing the restored range.
+        if (focusOwner instanceof HTMLElement && focusOwner.isConnected && !root.contains(focusOwner)
+          && root.contains(root.ownerDocument.activeElement)) focusOwner.focus({ preventScroll: true });
       });
     });
   };

@@ -1,4 +1,4 @@
-import {test,expect,type Locator} from '@playwright/test';
+import {test,expect,type Locator} from './fixtures';
 import {checkSources} from './check-sources';
 
 async function choose(owner:Locator,label:string,value:string) {

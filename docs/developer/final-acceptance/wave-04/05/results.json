@@ -1,0 +1,553 @@
+{
+  "schemaVersion": 1,
+  "assignment": 5,
+  "baseline": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "status": "reviewable-deliverable-prepared",
+  "summary": {
+    "completeRecommendations": 1,
+    "partialRecommendations": 5,
+    "blockedRecommendations": 0,
+    "sharedFilesModified": false
+  },
+  "entries": [
+    {
+      "id": "A-U-04",
+      "originalObligation": "- [ ] A-U-04 Reconcile original `U-04`: Implement TextField, input base, labels, descriptions, validation errors, required state, textarea, and grouped fields with correct associations. Historical status: open.",
+      "recommendation": "partial",
+      "decision": "Shipped TextField/TextArea and grouped source-backed native fieldset/legend example; all three grouped native cases now pass. Earlier integration/native successor is resolved. Explicit internal-input-base/grouping owner decision remains unrecorded.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/form-field-scope/results.json",
+          "sha256": "7b8f513d83bf07b0b8ac7b94e19df381ddb2e66eca01ad0a74f2ed22e9a42a79"
+        },
+        {
+          "path": "docs/developer/react-aria-final-acceptance.md",
+          "sha256": "886adf45234d5d6499a10e2f10aebd1a51fbfdba94240b5ca4d70f0be751c694"
+        },
+        {
+          "path": "docs/developer/react-aria-hardening-execution.md",
+          "sha256": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-18/report.md",
+          "sha256": "d7d2b639d914e5566096b6d852fdbdc12b4509e38cf53705e3dc1a06fa35ee12"
+        },
+        {
+          "path": "packages/ui/src/experimental/TextField/TextField.tsx",
+          "sha256": "f4599709af946457ffdfc17d61d3505af60940de4fe95ef916a24eb36dffdc6b"
+        },
+        {
+          "path": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+          "sha256": "0630b5dc4ef085bef18dcb7ec09049004b130806c20a68f7b41149ada57c3552"
+        }
+      ],
+      "sourceReceiptComparisons": [
+        {
+          "path": "packages/ui/src/experimental/TextField/TextField.tsx",
+          "sha256": "f4599709af946457ffdfc17d61d3505af60940de4fe95ef916a24eb36dffdc6b",
+          "latestComparedReceipt": {
+            "sha256": "f4599709af946457ffdfc17d61d3505af60940de4fe95ef916a24eb36dffdc6b",
+            "receipt": "docs/developer/final-acceptance/form-field-scope/results.json"
+          },
+          "matchesComparedReceipt": true
+        },
+        {
+          "path": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+          "sha256": "0630b5dc4ef085bef18dcb7ec09049004b130806c20a68f7b41149ada57c3552",
+          "latestComparedReceipt": {
+            "sha256": "0630b5dc4ef085bef18dcb7ec09049004b130806c20a68f7b41149ada57c3552",
+            "receipt": "docs/developer/final-acceptance/form-field-scope/results.json"
+          },
+          "matchesComparedReceipt": true
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "FORM-GROUP-OWNER-01"
+      ],
+      "proposedChanges": [
+        "form-participation.patch"
+      ],
+      "limits": "Recommendation only; coordinator owns shared checklist. No new runtime execution, actual speech, real autofill or owner/release approval.",
+      "followupEvidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/05/participation-types-node24.txt",
+          "sha256": "0f9ce054f648470a603bc950fddf99a34985efab448c1acaf1f9088832038482"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/05/participation-list.txt",
+          "sha256": "2fd73f2eeacb9356d511c518c219019ad7999999f1a8961e4e5a80f0dc98844d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/05/form-participation.patch",
+          "sha256": "98ec350e3f9bc93d228af95bdbc0af5e801d57e23d75c56150a2e2e293faa2d0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/05/participation-followup.json",
+          "sha256": "56787484d1ffd810b7a9b8ed634809638b3bee122a86b4b386b6d619bc9b7725"
+        }
+      ]
+    },
+    {
+      "id": "A-U-05",
+      "originalObligation": "- [ ] A-U-05 Reconcile original `U-05`: Implement Checkbox, mixed state, Switch, RadioGroup, and label composition; document keyboard and form-submission semantics. Historical status: open.",
+      "recommendation": "partial",
+      "decision": "Checkbox/Switch/RadioGroup primary native semantics and documentation are shipped; latest reset tests and required-empty/all-disabled native flow are accepted. New Checkbox dangling error IDREF needs the prepared correction and verification.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/form-field-scope/results.json",
+          "sha256": "7b8f513d83bf07b0b8ac7b94e19df381ddb2e66eca01ad0a74f2ed22e9a42a79"
+        },
+        {
+          "path": "docs/developer/react-aria-final-acceptance.md",
+          "sha256": "886adf45234d5d6499a10e2f10aebd1a51fbfdba94240b5ca4d70f0be751c694"
+        },
+        {
+          "path": "docs/developer/react-aria-hardening-execution.md",
+          "sha256": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-18/report.md",
+          "sha256": "d7d2b639d914e5566096b6d852fdbdc12b4509e38cf53705e3dc1a06fa35ee12"
+        },
+        {
+          "path": "packages/ui/src/experimental/Checkbox/Checkbox.tsx",
+          "sha256": "f799a8c32e3ab7b4b9460f3ec32d7d8711f27d7d6a40105f62996a69cdd4205e"
+        },
+        {
+          "path": "packages/ui/src/experimental/Switch/Switch.tsx",
+          "sha256": "2b09aaabd545fe8b8cf39e44f9f1b552833ae56641b057715cf39394ae34aaee"
+        },
+        {
+          "path": "packages/ui/src/experimental/RadioGroup/RadioGroup.tsx",
+          "sha256": "2d1ce9f65bb5ede574e4b36d1e0bcab493a23b4d3cbc65b4288235cc2e014042"
+        }
+      ],
+      "sourceReceiptComparisons": [
+        {
+          "path": "packages/ui/src/experimental/Checkbox/Checkbox.tsx",
+          "sha256": "24a89ec82398b83ba5e084977844b68fa9cf72e16749597df5d1a1ceba3cea3c",
+          "latestComparedReceipt": {
+            "sha256": "24a89ec82398b83ba5e084977844b68fa9cf72e16749597df5d1a1ceba3cea3c",
+            "receipt": "docs/developer/final-acceptance/form-field-scope/results.json"
+          },
+          "matchesComparedReceipt": true
+        },
+        {
+          "path": "packages/ui/src/experimental/Switch/Switch.tsx",
+          "sha256": "2b09aaabd545fe8b8cf39e44f9f1b552833ae56641b057715cf39394ae34aaee",
+          "latestComparedReceipt": {
+            "sha256": "2b09aaabd545fe8b8cf39e44f9f1b552833ae56641b057715cf39394ae34aaee",
+            "receipt": "docs/developer/final-acceptance/form-field-scope/results.json"
+          },
+          "matchesComparedReceipt": true
+        },
+        {
+          "path": "packages/ui/src/experimental/RadioGroup/RadioGroup.tsx",
+          "sha256": "2d1ce9f65bb5ede574e4b36d1e0bcab493a23b4d3cbc65b4288235cc2e014042",
+          "latestComparedReceipt": {
+            "sha256": "2d1ce9f65bb5ede574e4b36d1e0bcab493a23b4d3cbc65b4288235cc2e014042",
+            "receipt": "docs/developer/final-acceptance/form-field-scope/results.json"
+          },
+          "matchesComparedReceipt": true
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "FORM-IDREF-01"
+      ],
+      "proposedChanges": [
+        "checkbox-idrefs.patch"
+      ],
+      "limits": "Recommendation only; coordinator owns shared checklist. No new runtime execution, actual speech, real autofill or owner/release approval."
+    },
+    {
+      "id": "A-U-06",
+      "originalObligation": "- [ ] A-U-06 Reconcile original `U-06`: Implement Select and searchable ComboBox/Autocomplete; define value identity, filtering ownership, empty/loading/error, multiple selection where required, and disabled options. Historical status: open.",
+      "recommendation": "complete",
+      "decision": "Recommend closure of the original implementation/definition obligation: stable IDs/null, local ComboBox filtering, host-owned async results, selected-record retention, multiple selection, disabled options and empty/loading/error/retry are shipped. Retain accepted primary selector ledger plus actual three-engine identity/filter/reset/host-authority and newer matching message-scope receipts. Speech/device acceptance stays with its separately named obligations.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/form-field-scope/results.json",
+          "sha256": "7b8f513d83bf07b0b8ac7b94e19df381ddb2e66eca01ad0a74f2ed22e9a42a79"
+        },
+        {
+          "path": "docs/developer/react-aria-final-acceptance.md",
+          "sha256": "886adf45234d5d6499a10e2f10aebd1a51fbfdba94240b5ca4d70f0be751c694"
+        },
+        {
+          "path": "docs/developer/react-aria-hardening-execution.md",
+          "sha256": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-19/report.md",
+          "sha256": "216897b1cdf302e967197a532e6ac4b6a2c33cfa0c689a5119eca4a6d64283b3"
+        },
+        {
+          "path": "packages/ui/src/experimental/Select/Select.tsx",
+          "sha256": "f99a61a9f3f1c9f65e88fd13ff00ef9b15f8e6c6210b954ed4d295b1d632ada7"
+        },
+        {
+          "path": "packages/ui/src/experimental/ComboBox/ComboBox.tsx",
+          "sha256": "6d2f06abf1318194e6bbdb43193dedd050997b287a1b61a37be071d1e84238a9"
+        },
+        {
+          "path": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx",
+          "sha256": "a8be9002729d1e24b21b2596bbded3b8c99f4d089fe77ec8aec0e3ae940ebbf8"
+        },
+        {
+          "path": "docs/developer/backlog-execution-2026-10-15.md",
+          "sha256": "75a4996497dd31574bd8a7fa82e01e2345aed262697ec0515de7ae3f60ad2809"
+        }
+      ],
+      "sourceReceiptComparisons": [
+        {
+          "path": "packages/ui/src/experimental/Select/Select.tsx",
+          "sha256": "f99a61a9f3f1c9f65e88fd13ff00ef9b15f8e6c6210b954ed4d295b1d632ada7",
+          "latestComparedReceipt": {
+            "sha256": "f99a61a9f3f1c9f65e88fd13ff00ef9b15f8e6c6210b954ed4d295b1d632ada7",
+            "receipt": "docs/developer/final-acceptance/form-field-scope/results.json"
+          },
+          "matchesComparedReceipt": true
+        },
+        {
+          "path": "packages/ui/src/experimental/ComboBox/ComboBox.tsx",
+          "sha256": "6d2f06abf1318194e6bbdb43193dedd050997b287a1b61a37be071d1e84238a9",
+          "latestComparedReceipt": {
+            "sha256": "6d2f06abf1318194e6bbdb43193dedd050997b287a1b61a37be071d1e84238a9",
+            "receipt": "docs/developer/final-acceptance/form-field-scope/results.json"
+          },
+          "matchesComparedReceipt": true
+        },
+        {
+          "path": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx",
+          "sha256": "a8be9002729d1e24b21b2596bbded3b8c99f4d089fe77ec8aec0e3ae940ebbf8",
+          "latestComparedReceipt": {
+            "sha256": "a8be9002729d1e24b21b2596bbded3b8c99f4d089fe77ec8aec0e3ae940ebbf8",
+            "receipt": "docs/developer/final-acceptance/form-field-scope/results.json"
+          },
+          "matchesComparedReceipt": true
+        }
+      ],
+      "remainingConcreteSuccessors": [],
+      "proposedChanges": [],
+      "limits": "Recommendation only; coordinator owns shared checklist. No new runtime execution, actual speech, real autofill or owner/release approval."
+    },
+    {
+      "id": "A-U-17",
+      "originalObligation": "- [ ] A-U-17 Reconcile original `U-17`: Provide consistent focus ring, target size, disabled styling, validation, status announcement, and pointer/keyboard interactions across primitives. Historical status: open.",
+      "recommendation": "partial",
+      "decision": "Accepted target/focus/forced-color and field-focus evidence is retained; current implementation receipts supersede old wrapper drift. Checkbox validation IDREF fix prepared. Cross-primitive status/pointer/keyboard and named actual speech/physical-device evidence remain separate uncovered acceptance slices.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/form-field-scope/results.json",
+          "sha256": "7b8f513d83bf07b0b8ac7b94e19df381ddb2e66eca01ad0a74f2ed22e9a42a79"
+        },
+        {
+          "path": "docs/developer/react-aria-final-acceptance.md",
+          "sha256": "886adf45234d5d6499a10e2f10aebd1a51fbfdba94240b5ca4d70f0be751c694"
+        },
+        {
+          "path": "docs/developer/react-aria-hardening-execution.md",
+          "sha256": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-10/report.md",
+          "sha256": "33ffca43cd9fc0ab686d96272bc214b83949a4852afea7be068290a4fa3adcd1"
+        },
+        {
+          "path": "packages/ui/src/experimental/TextField/TextField.module.css",
+          "sha256": "be00aa2b75186be5845760e0285d2d009730aaf904adf83567a15c8af21a00d5"
+        },
+        {
+          "path": "docs/developer/backlog-execution-2026-10-15.md",
+          "sha256": "75a4996497dd31574bd8a7fa82e01e2345aed262697ec0515de7ae3f60ad2809"
+        }
+      ],
+      "sourceReceiptComparisons": [
+        {
+          "path": "packages/ui/src/experimental/TextField/TextField.module.css",
+          "sha256": "be00aa2b75186be5845760e0285d2d009730aaf904adf83567a15c8af21a00d5",
+          "latestComparedReceipt": {
+            "sha256": "be00aa2b75186be5845760e0285d2d009730aaf904adf83567a15c8af21a00d5",
+            "receipt": "docs/developer/final-acceptance/field-focus-boundary/results.json"
+          },
+          "matchesComparedReceipt": true
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "FORM-IDREF-01",
+        "STATE-MATRIX-01"
+      ],
+      "proposedChanges": [
+        "checkbox-idrefs.patch"
+      ],
+      "limits": "Recommendation only; coordinator owns shared checklist. No new runtime execution, actual speech, real autofill or owner/release approval."
+    },
+    {
+      "id": "A-U-18",
+      "originalObligation": "- [ ] A-U-18 Reconcile original `U-18`: Preserve native form participation, reset behavior, autofill, names/values, and submit behavior; test controlled and uncontrolled variants. Historical status: open.",
+      "recommendation": "partial",
+      "decision": "Accepted controlled/uncontrolled FormData, submit/reset/reassociation and canceled-reset slices are retained. Actual browser-profile contact autofill remains unobserved; existing three-policy fixture and protocol are ready. Added machine-checkable observation template and completeness validator.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/form-field-scope/results.json",
+          "sha256": "7b8f513d83bf07b0b8ac7b94e19df381ddb2e66eca01ad0a74f2ed22e9a42a79"
+        },
+        {
+          "path": "docs/developer/react-aria-final-acceptance.md",
+          "sha256": "886adf45234d5d6499a10e2f10aebd1a51fbfdba94240b5ca4d70f0be751c694"
+        },
+        {
+          "path": "docs/developer/react-aria-hardening-execution.md",
+          "sha256": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-18/report.md",
+          "sha256": "d7d2b639d914e5566096b6d852fdbdc12b4509e38cf53705e3dc1a06fa35ee12"
+        },
+        {
+          "path": "packages/ui/src/experimental/TextField/useStandaloneFormReset.ts",
+          "sha256": "e2b3881016539b5ad61f409e2c07d587b77689ced1ed912c6a86db090df4c052"
+        },
+        {
+          "path": "packages/ui/src/experimental/useFormReset.ts",
+          "sha256": "4ca0cc4d74297502484f0233b306709626869654ca194aaeaa816973732cdf97"
+        }
+      ],
+      "sourceReceiptComparisons": [
+        {
+          "path": "packages/ui/src/experimental/TextField/useStandaloneFormReset.ts",
+          "sha256": "e2b3881016539b5ad61f409e2c07d587b77689ced1ed912c6a86db090df4c052",
+          "latestComparedReceipt": {
+            "sha256": "e2b3881016539b5ad61f409e2c07d587b77689ced1ed912c6a86db090df4c052",
+            "receipt": "docs/developer/final-acceptance/wave-03-integration/push-source-inputs.json"
+          },
+          "matchesComparedReceipt": true
+        },
+        {
+          "path": "packages/ui/src/experimental/useFormReset.ts",
+          "sha256": "4ca0cc4d74297502484f0233b306709626869654ca194aaeaa816973732cdf97",
+          "latestComparedReceipt": {
+            "sha256": "4ca0cc4d74297502484f0233b306709626869654ca194aaeaa816973732cdf97",
+            "receipt": "docs/developer/final-acceptance/wave-03-integration/push-source-inputs.json"
+          },
+          "matchesComparedReceipt": true
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "FORM-AUTOFILL-01"
+      ],
+      "proposedChanges": [
+        "operator-receipt.template.json",
+        "validate-operator-receipt.py",
+        "form-participation.patch"
+      ],
+      "limits": "Recommendation only; coordinator owns shared checklist. No new runtime execution, actual speech, real autofill or owner/release approval.",
+      "followupEvidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/05/participation-types-node24.txt",
+          "sha256": "0f9ce054f648470a603bc950fddf99a34985efab448c1acaf1f9088832038482"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/05/participation-list.txt",
+          "sha256": "2fd73f2eeacb9356d511c518c219019ad7999999f1a8961e4e5a80f0dc98844d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/05/form-participation.patch",
+          "sha256": "98ec350e3f9bc93d228af95bdbc0af5e801d57e23d75c56150a2e2e293faa2d0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/05/participation-followup.json",
+          "sha256": "56787484d1ffd810b7a9b8ed634809638b3bee122a86b4b386b6d619bc9b7725"
+        }
+      ]
+    },
+    {
+      "id": "A-A-06",
+      "originalObligation": "- [ ] A-A-06 Reconcile original `A-06`: Standardize controlled/uncontrolled pairs, defaults, change callbacks, null/empty semantics, disabled/read-only/loading behavior, and stable IDs. Historical status: open.",
+      "recommendation": "partial",
+      "decision": "Integrated public state/composition guide and five contract tests retained. Added precise eight-control policy matrix and prepared repeated-instance/message IDREF regressions. Broader public-control default/null/reset/ID and packed React18/19 hydration, grid/editor lifetime boundaries remain beyond this scoped evidence.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/form-field-scope/results.json",
+          "sha256": "7b8f513d83bf07b0b8ac7b94e19df381ddb2e66eca01ad0a74f2ed22e9a42a79"
+        },
+        {
+          "path": "docs/developer/react-aria-final-acceptance.md",
+          "sha256": "886adf45234d5d6499a10e2f10aebd1a51fbfdba94240b5ca4d70f0be751c694"
+        },
+        {
+          "path": "docs/developer/react-aria-hardening-execution.md",
+          "sha256": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-03/report.md",
+          "sha256": "fbe13da284363e97df7be82169f21552c369e8804d890da92ebea2fe10c843c2"
+        },
+        {
+          "path": "docs/developer/react-aria-public-composition-contracts.md",
+          "sha256": "423de9e4508841742ee49a41bb6eab1425e4781747e2685f48f4cbdf70a459ea"
+        },
+        {
+          "path": "packages/ui/src/experimental/public-contracts.acceptance.test.tsx",
+          "sha256": "1ee696f4feb3630b9748439c38247f878f1208d5d1cbb16da58b8a1e45d30a23"
+        }
+      ],
+      "sourceReceiptComparisons": [
+        {
+          "path": "docs/developer/react-aria-public-composition-contracts.md",
+          "sha256": "423de9e4508841742ee49a41bb6eab1425e4781747e2685f48f4cbdf70a459ea",
+          "latestComparedReceipt": null,
+          "matchesComparedReceipt": null
+        },
+        {
+          "path": "packages/ui/src/experimental/public-contracts.acceptance.test.tsx",
+          "sha256": "1ee696f4feb3630b9748439c38247f878f1208d5d1cbb16da58b8a1e45d30a23",
+          "latestComparedReceipt": {
+            "sha256": "1ee696f4feb3630b9748439c38247f878f1208d5d1cbb16da58b8a1e45d30a23",
+            "receipt": "docs/developer/final-acceptance/wave-03-integration/push-source-inputs.json"
+          },
+          "matchesComparedReceipt": true
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "FORM-IDREF-01",
+        "STATE-MATRIX-01"
+      ],
+      "proposedChanges": [
+        "checkbox-idrefs.patch",
+        "form-participation.patch"
+      ],
+      "limits": "Recommendation only; coordinator owns shared checklist. No new runtime execution, actual speech, real autofill or owner/release approval.",
+      "followupEvidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/05/participation-types-node24.txt",
+          "sha256": "0f9ce054f648470a603bc950fddf99a34985efab448c1acaf1f9088832038482"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/05/participation-list.txt",
+          "sha256": "2fd73f2eeacb9356d511c518c219019ad7999999f1a8961e4e5a80f0dc98844d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/05/form-participation.patch",
+          "sha256": "98ec350e3f9bc93d228af95bdbc0af5e801d57e23d75c56150a2e2e293faa2d0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/05/participation-followup.json",
+          "sha256": "56787484d1ffd810b7a9b8ed634809638b3bee122a86b4b386b6d619bc9b7725"
+        }
+      ]
+    }
+  ],
+  "validationPlan": "validation-plan.json",
+  "sourceEvidence": "evidence.json",
+  "retainedNativeResults": "retained-native-cases.json",
+  "editorEvidenceReuse": [
+    {
+      "path": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea"
+    },
+    {
+      "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+      "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+    }
+  ],
+  "futureScope": "Six deferred future leaves untouched; editor V closures retained, no count changes or release/legal inference.",
+  "concurrentIntegrationObservation": {
+    "receipt": "artifact-verification.json",
+    "detail": "At final verification coordinator/shared writer had copied the exact proposed source and two test files; runner config remains proposed only. No post-integration behavior result observed here."
+  },
+  "implementationFollowup": {
+    "status": "implementation-and-tests-prepared",
+    "files": [
+      "apps/docs/native-fixtures/scenarios/experimental/FormParticipation/FormParticipation.fixture.tsx",
+      "apps/docs/native-fixtures/migration-manifest.json (one modules entry)",
+      "packages/ui/tests/browser/wave04-form-participation.spec.ts",
+      "packages/ui/playwright.form-participation-wave04.config.ts"
+    ],
+    "patch": "form-participation.patch",
+    "actualValidation": {
+      "staticTypecheck": {
+        "runtime": "Node 24.19.0 / TypeScript 5.9.3",
+        "diagnostics": 0,
+        "receipt": "participation-types-node24.txt"
+      },
+      "playwrightList": {
+        "discoveredExecutions": 6,
+        "receipt": "participation-list.txt",
+        "browserLaunched": false
+      },
+      "patchCheck": "git apply --check passed against then-current shared manifest and absent target files"
+    },
+    "semantics": "CDP Autofill.trigger and addressFormFilled test the browser autofill pipeline. This does not certify selection from a saved profile popup or password manager. Chromium protocol failures remain explicit failures; Firefox/WebKit receive only the grouped association test.",
+    "instructions": [
+      "Integrate the four-file patch during coordinator source window; manifest hunk appends exactly one module. Do not replace concurrent manifest entries.",
+      "Build private fixtures once after integration; registry generation consumes migration-manifest.json and includes NativeAutofill and GroupedIsolation.",
+      "Run the six-execution config against the existing frozen host; no webServer launcher or rebuild inside the runner.",
+      "Retain raw events and request/FormData/error/trace evidence. Diagnose failures without weakening assertions."
+    ],
+    "command": {
+      "cwd": "packages/ui",
+      "env": {
+        "SGUI_FORMS_ACCEPTANCE_URL": "http://127.0.0.1:<frozen-coordinator-port>/"
+      },
+      "argv": [
+        "pnpm",
+        "exec",
+        "playwright",
+        "test",
+        "--config",
+        "playwright.form-participation-wave04.config.ts"
+      ]
+    },
+    "protocolReference": "https://raw.githubusercontent.com/ChromeDevTools/devtools-protocol/master/pdl/domains/Autofill.pdl",
+    "runtimeExecution": "Not run here; shared browser/build work remains serialized by coordinator."
+  }
+}

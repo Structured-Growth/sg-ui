@@ -1,0 +1,14 @@
+✔ current workflow configuration keeps production/infrastructure/main/reusable paths and default-token draft validation (1.812833ms)
+✔ rejects missing main path, infrastructure path bypass, narrowed matrix, ignored failures and skipped release prerequisite (1.069541ms)
+✔ rejects AI event dependency, wrong draft SHA, write-job package execution, secrets or non-draft creation (0.572292ms)
+✔ empty, API-denied and observed unprotected-main responses fail closed (0.143916ms)
+✔ both legacy and effective-ruleset fixtures can require observed contexts without mistaking legacy404 for no rules (0.225583ms)
+✔ stale check names, missing owner review and absent failed/missing-check blocking observations cannot pass (0.21625ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 97.471792

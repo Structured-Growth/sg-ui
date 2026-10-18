@@ -42,7 +42,7 @@ test('mandatory runtime and docs gates cannot silently skip inside a green job',
   w=>w.ci.jobs.validate.steps.find(s=>s.run?.includes('pnpm check')).if='false',
   w=>w.ci.jobs.docs.steps.find(s=>s.run?.includes('pnpm build:docs')).if='false',
   w=>w.ci.jobs.validate.steps.find(s=>s.name==='Record exact checked head').if='false',
-  w=>w.ci.jobs.validate.steps.find(s=>s.run?.includes('pnpm test:browser')).if="matrix.node == '22.12.0'",
+  w=>w.ci.jobs.native.steps.find(s=>s.run?.includes('pnpm test:browser')).if='false',
   w=>w.ci.jobs.validate.steps.find(s=>s.run?.includes('test-next-consumer.mjs')).if='false',
  ];
  for(const mutate of mutations){const value=structuredClone(workflows);mutate(value);assert(workflowFindings(value).length);}
@@ -95,4 +95,32 @@ test('dependency policy rejects mutable external action/workflow refs without re
  assert(workflowFindings(w).some(f=>f.startsWith('Workflow dependency:')));
  const local=structuredClone(workflows);local.ai.jobs['validate-draft'].uses='./.github/workflows/ci.yml@dev';
  assert(workflowFindings(local).some(f=>f.startsWith('Workflow dependency:')));
+});
+
+
+test('native engine prerequisites cannot become skipped green required contexts',()=>{
+ for(const mutate of [w=>w.ci.jobs.validate.needs=[],w=>w.ci.jobs.validate.if="github.event_name != 'pull_request' || github.base_ref != 'dev'",w=>w.ci.jobs.native.strategy.matrix.browser.pop(),w=>w.ci.jobs.native['continue-on-error']=true,w=>w.ci.jobs.validate.steps.find(s=>s.name==='Require every native engine').env.NATIVE_RESULT='success']){const w=structuredClone(workflows);mutate(w);assert(workflowFindings(w).length);}
+});
+test('native execution and collection cannot use partial grep or omit the package byte join',()=>{
+ for(const mutate of [w=>w.ci.jobs.native.steps.find(s=>s.name==='Browser interactions, accessibility and performance smoke').run+=' --grep smoke',w=>w.ci.jobs.native.steps.find(s=>s.run?.includes('--list --project')).run+=' --grep smoke',w=>w.ci.jobs.validate.steps=w.ci.jobs.validate.steps.filter(s=>!s.run?.includes('verify-native-ci.mjs'))]){const w=structuredClone(workflows);mutate(w);assert(workflowFindings(w).length);}
+});
+
+test('direct PR validation binds the proposal SHA rather than the synthetic merge ref',()=>{
+ for(const id of ['validate','native','docs'])for(const change of [job=>job.steps[0].with.ref='${{ inputs.ref || github.sha }}',job=>job.steps.find(s=>s.name==='Record exact checked head').env.EXPECTED_HEAD='${{ github.sha }}']){
+  const candidate=structuredClone(workflows);change(candidate.ci.jobs[id]);assert.ok(workflowFindings(candidate).length);
+ }
+});
+
+test('Firefox native clipboard coverage keeps its real display and complete execution',()=>{
+ for(const fragment of ['xvfb-run --auto-servernum ', ' --headed']){
+  const candidate=structuredClone(workflows);const step=candidate.ci.jobs.native.steps.find(s=>s.name==='Browser interactions, accessibility and performance smoke');
+  step.run=step.run.replace(fragment,'');assert(workflowFindings(candidate).length);
+ }
+});
+
+test('pinned action cannot silently install mutable CLI and proxy releases',()=>{
+ for(const version of [undefined,'','latest','^0.163.0','0.162.0']){
+  const candidate=structuredClone(workflows);candidate.ai.jobs.implement.steps.find(s=>s.uses?.startsWith('openai/codex-action@')).with['codex-version']=version;
+  assert(workflowFindings(candidate).some(f=>f.includes('version pin')));
+ }
 });

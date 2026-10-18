@@ -1,0 +1,12 @@
+✔ synthetic consistent bytes pass with explicit authenticity and approval limits (73.176083ms)
+✔ rejects stale head, skipped check, missing/expired/wrong-run archive and altered archive bytes (29.238084ms)
+✔ rejects changed tarball, changed/extra extracted files and corrupted receipt inventory (67.1885ms)
+✔ rejects packaged notices that differ from the fingerprinted input (39.5405ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 300.054125

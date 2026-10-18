@@ -1,0 +1,96 @@
+--- a/docs/developer/react-aria-performance.md
++++ b/docs/developer/react-aria-performance.md
+@@ -164,3 +164,19 @@
+ with synthetic receipts. Until baseline and candidate production browser runs
+ exist, it supplies no measured latency result and does not close G-20. It is
+ Chromium-only tooling; physical touch and spoken AT remain separate evidence.
++
++
++Memory runs now accept `--renderer=both|catalog|processing` (default both).
++Catalog mode exercises public AppDataGrid at page50/page200, using its native
++selection label and sort menu; processing retains the selector/portal workload.
++Each renderer/workload has its own receipt and heap snapshot names. Native label
++activation is followed by an exact checked-state assertion; visually hidden
++checkbox inputs are not used as pointer targets. The disposal checks include the
++fixture's zero owned intervals/animation frames and unmounted state, alongside
++existing root/scope/portal and delayed-publication assertions. These counters
++remain bounded ownership evidence, not a global listener census or heap guarantee.
++
++The deterministic private-host controller tests need no browser or build:
++`node --test --test-concurrency=1 apps/docs/scripts/grid-host-operation.test.mjs`
++from the repository root on supported Node24. Latency and GC-instrumented memory
++runs remain separate coordinator jobs against an immutable production preview.
+--- a/packages/ui/tests/performance/measure-memory.mjs
++++ b/packages/ui/tests/performance/measure-memory.mjs
+@@ -1,5 +1,5 @@
+ // Coordinator only: separately instrumented Chromium run, never a latency budget.
+-// node tests/performance/measure-memory.mjs /absolute/NEW-directory [--snapshots]
++// node tests/performance/measure-memory.mjs /absolute/NEW-directory [--snapshots] [--renderer=both|catalog|processing]
+ import assert from 'node:assert/strict';
+ import {mkdir, readFile, readdir, writeFile} from 'node:fs/promises';
+ import {appendFileSync} from 'node:fs';
+@@ -10,7 +10,10 @@
+ import {chromium} from '@playwright/test';
+ const output=process.argv[2];
+ assert(output&&isAbsolute(output),'Pass an absolute NEW evidence directory');
+-assert(process.argv.slice(3).every(arg=>arg==='--snapshots'),'Unknown option');
++assert(process.argv.slice(3).every(arg=>arg==='--snapshots'||/^--renderer=(both|catalog|processing)$/.test(arg)),'Unknown option');
++const rendererFlags=process.argv.slice(3).filter(arg=>arg.startsWith('--renderer='));assert(rendererFlags.length<=1,'Specify renderer once');
++const rendererChoice=rendererFlags[0]?.split('=')[1]??'both';
++const renderers=rendererChoice==='both'?['processing','catalog']:[rendererChoice];
+ await mkdir(output); // Refuse overwrite; retain failures.
+ const here=dirname(fileURLToPath(import.meta.url));
+ const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
+@@ -22,7 +25,7 @@
+   }
+   return result;
+ }
+-const receipt={startedAt:new Date().toISOString(),status:'running',environment:{node:process.version,os:os.type(),release:os.release(),arch:os.arch(),cpu:os.cpus()[0]?.model,totalMemoryBytes:os.totalmem(),loadAverage:os.loadavg()},
++const receipt={schemaVersion:2,rendererChoice,startedAt:new Date().toISOString(),status:'running',environment:{node:process.version,os:os.type(),release:os.release(),arch:os.arch(),cpu:os.cpus()[0]?.model,totalMemoryBytes:os.totalmem(),loadAverage:os.loadavg()},
+   method:'Chromium CDP explicit GC after same-document disposal; 5 warmup +25 recorded cycles/workload; counters are whole-page observations, not attributed SGUI leaks or process RSS.',
+   limits:['No memory threshold/plateau approval inferred. Compare raw trends and inspect snapshot retaining paths.', 'GC/instrumentation changes execution; do not compare these samples with latency runs.', 'Grid/selector/Provider/selector portal only. Upload URL and editor observer cleanup retain separate existing test evidence.', 'Chromium-only instrumentation does not certify Firefox/WebKit or physical hardware.'],workloads:[],snapshots:[]};
+ const save=()=>writeFile(join(output,'memory.json'),JSON.stringify(receipt,null,2)+'\n');
+@@ -66,11 +69,11 @@
+       receipt.snapshots.push({name,bytes,sha256:hash(await readFile(path))});
+     }finally{clearTimeout(timer);cdp.off('HeapProfiler.addHeapSnapshotChunk',listener);}
+   }
+-  for(const workload of ['small','wide','largePage','selector']){
+-    await page.goto('http://127.0.0.1:4179/?workload='+workload);
++  for(const renderer of renderers)for(const workload of (renderer==='catalog'?['small','wide','largePage']:['small','wide','largePage','selector'])){
++    await page.goto('http://127.0.0.1:4179/?renderer='+renderer+'&workload='+workload);
+     await page.waitForFunction(()=>window.sguiPerf?.ready);
+     await page.evaluate(()=>window.sguiPerf.unmount());
+-    const record={workload,coldDisposed:await counters(),cycles:[]};receipt.workloads.push(record);await save();
++    const record={renderer,workload,coldDisposed:await counters(),cycles:[]};receipt.workloads.push(record);await save();
+     for(let cycle=0;cycle<30;cycle++){
+       await page.evaluate(()=>window.sguiPerf.mount());await page.waitForFunction(()=>window.sguiPerf.ready);
+       if(workload==='selector'){
+@@ -80,20 +83,24 @@
+         await input.click(); // Dispose with the results portal open.
+         await page.getByRole('option',{name:'Course 1',exact:true}).waitFor({state:'visible'});
+       }else{
+-        await page.getByRole('checkbox',{name:'Select Course 0',exact:true}).check();
++        const checkbox=page.getByRole('checkbox',{name:'Select Course 0',exact:true});
++        await checkbox.locator('xpath=ancestor::label[1]').click();
++        assert.equal(await checkbox.isChecked(),true,'Native label must select the intended row');
+         await page.getByRole('button',{name:'Sort Name',exact:true}).click();
++        if(renderer==='catalog')await page.getByRole('menuitemradio',{name:'Sort Ascending',exact:true}).click();
+       }
+       await page.getByRole('button',{name:'Run 50 updates',exact:true}).click();
+       await page.waitForFunction(()=>window.sguiPerf.samples.filter(x=>x.action==='update').length>=3);
+       await page.evaluate(()=>{window.sguiPerf.unmount();window.sguiPerf.unmount();});
+       await page.waitForTimeout(250); // Intentional observation window for an incorrectly retained 100ms interval.
+-      const disposed=await page.evaluate(()=>({children:document.getElementById('root').childElementCount,scopes:document.querySelectorAll('[data-sgui-scope]').length,options:document.querySelectorAll('[role=option]').length,updating:window.sguiPerf.updating,samples:window.sguiPerf.samples.length}));
++      const disposed=await page.evaluate(()=>({children:document.getElementById('root').childElementCount,scopes:document.querySelectorAll('[data-sgui-scope]').length,options:document.querySelectorAll('[role=option]').length,updating:window.sguiPerf.updating,lifecycle:{...window.sguiPerf.lifecycle},samples:window.sguiPerf.samples.length}));
++      assert.deepEqual(disposed.lifecycle,{mounted:false,pendingFrames:0,activeTimers:0});
+       assert.equal(disposed.children,0);assert.equal(disposed.scopes,0);assert.equal(disposed.options,0);assert.equal(disposed.updating,false);
+       await page.waitForTimeout(250);
+       assert.equal(await page.evaluate(()=>window.sguiPerf.samples.length),disposed.samples,'Disposed fixture kept producing samples');
+       record.cycles.push({cycle,warmup:cycle<5,disposed,afterGC:await counters()});
+-      if(cycle===4)await snapshot(workload+'-warm');
+-      if(cycle===29)await snapshot(workload+'-final');
++      if(cycle===4)await snapshot(renderer+'-'+workload+'-warm');
++      if(cycle===29)await snapshot(renderer+'-'+workload+'-final');
+       assert.deepEqual(diagnostics,[],'Browser diagnostics');await save();
+     }
+   }

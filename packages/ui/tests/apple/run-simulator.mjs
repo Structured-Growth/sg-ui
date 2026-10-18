@@ -15,12 +15,15 @@ const option = key => { const i = args.indexOf(key); return i < 0 ? undefined : 
 if (process.platform !== 'darwin') throw Error('Requires macOS, Xcode27+ and an installed iOS27+ Simulator runtime.');
 const port = Number(option('--port') ?? 6183);
 if (!Number.isInteger(port) || port < 1024 || port > 65535 || port === 3000) throw Error('Use a dedicated loopback test port, never user server3000.');
+const only = option('--only') ?? 'testSafariSelectAndVoiceOverSpeech';
+if (only && !/^test[A-Za-z0-9_]+$/.test(only)) throw Error('Use one XCTest method name for --only');
+const fixtureDir = resolve(option('--fixture-dir') ?? join(ui, 'browser-docs-static'));
 const output = resolve(option('--output') ?? join(ui, 'artifacts', 'apple-simulator-'+Date.now()));
 await mkdir(output); // Refuse to overwrite prior evidence.
 const owner = 'apple-simulator:'+process.pid;
 const leases = [];
 let server, device, startedDevice = false;
-const receipt = {startedAt:new Date().toISOString(), status:'started', runs:[], limits:['Simulator execution is not physical-device evidence.', 'One Select smoke does not close whole-library manual screen-reader acceptance.']};
+const receipt = {startedAt:new Date().toISOString(), status:'started', runs:[], limits:['Simulator execution is not physical-device evidence.', 'Automated VoiceOver speech does not close manual six-family usability acceptance.', 'Native XCTest taps and typing are interaction setup, not VoiceOver activation gestures.']};
 const hash = async path => createHash('sha256').update(await readFile(path)).digest('hex');
 async function inventory(dir, prefix = '') {
  const result = {};
@@ -54,7 +57,9 @@ try {
  if(!device)throw Error('No matching installed iOS27+ iPhone simulator. No runtime is downloaded automatically.');
  receipt.device={name:device.name,id:device.udid,runtime:device.runtime,originalState:device.state};
  receipt.source=await inventory(join(ui,'tests/apple'));
- receipt.fixture=await inventory(join(ui,'browser-docs-static'));
+ receipt.fixture=await inventory(fixtureDir);
+ receipt.selectedTest=only ?? 'all integrated XCTest methods';
+ receipt.interactionMode='XCTest setup; actual VoiceOver enable/currentSpeech/moveBackward/moveForward for speech';
  receipt.baseURL='http://127.0.0.1:'+port;
  await run('build','xcodebuild',['build-for-testing','-project',join(ui,'tests/apple/SimulatorAcceptance.xcodeproj'),'-scheme','SimulatorAcceptance','-destination','platform=iOS Simulator,id='+device.udid,'-derivedDataPath',join(output,'derived')]);
  const products=join(output,'derived/Build/Products');
@@ -76,10 +81,10 @@ walk(d)
 with open(p,'wb') as f:plistlib.dump(d,f)
 `,xctestrun,receipt.baseURL]);
  receipt.xctestrunSha256=await hash(xctestrun);
- server=await startServer({...process.env,SGUI_BROWSER_PORT:String(port),SGUI_BROWSER_BASE_URL:receipt.baseURL,SGUI_BROWSER_DOCS_DIR:join(ui,'browser-docs-static'),SGUI_BROWSER_IMMUTABLE:'1'});
+ server=await startServer({...process.env,SGUI_BROWSER_PORT:String(port),SGUI_BROWSER_BASE_URL:receipt.baseURL,SGUI_BROWSER_DOCS_DIR:fixtureDir,SGUI_BROWSER_IMMUTABLE:'1'});
  startedDevice=device.state!=='Booted';
  await run('boot','xcrun',['simctl','bootstatus',device.udid,'-b'],120000);
- await run('test','xcodebuild',['test-without-building','-xctestrun',xctestrun,'-destination','platform=iOS Simulator,id='+device.udid,'-parallel-testing-enabled','NO','-collect-test-diagnostics','never','-test-timeouts-enabled','YES','-maximum-test-execution-time-allowance','120','-resultBundlePath',join(output,'result.xcresult')],240000);
+ await run('test','xcodebuild',['test-without-building','-xctestrun',xctestrun,'-destination','platform=iOS Simulator,id='+device.udid,'-parallel-testing-enabled','NO','-collect-test-diagnostics','never','-test-timeouts-enabled','YES','-maximum-test-execution-time-allowance','120',...(only ? ['-only-testing:SimulatorAcceptance/SimulatorAcceptance/'+only] : []),'-resultBundlePath',join(output,'result.xcresult')],150000);
  await run('summary','xcrun',['xcresulttool','get','test-results','summary','--path',join(output,'result.xcresult'),'--compact']);
  receipt.status='passed';
 } catch(error) { receipt.status='failed';receipt.error=String(error);process.exitCode=1; }
@@ -89,6 +94,15 @@ finally {
   if(startedDevice)await run('shutdown','xcrun',['simctl','shutdown',device.udid],30000);
  } catch(error) { receipt.cleanupError=String(error);process.exitCode=1; }
  finally {
+  try {
+   if ((await readdir(output)).includes('result.xcresult')) await run('attachments','xcrun',['xcresulttool','export','attachments','--path',join(output,'result.xcresult'),'--output-path',join(output,'attachments')],60000);
+  } catch(error) { receipt.attachmentError=String(error); receipt.status='failed-evidence';process.exitCode=1; }
+  try {
+   receipt.sourceAfter=await inventory(join(ui,'tests/apple'));
+   receipt.fixtureAfter=await inventory(fixtureDir);
+   receipt.inputsUnchanged=JSON.stringify(receipt.source)===JSON.stringify(receipt.sourceAfter) && JSON.stringify(receipt.fixture)===JSON.stringify(receipt.fixtureAfter);
+   if (!receipt.inputsUnchanged) { receipt.status='failed-input-drift'; process.exitCode=1; }
+  } catch(error) { receipt.hashError=String(error);receipt.status='failed-evidence';process.exitCode=1; }
   receipt.completedAt=new Date().toISOString();
   await writeFile(join(output,'receipt.json'),JSON.stringify(receipt,null,2)+'\n');
   for(const lease of leases.reverse())await releaseLease(lease);

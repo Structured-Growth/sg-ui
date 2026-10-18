@@ -1,5 +1,5 @@
 import {exampleName} from './example-name';
-import {test, expect, type Locator} from '@playwright/test';
+import {test, expect, type Locator} from './fixtures';
 import {readFile, readdir} from 'node:fs/promises';
 import {join} from 'node:path';
 

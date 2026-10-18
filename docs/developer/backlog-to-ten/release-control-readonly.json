@@ -1,0 +1,33 @@
+{
+  "capturedAt": "2026-10-18T16:02:45.900255+00:00",
+  "readOnly": true,
+  "results": [
+    {
+      "endpoint": "repos/Structured-Growth/sg-ui/branches/main/protection",
+      "exitCode": 1,
+      "response": {
+        "message": "Branch not protected",
+        "documentation_url": "https://docs.github.com/rest/branches/branch-protection#get-branch-protection",
+        "status": "404"
+      },
+      "error": "gh: Branch not protected (HTTP 404)"
+    },
+    {
+      "endpoint": "repos/Structured-Growth/sg-ui/rules/branches/main",
+      "exitCode": 0,
+      "response": [],
+      "error": ""
+    },
+    {
+      "endpoint": "repos/Structured-Growth/sg-ui/actions/permissions/workflow",
+      "exitCode": 0,
+      "response": {
+        "default_workflow_permissions": "read",
+        "can_approve_pull_request_reviews": false
+      },
+      "error": ""
+    }
+  ],
+  "interpretationSource": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository",
+  "actionsSettingScope": "GitHub documents one setting for Actions creating or approving pull requests. This read-only receipt does not establish a live default-token workflow result."
+}

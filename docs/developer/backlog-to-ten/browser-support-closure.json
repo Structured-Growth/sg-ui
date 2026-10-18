@@ -1,0 +1,25 @@
+{
+  "task": "A-X-10",
+  "decision": "complete: establish browser checks and document representative coverage",
+  "date": "2026-10-18",
+  "evidence": {
+    "docs/developer/backlog-to-ten/x06-x07-closure.json": "5ea1356c7a0357cc8c0326831e2af14b034f6d152cdc521207cf3d70c1297bcd",
+    "docs/developer/backlog-to-ten/menu-presentation-closure.json": "a36d21d8548a79d337902466af6802f17ea44e9a478b859d9d85347df8d76508",
+    "docs/developer/backlog-to-ten/native-02/results.json": "7d8b4fcd523a6a8b22062afe38832be1ea112e50350898f022ca560e0d6ea295",
+    "docs/developer/backlog-to-ten/native-04/results.json": "b769ce14c48e3a5e4b55f1461894bbf984ec7a36689d7a3c53aa72caf9a78b79",
+    "docs/developer/backlog-to-ten/native-05/results.json": "4c01169b678a19d49bb413f26bc8c88d9eb93ceecb47f78680bab9acf275de33",
+    "docs/developer/final-acceptance/apple-simulator/results.json": "a72bef1a8a60fcd9720b78384c869dc011f4ac69c3772a1a1a081cb68499571c",
+    "docs/developer/final-acceptance/apple-simulator/repeat-receipt.json": "fd4d95f7aca4ccd4e8362104e8811acd3cdbc22dc0aaa33346540dc3a12059b2",
+    "docs/developer/final-acceptance/apple-simulator/repeat-summary.json": "6f6f40ea8b7c882af3325a56eb98123d653b8b27ca9b61d22b44ffa155a9c656",
+    "docs/developer/final-acceptance/apple-simulator/voiceover-utterances.txt": "050c6e8246ebb44d777d9ca8f88185f1f8c35ff32f5968c74841f6b02c3dfdf0",
+    "node_modules/.pnpm/playwright-core@1.63.0/node_modules/playwright-core/browsers.json": "545d52f8382c391e605562c330e9c1c534a16045898203037a49bb8bd769a946",
+    "packages/ui/tests/browser/current-target-sizes.spec.ts": "78d0225fd4267c1d698786695346e39cbcc9f723f595b2cf30d6748ada942ba9",
+    "packages/ui/playwright.config.ts": "c873333a5084633b4392032fc0800c5b34539e72f7433d4403c65eb7b0e55dba"
+  },
+  "limits": [
+    "Retained iOS actual VoiceOver Select smoke, not current whole-library conformance.",
+    "Current browser coarse-touch emulation is not physical touch.",
+    "A-X-11 manual six-family review remains open.",
+    "Nine-method automation continuation is not required to restate the narrower existing evidence."
+  ]
+}

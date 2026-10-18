@@ -1,0 +1,29 @@
+
+Running 18 tests using 1 worker
+
+(node:1179) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/inventory-shell-responsive.spec.ts:45:3 › breakpoint transitions retain host input, landmark and native focus (light) (1.2s)
+  ✓   2 [chromium] › tests/browser/inventory-shell-responsive.spec.ts:71:5 › short host content scrolls independently with sequential focus (light, normal text) (638ms)
+  ✓   3 [chromium] › tests/browser/inventory-shell-responsive.spec.ts:71:5 › short host content scrolls independently with sequential focus (light, 200% text) (603ms)
+  ✓   4 [chromium] › tests/browser/inventory-shell-responsive.spec.ts:45:3 › breakpoint transitions retain host input, landmark and native focus (dark) (538ms)
+  ✓   5 [chromium] › tests/browser/inventory-shell-responsive.spec.ts:71:5 › short host content scrolls independently with sequential focus (dark, normal text) (634ms)
+  ✓   6 [chromium] › tests/browser/inventory-shell-responsive.spec.ts:71:5 › short host content scrolls independently with sequential focus (dark, 200% text) (663ms)
+(node:1495) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [firefox] › tests/browser/inventory-shell-responsive.spec.ts:45:3 › breakpoint transitions retain host input, landmark and native focus (light) (1.1s)
+  ✓   8 [firefox] › tests/browser/inventory-shell-responsive.spec.ts:71:5 › short host content scrolls independently with sequential focus (light, normal text) (691ms)
+  ✓   9 [firefox] › tests/browser/inventory-shell-responsive.spec.ts:71:5 › short host content scrolls independently with sequential focus (light, 200% text) (793ms)
+  ✓  10 [firefox] › tests/browser/inventory-shell-responsive.spec.ts:45:3 › breakpoint transitions retain host input, landmark and native focus (dark) (677ms)
+  ✓  11 [firefox] › tests/browser/inventory-shell-responsive.spec.ts:71:5 › short host content scrolls independently with sequential focus (dark, normal text) (639ms)
+  ✓  12 [firefox] › tests/browser/inventory-shell-responsive.spec.ts:71:5 › short host content scrolls independently with sequential focus (dark, 200% text) (723ms)
+(node:1715) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  13 [webkit] › tests/browser/inventory-shell-responsive.spec.ts:45:3 › breakpoint transitions retain host input, landmark and native focus (light) (933ms)
+  ✓  14 [webkit] › tests/browser/inventory-shell-responsive.spec.ts:71:5 › short host content scrolls independently with sequential focus (light, normal text) (764ms)
+  ✓  15 [webkit] › tests/browser/inventory-shell-responsive.spec.ts:71:5 › short host content scrolls independently with sequential focus (light, 200% text) (763ms)
+  ✓  16 [webkit] › tests/browser/inventory-shell-responsive.spec.ts:45:3 › breakpoint transitions retain host input, landmark and native focus (dark) (500ms)
+  ✓  17 [webkit] › tests/browser/inventory-shell-responsive.spec.ts:71:5 › short host content scrolls independently with sequential focus (dark, normal text) (642ms)
+  ✓  18 [webkit] › tests/browser/inventory-shell-responsive.spec.ts:71:5 › short host content scrolls independently with sequential focus (dark, 200% text) (594ms)
+
+  18 passed (17.6s)

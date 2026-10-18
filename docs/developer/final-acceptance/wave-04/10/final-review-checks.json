@@ -1,0 +1,27 @@
+{
+  "all16OriginalIdsPreserved": true,
+  "originalObligationsVerbatim": true,
+  "patchInputChecks": [
+    {
+      "path": "packages/ui/src/experimental/ToggleButton/ToggleButton.module.css",
+      "sha256": "b984a5519ee3d17ec8f2b1f5fe4a0b2f6fe5ddc609a1462fddd79e9a7067a4c9",
+      "match": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/experimental/ToggleButton/ToggleButton.fixture.tsx",
+      "sha256": "58bcdb2f14b1b4bd51c29d4ef34f677bbccc52ba61ba079cc83ec9c3010c9d77",
+      "match": true
+    },
+    {
+      "path": "apps/docs/content/component-usage/forms.json",
+      "sha256": "c633fa769e26e4b8de394b48f2625e5adaff200cc4d401f30d0f81fec5635ead",
+      "match": true
+    },
+    {
+      "path": "packages/ui/tests/browser/wave04-toggle-presentation.spec.ts",
+      "sha256": null,
+      "match": true
+    }
+  ],
+  "noRuntimeAcceptanceClaim": true
+}

@@ -20,7 +20,7 @@ export default defineConfig({
   outputDir: process.env.SGUI_BROWSER_OUTPUT_DIR ?? 'artifacts/browser-traces',
   use: { baseURL, trace: 'retain-on-failure', screenshot: 'only-on-failure' },
   projects: [
-    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    { name: 'chromium', use: { ...devices['Desktop Chrome'], channel: 'chromium' } },
     { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
     { name: 'webkit', use: { ...devices['Desktop Safari'] } },
   ],

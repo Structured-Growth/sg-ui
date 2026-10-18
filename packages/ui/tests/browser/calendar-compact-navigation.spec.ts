@@ -1,11 +1,13 @@
 import {expect,test} from '@playwright/test';
 const fixture='/fixtures/?id=migration-proofs-daterangeselector--compact-navigation&embed=true';
-for(const density of ['compact','comfortable'])test(`clean ${density} calendar has tight cells and aligned navigation without default scrolling`,async({page},info)=>{
+for(const {density,wideFont=false} of [{density:'compact'},{density:'comfortable'},{density:'compact',wideFont:true}])test(`clean ${density} calendar${wideFont?' with a wide host font':''} has tight cells and aligned navigation without default scrolling`,async({page},info)=>{
  await page.goto(fixture+`&globals=density:${density}`);
+ if(wideFont)await page.addStyleTag({content:'[data-sgui-part="date-range-selector"] { --sgui-font-family: Verdana, sans-serif; }'});
  const root=page.locator('[data-sgui-part="date-range-selector"]');
  await expect(page.getByRole('textbox')).toHaveCount(0);
  await expect(page.getByRole('slider')).toHaveCount(0);
- const before=await root.boundingBox();
+ const geometry=()=>root.evaluate(node=>({height:node.getBoundingClientRect().height, grids:[...node.querySelectorAll('table')].map(grid=>({height:grid.getBoundingClientRect().height,rows:[...grid.rows].map(row=>({height:row.getBoundingClientRect().height,cells:[...row.cells].map(cell=>({height:cell.getBoundingClientRect().height,align:getComputedStyle(cell).verticalAlign,lineHeight:getComputedStyle(cell).lineHeight}))}))}))}));
+ const before=await root.boundingBox();await info.attach('calendar-before',{body:JSON.stringify(await geometry()),contentType:'application/json'});
  expect(before!.width).toBeLessThanOrEqual(density==='compact'?194:254);
  const grid=page.getByRole('grid');const date=page.getByRole('button',{name:/October 14, 2026/});
  const size=await date.boundingBox();expect(size!.width).toBeLessThanOrEqual(density==='compact'?29:37);
@@ -15,10 +17,12 @@ for(const density of ['compact','comfortable'])test(`clean ${density} calendar h
  const boxes=await Promise.all([header.boundingBox(),previous.boundingBox(),next.boundingBox()]);
  expect(boxes[0]!.x).toBeLessThan(boxes[1]!.x);expect(boxes[1]!.x).toBeLessThan(boxes[2]!.x);
  expect(Math.abs(boxes[1]!.y-boxes[2]!.y)).toBeLessThan(1);
+ for(const box of boxes.slice(1)){expect(box!.width).toBeGreaterThanOrEqual(density==='compact'?32:44);expect(box!.height).toBeGreaterThanOrEqual(density==='compact'?32:44);}
  expect(await grid.evaluate(e=>e.scrollWidth<=e.clientWidth+1)).toBe(true);
  await next.click();await expect(next).toBeFocused();
  await expect(page.locator('header').getByText('November 2026',{exact:true})).toBeVisible();
  await expect.poll(()=>root.locator('[inert]').count()).toBe(0);
+ await info.attach('calendar-after',{body:JSON.stringify(await geometry()),contentType:'application/json'});
  expect((await root.boundingBox())!.height).toBeCloseTo(before!.height,0);
  await page.screenshot({path:info.outputPath(`calendar-${density}.png`)});
  await page.setViewportSize({width:320,height:800});

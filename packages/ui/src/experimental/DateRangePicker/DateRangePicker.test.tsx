@@ -10,6 +10,9 @@ it("cancels drafts, applies once, returns focus and resets native defaults", asy
   const user = userEvent.setup(); const change = vi.fn();
   render(<form data-testid="form"><DateRangePicker label="Reporting" name="range" defaultValue={initial} presets={[preset]} onValueChange={change} /><button type="reset">Reset</button></form>);
   const trigger = screen.getByRole("button", { name: "Choose Reporting" });
+  await user.click(trigger); await user.click(screen.getByRole("option", { name: "March" })); await user.keyboard("{Escape}");
+  await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
+  expect(change).not.toHaveBeenCalled();
   await user.click(trigger); await user.click(screen.getByRole("option", { name: "March" })); await user.click(screen.getByRole("button", { name: "Cancel" }));
   expect(change).not.toHaveBeenCalled(); await waitFor(() => expect(document.activeElement).toBe(trigger));
   await user.click(trigger); expect(screen.getByRole("status").textContent).toContain(initial.start);

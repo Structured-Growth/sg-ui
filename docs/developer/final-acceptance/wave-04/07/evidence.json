@@ -1,0 +1,1389 @@
+{
+  "capturedAt": "2026-10-17T21:48:21.715894+00:00",
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "method": "Read/hash existing files only. No new unit/browser/simulator/build execution. Prior exact maps retain original dates/limits.",
+  "files": {
+    "AGENTS.md": {
+      "sha256": "6787b3f78b52898596e8be2f0d0caed1cc95365c46a045c5b9077ebbe32d58a8",
+      "wave03_22": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx": {
+      "sha256": "f5a644682231bb219661ee059c1fa1a372fc87fdd3211c22afefaab1145e3153",
+      "wave03_22": "f5a644682231bb219661ee059c1fa1a372fc87fdd3211c22afefaab1145e3153",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "f5a644682231bb219661ee059c1fa1a372fc87fdd3211c22afefaab1145e3153",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationStepsNativeState.fixture.fixture.tsx": {
+      "sha256": "e3a6a66f6947fcf42d71396e33fd8f096f7be804a5e5eabb7f1248af23b57350",
+      "wave03_22": "e3a6a66f6947fcf42d71396e33fd8f096f7be804a5e5eabb7f1248af23b57350",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "e3a6a66f6947fcf42d71396e33fd8f096f7be804a5e5eabb7f1248af23b57350",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "apps/docs/native-fixtures/scenarios/components/InstructorClassCard/InstructorClassCard.fixture.tsx": {
+      "sha256": "120e2b2068429b56e732c962099380168d021ea6bcc73fe101ab6e1c5d732bd3",
+      "wave03_22": "120e2b2068429b56e732c962099380168d021ea6bcc73fe101ab6e1c5d732bd3",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "120e2b2068429b56e732c962099380168d021ea6bcc73fe101ab6e1c5d732bd3",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "apps/docs/native-fixtures/scenarios/components/LearnerClassCard/LearnerClassCard.fixture.tsx": {
+      "sha256": "28e01b7ee86f3a626894cc41277c4c58d01a269a06494b970d215fbc53edcd15",
+      "wave03_22": "28e01b7ee86f3a626894cc41277c4c58d01a269a06494b970d215fbc53edcd15",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "28e01b7ee86f3a626894cc41277c4c58d01a269a06494b970d215fbc53edcd15",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "apps/docs/native-fixtures/scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx": {
+      "sha256": "5ff5a7bcfb26ba1ea7770c7996f5d971ba45b5d501827cca2d38a42811fc640a",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "5ff5a7bcfb26ba1ea7770c7996f5d971ba45b5d501827cca2d38a42811fc640a",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "docs/developer/final-acceptance/coordinator-integration/evidence.json": {
+      "sha256": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503",
+      "wave03_22": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/final-acceptance/editor-chrome-presentation/results.json": {
+      "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/final-acceptance/rich-editor-presentation/results.json": {
+      "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/final-acceptance/wave-02-01/evidence.json": {
+      "sha256": "4059caf89f643582e20a576c7403c5e23d901ebd1a7e62de75f2042e4cd92b8d",
+      "wave03_22": "4059caf89f643582e20a576c7403c5e23d901ebd1a7e62de75f2042e4cd92b8d",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/final-acceptance/wave-02-01/report.md": {
+      "sha256": "c42411ca78e93ddc7547e9420c3135ca05ec2789928ff343a6ee048613c72ca1",
+      "wave03_22": "c42411ca78e93ddc7547e9420c3135ca05ec2789928ff343a6ee048613c72ca1",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/final-acceptance/wave-02-01/results.json": {
+      "sha256": "40de9dd3ba5ed2e2f16b65bf791b9c745aa7e3e5fd8b4f7be97116049b412da1",
+      "wave03_22": "40de9dd3ba5ed2e2f16b65bf791b9c745aa7e3e5fd8b4f7be97116049b412da1",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/final-acceptance/wave-03-09/report.md": {
+      "sha256": "db57801395575cc03880ec54a5a5748900feffa7843748ef851b8fc4f42edfdf",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/final-acceptance/wave-03-18/report.md": {
+      "sha256": "d7d2b639d914e5566096b6d852fdbdc12b4509e38cf53705e3dc1a06fa35ee12",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/final-acceptance/wave-03-22/assignment.json": {
+      "sha256": "c6e42000f6524c4b2196cfb25ed9719e7b23345660d16f708c2ad2f483514561",
+      "wave03_22": "c6e42000f6524c4b2196cfb25ed9719e7b23345660d16f708c2ad2f483514561",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/final-acceptance/wave-03-22/report.md": {
+      "sha256": "6fc3c8bf183f0dbcd881703c43ad4460cabd93d9359a049a872b46057569aa32",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/final-acceptance/wave-03-22/results.json": {
+      "sha256": "8eee45f590edea5561e7607bc3dc085a2181f9e31ec0783e652ceaa5735f7510",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/final-acceptance/wave-03-followup/native-final.log": {
+      "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/final-acceptance/wave-03-followup/units-final.log": {
+      "sha256": "a8ab1edf90f816686eb77c168a0db9f8eb753b8e45a7dbf155c8f4a2eba8d631",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/final-acceptance/wave-03-followup/validation-results.json": {
+      "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/final-acceptance/wave-03-integration/reconciliation.json": {
+      "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/react-aria-card-frames.md": {
+      "sha256": "0d90418f8bc323e259813739a72499f8959374a66210092c0c3dbf1a4cb48543",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/react-aria-data-toolbar.md": {
+      "sha256": "7c80e7f363584d717df17550f99331c8a7639d458014a09a0be65f5624df0522",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/react-aria-final-acceptance.md": {
+      "sha256": "73ab51230f11b261c2b4a4a728a78f8c83c11f18ac7c51b36a5a63170b96b47a",
+      "wave03_22": "f4c7d7f0759ccfd3b2be0829283151a7b8942ed8010e12591ce0236b34dc1fa8",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/react-aria-hardening-execution.md": {
+      "sha256": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/react-aria-modal-container.md": {
+      "sha256": "c21a713f39e8d9c1f97a14ec8c81e2d5e533da6bb031f50589905b555ccc0f96",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "docs/developer/react-aria-navigation-container.md": {
+      "sha256": "3ec053e5e297ac7f160e4379a657a02badcc9ac1a8874a08deb86cf9fd60c6f0",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/adapters/Link.d.ts": {
+      "sha256": null,
+      "wave03_22": "3949e7b53ff79152d10bc7acbc065182dac4a234d006d78ebba3cfdde8579c48",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/adapters/Link.js": {
+      "sha256": null,
+      "wave03_22": "643087f91117781222284c132f7a45605803f3bb994bf7f5394fd4b157b32180",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/adapters/navigationContext.d.ts": {
+      "sha256": null,
+      "wave03_22": "c6b8cb079444ddc29a8666126655983cb53de920a9cde5b3f10b73b0725f8e94",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/adapters/navigationContext.js": {
+      "sha256": null,
+      "wave03_22": "5bd8048156009f399b32a0177f520548d57a6e8dd82d531be5c70bd72543c649",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/AppOperationSteps/AppOperationSteps.d.ts": {
+      "sha256": null,
+      "wave03_22": "4f8d01b91baf0bd34ff569889dc6086ddb8ef702bf1360d041bccf5743a4ab6f",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/AppOperationSteps/AppOperationSteps.js": {
+      "sha256": null,
+      "wave03_22": "43040c8c5f2b696ac85f638022ee5e3817d7453732b6967a0aafc2a9cbbbcd37",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/AppOperationSteps/index.d.ts": {
+      "sha256": null,
+      "wave03_22": "ba83b59ccf297b23fff193a5fbf7575f6961e375255ded0750548e5d8bb4aae9",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/AppOperationSteps/index.js": {
+      "sha256": null,
+      "wave03_22": "65b46eca0f5836bb5ab870bff1e087b240c8c46eec2170cf0fdba5d1673a94b5",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/Button/Button.d.ts": {
+      "sha256": "788eb7bfbb1e59fb14f2e7c86547556505752373ad8348aae5648369776bbac5",
+      "wave03_22": "5bc1f054c34b64bae517fa59b186156828261046538177b87e51a83f97f5cef3",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/Button/Button.js": {
+      "sha256": "88f63a5709d9081c75ed078e6108f3cee62529fc0c388e7ec2ef7c565892c76c",
+      "wave03_22": "ec342e76b70513f35ab6ce4da37bb33e552cf0a0118abd85bf5659eeb037da4a",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/ClassCardFrame/ClassCardFrame.d.ts": {
+      "sha256": null,
+      "wave03_22": "48b4e27f736bf42a245724a2cdf80440b8bcb47d5d90f4b332f7385185ac2b24",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/ClassCardFrame/ClassCardFrame.js": {
+      "sha256": null,
+      "wave03_22": "b65f725861760c79587f1af811e05b1365bc3228239afe72fc3c853c370419ee",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/ClassCardFrame/index.d.ts": {
+      "sha256": null,
+      "wave03_22": "5b26c89393a78e0bf8bbc7a17e251f65947eb331a26f441b64013702bcb3e1ab",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/ClassCardFrame/index.js": {
+      "sha256": null,
+      "wave03_22": "57bdbbf5c1d1e78e7d724d321f0d469e6ab4a85342057ebfa97cd7a48e0c8a67",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/InstructorClassCard/InstructorClassCard.d.ts": {
+      "sha256": null,
+      "wave03_22": "72e0fa10fd800b029714073e558e88864967b3f98762296af286d387ce392a37",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/InstructorClassCard/InstructorClassCard.js": {
+      "sha256": null,
+      "wave03_22": "50fa4feb4edd63b3a511fd559563094c613d07d6b1f3a4f75babe319236b6a13",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/InstructorClassCard/index.d.ts": {
+      "sha256": null,
+      "wave03_22": "b78aaf4da9efbc08a37ae1f99dab2d0a72293ef1a23fc41e33ca127a54d918bc",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/InstructorClassCard/index.js": {
+      "sha256": null,
+      "wave03_22": "2635cdca57d3bb266be96c451483d3c4953e447f9cde91584aba6d467491beb5",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/LearnerClassCard/LearnerClassCard.d.ts": {
+      "sha256": null,
+      "wave03_22": "622143c9482b6ec789559fb52ab89f832719c586596c5b68bbedef2b67ccbbca",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/LearnerClassCard/LearnerClassCard.js": {
+      "sha256": null,
+      "wave03_22": "c1e867723c3dcf917568d6bdde848fa2dce7783f32f08151e56b425ebf67ce0b",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/LearnerClassCard/formatDueDateLabel.d.ts": {
+      "sha256": null,
+      "wave03_22": "148a90aa808da64bd51fff44375077b5ddd46ac79e261eed10e9b0ef26c47494",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/LearnerClassCard/formatDueDateLabel.js": {
+      "sha256": null,
+      "wave03_22": "23ce5e0fefdcbc909568fc565d0430923d15fb098e0b4da2e54beddd0ace26e8",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/LearnerClassCard/index.d.ts": {
+      "sha256": null,
+      "wave03_22": "509ed4cd35404f877bd89a69b6c610d87dcf844ace3d295be2bff9d3af7a1a60",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/components/LearnerClassCard/index.js": {
+      "sha256": null,
+      "wave03_22": "b093a256ae5346bbf28a6b28a585af5821d9b36fb3241193bc0f59a453289043",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/Avatar/Avatar.d.ts": {
+      "sha256": null,
+      "wave03_22": "be0cf7398a68e187d3d5990a9eca33ee9774b19197d8d2bcfd23b0524e3faddd",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/Avatar/Avatar.js": {
+      "sha256": null,
+      "wave03_22": "c9e5587d9fa74be6e106f12db71672149553775460c69269f53fac9d2f3290cf",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/Box/Box.d.ts": {
+      "sha256": null,
+      "wave03_22": "5de5fddf047cf9ed88d8f1536a0396b4d55d7863106484d84a4afdd284414ab9",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/Box/Box.js": {
+      "sha256": null,
+      "wave03_22": "3d99df442d34c1810271f93c2b2390f88be94329d0555dcf48bb15df23790629",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/Card/Card.d.ts": {
+      "sha256": null,
+      "wave03_22": "f57750f9ef444cd9cf778aaec4186620984452e1a0cd6cf055ee7d632c975632",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/Card/Card.js": {
+      "sha256": null,
+      "wave03_22": "77c3c58f85cb462606c4d95c9736fd798d0a428bd1da5f4718f3a6637ba0bee0",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/Link/Link.d.ts": {
+      "sha256": null,
+      "wave03_22": "4adef5a4637f4dcadf80589478dd295938ab165cb1a6450b0de014c8e41aeeaa",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/Link/Link.js": {
+      "sha256": null,
+      "wave03_22": "e9216aa6d8ce2dcbb3def5b408582f5c188157aa4136a1494c875ddf1c3d9993",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/Progress/Progress.d.ts": {
+      "sha256": "40c09a7518cb9de3406ed4fc2a50275aadd9b36e700b62a633f80eb2bc6650e9",
+      "wave03_22": "40c09a7518cb9de3406ed4fc2a50275aadd9b36e700b62a633f80eb2bc6650e9",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/Progress/Progress.js": {
+      "sha256": "a0cf90632aa191e6c157a4e37250d0d752cf2d566ead06ebffcabcb1e6764084",
+      "wave03_22": "2072f4a529dcc43d36d162400bfa09e88c82eb4b60145498758c01e03a08abe2",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/Surface/Surface.d.ts": {
+      "sha256": null,
+      "wave03_22": "9262d86062d18c35da9e2419f553de8c82151df979e6f303d7cdc5b2885283da",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/Surface/Surface.js": {
+      "sha256": null,
+      "wave03_22": "c5747b119102fee46dabc3def402cf3b1653de5b529c4200c84545742aa73435",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/Typography/Typography.d.ts": {
+      "sha256": "5250013c1b21c137622f9798e3d1f462ad4cdfb83b42347eb81e4cd47095fe01",
+      "wave03_22": "5250013c1b21c137622f9798e3d1f462ad4cdfb83b42347eb81e4cd47095fe01",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/Typography/Typography.js": {
+      "sha256": "6a9f353a37a6b97007d96cd94161266746468327ab0f78d52ac023e21cefcda3",
+      "wave03_22": "df68ce369672778d9ca28965ab3197fdada515aaf44f794904217e0f06131674",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/ArrowForwardIcon.d.ts": {
+      "sha256": null,
+      "wave03_22": "416e6de6f1952dc8ec65e53d1be40a453dd2eacf97d4d511d5650b837351400e",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/ArrowForwardIcon.js": {
+      "sha256": null,
+      "wave03_22": "9599760e3ec433dfa791732de9c86f0840d43a3d7d1775e611a06d2ab626bb14",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/AutoStoriesIcon.d.ts": {
+      "sha256": null,
+      "wave03_22": "69d08f30bd753a744107e86587a79f9877af6d0ff71d956986c56521f262d736",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/AutoStoriesIcon.js": {
+      "sha256": null,
+      "wave03_22": "0120697f2c7c4b42b0c3d012eab5715abb6435089a2528e31cd2b84fb735881a",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/CalendarTodayIcon.d.ts": {
+      "sha256": null,
+      "wave03_22": "1c8dccc73ee3931ebba87ec64769e2d637c9107e052322ba5719bfbd830b124e",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/CalendarTodayIcon.js": {
+      "sha256": null,
+      "wave03_22": "60518c9c14a0d229fb35e27c759700ca5492b19f22480e660db947c15929f0e3",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/CheckIcon.d.ts": {
+      "sha256": null,
+      "wave03_22": "52be72c4fd0545ae39a843f901c51501526cf1e97d6030230eeb727582bed9e7",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/CheckIcon.js": {
+      "sha256": null,
+      "wave03_22": "487c1c5f8543faf061ebb5dde107dc70f07a5c84c8ab2f5be3bf3817a4373c99",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/CircleIcon.d.ts": {
+      "sha256": null,
+      "wave03_22": "3a9ae8165e28de3b8b18e58538acdc4e09abad8898d9900dfb86df8545d35e15",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/CircleIcon.js": {
+      "sha256": null,
+      "wave03_22": "f258ee7e4c9b05851e97925c4c9d9fc010dc9fd45de8fbf2ed2c9362919bccee",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/CloseIcon.d.ts": {
+      "sha256": null,
+      "wave03_22": "492c0c6bfb88457521b8b494df5046a42d0cb252905dfca3f041f015161e918e",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/CloseIcon.js": {
+      "sha256": null,
+      "wave03_22": "35f6a2c0683260c1db526120c689d7a0bda75d994f1c3a388b5d3ab0ce30473e",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/EventIcon.d.ts": {
+      "sha256": null,
+      "wave03_22": "74a3e935970222a1a6a07544868105a6db6b2a27359dd8490358448863a18e13",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/EventIcon.js": {
+      "sha256": null,
+      "wave03_22": "1291736b3333023982e52191f5b99f26bdbae27097845626fd464d48cafbc2c9",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/ExploreIcon.d.ts": {
+      "sha256": null,
+      "wave03_22": "387cbde43470cdbbad3adfc1bf4f7ae83928567f92efa0b4e5f63e654659ba84",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/ExploreIcon.js": {
+      "sha256": null,
+      "wave03_22": "ee8acc17ebc454dd7c9ed2ae70068c5706604dfad82c03b3f1b01652c5b64f1a",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/createVector.d.ts": {
+      "sha256": null,
+      "wave03_22": "89657289e0452dbeb35e845b08eef6d4191a3ba071ec4868d280744c8c67f24c",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/experimental/icons/createVector.js": {
+      "sha256": null,
+      "wave03_22": "fb1c2123133ba8d1063e09e7456ab8e9f859737cdc560effcc8a980a5aa1fb46",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/i18n/icu.d.ts": {
+      "sha256": "41b48d791f3bbd57e89869b93f1f6537c286b66057179c376777816c39e48b1e",
+      "wave03_22": "41b48d791f3bbd57e89869b93f1f6537c286b66057179c376777816c39e48b1e",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/i18n/icu.js": {
+      "sha256": "e3f3a7f7ab109d64125feeda92d44c685c7a1dfac8e7666f2f654854240b129f",
+      "wave03_22": "e3f3a7f7ab109d64125feeda92d44c685c7a1dfac8e7666f2f654854240b129f",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/i18n/index.d.ts": {
+      "sha256": "4365849edcdbbc38e742fafb415b879937b28005d40e67131f16da800e1060d8",
+      "wave03_22": "99d6b1d8f7d8d73f63b82c4f1f9fe8926fe0a8e31a2dafd82a125df19149dd72",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/i18n/index.js": {
+      "sha256": "e91c8163d959de87113af1637d10956d2f3f42d16d8b2a0fd024ac20540d1e8f",
+      "wave03_22": "f77a8c99c425a9237fbdf27b8e86ae4a3309294696672779687aaba87dea8eb7",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/utils/formatDueDateLabel.d.ts": {
+      "sha256": null,
+      "wave03_22": "6d635799627752b6dc76358bcf36d24e4c30f5783ba140af17a1700200bedd60",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/dist/utils/formatDueDateLabel.js": {
+      "sha256": null,
+      "wave03_22": "1980c6a19d9a6b85e1dec9a46e314431977b0f9f4eb17ef4d330fe9c7f914d42",
+      "matchesWave03_22": false,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/src/adapters/Link.tsx": {
+      "sha256": "632109fad519074531c2f305903bc2304a6ab01157a89950428d702adb3c05fa",
+      "wave03_22": "632109fad519074531c2f305903bc2304a6ab01157a89950428d702adb3c05fa",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "632109fad519074531c2f305903bc2304a6ab01157a89950428d702adb3c05fa",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/adapters/navigationContext.ts": {
+      "sha256": "144c32b8834f3709505be3bc1b627ae67a2fa1792a609856318d008a05ef3816",
+      "wave03_22": "3c3d53cec33e349fe22893ea38a3a77b24a8fa6490759ea183257abc6b9956ec",
+      "matchesWave03_22": false,
+      "integratedSnapshot": "144c32b8834f3709505be3bc1b627ae67a2fa1792a609856318d008a05ef3816",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/AppOperationSteps/AppOperationSteps.module.css": {
+      "sha256": "e0a0677b0175a30e17cc59802bbeab41280005d56b9c017b714117459bde43e5",
+      "wave03_22": "e0a0677b0175a30e17cc59802bbeab41280005d56b9c017b714117459bde43e5",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "e0a0677b0175a30e17cc59802bbeab41280005d56b9c017b714117459bde43e5",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/AppOperationSteps/AppOperationSteps.next100-regression.test.tsx": {
+      "sha256": "fd8ccb629d9e5e05f498ed1493837c462ee9d4fc24bccc385e447700c9e0ade8",
+      "wave03_22": "fd8ccb629d9e5e05f498ed1493837c462ee9d4fc24bccc385e447700c9e0ade8",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "fd8ccb629d9e5e05f498ed1493837c462ee9d4fc24bccc385e447700c9e0ade8",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/AppOperationSteps/AppOperationSteps.test.tsx": {
+      "sha256": "498d58da377732e82524c09f86b06ff417d9c44f866427626ef62c568a0a97c2",
+      "wave03_22": "498d58da377732e82524c09f86b06ff417d9c44f866427626ef62c568a0a97c2",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "498d58da377732e82524c09f86b06ff417d9c44f866427626ef62c568a0a97c2",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx": {
+      "sha256": "4c587494a81e0c80dc5e131f71bcf540fde80a6af95886aaa1d19053f03d0eea",
+      "wave03_22": "4c587494a81e0c80dc5e131f71bcf540fde80a6af95886aaa1d19053f03d0eea",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "4c587494a81e0c80dc5e131f71bcf540fde80a6af95886aaa1d19053f03d0eea",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/AppOperationSteps/AppOperationStepsNativeStateFixture.test.tsx": {
+      "sha256": "3a31d948736490d245d7ad2776956572181aa37fedb889c9eb8ae7c16bf03ac4",
+      "wave03_22": "3a31d948736490d245d7ad2776956572181aa37fedb889c9eb8ae7c16bf03ac4",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "3a31d948736490d245d7ad2776956572181aa37fedb889c9eb8ae7c16bf03ac4",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/AppOperationSteps/index.ts": {
+      "sha256": "8833c0ea9958554e5c947daa5257dfa30c6ee57f60e8b92e45e42daf35fd95f2",
+      "wave03_22": "8833c0ea9958554e5c947daa5257dfa30c6ee57f60e8b92e45e42daf35fd95f2",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "8833c0ea9958554e5c947daa5257dfa30c6ee57f60e8b92e45e42daf35fd95f2",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/Button/Button.module.css": {
+      "sha256": "2dae9fbc28de22a584671dbbe9d3466bf18b1f5088f1f6546cbb8dcf3b1a39db",
+      "wave03_22": "86ed0899962818918b461e0977e489e29b9e37822579b1977c5b4435b53343be",
+      "matchesWave03_22": false,
+      "integratedSnapshot": "2dae9fbc28de22a584671dbbe9d3466bf18b1f5088f1f6546cbb8dcf3b1a39db",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/Button/Button.tsx": {
+      "sha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "wave03_22": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css": {
+      "sha256": "ea1b13e785cf93faa6e6d2947d40a74d0c56f675e561b45ba0b682ea576b10c5",
+      "wave03_22": "8d3536b5c46774a4c4e5f9958668e4116872344a8e0e46769a91c058e2eb446f",
+      "matchesWave03_22": false,
+      "integratedSnapshot": "ea1b13e785cf93faa6e6d2947d40a74d0c56f675e561b45ba0b682ea576b10c5",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx": {
+      "sha256": "4058aa22528e8a289d916b3c77c470177280f1ea91ec8dd08398c63579ae7d42",
+      "wave03_22": "4058aa22528e8a289d916b3c77c470177280f1ea91ec8dd08398c63579ae7d42",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "4058aa22528e8a289d916b3c77c470177280f1ea91ec8dd08398c63579ae7d42",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/ClassCardFrame/index.ts": {
+      "sha256": "9a0141c4afc56915be74a66b57630fd3d1e70ae73288e92d5dc9e5dd8405dda9",
+      "wave03_22": "9a0141c4afc56915be74a66b57630fd3d1e70ae73288e92d5dc9e5dd8405dda9",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "9a0141c4afc56915be74a66b57630fd3d1e70ae73288e92d5dc9e5dd8405dda9",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/InstructorClassCard/InstructorClassCard.literal-labels.test.tsx": {
+      "sha256": "dc921d1d618ac29807d4b3fc4a43f8768d12b76d3e1c5464cf974825786f42fa",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "dc921d1d618ac29807d4b3fc4a43f8768d12b76d3e1c5464cf974825786f42fa",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/InstructorClassCard/InstructorClassCard.module.css": {
+      "sha256": "d7411a7cc3eba936b49a988b6aedef95dadd4d8b8f509637dd8a112e27fdcc53",
+      "wave03_22": "d7411a7cc3eba936b49a988b6aedef95dadd4d8b8f509637dd8a112e27fdcc53",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "d7411a7cc3eba936b49a988b6aedef95dadd4d8b8f509637dd8a112e27fdcc53",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/InstructorClassCard/InstructorClassCard.next100-regression.test.tsx": {
+      "sha256": "af85e2e39fd26cf11712bb267fd3c14f48155e851c38304ba486cf4dd0e591dd",
+      "wave03_22": "af85e2e39fd26cf11712bb267fd3c14f48155e851c38304ba486cf4dd0e591dd",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "af85e2e39fd26cf11712bb267fd3c14f48155e851c38304ba486cf4dd0e591dd",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/InstructorClassCard/InstructorClassCard.test.tsx": {
+      "sha256": "92419daa31d4bb30afd5f797397369bc2665b91b96b3e437a29a592f7e2ae3df",
+      "wave03_22": "92419daa31d4bb30afd5f797397369bc2665b91b96b3e437a29a592f7e2ae3df",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "92419daa31d4bb30afd5f797397369bc2665b91b96b3e437a29a592f7e2ae3df",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx": {
+      "sha256": "fc9088efb038b50f829c4bfd3495f1779ea3936f2fff30242a455db8193ff5f9",
+      "wave03_22": "f9b093771537cc25300fd72fc6644aa7d3a0decf9cac4800803c75486d7d9ea4",
+      "matchesWave03_22": false,
+      "integratedSnapshot": "fc9088efb038b50f829c4bfd3495f1779ea3936f2fff30242a455db8193ff5f9",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/InstructorClassCard/index.ts": {
+      "sha256": "c826fe269c3bc7e60248bec0d1faefb31af15691d76371a6fe79ed632a84ec69",
+      "wave03_22": "c826fe269c3bc7e60248bec0d1faefb31af15691d76371a6fe79ed632a84ec69",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "c826fe269c3bc7e60248bec0d1faefb31af15691d76371a6fe79ed632a84ec69",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/LearnerClassCard/LearnerClassCard.due-label.test.tsx": {
+      "sha256": "fcea8b73b5dbe8bff7d878b04736a781bd9ccd6b58cee138a8dae6b32fa6240b",
+      "wave03_22": "fcea8b73b5dbe8bff7d878b04736a781bd9ccd6b58cee138a8dae6b32fa6240b",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "fcea8b73b5dbe8bff7d878b04736a781bd9ccd6b58cee138a8dae6b32fa6240b",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/LearnerClassCard/LearnerClassCard.module.css": {
+      "sha256": "fb6fcd46eb123ff1b305545fb94149705790e8a0ccee5d162622e3ae92fffcce",
+      "wave03_22": "fb6fcd46eb123ff1b305545fb94149705790e8a0ccee5d162622e3ae92fffcce",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "fb6fcd46eb123ff1b305545fb94149705790e8a0ccee5d162622e3ae92fffcce",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/LearnerClassCard/LearnerClassCard.next100-regression.test.tsx": {
+      "sha256": "b865ba533b3111bcae11a58638981341c5d1ee36882109a32183706ef9fc569c",
+      "wave03_22": "b865ba533b3111bcae11a58638981341c5d1ee36882109a32183706ef9fc569c",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "b865ba533b3111bcae11a58638981341c5d1ee36882109a32183706ef9fc569c",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/LearnerClassCard/LearnerClassCard.test.tsx": {
+      "sha256": "afdc59040905de45239131823fe3e6dad8a760b47c0e6a011e9e968c64e1c644",
+      "wave03_22": "afdc59040905de45239131823fe3e6dad8a760b47c0e6a011e9e968c64e1c644",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "afdc59040905de45239131823fe3e6dad8a760b47c0e6a011e9e968c64e1c644",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx": {
+      "sha256": "7522eb8f6b20ebbd4a5ba0c4c1f95a9a5312c268499e52ba9da0866c8e2b35ce",
+      "wave03_22": "7522eb8f6b20ebbd4a5ba0c4c1f95a9a5312c268499e52ba9da0866c8e2b35ce",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "7522eb8f6b20ebbd4a5ba0c4c1f95a9a5312c268499e52ba9da0866c8e2b35ce",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.test.ts": {
+      "sha256": "67b5e1cabd33cf9c08004d3389432f5b6c2099ca201045101472f40a36fc36e4",
+      "wave03_22": "67b5e1cabd33cf9c08004d3389432f5b6c2099ca201045101472f40a36fc36e4",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "67b5e1cabd33cf9c08004d3389432f5b6c2099ca201045101472f40a36fc36e4",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.ts": {
+      "sha256": "8c73d81c224a3699b663420afb2d98a3c5bc39de87a6746ef7f5cb394a10b408",
+      "wave03_22": "8c73d81c224a3699b663420afb2d98a3c5bc39de87a6746ef7f5cb394a10b408",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "8c73d81c224a3699b663420afb2d98a3c5bc39de87a6746ef7f5cb394a10b408",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/components/LearnerClassCard/index.ts": {
+      "sha256": "4110712966b9a9e157ed3e861f3cb24ee31a91876b15e9509415707dd5448283",
+      "wave03_22": "4110712966b9a9e157ed3e861f3cb24ee31a91876b15e9509415707dd5448283",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "4110712966b9a9e157ed3e861f3cb24ee31a91876b15e9509415707dd5448283",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Avatar/Avatar.module.css": {
+      "sha256": "c17e77dbca3cc8ca9b0573168be1b54b33cb6128ce8fa9ca05d067968240bfe9",
+      "wave03_22": "c17e77dbca3cc8ca9b0573168be1b54b33cb6128ce8fa9ca05d067968240bfe9",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "c17e77dbca3cc8ca9b0573168be1b54b33cb6128ce8fa9ca05d067968240bfe9",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Avatar/Avatar.tsx": {
+      "sha256": "ca0185286a915d55bc1d28db61a186b4f0d63f9bbd14c6e84833a92043e561a0",
+      "wave03_22": "ca0185286a915d55bc1d28db61a186b4f0d63f9bbd14c6e84833a92043e561a0",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "ca0185286a915d55bc1d28db61a186b4f0d63f9bbd14c6e84833a92043e561a0",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Box/Box.module.css": {
+      "sha256": "a570a9c097c1948000f8494bb28166683e8312f1644f6395e78852e7a772a8b8",
+      "wave03_22": "a570a9c097c1948000f8494bb28166683e8312f1644f6395e78852e7a772a8b8",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "a570a9c097c1948000f8494bb28166683e8312f1644f6395e78852e7a772a8b8",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Box/Box.next100-regression.test.tsx": {
+      "sha256": "d523db0e5c9724ce2d8555dfb532c22441efe7e0166bf94faca7d59f21e891ff",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "d523db0e5c9724ce2d8555dfb532c22441efe7e0166bf94faca7d59f21e891ff",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Box/Box.test.tsx": {
+      "sha256": "1750ee10ecf30e5640f138dc7b873a3f1b295044c509969b82650cdc9486078f",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "1750ee10ecf30e5640f138dc7b873a3f1b295044c509969b82650cdc9486078f",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Box/Box.tsx": {
+      "sha256": "cf368c6747469a418970c4e356ffd8a6ca6085f1fe510212cd32586bd9d74936",
+      "wave03_22": "cf368c6747469a418970c4e356ffd8a6ca6085f1fe510212cd32586bd9d74936",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "cf368c6747469a418970c4e356ffd8a6ca6085f1fe510212cd32586bd9d74936",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Card/Card.next100-regression.test.tsx": {
+      "sha256": "11b87f5f04a9f2a885c11bb43c3ec5ddbc6948d6e32e2ecc23bb443c6346f0ae",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "11b87f5f04a9f2a885c11bb43c3ec5ddbc6948d6e32e2ecc23bb443c6346f0ae",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Card/Card.test.tsx": {
+      "sha256": "f92a1ce14ad244f89c596795a6f88ae705df989cc891f397807a4a246bf899b1",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "f92a1ce14ad244f89c596795a6f88ae705df989cc891f397807a4a246bf899b1",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Card/Card.tsx": {
+      "sha256": "ee944cdd063054be8d629e1134578763103c7d35c8a48ae0db731d29069520e3",
+      "wave03_22": "ee944cdd063054be8d629e1134578763103c7d35c8a48ae0db731d29069520e3",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "ee944cdd063054be8d629e1134578763103c7d35c8a48ae0db731d29069520e3",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Divider/Divider.module.css": {
+      "sha256": "e00a2b884cc794fc12953a5a42fd1d9e1a6e4ca1b07b57cec87d0db8e2414a9a",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "e00a2b884cc794fc12953a5a42fd1d9e1a6e4ca1b07b57cec87d0db8e2414a9a",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Divider/Divider.next100-regression.test.tsx": {
+      "sha256": "2b0e1b2388bd6c95096c44e6a0457c00b5fdbc336f1d6595b437082f682a1023",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "2b0e1b2388bd6c95096c44e6a0457c00b5fdbc336f1d6595b437082f682a1023",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Divider/Divider.test.tsx": {
+      "sha256": "e246678d11ed2576c16ca2b9e780f73808b17e22d5e5d28b1186ae219d6bc0b0",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "e246678d11ed2576c16ca2b9e780f73808b17e22d5e5d28b1186ae219d6bc0b0",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Divider/Divider.tsx": {
+      "sha256": "a530e9ae9fef9b82a46a277a61788f585a9fde38d60d64c029706f7cfd3fcc21",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "a530e9ae9fef9b82a46a277a61788f585a9fde38d60d64c029706f7cfd3fcc21",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Link/Link.module.css": {
+      "sha256": "f186ff27f6c0dc93a0e7ca80c104aef354fbac242a631da16839ac7556ed2a67",
+      "wave03_22": "f186ff27f6c0dc93a0e7ca80c104aef354fbac242a631da16839ac7556ed2a67",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "f186ff27f6c0dc93a0e7ca80c104aef354fbac242a631da16839ac7556ed2a67",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Link/Link.tsx": {
+      "sha256": "2deb54771cea81b8709f1ae9399510d22c0a7126886e2aa2068d09e7b27590b5",
+      "wave03_22": "2deb54771cea81b8709f1ae9399510d22c0a7126886e2aa2068d09e7b27590b5",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "2deb54771cea81b8709f1ae9399510d22c0a7126886e2aa2068d09e7b27590b5",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Progress/Progress.module.css": {
+      "sha256": "bc647d3f6c6f86eb3afaed4e6bddc52e0714fafd98cf099d3e527866862ad15d",
+      "wave03_22": "bc647d3f6c6f86eb3afaed4e6bddc52e0714fafd98cf099d3e527866862ad15d",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "bc647d3f6c6f86eb3afaed4e6bddc52e0714fafd98cf099d3e527866862ad15d",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Progress/Progress.tsx": {
+      "sha256": "e5e9fe0337a634ee59f3e27c4be9c566fa82ea73402a54c6eabe8e2d2ccc8c5f",
+      "wave03_22": "e5e9fe0337a634ee59f3e27c4be9c566fa82ea73402a54c6eabe8e2d2ccc8c5f",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "e5e9fe0337a634ee59f3e27c4be9c566fa82ea73402a54c6eabe8e2d2ccc8c5f",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Stack/Stack.module.css": {
+      "sha256": "7e1c5f10ce20cfa74cfdd6f064c6f6ee32c926202638fcb7338e2a01caa53eba",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "7e1c5f10ce20cfa74cfdd6f064c6f6ee32c926202638fcb7338e2a01caa53eba",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Stack/Stack.next100-regression.test.tsx": {
+      "sha256": "d39ba98bc75f1b2630286420d30c5296f59cd63beea6083834933862fbbc371a",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "d39ba98bc75f1b2630286420d30c5296f59cd63beea6083834933862fbbc371a",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Stack/Stack.test.tsx": {
+      "sha256": "4adc73023e245556e662c440105e121673f9592dc8caae3752901912846a19c4",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "4adc73023e245556e662c440105e121673f9592dc8caae3752901912846a19c4",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Stack/Stack.tsx": {
+      "sha256": "9289e8b6bd6eabd45434700705e71689218d1762e70aeb332919d61ae1242e57",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "9289e8b6bd6eabd45434700705e71689218d1762e70aeb332919d61ae1242e57",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Surface/Surface.module.css": {
+      "sha256": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+      "wave03_22": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Surface/Surface.next100-regression.test.tsx": {
+      "sha256": "acf3a6fb28345c4140a19e1e289af94ef6cf6c0dbf7ee201e1e77b9ae0aee72d",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "acf3a6fb28345c4140a19e1e289af94ef6cf6c0dbf7ee201e1e77b9ae0aee72d",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Surface/Surface.test.tsx": {
+      "sha256": "409d1f702c586deee73772d96178b892030aa6f1cf90725df574613ec6f0440e",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": "409d1f702c586deee73772d96178b892030aa6f1cf90725df574613ec6f0440e",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Surface/Surface.tsx": {
+      "sha256": "c05bbbe6313c71a67e08b86b73c7a8d047f430db6825fb39f6c5271cde9fe17c",
+      "wave03_22": "c05bbbe6313c71a67e08b86b73c7a8d047f430db6825fb39f6c5271cde9fe17c",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "c05bbbe6313c71a67e08b86b73c7a8d047f430db6825fb39f6c5271cde9fe17c",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Typography/Typography.module.css": {
+      "sha256": "12788b4f13d83f69056d6f0c7b03a7019385fbd42457d999a9fcd033b60ef624",
+      "wave03_22": "12788b4f13d83f69056d6f0c7b03a7019385fbd42457d999a9fcd033b60ef624",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "12788b4f13d83f69056d6f0c7b03a7019385fbd42457d999a9fcd033b60ef624",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/Typography/Typography.tsx": {
+      "sha256": "3df58c5e33ee0c5f9e2dd8969ef41cc858cb48385c77d08860bb3f8ab506546f",
+      "wave03_22": "3df58c5e33ee0c5f9e2dd8969ef41cc858cb48385c77d08860bb3f8ab506546f",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "3df58c5e33ee0c5f9e2dd8969ef41cc858cb48385c77d08860bb3f8ab506546f",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/icons/ArrowForwardIcon.tsx": {
+      "sha256": "880e91c1bd4de73c0734a053cd8d8f0b992151157bb1a126e3af891550b9980a",
+      "wave03_22": "880e91c1bd4de73c0734a053cd8d8f0b992151157bb1a126e3af891550b9980a",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "880e91c1bd4de73c0734a053cd8d8f0b992151157bb1a126e3af891550b9980a",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/icons/AutoStoriesIcon.tsx": {
+      "sha256": "eb010b657f0123485eb1ec4e065a79a7e9813fce021dec03c50e7bc5df2b9080",
+      "wave03_22": "eb010b657f0123485eb1ec4e065a79a7e9813fce021dec03c50e7bc5df2b9080",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "eb010b657f0123485eb1ec4e065a79a7e9813fce021dec03c50e7bc5df2b9080",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/icons/CalendarTodayIcon.tsx": {
+      "sha256": "2ad6b009a5623e2a4c2e6489bab7039c4e410c126261230dc1d7639dbf1d5b98",
+      "wave03_22": "2ad6b009a5623e2a4c2e6489bab7039c4e410c126261230dc1d7639dbf1d5b98",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "2ad6b009a5623e2a4c2e6489bab7039c4e410c126261230dc1d7639dbf1d5b98",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/icons/CheckIcon.tsx": {
+      "sha256": "50d4d4cf59175484cb3ffef7a4f01603e739e314449b89f29a99faa4971e2282",
+      "wave03_22": "50d4d4cf59175484cb3ffef7a4f01603e739e314449b89f29a99faa4971e2282",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "50d4d4cf59175484cb3ffef7a4f01603e739e314449b89f29a99faa4971e2282",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/icons/CircleIcon.tsx": {
+      "sha256": "020a564830b57e78447a05d710d8b9b46fc699a9c68f29205aded674862d7cd9",
+      "wave03_22": "020a564830b57e78447a05d710d8b9b46fc699a9c68f29205aded674862d7cd9",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "020a564830b57e78447a05d710d8b9b46fc699a9c68f29205aded674862d7cd9",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/icons/CloseIcon.tsx": {
+      "sha256": "fd7e9c95627d6c023e0243efddddb0c0a4d2f010a01c2790757c11e4a1869f68",
+      "wave03_22": "fd7e9c95627d6c023e0243efddddb0c0a4d2f010a01c2790757c11e4a1869f68",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "fd7e9c95627d6c023e0243efddddb0c0a4d2f010a01c2790757c11e4a1869f68",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/icons/EventIcon.tsx": {
+      "sha256": "590816fc6f2bb6f4821ebd4d76a530dc7e550cb1e384cacd1f2bdb82b3dd87a5",
+      "wave03_22": "590816fc6f2bb6f4821ebd4d76a530dc7e550cb1e384cacd1f2bdb82b3dd87a5",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "590816fc6f2bb6f4821ebd4d76a530dc7e550cb1e384cacd1f2bdb82b3dd87a5",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/icons/ExploreIcon.tsx": {
+      "sha256": "0cf70dac5718bea260d316901d73f2f435bf18c2c3847e7fa0e7c1a734d5e920",
+      "wave03_22": "0cf70dac5718bea260d316901d73f2f435bf18c2c3847e7fa0e7c1a734d5e920",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "0cf70dac5718bea260d316901d73f2f435bf18c2c3847e7fa0e7c1a734d5e920",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/icons/createVector.tsx": {
+      "sha256": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "wave03_22": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/experimental/icons/icons.module.css": {
+      "sha256": "63000e63a693d7e6114b18deb80db1a69e618be4691d388b4a0c080413c75168",
+      "wave03_22": "63000e63a693d7e6114b18deb80db1a69e618be4691d388b4a0c080413c75168",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "63000e63a693d7e6114b18deb80db1a69e618be4691d388b4a0c080413c75168",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/i18n/icu.ts": {
+      "sha256": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+      "wave03_22": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/i18n/index.tsx": {
+      "sha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "wave03_22": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/src/utils/formatDueDateLabel.ts": {
+      "sha256": "3df8f8b9e7ba95dd6763b2cb5b243fc8323fba809f81a056fca358f5284e043c",
+      "wave03_22": "3df8f8b9e7ba95dd6763b2cb5b243fc8323fba809f81a056fca358f5284e043c",
+      "matchesWave03_22": true,
+      "integratedSnapshot": "3df8f8b9e7ba95dd6763b2cb5b243fc8323fba809f81a056fca358f5284e043c",
+      "matchesIntegratedSnapshot": true,
+      "snapshotSource": "wave-03-integration/push-source-inputs.json"
+    },
+    "packages/ui/tests/apple/SimulatorAcceptance.swift": {
+      "sha256": "eb213da863850b1de36a4d0a9832a9b2d0b40ab41da474ceb9c54d1b7dbad9c3",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/tests/apple/run-simulator.mjs": {
+      "sha256": "7313c3cd74b93ff9c56d0107df0ff580eeb1657afaf4fc7c2a7da4c410437674",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/tests/browser/batch07-progress-status.spec.ts": {
+      "sha256": "e692d3fe969c625f0a1a9395d452a73bb4fac55d7958c530c86600d14cf29126",
+      "wave03_22": "e692d3fe969c625f0a1a9395d452a73bb4fac55d7958c530c86600d14cf29126",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/tests/browser/batch66-instructor-card-native-presentation.spec.ts": {
+      "sha256": "813339005089bd68c1ddfb5a34533daac28d8635675ea93841a6e30ce07bf20b",
+      "wave03_22": "813339005089bd68c1ddfb5a34533daac28d8635675ea93841a6e30ce07bf20b",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/tests/browser/batch67-progress-steps-native-state.spec.ts": {
+      "sha256": "83d1cf6f44de6f56ba87e1aa56f854c989b279410484da37dc57b0713d00f554",
+      "wave03_22": "83d1cf6f44de6f56ba87e1aa56f854c989b279410484da37dc57b0713d00f554",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/tests/browser/card-container-boundary.spec.ts": {
+      "sha256": "3ad3007e8e81acf1e4326f01f23f955f69dd8f8567c37e05f47e40cbe5ce7d4d",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/tests/browser/hardening-card-presentation.spec.ts": {
+      "sha256": "9dc03b22b81c4890d70925eec6a6fa0ee4c12188a96607f4b0504e82db853b64",
+      "wave03_22": "9dc03b22b81c4890d70925eec6a6fa0ee4c12188a96607f4b0504e82db853b64",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/tests/browser/hardening-progress-presentation.spec.ts": {
+      "sha256": "88118b8979c6c65fa1d51fedb7aaa8910f897cca5be6da7e297b5fc5e56a8627",
+      "wave03_22": "88118b8979c6c65fa1d51fedb7aaa8910f897cca5be6da7e297b5fc5e56a8627",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/tests/browser/inventory-learner-card.spec.ts": {
+      "sha256": "4ca4826ceae63a6f531fd405ecfd56a4a68042fd7d7098a3517fd35023e46d21",
+      "wave03_22": "4ca4826ceae63a6f531fd405ecfd56a4a68042fd7d7098a3517fd35023e46d21",
+      "matchesWave03_22": true,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/tests/browser/modal-container-boundary.spec.ts": {
+      "sha256": "a1ed468824c2b274b98facdd77700555dc668415306f01a84d943e147101ee45",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/tests/browser/navigation-shell-container-boundary.spec.ts": {
+      "sha256": "cb17bbd62d84d645867d1f75db1ae6b115c2b2b8c60303d833786088583c199e",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/tests/browser/toolbar-container-boundary.spec.ts": {
+      "sha256": "c7ee00bb6ee5cf977705ae44f7f5670a08087ddb5ab53c1c7e4558ea94f8b023",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    },
+    "packages/ui/tests/browser/wave03-18-primitives.spec.ts": {
+      "sha256": "57129297301acf41bb421dfa0f8d0ddd6e52bd0b2f9e7efa02339ce8de3b6433",
+      "wave03_22": null,
+      "matchesWave03_22": null,
+      "integratedSnapshot": null,
+      "matchesIntegratedSnapshot": null,
+      "snapshotSource": null
+    }
+  },
+  "retainedNativePassLines": [
+    {
+      "line": 18,
+      "text": "  \u2713   11 [chromium] \u203a tests/browser/card-container-boundary.spec.ts:7:1 \u203a card query follows its allocation and preserves sibling and native focus (262ms)"
+    },
+    {
+      "line": 38,
+      "text": "  \u2713   31 [chromium] \u203a tests/browser/wave03-18-primitives.spec.ts:3:1 \u203a responsive container, nested surfaces, wrapping and native Tab order (195ms)"
+    },
+    {
+      "line": 74,
+      "text": "  \u2713   65 [firefox] \u203a tests/browser/card-container-boundary.spec.ts:7:1 \u203a card query follows its allocation and preserves sibling and native focus (399ms)"
+    },
+    {
+      "line": 94,
+      "text": "  \u2713   85 [firefox] \u203a tests/browser/wave03-18-primitives.spec.ts:3:1 \u203a responsive container, nested surfaces, wrapping and native Tab order (291ms)"
+    },
+    {
+      "line": 130,
+      "text": "  \u2713  119 [webkit] \u203a tests/browser/card-container-boundary.spec.ts:7:1 \u203a card query follows its allocation and preserves sibling and native focus (379ms)"
+    },
+    {
+      "line": 150,
+      "text": "  \u2713  139 [webkit] \u203a tests/browser/wave03-18-primitives.spec.ts:3:1 \u203a responsive container, nested surfaces, wrapping and native Tab order (339ms)"
+    }
+  ],
+  "proposedBaseHashes": {
+    "packages/ui/tests/apple/SimulatorAcceptance.swift": "eb213da863850b1de36a4d0a9832a9b2d0b40ab41da474ceb9c54d1b7dbad9c3",
+    "packages/ui/tests/apple/run-simulator.mjs": "7313c3cd74b93ff9c56d0107df0ff580eeb1657afaf4fc7c2a7da4c410437674"
+  }
+}

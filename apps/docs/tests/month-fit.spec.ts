@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 import {checkSources} from './check-sources';
 for(const density of ['compact','comfortable'])test(`month choices adapt to host height and width at ${density} density`,async({page})=>{

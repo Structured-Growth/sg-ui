@@ -1,11 +1,12 @@
 # Migration inventory acceptance reconciliation
 
-## Current M-01–M-37 tracking — 2026-10-17
+## Current M-01–M-37 tracking — 2026-10-18
 
 The [37-row tracking map](migration-tracking.json) supersedes the historical Hold
 recommendations below. It joins the earlier accepted wave-02 reconciliation with
-later coordinator closures: 35 original individual rows are accepted; broad
-A-M-16 and A-M-18 remain open. All F/T/V baseline phases are shipped and accepted
+later coordinator closures. Its frozen35-accepted snapshot is preserved; the
+current disposition accepts all37 original rows after the separate A-M-18 closure
+and [A-M-16 production measurement/phase join](backlog-to-ten/performance-grid-closure.json). All F/T/V baseline phases are shipped and accepted
 in their recorded scopes. These are separate claims, and this tracking work does
 not close any shared acceptance or release gate.
 
@@ -43,9 +44,9 @@ Button replaces the historical AppButton name. Storybook is removed.
 | M-13 | [ClassCardFrame](../../packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx) | [530bbc00](https://github.com/Structured-Growth/sg-ui/commit/530bbc00465d9dbf1e9948f8a2c01b2e51b1a479) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C13 | 5 HEAD files, 0 retired/unresolved |
 | M-14 | [InstructorClassCard](../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx) | [9c236b1a](https://github.com/Structured-Growth/sg-ui/commit/9c236b1a1185454b8b70ffc08e4c7ae1a8a19522) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C14 | 19 HEAD files, 0 retired/unresolved |
 | M-15 | [LearnerClassCard](../../packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx) | [540f47d4](https://github.com/Structured-Growth/sg-ui/commit/540f47d4059a9cea8890b80927f34f51ef2fbc3e) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C15 | 26 HEAD files, 0 retired/unresolved |
-| M-16 | [AppDataGrid](../../packages/ui/src/components/AppDataGrid/AppDataGrid.tsx) | [bd169b54](https://github.com/Structured-Growth/sg-ui/commit/bd169b54b0d245987289308d96eda39e059fccb9) | [Open — G acceptance](final-acceptance/wave-02-reconciliation.json); F/T/V-C16 | 89 HEAD files, 0 retired/unresolved |
+| M-16 | [AppDataGrid](../../packages/ui/src/components/AppDataGrid/AppDataGrid.tsx) | [bd169b54](https://github.com/Structured-Growth/sg-ui/commit/bd169b54b0d245987289308d96eda39e059fccb9) | [Accepted current phase/G join](backlog-to-ten/performance-grid-closure.json); F/T/V-C16 | 89 HEAD files, 0 retired/unresolved |
 | M-17 | [AppDataGridShell](../../packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx) | [540f47d4](https://github.com/Structured-Growth/sg-ui/commit/540f47d4059a9cea8890b80927f34f51ef2fbc3e) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C17 | 74 HEAD files, 0 retired/unresolved |
-| M-18 | [DataGridDragHandle/useDataGridRowDnd](../../packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx) | [bd169b54](https://github.com/Structured-Growth/sg-ui/commit/bd169b54b0d245987289308d96eda39e059fccb9) | [Open — G acceptance](final-acceptance/wave-02-reconciliation.json); F/T/V-C18 | 5 HEAD files, 0 retired/unresolved |
+| M-18 | [DataGridDragHandle/useDataGridRowDnd](../../packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx) | [bd169b54](https://github.com/Structured-Growth/sg-ui/commit/bd169b54b0d245987289308d96eda39e059fccb9) | [Accepted coordinator closure](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C18 | 5 HEAD files, 0 retired/unresolved |
 | M-19 | [LearnerClassesDataGrid](../../packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx) | [530bbc00](https://github.com/Structured-Growth/sg-ui/commit/530bbc00465d9dbf1e9948f8a2c01b2e51b1a479) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C19 | 90 HEAD files, 0 retired/unresolved |
 | M-20 | [DataToolbar](../../packages/ui/src/components/DataToolbar/DataToolbar.tsx) | [bd169b54](https://github.com/Structured-Growth/sg-ui/commit/bd169b54b0d245987289308d96eda39e059fccb9) | [Accepted row](final-acceptance/wave-02-reconciliation.json); F/T/V-C20 | 44 HEAD files, 0 retired/unresolved |
 | M-21 | [DocumentEditorLayout](../../packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.tsx) | [530bbc00](https://github.com/Structured-Growth/sg-ui/commit/530bbc00465d9dbf1e9948f8a2c01b2e51b1a479) | [Accepted row](final-acceptance/wave-04/coordinator/accepted-closures.json); F/T/V-C21 | 3 HEAD files, 0 retired/unresolved |

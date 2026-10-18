@@ -1,0 +1,90 @@
+{
+  "status": "prepared-not-executed",
+  "constraints": [
+    "Coordinator reviews/applies patch serially; no shared files changed by this handoff.",
+    "Use existing frozen candidate/evidence and lease; no build/install/browser/package/simulator work was executed here.",
+    "Keep required production validation and human release decision separate."
+  ],
+  "steps": [
+    {
+      "id": "W04-08-DOCS",
+      "commands": [
+        "git apply --check docs/developer/final-acceptance/wave-04/08/public-contract-followup.patch",
+        "node --check docs/developer/final-acceptance/wave-04/08/proposed-files/packages/ui/scripts/acceptance-installed-types.mjs"
+      ],
+      "expected": "Already pass at evidence.json head and preimage hashes. Review exact four proposed files. Documentation-only integration needs no UI rebuild; check links/source example with next planned catalog pass."
+    },
+    {
+      "id": "W04-08-INSTALLED",
+      "command": "node docs/developer/final-acceptance/wave-04/08/proposed-files/packages/ui/scripts/acceptance-installed-types.mjs --fixture /absolute/existing-foundation18-fixture --output /absolute/new-types18-receipt",
+      "repeat": "Use retained foundation19 fixture separately; use explicit --compilers existing-TypeScript-package-directory[,another] only after choosing supported/tested versions.",
+      "expected": [
+        "Both skipLibCheck modes have zero positive diagnostics and reject every masked expect-error assignment.",
+        "Installed declaration deny scan passes, matching React/type versions and exact declaration/compiler hashes retained.",
+        "Join fixture package identity to wave03-32 frozen tarball receipt; no live dist fallback."
+      ],
+      "failurePolicy": "Keep failure diagnostics. A new compiler or declaration-internal failure is a concrete successor; do not weaken asserts or infer all-TS support."
+    },
+    {
+      "id": "W04-08-MATRIX",
+      "command": "node docs/developer/final-acceptance/wave-03-32/run-matrix.mjs --tarball /absolute/frozen-candidate.tgz --output /absolute/new-consumer-evidence --browser",
+      "condition": "Only if no accepted installed evidence exists for these exact inputs. Coordinator owns execution and supported Node selection; previous matrix plan specifies Node22.12 and24 and matching React18/19.",
+      "expected": "Use prior exact installed/CSS/subpath/SSR/hydration assertions; preserve each passing scope independently. New types proof adds no browser requirements."
+    },
+    {
+      "id": "W04-08-HISTORY",
+      "required": "Reuse historical-recovery-results.json,34 resolved contracts and200 styling rows. Extend exact original Git-node joins for remaining public wrappers; preserve integrity-bound artifacts and per-path limits.",
+      "notSatisfiedBy": "Current upstream documentation, old peer range, existing five wrapper styling mappings, or repeated export inventory.",
+      "status": "Captured primitive/Button/modal/grid graph recovered and resolved; remaining wrapper joins only"
+    },
+    {
+      "id": "W04-08-RELEASE",
+      "required": "Join expanded breaking/default ledger to actual analyzed release-range commits and authoritative publication history. Record owner approval only when received. No main/tag/version/publish action authorized.",
+      "specificReview": [
+        "navigation arrows\u2192period",
+        "rangeClickBehavior adjust-end\u2192adjust-nearest",
+        "inline showFields true\u2192false",
+        "range calendarNavigation linked\u2192independent",
+        "buttonSubtleInteractionBackground literal target surfaceSubtle\u2192surfaceHover"
+      ]
+    },
+    {
+      "id": "W04-08-HB20-RECEIPT",
+      "required": "Reconcile PageRichTextEditorSection.fixture.tsx saved hash mismatch with final Arabic translation continuation inputs. HB19/20 supersede prior presentation gaps; no blanket V reopen/rerun.",
+      "current": "83a1238084f7623706888bf663015402c7df6b6bf8ce3ccdadf1e00ce8735cf0",
+      "saved": "fd5e4d824df6604e1958b6d79a01d5c382a142701608c4c64d01b926377e8060"
+    }
+  ],
+  "continuationImplemented": {
+    "inventoryCommand": "node docs/developer/final-acceptance/wave-04/08/proposed-files/packages/ui/scripts/public-contract-inventory.mjs --package packages/ui --typescript packages/ui/node_modules/typescript/lib/typescript.js --output /absolute/new-inventory",
+    "migrationCommand": "node docs/developer/final-acceptance/wave-04/08/proposed-files/packages/ui/scripts/verify-contract-migrations.mjs --inventory /absolute/new-inventory/public-contracts.json --repo . --output /absolute/new-migration.json",
+    "localFixtureCommand": "node docs/developer/final-acceptance/wave-04/08/check-contract-fixture.mjs",
+    "toolTestsCommand": "node --test docs/developer/final-acceptance/wave-04/08/proposed-files/packages/ui/scripts/public-contract-inventory.test.mjs",
+    "installedDriverNote": "The installed driver now automatically includes public-contract-consumer.tsx as an in-memory fixture. Keep both script files together when integrating or invoking."
+  },
+  "historicalRecoveryContinuation": {
+    "status": "executed for captured graph",
+    "receipt": "historical-recovery-results.json",
+    "resolveCommand": "node docs/developer/final-acceptance/wave-04/08/resolve-historical-props.mjs",
+    "mapCommand": "python3 docs/developer/final-acceptance/wave-04/08/map-historical-styling.py",
+    "remaining": "Join remaining original wrapper boundaries/default semantics and final release decisions; do not repeat archive downloads/resolution unless relevant inputs change."
+  },
+  "criterionReviewContinuation": {
+    "closureRecommendations": [
+      "A-A-08",
+      "A-A-09",
+      "A-A-10",
+      "A-C-04"
+    ],
+    "condition": "Root reviews/applies exact15-file proposal and records original-criterion closure; no count/checklist changes by this conversation.",
+    "actualChecks": [
+      "38 historical analysis contracts/zero unresolved/zero diagnostics",
+      "740 styling/system/visual mappings",
+      "129 original source AST files/all five direct retired styling fields mapped",
+      "533 current production source guard files/zero retired hits",
+      "16 negative type assertions reject in each skipLibCheck mode/zero positive diagnostics",
+      "two inventory tool tests and one boundary index test pass"
+    ],
+    "next": "Lead09 executes installed consumer/compiler/runtime proofs without rebuilding frozen outputs unnecessarily; B05 remaining indirect defaults/nonstyling compatibility and actual release/history remain separate."
+  }
+}

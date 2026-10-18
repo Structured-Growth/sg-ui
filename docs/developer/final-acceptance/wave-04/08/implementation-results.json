@@ -1,0 +1,75 @@
+{
+  "status": "implemented-and-bounded-local-checks-passed",
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "proposedFiles": [
+    "docs/developer/react-aria-calendar-contracts.md",
+    "docs/developer/react-aria-public-contract-acceptance.md",
+    "docs/developer/react-aria-public-contracts.md",
+    "packages/ui/scripts/acceptance-installed-types.mjs",
+    "packages/ui/scripts/public-contract-consumer.tsx",
+    "packages/ui/scripts/public-contract-inventory.mjs",
+    "packages/ui/scripts/public-contract-inventory.test.mjs",
+    "packages/ui/scripts/public-migration-map.json",
+    "packages/ui/scripts/verify-contract-migrations.mjs"
+  ],
+  "checks": [
+    {
+      "kind": "local-declaration-fixture",
+      "receipt": "contract-fixture-proof.json",
+      "typescript": "5.9.3",
+      "skipLibCheck": [
+        true,
+        false
+      ],
+      "positiveDiagnostics": [
+        0,
+        0
+      ],
+      "negativeAssertionsRejected": [
+        11,
+        11
+      ],
+      "installedConsumer": false
+    },
+    {
+      "kind": "resolved-public-declarations",
+      "receipt": "resolved-public-inventory/public-contracts.json",
+      "routes": 238,
+      "contracts": 475,
+      "topLevelAnyUnknown": 0,
+      "emittedCode": false
+    },
+    {
+      "kind": "inventory-tool-tests",
+      "receipt": "inventory-tool-tests.log",
+      "passed": 2,
+      "failed": 0
+    },
+    {
+      "kind": "migration-gate",
+      "receipt": "migration-proof.json",
+      "removedBaselineNamesMapped": 12,
+      "changedDirectDefaultsMatched": 5
+    },
+    {
+      "kind": "syntax-and-patch",
+      "result": "passed",
+      "patchApplied": false
+    }
+  ],
+  "failuresPreserved": [
+    {
+      "receipt": "contract-fixture-first-failure.json",
+      "result": "Initial supplemental fixture used unsupported root exports for Dialog/TextArea/calendar/range; changed to public experimental imports. Same error found and corrected in new documentation snippet. All11 negative assertions retained."
+    },
+    {
+      "result": "First inventory harness test used wildcard ./icons/* with target *Icon but expected /AddIcon; corrected fixture route to ./icons/*Icon. Tool already respected actual package wildcard semantics. Node26 assert diagnostic rendering produced an Unterminated template error; final two-test TAP log is retained."
+    }
+  ],
+  "limitations": [
+    "Only local existing declarations/matched repository types were compiled; isolated installed consumer and chosen compiler/runtime matrix remain coordinator work.",
+    "Top-level any/unknown detection is bounded; it does not prove no nested explicit any in every domain.",
+    "Inherited historic upstream type closure, remaining runtime-default semantic review, authoritative publication history and actual release-range markers still needed.",
+    "No shared integration, builds, installs, browser/package suites, commits or release actions."
+  ]
+}

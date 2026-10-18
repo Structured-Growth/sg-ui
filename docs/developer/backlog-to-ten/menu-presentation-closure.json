@@ -1,0 +1,36 @@
+{
+  "id": "HM-V-01",
+  "status": "complete",
+  "headReference": "bfed38a1f867f4493049c3a38541e6b26709bad7",
+  "workingTree": true,
+  "evidence": {
+    "native-04/results.json": "b769ce14c48e3a5e4b55f1461894bbf984ec7a36689d7a3c53aa72caf9a78b79",
+    "native-05/results.json": "4c01169b678a19d49bb413f26bc8c88d9eb93ceecb47f78680bab9acf275de33",
+    "native-04/admission.json": "bd14342e9534f4d8b57a5398a0c2c4943db51570cb51ee1685ed6a522424b33f",
+    "native-04/inputs.json": "fa8b6d7e44c77983c33fc02768ad0f69dcb593bbcfff61ef2bb1b2cfe4326a12",
+    "native-05/reuse.json": "13f07d2a5d0a66897c7fad95af7f1ed0454d766edd56c3fbd286de9f3c4607e6"
+  },
+  "effectiveCases": {
+    "native-04": [
+      "Chromium LTR/RTL motion",
+      "WebKit LTR/RTL motion",
+      "all3engines narrow200percent text/reducedmotion/forcedcolors/Back/focus"
+    ],
+    "native-05": [
+      "Firefox LTR/RTL motion"
+    ]
+  },
+  "fixes": [
+    "Fixture host scopes bound the18rem panel by available width at enlarged text; both edges now asserted.",
+    "Driver waits for forward/back animationstart instead of cancelling early; resolves Firefox rem/calc keyframe lengths through actual CSS before DOMMatrix."
+  ],
+  "reviewedImages": [
+    "review/chromium-narrow-final.png",
+    "review/firefox-narrow-final.png",
+    "review/webkit-narrow-final.png"
+  ],
+  "limits": [
+    "Desktop browser emulation only; no physical-device or speech approval.",
+    "Original driver failures are retained in native-02/03/04; no automatic retries or weakened assertions."
+  ]
+}

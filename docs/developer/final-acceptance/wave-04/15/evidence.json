@@ -1,0 +1,2781 @@
+{
+  "capturedAt": "2026-10-17T21:52:50.141420+00:00",
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "runtime": "Python 3.9.6",
+  "priorReviewedComparisons": [
+    {
+      "id": "A-I-08",
+      "owner": 15,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-15/report.md",
+      "reportSha256": "5f69d02cda5573e0142028b63ca95f8b28c4b764a631b9c86f95d5041eead1eb",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-15/results.json",
+      "resultsSha256": "2a348ef0832217e9dcd8e8015d8d3b7fa59f2bbd09421109e70b8c81a93ea77f",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-H-08",
+      "owner": 17,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-17/report.md",
+      "reportSha256": "c8b63fc5a3bbc62c75fbbabb4959d066def18e6ef18c8fdf5c659becc970469c",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-17/results.json",
+      "resultsSha256": "0d82917b0c070a9ea0f6820c544f49acb6703ae8d7c5c07de7dd6122d22e9e6b",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-B-07",
+      "owner": 29,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-29/report.md",
+      "reportSha256": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-29/results.json",
+      "resultsSha256": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-D-20",
+      "owner": 30,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-30/report.md",
+      "reportSha256": "bdb94d8cd0b7ef19b0284b7c421a051471935d31b13ba1152633675f0bd09592",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-30/results.json",
+      "resultsSha256": "6e59cf17b55e2fe1991b4fd0d785fbc6f614940923fb6fa546be6b685e2ee6c8",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-B-12",
+      "owner": 33,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-33/report.md",
+      "reportSha256": "f33b961237d4e2fe8ca46cebe28427c6d2ceca1a178db633b1c8fe9a82a0c6c0",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-33/results.json",
+      "resultsSha256": "aebb396f88a59b66a653228b86c7942fb645e4d71fdfa594cf74e167b01340a0",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-B-14",
+      "owner": 33,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-33/report.md",
+      "reportSha256": "f33b961237d4e2fe8ca46cebe28427c6d2ceca1a178db633b1c8fe9a82a0c6c0",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-33/results.json",
+      "resultsSha256": "aebb396f88a59b66a653228b86c7942fb645e4d71fdfa594cf74e167b01340a0",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-W-10",
+      "owner": 33,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-33/report.md",
+      "reportSha256": "f33b961237d4e2fe8ca46cebe28427c6d2ceca1a178db633b1c8fe9a82a0c6c0",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-33/results.json",
+      "resultsSha256": "aebb396f88a59b66a653228b86c7942fb645e4d71fdfa594cf74e167b01340a0",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-W-16",
+      "owner": 33,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-33/report.md",
+      "reportSha256": "f33b961237d4e2fe8ca46cebe28427c6d2ceca1a178db633b1c8fe9a82a0c6c0",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-33/results.json",
+      "resultsSha256": "aebb396f88a59b66a653228b86c7942fb645e4d71fdfa594cf74e167b01340a0",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-Z-05",
+      "owner": 33,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-33/report.md",
+      "reportSha256": "f33b961237d4e2fe8ca46cebe28427c6d2ceca1a178db633b1c8fe9a82a0c6c0",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-33/results.json",
+      "resultsSha256": "aebb396f88a59b66a653228b86c7942fb645e4d71fdfa594cf74e167b01340a0",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-W-13",
+      "owner": 34,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-34/report.md",
+      "reportSha256": "42081e0bc5cb6fb0568ee676452d5968f715baa387a7e88663603ae727579d8e",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-34/results.json",
+      "resultsSha256": "7acac7adb0c88ed0eed9c5bdaace14875a889450bdb910c5e1e97d8ce9da33b2",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-W-18",
+      "owner": 34,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-34/report.md",
+      "reportSha256": "42081e0bc5cb6fb0568ee676452d5968f715baa387a7e88663603ae727579d8e",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-34/results.json",
+      "resultsSha256": "7acac7adb0c88ed0eed9c5bdaace14875a889450bdb910c5e1e97d8ce9da33b2",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-W-19",
+      "owner": 34,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-34/report.md",
+      "reportSha256": "42081e0bc5cb6fb0568ee676452d5968f715baa387a7e88663603ae727579d8e",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-34/results.json",
+      "resultsSha256": "7acac7adb0c88ed0eed9c5bdaace14875a889450bdb910c5e1e97d8ce9da33b2",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-M-38",
+      "owner": 35,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-35/report.md",
+      "reportSha256": "b05d4afafa5dcbdb20d4de98f88807c9ebec03fe791aaba1711dfee5e155809a",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-35/results.json",
+      "resultsSha256": "73b5f1c2846bcadcf0e36af14edfbe209485b93c16160dfa24503969384aa904",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-Z-11",
+      "owner": 40,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-40/report.md",
+      "reportSha256": "b8a89d946b806ffb7021dec72cf016bd1d2324c0271652bf40364e5395de770c",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-40/results.json",
+      "resultsSha256": "43366534bde2147b67b7a7c8934c07c52ec9cc22e75c90627637d0a9a0f4c01b",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-Z-12",
+      "owner": 40,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-40/report.md",
+      "reportSha256": "b8a89d946b806ffb7021dec72cf016bd1d2324c0271652bf40364e5395de770c",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-40/results.json",
+      "resultsSha256": "43366534bde2147b67b7a7c8934c07c52ec9cc22e75c90627637d0a9a0f4c01b",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-Z-15",
+      "owner": 40,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-40/report.md",
+      "reportSha256": "b8a89d946b806ffb7021dec72cf016bd1d2324c0271652bf40364e5395de770c",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-40/results.json",
+      "resultsSha256": "43366534bde2147b67b7a7c8934c07c52ec9cc22e75c90627637d0a9a0f4c01b",
+      "resultsMatchReviewed": true
+    },
+    {
+      "id": "A-Z-16",
+      "owner": 40,
+      "statusAtReview": "partial",
+      "report": "docs/developer/final-acceptance/wave-03-40/report.md",
+      "reportSha256": "b8a89d946b806ffb7021dec72cf016bd1d2324c0271652bf40364e5395de770c",
+      "reportMatchesReviewed": true,
+      "results": "docs/developer/final-acceptance/wave-03-40/results.json",
+      "resultsSha256": "43366534bde2147b67b7a7c8934c07c52ec9cc22e75c90627637d0a9a0f4c01b",
+      "resultsMatchReviewed": true
+    }
+  ],
+  "integratedProposalComparisons": [
+    {
+      "owner": "33",
+      "path": "docs/extraction-manifest.json",
+      "currentSha256": "a1e1d672affbb8b4b8f02abade16bafc55dafdd219dcaa5101430e6e3c61567a",
+      "reviewedProposalSha256": "a1e1d672affbb8b4b8f02abade16bafc55dafdd219dcaa5101430e6e3c61567a",
+      "matchesIntegratedProposal": true
+    },
+    {
+      "owner": "33",
+      "path": "docs/developer/extraction-lineage.md",
+      "currentSha256": "736b0e8e17a7a5aea365bd4fc9458015731ef4c9d215f51a6072267309ff6780",
+      "reviewedProposalSha256": "736b0e8e17a7a5aea365bd4fc9458015731ef4c9d215f51a6072267309ff6780",
+      "matchesIntegratedProposal": true
+    },
+    {
+      "owner": "33",
+      "path": "docs/migration.md",
+      "currentSha256": "c57a990c1230814bef010f44238484640a33bb2376357b842ca0bc747f3307d0",
+      "reviewedProposalSha256": "dbb16179f6efa2ac9e60670e877a22a65d563a81a1312778c996f322d1004771",
+      "matchesIntegratedProposal": false
+    },
+    {
+      "owner": "33",
+      "path": "docs/developer/react-aria-removal-audit.md",
+      "currentSha256": "2e6ee8fb6ec73e6bd6adee074a5e6c8d3464af537a10c2c0ec45f84a4a3481b7",
+      "reviewedProposalSha256": "5745608fd988b8b12bd6f4f4e6fe249b66adb594ceebe2985dd5bcbdee5db0e8",
+      "matchesIntegratedProposal": false
+    },
+    {
+      "owner": "33",
+      "path": "docs/developer/react-aria-i18n-acceptance.md",
+      "currentSha256": "749e2fc7a00d93c78deaa26caa633e0db981486df0d90ad81d5283cc2ad66391",
+      "reviewedProposalSha256": "b20c942ee4fed17237858f03d41f41ae1749854c5e0e8bf97da622757210f704",
+      "matchesIntegratedProposal": false
+    },
+    {
+      "owner": "34",
+      "path": "docs/developer/react-aria-component-recipe.md",
+      "currentSha256": "0b2a54e214cf4d58f3fcebeb5870dc15f59b55a7207ed1287b3fe35418712e14",
+      "reviewedProposalSha256": "0b2a54e214cf4d58f3fcebeb5870dc15f59b55a7207ed1287b3fe35418712e14",
+      "matchesIntegratedProposal": true
+    },
+    {
+      "owner": "34",
+      "path": "docs/agent-guidance-migration.md",
+      "currentSha256": "086d0bd3b755eb7ee1e7371d5c0c69803a72b0e030cf3872e5d75935e486a077",
+      "reviewedProposalSha256": "926565f63e5169a9d6908be0af2d177d2a7c8aaca65935d5f4ac8021a93cec7a",
+      "matchesIntegratedProposal": false
+    },
+    {
+      "owner": "34",
+      "path": "docs/developer/component-architecture.md",
+      "currentSha256": "8ebc3c4c364166826ab09cc9a496afc9dae0f5e6e9173dd645f07b3e5cf4ea50",
+      "reviewedProposalSha256": "1c596245f7caf3265cd60bdc7218c2bf37a0660bf49d685f132e9fc7b662c2dd",
+      "matchesIntegratedProposal": false
+    },
+    {
+      "owner": "34",
+      "path": "docs/github-setup.md",
+      "currentSha256": "6ca4010bfea748437143d613e24a60a0b7ad08d376acddf586a274373240e195",
+      "reviewedProposalSha256": "81d7acd215abe87f2af87ab5b6fed7c9e2719bd75d7d265c78efe699bad3a3ed",
+      "matchesIntegratedProposal": false
+    },
+    {
+      "owner": "34",
+      "path": "docs/troubleshooting/validation.md",
+      "currentSha256": "5077548f0317622a528d775c994d8360044e8ac03baa9a558cc7729e6439ae3d",
+      "reviewedProposalSha256": "1bb2605f96a14d7a8336abad6c2ee0185aa6854e35e41ff81b0981f4481b8a44",
+      "matchesIntegratedProposal": false
+    },
+    {
+      "owner": "34",
+      "path": "docs/troubleshooting/firefox-profile-launch.md",
+      "currentSha256": "21848c287e67f7cccf9ad7f3167886c7a6266f7a85f65f6caf7e2c0872cbdb54",
+      "reviewedProposalSha256": "21848c287e67f7cccf9ad7f3167886c7a6266f7a85f65f6caf7e2c0872cbdb54",
+      "matchesIntegratedProposal": true
+    },
+    {
+      "owner": "34",
+      "path": "docs/developer/react-aria-license-inventory.md",
+      "currentSha256": "1485343f1b06487287f28527ffd200ba8bd06e026dda05ed99786ee1de1a1107",
+      "reviewedProposalSha256": "b32f4fc5bfdb7d6c5cb7e9f4ca3783d57981c9635d7d57643d95a2170c492415",
+      "matchesIntegratedProposal": false
+    },
+    {
+      "owner": "34",
+      "path": ".github/ISSUE_TEMPLATE/ui-change.yml",
+      "currentSha256": "c6feb2bf2cd0fea7e802ec0991ecbb91241e0d4f519eb194dfde2e18df9b397c",
+      "reviewedProposalSha256": "7a95850d587d962ed5d970cffb07626a2f0e0dec9f83235a4724be7fc23f11e5",
+      "matchesIntegratedProposal": false
+    },
+    {
+      "owner": "34",
+      "path": ".github/pull_request_template.md",
+      "currentSha256": "01494ca03073c4d84b8bfbeb04af40f2d88a76f2ab573e6e14ad0d95e69076ae",
+      "reviewedProposalSha256": "17a0f56f392b4be38911ab9e088bd1b8441760af83bd3486ace4d72061a592c8",
+      "matchesIntegratedProposal": false
+    },
+    {
+      "owner": "34",
+      "path": "docs/commercial-licensing.md",
+      "currentSha256": "6652a8902f03af94453b7ffd3c2bd92fc89c30002022945530b984cfa35c5281",
+      "reviewedProposalSha256": "6652a8902f03af94453b7ffd3c2bd92fc89c30002022945530b984cfa35c5281",
+      "matchesIntegratedProposal": true
+    },
+    {
+      "owner": "34",
+      "path": "docs/developer/react-aria-runtime-ci.md",
+      "currentSha256": "31bb9b2c534d7fb4e938a9db0f23d333cc9f84d468e2247901b5483a9654f906",
+      "reviewedProposalSha256": "775eed14f582dc2fa4432e94ded8345cf58883400665d1020832d7be0dd90067",
+      "matchesIntegratedProposal": false
+    },
+    {
+      "owner": "34",
+      "path": "docs/migration.md",
+      "currentSha256": "c57a990c1230814bef010f44238484640a33bb2376357b842ca0bc747f3307d0",
+      "reviewedProposalSha256": "644ca47b848735bc51e5430c7794e7cdb36534c74d7da56126d938e241006f62",
+      "matchesIntegratedProposal": false
+    }
+  ],
+  "manifest": [
+    {
+      "source": "components/AdminDataGridOptions.ts",
+      "destination": "src/components/AdminDataGridOptions.ts",
+      "resolvedDestination": "packages/ui/src/components/AdminDataGridOptions.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppButton/AppButton.stories.tsx",
+      "destination": "src/components/AppButton/AppButton.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppButton/AppButton.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/experimental/Button/Button.fixture.tsx",
+          "exists": true,
+          "sha256": "184af11e15e2b1a73abea55d7921e54949f1d910d504271608c4f598124b62d0"
+        },
+        {
+          "path": "apps/docs/examples/ButtonDocumentation.tsx",
+          "exists": true,
+          "sha256": "8107962785aeb467b836e86d260baa2d8b50215835c75701bd71be1e46395a22"
+        }
+      ]
+    },
+    {
+      "source": "components/AppButton/AppButton.test.tsx",
+      "destination": "src/components/AppButton/AppButton.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppButton/AppButton.test.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/components/Button/Button.public-contract.test.tsx",
+          "exists": true,
+          "sha256": "a6a889184067897c944c93993655ceb049692cb5a51453e71f37d33c21bc2db6"
+        }
+      ]
+    },
+    {
+      "source": "components/AppButton/AppButton.tsx",
+      "destination": "src/components/AppButton/AppButton.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppButton/AppButton.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/components/Button/Button.tsx",
+          "exists": true,
+          "sha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5"
+        }
+      ]
+    },
+    {
+      "source": "components/AppButton/index.ts",
+      "destination": "src/components/AppButton/index.ts",
+      "resolvedDestination": "packages/ui/src/components/AppButton/index.ts",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/components/Button/index.ts",
+          "exists": true,
+          "sha256": "e3b3d627a1fef1bfc1a6056115b697444e0383549cce84e243abe2f4b34522cb"
+        }
+      ]
+    },
+    {
+      "source": "components/AppDataGrid/AppDataGrid.stories.tsx",
+      "destination": "src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+          "exists": true,
+          "sha256": "ce94ca1a740f7541fca53106192f702f4682a68f17a9c4c976b28b8cde49cbe5"
+        }
+      ]
+    },
+    {
+      "source": "components/AppDataGrid/AppDataGrid.test.tsx",
+      "destination": "src/components/AppDataGrid/AppDataGrid.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/AppDataGrid.tsx",
+      "destination": "src/components/AppDataGrid/AppDataGrid.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/RowSubHeader.test.tsx",
+      "destination": "src/components/AppDataGrid/components/RowSubHeader.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/RowSubHeader.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/RowSubHeader.tsx",
+      "destination": "src/components/AppDataGrid/components/RowSubHeader.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/RowSubHeader.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/TableLoaderOverlay.tsx",
+      "destination": "src/components/AppDataGrid/components/TableLoaderOverlay.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/TableLoaderOverlay.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/TableNoResults.tsx",
+      "destination": "src/components/AppDataGrid/components/TableNoResults.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/TableNoResults.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/baseGridSx.test.ts",
+      "destination": "src/components/AppDataGrid/components/baseGridSx.test.ts",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/baseGridSx.test.ts",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx",
+          "exists": true,
+          "sha256": "d5037a206368dde03af63d5e755d035311b9818c4595fbc67593a69775bf91aa"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx",
+          "exists": true,
+          "sha256": "27111468b259d5eff812bf24611b023c5188fa1ea7ba92795443a0588e32c022"
+        }
+      ]
+    },
+    {
+      "source": "components/AppDataGrid/components/baseGridSx.ts",
+      "destination": "src/components/AppDataGrid/components/baseGridSx.ts",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/baseGridSx.ts",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css",
+          "exists": true,
+          "sha256": "06d76bdecc8495ae7884ac4ea8b47c9b8c987ebaf1de57fe39d3d707b82d8f60"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.module.css",
+          "exists": true,
+          "sha256": "60172af68ca53fc67da5657b8013d53fab68cee1c79f5e905a490f12fa392dfc"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/ownedGridCells.module.css",
+          "exists": true,
+          "sha256": "982862902a59021116b659dfa2d420d73d2b54c39e67d3a434139a2a8953aa5b"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/ownedGridParts.module.css",
+          "exists": true,
+          "sha256": "9f491a445d42293d35cac256b7d565c5337a02024781ed3df09b54b9c39a9085"
+        }
+      ]
+    },
+    {
+      "source": "components/AppDataGrid/components/header/TableHeaderSortMenu.test.tsx",
+      "destination": "src/components/AppDataGrid/components/header/TableHeaderSortMenu.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/header/TableHeaderSortMenu.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/header/TableHeaderSortMenu.tsx",
+      "destination": "src/components/AppDataGrid/components/header/TableHeaderSortMenu.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/header/TableHeaderSortMenu.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CellFallback.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/CellFallback.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/table-cell/CellFallback.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CopyableTableCell.test.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/CopyableTableCell.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/table-cell/CopyableTableCell.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CopyableTableCell.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/CopyableTableCell.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/table-cell/CopyableTableCell.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CustomTableCell.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/CustomTableCell.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/table-cell/CustomTableCell.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/DateTableCell.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/DateTableCell.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/table-cell/DateTableCell.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/DateTimeTableCell.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/DateTimeTableCell.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/table-cell/DateTimeTableCell.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/ImageTableCell.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/ImageTableCell.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/table-cell/ImageTableCell.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/JsonTableCell.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/JsonTableCell.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/table-cell/JsonTableCell.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TableCellLink.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/TableCellLink.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellLink.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TableCellMenu.test.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/TableCellMenu.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellMenu.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TableCellMenu.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/TableCellMenu.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellMenu.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TextTableCell.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/TextTableCell.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/table-cell/TextTableCell.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/index.ts",
+      "destination": "src/components/AppDataGrid/components/table-cell/index.ts",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/table-cell/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/createActionMenuColumn.test.ts",
+      "destination": "src/components/AppDataGrid/createActionMenuColumn.test.ts",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/createActionMenuColumn.test.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/createActionMenuColumn.ts",
+      "destination": "src/components/AppDataGrid/createActionMenuColumn.ts",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/createActionMenuColumn.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/createDataGridColumns.test.tsx",
+      "destination": "src/components/AppDataGrid/createDataGridColumns.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/createDataGridColumns.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/createDataGridColumns.tsx",
+      "destination": "src/components/AppDataGrid/createDataGridColumns.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/createDataGridColumns.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/index.ts",
+      "destination": "src/components/AppDataGrid/index.ts",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/types.ts",
+      "destination": "src/components/AppDataGrid/types.ts",
+      "resolvedDestination": "packages/ui/src/components/AppDataGrid/types.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridRowDnd/DataGridDragHandle.stories.tsx",
+      "destination": "src/components/AppDataGridRowDnd/DataGridDragHandle.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppDataGridRowDnd/DataGridDragHandle.fixture.tsx",
+          "exists": true,
+          "sha256": "b4a172cbb2536940351db33f8cd05dfe2c5f19b9a28227b27972c6990856b2ca"
+        }
+      ]
+    },
+    {
+      "source": "components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "destination": "src/components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridRowDnd/index.ts",
+      "destination": "src/components/AppDataGridRowDnd/index.ts",
+      "resolvedDestination": "packages/ui/src/components/AppDataGridRowDnd/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridRowDnd/useDataGridRowDnd.test.ts",
+      "destination": "src/components/AppDataGridRowDnd/useDataGridRowDnd.test.ts",
+      "resolvedDestination": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.test.ts",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.test.tsx",
+          "exists": true,
+          "sha256": "97a808c6316a6dfffea909316bdb231f61195dfa09f094b3cb9840dfe90fb876"
+        }
+      ]
+    },
+    {
+      "source": "components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+      "destination": "src/components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+      "resolvedDestination": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "destination": "src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+          "exists": true,
+          "sha256": "108009d686b001557ab928cd1095a18f5dad14d2470bac1af0e2c036b714396c"
+        }
+      ]
+    },
+    {
+      "source": "components/AppDataGridShell/AppDataGridShell.test.tsx",
+      "destination": "src/components/AppDataGridShell/AppDataGridShell.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridShell/AppDataGridShell.tsx",
+      "destination": "src/components/AppDataGridShell/AppDataGridShell.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridShell/index.ts",
+      "destination": "src/components/AppDataGridShell/index.ts",
+      "resolvedDestination": "packages/ui/src/components/AppDataGridShell/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppInlineProgress/AppInlineProgress.stories.tsx",
+      "destination": "src/components/AppInlineProgress/AppInlineProgress.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppInlineProgress/AppInlineProgress.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppInlineProgress/AppInlineProgress.fixture.tsx",
+          "exists": true,
+          "sha256": "518bb8e43dc17abf8169d798bba436e14baf9bcc1b5920fb880edb899ac2b4c2"
+        }
+      ]
+    },
+    {
+      "source": "components/AppInlineProgress/AppInlineProgress.test.tsx",
+      "destination": "src/components/AppInlineProgress/AppInlineProgress.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppInlineProgress/AppInlineProgress.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppInlineProgress/AppInlineProgress.tsx",
+      "destination": "src/components/AppInlineProgress/AppInlineProgress.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppInlineProgress/AppInlineProgress.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppInlineProgress/index.ts",
+      "destination": "src/components/AppInlineProgress/index.ts",
+      "resolvedDestination": "packages/ui/src/components/AppInlineProgress/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppModal/AppModal.stories.tsx",
+      "destination": "src/components/AppModal/AppModal.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppModal/AppModal.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppModal/AppModal.fixture.tsx",
+          "exists": true,
+          "sha256": "dc46ab47609d63f8492f16fa62c75d3f5d3b98563040e4c94c0be9cb92278f56"
+        }
+      ]
+    },
+    {
+      "source": "components/AppModal/AppModal.test.tsx",
+      "destination": "src/components/AppModal/AppModal.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppModal/AppModal.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppModal/AppModal.tsx",
+      "destination": "src/components/AppModal/AppModal.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppModal/AppModal.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppModal/index.ts",
+      "destination": "src/components/AppModal/index.ts",
+      "resolvedDestination": "packages/ui/src/components/AppModal/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppOperationSteps/AppOperationSteps.stories.tsx",
+      "destination": "src/components/AppOperationSteps/AppOperationSteps.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx",
+          "exists": true,
+          "sha256": "f5a644682231bb219661ee059c1fa1a372fc87fdd3211c22afefaab1145e3153"
+        }
+      ]
+    },
+    {
+      "source": "components/AppOperationSteps/AppOperationSteps.test.tsx",
+      "destination": "src/components/AppOperationSteps/AppOperationSteps.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppOperationSteps/AppOperationSteps.tsx",
+      "destination": "src/components/AppOperationSteps/AppOperationSteps.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppOperationSteps/index.ts",
+      "destination": "src/components/AppOperationSteps/index.ts",
+      "resolvedDestination": "packages/ui/src/components/AppOperationSteps/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageHeader/AppPageHeader.stories.tsx",
+      "destination": "src/components/AppPageHeader/AppPageHeader.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppPageHeader/AppPageHeader.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppPageHeader/AppPageHeader.fixture.tsx",
+          "exists": true,
+          "sha256": "6609f8f6c55fa5f6b77440bf23e0ac663a7aae76b75895ea7765329796adc6b3"
+        }
+      ]
+    },
+    {
+      "source": "components/AppPageHeader/AppPageHeader.test.tsx",
+      "destination": "src/components/AppPageHeader/AppPageHeader.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppPageHeader/AppPageHeader.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageHeader/AppPageHeader.tsx",
+      "destination": "src/components/AppPageHeader/AppPageHeader.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppPageHeader/AppPageHeader.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageHeader/index.ts",
+      "destination": "src/components/AppPageHeader/index.ts",
+      "resolvedDestination": "packages/ui/src/components/AppPageHeader/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageTabs/AppPageTabs.stories.tsx",
+      "destination": "src/components/AppPageTabs/AppPageTabs.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppPageTabs/AppPageTabs.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppPageTabs/AppPageTabs.fixture.tsx",
+          "exists": true,
+          "sha256": "e8311155b4830ea8dd9d04b41246d49fc1cccc176fbabb5a7cc7a38a48f1af71"
+        }
+      ]
+    },
+    {
+      "source": "components/AppPageTabs/AppPageTabs.test.tsx",
+      "destination": "src/components/AppPageTabs/AppPageTabs.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppPageTabs/AppPageTabs.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageTabs/AppPageTabs.tsx",
+      "destination": "src/components/AppPageTabs/AppPageTabs.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppPageTabs/AppPageTabs.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageTabs/index.ts",
+      "destination": "src/components/AppPageTabs/index.ts",
+      "resolvedDestination": "packages/ui/src/components/AppPageTabs/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppShell/AppShell.stories.tsx",
+      "destination": "src/components/AppShell/AppShell.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppShell/AppShell.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppShell/AppShell.fixture.tsx",
+          "exists": true,
+          "sha256": "c71efcdf367a6a93a5dd1b8cb513c35419984046bacfb05859112136e2659fe5"
+        }
+      ]
+    },
+    {
+      "source": "components/AppShell/AppShell.test.tsx",
+      "destination": "src/components/AppShell/AppShell.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppShell/AppShell.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppShell/AppShell.tsx",
+      "destination": "src/components/AppShell/AppShell.tsx",
+      "resolvedDestination": "packages/ui/src/components/AppShell/AppShell.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppShell/index.ts",
+      "destination": "src/components/AppShell/index.ts",
+      "resolvedDestination": "packages/ui/src/components/AppShell/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AuthShell/AuthShell.stories.tsx",
+      "destination": "src/components/AuthShell/AuthShell.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/AuthShell/AuthShell.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AuthShell/AuthShell.fixture.tsx",
+          "exists": true,
+          "sha256": "797bcbe4e881d57348ae7fefcdf5147498f01a210e23d97e4b54ae728debdc6a"
+        }
+      ]
+    },
+    {
+      "source": "components/AuthShell/AuthShell.test.tsx",
+      "destination": "src/components/AuthShell/AuthShell.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/AuthShell/AuthShell.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AuthShell/AuthShell.tsx",
+      "destination": "src/components/AuthShell/AuthShell.tsx",
+      "resolvedDestination": "packages/ui/src/components/AuthShell/AuthShell.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AuthShell/index.ts",
+      "destination": "src/components/AuthShell/index.ts",
+      "resolvedDestination": "packages/ui/src/components/AuthShell/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx",
+      "destination": "src/components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardCollectionWithFooter/CardCollectionWithFooter.tsx",
+      "destination": "src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx",
+      "resolvedDestination": "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardCollectionWithFooter/index.ts",
+      "destination": "src/components/CardCollectionWithFooter/index.ts",
+      "resolvedDestination": "packages/ui/src/components/CardCollectionWithFooter/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardPaginationFooter/CardPaginationFooter.stories.tsx",
+      "destination": "src/components/CardPaginationFooter/CardPaginationFooter.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/CardPaginationFooter/CardPaginationFooter.fixture.tsx",
+          "exists": true,
+          "sha256": "8be6e6796146c65707dd21bfd2a6295ccf605ce6fae8206ea1401eac81f02dac"
+        }
+      ]
+    },
+    {
+      "source": "components/CardPaginationFooter/CardPaginationFooter.test.tsx",
+      "destination": "src/components/CardPaginationFooter/CardPaginationFooter.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardPaginationFooter/CardPaginationFooter.tsx",
+      "destination": "src/components/CardPaginationFooter/CardPaginationFooter.tsx",
+      "resolvedDestination": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardPaginationFooter/index.ts",
+      "destination": "src/components/CardPaginationFooter/index.ts",
+      "resolvedDestination": "packages/ui/src/components/CardPaginationFooter/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ClassCardFrame/ClassCardFrame.stories.tsx",
+      "destination": "src/components/ClassCardFrame/ClassCardFrame.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx",
+          "exists": true,
+          "sha256": "2b5d58999e33c399c4780df52cf39283b9072709ebf7262b773192092c44857c"
+        }
+      ]
+    },
+    {
+      "source": "components/ClassCardFrame/ClassCardFrame.test.tsx",
+      "destination": "src/components/ClassCardFrame/ClassCardFrame.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ClassCardFrame/ClassCardFrame.tsx",
+      "destination": "src/components/ClassCardFrame/ClassCardFrame.tsx",
+      "resolvedDestination": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ClassCardFrame/index.ts",
+      "destination": "src/components/ClassCardFrame/index.ts",
+      "resolvedDestination": "packages/ui/src/components/ClassCardFrame/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ColumnsLayoutModal/ColumnsLayoutModal.stories.tsx",
+      "destination": "src/components/ColumnsLayoutModal/ColumnsLayoutModal.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/ColumnsLayoutModal/ColumnsLayoutModal.fixture.tsx",
+          "exists": true,
+          "sha256": "58627031379a792a42e15e7ba01a32eda0e83922b30fdc69845ebe90459d806e"
+        }
+      ]
+    },
+    {
+      "source": "components/ColumnsLayoutModal/ColumnsLayoutModal.test.tsx",
+      "destination": "src/components/ColumnsLayoutModal/ColumnsLayoutModal.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "destination": "src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "resolvedDestination": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ColumnsLayoutModal/index.ts",
+      "destination": "src/components/ColumnsLayoutModal/index.ts",
+      "resolvedDestination": "packages/ui/src/components/ColumnsLayoutModal/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ContentEditorChrome/ContentEditorChrome.stories.tsx",
+      "destination": "src/components/ContentEditorChrome/ContentEditorChrome.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
+          "exists": true,
+          "sha256": "194beb0534e51d4f1719d6370499c3f079affeb6f3946b197df5baec96383ada"
+        }
+      ]
+    },
+    {
+      "source": "components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+      "destination": "src/components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ContentEditorChrome/ContentEditorChrome.tsx",
+      "destination": "src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+      "resolvedDestination": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ContentEditorChrome/index.ts",
+      "destination": "src/components/ContentEditorChrome/index.ts",
+      "resolvedDestination": "packages/ui/src/components/ContentEditorChrome/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/DataToolbar.stories.tsx",
+      "destination": "src/components/DataToolbar/DataToolbar.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/DataToolbar.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.fixture.tsx",
+          "exists": true,
+          "sha256": "5cda35a0470951a22e80c69b29989d5365f4d093fd0d7294557e12b1a949f817"
+        }
+      ]
+    },
+    {
+      "source": "components/DataToolbar/DataToolbar.test.tsx",
+      "destination": "src/components/DataToolbar/DataToolbar.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/DataToolbar.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/DataToolbar.tsx",
+      "destination": "src/components/DataToolbar/DataToolbar.tsx",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/DataToolbar.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/buildColumnOptions.test.ts",
+      "destination": "src/components/DataToolbar/buildColumnOptions.test.ts",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/buildColumnOptions.test.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/buildColumnOptions.ts",
+      "destination": "src/components/DataToolbar/buildColumnOptions.ts",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/buildColumnOptions.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarColumnsMenu.test.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarColumnsMenu.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarColumnsMenu.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarFilterMenu.test.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarFilterMenu.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarFilterMenu.tsx",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSelectionMenu.test.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarSelectionMenu.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSortMenu.test.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarSortMenu.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSortMenu.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarSortMenu.tsx",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/filterRuleValue.test.ts",
+      "destination": "src/components/DataToolbar/filterRuleValue.test.ts",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/filterRuleValue.test.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/filterRuleValue.ts",
+      "destination": "src/components/DataToolbar/filterRuleValue.ts",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/filterRuleValue.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/index.ts",
+      "destination": "src/components/DataToolbar/index.ts",
+      "resolvedDestination": "packages/ui/src/components/DataToolbar/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx",
+      "destination": "src/components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/DocumentEditorLayout/DocumentEditorLayout.fixture.tsx",
+          "exists": true,
+          "sha256": "072e40b6945f1dfb1e9f6e90913920b595cb3fe2c6f8e55b1150d9e5819ffcfa"
+        }
+      ]
+    },
+    {
+      "source": "components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+      "destination": "src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+      "destination": "src/components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+      "resolvedDestination": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorLayout/index.ts",
+      "destination": "src/components/DocumentEditorLayout/index.ts",
+      "resolvedDestination": "packages/ui/src/components/DocumentEditorLayout/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorToolbar/DocumentEditorToolbar.stories.tsx",
+      "destination": "src/components/DocumentEditorToolbar/DocumentEditorToolbar.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/DocumentEditorToolbar/DocumentEditorToolbar.fixture.tsx",
+          "exists": true,
+          "sha256": "07a3c80a0122b0614aae2393323ca8abe5f77c32bf256f13908c3b72eec5eed5"
+        }
+      ]
+    },
+    {
+      "source": "components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+      "destination": "src/components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "destination": "src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "resolvedDestination": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorToolbar/index.ts",
+      "destination": "src/components/DocumentEditorToolbar/index.ts",
+      "resolvedDestination": "packages/ui/src/components/DocumentEditorToolbar/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/EditableTitleField/EditableTitleField.stories.tsx",
+      "destination": "src/components/EditableTitleField/EditableTitleField.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/EditableTitleField/EditableTitleField.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/EditableTitleField/EditableTitleField.fixture.tsx",
+          "exists": true,
+          "sha256": "048082efbabc992b68d0ceb9b67b44ed070a41c01e8ea045df238ad0e07f438d"
+        }
+      ]
+    },
+    {
+      "source": "components/EditableTitleField/EditableTitleField.tsx",
+      "destination": "src/components/EditableTitleField/EditableTitleField.tsx",
+      "resolvedDestination": "packages/ui/src/components/EditableTitleField/EditableTitleField.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/EditableTitleField/index.ts",
+      "destination": "src/components/EditableTitleField/index.ts",
+      "resolvedDestination": "packages/ui/src/components/EditableTitleField/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "destination": "src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "resolvedDestination": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ExperiencePageNavigator/index.ts",
+      "destination": "src/components/ExperiencePageNavigator/index.ts",
+      "resolvedDestination": "packages/ui/src/components/ExperiencePageNavigator/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx",
+      "destination": "src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.fixture.tsx",
+          "exists": true,
+          "sha256": "99d26c5c2761ae7852f0d4458ab4745f013dec4ed4cc3d503f23b2653502fc35"
+        }
+      ]
+    },
+    {
+      "source": "components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+      "destination": "src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+      "resolvedDestination": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/FloatingTextSelectionToolbar/index.ts",
+      "destination": "src/components/FloatingTextSelectionToolbar/index.ts",
+      "resolvedDestination": "packages/ui/src/components/FloatingTextSelectionToolbar/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ImageUploadModal/ImageUploadModal.stories.tsx",
+      "destination": "src/components/ImageUploadModal/ImageUploadModal.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/ImageUploadModal/ImageUploadModal.fixture.tsx",
+          "exists": true,
+          "sha256": "65f63958ab3fc9e32dfce3edad77f73b2447695a8fa785e1bc3afaac7f121f7c"
+        }
+      ]
+    },
+    {
+      "source": "components/ImageUploadModal/ImageUploadModal.tsx",
+      "destination": "src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "resolvedDestination": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ImageUploadModal/index.ts",
+      "destination": "src/components/ImageUploadModal/index.ts",
+      "resolvedDestination": "packages/ui/src/components/ImageUploadModal/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InsertContentMenuControl/InsertContentMenuControl.stories.tsx",
+      "destination": "src/components/InsertContentMenuControl/InsertContentMenuControl.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/InsertContentMenuControl.fixture.tsx",
+          "exists": true,
+          "sha256": "be82a2f16881a754fb3f475653383c57b32b38731d5a753ccf678296ca991971"
+        }
+      ]
+    },
+    {
+      "source": "components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "destination": "src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "resolvedDestination": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InsertContentMenuControl/index.ts",
+      "destination": "src/components/InsertContentMenuControl/index.ts",
+      "resolvedDestination": "packages/ui/src/components/InsertContentMenuControl/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InstructorClassCard/InstructorClassCard.stories.tsx",
+      "destination": "src/components/InstructorClassCard/InstructorClassCard.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/InstructorClassCard/InstructorClassCard.fixture.tsx",
+          "exists": true,
+          "sha256": "120e2b2068429b56e732c962099380168d021ea6bcc73fe101ab6e1c5d732bd3"
+        }
+      ]
+    },
+    {
+      "source": "components/InstructorClassCard/InstructorClassCard.test.tsx",
+      "destination": "src/components/InstructorClassCard/InstructorClassCard.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InstructorClassCard/InstructorClassCard.tsx",
+      "destination": "src/components/InstructorClassCard/InstructorClassCard.tsx",
+      "resolvedDestination": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InstructorClassCard/index.ts",
+      "destination": "src/components/InstructorClassCard/index.ts",
+      "resolvedDestination": "packages/ui/src/components/InstructorClassCard/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InstructorDataGridOptions.ts",
+      "destination": "src/components/InstructorDataGridOptions.ts",
+      "resolvedDestination": "packages/ui/src/components/InstructorDataGridOptions.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/LearnerClassCard.stories.tsx",
+      "destination": "src/components/LearnerClassCard/LearnerClassCard.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/LearnerClassCard/LearnerClassCard.fixture.tsx",
+          "exists": true,
+          "sha256": "28e01b7ee86f3a626894cc41277c4c58d01a269a06494b970d215fbc53edcd15"
+        }
+      ]
+    },
+    {
+      "source": "components/LearnerClassCard/LearnerClassCard.test.tsx",
+      "destination": "src/components/LearnerClassCard/LearnerClassCard.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/LearnerClassCard.tsx",
+      "destination": "src/components/LearnerClassCard/LearnerClassCard.tsx",
+      "resolvedDestination": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/formatDueDateLabel.test.ts",
+      "destination": "src/components/LearnerClassCard/formatDueDateLabel.test.ts",
+      "resolvedDestination": "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.test.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/formatDueDateLabel.ts",
+      "destination": "src/components/LearnerClassCard/formatDueDateLabel.ts",
+      "resolvedDestination": "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/index.ts",
+      "destination": "src/components/LearnerClassCard/index.ts",
+      "resolvedDestination": "packages/ui/src/components/LearnerClassCard/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/LearnerClassesDataGrid.stories.tsx",
+      "destination": "src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/LearnerClassesDataGrid/LearnerClassesDataGrid.fixture.tsx",
+          "exists": true,
+          "sha256": "a514c5fa34fb2e82853487eec91abb75f9cd56f73880daf245b5598655aaacdb"
+        }
+      ]
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/LearnerClassesDataGrid.test.tsx",
+      "destination": "src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+      "destination": "src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+      "resolvedDestination": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/index.ts",
+      "destination": "src/components/LearnerClassesDataGrid/index.ts",
+      "resolvedDestination": "packages/ui/src/components/LearnerClassesDataGrid/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LinkUrlModal/LinkUrlModal.stories.tsx",
+      "destination": "src/components/LinkUrlModal/LinkUrlModal.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/LinkUrlModal/LinkUrlModal.fixture.tsx",
+          "exists": true,
+          "sha256": "8ecffe0b0a3e16517e8f5131f401b4e9c713d740df60c62a7f445f45afafc2d9"
+        }
+      ]
+    },
+    {
+      "source": "components/LinkUrlModal/LinkUrlModal.tsx",
+      "destination": "src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "resolvedDestination": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LinkUrlModal/index.ts",
+      "destination": "src/components/LinkUrlModal/index.ts",
+      "resolvedDestination": "packages/ui/src/components/LinkUrlModal/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "destination": "src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "resolvedDestination": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx",
+      "destination": "src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+          "exists": true,
+          "sha256": "83a1238084f7623706888bf663015402c7df6b6bf8ce3ccdadf1e00ce8735cf0"
+        }
+      ]
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx",
+      "destination": "src/components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.tsx",
+      "destination": "src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx",
+      "resolvedDestination": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/index.ts",
+      "destination": "src/components/PageRichTextEditorSection/index.ts",
+      "resolvedDestination": "packages/ui/src/components/PageRichTextEditorSection/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx",
+      "destination": "src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx",
+      "resolvedDestination": "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx",
+      "destination": "src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx",
+      "destination": "src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx",
+      "resolvedDestination": "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx",
+      "destination": "src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx",
+      "destination": "src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx",
+      "resolvedDestination": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageNode.test.tsx",
+      "destination": "src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+      "destination": "src/components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+      "resolvedDestination": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/editorConfig.ts",
+      "destination": "src/components/PageRichTextEditorSection/lexical/editorConfig.ts",
+      "resolvedDestination": "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "destination": "src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "resolvedDestination": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.stories.tsx",
+      "destination": "src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/RichTextFormattingToolbar/RichTextFormattingToolbar.fixture.tsx",
+          "exists": true,
+          "sha256": "f3f0386c80ba38cc87a62843c88c5050b849c3d4551d36930202e24e82f8bd9b"
+        }
+      ]
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx",
+      "destination": "src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx",
+      "destination": "src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx",
+      "resolvedDestination": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/index.ts",
+      "destination": "src/components/RichTextFormattingToolbar/index.ts",
+      "resolvedDestination": "packages/ui/src/components/RichTextFormattingToolbar/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.helpers.test.ts",
+      "destination": "src/components/SideNavigation/SideNavigation.helpers.test.ts",
+      "resolvedDestination": "packages/ui/src/components/SideNavigation/SideNavigation.helpers.test.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.stories.tsx",
+      "destination": "src/components/SideNavigation/SideNavigation.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/SideNavigation/SideNavigation.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
+          "exists": true,
+          "sha256": "d82cfba8be4f38f8e0c24b9d4fd854dd37d0c833b4d7251775452b5edd9e0a60"
+        }
+      ]
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.test.tsx",
+      "destination": "src/components/SideNavigation/SideNavigation.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/SideNavigation/SideNavigation.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.tsx",
+      "destination": "src/components/SideNavigation/SideNavigation.tsx",
+      "resolvedDestination": "packages/ui/src/components/SideNavigation/SideNavigation.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/SideNavigation/index.ts",
+      "destination": "src/components/SideNavigation/index.ts",
+      "resolvedDestination": "packages/ui/src/components/SideNavigation/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx",
+      "destination": "src/components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/TextAlignMenuControl/TextAlignMenuControl.fixture.tsx",
+          "exists": true,
+          "sha256": "fc674110b2eba39e048fd4cb370c4a8e0deff56d8bad552e3b8da4ba268c92d4"
+        }
+      ]
+    },
+    {
+      "source": "components/TextAlignMenuControl/TextAlignMenuControl.test.tsx",
+      "destination": "src/components/TextAlignMenuControl/TextAlignMenuControl.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "destination": "src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "resolvedDestination": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextAlignMenuControl/index.ts",
+      "destination": "src/components/TextAlignMenuControl/index.ts",
+      "resolvedDestination": "packages/ui/src/components/TextAlignMenuControl/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "destination": "src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "resolvedDestination": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.stories.tsx",
+      "destination": "src/components/TextColorPickerControl/TextColorPickerControl.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/TextColorPickerControl/TextColorPickerControl.fixture.tsx",
+          "exists": true,
+          "sha256": "cccc22b7b67ec27f041040325b57241c1005c931f0fecd05f7591df19e180d6c"
+        }
+      ]
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.test.tsx",
+      "destination": "src/components/TextColorPickerControl/TextColorPickerControl.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.tsx",
+      "destination": "src/components/TextColorPickerControl/TextColorPickerControl.tsx",
+      "resolvedDestination": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextColorPickerControl/index.ts",
+      "destination": "src/components/TextColorPickerControl/index.ts",
+      "resolvedDestination": "packages/ui/src/components/TextColorPickerControl/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+      "destination": "src/components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/TextStyleMenuControl/TextStyleMenuControl.fixture.tsx",
+          "exists": true,
+          "sha256": "ac28a342a8cac861f3995eb2a7ff77d563e7835e7955e8423f42fd891338b1a2"
+        }
+      ]
+    },
+    {
+      "source": "components/TextStyleMenuControl/TextStyleMenuControl.test.tsx",
+      "destination": "src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx",
+      "resolvedDestination": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "destination": "src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "resolvedDestination": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextStyleMenuControl/index.ts",
+      "destination": "src/components/TextStyleMenuControl/index.ts",
+      "resolvedDestination": "packages/ui/src/components/TextStyleMenuControl/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/Typefaces/Typefaces.stories.tsx",
+      "destination": "src/components/Typefaces/Typefaces.stories.tsx",
+      "resolvedDestination": "packages/ui/src/components/Typefaces/Typefaces.stories.tsx",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx",
+          "exists": true,
+          "sha256": "7c83ddb5136e9add9e50f6150452fd7848d398fcf6c021896370d7b9974300d5"
+        }
+      ]
+    },
+    {
+      "source": "components/icons/activityTypeIcon.tsx",
+      "destination": "src/components/icons/activityTypeIcon.tsx",
+      "resolvedDestination": "packages/ui/src/components/icons/activityTypeIcon.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/icons/index.ts",
+      "destination": "src/components/icons/index.ts",
+      "resolvedDestination": "packages/ui/src/components/icons/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/index.ts",
+      "destination": "src/components/index.ts",
+      "resolvedDestination": "packages/ui/src/components/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "components/primitives/index.ts",
+      "destination": "src/components/primitives/index.ts",
+      "resolvedDestination": "packages/ui/src/components/primitives/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentPaginationModel.hook.test.ts",
+      "destination": "src/hooks/usePersistentPaginationModel.hook.test.ts",
+      "resolvedDestination": "packages/ui/src/hooks/usePersistentPaginationModel.hook.test.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentPaginationModel.test.ts",
+      "destination": "src/hooks/usePersistentPaginationModel.test.ts",
+      "resolvedDestination": "packages/ui/src/hooks/usePersistentPaginationModel.test.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentPaginationModel.ts",
+      "destination": "src/hooks/usePersistentPaginationModel.ts",
+      "resolvedDestination": "packages/ui/src/hooks/usePersistentPaginationModel.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentState.test.ts",
+      "destination": "src/hooks/usePersistentState.test.ts",
+      "resolvedDestination": "packages/ui/src/hooks/usePersistentState.test.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentState.ts",
+      "destination": "src/hooks/usePersistentState.ts",
+      "resolvedDestination": "packages/ui/src/hooks/usePersistentState.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "index.ts",
+      "destination": "src/index.ts",
+      "resolvedDestination": "packages/ui/src/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "theme/AppThemeProvider.test.tsx",
+      "destination": "src/theme/AppThemeProvider.test.tsx",
+      "resolvedDestination": "packages/ui/src/theme/AppThemeProvider.test.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "theme/AppThemeProvider.tsx",
+      "destination": "src/theme/AppThemeProvider.tsx",
+      "resolvedDestination": "packages/ui/src/theme/AppThemeProvider.tsx",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "theme/index.ts",
+      "destination": "src/theme/index.ts",
+      "resolvedDestination": "packages/ui/src/theme/index.ts",
+      "recordedPresent": true,
+      "actualPresent": true,
+      "replacements": []
+    },
+    {
+      "source": "theme/mui-typography.d.ts",
+      "destination": "src/theme/mui-typography.ts",
+      "resolvedDestination": "packages/ui/src/theme/mui-typography.ts",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/foundation/tokens.json",
+          "exists": true,
+          "sha256": "a08079fb20ae728521a29aabb3b411b9d6df82e1e7ce101bc1307f4799d88617"
+        },
+        {
+          "path": "packages/ui/src/foundation/tokens.generated.ts",
+          "exists": true,
+          "sha256": "ef28c92bccb8e0b7b8c42f34dcdfe302300404100878833e91b206b8358e0b8b"
+        },
+        {
+          "path": "packages/ui/src/foundation/tokens.css",
+          "exists": true,
+          "sha256": "31cee489eb61aba2f5ba7ffe379783079fb0f93732db5919c59de41943d8df4d"
+        }
+      ]
+    },
+    {
+      "source": "theme/theme.test.ts",
+      "destination": "src/theme/theme.test.ts",
+      "resolvedDestination": "packages/ui/src/theme/theme.test.ts",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/foundation/ThemeScope.test.tsx",
+          "exists": true,
+          "sha256": "b99c713ccbe211e67538d8cc19f1f2f544f763c7d8c6b834d54f1e3ee9d59a4f"
+        },
+        {
+          "path": "packages/ui/src/theme/AppThemeProvider.test.tsx",
+          "exists": true,
+          "sha256": "47076c4c3314c75f77eee3f6a856b7a688ff78484b45c96ba9adeef8c3cab6c4"
+        },
+        {
+          "path": "packages/ui/src/experimental/Provider/Provider.test.tsx",
+          "exists": true,
+          "sha256": "f87d3f49f62722363ff516d754a8f8d9159ccb2f33fe6901cd8f72d9df0451df"
+        }
+      ]
+    },
+    {
+      "source": "theme/theme.ts",
+      "destination": "src/theme/theme.ts",
+      "resolvedDestination": "packages/ui/src/theme/theme.ts",
+      "recordedPresent": false,
+      "actualPresent": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/foundation/ThemeScope.tsx",
+          "exists": true,
+          "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6"
+        },
+        {
+          "path": "packages/ui/src/foundation/tokens.json",
+          "exists": true,
+          "sha256": "a08079fb20ae728521a29aabb3b411b9d6df82e1e7ce101bc1307f4799d88617"
+        },
+        {
+          "path": "packages/ui/src/experimental/Provider/Provider.tsx",
+          "exists": true,
+          "sha256": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d"
+        }
+      ]
+    }
+  ],
+  "manifestSummary": {
+    "rows": 201,
+    "present": 159,
+    "absent": 42,
+    "mismatches": 0,
+    "provenancePreserved": true
+  },
+  "sourceComparisons": [
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "apps/docs/content/component-usage/presentation.json",
+      "recordedSha256": "b715b3e275b0ddb53d7c95ceeab22bb4eb24f96bfabf43d5c876e6b37ed18f3e",
+      "currentSha256": "52e38083294d3540bd508a0a041c68fc7916818a3199f5b965070d6a9c73b468",
+      "matches": false
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "apps/docs/native-fixtures/scenarios/experimental/ComboBox/ComboBox.fixture.tsx",
+      "recordedSha256": "66d13cb783853be6926666b5ffac45fb961e768e39788ee14e85dfecc8ead7c5",
+      "currentSha256": "66d13cb783853be6926666b5ffac45fb961e768e39788ee14e85dfecc8ead7c5",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "apps/docs/native-fixtures/scenarios/experimental/Select/Select.fixture.tsx",
+      "recordedSha256": "272f2249f4a44684a0ed4be43c2f2e1fe4aff246089cf877f05f8d320397c5a5",
+      "currentSha256": "272f2249f4a44684a0ed4be43c2f2e1fe4aff246089cf877f05f8d320397c5a5",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "apps/docs/tests/button-neutral-pressed.spec.ts",
+      "recordedSha256": "f3bcd56d98c9c9eee7f1de9fadcd072f7fa62143ed97c582ff0a530b8efed123",
+      "currentSha256": "f3bcd56d98c9c9eee7f1de9fadcd072f7fa62143ed97c582ff0a530b8efed123",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "apps/docs/tests/foundation-examples.spec.ts",
+      "recordedSha256": "967041c4cf94ae344e34906305ad6cb72af43ec1865377ef5aec561f45fcb1e4",
+      "currentSha256": "967041c4cf94ae344e34906305ad6cb72af43ec1865377ef5aec561f45fcb1e4",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx",
+      "recordedSha256": "da15c3fd6463562a542b2ccf14e2b8869bddbb479cc0b72ce056ad22a114ac3b",
+      "currentSha256": "da15c3fd6463562a542b2ccf14e2b8869bddbb479cc0b72ce056ad22a114ac3b",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "recordedSha256": "66f9a08f34d24e3eb4c39c61646af69d9dacacf4e369bac7b18b705701ac94a9",
+      "currentSha256": "66f9a08f34d24e3eb4c39c61646af69d9dacacf4e369bac7b18b705701ac94a9",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "packages/ui/src/experimental/Menu/Menu.test.tsx",
+      "recordedSha256": "d944225a253aba4e3d8d4ef2ab61f8c0eb567f1b7e33635c1ee391cc35bdcf97",
+      "currentSha256": "d944225a253aba4e3d8d4ef2ab61f8c0eb567f1b7e33635c1ee391cc35bdcf97",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "packages/ui/src/experimental/Menu/Menu.tsx",
+      "recordedSha256": "c1791ca484cd0631d9994417b69240fb6f4938afa4dd0cc31c67819ad80b8cfb",
+      "currentSha256": "c1791ca484cd0631d9994417b69240fb6f4938afa4dd0cc31c67819ad80b8cfb",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "packages/ui/src/foundation/tokens.css",
+      "recordedSha256": "31cee489eb61aba2f5ba7ffe379783079fb0f93732db5919c59de41943d8df4d",
+      "currentSha256": "31cee489eb61aba2f5ba7ffe379783079fb0f93732db5919c59de41943d8df4d",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "packages/ui/src/foundation/tokens.generated.ts",
+      "recordedSha256": "ef28c92bccb8e0b7b8c42f34dcdfe302300404100878833e91b206b8358e0b8b",
+      "currentSha256": "ef28c92bccb8e0b7b8c42f34dcdfe302300404100878833e91b206b8358e0b8b",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "packages/ui/src/foundation/tokens.json",
+      "recordedSha256": "a08079fb20ae728521a29aabb3b411b9d6df82e1e7ce101bc1307f4799d88617",
+      "currentSha256": "a08079fb20ae728521a29aabb3b411b9d6df82e1e7ce101bc1307f4799d88617",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "packages/ui/tests/browser/acceptance-touch-targets.spec.ts",
+      "recordedSha256": "794c0b6436534c660e0bc4afc5df28396d9ae19bfef3336dec6494769a7a80fa",
+      "currentSha256": "794c0b6436534c660e0bc4afc5df28396d9ae19bfef3336dec6494769a7a80fa",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts",
+      "recordedSha256": "fa2418dc6e2d804ae40651bc5d6f7cca0e77b4ac7faf546b341eaa06e4cb5f4c",
+      "currentSha256": "fa2418dc6e2d804ae40651bc5d6f7cca0e77b4ac7faf546b341eaa06e4cb5f4c",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "packages/ui/tests/browser/wave03-selector-contracts.spec.ts",
+      "recordedSha256": "49a719ee6ca3f426465f0953dc38d658d31924e122229a9a978be7c70d70edf5",
+      "currentSha256": "49a719ee6ca3f426465f0953dc38d658d31924e122229a9a978be7c70d70edf5",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "path": "packages/ui/tests/browser/wave03-system-indications.spec.ts",
+      "recordedSha256": "8a7fc816c0fbdd8c06bcb7a213ea2be390621aac9ce1a1e9f820ccaec411cd2a",
+      "currentSha256": "8a7fc816c0fbdd8c06bcb7a213ea2be390621aac9ce1a1e9f820ccaec411cd2a",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/tests/browser/wave03-editor-chrome-acceptance.spec.ts",
+      "recordedSha256": "ece29a77d65657c28f1fa1a90afac3750f0a0e56f6d651b82a99c802270b8383",
+      "currentSha256": "ece29a77d65657c28f1fa1a90afac3750f0a0e56f6d651b82a99c802270b8383",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
+      "recordedSha256": "194beb0534e51d4f1719d6370499c3f079affeb6f3946b197df5baec96383ada",
+      "currentSha256": "194beb0534e51d4f1719d6370499c3f079affeb6f3946b197df5baec96383ada",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.next100-regression.test.tsx",
+      "recordedSha256": "ef248f551acef10143eeec5531d3a021e6ebee0659c3fca59259d65b37b4e303",
+      "currentSha256": "ef248f551acef10143eeec5531d3a021e6ebee0659c3fca59259d65b37b4e303",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+      "recordedSha256": "d6ad85d669565d337b32c1a81eb8f9f8987783ac36a4445901be5e7314d2a3ff",
+      "currentSha256": "d6ad85d669565d337b32c1a81eb8f9f8987783ac36a4445901be5e7314d2a3ff",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.module.css",
+      "recordedSha256": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+      "currentSha256": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+      "recordedSha256": "9233115d02d4ed62671ccb642760b14894a096c854fbaa92559b912fab3f2cbb",
+      "currentSha256": "9233115d02d4ed62671ccb642760b14894a096c854fbaa92559b912fab3f2cbb",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.module.css",
+      "recordedSha256": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+      "currentSha256": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.next100-regression.test.tsx",
+      "recordedSha256": "690b3b1fcb940dad931410c056691144e8f1031db88655228f45b6f503a93cb8",
+      "currentSha256": "690b3b1fcb940dad931410c056691144e8f1031db88655228f45b6f503a93cb8",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "recordedSha256": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+      "currentSha256": "6c86aa60d42c066959c0d60c874f90b0b591d593d40f8946900e63936a37ee6d",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+      "recordedSha256": "e59fb0d1e4c4eeb4cf5331cbfedbb19225bd511f67322d604d6441e3d226d2a8",
+      "currentSha256": "e59fb0d1e4c4eeb4cf5331cbfedbb19225bd511f67322d604d6441e3d226d2a8",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.native-fixture.tsx",
+      "recordedSha256": "73e21fc0eeaae79f6daa0cfb7a5fe07116676962755015340f23fb51cf3af0b5",
+      "currentSha256": "73e21fc0eeaae79f6daa0cfb7a5fe07116676962755015340f23fb51cf3af0b5",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.test.tsx",
+      "recordedSha256": "8b4904dcda2c33713376a667c4039eb42c6d32c92d98fdbe8da7c33754b92c8a",
+      "currentSha256": "8b4904dcda2c33713376a667c4039eb42c6d32c92d98fdbe8da7c33754b92c8a",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.next100-regression.test.tsx",
+      "recordedSha256": "9d8dd1c54c7d563ee66785e2d6e3cb60b4cd912eb29974378f75a8b80a9861a9",
+      "currentSha256": "9d8dd1c54c7d563ee66785e2d6e3cb60b4cd912eb29974378f75a8b80a9861a9",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.module.css",
+      "recordedSha256": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+      "currentSha256": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+      "recordedSha256": "bc51d2f802962a159704dc2b8b327e9ffc98a4fcdc6a79b0b62035b1c5201abd",
+      "currentSha256": "bc51d2f802962a159704dc2b8b327e9ffc98a4fcdc6a79b0b62035b1c5201abd",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+      "recordedSha256": "9806b5dd1349a4961916fb15c179effc8d7737930d5581822b5169ea41b046b5",
+      "currentSha256": "9806b5dd1349a4961916fb15c179effc8d7737930d5581822b5169ea41b046b5",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+      "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+      "recordedSha256": "efa988b430db84a03515476a3888256437d143581558560f73d3229512ecb63a",
+      "currentSha256": "efa988b430db84a03515476a3888256437d143581558560f73d3229512ecb63a",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+      "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx",
+      "recordedSha256": "7c043fb1c4db5bb47164cadaf5be8294c1e01697e6841a8c5dde5b44a8493a02",
+      "currentSha256": "7c043fb1c4db5bb47164cadaf5be8294c1e01697e6841a8c5dde5b44a8493a02",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+      "path": "packages/ui/src/experimental/Menu/Menu.module.css",
+      "recordedSha256": "c1291a28693298ea9975a5dc4a68e84bad25093e7aa6999b0db073237a5b47c8",
+      "currentSha256": "c1291a28693298ea9975a5dc4a68e84bad25093e7aa6999b0db073237a5b47c8",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+      "path": "packages/ui/tests/browser/hardening-rich-editor-presentation.spec.ts",
+      "recordedSha256": "69fd6929ba08ba4b1aca0bf985ada5c5fc05d30dd417db20314f4c412a6452fd",
+      "currentSha256": "69fd6929ba08ba4b1aca0bf985ada5c5fc05d30dd417db20314f4c412a6452fd",
+      "matches": true
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+      "path": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+      "recordedSha256": "fd5e4d824df6604e1958b6d79a01d5c382a142701608c4c64d01b926377e8060",
+      "currentSha256": "83a1238084f7623706888bf663015402c7df6b6bf8ce3ccdadf1e00ce8735cf0",
+      "matches": false
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+      "path": "apps/docs/native-fixtures/registry.json",
+      "recordedSha256": "6eefc562d28b6a986c237de16d80f5edfd734faac38bb1355c195a31abc3185b",
+      "currentSha256": "48f5a3df84035c01fc1f61df641b14844f86f7a867e5461a54076c1f8b5a77cf",
+      "matches": false
+    },
+    {
+      "receipt": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+      "path": "apps/docs/content/component-usage/editor.json",
+      "recordedSha256": "aafe2451e9d131a9fb3e27179d8f9ceb36bfe5060cbfd32d9b09ac8485cdbf90",
+      "currentSha256": "aafe2451e9d131a9fb3e27179d8f9ceb36bfe5060cbfd32d9b09ac8485cdbf90",
+      "matches": true
+    }
+  ],
+  "references": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "6787b3f78b52898596e8be2f0d0caed1cc95365c46a045c5b9077ebbe32d58a8",
+      "exists": true
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "02dba5a498c5131d5426dcefdc9d58dc446a5e79bcea8fb9554ca98279b93567",
+      "exists": true
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "2f3a1e95fcb8ee4fef224b3e7dd4fb0fa60ee5bda9ac6708233c59c25cf03938",
+      "exists": true
+    },
+    {
+      "path": "apps/docs/app/theming/page.tsx",
+      "sha256": "c69512360de15a5a739a617820a188d0d97bc95b123252683df88f201b759397",
+      "exists": true
+    },
+    {
+      "path": "apps/docs/components/FoundationExamples.tsx",
+      "sha256": "4437ccad4570d708dabdcabb74da0c0b059d823e431b533f97ee169b7ed7ebd7",
+      "exists": true
+    },
+    {
+      "path": "apps/docs/components/ThemePipelineExplorer.tsx",
+      "sha256": "587308c6451d22789c0eeb5523cd78237a71b74ebe5187c8d74f3b11a1e7f983",
+      "exists": true
+    },
+    {
+      "path": "apps/docs/test-results/wave03-followup-corrected-results.json",
+      "sha256": "8d26fbbdee05392d0477a1e7d28277c20c7bd18bd8409d5aee5403223bab8c34",
+      "exists": true
+    },
+    {
+      "path": "apps/docs/test-results/wave03-followup-results.json",
+      "sha256": "68ce1788f6a64c3d41a6597550108d584acadfc62cd96971082657989ae295b1",
+      "exists": true
+    },
+    {
+      "path": "apps/docs/tests/catalog.spec.ts",
+      "sha256": "923ccb6f707e9fcaa9d1c12f9cab2e07ed705456d134d4439a0317ae45e4409a",
+      "exists": true
+    },
+    {
+      "path": "apps/docs/tests/foundation-examples.spec.ts",
+      "sha256": "967041c4cf94ae344e34906305ad6cb72af43ec1865377ef5aec561f45fcb1e4",
+      "exists": true
+    },
+    {
+      "path": "apps/docs/tests/icons-acceptance.spec.ts",
+      "sha256": "0557c326cdac69a3f184b74c67f77807aa4ac27cab9067d2439639b200f52dfe",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/docs-fixture-migration.md",
+      "sha256": "2b4f3848c9f9feec373cd4429172efa9b5c2dc068981425eb6868ba01ad3f502",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/extraction-lineage.md",
+      "sha256": "736b0e8e17a7a5aea365bd4fc9458015731ef4c9d215f51a6072267309ff6780",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/apple-simulator/results.json",
+      "sha256": "a72bef1a8a60fcd9720b78384c869dc011f4ac69c3772a1a1a081cb68499571c",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+      "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+      "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-15/report.md",
+      "sha256": "5f69d02cda5573e0142028b63ca95f8b28c4b764a631b9c86f95d5041eead1eb",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-15/results.json",
+      "sha256": "2a348ef0832217e9dcd8e8015d8d3b7fa59f2bbd09421109e70b8c81a93ea77f",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-17/report.md",
+      "sha256": "c8b63fc5a3bbc62c75fbbabb4959d066def18e6ef18c8fdf5c659becc970469c",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-17/results.json",
+      "sha256": "0d82917b0c070a9ea0f6820c544f49acb6703ae8d7c5c07de7dd6122d22e9e6b",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-29/report.md",
+      "sha256": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-29/results.json",
+      "sha256": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-30/report.md",
+      "sha256": "bdb94d8cd0b7ef19b0284b7c421a051471935d31b13ba1152633675f0bd09592",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-30/results.json",
+      "sha256": "6e59cf17b55e2fe1991b4fd0d785fbc6f614940923fb6fa546be6b685e2ee6c8",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-33/report.md",
+      "sha256": "f33b961237d4e2fe8ca46cebe28427c6d2ceca1a178db633b1c8fe9a82a0c6c0",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-33/results.json",
+      "sha256": "aebb396f88a59b66a653228b86c7942fb645e4d71fdfa594cf74e167b01340a0",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-34/report.md",
+      "sha256": "42081e0bc5cb6fb0568ee676452d5968f715baa387a7e88663603ae727579d8e",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-34/results.json",
+      "sha256": "7acac7adb0c88ed0eed9c5bdaace14875a889450bdb910c5e1e97d8ce9da33b2",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-35/migration-trace.json",
+      "sha256": "b9f4d6ceea40a8f5b5ccbf60c38e0ec549671d62741c3b65558f4754d512b666",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-35/public-symbol-dispositions.json",
+      "sha256": "2be0d521fea0a6481b87728c4924ea3eab531020b95c3a2b8ba83d98672c5947",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-35/report.md",
+      "sha256": "b05d4afafa5dcbdb20d4de98f88807c9ebec03fe791aaba1711dfee5e155809a",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-35/results.json",
+      "sha256": "73b5f1c2846bcadcf0e36af14edfbe209485b93c16160dfa24503969384aa904",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-40/commitment-gate-map.json",
+      "sha256": "098d3a2ef6916b5b697a31cb4cb7e838215ab824b2311b57022a343f454baada",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-40/recorded-calendar-search-commitments.json",
+      "sha256": "c4ba84bee1efc9f71f5e2334ebf03493f6907ea0f66d9cf7d8b642efc3ed9006",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-40/report.md",
+      "sha256": "b8a89d946b806ffb7021dec72cf016bd1d2324c0271652bf40364e5395de770c",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-40/results.json",
+      "sha256": "43366534bde2147b67b7a7c8934c07c52ec9cc22e75c90627637d0a9a0f4c01b",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-followup/docs-corrected.log",
+      "sha256": "31eaded03723a9748f2ff8ffa8c61df1f753c3bfe52444eee2b5a7ac4fb01fb6",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-followup/docs-first.log",
+      "sha256": "bb2d40423209180616be89210450859472fbcbbe17eb746e715d2dbc829e67d2",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+      "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-followup/validated-source-inputs.json",
+      "sha256": "975c83f3ca4b42d05e1823b170a0c5201794e3e8651aaca2ff7cc884ca7025e3",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+      "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/react-aria-dependency-upgrades.md",
+      "sha256": "72433616b6a5ec5bf0cf703e1f146ab2f66d13497191445a5288f1342d4e62a5",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/react-aria-final-acceptance.md",
+      "sha256": "886adf45234d5d6499a10e2f10aebd1a51fbfdba94240b5ca4d70f0be751c694",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/react-aria-hardening-execution.md",
+      "sha256": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/react-aria-hardening-tasks.md",
+      "sha256": "c382476325d9175c0970a66d12a2fd092ed2ae184d1f38f2aa14aca49fdf3fa3",
+      "exists": true
+    },
+    {
+      "path": "docs/developer/react-aria-public-contracts.md",
+      "sha256": "c20679855b4814bc46470f226d82f699b4a75000009be2bfec29e51ee3566926",
+      "exists": true
+    },
+    {
+      "path": "docs/extraction-manifest.json",
+      "sha256": "a1e1d672affbb8b4b8f02abade16bafc55dafdd219dcaa5101430e6e3c61567a",
+      "exists": true
+    },
+    {
+      "path": "docs/migration.md",
+      "sha256": "c57a990c1230814bef010f44238484640a33bb2376357b842ca0bc747f3307d0",
+      "exists": true
+    },
+    {
+      "path": "packages/ui/THIRD_PARTY_NOTICES.md",
+      "sha256": "2f3a1e95fcb8ee4fef224b3e7dd4fb0fa60ee5bda9ac6708233c59c25cf03938",
+      "exists": true
+    },
+    {
+      "path": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "sha256": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+      "exists": true
+    },
+    {
+      "path": "packages/ui/tests/browser/navigation-locale-motion.spec.ts",
+      "sha256": "76ae006bcc4b7081c19db06aacddac3167f5f4e094cba9a6d52799072cc1737c",
+      "exists": true
+    },
+    {
+      "path": "packages/ui/tests/browser/translations-locale-acceptance.spec.ts",
+      "sha256": "c14b8f2db567fc4d5dfe8e56343f4f3fa8c8fcca02b23b19877af1178a334e1b",
+      "exists": true
+    }
+  ],
+  "limits": [
+    "Sequential read-only capture, not atomic checkout attestation.",
+    "Missing ignored raw browser files are recorded as absent; retained logs/receipts are not recreated.",
+    "No new product/browser/build/install/consumer/AT/device validation or external provenance authentication."
+  ]
+}

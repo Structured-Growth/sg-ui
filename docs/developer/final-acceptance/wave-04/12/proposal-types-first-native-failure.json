@@ -1,0 +1,7 @@
+{
+  "node": "v24.19.0",
+  "typescript": "5.9.3",
+  "kind": "In-memory proposed visual-config semantic typecheck, no emit, no browser",
+  "diagnostics": 1,
+  "details": "\u001b[96mpackages/ui/tests/browser/wave04-browser-acceptance.spec.ts\u001b[0m:\u001b[93m43\u001b[0m:\u001b[93m47\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2353: \u001b[0mObject literal may only specify known properties, and 'current' does not exist in type '{ checked?: boolean | undefined; description?: string | RegExp | undefined; disabled?: boolean | undefined; exact?: boolean | undefined; expanded?: boolean | undefined; includeHidden?: boolean | undefined; level?: number | undefined; name?: string | ... 1 more ... | undefined; pressed?: boolean | undefined; selected...'.\n\n\u001b[7m43\u001b[0m   await expect(navigation.getByRole('link', { current: 'page' })).toHaveCount(1);\n\u001b[7m  \u001b[0m \u001b[91m                                              ~~~~~~~\u001b[0m\n"
+}

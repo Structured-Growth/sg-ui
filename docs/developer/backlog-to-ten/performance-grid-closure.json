@@ -1,0 +1,189 @@
+{
+  "date": "2026-10-18",
+  "closed": [
+    "A-B-10",
+    "A-G-20",
+    "A-M-16"
+  ],
+  "sourceCommit": "f049b215e28e4157200f99ebf5fe52a7c04cae5a",
+  "draftPR": "https://github.com/Structured-Growth/sg-ui/pull/97",
+  "decisions": {
+    "A-B-10": "Measured fresh installed production consumer JS/CSS for all14 import boundaries, including Button, catalog grid and editor; current production browser initial/input/update/selection samples cover both grid renderers and the selector. No minimum transfer or universal ranking claim.",
+    "A-G-20": "Seven production configurations compare the identical host/runner against the retained older owned production baseline. Three warmups and nine recorded navigations per configuration; all50 updates and native typing/selection overlap preserved. All raw samples, median/p95, output hashes, load and seven successful active-update cleanup probes retained. The startup regression was investigated and redundant DOM-ref state removed; selection tail is explicitly retained for P08/X19, not hidden or turned into an invented budget.",
+    "A-M-16": "Join accepted F-C16 baseline, T-C16 regression and V-C16 presentation evidence to the owned public grid/types/helpers and completed G successors. The remaining G20 measurement joins above; current39 affected units and preserved grid native focus/interaction checks support the ref correction. All other required original G obligations are already closed. Broader platform/manual/legal/production gates retain their own required leaves."
+  },
+  "protocol": {
+    "currentCandidateNavigations": 84,
+    "warmupPerConfiguration": 3,
+    "recordedPerConfiguration": 9,
+    "configurations": 7,
+    "updatesIncludingWarmup": 4200,
+    "activeUpdateDisposalProbes": 7,
+    "baseline": "Reused byte-identical performance-05 raw baseline; current strict comparator verifies fixture/method/runtime/browser/hardware compatibility. Both artifacts use the owned foundation."
+  },
+  "currentBundleBytes": {
+    "buttonJS": 70293,
+    "buttonJSGzip9": 20255,
+    "gridJS": 711248,
+    "gridJSGzip9": 177177,
+    "editorJS": 888349,
+    "editorJSGzip9": 237379,
+    "sharedCSS": 253155,
+    "sharedCSSGzip9": 22250
+  },
+  "largeCatalogInitial": {
+    "baseline": {
+      "count": 9,
+      "medianMs": 354.4000000357628,
+      "p95Ms": 431.19999998807907,
+      "maxMs": 431.19999998807907
+    },
+    "candidate": {
+      "count": 9,
+      "medianMs": 370.80000001192093,
+      "p95Ms": 393.7999999523163,
+      "maxMs": 393.7999999523163
+    },
+    "medianDeltaMs": 16.399999976158142,
+    "p95DeltaMs": -37.40000003576279,
+    "medianRatio": 1.0462753949619166
+  },
+  "requiredPerformanceFollowup": {
+    "tasks": [
+      "A-P-08",
+      "A-X-19"
+    ],
+    "finding": "Catalog large-page selection median266.2ms versus265.8ms; p95(maximum of nine recorded samples)514.5ms versus343.3ms. Both maxima occur at iteration4. All samples overlap actual updates. Cause is not established; do not attribute it to GC/load without evidence. Record repeated stable sessions and representative consumer hardware before budgets.",
+    "rawSelectionSamples": [
+      {
+        "artifact": "baseline",
+        "samples": [
+          {
+            "iteration": 3,
+            "ms": 265.80000001192093,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 4,
+            "ms": 343.2999999523163,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 5,
+            "ms": 270.19999998807907,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 6,
+            "ms": 250.5,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 7,
+            "ms": 281.69999998807907,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 8,
+            "ms": 286.19999998807907,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 9,
+            "ms": 248.5,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 10,
+            "ms": 261.7000000476837,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 11,
+            "ms": 258,
+            "duringUpdates": true
+          }
+        ]
+      },
+      {
+        "artifact": "candidate",
+        "samples": [
+          {
+            "iteration": 3,
+            "ms": 292.4000000357628,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 4,
+            "ms": 514.5,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 5,
+            "ms": 268.60000002384186,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 6,
+            "ms": 271.5,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 7,
+            "ms": 242.9000000357628,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 8,
+            "ms": 247.79999995231628,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 9,
+            "ms": 261.30000001192093,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 10,
+            "ms": 266.19999998807907,
+            "duringUpdates": true
+          },
+          {
+            "iteration": 11,
+            "ms": 263,
+            "duringUpdates": true
+          }
+        ]
+      }
+    ]
+  },
+  "evidence": {
+    "docs/developer/backlog-to-ten/source-input-join.json": "9538de804500c8a1abfaf7ec8140319e58c90f4c705666fd67496bb62cf8243d",
+    "docs/developer/backlog-to-ten/bundles-02/execution.json": "69df94c923895bdb4f140057f67781e22b5390fb628f0331a1e10d01a3cdbe62",
+    "docs/developer/backlog-to-ten/bundles-02/import-bundles.json": "dbfb2ee34e23e243a06862dca3cd1a99b2d2b437e126cbc3097f142b4dd11b21",
+    "docs/developer/backlog-to-ten/grid-startup-unit-receipt.json": "7162ba4da1d549e32013837e9e557c22224c30aab09a9828b666cf39ca9d4905",
+    "docs/developer/backlog-to-ten/native-09/results.json": "93c0b34ab1f60e916060df4e48d9deda94d44326659c8e01da423a9123a98eb7",
+    "docs/developer/backlog-to-ten/native-11/results.json": "27e5aac0c4f68637a8e8242b627e250b2ff7b5f1274cb066d8c59caba09d2719",
+    "docs/developer/backlog-to-ten/native-16/admission.json": "21e7d92aa07a73ea9efa433da492db624311c14acfd6180937dd3bf2644f4ef9",
+    "docs/developer/backlog-to-ten/native-20/results.json": "664df8ce12bee186f1d5759cfc179a0049843ec64a503cb14a7e9a41ef8e3513",
+    "docs/developer/backlog-to-ten/checkpoint-commit-06.json": "3f8b775efb1620ae2bf80d385cb52f7600f8d2bf7844a8917ad1e5d4a5f53b47",
+    "docs/developer/final-acceptance/wave-02-02/results.json": "e6959822a30ce7b5992203bf2b46c90074e5186cba9c819436443febc1afa551",
+    "docs/developer/parallel-next100/next100-c16.md": "bc54100ee9c29eb1b6523cbbcf9710390ee51285d43783f5a19badd3096d403a",
+    "docs/developer/backlog-execution-2026-10-15.md": "75a4996497dd31574bd8a7fa82e01e2345aed262697ec0515de7ae3f60ad2809",
+    "docs/developer/final-acceptance/wave-04/04/retained-grid-native.json": "795e137d3f48223af33501a1258c6428b4160c00d6a5916f36300f4f251aef3c",
+    "docs/developer/backlog-to-ten/performance-06/execution.json": "84064cabfd4c527ca68c9067e97360c87efbd27d15177f8f6e87cc817fdedc46",
+    "docs/developer/backlog-to-ten/performance-06/baseline-processing.json": "2542d2f18379b1bb21ef548845f9c8234a7ad6c93eca18c9d3012e6cf5f29ad6",
+    "docs/developer/backlog-to-ten/performance-06/baseline-catalog.json": "f433b6a3b06b06fbe20ad8f2c36710e2be93ce7a6ef4d77abce9b56a4d333a35",
+    "docs/developer/backlog-to-ten/performance-06/candidate-processing.json": "75297a54f6f840ec8f88f532b9db27d2643edcf2cac07a9b733fa5fcebebab61",
+    "docs/developer/backlog-to-ten/performance-06/candidate-catalog.json": "9ce3f84fe0effa216ec32ace8bcf013b82ab035b9227873a0c936e76a5313593",
+    "docs/developer/backlog-to-ten/performance-06/comparison-processing.json": "965284265bfde7a81a3845fc928df22b5f29dc196c50bad1f48201bf461fa78b",
+    "docs/developer/backlog-to-ten/performance-06/comparison-catalog.json": "629d466b47042f34dfb0373edf4664f128999df28f92220c4054e34a1809191e",
+    "docs/developer/backlog-to-ten/performance-05/comparison-catalog.json": "9f4898267b318e62dec9f5eb58aa7d3d914db17dbd5e43d3778ad5df943272aa"
+  },
+  "limits": [
+    "Local Node24.19/React19.2.3/Chromium153 on one AppleM4. No physical-device, manual AT, approved time/memory budgets, INP, old-MUI comparison or production release approval.",
+    "Browser timings end at post-commit frame opportunities, not actual paint. Asset totals for the composed benchmark host are not route-minimum transfer.",
+    "Current full CI39171299366 remains separate; Next.js docs has passed, native and runtime packets still require completion.",
+    "Original measurement failures and pre-fix startup regression remain preserved. No required unfinished task becomes optional."
+  ]
+}

@@ -1,0 +1,43 @@
+--- a/docs/migration.md
++++ b/docs/migration.md
+@@ -150,6 +150,40 @@
+ model asynchronous saving. Async hosts own completion/error state and supply it
+ through the supported loading/disabled props. See the [adoption checklist](developer/react-aria-adoption-checklist.md).
+ 
++## Removed baseline exports
++
++The following table accounts for all twelve absent baseline export names in the
++[reviewed public-symbol join](developer/final-acceptance/wave-03-35/public-symbol-dispositions.json).
++It describes migration from the extraction baseline. It does not promise inherited
++prop compatibility or establish a released version/deprecation deadline.
++
++| Removed export | Consumer replacement | Required change |
++| --- | --- | --- |
++| `AppButton` | Button | Removed pre-first-release AppButton name; update imports and onClick to onPress; owned variant/tone/density and native class/style. |
++| `AppButtonProps` | ButtonProps | Rename type and migrate inherited upstream action/style prop surface to owned ButtonProps. |
++| `FormControlLabel` | Checkbox / Switch label; RadioGroup option labels | Wrapper removed; put labels directly on the owned control, preserving its accessible name. |
++| `FormControlLabelProps` | CheckboxProps / SwitchProps / RadioGroupProps | Removed upstream wrapper props; use declared control label/options contracts. |
++| `MuiLink` | Link | Removed branded export; use owned Link and host navigation adapter with native anchor ref. |
++| `MuiLinkProps` | LinkProps | Replace upstream props with owned LinkProps/native anchor contract. |
++| `MenuItemProps` | MenuItem | MenuItem runtime component removed; current MenuItem is an item-record type passed to Menu.items, not JSX. |
++| `SelectChangeEvent` | SelectProps.onValueChange | Removed synthetic upstream event; callback receives string or null. |
++| `AppGridSortModel` | AppDataGridSortRule[] | Replace engine sort model with owned ordered field/direction rules; no upstream grid model type. |
++| `darkTheme` | Provider / ThemeScope theme="dark" | Remove upstream theme object; load styles.css and use owned scope/tokens. |
++| `lightTheme` | Provider / ThemeScope theme="light" | Remove upstream theme object; load styles.css and use owned scope/tokens. |
++| `theme` | Provider / ThemeScope | Remove upstream default theme object; use explicit owned scope and token overrides. |
++
++`MenuItem` is now an item-record type for `Menu.items`; do not render it as a JSX
++component merely because its type name remains. `SGLink` and `Autocomplete` are
++retained aliases for owned Link and ComboBox; preserved names still use the owned
++contracts. No deprecated-name removal schedule is implied. See the
++[public contracts](developer/react-aria-public-contracts.md) for callback and
++empty-value ownership, and the existing component mappings above for styling,
++typography, pagination, selection, icons and changed defaults.
++
++Breaking removals require a breaking Conventional Commit marker and reviewed
++release notes. Release numbering stays with semantic-release; this table neither
++changes versions nor authorizes promotion from dev to main.
++
+ ## Adoption and remaining limits
+ 
+ The [read-only adoption checklist](developer/react-aria-adoption-checklist.md) is

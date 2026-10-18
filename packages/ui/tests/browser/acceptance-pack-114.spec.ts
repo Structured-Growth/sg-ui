@@ -62,6 +62,7 @@ test('batch114 native column resize commits only its field and host keyboard ord
     grid.getByRole('button', { name: 'Selection actions', exact: true }),
     grid.getByRole('button', { name: 'Sort Course', exact: true }),
     grid.locator('thead [data-grid-field="name"]').getByRole('slider', { name: /^Resize Course\b/ }),
+    grid.getByRole('button', { name: 'Width of Course', exact: true }),
     scoreHeader.getByRole('button', { name: 'Sort Score', exact: true }),
     score,
   ]) {

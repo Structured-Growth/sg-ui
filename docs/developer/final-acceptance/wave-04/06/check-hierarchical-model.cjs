@@ -1,0 +1,20 @@
+// Lightweight pure model execution. Does not mount React or acquire a browser.
+const {createRequire}=require('node:module');
+const {resolve}=require('node:path');const fs=require('node:fs');const vm=require('node:vm');const assert=require('node:assert/strict');
+const root=resolve(__dirname,'../../../../..');const req=createRequire(resolve(root,'packages/ui/package.json'));const ts=req('typescript');
+const source=fs.readFileSync(resolve(root,'packages/ui/src/experimental/HierarchicalMenu/model.ts'),'utf8');
+const compiled=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+const context={exports:{}};vm.runInNewContext(compiled,context);const {resolvePath}=context.exports;
+const grand={sections:[]};const child={sections:[{id:'c',items:[{id:'deep',label:'Repeated',children:grand}]}]};
+const rootLevel={sections:[{id:'r',items:[{id:'branch',label:'Repeated',children:child},{id:'inline',label:'Repeated',children:child,childBehavior:'inline'},{id:'disabled',label:'Disabled',children:child,disabled:true}]}]};
+const path=(r,p,c=false)=>Array.from(resolvePath(r,p,c).path);
+assert.deepEqual(path(rootLevel,['branch','deep']),['branch','deep']);
+assert.deepEqual(path(rootLevel,['inline']),[]);
+assert.deepEqual(path(rootLevel,['inline','deep']),['inline','deep']);
+assert.deepEqual(path(rootLevel,['inline'],true),['inline']);
+assert.deepEqual(path(rootLevel,['disabled']),[]);
+assert.deepEqual(path(rootLevel,['branch','gone']),['branch']);
+rootLevel.sections[0].items.push({id:'cycle',label:'Cycle',children:rootLevel});
+assert.deepEqual(path(rootLevel,['cycle','cycle']),[]);
+fs.writeFileSync(resolve(__dirname,'hierarchical-model.txt'),'7 pure path assertions pass: deep ancestry, inline final rejection, mixed ancestry, commands drilldown, disabled ancestor, removed descendant and cycle safety. No React, native or AT execution.\n');
+console.log('7 pure path assertions pass');

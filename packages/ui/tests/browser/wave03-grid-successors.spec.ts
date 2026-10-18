@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { waitForNativeScrollToSettle } from './native-scroll-settling';
 
-const focusFixture = '/fixtures/?id=migration-proofs-catalog-grid-interaction--focus-retention&globals=a11y.manual:!true';
+const focusFixture = '/fixtures/?id=migration-proofs-catalog-grid-interaction--selected-focus-retention&globals=a11y.manual:!true';
 test('native Tab and Shift+Tab enter and leave the remembered grid entry', async ({ page }, info) => {
   await page.goto(focusFixture);
   const host = page.getByRole('button', { name: 'Host action', exact: true });

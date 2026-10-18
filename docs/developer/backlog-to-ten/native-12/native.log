@@ -1,0 +1,420 @@
+
+Running 33 tests using 1 worker
+
+(node:8736) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/batch01-calendar.spec.ts:30:5 › civil range in America/Chicago › keyboard preview crosses leap/month boundary; only Apply changes form dates (932ms)
+  ✓   2 [chromium] › tests/browser/batch01-calendar.spec.ts:30:5 › civil range in Asia/Tokyo › keyboard preview crosses leap/month boundary; only Apply changes form dates (569ms)
+  ✓   3 [chromium] › tests/browser/batch01-calendar.spec.ts:55:1 › standalone Cancel/Clear/reset end previews; prevented reset preserves the draft (935ms)
+  ✓   4 [chromium] › tests/browser/batch01-calendar.spec.ts:93:1 › range picker Escape/Cancel discard drafts, Apply restores focus and native reset restores defaults (1.2s)
+  ✓   5 [chromium] › tests/browser/batch01-calendar.spec.ts:123:1 › keyboard range traversal stops before an unavailable interior date (422ms)
+  ✓   6 [chromium] › tests/browser/calendar-native-locales.spec.ts:23:3 › native multiple selection, focus, unavailable day and deselection across two months: light (385ms)
+  ✓   7 [chromium] › tests/browser/calendar-native-locales.spec.ts:65:5 › explicit sunday-first headers in both months: light (246ms)
+  ✓   8 [chromium] › tests/browser/calendar-native-locales.spec.ts:65:5 › explicit monday-first headers in both months: light (297ms)
+  ✓   9 [chromium] › tests/browser/calendar-native-locales.spec.ts:73:3 › Arabic locale native RTL traversal preserves Gregorian values: light (384ms)
+  ✓  10 [chromium] › tests/browser/calendar-native-locales.spec.ts:99:3 › Hebrew calendar display emits exact Gregorian civil callbacks: light (403ms)
+  ✓  11 [chromium] › tests/browser/calendar-native-locales.spec.ts:23:3 › native multiple selection, focus, unavailable day and deselection across two months: dark (420ms)
+  ✓  12 [chromium] › tests/browser/calendar-native-locales.spec.ts:65:5 › explicit sunday-first headers in both months: dark (232ms)
+  ✓  13 [chromium] › tests/browser/calendar-native-locales.spec.ts:65:5 › explicit monday-first headers in both months: dark (233ms)
+  ✓  14 [chromium] › tests/browser/calendar-native-locales.spec.ts:73:3 › Arabic locale native RTL traversal preserves Gregorian values: dark (439ms)
+  ✓  15 [chromium] › tests/browser/calendar-native-locales.spec.ts:99:3 › Hebrew calendar display emits exact Gregorian civil callbacks: dark (395ms)
+  ✓  16 [chromium] › tests/browser/calendar.spec.ts:19:3 › preset explanations remain associated and label rows fit before native keyboard commit: light (322ms)
+  ✓  17 [chromium] › tests/browser/calendar.spec.ts:52:3 › native calendar focus exposes unavailability without selecting; disclosure works without hover: light (366ms)
+  ✓  18 [chromium] › tests/browser/calendar.spec.ts:19:3 › preset explanations remain associated and label rows fit before native keyboard commit: dark (329ms)
+  ✓  19 [chromium] › tests/browser/calendar.spec.ts:52:3 › native calendar focus exposes unavailability without selecting; disclosure works without hover: dark (405ms)
+  ✓  20 [chromium] › tests/browser/editor-structured-content.spec.ts:7:75 › native nested list edit preserves saved rich nodes, history and read-only reload (699ms)
+  ✓  21 [chromium] › tests/browser/editor-structured-content.spec.ts:7:75 › native code block edit preserves saved rich nodes, history and read-only reload (541ms)
+  ✓  22 [chromium] › tests/browser/editor-structured-content.spec.ts:7:75 › native merged header edit preserves saved rich nodes, history and read-only reload (602ms)
+  ✓  23 [chromium] › tests/browser/functionality-clear-column-order.spec.ts:3:1 › functionality column order requests preserve visibility in controlled shell (406ms)
+  ✓  24 [chromium] › tests/browser/functionality-clear-column-order.spec.ts:24:1 › functionality DatePicker Clear closes restores focus and preserves silent reset (565ms)
+  ✘  25 [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: light/compact/en-US (5.7s)
+(node:9574) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  26 [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: light/compact/ar-EG (5.9s)
+(node:9828) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  27 [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: light/comfortable/en-US (5.8s)
+(node:10062) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  28 [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: light/comfortable/ar-EG (5.9s)
+(node:10312) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  29 [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: dark/compact/en-US (5.9s)
+(node:10542) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  30 [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: dark/compact/ar-EG (5.9s)
+(node:10766) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  31 [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: dark/comfortable/en-US (5.8s)
+(node:11024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  32 [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: dark/comfortable/ar-EG (5.9s)
+(node:11260) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  33 [chromium] › tests/browser/select-popup-sizing.spec.ts:10:1 › Select positions initially and updates scoped popup sizing, viewport and ancestor scrolling without observer errors (5.7s)
+
+
+  1) [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: light/compact/en-US 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+    Expected: 1
+    Received: 2
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true }) with timeout 5000ms
+      - waiting for getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+        14 × locator resolved to 2 elements
+           - unexpected value "2"
+
+
+      32 |   expect(rtl?actionBox.x+actionBox.width:inputBox.x+inputBox.width).toBeCloseTo(rtl?inputBox.x:actionBox.x,1);
+      33 |   const month=calendar.getByRole('grid').locator('..');const cells=month.getByRole('button');
+    > 34 |   const heading=calendar.getByRole('heading',{includeHidden:true});await expect(heading).toHaveCount(1);const headingLeft=await heading.evaluate(element=>element.getBoundingClientRect().left);
+         |                                                                                          ^
+      35 |   expect(await cells.first().evaluate(element=>{const r=element.getBoundingClientRect();return Math.min(r.width,r.height);})).toBeGreaterThanOrEqual(44);
+      36 |   const week=calendar.getByRole('grid').getByRole('row').nth(1).getByRole('button');await expect(week).toHaveCount(7);
+      37 |   const offsets:number[]=[];
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hardening-date-presentation.spec.ts:34:90
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-3b27b-ntation-light-compact-en-US-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-3b27b-ntation-light-compact-en-US-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-3b27b-ntation-light-compact-en-US-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-3b27b-ntation-light-compact-en-US-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: light/compact/ar-EG 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+    Expected: 1
+    Received: 2
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true }) with timeout 5000ms
+      - waiting for getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+        14 × locator resolved to 2 elements
+           - unexpected value "2"
+
+
+      32 |   expect(rtl?actionBox.x+actionBox.width:inputBox.x+inputBox.width).toBeCloseTo(rtl?inputBox.x:actionBox.x,1);
+      33 |   const month=calendar.getByRole('grid').locator('..');const cells=month.getByRole('button');
+    > 34 |   const heading=calendar.getByRole('heading',{includeHidden:true});await expect(heading).toHaveCount(1);const headingLeft=await heading.evaluate(element=>element.getBoundingClientRect().left);
+         |                                                                                          ^
+      35 |   expect(await cells.first().evaluate(element=>{const r=element.getBoundingClientRect();return Math.min(r.width,r.height);})).toBeGreaterThanOrEqual(44);
+      36 |   const week=calendar.getByRole('grid').getByRole('row').nth(1).getByRole('button');await expect(week).toHaveCount(7);
+      37 |   const offsets:number[]=[];
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hardening-date-presentation.spec.ts:34:90
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-8fc7b-ntation-light-compact-ar-EG-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-8fc7b-ntation-light-compact-ar-EG-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-8fc7b-ntation-light-compact-ar-EG-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-8fc7b-ntation-light-compact-ar-EG-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: light/comfortable/en-US 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+    Expected: 1
+    Received: 2
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true }) with timeout 5000ms
+      - waiting for getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+        14 × locator resolved to 2 elements
+           - unexpected value "2"
+
+
+      32 |   expect(rtl?actionBox.x+actionBox.width:inputBox.x+inputBox.width).toBeCloseTo(rtl?inputBox.x:actionBox.x,1);
+      33 |   const month=calendar.getByRole('grid').locator('..');const cells=month.getByRole('button');
+    > 34 |   const heading=calendar.getByRole('heading',{includeHidden:true});await expect(heading).toHaveCount(1);const headingLeft=await heading.evaluate(element=>element.getBoundingClientRect().left);
+         |                                                                                          ^
+      35 |   expect(await cells.first().evaluate(element=>{const r=element.getBoundingClientRect();return Math.min(r.width,r.height);})).toBeGreaterThanOrEqual(44);
+      36 |   const week=calendar.getByRole('grid').getByRole('row').nth(1).getByRole('button');await expect(week).toHaveCount(7);
+      37 |   const offsets:number[]=[];
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hardening-date-presentation.spec.ts:34:90
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-680f8-ion-light-comfortable-en-US-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-680f8-ion-light-comfortable-en-US-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-680f8-ion-light-comfortable-en-US-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-680f8-ion-light-comfortable-en-US-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: light/comfortable/ar-EG 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+    Expected: 1
+    Received: 2
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true }) with timeout 5000ms
+      - waiting for getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+        14 × locator resolved to 2 elements
+           - unexpected value "2"
+
+
+      32 |   expect(rtl?actionBox.x+actionBox.width:inputBox.x+inputBox.width).toBeCloseTo(rtl?inputBox.x:actionBox.x,1);
+      33 |   const month=calendar.getByRole('grid').locator('..');const cells=month.getByRole('button');
+    > 34 |   const heading=calendar.getByRole('heading',{includeHidden:true});await expect(heading).toHaveCount(1);const headingLeft=await heading.evaluate(element=>element.getBoundingClientRect().left);
+         |                                                                                          ^
+      35 |   expect(await cells.first().evaluate(element=>{const r=element.getBoundingClientRect();return Math.min(r.width,r.height);})).toBeGreaterThanOrEqual(44);
+      36 |   const week=calendar.getByRole('grid').getByRole('row').nth(1).getByRole('button');await expect(week).toHaveCount(7);
+      37 |   const offsets:number[]=[];
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hardening-date-presentation.spec.ts:34:90
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-9c166-ion-light-comfortable-ar-EG-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-9c166-ion-light-comfortable-ar-EG-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-9c166-ion-light-comfortable-ar-EG-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-9c166-ion-light-comfortable-ar-EG-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: dark/compact/en-US 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+    Expected: 1
+    Received: 2
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true }) with timeout 5000ms
+      - waiting for getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+        14 × locator resolved to 2 elements
+           - unexpected value "2"
+
+
+      32 |   expect(rtl?actionBox.x+actionBox.width:inputBox.x+inputBox.width).toBeCloseTo(rtl?inputBox.x:actionBox.x,1);
+      33 |   const month=calendar.getByRole('grid').locator('..');const cells=month.getByRole('button');
+    > 34 |   const heading=calendar.getByRole('heading',{includeHidden:true});await expect(heading).toHaveCount(1);const headingLeft=await heading.evaluate(element=>element.getBoundingClientRect().left);
+         |                                                                                          ^
+      35 |   expect(await cells.first().evaluate(element=>{const r=element.getBoundingClientRect();return Math.min(r.width,r.height);})).toBeGreaterThanOrEqual(44);
+      36 |   const week=calendar.getByRole('grid').getByRole('row').nth(1).getByRole('button');await expect(week).toHaveCount(7);
+      37 |   const offsets:number[]=[];
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hardening-date-presentation.spec.ts:34:90
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-0535d-entation-dark-compact-en-US-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-0535d-entation-dark-compact-en-US-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-0535d-entation-dark-compact-en-US-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-0535d-entation-dark-compact-en-US-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: dark/compact/ar-EG 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+    Expected: 1
+    Received: 2
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true }) with timeout 5000ms
+      - waiting for getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+        14 × locator resolved to 2 elements
+           - unexpected value "2"
+
+
+      32 |   expect(rtl?actionBox.x+actionBox.width:inputBox.x+inputBox.width).toBeCloseTo(rtl?inputBox.x:actionBox.x,1);
+      33 |   const month=calendar.getByRole('grid').locator('..');const cells=month.getByRole('button');
+    > 34 |   const heading=calendar.getByRole('heading',{includeHidden:true});await expect(heading).toHaveCount(1);const headingLeft=await heading.evaluate(element=>element.getBoundingClientRect().left);
+         |                                                                                          ^
+      35 |   expect(await cells.first().evaluate(element=>{const r=element.getBoundingClientRect();return Math.min(r.width,r.height);})).toBeGreaterThanOrEqual(44);
+      36 |   const week=calendar.getByRole('grid').getByRole('row').nth(1).getByRole('button');await expect(week).toHaveCount(7);
+      37 |   const offsets:number[]=[];
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hardening-date-presentation.spec.ts:34:90
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-d7a81-entation-dark-compact-ar-EG-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-d7a81-entation-dark-compact-ar-EG-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-d7a81-entation-dark-compact-ar-EG-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-d7a81-entation-dark-compact-ar-EG-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: dark/comfortable/en-US 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+    Expected: 1
+    Received: 2
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true }) with timeout 5000ms
+      - waiting for getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+        14 × locator resolved to 2 elements
+           - unexpected value "2"
+
+
+      32 |   expect(rtl?actionBox.x+actionBox.width:inputBox.x+inputBox.width).toBeCloseTo(rtl?inputBox.x:actionBox.x,1);
+      33 |   const month=calendar.getByRole('grid').locator('..');const cells=month.getByRole('button');
+    > 34 |   const heading=calendar.getByRole('heading',{includeHidden:true});await expect(heading).toHaveCount(1);const headingLeft=await heading.evaluate(element=>element.getBoundingClientRect().left);
+         |                                                                                          ^
+      35 |   expect(await cells.first().evaluate(element=>{const r=element.getBoundingClientRect();return Math.min(r.width,r.height);})).toBeGreaterThanOrEqual(44);
+      36 |   const week=calendar.getByRole('grid').getByRole('row').nth(1).getByRole('button');await expect(week).toHaveCount(7);
+      37 |   const offsets:number[]=[];
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hardening-date-presentation.spec.ts:34:90
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-e3b0a-tion-dark-comfortable-en-US-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-e3b0a-tion-dark-comfortable-en-US-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-e3b0a-tion-dark-comfortable-en-US-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-e3b0a-tion-dark-comfortable-en-US-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: dark/comfortable/ar-EG 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+    Expected: 1
+    Received: 2
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true }) with timeout 5000ms
+      - waiting for getByTestId('localized-dates').getByTestId('inline-calendar').getByRole('heading', { includeHidden: true })
+        14 × locator resolved to 2 elements
+           - unexpected value "2"
+
+
+      32 |   expect(rtl?actionBox.x+actionBox.width:inputBox.x+inputBox.width).toBeCloseTo(rtl?inputBox.x:actionBox.x,1);
+      33 |   const month=calendar.getByRole('grid').locator('..');const cells=month.getByRole('button');
+    > 34 |   const heading=calendar.getByRole('heading',{includeHidden:true});await expect(heading).toHaveCount(1);const headingLeft=await heading.evaluate(element=>element.getBoundingClientRect().left);
+         |                                                                                          ^
+      35 |   expect(await cells.first().evaluate(element=>{const r=element.getBoundingClientRect();return Math.min(r.width,r.height);})).toBeGreaterThanOrEqual(44);
+      36 |   const week=calendar.getByRole('grid').getByRole('row').nth(1).getByRole('button');await expect(week).toHaveCount(7);
+      37 |   const offsets:number[]=[];
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hardening-date-presentation.spec.ts:34:90
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-88b72-tion-dark-comfortable-ar-EG-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-88b72-tion-dark-comfortable-ar-EG-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-88b72-tion-dark-comfortable-ar-EG-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-12/traces/hardening-date-presentatio-88b72-tion-dark-comfortable-ar-EG-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [chromium] › tests/browser/select-popup-sizing.spec.ts:10:1 › Select positions initially and updates scoped popup sizing, viewport and ancestor scrolling without observer errors 
+
+    Error: Scrolled Select retains its native anchor gap
+
+    Scrolled Select retains its native anchor gap
+
+    expect(received).toBeCloseTo(expected, precision)
+
+    Expected: 8
+    Received: 7.125
+
+    Expected precision:    0
+    Expected difference: < 0.5
+    Received difference:   0.875
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      46 |       const anchor = await trigger.evaluate(element => element.getBoundingClientRect().toJSON());
+      47 |       return placement === 'top' ? anchor.top - rect.bottom : rect.top - anchor.bottom;
+    > 48 |     }, { message: 'Scrolled Select retains its native anchor gap' }).toBeCloseTo(8, 0);
+         |                                                                      ^
+      49 |     } finally {
+      50 |       await info.attach('scrolled-anchor-geometry', {body:JSON.stringify({
+      51 |         popup:await popup.evaluate(node=>({rect:node.getBoundingClientRect().toJSON(),offsetHeight:(node as HTMLElement).offsetHeight,style:node.getAttribute('style'),placement:node.getAttribute('data-placement')})),
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/select-popup-sizing.spec.ts:48:70
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/select-popup-sizing-Select-83313-ing-without-observer-errors-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../docs/developer/backlog-to-ten/native-12/traces/select-popup-sizing-Select-83313-ing-without-observer-errors-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../docs/developer/backlog-to-ten/native-12/traces/select-popup-sizing-Select-83313-ing-without-observer-errors-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../docs/developer/backlog-to-ten/native-12/traces/select-popup-sizing-Select-83313-ing-without-observer-errors-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9 failed
+    [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: light/compact/en-US 
+    [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: light/compact/ar-EG 
+    [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: light/comfortable/en-US 
+    [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: light/comfortable/ar-EG 
+    [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: dark/compact/en-US 
+    [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: dark/compact/ar-EG 
+    [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: dark/comfortable/en-US 
+    [chromium] › tests/browser/hardening-date-presentation.spec.ts:13:2 › date/calendar presentation: dark/comfortable/ar-EG 
+    [chromium] › tests/browser/select-popup-sizing.spec.ts:10:1 › Select positions initially and updates scoped popup sizing, viewport and ancestor scrolling without observer errors 
+  24 passed (1.2m)

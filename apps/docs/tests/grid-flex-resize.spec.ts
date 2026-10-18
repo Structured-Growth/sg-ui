@@ -1,5 +1,5 @@
 import {exampleName} from './example-name';
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 
 for(const density of ['compact','comfortable'])test(`AppDataGrid keeps a fill column after sequential resizing in ${density} density`,async({page})=>{
   await page.setViewportSize({width:1440,height:1100});

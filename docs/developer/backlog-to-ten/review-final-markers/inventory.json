@@ -1,0 +1,30 @@
+[
+  {
+    "source": "native-15/results.json",
+    "title": "side owned selected/pending design (active)",
+    "engine": "firefox",
+    "path": "docs/developer/backlog-to-ten/review-final-markers/firefox-side-dark-comfortable-rtl-active.png",
+    "sha256": "4563a893e14078161d89937a33cff5fb1d59da1d3517c3d50e1e2d0ffddcd784"
+  },
+  {
+    "source": "native-15/results.json",
+    "title": "rich owned selected/pending design (active)",
+    "engine": "firefox",
+    "path": "docs/developer/backlog-to-ten/review-final-markers/firefox-rich-dark-comfortable-rtl-active.png",
+    "sha256": "c48834c1eef1df70de5336dd7cd1643e5f60462c6fc9bde961bd79e8ddc9de0b"
+  },
+  {
+    "source": "native-15/results.json",
+    "title": "color owned selected/pending design (active)",
+    "engine": "firefox",
+    "path": "docs/developer/backlog-to-ten/review-final-markers/firefox-color-dark-comfortable-rtl-active.png",
+    "sha256": "043e52861ba2650a9edce0f3819df2bbb3afa24e8705b261f99643a8219c3af0"
+  },
+  {
+    "source": "native-20/results.json",
+    "title": "toggle selected hover retains system colors and geometry (active)",
+    "engine": "webkit",
+    "path": "docs/developer/backlog-to-ten/review-final-markers/webkit-toggle-dark-comfortable-rtl-active.png",
+    "sha256": "aa1d9c908a0a772781826af8dcb79064b0686f412db4e7e540ee26fa5b92a99d"
+  }
+]
