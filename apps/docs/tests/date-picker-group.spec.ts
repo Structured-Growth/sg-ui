@@ -1,4 +1,4 @@
-import {test,expect,type Locator} from '@playwright/test';
+import {test,expect,type Locator} from './fixtures';
 import {exampleName} from './example-name';
 
 async function aligned(preview:Locator){

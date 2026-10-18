@@ -1,5 +1,5 @@
 import {exampleName} from './example-name';
-import {test, expect} from '@playwright/test';
+import {test, expect} from './fixtures';
 
 test('button groups show independent orientation/density/joined examples with live copyable source', async ({page,context}) => {
   await context.grantPermissions(['clipboard-read','clipboard-write']);

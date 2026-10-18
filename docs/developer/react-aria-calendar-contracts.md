@@ -996,3 +996,11 @@ Fixed duration, whole-period selection and assigned `calendarEndpoints` take pre
 Candidate availability receives the endpoint that candidate would edit; resulting
 ranges still validate bounds, duration and availability across the full interval.
 Typed fields, presets, dragging, Clear, Cancel and Apply keep their existing contracts.
+
+## Preset panel wrapping correction — 2026-10-18
+
+Side/end preset placement follows the actual calendar and preset widths. A compact
+one-month calendar with hidden endpoint fields can keep its preset list beside
+the calendar when both fit. Constrained hosts wrap panels in their existing DOM
+order, preserving before/after placement and keyboard order. Endpoint fields keep
+their usable width; this correction does not shrink controls or touch targets.

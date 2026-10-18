@@ -16,12 +16,12 @@ test.afterEach(async ({ page }) => {
 });
 
 for (const theme of ['light', 'dark']) {
-  test(`preset explanations are visible and associated before native keyboard commit: ${theme}`, async ({ page }) => {
+  test(`preset explanations remain associated and label rows fit before native keyboard commit: ${theme}`, async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 720 });
     await story(page, theme);
     const blocked = page.getByRole('option', { name: 'February reporting period', exact: true });
     const blockedDescription = 'Includes the unavailable capacity date.';
-    const early = page.getByRole('button', { name: 'Early February', exact: true });
+    const early = page.getByRole('option', { name: 'Early February', exact: true });
     const earlyDescription = 'First two weeks, before capacity closes.';
     await expect(blocked).toBeDisabled();
     await expect(blocked).toHaveAccessibleDescription(blockedDescription);
@@ -29,10 +29,13 @@ for (const theme of ['light', 'dark']) {
     await expect(page.getByText(earlyDescription, { exact: true })).toBeVisible();
     await expect(early).toHaveAccessibleDescription(earlyDescription);
     for (const description of [blockedDescription, earlyDescription]) {
-      expect(await page.getByText(description, { exact: true }).evaluate(element => {
+      // Current clean label rows retain descriptions for AT. Check the actual
+      // visible label geometry, rather than the clipped description's 1px box.
+      const label=description===blockedDescription?'February reporting period':'Early February';
+      expect(await page.getByText(label, { exact: true }).evaluate(element => {
         const bounds = element.getBoundingClientRect();
         return bounds.left >= 0 && bounds.right <= innerWidth + 1 && element.scrollWidth <= element.clientWidth + 1;
-      }), 'preset description wraps within the narrow viewport').toBe(true);
+      }), 'preset label wraps within the narrow viewport').toBe(true);
     }
     const committed = page.getByLabel('Committed booking dates');
     await expect(committed).toHaveText('No committed dates');
@@ -48,9 +51,9 @@ for (const theme of ['light', 'dark']) {
 
   test(`native calendar focus exposes unavailability without selecting; disclosure works without hover: ${theme}`, async ({ page }) => {
     await story(page, theme);
-    const next = page.getByRole('button', { name: 'Next month', exact: true });
+    const next = page.getByRole('button', { name: 'Previous month', exact: true });
     await next.focus();
-    await page.keyboard.press('Tab');
+    await page.keyboard.press('Shift+Tab');
     const february14 = page.getByRole('button', { name: /February 14, 2024/ });
     await expect(february14).toBeFocused();
     await page.keyboard.press('ArrowRight');

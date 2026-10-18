@@ -10,7 +10,7 @@ for(const target of ['nested list','code block','merged header'] as const)test(`
  await expect(editor).toBeVisible();
  const content=target==='nested list'?editor.locator('ol ul li'):target==='code block'?editor.locator('code[data-language="javascript"]'):editor.getByRole('columnheader');
  await content.click();
- if(target==='code block')await page.keyboard.press('End');
+ if(target==='code block')await page.keyboard.press(process.platform==='darwin'?'Meta+ArrowRight':'End');
  else{
   // On macOS End scrolls without placing the caret at the end of this leaf.
   // Observe only; native ArrowRight input establishes the exact insertion point.

@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 for(const [slug,label,valid,formatted] of [
  ['date-picker','Course schedule','dec 3 2026','12/03/2026'],

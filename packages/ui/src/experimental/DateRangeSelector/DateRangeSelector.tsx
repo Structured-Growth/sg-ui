@@ -381,7 +381,7 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
     {hasPresets && <div className={styles.presets} role="group" aria-label={t("common.ui.datePresets", { defaultMessage: "Date presets" })}>
       <h3 className={styles.heading}>{t("common.ui.datePresets", { defaultMessage: "Date presets" })}</h3>
       {groups.length>0&&<Select label={t("common.ui.presetCategory",{defaultMessage:"Preset category"})} value={selectedGroup?.id??null} options={groups.map(group=>({id:group.id,label:group.label}))} onValueChange={setPresetGroup}/>}
-      <ListBox aria-label={t("common.ui.datePresets", {defaultMessage:"Date presets"})} selectionMode="single"
+      <ListBox escapeKeyBehavior="none" aria-label={t("common.ui.datePresets", {defaultMessage:"Date presets"})} selectionMode="single"
         selectedKeys={presets.filter(preset=>draft?.start===preset.value.start&&draft?.end===preset.value.end).slice(0,1).map(preset=>preset.id)}
         disabledKeys={presets.filter(preset=>disabled||readOnly||!validRange(preset.value)).map(preset=>preset.id)}
         onSelectionChange={keys=>{const key=keys==="all"?undefined:[...keys][0];const preset=presets.find(item=>item.id===key);if(!preset||disabled||readOnly||!validRange(preset.value))return;state.setAnchorDate(null);setStartValid(true);setEndValid(true);setResetRevision(revision=>revision+1);edit(preset.value);}}

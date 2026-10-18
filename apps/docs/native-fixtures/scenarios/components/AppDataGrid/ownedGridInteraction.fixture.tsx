@@ -66,7 +66,7 @@ export const Server: Story = { render: () => <InteractionExample server /> };
 export const Independent: Story = { render: () => <><InteractionExample /><InteractionExample /></> };
 
 /** G-16/G-29: host updates while focus remains inside one of two grids. */
-function FocusRetentionExample() {
+function FocusRetentionExample({ initiallySelected = false }: { initiallySelected?: boolean }) {
   const [rows, setRows] = useState(records);
   const [page, setPage] = useState({ page: 0, pageSize: 25 });
   const [hidden, setHidden] = useState(false);
@@ -100,13 +100,14 @@ function FocusRetentionExample() {
     <p>Host shortcuts: Alt+R refresh, Alt+H hide Score, Alt+D delete focused row, Alt+P next page, Alt+S page size, Alt+E empty first grid.</p>
     <Button>Host action</Button><p role="status">Nested actions: {actions}</p>
     <OwnedGridInteraction label="Focus courses" rows={rows} columns={columns} getRowLabel={row => row.name}
-      paginationModel={page} pageSizeOptions={[10, 25]} refreshing={refreshing} defaultSelectedRowIds={new Set(["7"])}
+      paginationModel={page} pageSizeOptions={[10, 25]} refreshing={refreshing} defaultSelectedRowIds={new Set(initiallySelected ? ["7"] : [])}
       columnVisibilityModel={{ score: !hidden }} style={{ maxHeight: 240, maxWidth: 460 }} />
     <OwnedGridInteraction label="Independent focus courses" rows={records} columns={columns} getRowLabel={row => row.name}
       style={{ maxHeight: 240, maxWidth: 460 }} />
   </div>;
 }
 export const FocusRetention: Story = { render: () => <FocusRetentionExample /> };
+export const SelectedFocusRetention: Story = { render: () => <FocusRetentionExample initiallySelected /> };
 
 
 /** G-15/G-16: retained rows through a host-owned request/retry cycle. */

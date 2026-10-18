@@ -1,4 +1,4 @@
-import {test, expect} from '@playwright/test';
+import {test, expect} from './fixtures';
 import {checkSources,type SourceSnapshot} from './check-sources';
 test('published foundations expose matching source and independent native focus', async ({page}) => {
   await page.goto('/theming');

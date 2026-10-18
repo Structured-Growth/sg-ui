@@ -50,7 +50,8 @@ evidence, not a successful current-head Actions run.
 After the first successful direct CI run at that candidate, save raw run/jobs and
 artifact API metadata. For each runtime download `sgui-package-node-*`,
 `sgui-browser-docs-node-*`, `sgui-validation-node-*`; for Node24 also download
-`sgui-browser-node-24`. All have configured14-day retention. Save actual IDs,
+`sgui-browser-node-24` and all three `sgui-native-*-node-24` artifacts, including
+the package validation log's `native-validation.json` join receipt. All have configured14-day retention. Save actual IDs,
 creation/expiry, run attempt, names and archive digests. Separately retain the
 `sgui-docs-validation-node-24` artifact and successful `Next.js docs` result.
 Historical Storybook artifacts retain their original identity; do not recreate
@@ -67,7 +68,10 @@ package tarball into another empty directory; retain its original bytes.
 and an `artifacts` array of the raw artifact objects with added absolute
 `archivePath` values. Supply absolute `receiptPath` (validation logs' build receipt),
 `tarballPath`, `nativeDirectory` (native fixture artifact root) and
-`packageDirectory` (extracted npm `package` directory). Run:
+`packageDirectory` (extracted npm `package` directory). Node24 also requires
+`nativeProofRoot`, containing the three extracted `sgui-native-*-node-24` artifact
+directories, each bound to its verified archive. The verifier requires their full
+collections/results and joins their build identity and bytes to the package. Run:
 
 ```sh
 node packages/ui/scripts/verify-ci-downloads.mjs /absolute/path/downloads.json
@@ -83,7 +87,8 @@ contexts separately with the existing check-receipt verifier.
 
 Inspect actual browser JSON, failures/skips, engines and trace contents rather
 than concluding success from artifact presence. Measure full job durations and
-browser-step headroom against60m/45m Node24,30m Node22 and30m docs budgets. Preserve
+browser-step headroom against60m/45m per native engine,60m Node24,30m Node22
+and30m docs budgets. Preserve
 original failures. Verify Node22 reaches packed consumers after its test fix.
 Use the receipt's input/output hashes to decide which earlier successful behavior
 evidence is unchanged; do not rerun or invalidate all300 accepted V leaves.

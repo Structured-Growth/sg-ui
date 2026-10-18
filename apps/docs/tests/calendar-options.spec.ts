@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 import {checkSources} from './check-sources';
 import {waitForNativeScrollToSettle} from '../../../packages/ui/tests/browser/native-scroll-settling';
@@ -17,10 +17,11 @@ test('Calendar navigation, compact footprints, stable months and centered days',
     const grid=panel.getByRole('grid');
     const viewport=grid.locator('..');
     const initial=(await viewport.boundingBox())!;
-    const target=density==='Compact'?32:44;
-    expect(initial.width).toBeCloseTo(7*target,0);
+    // Pointer day cells use the documented 24/36px footprint; touch remains 44px.
+    const target=density==='Compact'?24:36;
+    expect(initial.width).toBeCloseTo(Math.max(192,7*target),0);
     const day=await grid.locator('[data-selected]').first().boundingBox();
-    expect(day!.width).toBeCloseTo(target,0);expect(day!.height).toBeCloseTo(target,0);
+    expect(day!.width).toBeCloseTo(initial.width/7,0);expect(day!.height).toBeCloseTo(target,0);
     const center=await grid.locator('[data-selected]').first().evaluate(element=>{
       const box=element.getBoundingClientRect(),label=element.querySelector('span')!.getBoundingClientRect();
       return Math.abs((box.top+box.bottom-label.top-label.bottom)/2);

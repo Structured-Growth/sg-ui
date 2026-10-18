@@ -1,4 +1,4 @@
-import {test,expect,type Page,type Locator} from '@playwright/test';
+import {test,expect,type Page,type Locator} from './fixtures';
 import {exampleName} from './example-name';
 import {checkSources} from './check-sources';
 const day=(host:Locator,n:number,month='October')=>{const m=['January','February','March','April','May','June','July','August','September','October','November','December'].indexOf(month)+1;return host.getByRole('button',{name:new RegExp(`${month} ${n}, 2026`)}).and(host.locator(`[data-sgui-date="2026-${String(m).padStart(2,'0')}-${String(n).padStart(2,'0')}"]:not([data-outside-month])`)).first();};

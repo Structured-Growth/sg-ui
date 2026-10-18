@@ -1940,6 +1940,16 @@
       "importPath": "./scenarios/components/AppDataGrid/ownedGridInteraction.fixture.tsx",
       "original": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.stories.tsx"
     },
+    "migration-proofs-catalog-grid-interaction--selected-focus-retention": {
+      "id": "migration-proofs-catalog-grid-interaction--selected-focus-retention",
+      "type": "fixture",
+      "title": "Migration proofs/Catalog grid interaction",
+      "name": "SelectedFocusRetention",
+      "exportName": "SelectedFocusRetention",
+      "module": "./scenarios/components/AppDataGrid/ownedGridInteraction.fixture.tsx",
+      "importPath": "./scenarios/components/AppDataGrid/ownedGridInteraction.fixture.tsx",
+      "original": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.stories.tsx"
+    },
     "migration-proofs-catalog-grid-interaction--busy-lifecycle": {
       "id": "migration-proofs-catalog-grid-interaction--busy-lifecycle",
       "type": "fixture",

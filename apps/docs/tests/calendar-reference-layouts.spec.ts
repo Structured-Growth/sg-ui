@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 import {checkSources} from './check-sources';
 
@@ -13,7 +13,7 @@ for(const [slug,title,popup] of [
  const host=popup?page.getByRole('dialog',{name:'Reporting period',exact:true}):panel;
  const grids=host.getByRole('grid');await expect(grids).toHaveCount(3);
  const boxes=await grids.evaluateAll(elements=>elements.map(element=>{const r=element.getBoundingClientRect();return{x:r.x,y:r.y,width:r.width};}));
- for(const box of boxes){expect(box.width).toBeCloseTo(224,0);expect(box.y).toBeCloseTo(boxes[0].y,0);}
+ for(const box of boxes){expect(box.width).toBeCloseTo(192,0);expect(box.y).toBeCloseTo(boxes[0].y,0);}
  if(popup)await page.keyboard.press('Escape');
  await panel.getByRole('button',{name:`Show source: ${title}`,exact:true}).click();
  const source=(await panel.getByRole('code').textContent())!;expect(source).toContain('months={3}');expect(checkSources([{slug,source}])).toEqual([]);
@@ -34,8 +34,10 @@ for(const dir of ['ltr','rtl'])test(`presets after calendars preserve visual and
  const side=(await presets.boundingBox())!,first=(await grids.first().boundingBox())!,last=(await grids.last().boundingBox())!;
  if(dir==='ltr')expect(side.x).toBeGreaterThan(last.x+last.width);else expect(side.x+side.width).toBeLessThan(last.x);
  const apply=panel.getByRole('button',{name:'Apply',exact:true});await apply.focus();await apply.press('Tab');
- await expect(presets.getByRole('button',{name:'Autumn launch',exact:true})).toBeFocused();
- await presets.getByRole('button',{name:'This month',exact:true}).click();
+ // Single-tab-stop lists enter on the selected preset, then expose neighbors.
+ const selected=presets.getByRole('option',{name:'This week',exact:true});await expect(selected).toBeFocused();
+ await selected.press('ArrowUp');await expect(presets.getByRole('option',{name:'Autumn launch',exact:true})).toBeFocused();
+ await presets.getByRole('option',{name:'This month',exact:true}).click();
  await expect(panel.getByRole('textbox',{name:'Start date',exact:true})).toHaveValue('10/01/2026');
  await expect(panel.getByRole('textbox',{name:'End date',exact:true})).toHaveValue('10/31/2026');
  await panel.getByRole('button',{name:'Show source: Presets after the calendars',exact:true}).click();

@@ -16,8 +16,9 @@ test('functionality column order requests preserve visibility in controlled shel
   await page.keyboard.press('Escape');
   const headers = page.getByRole('grid', { name: 'Course column order' }).getByRole('columnheader');
   await expect(headers).toHaveCount(5);
-  const text = await headers.allTextContents();
-  expect(text.slice(1).map(value => value.trim())).toEqual(['Course', 'Score', 'Site', 'Actions']);
+  const names=await headers.evaluateAll(nodes=>nodes.slice(1).map(node=>node.getAttribute('data-grid-field')));
+  expect(names).toEqual(['name', 'score', 'site', 'actions']);
+  for (const [index,label] of ['Course','Score','Site','Actions'].entries()) await expect(headers.nth(index+1).getByText(label,{exact:true})).toBeVisible();
 });
 
 test('functionality DatePicker Clear closes restores focus and preserves silent reset', async ({ page }) => {

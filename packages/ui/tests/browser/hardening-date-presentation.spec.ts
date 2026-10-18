@@ -31,7 +31,7 @@ for(const theme of ['light','dark'])for(const density of ['compact','comfortable
   expect(actionBox.y).toBeCloseTo(inputBox.y,1);expect(actionBox.height).toBeCloseTo(inputBox.height,1);
   expect(rtl?actionBox.x+actionBox.width:inputBox.x+inputBox.width).toBeCloseTo(rtl?inputBox.x:actionBox.x,1);
   const month=calendar.getByRole('grid').locator('..');const cells=month.getByRole('button');
-  const heading=month.locator('..').getByRole('heading',{includeHidden:true});await expect(heading).toHaveCount(1);const headingLeft=await heading.evaluate(element=>element.getBoundingClientRect().left);
+  const heading=calendar.locator('header').getByRole('heading',{includeHidden:true});await expect(heading).toHaveCount(1);const headingLeft=await heading.evaluate(element=>element.getBoundingClientRect().left);
   expect(await cells.first().evaluate(element=>{const r=element.getBoundingClientRect();return Math.min(r.width,r.height);})).toBeGreaterThanOrEqual(44);
   const week=calendar.getByRole('grid').getByRole('row').nth(1).getByRole('button');await expect(week).toHaveCount(7);
   const offsets:number[]=[];

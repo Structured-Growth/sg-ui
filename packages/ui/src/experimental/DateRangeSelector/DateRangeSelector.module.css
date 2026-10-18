@@ -9,7 +9,7 @@
   .outgoingMonth { position: absolute; inset: 0; pointer-events: none; }
   .layout, .calendarBody { display: flex; flex-direction: column; gap: var(--sgui-space2); min-inline-size: 0; }
   .layout:is([data-preset-placement="side"], [data-preset-placement="end"]) { flex-direction: row; flex-wrap: wrap; align-items: start; gap: var(--sgui-space3); }
-  .layout:is([data-preset-placement="side"], [data-preset-placement="end"]) > .presets { flex: 0 0 12rem; box-sizing: border-box; max-inline-size: 100%; flex-direction: column; align-items: stretch; padding: 0; }
+  .layout:is([data-preset-placement="side"], [data-preset-placement="end"]) > .presets { flex: 1 0 12rem; box-sizing: border-box; max-inline-size: 100%; flex-direction: column; align-items: stretch; padding: 0; }
   .layout:is([data-preset-placement="side"], [data-preset-placement="end"]) > .calendarBody { flex: 1 1 var(--calendar-body-width); max-inline-size: 100%; }
   .calendar { display: flex; flex-direction: column; gap: var(--sgui-space2); }
   .actions, .presets { display: flex; align-items: center; gap: var(--sgui-space2); flex-wrap: wrap; }
@@ -76,8 +76,6 @@
   .summary { margin-block: var(--sgui-space2); }
   .actions { justify-content: flex-end; }
   @container (max-width: 35rem) {
-    .layout:is([data-preset-placement="side"], [data-preset-placement="end"]) > .presets { flex: 1 1 100%; padding: 0; }
-    .layout:is([data-preset-placement="side"], [data-preset-placement="end"]) .presets > .heading { flex-basis: 100%; }
     .presetList { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); }
   }
   .scrollingMonths .monthHeader {position:sticky;inset-block-start:0;background:var(--sgui-date-range-selector-surface);z-index:1;}

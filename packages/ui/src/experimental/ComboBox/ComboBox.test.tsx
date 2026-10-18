@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+import { useState } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -101,4 +102,13 @@ it("filters and selects with placeholder and two decorative icons", async () => 
  const input=screen.getByRole("combobox",{name:"Subject"}) as HTMLInputElement;
  expect(input.placeholder).toBe("Find a subject");expect(screen.queryByRole("img")).toBeNull();
  await user.type(input,"Sci");await user.keyboard("{ArrowDown}{Enter}");expect(change).toHaveBeenLastCalledWith("science");
+});
+
+it("closes a filtered keyboard selection when the controlled host accepts its ID", async () => {
+ const user=userEvent.setup();
+ function Host(){const [value,setValue]=useState<string|null>("science");return <ComboBox label="Controlled" options={options} value={value} onValueChange={setValue}/>;}
+ render(<Host/>);const input=screen.getByRole("combobox");await user.clear(input);await user.type(input,"Math");
+ await user.keyboard("{ArrowDown}{Enter}");
+ await waitFor(()=>expect((input as HTMLInputElement).value).toBe("Mathematics"));
+ await waitFor(()=>expect(screen.queryByRole("listbox")).toBeNull());expect(document.activeElement).toBe(input);
 });

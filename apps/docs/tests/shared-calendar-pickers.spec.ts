@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 import {checkSources} from './check-sources';
 for(const kind of ['date-range-picker','date-range-selector'])for(const density of ['compact','comfortable'])test(`${kind} shares month/year choices at ${density} density without committing`,async({page})=>{

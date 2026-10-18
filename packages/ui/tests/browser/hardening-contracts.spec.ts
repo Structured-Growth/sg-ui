@@ -61,6 +61,7 @@ test('table headers, pagination requests and toggle selection use public native 
 test('public icon catalogue renders decorative SVGs and explicitly named graphics', async ({ page }) => {
   await page.goto(fixture('icons--catalog-story'));
   const graphics = page.locator('#sgui-fixture-root svg');
+  await expect(graphics.first()).toBeVisible();
   expect(await graphics.count()).toBeGreaterThan(90);
   const invalid = await graphics.evaluateAll(nodes => nodes.filter(node => {
     const rect = node.getBoundingClientRect();
@@ -106,6 +107,8 @@ test('public admin and instructor presets keep independent host column choices',
     ['Instructor courses', 'Section Name', 'Site'], ['Instructor learners', 'Learner', 'Status'],
   ]) {
     const host = page.getByRole('region', { name, exact: true });
+    await expect(page.locator('output')).toHaveCount(4);
+    await expect.poll(() => page.locator('output').allTextContents()).toEqual(expect.arrayContaining([expect.stringContaining('Section Name'), expect.stringContaining('Learner')]));
     const before = await page.locator('output').allTextContents();
     await host.getByRole('button', { name: 'Columns', exact: true }).click();
     const dialog = page.getByRole('dialog', { name: 'Columns', exact: true });

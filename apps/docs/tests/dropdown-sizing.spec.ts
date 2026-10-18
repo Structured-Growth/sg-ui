@@ -1,5 +1,5 @@
 import {exampleName} from './example-name';
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 
 for(const width of [1280,375])for(const scrollbar of ['native','classic'])test(`Select popup fits its labels independently of the selected value at ${width}px with ${scrollbar} scrollbars`,async({page})=>{
   await page.setViewportSize({width,height:900});
@@ -76,7 +76,7 @@ for (const width of [375,1280]) test(`Select keeps its longest-option width and 
   await trigger.evaluate(element=>{element.parentElement!.style.inlineSize='5rem';});
   await trigger.click();
   await page.getByRole('option',{name:'bodyAlt2',exact:true}).click();
-  const value=trigger.locator('> span').last();
+  const value=trigger.getByText('bodyAlt2',{exact:true});
   await expect(value).toHaveText('bodyAlt2');
   await expect(value).toHaveCSS('text-overflow','ellipsis');
   expect(await value.evaluate(element=>element.scrollWidth>element.clientWidth)).toBe(true);

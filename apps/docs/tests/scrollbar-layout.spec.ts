@@ -1,6 +1,6 @@
 import {openSiteTool} from './site-tools';
 import {exampleName} from './example-name';
-import {test,expect,type Page} from '@playwright/test';
+import {test,expect,type Page} from './fixtures';
 
 async function geometry(page:Page) {
   return page.locator('body > [data-sgui-scope] > header, nav[aria-label="Documentation"], main#main-content, [data-docs-preview]').evaluateAll(elements=>elements.map(element=>{

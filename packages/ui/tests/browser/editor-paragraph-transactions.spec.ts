@@ -79,7 +79,7 @@ for (const theme of ['light', 'dark']) {
     const final = await saved(page);
     await page.getByRole('button', { name: 'Reload saved paragraphs', exact: true }).click();
     await assertDocument(final);
-    await page.getByRole('button', { name: 'Undo', exact: true }).click();
+    await expect(page.getByRole('button', { name: 'Undo', exact: true })).toBeDisabled();
     await assertDocument(final);
     await selectTarget(page);
     await assertDocument(final);

@@ -1,5 +1,5 @@
 import {exampleName} from './example-name';
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 const generalPages=[
   {slug:'installation',label:'Installation',title:'Installation'},
   {slug:'theming',label:'Theming',title:'Theming'},

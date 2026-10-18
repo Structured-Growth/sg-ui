@@ -1,6 +1,6 @@
 "use client";
 import {FieldMessages, type FieldMessagePlacementProps} from "../TextField/FieldMessages";
-import { forwardRef, useEffect, useRef, useState, type ReactNode } from "react";
+import { forwardRef, useRef, useState, type ReactNode } from "react";
 import { ComboBox as AriaComboBox } from "react-aria-components/ComboBox";
 import { Input } from "react-aria-components/Input";
 import { Label } from "react-aria-components/Label";
@@ -51,7 +51,13 @@ export const ComboBox = forwardRef<HTMLInputElement, ComboBoxProps>(function Com
   const selected = value === undefined ? internalValue : value;
   const selectedLabel = options.find(option => option.id === selected)?.label ?? "";
   const [query, setQuery] = useState(selectedLabel);
-  useEffect(() => { setQuery(selectedLabel); }, [selected, selectedLabel]);
+  const [querySelection, setQuerySelection] = useState({ selected, label: selectedLabel });
+  if (querySelection.selected !== selected || querySelection.label !== selectedLabel) {
+    // Reconcile before rendering the interaction owner. A post-commit effect
+    // makes its controlled query look like a new edit and reopens a just-closed popup.
+    setQuerySelection({ selected, label: selectedLabel });
+    setQuery(selectedLabel);
+  }
   const resetting = useFormReset(root, () => {
     const next = value === undefined ? defaultValue ?? null : value;
     if (value === undefined) setInternalValue(next);

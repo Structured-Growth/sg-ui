@@ -1,6 +1,6 @@
 import {openSiteTool} from './site-tools';
 import {exampleName} from './example-name';
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures';
 import ts from 'typescript';
 import { resolve } from 'node:path';
 

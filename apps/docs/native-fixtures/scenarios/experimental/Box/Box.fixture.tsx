@@ -163,9 +163,9 @@ function LocalizedDates({globals}:{globals:FixtureGlobals}) {
   <Provider theme={globals.theme} density={globals.density} dir={rtl?'rtl':'ltr'} interactionMode={touch?'touch':'pointer'} data-testid="localized-dates" style={{width:'100%',maxWidth:'100%',minWidth:0,boxSizing:'border-box'}}><Stack gap={4}><Button onPress={()=>setTouch(value=>!value)}>{rtl?'تبديل أهداف اللمس':'Toggle touch targets'}</Button>
    <div data-testid="date-entry"><DateField label={rtl?'تاريخ مراجعة مواد التعلم':'Learning materials review date'} defaultValue="2026-10-15" name="review-date" /></div>
    <div data-testid="time-entry"><TimeField entryMode="segments" label={rtl?'وقت اجتماع فريق التدريس الدولي':'International teaching team meeting time'} defaultValue="12:30:00" hourCycle={24} name="meeting-time" /></div>
-   <div data-testid="inline-calendar"><Calendar label={rtl?'تقويم التعاون الدولي':'International collaboration calendar'} defaultValue="2026-10-15" defaultFocusedDate="2026-10-15" /></div>
+   <div data-testid="inline-calendar"><Calendar navigation="arrows" label={rtl?'تقويم التعاون الدولي':'International collaboration calendar'} defaultValue="2026-10-15" defaultFocusedDate="2026-10-15" /></div>
    <DatePicker entryMode="segments" label={rtl?'تاريخ نشر مواد التعلم':'Learning materials publication date'} defaultValue="2026-10-15" />
-   <DateRangePicker label={rtl?'فترة مراجعة الخطة التعليمية':'Learning plan review period'} defaultValue={range} months={1} />
+   <DateRangePicker fieldMode="button" label={rtl?'فترة مراجعة الخطة التعليمية':'Learning plan review period'} defaultValue={range} months={1} />
    <div data-testid="inline-range"><DateRangeSelector label={rtl?'فترة التخطيط التعاوني':'Collaborative planning period'} defaultValue={range} months={1} /></div>
   </Stack></Provider>
  </SGTranslationProvider>;

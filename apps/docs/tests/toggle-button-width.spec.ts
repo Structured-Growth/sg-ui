@@ -1,4 +1,4 @@
-import {expect,test} from '@playwright/test';
+import {expect,test} from './fixtures';
 import {checkSources} from './check-sources';
 
 for(const viewport of [{width:1280,hasTouch:false},{width:1280,hasTouch:true},{width:375,hasTouch:false}])test(`toggle groups default to widest-option widths and offer content sizing at ${viewport.width}px (touch=${viewport.hasTouch})`,async({browser,baseURL})=>{

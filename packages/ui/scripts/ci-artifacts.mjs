@@ -4,12 +4,12 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 
-const inputPaths = [
+export const inputPaths = [
   'package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml', '.nvmrc',
   'packages/ui/README.md', 'packages/ui/LICENSE', 'packages/ui/THIRD_PARTY_NOTICES.md',
   'packages/ui/package.json', 'packages/ui/tsconfig.json', 'packages/ui/tsconfig.build.json',
   'packages/ui/src', 'packages/ui/scripts', 'packages/ui/playwright.config.ts',
-  'packages/ui/tests/browser', 'apps/docs/package.json', 'apps/docs/native-fixtures',
+  'packages/ui/tests/browser', 'apps/docs/package.json', 'apps/docs/theme', 'apps/docs/native-fixtures',
   '.github/workflows/ci.yml',
 ];
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
@@ -71,6 +71,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   else if (process.argv[2] === 'complete') await complete(root, {
     head: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim(),
     node: process.version,
+    browser: process.env.SGUI_NATIVE_BROWSER || undefined,
     pnpm: execFileSync('pnpm', ['--version'], { cwd: root, encoding: 'utf8' }).trim(),
     runURL: process.env.GITHUB_RUN_ID ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}` : null,
     runAttempt: process.env.GITHUB_RUN_ATTEMPT ?? null,

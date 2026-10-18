@@ -1,6 +1,6 @@
 import {openSiteTool,closeSiteTool} from './site-tools';
 import {exampleName} from './example-name';
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {checkSources} from './check-sources';
 
 for(const width of [1280,375])test(`DataGrid uses a full-width source-backed example and shared page-size dropdown at ${width}px`,async({page,context})=>{

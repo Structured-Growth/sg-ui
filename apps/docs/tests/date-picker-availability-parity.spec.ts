@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 import {checkSources} from './check-sources';
 for(const [mode,title] of [['text','Flexible entry availability'],['segments','Segmented entry availability'],['datetime','Date and time availability']] as const){

@@ -1,6 +1,6 @@
 import {exampleName} from './example-name';
 import {checkSources} from './check-sources';
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 
 for(const width of [1280,375])test(`docs sidebar and content scroll independently at ${width}px`,async({page})=>{
   await page.setViewportSize({width,height:800});

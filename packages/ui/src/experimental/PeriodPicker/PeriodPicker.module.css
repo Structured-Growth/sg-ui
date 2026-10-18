@@ -11,5 +11,5 @@
  .grid > button { min-inline-size: 0; padding-inline: var(--sgui-space1); }
  .choice { position: relative; }
  .choice[aria-pressed="true"]::after { content: ""; position: absolute; pointer-events: none; inset: 3px; border: 2px solid currentColor; border-radius: inherit; }
- @media (forced-colors: active) { .choice[aria-pressed="true"]::after { border-color: Highlight; } }
+ @media (forced-colors: active) { .choice[aria-pressed="true"]::after { border-color: ButtonText; } }
 }

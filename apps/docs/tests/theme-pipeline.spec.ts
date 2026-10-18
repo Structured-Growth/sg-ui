@@ -1,6 +1,6 @@
 import {openSiteTool} from './site-tools';
 import {exampleName} from './example-name';
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {checkSources} from './check-sources';
 import {demoTokens,identities} from '../components/demo-theme';
 const rgb=(hex:string)=>`rgb(${hex.slice(1).match(/../g)!.map(part=>parseInt(part,16)).join(', ')})`;

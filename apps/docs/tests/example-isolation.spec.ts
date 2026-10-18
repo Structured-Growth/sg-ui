@@ -1,5 +1,5 @@
 import {exampleName} from './example-name';
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import catalog from '../content/catalog.json' with {type:'json'};
 
 test('owned button press and form actions preserve sibling examples',async({page})=>{

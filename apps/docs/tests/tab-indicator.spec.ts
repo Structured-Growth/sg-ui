@@ -1,4 +1,4 @@
-import {test,expect,type Locator} from '@playwright/test';
+import {test,expect,type Locator} from './fixtures';
 import {exampleName} from './example-name';
 const line=(host:Locator)=>host.locator('[data-sgui-part="tab-indicator"]');
 async function aligned(indicator:Locator,target:Locator,vertical=false,rtl=false){
@@ -14,10 +14,12 @@ for(const orientation of ['horizontal','vertical'])for(const density of ['compac
  const title=`${orientation==='horizontal'?'Horizontal':'Vertical'} tabs · ${density} · automatic`,panel=page.getByRole('region',{name:exampleName(title),exact:true}),preview=panel.locator('[data-docs-preview]');
  await preview.evaluate(element=>(element as HTMLElement).style.setProperty('--sgui-motion-duration','1000ms'));
  const indicator=line(preview),first=preview.getByRole('tab',{name:'Course overview',exact:true}),next=preview.getByRole('tab',{name:'Lessons and activities',exact:true});await preview.scrollIntoViewIfNeeded();await aligned(indicator,first,orientation==='vertical');
- expect(await indicator.evaluate(element=>element.getAnimations().length)).toBe(0);const before=(await indicator.boundingBox())!;
+ expect(await indicator.evaluate(element=>element.getAnimations().length)).toBe(0);const before=(await indicator.boundingBox())!,beforeClip=(await indicator.locator('..').boundingBox())!;
  await next.click();await expect(next).toHaveAttribute('aria-selected','true');await halfway(indicator);
  const middle=(await indicator.boundingBox())!,target=(await next.boundingBox())!;
- const initial=orientation==='vertical'?before.y:before.x,position=orientation==='vertical'?middle.y:middle.x,end=orientation==='vertical'?target.y:target.x;
+ const clip=(await indicator.locator('..').boundingBox())!;
+ // Native focus scrolling may move the strip; compare within its clipping area.
+ const initial=orientation==='vertical'?before.y-beforeClip.y:before.x-beforeClip.x,position=orientation==='vertical'?middle.y-clip.y:middle.x-clip.x,end=orientation==='vertical'?target.y-clip.y:target.x-clip.x;
  expect(position).toBeGreaterThan(Math.min(initial,end)+1);expect(position).toBeLessThan(Math.max(initial,end)-1);
  expect(await next.evaluate((element,vertical)=>getComputedStyle(element)[vertical?'borderInlineEndColor':'borderBottomColor'],orientation==='vertical')).toBe('rgba(0, 0, 0, 0)');
  await preview.screenshot({path:`/tmp/tab-indicator-${orientation}-${density}.png`});
@@ -33,7 +35,7 @@ for(const orientation of ['horizontal','vertical'])test(`${orientation} manual t
 });
 test('vertical RTL and forced colors retain an aligned visible indicator',async({page})=>{
  await page.setViewportSize({width:1440,height:1100});await page.emulateMedia({forcedColors:'active',reducedMotion:'reduce'});await page.goto('/docs/components/tabs');
- const preview=page.getByRole('region',{name:exampleName('Vertical tabs · compact · automatic'),exact:true}).locator('[data-docs-preview]');await preview.evaluate(element=>element.setAttribute('dir','rtl'));
+ const preview=page.getByRole('region',{name:exampleName('Vertical tabs · compact · automatic'),exact:true}).locator('[data-docs-preview]');await preview.evaluate(element=>{element.setAttribute('dir','rtl');element.querySelector('[role="tablist"]')?.setAttribute('dir','rtl');});
  const next=preview.getByRole('tab',{name:'Lessons and activities',exact:true});await next.click();await aligned(line(preview),next,true,true);
  expect(await line(preview).evaluate(element=>getComputedStyle(element).backgroundColor)).not.toBe('rgba(0, 0, 0, 0)');
  expect(await line(preview).evaluate(element=>getComputedStyle(element).forcedColorAdjust)).not.toBe('none');

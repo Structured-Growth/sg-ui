@@ -13,7 +13,7 @@ export function NativeCalendarFixture({ locale = "en-US", firstDayOfWeek = "sun"
   const [commits, setCommits] = useState(0);
   return <SGTranslationProvider value={{ locale, t: (_key, options) => options.defaultMessage, useNamespace: () => {} }}>
     <Provider>
-      <Calendar label="Native course dates" selection="multiple" months={2} firstDayOfWeek={firstDayOfWeek}
+      <Calendar calendarNavigation="linked" navigation="arrows" label="Native course dates" selection="multiple" months={2} firstDayOfWeek={firstDayOfWeek}
         defaultFocusedDate="2024-02-28" value={value} onFocusedDateChange={setFocus}
         unavailable={[{ date: "2024-03-01", reason: "No capacity" }]}
         onValueChange={dates => { setValue(dates); setCommits(count => count + 1); }} />

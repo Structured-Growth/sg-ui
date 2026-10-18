@@ -65,7 +65,20 @@ R-12 artifacts are emitted separately for each runtime, with an explicit
 | `ai-proposal` | Proposed patch and summary from the manual AI workflow | Implementation job succeeds |
 
 The minimum-runtime validation job has a 30-minute limit; Node 24 has a 60-minute
-limit with a 45-minute browser step budget. The latest inspected full run
+limit. Three independent native jobs each retain one worker, zero retries and a
+45-minute browser step within a 60-minute job. The runtime jobs depend on all
+three; an explicit dependency-result check fails their stable required contexts
+when an engine fails or is skipped. Before packing validation is completed, Node24
+joins all three collected/executed test inventories and build receipts to its own
+head, run, source-input hash and exact compiled distribution.
+`sgui-native-{chromium,firefox,webkit}-node-24` artifacts retain engine receipts,
+complete collection/execution JSON and failure traces for fourteen days.
+`verify-native-ci.mjs` reads downloaded JSON as data with root-containment and
+regular-file checks; it never executes downloaded artifact content.
+This split follows run39140558308 reaching1645/2499 cases in the prior serial
+45-minute step. It changes execution placement, not collection, retries, workers
+or the ordinary-dev automatic-CI exception. A new successful full run remains
+required. The latest inspected full run
 [37873270629](https://github.com/Structured-Growth/sg-ui/actions/runs/37873270629)
 exhausted its former 30-minute job limit during browser execution (25m28s in that
 step, 1,132 of 1,521 executions started). This supports increasing the budget, not

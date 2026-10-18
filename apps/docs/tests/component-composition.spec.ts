@@ -1,6 +1,6 @@
 import {openSiteTool,closeSiteTool} from './site-tools';
 import {exampleName} from './example-name';
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 
 test('component composition navigation shows one level and keeps host content separate',async({page})=>{
   await page.goto('/docs/components/data-grid-shell');

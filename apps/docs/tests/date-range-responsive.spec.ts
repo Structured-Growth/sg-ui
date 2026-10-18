@@ -1,10 +1,13 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 import {checkSources} from './check-sources';
 
-for(const density of ['Compact density','Comfortable density'])test(`range default uses a wide responsive dropdown: ${density}`,async({page},info)=>{
+for(const density of ['Compact density','Comfortable density'])test(`host-supplied presets use a wide responsive dropdown: ${density}`,async({page},info)=>{
  await page.setViewportSize({width:1440,height:900});await page.goto('/docs/components/date-range-picker');
- const panel=page.getByRole('region',{name:exampleName(density),exact:true});
+ const panel=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
+ await panel.getByRole('button',{name:/Example density/}).click();await page.getByRole('option',{name:density.startsWith('Compact')?'Compact':'Comfortable',exact:true}).click();
+ // The clean reference has no host presets. Enable them only in this playground.
+ const presetToggle=panel.getByRole('checkbox',{name:'Show presets',exact:true});await presetToggle.focus();await presetToggle.press('Space');await expect(presetToggle).toBeChecked();
  const trigger=panel.getByRole('button',{name:'Choose Course schedule',exact:true});await trigger.click();
  const dialog=page.getByRole('dialog',{name:'Course schedule',exact:true});
  const overlay=dialog.locator('xpath=ancestor::*[@data-trigger="DialogTrigger"][1]');
@@ -18,13 +21,13 @@ for(const density of ['Compact density','Comfortable density'])test(`range defau
  await expect(presets.getByRole('option')).toHaveText(['This week','Last week','This month','Last month']);
  expect(await presets.evaluate(e=>getComputedStyle(e).borderTopWidth)).toBe('0px');
  expect(await choice.evaluate(e=>getComputedStyle(e).borderTopWidth)).toBe('0px');
- const box=(await overlay.boundingBox())!;expect(box.width).toBeGreaterThan(470);expect(box.width).toBeLessThan(650);expect(box.height).toBeLessThan(610);
+ const box=(await overlay.boundingBox())!;expect(box.width).toBeGreaterThan(density.startsWith('Compact')?400:470);expect(box.width).toBeLessThan(650);expect(box.height).toBeLessThan(610);
  await expect.poll(()=>overlay.evaluate(e=>e.scrollHeight<=e.clientHeight+1)).toBe(true);
  await expect(dialog.getByRole('button',{name:'Apply',exact:true})).toBeInViewport();
  await info.attach('desktop',{body:await page.screenshot({path:info.outputPath('desktop.png')}),contentType:'image/png'});
  await dialog.getByRole('option',{name:'Last week',exact:true}).click();await dialog.getByRole('button',{name:'Apply',exact:true}).click();
  await expect(panel.getByRole('textbox',{name:'Course schedule',exact:true})).toHaveValue('10/05/2026 – 10/11/2026');
- await panel.getByRole('button',{name:`Show source: ${density}`,exact:true}).click();
+ await panel.getByRole('button',{name:'Show source: Prop playground',exact:true}).click();
  expect(checkSources([{slug:'range-responsive',source:(await panel.getByRole('code').textContent())!}])).toEqual([]);
  await page.setViewportSize({width:375,height:900});await trigger.click();
  const narrow=(await overlay.boundingBox())!,np=(await presets.boundingBox())!,ng=(await dialog.getByRole('grid').boundingBox())!;
@@ -40,6 +43,7 @@ test('optional endpoint fields use flexible text and preset rows support keyboar
  const panel=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
  const fields=panel.getByRole('checkbox',{name:'Show endpoint fields',exact:true});
  await expect(fields).not.toBeChecked();await fields.focus();await fields.press('Space');
+ const presetToggle=panel.getByRole('checkbox',{name:'Show presets',exact:true});await presetToggle.focus();await presetToggle.press('Space');await expect(presetToggle).toBeChecked();
  const trigger=panel.getByRole('button',{name:'Choose Course schedule',exact:true});await trigger.click();
  const dialog=page.getByRole('dialog',{name:'Course schedule',exact:true});
  await expect(dialog.getByRole('spinbutton')).toHaveCount(0);

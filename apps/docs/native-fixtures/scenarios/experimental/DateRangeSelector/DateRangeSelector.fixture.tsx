@@ -7,7 +7,7 @@ import { SGTranslationProvider } from "@structured-growth/sg-ui/i18n";
 import { formatIcuMessage } from "@structured-growth/sg-ui/i18n";
 const meta = { title: "Migration proofs/DateRangeSelector", component: DateRangeSelector, tags: ["autodocs"],
   decorators: [(Story) => <Provider><div style={{ maxWidth: "48rem" }}><Story /></div></Provider>],
-  args: { entryMode: "segments", showFields: true, rangeClickBehavior: "restart", label: "Reporting dates", defaultFocusedDate: "2024-02-01", presets: [
+  args: { calendarNavigation: "linked", navigation: "arrows", entryMode: "segments", showFields: true, rangeClickBehavior: "restart", label: "Reporting dates", defaultFocusedDate: "2024-02-01", presets: [
     { id: "february", label: "February reporting period", description: "Gregorian calendar, inclusive endpoints, no timezone conversion.", value: { start: "2024-02-01", end: "2024-02-29" } },
     { id: "march", label: "March reporting period", value: { start: "2024-03-01", end: "2024-03-31" } },
   ] },
@@ -73,7 +73,7 @@ export const FocusedEndpointPreview: Story = {
 /** New range layout/animation acceptance scenario; no historical Storybook provenance. */
 export const CompactNavigation: Story = { render: (_args,{globals}) =>
   <Provider density={globals.density} theme={globals.theme} interactionMode="pointer">
-    <DateRangeSelector label="Travel dates" months={1} defaultFocusedDate="2026-10-14" defaultValue={{start:"2026-10-07",end:"2026-10-16"}} />
+    <DateRangeSelector label="Travel dates" navigation="arrows" months={1} defaultFocusedDate="2026-10-14" defaultValue={{start:"2026-10-07",end:"2026-10-16"}} />
   </Provider>
 };
 

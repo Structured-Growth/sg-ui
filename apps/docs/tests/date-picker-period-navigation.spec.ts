@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect} from './fixtures';
 import {exampleName} from './example-name';
 import {checkSources} from './check-sources';
 for(const density of ['compact','comfortable'])test(`month/year heading navigates through shared PeriodPicker at ${density} density`,async({page},info)=>{

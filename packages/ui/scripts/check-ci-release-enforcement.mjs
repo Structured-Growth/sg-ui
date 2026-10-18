@@ -28,10 +28,13 @@ export function workflowFindings(workflows) {
  check(ci.on?.workflow_call?.inputs?.ref?.type==='string','CI: reusable exact-ref input missing');
  for(const [name,event] of Object.entries(ci.on??{}))if(['pull_request','push'].includes(name))for(const key of ['paths','paths-ignore'])check(event?.[key]===undefined,`CI: ${key} can bypass infrastructure PR/main validation`);
  check(equal(ci.permissions,{contents:'read'}),'CI: default credentials expanded');
- check(ci.jobs?.validate?.if==="github.event_name != 'pull_request' || github.base_ref != 'dev'" && ci.jobs?.docs?.if===undefined,'CI: mandatory job can be skipped');
+ check(ci.jobs?.validate?.if==="always() && (github.event_name != 'pull_request' || github.base_ref != 'dev')" && ci.jobs?.docs?.if===undefined,'CI: mandatory job can be skipped');
  check(equal(ci.jobs?.validate?.strategy?.matrix?.node,['22.12.0','24']),'CI: required runtime matrix changed');
  check(ci.jobs?.validate?.name==='Validate Node ${{ matrix.node }}' && ci.jobs?.docs?.name==='Next.js docs','CI: named required contexts changed');
- for(const id of ['validate','docs']) {
+ check(ci.jobs?.validate?.needs==='native','CI: named runtime gates must require native matrix');
+ check(equal(ci.jobs?.native?.strategy?.matrix?.browser,['chromium','firefox','webkit']) && ci.jobs?.native?.strategy?.['fail-fast']===false,'CI: complete independent engine matrix missing');
+ check(ci.jobs?.native?.if==="github.event_name != 'pull_request' || github.base_ref != 'dev'",'CI: native engine gate can be skipped');
+ for(const id of ['validate','native','docs']) {
   const job=ci.jobs?.[id];const steps=job?.steps??[];
   check(job && !job['continue-on-error'],'CI: mandatory job failure can be ignored');
   check(readOnlyJob(job),`CI ${id}: job credentials override read-only default`);
@@ -50,9 +53,16 @@ export function workflowFindings(workflows) {
    'test-foundation-consumer.mjs --react18','test-foundation-consumer.mjs ${{',
    'test-editor-consumer.mjs --react18','test-editor-consumer.mjs 2>&1',
    'pnpm pack','ci-artifacts.mjs complete'])requireStep(steps,command);
- for(const command of ['pnpm test:browser','test-next-consumer.mjs'])requireStep(steps,command,"matrix.node == '24'");
+ for(const command of ['test-next-consumer.mjs','verify-native-ci.mjs'])requireStep(steps,command,"matrix.node == '24'");
+ const nativeSteps=ci.jobs?.native?.steps??[];
+ for(const command of ['ci-artifacts.mjs begin','pnpm build:browser-docs','ci-artifacts.mjs complete'])requireStep(nativeSteps,command);
+ for(const run of ['pnpm build','pnpm exec playwright test --list --project=${{ matrix.browser }} --reporter=json > artifacts/logs/browser-collection.json','pnpm test:browser --project=${{ matrix.browser }} 2>&1 | tee artifacts/logs/browser.txt'])check(nativeSteps.filter(step=>step.run===run&&step.if===undefined).length===1,'CI: complete unfiltered native engine execution missing');
+ const gate=steps.filter(step=>step.name==='Require every native engine');
+ check(gate.length===1&&gate[0].if===undefined&&gate[0].env?.NATIVE_RESULT==='${{ needs.native.result }}'&&gate[0].run==='test "$NATIVE_RESULT" = success','CI: native failure must fail named required contexts');
+ check(steps.filter(step=>step.with?.pattern==='sgui-native-*-node-24'&&step.with?.path==='/tmp/sgui-native-ci'&&step.if==="matrix.node == '24'").length===1,'CI: native proof download missing');
  for(const command of ['pnpm check:docs','pnpm build:docs','test:e2e --reporter=list,json'])requireStep(ci.jobs?.docs?.steps??[],command);
  const at=text=>commands.findIndex(s=>s.includes(text));
+ check(at('verify-native-ci.mjs')>at('pnpm pack')&&at('verify-native-ci.mjs')<at('ci-artifacts.mjs complete'),'CI: final package/native byte join ordering changed');
  check(at('ci-artifacts.mjs begin')>=0 && at('ci-artifacts.mjs begin')<at('pnpm check') && at('ci-artifacts.mjs complete')>at('pnpm pack'),'CI: fresh-output ordering changed');
  check(release.jobs?.validate?.uses==='./.github/workflows/ci.yml' && release.jobs?.validate?.if===undefined,'Release: full prerequisite can be skipped');
  check(release.jobs?.release?.needs==='validate' && release.jobs?.release?.if==="github.ref == 'refs/heads/main'",'Release: main-only prerequisite missing');
