@@ -1,0 +1,34 @@
+{
+  "capturedAt": "2026-10-18T01:52:50.261859+00:00",
+  "observations": [
+    {
+      "kind": "tags",
+      "endpoint": "repos/Structured-Growth/sg-ui/tags?per_page=100",
+      "method": "GET",
+      "status": 200,
+      "count": 0,
+      "path": "docs/developer/final-acceptance/wave-04/02/release-marking-safety/tags.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "kind": "releases",
+      "endpoint": "repos/Structured-Growth/sg-ui/releases?per_page=100",
+      "method": "GET",
+      "status": 200,
+      "count": 0,
+      "path": "docs/developer/final-acceptance/wave-04/02/release-marking-safety/releases.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "kind": "public npm registry",
+      "url": "https://registry.npmjs.org/%40structured-growth%2Fsg-ui",
+      "method": "GET",
+      "status": 404,
+      "path": "docs/developer/final-acceptance/wave-04/02/release-marking-safety/public-npm.json",
+      "sha256": "c8d3eae160a892e32837db3dcae515e843e5383fef52b8141940c8bcf8b6d59f",
+      "scope": "Unauthenticated public observation only; cannot establish private/deleted/disagreeing publication history or release authority"
+    }
+  ],
+  "writes": false,
+  "publicationDecision": "No promotion/publication authorized; subsequent release decision remains conditional on authoritative history and exact approved candidate"
+}

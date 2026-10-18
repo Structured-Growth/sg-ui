@@ -130,3 +130,31 @@ physical optional-package selections and supported-platform exclusions. No lock
 delta is a valid outcome; an old installed lock or structural audit alone does not
 prove fresh reproducibility. Never regenerate the shared acceptance checkout just
 to produce a receipt.
+
+
+## Offline migration marking and trigger checks
+
+Ordinary integration stays on `dev`. A push there does not match Release's `main`
+push trigger, and a manual dispatch on another branch cannot pass the release
+job's explicit `refs/heads/main` guard. The configured release branches also contain
+only `main`. A future approved promotion to `main` can publish automatically after
+the reusable validation dependency succeeds; it is not a validation-only merge.
+Do not use a main push or workflow dispatch as a test.
+
+From the repository root, `pnpm test:release` runs the maintained analyzer/version
+policy tests; it does not invoke the semantic-release lifecycle. The tests call
+only the configured Conventional Commit analyzer and installed pure version
+calculator: a breaking commit yields `major`, with no previous release the initial
+version is `1.0.0`, and an existing `1.4.2` becomes `2.0.0`. Both `!` and a real
+`BREAKING CHANGE:` footer are covered. These examples do not set a version by hand
+or select an actual release candidate. The workflow policy fixtures separately
+reject a dev release trigger, a missing main-only guard and a skipped validation
+prerequisite.
+
+The [R-15/R-28 reconciliation](../developer/final-acceptance/wave-04/02/release-marking-safety/receipt.json)
+retains the actual `339c958d` breaking-marker proof, exact configuration/tool inputs
+and scoped read-only history observations. The marker must still reach the actual
+main commit history analyzed by a future release; a maintenance-only squash can
+lose it. Source/configuration acceptance does not grant R-17 publishing authority,
+prove R-27 branch protection, or approve the full production candidate. Those
+remain separate requirements before any promotion/publication.

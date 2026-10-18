@@ -1,0 +1,41 @@
+{
+  "recommendations": [
+    {
+      "id": "A-R-15",
+      "status": "complete"
+    },
+    {
+      "id": "A-R-28",
+      "status": "complete"
+    }
+  ],
+  "head": "96818be4336e8fd4c7f72aba1ae683c8a6af307d",
+  "criterionMap": "report.md",
+  "actualMarker": {
+    "commit": "339c958d639250abfb6fef28da48f4d85c215393",
+    "messageSha256": "c9d41eb065815751f707e8c2ea009a2f3112c29e434b5600577cc35eaa74347d",
+    "configuredImpact": "major",
+    "matchesAcceptedProof": true
+  },
+  "offlineVersionOutcomes": {
+    "noPreviousRelease": "1.0.0",
+    "existing_1_4_2": "2.0.0",
+    "existing_0_9_0": "1.0.0"
+  },
+  "freshValidation": {
+    "releasePolicyTestsPassed": 6,
+    "workflowPolicyTestsPassed": 14,
+    "runtime": "v24.19.0",
+    "semanticReleaseLifecycleInvoked": false
+  },
+  "configAndWorkflowsUnchanged": true,
+  "readOnlyHistory": "history-receipt.json; observations do not authorize release or prove private/deleted history",
+  "explicitProductionControl": "dev integration produces no release; only separately approved main promotion can release after full validate; actual prior release/history chooses initial vs major",
+  "separateObligations": [
+    "R-17 publication authority and credentials",
+    "R-27 effective branch protection",
+    "Exact future main candidate and full production validation",
+    "Legal/publication approval"
+  ],
+  "cleanup": "Canonical light slot released; no hooks/dry-run/build/install/dispatch/main/tag/publish/settings/secrets/version mutation"
+}

@@ -1,0 +1,38 @@
+{
+  "startedAt": "2026-10-18T01:53:31.655Z",
+  "runtime": "v24.19.0",
+  "runs": [
+    {
+      "name": "release-policy",
+      "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+      "command": [
+        "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--test",
+        "scripts/release-policy.test.mjs"
+      ],
+      "status": "pass"
+    },
+    {
+      "name": "workflow-safety",
+      "cwd": "/Users/thomashall/Repositories/sg-ui",
+      "command": [
+        "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--test",
+        "packages/ui/scripts/check-ci-release-enforcement.test.mjs"
+      ],
+      "status": "pass"
+    },
+    {
+      "name": "actual-marker",
+      "cwd": "/Users/thomashall/Repositories/sg-ui",
+      "command": [
+        "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "docs/developer/final-acceptance/wave-04/02/release-marking-safety/offline-marker.mjs"
+      ],
+      "status": "pass"
+    }
+  ],
+  "status": "pass",
+  "finishedAt": "2026-10-18T01:53:36.946Z",
+  "cleanup": "Canonical light released; no semantic-release lifecycle/dry-run/hooks or publication, build/install/dispatch"
+}
