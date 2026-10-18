@@ -1,0 +1,33 @@
+{
+  "status": "original-upstream-source-access-gap-resolved-read-only",
+  "repository": "Structured-Growth/learning-platform",
+  "commit": "8e63f1e16fc3d43d851908b312603a1099ca13d9",
+  "resolvedTree": "4a7580f7b2a80ade4d7ffbfccfd51e1962b95781",
+  "methods": [
+    "GitHub Git API GET commit/tree",
+    "GitHub Git API GET33story blobs",
+    "Independent Git blob SHA1 and SHA256 check",
+    "Local git21adebd source/AST comparison"
+  ],
+  "sourcePathsVerified": 201,
+  "initialExactBlobMatches": 117,
+  "adaptedBlobIdentities": 84,
+  "originalStoryModules": 33,
+  "exactStoryBlobMatches": 0,
+  "matchingStoryExportSets": 32,
+  "originalNamedExportsMissing": 0,
+  "explicitAddition": "Initial local SideNavigation adds HostRouting alongside original Default",
+  "upstreamPlayProperties": 0,
+  "upstreamAssertionCalls": 0,
+  "upstreamWrites": 0,
+  "localRawStoryRetention": "Local-only source data; not executed or added to Git/runtime/package",
+  "sha256": {
+    "docs/extraction-manifest.json": "46f4558ed8aafd205ad97b3638bddccef73a877afffe60ddcfba22d3a61cb3fc",
+    "docs/developer/extraction-lineage.md": "34ecb7c4eb25b9b8e82649cd968c30c2eddee6ad2a788b8070e02ab233eb2432",
+    "docs/developer/final-acceptance/wave-04/coordinator/upstream-provenance/verified-source-inventory.json": "0630395bfd6fca2e53f1c205bd710773b74b5e79a60f1d071baa0c8b15e5ccb3",
+    "docs/developer/final-acceptance/wave-04/coordinator/upstream-provenance/verified-story-sources.json": "037e0e9ce87421a656111dc76fc1b37d53d35caf34247bc97f706d77d38bbe4c",
+    "docs/developer/final-acceptance/wave-04/coordinator/upstream-provenance/story-source-comparison.json": "34cdde6da8d485d109edcfcee7ca2a95e2e08a35c63103a8d80ca9a3d89f5442",
+    "docs/developer/final-acceptance/wave-04/coordinator/upstream-provenance/local-provenance-check.json": "8ddd9bfab9d1cae3f256a8b4f02cf641be5c892510a4bf738bf14fab351b0940"
+  },
+  "limits": "Authenticated read-only API provenance and source-declared reference examples; not upstream application runtime, imported-helper execution, unrelated historical/current application changes, license approval or release readiness."
+}

@@ -4,15 +4,21 @@ This reconciliation distinguishes the recorded upstream source, local extracted
 files, later owned contracts and the docs-native replacement host. The upstream
 identity remains `Structured-Growth/learning-platform`, commit
 `8e63f1e16fc3d43d851908b312603a1099ca13d9`, root `apps/web/src/ui`.
-That commit object is unavailable in this SGUI repository. No learner-platform
-checkout or remote was accessed. Local extraction history is evidence of local
-contents; it does not independently authenticate upstream bytes or behavior.
+That commit object remains outside this SGUI repository. The original local-history audit did not access an upstream checkout or remote. The read-only GitHub verification below now independently authenticates the recorded commit, tree, source paths and original story blobs; local history alone was not treated as upstream proof.
 
 The [extraction manifest](../extraction-manifest.json) retains all 201 source and
 destination pairs in original order. Historical `src/` destinations resolve under
 `packages/ui`. The 2026-10-16 audit finds 159 present and 42 absent destinations,
 zero presence mismatches and no missing replacement paths. These are a dated
 working-tree inventory, not permanent thresholds or runtime acceptance.
+
+## Read-only upstream verification — 2026-10-17
+
+The original [upstream commit](https://github.com/Structured-Growth/learning-platform/commit/8e63f1e16fc3d43d851908b312603a1099ca13d9) resolves to tree `4a7580f7b2a80ade4d7ffbfccfd51e1962b95781`. Authenticated read-only Git API requests verify all 201 manifest paths. Of those, 117 have the same Git blob identity in the initial local extraction; 84 differ and retain their adaptation/replacement dispositions. These counts do not imply that adapted source is verbatim.
+
+All 33 original story blobs were fetched read-only, size-checked and independently rehashed as Git blobs. The [source comparison](final-acceptance/wave-04/coordinator/upstream-provenance/story-source-comparison.json) records their immutable URLs/hashes and AST declarations. Thirty-two modules have identical exported scenario names; SideNavigation retains upstream Default and adds the local HostRouting example. No upstream named scenario is missing in that initial comparison. Original modules contain zero play properties or expect/assert calls, so no original story assertion is claimed as executed. Imported helper behavior and full upstream application runtime remain separate.
+
+The original AppButton blob is `7a29fe0757e577c72252df4254647d494eb7d042`, with Default and Variants. Its bytes differ from the adapted local blob below; the current many-to-one replacement is intentional. Raw upstream story contents remain local source data and were never executed or added to library/runtime imports. The [verified inventory](final-acceptance/wave-04/coordinator/upstream-provenance/verified-source-inventory.json) records exact paths/blob identities. Only GET requests were used, and no learner-platform checkout, source, branch or remote setting was changed by this verification. This does not attest to unrelated historical work in that application.
 
 ## AppButton replacement
 
@@ -58,7 +64,7 @@ replacement above. All exported scenario names in those 32 pre-docs modules
 remain in their fixtures. Both inspected generations of the 33 local story
 modules contain zero play properties and zero expect/assert calls. This does
 not cover imported helper assertions, browser specs, deleted intermediate Git
-versions or upstream repository contents.
+versions. Original upstream story-source verification is recorded separately above.
 
 | Extracted story path relative to src/ | Docs-native replacement |
 | --- | --- |
@@ -170,6 +176,6 @@ notices retain their separate source/asset and license review under A-Z-06.
 
 [Audit evidence](final-acceptance/wave-03-33/evidence.json) records exact local Git
 blobs, source SHA-256 hashes, scenario export comparisons, unit assertion texts,
-the unavailable-upstream diagnostic and prior-receipt input comparisons. No
+the original unavailable-upstream diagnostic and prior-receipt input comparisons. That dated diagnostic is retained; the later read-only verification above resolves its source-access gap. No
 learner-platform mutation, runtime/browser/AT/device execution, legal approval,
 publication or historical-evidence rewrite is implied.

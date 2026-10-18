@@ -1,0 +1,15 @@
+{
+  "status": "structural-checks-pass",
+  "extractionRows": 201,
+  "originalStoryModules": 33,
+  "transfers": 32,
+  "deliberateReplacements": 1,
+  "unresolvedEarlyScenarios": [],
+  "commands": 27,
+  "issues": [],
+  "limits": [
+    "Source/metadata/command existence only; no product, browser, spoken AT, legal, release or upstream authentication result.",
+    "Command code spans/fences checked only in four named current guides; script names/package filters, not shell flags, arguments or actual execution.",
+    "Semantic dispositions bind original hashes, behavior/differences/gaps and current host/assertion anchors; they do not prove runtime parity. Strict-history fails for unresolved records."
+  ]
+}

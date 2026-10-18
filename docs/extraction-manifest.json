@@ -19,7 +19,7 @@
           "apps/docs/native-fixtures/scenarios/experimental/Button/Button.fixture.tsx",
           "apps/docs/examples/ButtonDocumentation.tsx"
         ],
-        "evidenceLimit": "Deliberate local-history replacement, not an exact docs-native module transfer. See docs/developer/extraction-lineage.md. All inspected local AppButton stories have no play/expect/assert execution; original learner-platform commit contents and behavior remain unverified.",
+        "evidenceLimit": "Deliberate local-history replacement, not an exact docs-native module transfer. Read-only upstream verification now authenticates original blob7a29fe0757e577c72252df4254647d494eb7d042 and its Default/Variants exports; original and inspected local stories have no play/expect/assert execution. This is source evidence, not upstream application runtime acceptance.",
         "localReconciliation": {
           "initialExtractionCommit": "21adebd61bedfc6a1ed395fe664ff4be83896821",
           "initialStoryBlob": "55e160e15e974ffa4e9814724aa1223b84aed6d8",
@@ -1310,5 +1310,13 @@
         ]
       }
     }
-  ]
+  ],
+  "upstreamVerification": {
+    "evidence": "docs/developer/final-acceptance/wave-04/coordinator/upstream-provenance/verified-source-inventory.json",
+    "resolvedTree": "4a7580f7b2a80ade4d7ffbfccfd51e1962b95781",
+    "pathsVerified": 201,
+    "initialExactBlobMatches": 117,
+    "sourceStoryModulesVerified": 33,
+    "method": "Read-only authenticated GitHub Git API; commit/tree/blob identities checked, story bytes rehashed locally. No upstream write or runtime execution."
+  }
 }

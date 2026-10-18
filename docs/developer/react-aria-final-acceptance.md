@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 280/320 A leaves closed; 40 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 281/320 A leaves closed; 39 A, 0 editor V review leaves and six future leaves remain.**
+
+### Upstream source provenance verified read-only — 2026-10-17
+
+Resolved original source access through read-only GitHub commit/tree/blob APIs. All201extraction paths exist at the original immutable tree;117initial local blobs match exactly and84retain adaptation identities. All33original story bytes were rehashed; no original named scenario is missing, and no original story play/assert execution exists to claim as run. Updated current lineage/manifest without rewriting original historical diagnostics.
+Wave 04 now closes 100 of 139 items; 39 remain.
 
 ### Changed behavior coverage inventory accepted — 2026-10-17
 

@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 99,
-  "closedTotal": 280,
-  "remaining": 40,
+  "closedThisReview": 100,
+  "closedTotal": 281,
+  "remaining": 39,
   "entries": [
     {
       "id": "A-M-21",
@@ -884,6 +884,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-changed-behavior-coverage-review.json",
       "sha256": "3d7ad267b614ebb7bfa46b76932d52f7aa15659a0f4e989cf77df2f72cb3b76d",
       "limits": "Inventory and reference/runtime hashes verified; no new broad browser/network trace or all-parent-suite green claim. Historical evidence retains tested input scope; newly implemented future behavior still requires its own focused regression evidence. No authentication/database/service backend behavior inferred."
+    },
+    {
+      "id": "A-B-14",
+      "basis": "Original repository/commit/tree/source-path identities and source-declared reference story behavior are now directly verified from authoritative read-only upstream data. Only GET/read operations were used; no learner-platform checkout, source, branch or remote setting changed. Initial local adaptation and docs-native replacement scopes remain explicit.",
+      "criterion": "- [ ] A-B-14 Reconcile original `B-14`: Keep the learner platform unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/root-upstream-readonly-provenance-review.json",
+      "sha256": "abdc9c80a51f52a5eaadf27ccabbf6c3bb9759fe56b745dc0ff9ae673a2c19c2",
+      "limits": "Authenticated read-only API provenance and source-declared reference examples; not upstream application runtime, imported-helper execution, unrelated historical/current application changes, license approval or release readiness."
     }
   ],
   "limits": [
