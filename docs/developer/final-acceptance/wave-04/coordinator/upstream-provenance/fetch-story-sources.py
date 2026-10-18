@@ -1,6 +1,6 @@
 import json,subprocess,base64,hashlib,concurrent.futures
 from pathlib import Path
-b=Path('docs/developer/final-acceptance/wave-04/coordinator/upstream-provenance');m=json.loads(Path('docs/extraction-manifest.json').read_text());c=json.loads(Path('/tmp/sgui-upstream-commit.json').read_text());t=json.loads(Path('/tmp/sgui-upstream-resolved-tree.json').read_text());assert c['sha']==m['sourceCommit'];assert t['sha']==c['tree']['sha'];assert not t['truncated'];tree={e['path']:e for e in t['tree']};rows=[]
+b=Path('docs/developer/final-acceptance/wave-04/coordinator/upstream-provenance');m=json.loads(Path('docs/extraction-manifest.json').read_text());c=json.loads(subprocess.check_output(['gh','api',f"repos/{m['sourceRepository']}/git/commits/{m['sourceCommit']}"]));t=json.loads(subprocess.check_output(['gh','api',f"repos/{m['sourceRepository']}/git/trees/{c['tree']['sha']}?recursive=1"]));assert c['sha']==m['sourceCommit'];assert t['sha']==c['tree']['sha'];assert not t['truncated'];tree={e['path']:e for e in t['tree']};rows=[]
 for f in m['files']:
  e=tree[m['sourceRoot']+'/'+f['source']];assert e['type']=='blob';path='src/'+f['source'];v=subprocess.run(['git','rev-parse','21adebd:'+path],capture_output=True,text=True);local=v.stdout.strip() if v.returncode==0 else None
  rows.append({'source':f['source'],'upstreamBlob':e['sha'],'bytes':e['size'],'initialLocalPath':path,'initialLocalBlob':local,'initialLocalBytesEqual':local==e['sha']})
