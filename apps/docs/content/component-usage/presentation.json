@@ -698,7 +698,7 @@
       "path and onPathChange form a controlled request contract; defaultPath starts a local stack. Removed/disabled ancestors render the longest valid path and request correction once. Accepted host focus outside the panel is preserved.",
       "Give the host a bounded width/height when independent scrolling is needed. Back stays available above long navigation content; both densities use owned targets, directional motion respects RTL and reduced motion, and focus remains outlined in forced colors.",
       "A popup host owns opening, positioning and dismissal. Pass onDismiss in command mode for root Escape; child Escape unwinds first. Unmounting popup content resets local path on reopening; controlled paths remain host-owned. Leaf href owns native/adapter routing, while onAction is a notification; do not navigate twice. Explicitly close the popup after a leaf action if desired. Persistent navigation has no popup Escape policy.",
-      "The host supplies translated item labels, router adapters, current markers, authorization and persistence. The library translates Back to the branch label. Avoid arbitrary forms inside the commands collection."
+      "The host supplies translated item labels, router adapters, current markers, authorization and persistence. A current page retains a double start bar independently of focus and hover backgrounds, including forced colors; the bar does not change row geometry. The library translates Back to the branch label. Avoid arbitrary forms inside the commands collection."
     ],
     "related": [
       {

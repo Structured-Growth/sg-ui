@@ -9,6 +9,7 @@ it('selects immediately, reports numeric months and retains partial-date bounds'
  expect(screen.getAllByRole('button')).toHaveLength(12);
  expect(screen.getByRole('button',{name:'February'}).hasAttribute('disabled')).toBe(true);
  await user.click(screen.getByRole('button',{name:'March'}));expect(change).toHaveBeenCalledExactlyOnceWith(3);expect(screen.getByRole('button',{name:'March'}).getAttribute('aria-pressed')).toBe('true');
+ await user.tab();expect(document.activeElement).toBe(screen.getByRole('button',{name:'April'}));expect(screen.getByRole('button',{name:'March'}).getAttribute('aria-pressed')).toBe('true');expect(screen.getByRole('button',{name:'April'}).getAttribute('aria-pressed')).toBe('false');expect(change).toHaveBeenCalledTimes(1);
 });
 it('combines custom month availability and date policy while respecting read only',async()=>{
  const user=userEvent.setup(),change=vi.fn();const {rerender}=render(<MonthPicker year={2026} isMonthUnavailable={month=>month===4} getDateUnavailableReason={date=>date.startsWith('2026-05')?'Closed':undefined} onValueChange={change}/>);

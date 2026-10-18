@@ -43,7 +43,10 @@ it("enters three levels, restores Back focus, preserves mixed inline expansion a
   await waitFor(() => expect(document.activeElement).toBe(first().getByRole("button", { name: "Reports" })));
   expect(first().getByRole("button", { name: "More" }).getAttribute("aria-expanded")).toBe("true");
   expect(within(screen.getByRole("navigation", { name: "Second" })).queryByRole("button", { name: "Back to Settings" })).toBeNull();
-  expect(first().getByRole("link", { name: "Home" }).getAttribute("aria-current")).toBe("page");
+  const current=first().getByRole("link",{name:"Home"});
+  current.focus();await user.tab();
+  expect(document.activeElement).toBe(first().getByRole("link",{name:"Help"}));
+  expect(current.getAttribute("aria-current")).toBe("page");
   expect(first().getByRole("link", { name: "Help" }).getAttribute("rel")).toContain("noopener");
 });
 

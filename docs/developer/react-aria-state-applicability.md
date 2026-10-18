@@ -15,6 +15,13 @@ rationale and exact source/test paths are preserved in the wave-03-08
 
 Current source correction (2026-10-17): Progress, CircularProgress, LinearProgress and AppInlineProgress are passive progress indicators. They have no owned hover/focus/press contract; their loading/value semantics remain. The historical machine matrix is preserved as dated evidence and does not override these current rows. The current API name join adds HierarchicalMenu, FormFieldScope, MonthPicker and YearPicker below; every one of the 218 catalogued public names is represented, including the historical per-icon rows. This is an inventory join, not a new runtime pass for all rows.
 
+Avatar is also passive: its public span/image contract supplies no owned hover,
+focus or press action. It keeps a stable fallback while its private image loads
+and on image failure. Loading here describes that image lifecycle, not a host
+query or a new busy/interactive prop. Button, IconButton, SplitAction and
+ListItemButton expose loading as the existing pending-action behavior; the Pend
+column covers that alias rather than inventing a second operation state.
+
 ## Required indicators
 
 | State | Design and non-color requirement |
@@ -75,7 +82,7 @@ examples; source owners and exact reference tests are in the machine matrix.
 | [CircularProgress](/docs/components/progress) | — | — | — | — | — | — | — | — | — | A | — |
 | [LinearProgress](/docs/components/progress) | — | — | — | — | — | — | — | — | — | A | — |
 | [Status](/docs/components/status) | — | — | — | — | — | — | — | H | H | H | H |
-| [Avatar](/docs/components/avatar) | A | A | A | — | — | — | — | — | A | — | A |
+| [Avatar](/docs/components/avatar) | — | — | — | — | — | — | — | — | A | A | A |
 | [Table](/docs/components/table) | — | — | — | — | — | — | — | — | — | — | — |
 | [TableCaption](/docs/components/table) | — | — | — | — | — | — | — | — | — | — | — |
 | [TableHead](/docs/components/table) | — | — | — | — | — | — | — | — | — | — | — |
@@ -209,12 +216,21 @@ retains its dimensions. The [bounded receipt](final-acceptance/wave-04/coordinat
 preserves initial locator failures, the corrected direction fixtures and reviewed
 images. This does not certify the complete state matrix.
 
-The new public-part review also identifies two remaining structural-indicator
-checks: HierarchicalMenu's current page has a selected background, while
-MonthPicker/YearPicker express a selected value through filled Button styling.
-Their current ARIA semantics do not establish a standard-mode non-color visual
-indicator. These need a bounded implementation and native review after the current
-frozen build, without changing focus-ring ownership.
+The subsequent public-part source correction gives HierarchicalMenu's current
+page a persistent double start bar, and MonthPicker/YearPicker selected choices
+an inset ring. These structural indicators do not replace the existing independent
+focus outlines or change selection/availability contracts. Existing meaningful
+unit cases verify selection survives focus movement. A subsequent six-case
+Chromium check passed for these three controls in measured light/compact/LTR and
+dark/comfortable/RTL contexts, in standard and actual forced colors; YearPicker
+covered both scrolling and paged choices within its existing case. Element
+geometry remained stable, selection and focus retained separate indicators, and
+forced-color indicator contrast against the selected surface measured at least
+15.13:1 in these observed contexts. Twelve screenshots were reviewed. The
+[bounded receipt](final-acceptance/wave-04/05/batch/d15-remaining-indicators/completion-receipt.json)
+preserves the initial rem-token measurement setup failure and corrected run.
+This does not close all D15, certify other engines or extend this result to the
+complete state matrix.
 
 FormFieldScope creates no DOM or action state; it supplies inherited description
 and error placement. MonthPicker/YearPicker compose Button availability and focus;

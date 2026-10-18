@@ -7,6 +7,7 @@ afterEach(cleanup);
 it('pages deterministic years, honors bounds and selects immediately',async()=>{
  const user=userEvent.setup(),change=vi.fn();render(<YearPicker yearNavigation="paged" referenceYear={2000} minYear={1980} maxYear={2026} yearsPerPage={12} onValueChange={change}/>);
  expect(screen.queryByRole('button',{name:'2027'})).toBeNull();await user.click(screen.getByRole('button',{name:'Previous years'}));await user.click(screen.getByRole('button',{name:'1984'}));expect(change).toHaveBeenCalledExactlyOnceWith(1984);
+ await user.tab();expect(document.activeElement).toBe(screen.getByRole('button',{name:'1985'}));expect(screen.getByRole('button',{name:'1984'}).getAttribute('aria-pressed')).toBe('true');expect(screen.getByRole('button',{name:'1985'}).getAttribute('aria-pressed')).toBe('false');expect(change).toHaveBeenCalledTimes(1);
 });
 it('defers typed validation until Enter or blur and commits only eligible four-digit years',async()=>{
  const user=userEvent.setup(),change=vi.fn();render(<YearPicker yearEntry="text" minYear={1900} maxYear={2026} onValueChange={change}/>);

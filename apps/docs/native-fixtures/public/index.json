@@ -91,6 +91,16 @@
       "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
       "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
     },
+    "foundations-foundation-catalogue--structural-selection-indicators": {
+      "id": "foundations-foundation-catalogue--structural-selection-indicators",
+      "type": "fixture",
+      "title": "Foundations/Foundation Catalogue",
+      "name": "StructuralSelectionIndicators",
+      "exportName": "StructuralSelectionIndicators",
+      "module": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
+    },
     "foundations-tokentierscope--nested-overrides": {
       "id": "foundations-tokentierscope--nested-overrides",
       "type": "fixture",

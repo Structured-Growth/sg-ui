@@ -11,6 +11,7 @@ import { Stack } from "@structured-growth/sg-ui/experimental";
 import { Surface } from "@structured-growth/sg-ui/experimental";
 import { Typography } from "@structured-growth/sg-ui/experimental";
 
+import { HierarchicalMenu, MonthPicker, YearPicker } from "@structured-growth/sg-ui/experimental";
 import { IconPanelNavigation } from "@structured-growth/sg-ui/components";
 
 const themes = ["light", "dark"] as const;
@@ -222,3 +223,16 @@ function PointerPanelWidth({side,dir}:{side:"start"|"end";dir:"ltr"|"rtl"}) {
   </ThemeScope>;
 }
 export const PointerPanelWidths:Story={render:()=> <><PointerPanelWidth side="start" dir="ltr"/><PointerPanelWidth side="end" dir="rtl"/></>};
+
+export const StructuralSelectionIndicators:Story={render:(_args,{globals})=>
+  <ThemeScope theme={globals.theme} density={globals.density} dir={globals.direction} data-testid="structural-indicator-scope" style={{width:"24rem",maxWidth:"100%"}}>
+    <HierarchicalMenu label="Current page indicators" items={{sections:[{id:"pages",items:[
+      {id:"current",label:"Current course",href:"#course",current:true},
+      {id:"reports",label:"Course reports",href:"#reports"},
+    ]}]}}/>
+    <div style={{height:340}}><MonthPicker label="Selected month indicators" year={2026} defaultValue={4} min="2026-03-15" max="2026-06-10"/></div>
+    <div data-testid="year-indicator-examples">
+      <YearPicker label="Selected year indicators" defaultValue={2026} minYear={2020} maxYear={2031} isYearUnavailable={year=>year===2027}/>
+      <YearPicker label="Paged year indicators" yearNavigation="paged" defaultValue={2026} minYear={2020} maxYear={2031} isYearUnavailable={year=>year===2027}/>
+    </div>
+  </ThemeScope>};

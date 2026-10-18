@@ -1,0 +1,13 @@
+{
+  "head": "d9a48d0faffd0f9bfd9a851adcc58b79a56c98ad",
+  "node": "v24.19.0",
+  "owner": "d15-structural-indicators:9282",
+  "pid": 9282,
+  "sourceManifest": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/source-after-build.json",
+  "sourceSha256": "8c035f1f98f886fd4fa049661e0e40689e4cd68f64923fdfd18e56f13756cafc",
+  "librarySha256": "117ff9c93d206169eded610510ba82679307d6c2a01d09341ca68cae47861796",
+  "hostSha256": "90bc8dcd87eea1661de6656a10e1e83673273afbae16dfbe556068f925519068",
+  "hostRoot": "/Users/thomashall/Repositories/sg-ui/packages/ui/browser-docs-static",
+  "baseURL": "http://127.0.0.1:6173",
+  "immutable": true
+}

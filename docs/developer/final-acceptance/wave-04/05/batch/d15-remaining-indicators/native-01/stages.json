@@ -1,0 +1,52 @@
+[
+  {
+    "name": "library-build",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/build.mjs"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T01:37:20.332Z",
+    "exitCode": 0,
+    "completedAt": "2026-10-18T01:37:28.777Z"
+  },
+  {
+    "name": "fixture-build",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/build-browser-docs.mjs"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T01:37:29.061Z",
+    "exitCode": 0,
+    "completedAt": "2026-10-18T01:37:37.130Z"
+  },
+  {
+    "name": "browser-types",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "-p",
+      "tests/browser/tsconfig.json"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T01:37:37.131Z",
+    "exitCode": 0,
+    "completedAt": "2026-10-18T01:37:38.550Z"
+  },
+  {
+    "name": "native-browser",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native.config.cjs"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T01:37:38.843Z",
+    "exitCode": 1,
+    "completedAt": "2026-10-18T01:37:44.983Z"
+  }
+]

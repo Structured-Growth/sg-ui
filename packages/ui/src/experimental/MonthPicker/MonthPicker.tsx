@@ -49,6 +49,6 @@ export function MonthPicker({label,year,value,defaultValue=null,onValueChange,di
   const month=index+1,period=Number.isInteger(year)&&year>=1&&year<=9999?getCivilPeriod(`${String(year).padStart(4,'0')}-${String(month).padStart(2,'0')}-01`,"month"):null;
   const blocked=!period||!firstPeriodNavigationDate(period,constraints)||Boolean(isMonthUnavailable?.(month));
   const format=(width:"long"|"short")=>new Intl.DateTimeFormat(locale,{month:width,calendar:"gregory",timeZone:"UTC"}).format(new Date(Date.UTC(2000,index,1)));
-  return <Button key={month} aria-label={format("long")} aria-pressed={selected===month} variant={selected===month?"filled":"text"} tone={selected===month?"primary":"neutral"} disabled={disabled||readOnly||blocked} onPress={()=>{if(value===undefined)setInternal(month);onValueChange?.(month);}}>{format("short")}</Button>;
+  return <Button key={month} className={styles.choice} aria-label={format("long")} aria-pressed={selected===month} variant={selected===month?"filled":"text"} tone={selected===month?"primary":"neutral"} disabled={disabled||readOnly||blocked} onPress={()=>{if(value===undefined)setInternal(month);onValueChange?.(month);}}>{format("short")}</Button>;
  })}</div>;
 }

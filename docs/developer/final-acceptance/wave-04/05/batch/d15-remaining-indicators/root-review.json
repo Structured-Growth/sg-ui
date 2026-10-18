@@ -1,0 +1,12 @@
+{
+  "reviewer": "root",
+  "date": "2026-10-17 America/Chicago",
+  "decision": "Accept bounded menu/month/year structural indicator changes",
+  "observations": [
+    "All twelve saved images independently reviewed in contact sheet; dark comfortable RTL year image inspected at full size.",
+    "Current-page marker mirrors to logical start; selected month/year inset ring stays distinct from keyboard focus in standard and forced colors.",
+    "Scroll and paged year choices covered within the same cases; no measured geometry changes."
+  ],
+  "evidence": "completion-receipt.json",
+  "limits": "D15 overall remains open; no baseline update or broad native/AT claim."
+}

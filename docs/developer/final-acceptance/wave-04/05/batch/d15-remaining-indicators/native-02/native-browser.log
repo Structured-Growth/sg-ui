@@ -1,0 +1,13 @@
+
+Running 6 tests using 1 worker
+
+(node:9904) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/browser/structural-selection-indicators.spec.ts:28:3 › menu structural selection remains independent from focus (none) (716ms)
+  ✓  2 [chromium] › tests/browser/structural-selection-indicators.spec.ts:28:3 › month structural selection remains independent from focus (none) (560ms)
+  ✓  3 [chromium] › tests/browser/structural-selection-indicators.spec.ts:28:3 › year structural selection remains independent from focus (none) (809ms)
+  ✓  4 [chromium] › tests/browser/structural-selection-indicators.spec.ts:28:3 › menu structural selection remains independent from focus (active) (435ms)
+  ✓  5 [chromium] › tests/browser/structural-selection-indicators.spec.ts:28:3 › month structural selection remains independent from focus (active) (684ms)
+  ✓  6 [chromium] › tests/browser/structural-selection-indicators.spec.ts:28:3 › year structural selection remains independent from focus (active) (1.1s)
+
+  6 passed (4.9s)

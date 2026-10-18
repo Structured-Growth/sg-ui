@@ -1,0 +1,531 @@
+{
+  "config": {
+    "argv": [
+      "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native.config.cjs"
+    ],
+    "configFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native.config.cjs",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "structural-selection-indicators.spec.ts"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "structural-selection-indicators.spec.ts",
+      "file": "structural-selection-indicators.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "menu structural selection remains independent from focus (none)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 611,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts:43:43",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                      "column": 43,
+                      "line": 43
+                    },
+                    "snippet": "  41 |       expect(await scope.evaluate(node=>getComputedStyle(node).direction)).toBe(direction);\n  42 |       const measuredScope=await scope.evaluate(node=>{const css=getComputedStyle(node);return {controlHeight:parseFloat(css.getPropertyValue('--sgui-control-height')),colorScheme:css.colorScheme,direction:css.direction};});\n> 43 |       expect(measuredScope.controlHeight).toBe(density==='compact'?32:44);\n     |                                           ^\n  44 |       if(!forced)expect(measuredScope.colorScheme).toContain(theme);\n  45 |       const pseudo=kind==='menu'?'::before':'::after';\n  46 |       const branches=kind==='year'?['scroll','paged']:['default'];"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                        "column": 43,
+                        "line": 43
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n\n  41 |       expect(await scope.evaluate(node=>getComputedStyle(node).direction)).toBe(direction);\n  42 |       const measuredScope=await scope.evaluate(node=>{const css=getComputedStyle(node);return {controlHeight:parseFloat(css.getPropertyValue('--sgui-control-height')),colorScheme:css.colorScheme,direction:css.direction};});\n> 43 |       expect(measuredScope.controlHeight).toBe(density==='compact'?32:44);\n     |                                           ^\n  44 |       if(!forced)expect(measuredScope.colorScheme).toContain(theme);\n  45 |       const pseudo=kind==='menu'?'::before':'::after';\n  46 |       const branches=kind==='year'?['scroll','paged']:['default'];\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts:43:43"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:37:39.697Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-fa848-ndependent-from-focus-none--chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-fa848-ndependent-from-focus-none--chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-fa848-ndependent-from-focus-none--chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                    "column": 43,
+                    "line": 43
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bf30a2b41e4fe5e00952-383de1eaddf363031367",
+          "file": "structural-selection-indicators.spec.ts",
+          "line": 28,
+          "column": 3
+        },
+        {
+          "title": "month structural selection remains independent from focus (none)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 350,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts:43:43",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                      "column": 43,
+                      "line": 43
+                    },
+                    "snippet": "  41 |       expect(await scope.evaluate(node=>getComputedStyle(node).direction)).toBe(direction);\n  42 |       const measuredScope=await scope.evaluate(node=>{const css=getComputedStyle(node);return {controlHeight:parseFloat(css.getPropertyValue('--sgui-control-height')),colorScheme:css.colorScheme,direction:css.direction};});\n> 43 |       expect(measuredScope.controlHeight).toBe(density==='compact'?32:44);\n     |                                           ^\n  44 |       if(!forced)expect(measuredScope.colorScheme).toContain(theme);\n  45 |       const pseudo=kind==='menu'?'::before':'::after';\n  46 |       const branches=kind==='year'?['scroll','paged']:['default'];"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                        "column": 43,
+                        "line": 43
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n\n  41 |       expect(await scope.evaluate(node=>getComputedStyle(node).direction)).toBe(direction);\n  42 |       const measuredScope=await scope.evaluate(node=>{const css=getComputedStyle(node);return {controlHeight:parseFloat(css.getPropertyValue('--sgui-control-height')),colorScheme:css.colorScheme,direction:css.direction};});\n> 43 |       expect(measuredScope.controlHeight).toBe(density==='compact'?32:44);\n     |                                           ^\n  44 |       if(!forced)expect(measuredScope.colorScheme).toContain(theme);\n  45 |       const pseudo=kind==='menu'?'::before':'::after';\n  46 |       const branches=kind==='year'?['scroll','paged']:['default'];\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts:43:43"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:37:41.220Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-0a33d-ndependent-from-focus-none--chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-0a33d-ndependent-from-focus-none--chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-0a33d-ndependent-from-focus-none--chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                    "column": 43,
+                    "line": 43
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bf30a2b41e4fe5e00952-28f4114990c3e8377202",
+          "file": "structural-selection-indicators.spec.ts",
+          "line": 28,
+          "column": 3
+        },
+        {
+          "title": "year structural selection remains independent from focus (none)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 564,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts:43:43",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                      "column": 43,
+                      "line": 43
+                    },
+                    "snippet": "  41 |       expect(await scope.evaluate(node=>getComputedStyle(node).direction)).toBe(direction);\n  42 |       const measuredScope=await scope.evaluate(node=>{const css=getComputedStyle(node);return {controlHeight:parseFloat(css.getPropertyValue('--sgui-control-height')),colorScheme:css.colorScheme,direction:css.direction};});\n> 43 |       expect(measuredScope.controlHeight).toBe(density==='compact'?32:44);\n     |                                           ^\n  44 |       if(!forced)expect(measuredScope.colorScheme).toContain(theme);\n  45 |       const pseudo=kind==='menu'?'::before':'::after';\n  46 |       const branches=kind==='year'?['scroll','paged']:['default'];"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                        "column": 43,
+                        "line": 43
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n\n  41 |       expect(await scope.evaluate(node=>getComputedStyle(node).direction)).toBe(direction);\n  42 |       const measuredScope=await scope.evaluate(node=>{const css=getComputedStyle(node);return {controlHeight:parseFloat(css.getPropertyValue('--sgui-control-height')),colorScheme:css.colorScheme,direction:css.direction};});\n> 43 |       expect(measuredScope.controlHeight).toBe(density==='compact'?32:44);\n     |                                           ^\n  44 |       if(!forced)expect(measuredScope.colorScheme).toContain(theme);\n  45 |       const pseudo=kind==='menu'?'::before':'::after';\n  46 |       const branches=kind==='year'?['scroll','paged']:['default'];\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts:43:43"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:37:42.127Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-e9650-ndependent-from-focus-none--chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-e9650-ndependent-from-focus-none--chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-e9650-ndependent-from-focus-none--chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                    "column": 43,
+                    "line": 43
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bf30a2b41e4fe5e00952-d9130af14c7e14846821",
+          "file": "structural-selection-indicators.spec.ts",
+          "line": 28,
+          "column": 3
+        },
+        {
+          "title": "menu structural selection remains independent from focus (active)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 249,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts:43:43",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                      "column": 43,
+                      "line": 43
+                    },
+                    "snippet": "  41 |       expect(await scope.evaluate(node=>getComputedStyle(node).direction)).toBe(direction);\n  42 |       const measuredScope=await scope.evaluate(node=>{const css=getComputedStyle(node);return {controlHeight:parseFloat(css.getPropertyValue('--sgui-control-height')),colorScheme:css.colorScheme,direction:css.direction};});\n> 43 |       expect(measuredScope.controlHeight).toBe(density==='compact'?32:44);\n     |                                           ^\n  44 |       if(!forced)expect(measuredScope.colorScheme).toContain(theme);\n  45 |       const pseudo=kind==='menu'?'::before':'::after';\n  46 |       const branches=kind==='year'?['scroll','paged']:['default'];"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                        "column": 43,
+                        "line": 43
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n\n  41 |       expect(await scope.evaluate(node=>getComputedStyle(node).direction)).toBe(direction);\n  42 |       const measuredScope=await scope.evaluate(node=>{const css=getComputedStyle(node);return {controlHeight:parseFloat(css.getPropertyValue('--sgui-control-height')),colorScheme:css.colorScheme,direction:css.direction};});\n> 43 |       expect(measuredScope.controlHeight).toBe(density==='compact'?32:44);\n     |                                           ^\n  44 |       if(!forced)expect(measuredScope.colorScheme).toContain(theme);\n  45 |       const pseudo=kind==='menu'?'::before':'::after';\n  46 |       const branches=kind==='year'?['scroll','paged']:['default'];\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts:43:43"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:37:43.128Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-46972-ependent-from-focus-active--chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-46972-ependent-from-focus-active--chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-46972-ependent-from-focus-active--chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                    "column": 43,
+                    "line": 43
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bf30a2b41e4fe5e00952-a4aa2ff038ea875619c1",
+          "file": "structural-selection-indicators.spec.ts",
+          "line": 28,
+          "column": 3
+        },
+        {
+          "title": "month structural selection remains independent from focus (active)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 238,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts:43:43",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                      "column": 43,
+                      "line": 43
+                    },
+                    "snippet": "  41 |       expect(await scope.evaluate(node=>getComputedStyle(node).direction)).toBe(direction);\n  42 |       const measuredScope=await scope.evaluate(node=>{const css=getComputedStyle(node);return {controlHeight:parseFloat(css.getPropertyValue('--sgui-control-height')),colorScheme:css.colorScheme,direction:css.direction};});\n> 43 |       expect(measuredScope.controlHeight).toBe(density==='compact'?32:44);\n     |                                           ^\n  44 |       if(!forced)expect(measuredScope.colorScheme).toContain(theme);\n  45 |       const pseudo=kind==='menu'?'::before':'::after';\n  46 |       const branches=kind==='year'?['scroll','paged']:['default'];"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                        "column": 43,
+                        "line": 43
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n\n  41 |       expect(await scope.evaluate(node=>getComputedStyle(node).direction)).toBe(direction);\n  42 |       const measuredScope=await scope.evaluate(node=>{const css=getComputedStyle(node);return {controlHeight:parseFloat(css.getPropertyValue('--sgui-control-height')),colorScheme:css.colorScheme,direction:css.direction};});\n> 43 |       expect(measuredScope.controlHeight).toBe(density==='compact'?32:44);\n     |                                           ^\n  44 |       if(!forced)expect(measuredScope.colorScheme).toContain(theme);\n  45 |       const pseudo=kind==='menu'?'::before':'::after';\n  46 |       const branches=kind==='year'?['scroll','paged']:['default'];\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts:43:43"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:37:43.886Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-037a3-ependent-from-focus-active--chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-037a3-ependent-from-focus-active--chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-037a3-ependent-from-focus-active--chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                    "column": 43,
+                    "line": 43
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bf30a2b41e4fe5e00952-d4ef5c0a5a4176a85cc9",
+          "file": "structural-selection-indicators.spec.ts",
+          "line": 28,
+          "column": 3
+        },
+        {
+          "title": "year structural selection remains independent from focus (active)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 375,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts:43:43",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                      "column": 43,
+                      "line": 43
+                    },
+                    "snippet": "  41 |       expect(await scope.evaluate(node=>getComputedStyle(node).direction)).toBe(direction);\n  42 |       const measuredScope=await scope.evaluate(node=>{const css=getComputedStyle(node);return {controlHeight:parseFloat(css.getPropertyValue('--sgui-control-height')),colorScheme:css.colorScheme,direction:css.direction};});\n> 43 |       expect(measuredScope.controlHeight).toBe(density==='compact'?32:44);\n     |                                           ^\n  44 |       if(!forced)expect(measuredScope.colorScheme).toContain(theme);\n  45 |       const pseudo=kind==='menu'?'::before':'::after';\n  46 |       const branches=kind==='year'?['scroll','paged']:['default'];"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                        "column": 43,
+                        "line": 43
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m32\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n\n  41 |       expect(await scope.evaluate(node=>getComputedStyle(node).direction)).toBe(direction);\n  42 |       const measuredScope=await scope.evaluate(node=>{const css=getComputedStyle(node);return {controlHeight:parseFloat(css.getPropertyValue('--sgui-control-height')),colorScheme:css.colorScheme,direction:css.direction};});\n> 43 |       expect(measuredScope.controlHeight).toBe(density==='compact'?32:44);\n     |                                           ^\n  44 |       if(!forced)expect(measuredScope.colorScheme).toContain(theme);\n  45 |       const pseudo=kind==='menu'?'::before':'::after';\n  46 |       const branches=kind==='year'?['scroll','paged']:['default'];\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts:43:43"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:37:44.462Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-297e7-ependent-from-focus-active--chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-297e7-ependent-from-focus-active--chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/native-01/traces/structural-selection-indic-297e7-ependent-from-focus-active--chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/structural-selection-indicators.spec.ts",
+                    "column": 43,
+                    "line": 43
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bf30a2b41e4fe5e00952-5ddfa0b9a3c2a17bc40f",
+          "file": "structural-selection-indicators.spec.ts",
+          "line": 28,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T01:37:39.195Z",
+    "duration": 5775.964,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 6,
+    "flaky": 0
+  }
+}

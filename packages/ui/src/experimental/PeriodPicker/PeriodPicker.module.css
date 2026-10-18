@@ -9,4 +9,7 @@
  .monthGrid { align-content: safe center; grid-auto-rows: max-content; block-size: 100%; box-sizing: border-box; min-block-size: 0; grid-template-columns: repeat(var(--month-columns, 2), minmax(0, 1fr)); padding: var(--sgui-space1); }
  .monthGrid > button > span { white-space: nowrap; }
  .grid > button { min-inline-size: 0; padding-inline: var(--sgui-space1); }
+ .choice { position: relative; }
+ .choice[aria-pressed="true"]::after { content: ""; position: absolute; pointer-events: none; inset: 3px; border: 2px solid currentColor; border-radius: inherit; }
+ @media (forced-colors: active) { .choice[aria-pressed="true"]::after { border-color: Highlight; } }
 }
