@@ -5,10 +5,22 @@ async function fixture(page: Page, name: string) {
     const samples: unknown[] = [];
     (window as unknown as { __sguiOverlayViewport: unknown[] }).__sguiOverlayViewport = samples;
     const initialViewport = visualViewport;
-    const record = (event: string) => samples.push({ event, time: performance.now(), width: innerWidth, height: innerHeight, outerWidth, outerHeight, devicePixelRatio, sameViewportObject: initialViewport === visualViewport, initialViewportScale: initialViewport?.scale,
+    const record = (event: string) => samples.push({ event, time: performance.now(), width: innerWidth, height: innerHeight, outerWidth, outerHeight, documentFocused: document.hasFocus(), active: document.activeElement?.getAttribute('aria-label') ?? document.activeElement?.tagName, devicePixelRatio, sameViewportObject: initialViewport === visualViewport, initialViewportScale: initialViewport?.scale,
       visual: visualViewport && { width: visualViewport.width, height: visualViewport.height, scale: visualViewport.scale } });
     window.addEventListener('resize', () => record('window-resize'));
     visualViewport?.addEventListener('resize', () => record('visual-resize'));
+    for (const name of ['scroll', 'blur', 'focus', 'pointerout', 'mouseout']) window.addEventListener(name, event => {
+      const target = event.target;
+      const node = target instanceof Element ? target : null;
+      record(name + ':' + (node?.getAttribute('data-sgui-part') ?? node?.tagName ?? 'window'));
+    }, true);
+    document.addEventListener('DOMContentLoaded', () => {
+      new MutationObserver(records => {
+        for (const mutation of records) for (const [kind, nodes] of [['added', mutation.addedNodes], ['removed', mutation.removedNodes]] as const) {
+          for (const node of nodes) if (node instanceof Element && (node.matches('[role="tooltip"]') || node.querySelector('[role="tooltip"]'))) record('tooltip-' + kind);
+        }
+      }).observe(document.documentElement, { childList: true, subtree: true });
+    });
     record('initial');
   });
   await page.goto(`/fixtures/?id=overlays-appmodal--${name}&globals=a11y.manual:!true`);
