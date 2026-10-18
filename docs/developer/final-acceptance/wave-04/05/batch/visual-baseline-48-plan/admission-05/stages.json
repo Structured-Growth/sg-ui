@@ -1,0 +1,63 @@
+[
+  {
+    "name": "admission-guards-no-native-ts",
+    "args": [
+      "--no-experimental-strip-types",
+      "--test",
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/visual-capture-admission.test.mjs",
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/visual-baseline-review.test.mjs"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T00:01:00.874Z",
+    "completedAt": "2026-10-18T00:01:02.549Z",
+    "exitCode": 0
+  },
+  {
+    "name": "affected-units",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/vitest/vitest.mjs",
+      "run",
+      "src/experimental/DataGrid/DataGrid.test.tsx",
+      "src/experimental/DataGrid/DataGrid.next100-regression.test.tsx",
+      "src/components/AppDataGrid/ownedGridColumns.test.ts",
+      "src/components/AppDataGrid/columnWidthAlternative.test.tsx"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T00:01:02.549Z",
+    "completedAt": "2026-10-18T00:01:04.653Z",
+    "exitCode": 0
+  },
+  {
+    "name": "library-build",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/build.mjs"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T00:01:04.654Z",
+    "completedAt": "2026-10-18T00:01:10.123Z",
+    "exitCode": 0
+  },
+  {
+    "name": "fixture-build",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/build-browser-docs.mjs"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T00:01:10.123Z",
+    "completedAt": "2026-10-18T00:01:15.739Z",
+    "exitCode": 0
+  },
+  {
+    "name": "browser-types",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "-p",
+      "tests/browser/tsconfig.json"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T00:01:15.739Z",
+    "completedAt": "2026-10-18T00:01:17.018Z",
+    "exitCode": 0
+  }
+]

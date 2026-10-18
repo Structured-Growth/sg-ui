@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 259/320 A leaves closed; 61 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 260/320 A leaves closed; 60 A, 0 editor V review leaves and six future leaves remain.**
+
+### Representative visual capture and interactions accepted — 2026-10-17
+
+Reviewed 48 Chromium screenshots across light/dark, compact/comfortable, narrow/wide and RTL/pseudo-localized controls, editors, navigation, modals and grids. Rendered inspection found and corrected grid caption crowding and width inflation; eight final interaction cases pass and all 48 reviewed images compare with zero differences. Original failures and rejected candidates remain historical evidence.
+Wave 04 now closes 79 of 139 items; 60 remain.
 
 ### Public example and replacement coverage accepted — 2026-10-17
 

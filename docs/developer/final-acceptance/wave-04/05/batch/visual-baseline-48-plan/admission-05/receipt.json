@@ -1,0 +1,15 @@
+{
+  "status": "captured-unapproved",
+  "owner": "visual48:34038",
+  "scope": "bounded grid presentation fix, affected units, fresh build and eight maintained Chromium cases / 48 unapproved images",
+  "builds": 2,
+  "workers": 1,
+  "retries": 0,
+  "exitCode": 0,
+  "stable": true,
+  "completedAt": "2026-10-18T00:01:35.820Z",
+  "cleanup": {
+    "ownedServerClosed": true,
+    "claimsReleased": true
+  }
+}

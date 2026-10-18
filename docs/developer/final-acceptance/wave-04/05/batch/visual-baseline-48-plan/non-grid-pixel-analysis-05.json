@@ -1,0 +1,691 @@
+{
+  "familyByteComparison": {
+    "focused-action": {
+      "identical": 8,
+      "changed": 0
+    },
+    "controls": {
+      "identical": 8,
+      "changed": 0
+    },
+    "grids": {
+      "identical": 0,
+      "changed": 8
+    },
+    "navigation": {
+      "identical": 1,
+      "changed": 7
+    },
+    "editor": {
+      "identical": 1,
+      "changed": 7
+    },
+    "overlay": {
+      "identical": 6,
+      "changed": 2
+    }
+  },
+  "runtimeSourceChanges": [
+    "packages/ui/src/experimental/DataGrid/DataGrid.module.css",
+    "packages/ui/src/experimental/DataGrid/DataGrid.tsx"
+  ],
+  "observations": [
+    "All8controls and8focused-action images are byte-identical; controls did not change.",
+    "Only2overlay captures differ; differences are10/12top rounded-corner edge pixels with1\u20132channel-value changes. No difference occurs in the pending spinner or other dialog content.",
+    "Navigation/editor captures keep the same image dimensions. Several wide cases differ by only1\u201322edge/glyph pixels; narrow cases include different glyph/edge rasterization across the region.",
+    "Only the preceding DataGrid implementation/CSS changed in runtime source. New grid header/table heights move later regions in document flow; layout/scroll/crop subpixel rasterization explains the downstream changed edge/text pixels. Exact fractional scroll/crop coordinates were not recorded in capture02, so that causal detail remains a source-and-pixel-supported inference, not a newly measured browser claim."
+  ],
+  "comparisonPolicy": "Preserve maxDiffPixels0. Changed images are not reuse-eligible and require root review. No pixel threshold relaxation, automatic approval, new capture or comparison was performed for this analysis.",
+  "pixelDetails": [
+    {
+      "name": "light-compact-360-en-US-ltr-long-navigation.png",
+      "family": "navigation",
+      "oldSha256": "ebdfee03a74cd6386c09d75f6dd65ab13b506a4feefc58c511128e0919c47967",
+      "newSha256": "a3083374e168302bc2c91d2ecff7b54778cae1c594f9e61321d165195f44c81d",
+      "oldSize": [
+        328,
+        65
+      ],
+      "newSize": [
+        328,
+        65
+      ],
+      "diffBoundingBox": [
+        0,
+        3,
+        328,
+        56
+      ],
+      "differentPixels": 3281
+    },
+    {
+      "name": "light-compact-360-en-US-ltr-long-editor.png",
+      "family": "editor",
+      "oldSha256": "99efce0592f87c1b27ea17884b250e8c3905e6aa42ad8008fc0b1b09022b0ced",
+      "newSha256": "a342acf5a1058bd678f394c8a44dd01923024bb2f3b5041fa73fed3e076b863a",
+      "oldSize": [
+        328,
+        581
+      ],
+      "newSize": [
+        328,
+        581
+      ],
+      "diffBoundingBox": [
+        5,
+        78,
+        237,
+        210
+      ],
+      "differentPixels": 698
+    },
+    {
+      "name": "light-compact-1280-en-US-ltr-short-navigation.png",
+      "family": "navigation",
+      "oldSha256": "6a29c64492461a76518b8193f2ecf0929e3229cafe83cad568bf237e87afd8f3",
+      "newSha256": "fe9989af43e6fd9db9cad015fd208c7c18924397ef51d89b5daafcbc69735c79",
+      "oldSize": [
+        1248,
+        65
+      ],
+      "newSize": [
+        1248,
+        65
+      ],
+      "diffBoundingBox": [
+        0,
+        8,
+        1,
+        9
+      ],
+      "differentPixels": 1
+    },
+    {
+      "name": "light-compact-1280-en-US-ltr-short-editor.png",
+      "family": "editor",
+      "oldSha256": "5ea49948d9a48ae8f3670d2d07b4b40b7a526d8e741c79d5cc35ef858cca39a8",
+      "newSha256": "1ec73632caca83323021346444a13aa35dc1fdc7e06b168de66ea0db31f0ea12",
+      "oldSize": [
+        1248,
+        553
+      ],
+      "newSize": [
+        1248,
+        553
+      ],
+      "diffBoundingBox": [
+        816,
+        55,
+        824,
+        60
+      ],
+      "differentPixels": 22
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-navigation.png",
+      "family": "navigation",
+      "oldSha256": "ef9f1d489b21c60d71da6437b8b4cb100aeb672957fe48ab705c786444e40bb7",
+      "newSha256": "ecda3c410e2de63b50b94606d0209fdb7fbf52916eba6b5397e4892f677d6431",
+      "oldSize": [
+        328,
+        98
+      ],
+      "newSize": [
+        328,
+        98
+      ],
+      "diffBoundingBox": [
+        170,
+        28,
+        311,
+        43
+      ],
+      "differentPixels": 789
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-editor.png",
+      "family": "editor",
+      "oldSha256": "c9d7434ff31bf38cc2368c5e632a335789195b0c2eb254fc7c637c110fbe292a",
+      "newSha256": "1bee072200f5121a7c81f9a745e711cde6ff17bf8734fd4f8d5eda4650f997a7",
+      "oldSize": [
+        328,
+        581
+      ],
+      "newSize": [
+        328,
+        581
+      ],
+      "diffBoundingBox": [
+        0,
+        6,
+        328,
+        296
+      ],
+      "differentPixels": 8352
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-overlay.png",
+      "family": "overlay",
+      "oldSha256": "d0b6983b315854251ea71ec1abd9cc3429b36ee2a237c94e62d07dd31095c7cf",
+      "newSha256": "e516eff77da6445b6010afc4d1e9a66a466990e0f13569cb9db1e92a0f6e7fc1",
+      "oldSize": [
+        328,
+        590
+      ],
+      "newSize": [
+        328,
+        590
+      ],
+      "diffBoundingBox": [
+        0,
+        3,
+        328,
+        7
+      ],
+      "differentPixels": 10,
+      "changedPixels": [
+        {
+          "x": 0,
+          "y": 3,
+          "old": [
+            127,
+            132,
+            142
+          ],
+          "new": [
+            128,
+            132,
+            142
+          ]
+        },
+        {
+          "x": 327,
+          "y": 3,
+          "old": [
+            127,
+            132,
+            142
+          ],
+          "new": [
+            128,
+            132,
+            142
+          ]
+        },
+        {
+          "x": 0,
+          "y": 4,
+          "old": [
+            128,
+            132,
+            142
+          ],
+          "new": [
+            128,
+            133,
+            142
+          ]
+        },
+        {
+          "x": 327,
+          "y": 4,
+          "old": [
+            128,
+            132,
+            142
+          ],
+          "new": [
+            128,
+            133,
+            142
+          ]
+        },
+        {
+          "x": 0,
+          "y": 5,
+          "old": [
+            127,
+            132,
+            141
+          ],
+          "new": [
+            128,
+            132,
+            142
+          ]
+        },
+        {
+          "x": 327,
+          "y": 5,
+          "old": [
+            127,
+            132,
+            141
+          ],
+          "new": [
+            128,
+            132,
+            142
+          ]
+        },
+        {
+          "x": 0,
+          "y": 6,
+          "old": [
+            129,
+            133,
+            143
+          ],
+          "new": [
+            130,
+            134,
+            143
+          ]
+        },
+        {
+          "x": 1,
+          "y": 6,
+          "old": [
+            225,
+            226,
+            229
+          ],
+          "new": [
+            225,
+            227,
+            229
+          ]
+        },
+        {
+          "x": 326,
+          "y": 6,
+          "old": [
+            224,
+            225,
+            228
+          ],
+          "new": [
+            224,
+            226,
+            228
+          ]
+        },
+        {
+          "x": 327,
+          "y": 6,
+          "old": [
+            129,
+            133,
+            143
+          ],
+          "new": [
+            130,
+            134,
+            143
+          ]
+        }
+      ],
+      "finding": "Only top rounded-corner edge pixels differ (10/12 pixels, RGB channel changes1\u20132); all dialog content, pending indicator and dimensions are byte-identical outside those corners. This is edge compositing/raster rounding, not a different pending-animation frame."
+    },
+    {
+      "name": "light-comfortable-1280-en-US-ltr-short-editor.png",
+      "family": "editor",
+      "oldSha256": "9e51c4a0609a5485a74bd78e7f09ab8b3243605181a99df9e996beba7f3c882b",
+      "newSha256": "28b5d7380a8f3eabe99f08f0b89a1e593013a312d7db0a93814163a4e4a2ef5e",
+      "oldSize": [
+        1248,
+        553
+      ],
+      "newSize": [
+        1248,
+        553
+      ],
+      "diffBoundingBox": [
+        454,
+        76,
+        475,
+        78
+      ],
+      "differentPixels": 9
+    },
+    {
+      "name": "dark-compact-360-ar-rtl-long-navigation.png",
+      "family": "navigation",
+      "oldSha256": "8602f890d0202d51fe736bb325ba84e1bdd4ae5b2fe1aa3fc65eee8b6a0c52c3",
+      "newSha256": "a02fc8eb10abd08f30a0ae96d34175e3b4fb19a3800e2686369aa14381c10ede",
+      "oldSize": [
+        328,
+        65
+      ],
+      "newSize": [
+        328,
+        65
+      ],
+      "diffBoundingBox": [
+        0,
+        3,
+        328,
+        56
+      ],
+      "differentPixels": 3287
+    },
+    {
+      "name": "dark-compact-360-ar-rtl-long-editor.png",
+      "family": "editor",
+      "oldSha256": "4be4f73dd1e40327d7bcb8dfd57004980b703f08e357f941739b7b9648b0ba18",
+      "newSha256": "8cb67ba5f7fa7f6974a701488897c4d2635ff1ef53c1ed436a55b8ca1f94c57f",
+      "oldSize": [
+        328,
+        581
+      ],
+      "newSize": [
+        328,
+        581
+      ],
+      "diffBoundingBox": [
+        91,
+        78,
+        323,
+        210
+      ],
+      "differentPixels": 704
+    },
+    {
+      "name": "dark-compact-1280-en-US-ltr-short-navigation.png",
+      "family": "navigation",
+      "oldSha256": "892412db35153660d61d577ce389dbb8c059bee29c19201311034a1d61872f60",
+      "newSha256": "927f822009099d3c5fc79e498d0dca89635e389cc7de96bda587507af1111d41",
+      "oldSize": [
+        1248,
+        65
+      ],
+      "newSize": [
+        1248,
+        65
+      ],
+      "diffBoundingBox": [
+        0,
+        8,
+        1,
+        10
+      ],
+      "differentPixels": 2
+    },
+    {
+      "name": "dark-compact-1280-en-US-ltr-short-editor.png",
+      "family": "editor",
+      "oldSha256": "f1c6359a3597ee8cf56eb8dfd9d28a926a717b5285e5e4e2faa068eeb8c9dd66",
+      "newSha256": "62f0b546044af922a3ecfd68565d3f3c9eea800d3f36ac3d566b1502a3dc8357",
+      "oldSize": [
+        1248,
+        553
+      ],
+      "newSize": [
+        1248,
+        553
+      ],
+      "diffBoundingBox": [
+        816,
+        55,
+        824,
+        60
+      ],
+      "differentPixels": 22
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-navigation.png",
+      "family": "navigation",
+      "oldSha256": "3483aba94e4c5b224ebfa7c089c2d509210801aa084dd359b0042a436ab7f5b6",
+      "newSha256": "b85270e0584755470f67386c7e576c1d6fa42da26b0a343fbc82ae69e94c4368",
+      "oldSize": [
+        328,
+        98
+      ],
+      "newSize": [
+        328,
+        98
+      ],
+      "diffBoundingBox": [
+        16,
+        28,
+        159,
+        43
+      ],
+      "differentPixels": 803
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-editor.png",
+      "family": "editor",
+      "oldSha256": "2aa116bf2ddc0dccbb0f8706f1a80e18cba6775ed8b16ca5c175b1730e0f0760",
+      "newSha256": "b07824c3c7bb04a8cac24b98ccf30a26bf08fe321aae5be4fd138656a6c3afbb",
+      "oldSize": [
+        328,
+        581
+      ],
+      "newSize": [
+        328,
+        581
+      ],
+      "diffBoundingBox": [
+        0,
+        6,
+        328,
+        581
+      ],
+      "differentPixels": 8718
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-overlay.png",
+      "family": "overlay",
+      "oldSha256": "6d31587293e6b875e641d0af68148c351a2630e58e9fed9d35cc7ab325e68828",
+      "newSha256": "4ba0dd0316dc5eaca7872400b6025559771aea7e38ba82c9a27dd628ab6289b6",
+      "oldSize": [
+        328,
+        590
+      ],
+      "newSize": [
+        328,
+        590
+      ],
+      "diffBoundingBox": [
+        0,
+        2,
+        328,
+        7
+      ],
+      "differentPixels": 12,
+      "changedPixels": [
+        {
+          "x": 0,
+          "y": 2,
+          "old": [
+            9,
+            12,
+            17
+          ],
+          "new": [
+            8,
+            11,
+            16
+          ]
+        },
+        {
+          "x": 327,
+          "y": 2,
+          "old": [
+            9,
+            12,
+            17
+          ],
+          "new": [
+            8,
+            11,
+            16
+          ]
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "old": [
+            8,
+            11,
+            16
+          ],
+          "new": [
+            7,
+            10,
+            15
+          ]
+        },
+        {
+          "x": 327,
+          "y": 3,
+          "old": [
+            8,
+            11,
+            16
+          ],
+          "new": [
+            7,
+            10,
+            15
+          ]
+        },
+        {
+          "x": 0,
+          "y": 4,
+          "old": [
+            7,
+            10,
+            15
+          ],
+          "new": [
+            7,
+            9,
+            15
+          ]
+        },
+        {
+          "x": 327,
+          "y": 4,
+          "old": [
+            7,
+            10,
+            15
+          ],
+          "new": [
+            7,
+            9,
+            15
+          ]
+        },
+        {
+          "x": 0,
+          "y": 5,
+          "old": [
+            7,
+            9,
+            14
+          ],
+          "new": [
+            5,
+            8,
+            13
+          ]
+        },
+        {
+          "x": 327,
+          "y": 5,
+          "old": [
+            7,
+            9,
+            14
+          ],
+          "new": [
+            5,
+            8,
+            13
+          ]
+        },
+        {
+          "x": 0,
+          "y": 6,
+          "old": [
+            5,
+            8,
+            13
+          ],
+          "new": [
+            4,
+            7,
+            12
+          ]
+        },
+        {
+          "x": 1,
+          "y": 6,
+          "old": [
+            13,
+            20,
+            36
+          ],
+          "new": [
+            13,
+            19,
+            36
+          ]
+        },
+        {
+          "x": 326,
+          "y": 6,
+          "old": [
+            13,
+            20,
+            36
+          ],
+          "new": [
+            13,
+            19,
+            36
+          ]
+        },
+        {
+          "x": 327,
+          "y": 6,
+          "old": [
+            5,
+            8,
+            13
+          ],
+          "new": [
+            4,
+            7,
+            12
+          ]
+        }
+      ],
+      "finding": "Only top rounded-corner edge pixels differ (10/12 pixels, RGB channel changes1\u20132); all dialog content, pending indicator and dimensions are byte-identical outside those corners. This is edge compositing/raster rounding, not a different pending-animation frame."
+    },
+    {
+      "name": "dark-comfortable-1280-ar-rtl-long-navigation.png",
+      "family": "navigation",
+      "oldSha256": "4854392490a217b8fbe319401487dc96ba7b4ffa2e04f44afb491fd02afc2ca2",
+      "newSha256": "7322b5d4180f2252213b03ef5d43d0c2b60980efa0556945b236a54275f15df2",
+      "oldSize": [
+        1248,
+        89
+      ],
+      "newSize": [
+        1248,
+        89
+      ],
+      "diffBoundingBox": [
+        0,
+        8,
+        1,
+        10
+      ],
+      "differentPixels": 2
+    }
+  ]
+}

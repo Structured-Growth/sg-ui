@@ -1,0 +1,7 @@
+{
+  "packages/ui/src/experimental/DataGrid/DataGrid.tsx": "c320eec3c58bd792ab14a3cc0d4493ce9cbf7f233c90e6f07869394300e03beb",
+  "packages/ui/src/experimental/DataGrid/DataGrid.module.css": "f9a27e2edd05d467d3f7309b741c844ff2950730b576dcde0adb1c74fa909af2",
+  "packages/ui/tests/browser/visual-acceptance.spec.ts": "39445657a20d26e6e7c534de388c9fc038054d67ef3d4272b6c876afcadf070f",
+  "packages/ui/tests/browser/visual-grid-geometry.ts": "17807af61cd3eeefcbbd5750ec2a4a4c4324265757abc4489d5088dad7c413ca",
+  "packages/ui/scripts/visual-capture-admission.test.mjs": "9ef9021f4fc6e7df2c715954b5aa3ed4b0d30cf919ee7da477e93136121454c3"
+}

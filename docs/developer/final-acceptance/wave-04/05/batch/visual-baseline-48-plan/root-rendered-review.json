@@ -1,0 +1,359 @@
+{
+  "reviewer": "Codex /root rendered inspection",
+  "reviewedAt": "2026-10-17T23:58:28.238901+00:00",
+  "method": "Inspected eight contact sheets retaining original pixels. Tall images were divided into contiguous labeled 600px slices without scaling; all48original images represented.",
+  "images": [
+    {
+      "name": "light-compact-360-en-US-ltr-long-focused-action.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-focused-action.png",
+      "sha256": "dd4549cc682d4b8a49b5f6c8ba7d93d17fa937ff68120f2d685396d7b87f8f33",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Readable action label at the owned density; focused context is also visible in controls image."
+    },
+    {
+      "name": "light-compact-360-en-US-ltr-long-controls.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-controls.png",
+      "sha256": "602336daaba9d65cf8c0c956a8ac5e91008d0bba744db7125bca9e7976905a3f",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Labels/errors wrap, pending/disabled/selected state remains distinguishable, inputs stay within the region, and focus is visible."
+    },
+    {
+      "name": "light-compact-360-en-US-ltr-long-grids.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-grids.png",
+      "sha256": "c2704de4b640308ff91c806b5984045fc829e8ad517ef1175eabee0b2f292abc",
+      "disposition": "rejected",
+      "observation": "Reject: data headings collapse to near-single-character columns with excessive header height in the narrow grid."
+    },
+    {
+      "name": "light-compact-360-en-US-ltr-long-navigation.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-navigation.png",
+      "sha256": "ebdfee03a74cd6386c09d75f6dd65ab13b506a4feefc58c511128e0919c47967",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Current item and peer are readable; long labels wrap and RTL alignment follows direction."
+    },
+    {
+      "name": "light-compact-360-en-US-ltr-long-editor.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-editor.png",
+      "sha256": "99efce0592f87c1b27ea17884b250e8c3905e6aa42ad8008fc0b1b09022b0ced",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Heading, toolbar controls and content stay within the region; narrow toolbar wraps without overlap."
+    },
+    {
+      "name": "light-compact-360-en-US-ltr-long-overlay.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-overlay.png",
+      "sha256": "9f771876755630c130cdb40cdf58cd033ca5168b1d5607f29dfdabd82ef3ea5c",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Title/description, Close, focused field, invalid field/message, pending action and footer remain readable within the dialog."
+    },
+    {
+      "name": "light-compact-1280-en-US-ltr-short-focused-action.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-focused-action.png",
+      "sha256": "2f795e07e95bb86b46d48b0be82930a71c255bce8534e7d9fe753504f06aa0a4",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Readable action label at the owned density; focused context is also visible in controls image."
+    },
+    {
+      "name": "light-compact-1280-en-US-ltr-short-controls.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-controls.png",
+      "sha256": "f3b5c0b2cd74adcc6edb07912e9ab7d1af297fc8e1b3f6d574f4bd90d19e2298",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Labels/errors wrap, pending/disabled/selected state remains distinguishable, inputs stay within the region, and focus is visible."
+    },
+    {
+      "name": "light-compact-1280-en-US-ltr-short-grids.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-grids.png",
+      "sha256": "b30f4472d6d6077ad29c0b64b5d0dd03fb2ec7b0c11857c0f8d46a91530caf94",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Wide data/selection/action columns and state/footer presentations remain readable in this capture."
+    },
+    {
+      "name": "light-compact-1280-en-US-ltr-short-navigation.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-navigation.png",
+      "sha256": "6a29c64492461a76518b8193f2ecf0929e3229cafe83cad568bf237e87afd8f3",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Current item and peer are readable; long labels wrap and RTL alignment follows direction."
+    },
+    {
+      "name": "light-compact-1280-en-US-ltr-short-editor.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-editor.png",
+      "sha256": "5ea49948d9a48ae8f3670d2d07b4b40b7a526d8e741c79d5cc35ef858cca39a8",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Heading, toolbar controls and content stay within the region; narrow toolbar wraps without overlap."
+    },
+    {
+      "name": "light-compact-1280-en-US-ltr-short-overlay.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-overlay.png",
+      "sha256": "1ee29be72fb86b90e51cdd9e12a24c7d0d1e0e1bd60e8c8435bcf0196acab236",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Title/description, Close, focused field, invalid field/message, pending action and footer remain readable within the dialog."
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-focused-action.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-focused-action.png",
+      "sha256": "f0337d19b90cec8cf4c1d133f88c30e3630a8d3249a92d24b6da7e9ecd8c72b8",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Readable action label at the owned density; focused context is also visible in controls image."
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-controls.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-controls.png",
+      "sha256": "8d1c0d3fd5ac3157a213b32623a80116381ad0457d159fd82c8261de7c00c255",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Labels/errors wrap, pending/disabled/selected state remains distinguishable, inputs stay within the region, and focus is visible."
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-grids.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-grids.png",
+      "sha256": "7aa44db1b1288df0534be90974d11c637f874e5ad32a5973bcba281d93d21270",
+      "disposition": "rejected",
+      "observation": "Reject: data headings collapse to near-single-character columns with excessive header height in the narrow grid."
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-navigation.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-navigation.png",
+      "sha256": "ef9f1d489b21c60d71da6437b8b4cb100aeb672957fe48ab705c786444e40bb7",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Current item and peer are readable; long labels wrap and RTL alignment follows direction."
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-editor.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-editor.png",
+      "sha256": "c9d7434ff31bf38cc2368c5e632a335789195b0c2eb254fc7c637c110fbe292a",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Heading, toolbar controls and content stay within the region; narrow toolbar wraps without overlap."
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-overlay.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-overlay.png",
+      "sha256": "d0b6983b315854251ea71ec1abd9cc3429b36ee2a237c94e62d07dd31095c7cf",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Title/description, Close, focused field, invalid field/message, pending action and footer remain readable within the dialog."
+    },
+    {
+      "name": "light-comfortable-1280-en-US-ltr-short-focused-action.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-focused-action.png",
+      "sha256": "d82e63743093dbe446cefc4d475aed21e01091487065c7bf480fd8bf0ed61386",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Readable action label at the owned density; focused context is also visible in controls image."
+    },
+    {
+      "name": "light-comfortable-1280-en-US-ltr-short-controls.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-controls.png",
+      "sha256": "13a614c63cfd06f5a490dd0d6aa7906153eba16195e118b117cb0ce871dacdb9",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Labels/errors wrap, pending/disabled/selected state remains distinguishable, inputs stay within the region, and focus is visible."
+    },
+    {
+      "name": "light-comfortable-1280-en-US-ltr-short-grids.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-grids.png",
+      "sha256": "94d2e40261dbda2f0809924fed8accf651c58d18d27c21c1a4c98d85dae67998",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Wide data/selection/action columns and state/footer presentations remain readable in this capture."
+    },
+    {
+      "name": "light-comfortable-1280-en-US-ltr-short-navigation.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-navigation.png",
+      "sha256": "9e7cb910368991665f98fd3e7cc94cc70ef455c34208f95e4892f8efe3ae7d82",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Current item and peer are readable; long labels wrap and RTL alignment follows direction."
+    },
+    {
+      "name": "light-comfortable-1280-en-US-ltr-short-editor.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-editor.png",
+      "sha256": "9e51c4a0609a5485a74bd78e7f09ab8b3243605181a99df9e996beba7f3c882b",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Heading, toolbar controls and content stay within the region; narrow toolbar wraps without overlap."
+    },
+    {
+      "name": "light-comfortable-1280-en-US-ltr-short-overlay.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-overlay.png",
+      "sha256": "d36349b13419b7ab8f420eed28ca5bd6709d46fa2fd4d7bec58bd744aecadeeb",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Title/description, Close, focused field, invalid field/message, pending action and footer remain readable within the dialog."
+    },
+    {
+      "name": "dark-compact-360-ar-rtl-long-focused-action.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-focused-action.png",
+      "sha256": "16fc2e762420d81152d79bb387abb7e5f3195f0030f66736e1109193cdd499aa",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Readable action label at the owned density; focused context is also visible in controls image."
+    },
+    {
+      "name": "dark-compact-360-ar-rtl-long-controls.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-controls.png",
+      "sha256": "0d53d633d46a6735a576d502c188541ce0fe37b6c68c003af4c079c73cb60b8c",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Labels/errors wrap, pending/disabled/selected state remains distinguishable, inputs stay within the region, and focus is visible."
+    },
+    {
+      "name": "dark-compact-360-ar-rtl-long-grids.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-grids.png",
+      "sha256": "f8e31c9ab235c4ce6d3f85e7fe66574ce362fdf791777490e0694d0e26f51daa",
+      "disposition": "rejected",
+      "observation": "Reject: data headings collapse to near-single-character columns with excessive header height in the narrow grid."
+    },
+    {
+      "name": "dark-compact-360-ar-rtl-long-navigation.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-navigation.png",
+      "sha256": "8602f890d0202d51fe736bb325ba84e1bdd4ae5b2fe1aa3fc65eee8b6a0c52c3",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Current item and peer are readable; long labels wrap and RTL alignment follows direction."
+    },
+    {
+      "name": "dark-compact-360-ar-rtl-long-editor.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-editor.png",
+      "sha256": "4be4f73dd1e40327d7bcb8dfd57004980b703f08e357f941739b7b9648b0ba18",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Heading, toolbar controls and content stay within the region; narrow toolbar wraps without overlap."
+    },
+    {
+      "name": "dark-compact-360-ar-rtl-long-overlay.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-overlay.png",
+      "sha256": "e5e6a3e454422c4129b001abf41cc11268c3f8565355162076582bc8073b7306",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Title/description, Close, focused field, invalid field/message, pending action and footer remain readable within the dialog."
+    },
+    {
+      "name": "dark-compact-1280-en-US-ltr-short-focused-action.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-focused-action.png",
+      "sha256": "58ba95908ec8e6fe535a9f2a5ffc7c29d64a66ca4f7536ff446d911810bfdb91",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Readable action label at the owned density; focused context is also visible in controls image."
+    },
+    {
+      "name": "dark-compact-1280-en-US-ltr-short-controls.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-controls.png",
+      "sha256": "96f8eddb05da74f843ec73a5a9a856fbafaaa83a05b804d10b4a578cdc481e04",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Labels/errors wrap, pending/disabled/selected state remains distinguishable, inputs stay within the region, and focus is visible."
+    },
+    {
+      "name": "dark-compact-1280-en-US-ltr-short-grids.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-grids.png",
+      "sha256": "558ae742ad2a551f6a21eaab998d32f6ced6783d8a39de4ca5b2f051f8f8fed5",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Wide data/selection/action columns and state/footer presentations remain readable in this capture."
+    },
+    {
+      "name": "dark-compact-1280-en-US-ltr-short-navigation.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-navigation.png",
+      "sha256": "892412db35153660d61d577ce389dbb8c059bee29c19201311034a1d61872f60",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Current item and peer are readable; long labels wrap and RTL alignment follows direction."
+    },
+    {
+      "name": "dark-compact-1280-en-US-ltr-short-editor.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-editor.png",
+      "sha256": "f1c6359a3597ee8cf56eb8dfd9d28a926a717b5285e5e4e2faa068eeb8c9dd66",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Heading, toolbar controls and content stay within the region; narrow toolbar wraps without overlap."
+    },
+    {
+      "name": "dark-compact-1280-en-US-ltr-short-overlay.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-overlay.png",
+      "sha256": "ad9e31b5f707f65c672d4338acb313ec6b1d2668f65ce32096a50b7f75f41c56",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Title/description, Close, focused field, invalid field/message, pending action and footer remain readable within the dialog."
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-focused-action.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-focused-action.png",
+      "sha256": "b08f412e4419d81a84303dd58315ca025f4ce3c8671efdb1a93dcbc872ded30c",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Readable action label at the owned density; focused context is also visible in controls image."
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-controls.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-controls.png",
+      "sha256": "7fbc78f7d2d0ac3e2fb6c633e40cc4db1ff55e6e76741cb3f5719da5d2e8a057",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Labels/errors wrap, pending/disabled/selected state remains distinguishable, inputs stay within the region, and focus is visible."
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-grids.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-grids.png",
+      "sha256": "ae15841241d18d6d6d426df58d79bd62e5df8dcc6282e8b0edd34c05b2741114",
+      "disposition": "rejected",
+      "observation": "Reject: data headings collapse to near-single-character columns with excessive header height in the narrow grid."
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-navigation.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-navigation.png",
+      "sha256": "3483aba94e4c5b224ebfa7c089c2d509210801aa084dd359b0042a436ab7f5b6",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Current item and peer are readable; long labels wrap and RTL alignment follows direction."
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-editor.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-editor.png",
+      "sha256": "2aa116bf2ddc0dccbb0f8706f1a80e18cba6775ed8b16ca5c175b1730e0f0760",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Heading, toolbar controls and content stay within the region; narrow toolbar wraps without overlap."
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-overlay.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-overlay.png",
+      "sha256": "6d31587293e6b875e641d0af68148c351a2630e58e9fed9d35cc7ab325e68828",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Title/description, Close, focused field, invalid field/message, pending action and footer remain readable within the dialog."
+    },
+    {
+      "name": "dark-comfortable-1280-ar-rtl-long-focused-action.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-focused-action.png",
+      "sha256": "5591e3ac09f1d101a6690039db56f5917b438c990e2b9bde2519959f3f9eaeff",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Readable action label at the owned density; focused context is also visible in controls image."
+    },
+    {
+      "name": "dark-comfortable-1280-ar-rtl-long-controls.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-controls.png",
+      "sha256": "143cf68bb9309c971cdc9ab70538f6b92d6c1aa03ca881782f5e9c6c20b9fc66",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Labels/errors wrap, pending/disabled/selected state remains distinguishable, inputs stay within the region, and focus is visible."
+    },
+    {
+      "name": "dark-comfortable-1280-ar-rtl-long-grids.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-grids.png",
+      "sha256": "90bf08ca9c4c202b1d3e2aad69191cf2c2b064e61a5716a1f2a8a82f4fed29c1",
+      "disposition": "rejected",
+      "observation": "Reject: the long action text at the left edge of the wide RTL grid is clipped."
+    },
+    {
+      "name": "dark-comfortable-1280-ar-rtl-long-navigation.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-navigation.png",
+      "sha256": "4854392490a217b8fbe319401487dc96ba7b4ffa2e04f44afb491fd02afc2ca2",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Current item and peer are readable; long labels wrap and RTL alignment follows direction."
+    },
+    {
+      "name": "dark-comfortable-1280-ar-rtl-long-editor.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-editor.png",
+      "sha256": "7c31af3e8a202140ecbb1248d9dab30968bf584e5cb36908893ec6da489cb903",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Heading, toolbar controls and content stay within the region; narrow toolbar wraps without overlap."
+    },
+    {
+      "name": "dark-comfortable-1280-ar-rtl-long-overlay.png",
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-02/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-overlay.png",
+      "sha256": "5f167031fd7e6d6820e4b385d6ba7b672d87e0885edf32b59c6a58654cbb4e33",
+      "disposition": "accepted-at-captured-inputs",
+      "observation": "Title/description, Close, focused field, invalid field/message, pending action and footer remain readable within the dialog."
+    }
+  ],
+  "acceptedImages": 43,
+  "rejectedImages": 5,
+  "baselineApproved": false,
+  "comparisonRun": false,
+  "finding": "VISUAL-GRID-01: data/utility column allocation squeezes long headings into character towers at360px and clips a long RTL action. Reproduce with foundations-visual-acceptance--matrix, longLabels=true, compact/comfortable. Diagnose actual grid sizing versus fixture configuration before changing production code.",
+  "followup": "Agent05 prepares a focused sizing regression/fix; shared runtime inputs stay frozen while agent02 executes composed-shell cases. Original candidates are retained. Reuse observations for byte-identical unaffected images after the fix; inspect changed grid images before baseline approval.",
+  "contactSheets": [
+    "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/root-contact-sheets/dark-comfortable-1280-ar-rtl-long.png",
+    "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/root-contact-sheets/dark-comfortable-360-en-US-ltr-long.png",
+    "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/root-contact-sheets/dark-compact-1280-en-US-ltr-short.png",
+    "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/root-contact-sheets/dark-compact-360-ar-rtl-long.png",
+    "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/root-contact-sheets/light-comfortable-1280-en-US-ltr-short.png",
+    "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/root-contact-sheets/light-comfortable-360-ar-rtl-long.png",
+    "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/root-contact-sheets/light-compact-1280-en-US-ltr-short.png",
+    "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/root-contact-sheets/light-compact-360-en-US-ltr-long.png"
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "cases": [
+    {
+      "title": "review matrix light-compact-360-en-US-ltr-long",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "review matrix light-compact-1280-en-US-ltr-short",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "review matrix light-comfortable-360-ar-rtl-long",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "review matrix light-comfortable-1280-en-US-ltr-short",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "review matrix dark-compact-360-ar-rtl-long",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "review matrix dark-compact-1280-en-US-ltr-short",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "review matrix dark-comfortable-360-en-US-ltr-long",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "review matrix dark-comfortable-1280-ar-rtl-long",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    }
+  ],
+  "fontCases": [
+    {
+      "key": "light-compact-360-en-US-ltr-long",
+      "stable": true,
+      "projection": {
+        "browserVersion": "153.0.8010.12",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36",
+          "language": "en-US",
+          "languages": [
+            "en-US"
+          ],
+          "fontStatus": "loaded",
+          "devicePixelRatio": 1
+        },
+        "styles": [
+          "[\"Arial\",\"13.3333px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"400\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"500\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"600\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"700\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"22.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"700\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"16px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"20px\",\"600\",\"normal\",\"28px\"]",
+          "[\"system-ui\",\"12px\",\"400\",\"normal\",\"17.4px\"]"
+        ],
+        "platforms": [
+          "[\".SF NS\",\".SFNS-Bold\",false]",
+          "[\".SF NS\",\".SFNS-Regular\",false]",
+          "[\".SF NS\",\".SFNS-Regular_wdth_opsz140000_GRAD_wght2580000\",false]"
+        ]
+      }
+    },
+    {
+      "key": "light-compact-1280-en-US-ltr-short",
+      "stable": true,
+      "projection": {
+        "browserVersion": "153.0.8010.12",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36",
+          "language": "en-US",
+          "languages": [
+            "en-US"
+          ],
+          "fontStatus": "loaded",
+          "devicePixelRatio": 1
+        },
+        "styles": [
+          "[\"Arial\",\"13.3333px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"400\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"500\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"600\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"700\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"22.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"700\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"16px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"20px\",\"600\",\"normal\",\"28px\"]",
+          "[\"system-ui\",\"12px\",\"400\",\"normal\",\"17.4px\"]"
+        ],
+        "platforms": [
+          "[\".SF NS\",\".SFNS-Bold\",false]",
+          "[\".SF NS\",\".SFNS-Regular\",false]",
+          "[\".SF NS\",\".SFNS-Regular_wdth_opsz140000_GRAD_wght2580000\",false]"
+        ]
+      }
+    },
+    {
+      "key": "light-comfortable-360-ar-rtl-long",
+      "stable": true,
+      "projection": {
+        "browserVersion": "153.0.8010.12",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36",
+          "language": "en-US",
+          "languages": [
+            "en-US"
+          ],
+          "fontStatus": "loaded",
+          "devicePixelRatio": 1
+        },
+        "styles": [
+          "[\"Arial\",\"13.3333px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"600\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"22.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"500\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"600\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"700\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"16px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"20px\",\"600\",\"normal\",\"28px\"]",
+          "[\"system-ui\",\"14px\",\"400\",\"normal\",\"20.3px\"]"
+        ],
+        "platforms": [
+          "[\".SF NS\",\".SFNS-Bold\",false]",
+          "[\".SF NS\",\".SFNS-Regular\",false]",
+          "[\".SF NS\",\".SFNS-Regular_wdth_opsz140000_GRAD_wght2580000\",false]"
+        ]
+      }
+    },
+    {
+      "key": "light-comfortable-1280-en-US-ltr-short",
+      "stable": true,
+      "projection": {
+        "browserVersion": "153.0.8010.12",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36",
+          "language": "en-US",
+          "languages": [
+            "en-US"
+          ],
+          "fontStatus": "loaded",
+          "devicePixelRatio": 1
+        },
+        "styles": [
+          "[\"Arial\",\"13.3333px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"600\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"22.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"500\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"600\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"700\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"16px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"20px\",\"600\",\"normal\",\"28px\"]",
+          "[\"system-ui\",\"14px\",\"400\",\"normal\",\"20.3px\"]"
+        ],
+        "platforms": [
+          "[\".SF NS\",\".SFNS-Bold\",false]",
+          "[\".SF NS\",\".SFNS-Regular\",false]",
+          "[\".SF NS\",\".SFNS-Regular_wdth_opsz140000_GRAD_wght2580000\",false]"
+        ]
+      }
+    },
+    {
+      "key": "dark-compact-360-ar-rtl-long",
+      "stable": true,
+      "projection": {
+        "browserVersion": "153.0.8010.12",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36",
+          "language": "en-US",
+          "languages": [
+            "en-US"
+          ],
+          "fontStatus": "loaded",
+          "devicePixelRatio": 1
+        },
+        "styles": [
+          "[\"Arial\",\"13.3333px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"400\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"500\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"600\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"700\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"22.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"700\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"16px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"20px\",\"600\",\"normal\",\"28px\"]",
+          "[\"system-ui\",\"12px\",\"400\",\"normal\",\"17.4px\"]"
+        ],
+        "platforms": [
+          "[\".SF NS\",\".SFNS-Bold\",false]",
+          "[\".SF NS\",\".SFNS-Regular\",false]",
+          "[\".SF NS\",\".SFNS-Regular_wdth_opsz140000_GRAD_wght2580000\",false]"
+        ]
+      }
+    },
+    {
+      "key": "dark-compact-1280-en-US-ltr-short",
+      "stable": true,
+      "projection": {
+        "browserVersion": "153.0.8010.12",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36",
+          "language": "en-US",
+          "languages": [
+            "en-US"
+          ],
+          "fontStatus": "loaded",
+          "devicePixelRatio": 1
+        },
+        "styles": [
+          "[\"Arial\",\"13.3333px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"400\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"500\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"600\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"700\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"22.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"700\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"16px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"20px\",\"600\",\"normal\",\"28px\"]",
+          "[\"system-ui\",\"12px\",\"400\",\"normal\",\"17.4px\"]"
+        ],
+        "platforms": [
+          "[\".SF NS\",\".SFNS-Bold\",false]",
+          "[\".SF NS\",\".SFNS-Regular\",false]",
+          "[\".SF NS\",\".SFNS-Regular_wdth_opsz140000_GRAD_wght2580000\",false]"
+        ]
+      }
+    },
+    {
+      "key": "dark-comfortable-360-en-US-ltr-long",
+      "stable": true,
+      "projection": {
+        "browserVersion": "153.0.8010.12",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36",
+          "language": "en-US",
+          "languages": [
+            "en-US"
+          ],
+          "fontStatus": "loaded",
+          "devicePixelRatio": 1
+        },
+        "styles": [
+          "[\"Arial\",\"13.3333px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"600\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"22.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"500\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"600\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"700\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"16px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"20px\",\"600\",\"normal\",\"28px\"]",
+          "[\"system-ui\",\"14px\",\"400\",\"normal\",\"20.3px\"]"
+        ],
+        "platforms": [
+          "[\".SF NS\",\".SFNS-Bold\",false]",
+          "[\".SF NS\",\".SFNS-Regular\",false]",
+          "[\".SF NS\",\".SFNS-Regular_wdth_opsz140000_GRAD_wght2580000\",false]"
+        ]
+      }
+    },
+    {
+      "key": "dark-comfortable-1280-ar-rtl-long",
+      "stable": true,
+      "projection": {
+        "browserVersion": "153.0.8010.12",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36",
+          "language": "en-US",
+          "languages": [
+            "en-US"
+          ],
+          "fontStatus": "loaded",
+          "devicePixelRatio": 1
+        },
+        "styles": [
+          "[\"Arial\",\"13.3333px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"12px\",\"600\",\"normal\",\"17.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"400\",\"normal\",\"22.4px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"500\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"600\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"14px\",\"700\",\"normal\",\"20.3px\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"16px\",\"400\",\"normal\",\"normal\"]",
+          "[\"Geist, \\\"Geist Fallback\\\", -apple-system, \\\"system-ui\\\", \\\"Segoe UI\\\", sans-serif\",\"20px\",\"600\",\"normal\",\"28px\"]",
+          "[\"system-ui\",\"14px\",\"400\",\"normal\",\"20.3px\"]"
+        ],
+        "platforms": [
+          "[\".SF NS\",\".SFNS-Bold\",false]",
+          "[\".SF NS\",\".SFNS-Regular\",false]",
+          "[\".SF NS\",\".SFNS-Regular_wdth_opsz140000_GRAD_wght2580000\",false]"
+        ]
+      }
+    }
+  ]
+}

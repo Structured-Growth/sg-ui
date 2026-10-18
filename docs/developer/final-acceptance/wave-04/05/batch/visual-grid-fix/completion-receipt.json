@@ -1,0 +1,98 @@
+{
+  "status": "completed-scoped-fix-and-approved-zero-diff-comparison",
+  "acceptanceOwner": "coordinator; no central count changes made",
+  "comparison": {
+    "cases": 8,
+    "passed": 8,
+    "imagesCompared": 48,
+    "workers": 1,
+    "retries": 0,
+    "updateSnapshots": "none",
+    "maxDiffPixels": 0,
+    "snapshotUpdates": 0,
+    "baselineImageHashesUnchanged": true,
+    "reviewReceiptHashUnchanged": true,
+    "sourceHostLibraryStable": true,
+    "runtimeStableBeforeRun": true,
+    "browserUsedFontsStableBeforeRunAndAllEightCases": true,
+    "builds": 0
+  },
+  "approval": "Root actual rendered inspection accepted final48 at captured inputs; worker did not automatically approve candidates. Exact reviewed receipt is bound below.",
+  "fix": "DataGrid uses a full-width caption row above resize controls and border-box header/cell widths; wrapping action children stay inside the assigned cell. Public minima/maxima/flex/shared fill policy and selection/action utility allocations remain unchanged.",
+  "regression": "Native geometry assertions in the existing8case matrix cover column minima, caption word-width/height, narrow horizontal scrolling, wide pane fit and action label/button/cell/pane bounds. Existing focus/dialog/screenshot assertions preserved.",
+  "checks": {
+    "affectedUnits": 24,
+    "unitFiles": 4,
+    "admissionAndBaselineGuardsNode24": 13,
+    "browserTypesExitCode": 0,
+    "actualNode22_12AdmissionGuards": 5,
+    "node22EvidenceOwner": "Root-provided actual Node22.12 run, retained by hash."
+  },
+  "preservedEvidence": [
+    "capture-01 config worker-reload failure and original config source",
+    "capture-02 original48 including5root-rejected images",
+    "capture-03 caption-word assertion failures",
+    "capture-04 incomplete-fix captures, never approved",
+    "capture-05 root-reviewed final48"
+  ],
+  "bindings": {
+    "approvedReview": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/reviewed-baseline-05.json",
+      "sha256": "1be77936cd4b6639b1c1bf17f53c501adb3f829953c018d95943e7087c447d02"
+    },
+    "comparison": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/compare-admission-01/receipt.json",
+      "sha256": "54e26ce43e6adef230b232de9db7299601d71645d578808b7ef9bc2201032166"
+    },
+    "rawComparison": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/compare-01/results.json",
+      "sha256": "714f8ce0599c698f681293df7860427a02b787c8a3ba00c5b165716ce00a5a99"
+    },
+    "reviewGate": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/compare-admission-01/review-admission.json",
+      "sha256": "bc65487e3b11ffd2dc9a89350822323cc1d46961154d4a184aeaf1ab593f1d51"
+    },
+    "inputsBefore": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/compare-admission-01/inputs-before.json",
+      "sha256": "d5c834dd199caeee747eb0c2eaf21b6c9c432d704619c88ac50aeef72176d037"
+    },
+    "inputsAfter": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/compare-admission-01/inputs-after.json",
+      "sha256": "cd50a94e63783f60d69d80a475e2818371c86a1bbc929ca2afaf75becb62365a"
+    },
+    "runtime": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/compare-admission-01/runtime.json",
+      "sha256": "523ea17de4b74c9e07f5775586be5b15a4f6ed220b77040848798b10dbd59a73"
+    },
+    "fontPreflight": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/compare-admission-01/font-preflight.json",
+      "sha256": "1410c9b76c02b97bfd51ad2aa7a0f32f64b033f1c25b9ca8f321592dcbd8c40e"
+    },
+    "perCaseFontComparison": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/compare-admission-01/case-and-font-results.json",
+      "sha256": "d55ecb00db2077b397c1c80d9c27f8f30d63aef295a6dc972ade93d4b29c77f6"
+    },
+    "captureBinding": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/bindings-handoff-05.json",
+      "sha256": "6f9b580545b12fe58920398c0c2ba56aaf9776d08fd3b9de7b5cf788731a2ff4"
+    },
+    "finalFinding": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-grid-fix/final-finding.json",
+      "sha256": "84d332a72c7577481cde52797b77db0eff343d2062545aaa3a480fb8ef40e0ed"
+    },
+    "sourceFiles": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-grid-fix/integrated-files.json",
+      "sha256": "1f2d0c68c2ae6aa7b7fd81b5a9e8cf86c303b8572fb58a284a4b9287466f3f80"
+    },
+    "node22AdmissionTests": {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/validation/visual-capture-admission-node22.log",
+      "sha256": "c989414ab43a7a2a31725db689cc8fe53ac99899fe2fea5489c447e4cb3598e3"
+    }
+  },
+  "cleanup": {
+    "ownedBrowserClosed": true,
+    "ownedServerClosed": true,
+    "claimsReleased": true
+  },
+  "noCommitsOrCountMutations": true
+}

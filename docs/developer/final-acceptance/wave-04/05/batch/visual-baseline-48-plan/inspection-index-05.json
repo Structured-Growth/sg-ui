@@ -1,0 +1,1253 @@
+{
+  "status": "48-candidates-unapproved-awaiting-root-review",
+  "capture": "capture-05",
+  "cases": [
+    {
+      "title": "review matrix light-compact-360-en-US-ltr-long",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "review matrix light-compact-1280-en-US-ltr-short",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "review matrix light-comfortable-360-ar-rtl-long",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "review matrix light-comfortable-1280-en-US-ltr-short",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "review matrix dark-compact-360-ar-rtl-long",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "review matrix dark-compact-1280-en-US-ltr-short",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "review matrix dark-comfortable-360-en-US-ltr-long",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "review matrix dark-comfortable-1280-ar-rtl-long",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    }
+  ],
+  "images": [
+    {
+      "name": "light-compact-360-en-US-ltr-long-focused-action.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-focused-action.png",
+      "sha256": "dd4549cc682d4b8a49b5f6c8ba7d93d17fa937ff68120f2d685396d7b87f8f33",
+      "width": 328,
+      "height": 45,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "light-compact-360-en-US-ltr-long-controls.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-controls.png",
+      "sha256": "602336daaba9d65cf8c0c956a8ac5e91008d0bba744db7125bca9e7976905a3f",
+      "width": 328,
+      "height": 420,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "light-compact-360-en-US-ltr-long-grids.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-grids.png",
+      "sha256": "16cc3536a1015ceb4cfdd0d3a9c457fce1c6bcad1109ecc442796707de929800",
+      "width": 328,
+      "height": 1817,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "rejected",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "light-compact-360-en-US-ltr-long-navigation.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-navigation.png",
+      "sha256": "a3083374e168302bc2c91d2ecff7b54778cae1c594f9e61321d165195f44c81d",
+      "width": 328,
+      "height": 65,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "light-compact-360-en-US-ltr-long-editor.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-editor.png",
+      "sha256": "a342acf5a1058bd678f394c8a44dd01923024bb2f3b5041fa73fed3e076b863a",
+      "width": 328,
+      "height": 581,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "light-compact-360-en-US-ltr-long-overlay.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-overlay.png",
+      "sha256": "9f771876755630c130cdb40cdf58cd033ca5168b1d5607f29dfdabd82ef3ea5c",
+      "width": 328,
+      "height": 524,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "light-compact-1280-en-US-ltr-short-focused-action.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-focused-action.png",
+      "sha256": "2f795e07e95bb86b46d48b0be82930a71c255bce8534e7d9fe753504f06aa0a4",
+      "width": 1248,
+      "height": 32,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "light-compact-1280-en-US-ltr-short-controls.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-controls.png",
+      "sha256": "f3b5c0b2cd74adcc6edb07912e9ab7d1af297fc8e1b3f6d574f4bd90d19e2298",
+      "width": 1248,
+      "height": 317,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "light-compact-1280-en-US-ltr-short-grids.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-grids.png",
+      "sha256": "9dfe23c03cd6b0682410c3eeb5f4a14c91167045cbc5707ba77c25a45e198947",
+      "width": 1248,
+      "height": 1169,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "light-compact-1280-en-US-ltr-short-navigation.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-navigation.png",
+      "sha256": "fe9989af43e6fd9db9cad015fd208c7c18924397ef51d89b5daafcbc69735c79",
+      "width": 1248,
+      "height": 65,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "light-compact-1280-en-US-ltr-short-editor.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-editor.png",
+      "sha256": "1ec73632caca83323021346444a13aa35dc1fdc7e06b168de66ea0db31f0ea12",
+      "width": 1248,
+      "height": 553,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "light-compact-1280-en-US-ltr-short-overlay.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-overlay.png",
+      "sha256": "1ee29be72fb86b90e51cdd9e12a24c7d0d1e0e1bd60e8c8435bcf0196acab236",
+      "width": 640,
+      "height": 344,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-focused-action.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-focused-action.png",
+      "sha256": "f0337d19b90cec8cf4c1d133f88c30e3630a8d3249a92d24b6da7e9ecd8c72b8",
+      "width": 328,
+      "height": 51,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-controls.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-controls.png",
+      "sha256": "8d1c0d3fd5ac3157a213b32623a80116381ad0457d159fd82c8261de7c00c255",
+      "width": 328,
+      "height": 485,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-grids.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-grids.png",
+      "sha256": "38181085d61191411189ccefa7b35eea715723e1f3b7b83a8436356cea246745",
+      "width": 328,
+      "height": 2385,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "rejected",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-navigation.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-navigation.png",
+      "sha256": "ecda3c410e2de63b50b94606d0209fdb7fbf52916eba6b5397e4892f677d6431",
+      "width": 328,
+      "height": 98,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-editor.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-editor.png",
+      "sha256": "1bee072200f5121a7c81f9a745e711cde6ff17bf8734fd4f8d5eda4650f997a7",
+      "width": 328,
+      "height": 581,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "light-comfortable-360-ar-rtl-long-overlay.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-overlay.png",
+      "sha256": "e516eff77da6445b6010afc4d1e9a66a466990e0f13569cb9db1e92a0f6e7fc1",
+      "width": 328,
+      "height": 590,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "light-comfortable-1280-en-US-ltr-short-focused-action.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-focused-action.png",
+      "sha256": "d82e63743093dbe446cefc4d475aed21e01091487065c7bf480fd8bf0ed61386",
+      "width": 1248,
+      "height": 44,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "light-comfortable-1280-en-US-ltr-short-controls.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-controls.png",
+      "sha256": "13a614c63cfd06f5a490dd0d6aa7906153eba16195e118b117cb0ce871dacdb9",
+      "width": 1248,
+      "height": 397,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "light-comfortable-1280-en-US-ltr-short-grids.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-grids.png",
+      "sha256": "4e98270826f960415497a3006fed2a91c5974a5aa4d41c789c2451b3ef4d0a9c",
+      "width": 1248,
+      "height": 1409,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "light-comfortable-1280-en-US-ltr-short-navigation.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-navigation.png",
+      "sha256": "9e7cb910368991665f98fd3e7cc94cc70ef455c34208f95e4892f8efe3ae7d82",
+      "width": 1248,
+      "height": 89,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "light-comfortable-1280-en-US-ltr-short-editor.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-editor.png",
+      "sha256": "28b5d7380a8f3eabe99f08f0b89a1e593013a312d7db0a93814163a4e4a2ef5e",
+      "width": 1248,
+      "height": 553,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "light-comfortable-1280-en-US-ltr-short-overlay.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-overlay.png",
+      "sha256": "d36349b13419b7ab8f420eed28ca5bd6709d46fa2fd4d7bec58bd744aecadeeb",
+      "width": 640,
+      "height": 402,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "dark-compact-360-ar-rtl-long-focused-action.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-focused-action.png",
+      "sha256": "16fc2e762420d81152d79bb387abb7e5f3195f0030f66736e1109193cdd499aa",
+      "width": 328,
+      "height": 45,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "dark-compact-360-ar-rtl-long-controls.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-controls.png",
+      "sha256": "0d53d633d46a6735a576d502c188541ce0fe37b6c68c003af4c079c73cb60b8c",
+      "width": 328,
+      "height": 420,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "dark-compact-360-ar-rtl-long-grids.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-grids.png",
+      "sha256": "d429cecbdb097ceca3dd4faf320be3aa4da8f18e76d1b640cbd6cce19fc9062e",
+      "width": 328,
+      "height": 1817,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "rejected",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "dark-compact-360-ar-rtl-long-navigation.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-navigation.png",
+      "sha256": "a02fc8eb10abd08f30a0ae96d34175e3b4fb19a3800e2686369aa14381c10ede",
+      "width": 328,
+      "height": 65,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "dark-compact-360-ar-rtl-long-editor.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-editor.png",
+      "sha256": "8cb67ba5f7fa7f6974a701488897c4d2635ff1ef53c1ed436a55b8ca1f94c57f",
+      "width": 328,
+      "height": 581,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "dark-compact-360-ar-rtl-long-overlay.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-overlay.png",
+      "sha256": "e5e6a3e454422c4129b001abf41cc11268c3f8565355162076582bc8073b7306",
+      "width": 328,
+      "height": 524,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "dark-compact-1280-en-US-ltr-short-focused-action.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-focused-action.png",
+      "sha256": "58ba95908ec8e6fe535a9f2a5ffc7c29d64a66ca4f7536ff446d911810bfdb91",
+      "width": 1248,
+      "height": 32,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "dark-compact-1280-en-US-ltr-short-controls.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-controls.png",
+      "sha256": "96f8eddb05da74f843ec73a5a9a856fbafaaa83a05b804d10b4a578cdc481e04",
+      "width": 1248,
+      "height": 317,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "dark-compact-1280-en-US-ltr-short-grids.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-grids.png",
+      "sha256": "d0b56f911d0a021ad6714d0b2896bf94b256ee3bfa2110e4682ec3db359151f2",
+      "width": 1248,
+      "height": 1169,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "dark-compact-1280-en-US-ltr-short-navigation.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-navigation.png",
+      "sha256": "927f822009099d3c5fc79e498d0dca89635e389cc7de96bda587507af1111d41",
+      "width": 1248,
+      "height": 65,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "dark-compact-1280-en-US-ltr-short-editor.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-editor.png",
+      "sha256": "62f0b546044af922a3ecfd68565d3f3c9eea800d3f36ac3d566b1502a3dc8357",
+      "width": 1248,
+      "height": 553,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "dark-compact-1280-en-US-ltr-short-overlay.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-overlay.png",
+      "sha256": "ad9e31b5f707f65c672d4338acb313ec6b1d2668f65ce32096a50b7f75f41c56",
+      "width": 640,
+      "height": 344,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-focused-action.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-focused-action.png",
+      "sha256": "b08f412e4419d81a84303dd58315ca025f4ce3c8671efdb1a93dcbc872ded30c",
+      "width": 328,
+      "height": 51,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-controls.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-controls.png",
+      "sha256": "7fbc78f7d2d0ac3e2fb6c633e40cc4db1ff55e6e76741cb3f5719da5d2e8a057",
+      "width": 328,
+      "height": 485,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-grids.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-grids.png",
+      "sha256": "be56e3034cfde075cad1c5020d10bffa19be455c4850ebfadff82fa6a79a13f3",
+      "width": 328,
+      "height": 2385,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "rejected",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-navigation.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-navigation.png",
+      "sha256": "b85270e0584755470f67386c7e576c1d6fa42da26b0a343fbc82ae69e94c4368",
+      "width": 328,
+      "height": 98,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-editor.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-editor.png",
+      "sha256": "b07824c3c7bb04a8cac24b98ccf30a26bf08fe321aae5be4fd138656a6c3afbb",
+      "width": 328,
+      "height": 581,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "dark-comfortable-360-en-US-ltr-long-overlay.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-overlay.png",
+      "sha256": "4ba0dd0316dc5eaca7872400b6025559771aea7e38ba82c9a27dd628ab6289b6",
+      "width": 328,
+      "height": 590,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "dark-comfortable-1280-ar-rtl-long-focused-action.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-focused-action.png",
+      "sha256": "5591e3ac09f1d101a6690039db56f5917b438c990e2b9bde2519959f3f9eaeff",
+      "width": 1248,
+      "height": 44,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "dark-comfortable-1280-ar-rtl-long-controls.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-controls.png",
+      "sha256": "143cf68bb9309c971cdc9ab70538f6b92d6c1aa03ca881782f5e9c6c20b9fc66",
+      "width": 1248,
+      "height": 397,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "dark-comfortable-1280-ar-rtl-long-grids.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-grids.png",
+      "sha256": "71d0f038b129b705b67a89da918848ffd175e208217dc86d087ee6c4f20b82c5",
+      "width": 1248,
+      "height": 1565,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "rejected",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "dark-comfortable-1280-ar-rtl-long-navigation.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-navigation.png",
+      "sha256": "7322b5d4180f2252213b03ef5d43d0c2b60980efa0556945b236a54275f15df2",
+      "width": 1248,
+      "height": 89,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": false,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": false
+    },
+    {
+      "name": "dark-comfortable-1280-ar-rtl-long-editor.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-editor.png",
+      "sha256": "7c31af3e8a202140ecbb1248d9dab30968bf584e5cb36908893ec6da489cb903",
+      "width": 1248,
+      "height": 553,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    },
+    {
+      "name": "dark-comfortable-1280-ar-rtl-long-overlay.png",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-overlay.png",
+      "sha256": "5f167031fd7e6d6820e4b385d6ba7b672d87e0885edf32b59c6a58654cbb4e33",
+      "width": 640,
+      "height": 456,
+      "disposition": "unreviewed",
+      "matchesPriorReviewedBytes": true,
+      "priorDisposition": "accepted-at-captured-inputs",
+      "eligiblePriorObservation": true
+    }
+  ],
+  "fonts": [
+    {
+      "case": "light-compact-360-en-US-ltr-long",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/light-compact-360-en-US-ltr-long-browser-used-font-environment.json",
+      "sha256": "c8177aa0baaf8d3f09a2ce1475509a403456fd1ac98aaead92e8a4497407dc0a",
+      "samples": 119
+    },
+    {
+      "case": "light-compact-1280-en-US-ltr-short",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/light-compact-1280-en-US-ltr-short-browser-used-font-environment.json",
+      "sha256": "bac49f011d6d9b097952d23ccbf8eb67cc2e9d089f34ae64e8bfe77efbfc7c84",
+      "samples": 119
+    },
+    {
+      "case": "light-comfortable-360-ar-rtl-long",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/light-comfortable-360-ar-rtl-long-browser-used-font-environment.json",
+      "sha256": "0a6957cbdba179eca876cb672472db16ea33f9cf2c725dcf252ee6cb24aded37",
+      "samples": 119
+    },
+    {
+      "case": "light-comfortable-1280-en-US-ltr-short",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/light-comfortable-1280-en-US-ltr-short-browser-used-font-environment.json",
+      "sha256": "d348ba9aec81e435d0f0bfa6caa43b690444ae8919a49d8538b2a85e1b36a581",
+      "samples": 119
+    },
+    {
+      "case": "dark-compact-360-ar-rtl-long",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/dark-compact-360-ar-rtl-long-browser-used-font-environment.json",
+      "sha256": "c8177aa0baaf8d3f09a2ce1475509a403456fd1ac98aaead92e8a4497407dc0a",
+      "samples": 119
+    },
+    {
+      "case": "dark-compact-1280-en-US-ltr-short",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/dark-compact-1280-en-US-ltr-short-browser-used-font-environment.json",
+      "sha256": "bac49f011d6d9b097952d23ccbf8eb67cc2e9d089f34ae64e8bfe77efbfc7c84",
+      "samples": 119
+    },
+    {
+      "case": "dark-comfortable-360-en-US-ltr-long",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/dark-comfortable-360-en-US-ltr-long-browser-used-font-environment.json",
+      "sha256": "0a6957cbdba179eca876cb672472db16ea33f9cf2c725dcf252ee6cb24aded37",
+      "samples": 119
+    },
+    {
+      "case": "dark-comfortable-1280-ar-rtl-long",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/dark-comfortable-1280-ar-rtl-long-browser-used-font-environment.json",
+      "sha256": "01bff6d30a7fa01393b11d8092643ea5f69eaf9a9f9adeb7acb50bace8e8b84b",
+      "samples": 119
+    }
+  ],
+  "geometry": [
+    {
+      "case": "light-compact-360-en-US-ltr-long",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/light-compact-360-en-US-ltr-long-visual-grid-geometry.json",
+      "sha256": "56082a56651c7f45c6886c333443dbf755c02d0656ae5a9cdb897bc52a4fe71c",
+      "grids": [
+        {
+          "label": "Selected course grid",
+          "paneWidth": 326,
+          "scrollWidth": 630,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            153.453125,
+            153.453125
+          ]
+        },
+        {
+          "label": "Loading course grid",
+          "paneWidth": 326,
+          "scrollWidth": 390,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            153.453125,
+            153.453125
+          ]
+        },
+        {
+          "label": "Empty course grid",
+          "paneWidth": 326,
+          "scrollWidth": 390,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            153.453125,
+            153.453125
+          ]
+        },
+        {
+          "label": "Failed course grid",
+          "paneWidth": 326,
+          "scrollWidth": 390,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            153.453125,
+            153.453125
+          ]
+        }
+      ]
+    },
+    {
+      "case": "light-compact-1280-en-US-ltr-short",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/light-compact-1280-en-US-ltr-short-visual-grid-geometry.json",
+      "sha256": "32a30be79c36eba0051b2adb6712b8a2d98b5305169c6e8ee1cbf2edce59e01d",
+      "grids": [
+        {
+          "label": "Selected course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            428,
+            428
+          ],
+          "headerHeights": [
+            88.5,
+            88.5
+          ]
+        },
+        {
+          "label": "Loading course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            548,
+            548
+          ],
+          "headerHeights": [
+            88.5,
+            88.5
+          ]
+        },
+        {
+          "label": "Empty course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            548,
+            548
+          ],
+          "headerHeights": [
+            88.5,
+            88.5
+          ]
+        },
+        {
+          "label": "Failed course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            548,
+            548
+          ],
+          "headerHeights": [
+            88.5,
+            88.5
+          ]
+        }
+      ]
+    },
+    {
+      "case": "light-comfortable-360-ar-rtl-long",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/light-comfortable-360-ar-rtl-long-visual-grid-geometry.json",
+      "sha256": "816484f9fd3f8e509017badadc8d55d27fe2557c2b12787b7988be58ea2ae039",
+      "grids": [
+        {
+          "label": "Selected course grid",
+          "paneWidth": 326,
+          "scrollWidth": 630,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            220.578125,
+            220.578125
+          ]
+        },
+        {
+          "label": "Loading course grid",
+          "paneWidth": 326,
+          "scrollWidth": 390,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            220.578125,
+            220.578125
+          ]
+        },
+        {
+          "label": "Empty course grid",
+          "paneWidth": 326,
+          "scrollWidth": 390,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            220.578125,
+            220.578125
+          ]
+        },
+        {
+          "label": "Failed course grid",
+          "paneWidth": 326,
+          "scrollWidth": 390,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            220.578125,
+            220.578125
+          ]
+        }
+      ]
+    },
+    {
+      "case": "light-comfortable-1280-en-US-ltr-short",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/light-comfortable-1280-en-US-ltr-short-visual-grid-geometry.json",
+      "sha256": "98097b31717e7e30f0a96aadd83a8bbe9d195c31c4f36200c892021e1087928d",
+      "grids": [
+        {
+          "label": "Selected course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            428,
+            428
+          ],
+          "headerHeights": [
+            112.5,
+            112.5
+          ]
+        },
+        {
+          "label": "Loading course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            548,
+            548
+          ],
+          "headerHeights": [
+            112.5,
+            112.5
+          ]
+        },
+        {
+          "label": "Empty course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            548,
+            548
+          ],
+          "headerHeights": [
+            112.5,
+            112.5
+          ]
+        },
+        {
+          "label": "Failed course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            548,
+            548
+          ],
+          "headerHeights": [
+            112.5,
+            112.5
+          ]
+        }
+      ]
+    },
+    {
+      "case": "dark-compact-360-ar-rtl-long",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/dark-compact-360-ar-rtl-long-visual-grid-geometry.json",
+      "sha256": "5f7797f8424f7dc1d40332f30a7f79f0833e96802892d4d3347d10f1eedc87b0",
+      "grids": [
+        {
+          "label": "Selected course grid",
+          "paneWidth": 326,
+          "scrollWidth": 630,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            153.453125,
+            153.453125
+          ]
+        },
+        {
+          "label": "Loading course grid",
+          "paneWidth": 326,
+          "scrollWidth": 390,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            153.453125,
+            153.453125
+          ]
+        },
+        {
+          "label": "Empty course grid",
+          "paneWidth": 326,
+          "scrollWidth": 390,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            153.453125,
+            153.453125
+          ]
+        },
+        {
+          "label": "Failed course grid",
+          "paneWidth": 326,
+          "scrollWidth": 390,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            153.453125,
+            153.453125
+          ]
+        }
+      ]
+    },
+    {
+      "case": "dark-compact-1280-en-US-ltr-short",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/dark-compact-1280-en-US-ltr-short-visual-grid-geometry.json",
+      "sha256": "32a30be79c36eba0051b2adb6712b8a2d98b5305169c6e8ee1cbf2edce59e01d",
+      "grids": [
+        {
+          "label": "Selected course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            428,
+            428
+          ],
+          "headerHeights": [
+            88.5,
+            88.5
+          ]
+        },
+        {
+          "label": "Loading course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            548,
+            548
+          ],
+          "headerHeights": [
+            88.5,
+            88.5
+          ]
+        },
+        {
+          "label": "Empty course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            548,
+            548
+          ],
+          "headerHeights": [
+            88.5,
+            88.5
+          ]
+        },
+        {
+          "label": "Failed course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            548,
+            548
+          ],
+          "headerHeights": [
+            88.5,
+            88.5
+          ]
+        }
+      ]
+    },
+    {
+      "case": "dark-comfortable-360-en-US-ltr-long",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/dark-comfortable-360-en-US-ltr-long-visual-grid-geometry.json",
+      "sha256": "c9745147e6bc6f1dde8d69df938338b058d11a386e24addfccc9fc32029dfe41",
+      "grids": [
+        {
+          "label": "Selected course grid",
+          "paneWidth": 326,
+          "scrollWidth": 630,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            220.578125,
+            220.578125
+          ]
+        },
+        {
+          "label": "Loading course grid",
+          "paneWidth": 326,
+          "scrollWidth": 390,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            220.578125,
+            220.578125
+          ]
+        },
+        {
+          "label": "Empty course grid",
+          "paneWidth": 326,
+          "scrollWidth": 390,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            220.578125,
+            220.578125
+          ]
+        },
+        {
+          "label": "Failed course grid",
+          "paneWidth": 326,
+          "scrollWidth": 390,
+          "columnWidths": [
+            120,
+            120
+          ],
+          "headerHeights": [
+            220.578125,
+            220.578125
+          ]
+        }
+      ]
+    },
+    {
+      "case": "dark-comfortable-1280-ar-rtl-long",
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/dark-comfortable-1280-ar-rtl-long-visual-grid-geometry.json",
+      "sha256": "b3289b513440a28dbe3a17901181342bd33313657bf56bb5e9395c4bbae6e45f",
+      "grids": [
+        {
+          "label": "Selected course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            428,
+            428
+          ],
+          "headerHeights": [
+            112.5,
+            112.5
+          ]
+        },
+        {
+          "label": "Loading course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            548,
+            548
+          ],
+          "headerHeights": [
+            112.5,
+            112.5
+          ]
+        },
+        {
+          "label": "Empty course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            548,
+            548
+          ],
+          "headerHeights": [
+            112.5,
+            112.5
+          ]
+        },
+        {
+          "label": "Failed course grid",
+          "paneWidth": 1246,
+          "scrollWidth": 1246,
+          "columnWidths": [
+            548,
+            548
+          ],
+          "headerHeights": [
+            112.5,
+            112.5
+          ]
+        }
+      ]
+    }
+  ],
+  "contactSheetPlan": [
+    {
+      "case": "light-compact-360-en-US-ltr-long",
+      "images": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-focused-action.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-controls.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-grids.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-navigation.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-editor.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-360-en-US-ltr-long-overlay.png"
+      ],
+      "layout": "Native-pixel images; use contiguous labeled600px slices for tall regions, no scaling. Originals remain authoritative."
+    },
+    {
+      "case": "light-compact-1280-en-US-ltr-short",
+      "images": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-focused-action.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-controls.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-grids.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-navigation.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-editor.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-compact-1280-en-US-ltr-short-overlay.png"
+      ],
+      "layout": "Native-pixel images; use contiguous labeled600px slices for tall regions, no scaling. Originals remain authoritative."
+    },
+    {
+      "case": "light-comfortable-360-ar-rtl-long",
+      "images": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-focused-action.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-controls.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-grids.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-navigation.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-editor.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-360-ar-rtl-long-overlay.png"
+      ],
+      "layout": "Native-pixel images; use contiguous labeled600px slices for tall regions, no scaling. Originals remain authoritative."
+    },
+    {
+      "case": "light-comfortable-1280-en-US-ltr-short",
+      "images": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-focused-action.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-controls.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-grids.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-navigation.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-editor.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/light-comfortable-1280-en-US-ltr-short-overlay.png"
+      ],
+      "layout": "Native-pixel images; use contiguous labeled600px slices for tall regions, no scaling. Originals remain authoritative."
+    },
+    {
+      "case": "dark-compact-360-ar-rtl-long",
+      "images": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-focused-action.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-controls.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-grids.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-navigation.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-editor.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-360-ar-rtl-long-overlay.png"
+      ],
+      "layout": "Native-pixel images; use contiguous labeled600px slices for tall regions, no scaling. Originals remain authoritative."
+    },
+    {
+      "case": "dark-compact-1280-en-US-ltr-short",
+      "images": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-focused-action.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-controls.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-grids.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-navigation.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-editor.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-compact-1280-en-US-ltr-short-overlay.png"
+      ],
+      "layout": "Native-pixel images; use contiguous labeled600px slices for tall regions, no scaling. Originals remain authoritative."
+    },
+    {
+      "case": "dark-comfortable-360-en-US-ltr-long",
+      "images": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-focused-action.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-controls.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-grids.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-navigation.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-editor.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-360-en-US-ltr-long-overlay.png"
+      ],
+      "layout": "Native-pixel images; use contiguous labeled600px slices for tall regions, no scaling. Originals remain authoritative."
+    },
+    {
+      "case": "dark-comfortable-1280-ar-rtl-long",
+      "images": [
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-focused-action.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-controls.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-grids.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-navigation.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-editor.png",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/capture-05/candidates/chromium/visual-acceptance.spec.ts/dark-comfortable-1280-ar-rtl-long-overlay.png"
+      ],
+      "layout": "Native-pixel images; use contiguous labeled600px slices for tall regions, no scaling. Originals remain authoritative."
+    }
+  ],
+  "priorReview": {
+    "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/root-rendered-review.json",
+    "sha256": "824fae552fb9154fe6892e21bbc192e46273e83159a1543d50680872d3faaa9d",
+    "byteIdenticalEligibleObservationCount": 24,
+    "changedImages": [
+      "light-compact-360-en-US-ltr-long-grids.png",
+      "light-compact-360-en-US-ltr-long-navigation.png",
+      "light-compact-360-en-US-ltr-long-editor.png",
+      "light-compact-1280-en-US-ltr-short-grids.png",
+      "light-compact-1280-en-US-ltr-short-navigation.png",
+      "light-compact-1280-en-US-ltr-short-editor.png",
+      "light-comfortable-360-ar-rtl-long-grids.png",
+      "light-comfortable-360-ar-rtl-long-navigation.png",
+      "light-comfortable-360-ar-rtl-long-editor.png",
+      "light-comfortable-360-ar-rtl-long-overlay.png",
+      "light-comfortable-1280-en-US-ltr-short-grids.png",
+      "light-comfortable-1280-en-US-ltr-short-editor.png",
+      "dark-compact-360-ar-rtl-long-grids.png",
+      "dark-compact-360-ar-rtl-long-navigation.png",
+      "dark-compact-360-ar-rtl-long-editor.png",
+      "dark-compact-1280-en-US-ltr-short-grids.png",
+      "dark-compact-1280-en-US-ltr-short-navigation.png",
+      "dark-compact-1280-en-US-ltr-short-editor.png",
+      "dark-comfortable-360-en-US-ltr-long-grids.png",
+      "dark-comfortable-360-en-US-ltr-long-navigation.png",
+      "dark-comfortable-360-en-US-ltr-long-editor.png",
+      "dark-comfortable-360-en-US-ltr-long-overlay.png",
+      "dark-comfortable-1280-ar-rtl-long-grids.png",
+      "dark-comfortable-1280-ar-rtl-long-navigation.png"
+    ]
+  },
+  "binding": {
+    "source": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/source.json",
+    "host": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/host.json",
+    "runtime": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/runtime.json",
+    "execution": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/receipt.json"
+  },
+  "approved": false,
+  "compared": false
+}

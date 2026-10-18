@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 78,
-  "closedTotal": 259,
-  "remaining": 61,
+  "closedThisReview": 79,
+  "closedTotal": 260,
+  "remaining": 60,
   "entries": [
     {
       "id": "A-M-21",
@@ -695,6 +695,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-public-example-parity-review.json",
       "sha256": "544425244e82f3d616a504414187e43ce7d52d1ab95c39010b4f93100b651acc",
       "limits": "Twelve focused Chromium flows, existing source replacement inventory and separately accepted 98-route catalog evidence; not private-scenario duplication, spoken AT, deployment or release approval."
+    },
+    {
+      "id": "A-B-07",
+      "basis": "Representative requested UI families have actual rendered screenshot review plus passing native interactions. Final grid caption/width defects corrected with bounded geometry assertions; approved images remain distinct from rejected initial candidates.",
+      "criterion": "- [ ] A-B-07 Reconcile original `B-07`: Capture representative screenshots and browser interactions for light/dark UI, compact/comfortable controls, editors, navigation, modals, and grids. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-representative-visual-review.json",
+      "sha256": "cee497d86a10b7b902c30cde9ac3c1db00553978988de6c5c5b99875d0067756",
+      "limits": "Bounded Chromium/macOS environment with recorded browser-used fonts; not all-engine visual portability, spoken AT, physical-device coverage or production release approval. Durable future-candidate regression provenance is tracked separately in A-X-14."
     }
   ],
   "limits": [

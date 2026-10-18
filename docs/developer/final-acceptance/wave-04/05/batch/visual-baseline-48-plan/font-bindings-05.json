@@ -1,0 +1,37 @@
+{
+  "cases": 8,
+  "records": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/light-compact-360-en-US-ltr-long-browser-used-font-environment.json",
+      "sha256": "c8177aa0baaf8d3f09a2ce1475509a403456fd1ac98aaead92e8a4497407dc0a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/light-compact-1280-en-US-ltr-short-browser-used-font-environment.json",
+      "sha256": "bac49f011d6d9b097952d23ccbf8eb67cc2e9d089f34ae64e8bfe77efbfc7c84"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/light-comfortable-360-ar-rtl-long-browser-used-font-environment.json",
+      "sha256": "0a6957cbdba179eca876cb672472db16ea33f9cf2c725dcf252ee6cb24aded37"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/light-comfortable-1280-en-US-ltr-short-browser-used-font-environment.json",
+      "sha256": "d348ba9aec81e435d0f0bfa6caa43b690444ae8919a49d8538b2a85e1b36a581"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/dark-compact-360-ar-rtl-long-browser-used-font-environment.json",
+      "sha256": "c8177aa0baaf8d3f09a2ce1475509a403456fd1ac98aaead92e8a4497407dc0a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/dark-compact-1280-en-US-ltr-short-browser-used-font-environment.json",
+      "sha256": "bac49f011d6d9b097952d23ccbf8eb67cc2e9d089f34ae64e8bfe77efbfc7c84"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/dark-comfortable-360-en-US-ltr-long-browser-used-font-environment.json",
+      "sha256": "0a6957cbdba179eca876cb672472db16ea33f9cf2c725dcf252ee6cb24aded37"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/admission-05/dark-comfortable-1280-ar-rtl-long-browser-used-font-environment.json",
+      "sha256": "01bff6d30a7fa01393b11d8092643ea5f69eaf9a9f9adeb7acb50bace8e8b84b"
+    }
+  ]
+}

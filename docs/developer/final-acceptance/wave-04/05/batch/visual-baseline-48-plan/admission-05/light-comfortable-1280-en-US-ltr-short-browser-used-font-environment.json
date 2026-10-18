@@ -1,0 +1,1898 @@
+{
+  "engine": "chromium",
+  "browserVersion": "153.0.8010.12",
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36",
+    "language": "en-US",
+    "languages": [
+      "en-US"
+    ],
+    "fontStatus": "loaded",
+    "devicePixelRatio": 1
+  },
+  "samples": [
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(1) > button:nth-child(1) > span:nth-child(1)",
+      "text": "Save course",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 11
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(1) > button:nth-child(2) > span:nth-child(1)",
+      "text": "Unavailable",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 11
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(1) > button:nth-child(3) > span:nth-child(2)",
+      "text": "Saving course",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 13
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(1) > div:nth-child(4) > label:nth-child(1)",
+      "text": "Course name",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 11
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(1) > div:nth-child(4) > input:nth-child(2)",
+      "text": "",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 12
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(1) > div:nth-child(5) > label:nth-child(1)",
+      "text": "Invalid course name",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 19
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(1) > div:nth-child(5) > input:nth-child(2)",
+      "text": "",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(1) > div:nth-child(5) > span:nth-child(3)",
+      "text": "Choose a unique course name",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 27
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(1) > button:nth-child(6)",
+      "text": "Selected formatting",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 19
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > label:nth-child(1)",
+      "text": "Search",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > input:nth-child(2)",
+      "text": "",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > button:nth-child(2) > span:nth-child(1)",
+      "text": "Refresh",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 7
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > button:nth-child(3) > span:nth-child(1)",
+      "text": "Columns",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 7
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > span:nth-child(4)",
+      "text": "1 selected",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 10
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(1) > button:nth-child(5) > span:nth-child(1)",
+      "text": "Select none",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 11
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(1) > label:nth-child(1) > span:nth-child(1) > input:nth-child(1)",
+      "text": "",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(1) > label:nth-child(1) > span:nth-child(2) > span:nth-child(1)",
+      "text": "\u2212",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(1) > label:nth-child(1) > span:nth-child(2) > span:nth-child(2)",
+      "text": "Select page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 11
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2) > div:nth-child(1) > div:nth-child(1) > button:nth-child(1) > span:nth-child(1)",
+      "text": "Course",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2) > div:nth-child(1) > span:nth-child(2) > div:nth-child(1) > input:nth-child(1)",
+      "text": "",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2) > div:nth-child(1) > button:nth-child(3) > span:nth-child(1)",
+      "text": "\u2194",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(3) > div:nth-child(1) > div:nth-child(1) > button:nth-child(1) > span:nth-child(1)",
+      "text": "Score",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 5
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(3) > div:nth-child(1) > span:nth-child(2) > div:nth-child(1) > input:nth-child(1)",
+      "text": "",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(3) > div:nth-child(1) > button:nth-child(3) > span:nth-child(1)",
+      "text": "\u2194",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(4)",
+      "text": "Actions",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 7
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(1) > div:nth-child(1) > label:nth-child(1) > span:nth-child(1) > input:nth-child(1)",
+      "text": "",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(1) > div:nth-child(1) > label:nth-child(1) > span:nth-child(2) > span:nth-child(1)",
+      "text": "\u2713",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(1) > div:nth-child(1) > label:nth-child(1) > span:nth-child(2) > span:nth-child(2)",
+      "text": "Select Algebra",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 14
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(2)",
+      "text": "Algebra",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 7
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(3)",
+      "text": "89",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 2
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > button:nth-child(1) > span:nth-child(1)",
+      "text": "Edit Algebra",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 12
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(1) > div:nth-child(1) > label:nth-child(1) > span:nth-child(1) > input:nth-child(1)",
+      "text": "",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(1) > div:nth-child(1) > label:nth-child(1) > span:nth-child(2) > span:nth-child(2)",
+      "text": "Select Geometry",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 14
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(2)",
+      "text": "Geometry",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 8
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(3)",
+      "text": "74",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 2
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > div:nth-child(2) > table:nth-child(3) > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(4) > div:nth-child(1) > button:nth-child(1) > span:nth-child(1)",
+      "text": "Edit Geometry",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 13
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > footer:nth-child(3) > span:nth-child(1)",
+      "text": "Page 1",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > footer:nth-child(3) > div:nth-child(3) > span:nth-child(1)",
+      "text": "Rows per page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 13
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > footer:nth-child(3) > div:nth-child(3) > button:nth-child(2) > span:nth-child(2)",
+      "text": "25",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 2
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > footer:nth-child(3) > button:nth-child(4) > span:nth-child(1)",
+      "text": "Previous page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 13
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(1) > footer:nth-child(3) > button:nth-child(5) > span:nth-child(1)",
+      "text": "Next page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 9
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > label:nth-child(1)",
+      "text": "Search",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > input:nth-child(2)",
+      "text": "",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > button:nth-child(2) > span:nth-child(1)",
+      "text": "Columns",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 7
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(3)",
+      "text": "0 selected",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 10
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(1) > label:nth-child(1) > span:nth-child(1) > input:nth-child(1)",
+      "text": "",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(1) > label:nth-child(1) > span:nth-child(2) > span:nth-child(2)",
+      "text": "Select page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 11
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2) > div:nth-child(1) > div:nth-child(1) > button:nth-child(1) > span:nth-child(1)",
+      "text": "Course",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2) > div:nth-child(1) > span:nth-child(2) > div:nth-child(1) > input:nth-child(1)",
+      "text": "",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2) > div:nth-child(1) > button:nth-child(3) > span:nth-child(1)",
+      "text": "\u2194",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(3) > div:nth-child(1) > div:nth-child(1) > button:nth-child(1) > span:nth-child(1)",
+      "text": "Score",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 5
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(3) > div:nth-child(1) > span:nth-child(2) > div:nth-child(1) > input:nth-child(1)",
+      "text": "",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(3) > div:nth-child(1) > button:nth-child(3) > span:nth-child(1)",
+      "text": "\u2194",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > table:nth-child(3) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(1)",
+      "text": "Loading\u2026",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 8
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > footer:nth-child(3) > span:nth-child(1)",
+      "text": "Page 1",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > footer:nth-child(3) > div:nth-child(3) > span:nth-child(1)",
+      "text": "Rows per page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 13
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > footer:nth-child(3) > div:nth-child(3) > button:nth-child(2) > span:nth-child(2)",
+      "text": "25",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 2
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > footer:nth-child(3) > button:nth-child(4) > span:nth-child(1)",
+      "text": "Previous page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 13
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > footer:nth-child(3) > button:nth-child(5) > span:nth-child(1)",
+      "text": "Next page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 9
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > label:nth-child(1)",
+      "text": "Search",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > input:nth-child(2)",
+      "text": "",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(1) > button:nth-child(2) > span:nth-child(1)",
+      "text": "Columns",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 7
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(1) > span:nth-child(3)",
+      "text": "0 selected",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 10
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(1) > label:nth-child(1) > span:nth-child(1) > input:nth-child(1)",
+      "text": "",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(1) > label:nth-child(1) > span:nth-child(2) > span:nth-child(2)",
+      "text": "Select page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 11
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2) > div:nth-child(1) > div:nth-child(1) > button:nth-child(1) > span:nth-child(1)",
+      "text": "Course",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2) > div:nth-child(1) > span:nth-child(2) > div:nth-child(1) > input:nth-child(1)",
+      "text": "",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2) > div:nth-child(1) > button:nth-child(3) > span:nth-child(1)",
+      "text": "\u2194",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(3) > div:nth-child(1) > div:nth-child(1) > button:nth-child(1) > span:nth-child(1)",
+      "text": "Score",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 5
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(3) > div:nth-child(1) > span:nth-child(2) > div:nth-child(1) > input:nth-child(1)",
+      "text": "",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(2) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(3) > div:nth-child(1) > button:nth-child(3) > span:nth-child(1)",
+      "text": "\u2194",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(2) > table:nth-child(3) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(1)",
+      "text": "No results",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 10
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > footer:nth-child(3) > span:nth-child(1)",
+      "text": "Page 1",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > footer:nth-child(3) > div:nth-child(3) > span:nth-child(1)",
+      "text": "Rows per page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 13
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > footer:nth-child(3) > div:nth-child(3) > button:nth-child(2) > span:nth-child(2)",
+      "text": "25",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 2
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > footer:nth-child(3) > button:nth-child(4) > span:nth-child(1)",
+      "text": "Previous page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 13
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > footer:nth-child(3) > button:nth-child(5) > span:nth-child(1)",
+      "text": "Next page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 9
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > label:nth-child(1)",
+      "text": "Search",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > input:nth-child(2)",
+      "text": "",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > div:nth-child(1) > button:nth-child(2) > span:nth-child(1)",
+      "text": "Refresh",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 7
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > div:nth-child(1) > button:nth-child(3) > span:nth-child(1)",
+      "text": "Columns",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 7
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > div:nth-child(1) > span:nth-child(4)",
+      "text": "0 selected",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 10
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > p:nth-child(2)",
+      "text": "Courses could not load",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 22
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > div:nth-child(3) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(1) > label:nth-child(1) > span:nth-child(1) > input:nth-child(1)",
+      "text": "",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > div:nth-child(3) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(1) > label:nth-child(1) > span:nth-child(2) > span:nth-child(2)",
+      "text": "Select page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 11
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > div:nth-child(3) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2) > div:nth-child(1) > div:nth-child(1) > button:nth-child(1) > span:nth-child(1)",
+      "text": "Course",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > div:nth-child(3) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2) > div:nth-child(1) > span:nth-child(2) > div:nth-child(1) > input:nth-child(1)",
+      "text": "",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > div:nth-child(3) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2) > div:nth-child(1) > button:nth-child(3) > span:nth-child(1)",
+      "text": "\u2194",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > div:nth-child(3) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(3) > div:nth-child(1) > div:nth-child(1) > button:nth-child(1) > span:nth-child(1)",
+      "text": "Score",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 5
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > div:nth-child(3) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(3) > div:nth-child(1) > span:nth-child(2) > div:nth-child(1) > input:nth-child(1)",
+      "text": "",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > div:nth-child(3) > table:nth-child(3) > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(3) > div:nth-child(1) > button:nth-child(3) > span:nth-child(1)",
+      "text": "\u2194",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 1
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > div:nth-child(3) > table:nth-child(3) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(1)",
+      "text": "No results",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 10
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > footer:nth-child(4) > span:nth-child(1)",
+      "text": "Page 1",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > footer:nth-child(4) > div:nth-child(3) > span:nth-child(1)",
+      "text": "Rows per page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 13
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > footer:nth-child(4) > div:nth-child(3) > button:nth-child(2) > span:nth-child(2)",
+      "text": "25",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 2
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > footer:nth-child(4) > button:nth-child(4) > span:nth-child(1)",
+      "text": "Previous page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 13
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(2) > div:nth-child(4) > footer:nth-child(4) > button:nth-child(5) > span:nth-child(1)",
+      "text": "Next page",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 9
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(3) > nav:nth-child(1) > a:nth-child(1)",
+      "text": "Overview",
+      "fontFamily": "system-ui",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 8
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(3) > nav:nth-child(1) > a:nth-child(2)",
+      "text": "Courses",
+      "fontFamily": "system-ui",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 7
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(4) > h2:nth-child(1)",
+      "text": "Course content",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "28px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular_wdth_opsz140000_GRAD_wght2580000",
+          "isCustomFont": false,
+          "glyphCount": 14
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > span:nth-child(1)",
+      "text": "Text style heading",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 18
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(2) > span:nth-child(2)",
+      "text": "Normal",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > span:nth-child(1)",
+      "text": "Font family",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 11
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > button:nth-child(2) > span:nth-child(2)",
+      "text": "Arial",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 5
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > output:nth-child(2)",
+      "text": "15",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 2
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > button:nth-child(10) > span:nth-child(1) > span:nth-child(1)",
+      "text": "Aa",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "17.4px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 2
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > button:nth-child(11) > span:nth-child(2)",
+      "text": "Insert",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "17.4px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3)",
+      "text": "Start writing page content...",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "normal",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 29
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > section:nth-child(5) > button:nth-child(1) > span:nth-child(1)",
+      "text": "Open visual dialog",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 18
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(4) > div:nth-child(1) > section:nth-child(2) > header:nth-child(1) > div:nth-child(1) > h2:nth-child(1)",
+      "text": "Course settings",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "28px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular_wdth_opsz140000_GRAD_wght2580000",
+          "isCustomFont": false,
+          "glyphCount": 15
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(4) > div:nth-child(1) > section:nth-child(2) > header:nth-child(1) > div:nth-child(1) > span:nth-child(2)",
+      "text": "Review course details before saving",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "22.4px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 35
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(4) > div:nth-child(1) > section:nth-child(2) > header:nth-child(1) > button:nth-child(2) > span:nth-child(1)",
+      "text": "Close",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 5
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(4) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > label:nth-child(1)",
+      "text": "Dialog course name",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 18
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(4) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > input:nth-child(2)",
+      "text": "",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 7
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(4) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > label:nth-child(1)",
+      "text": "Invalid dialog field",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 20
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(4) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > input:nth-child(2)",
+      "text": "",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": []
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(4) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span:nth-child(3)",
+      "text": "This value is required",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 22
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(4) > div:nth-child(1) > section:nth-child(2) > div:nth-child(2) > button:nth-child(3) > span:nth-child(2)",
+      "text": "Saving settings",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 15
+        }
+      ]
+    },
+    {
+      "selector": "html:nth-child(1) > body:nth-child(2) > div:nth-child(4) > div:nth-child(1) > section:nth-child(2) > footer:nth-child(3) > button:nth-child(1) > span:nth-child(1)",
+      "text": "Done",
+      "fontFamily": "Geist, \"Geist Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "lineHeight": "20.3px",
+      "platformFonts": [
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Bold",
+          "isCustomFont": false,
+          "glyphCount": 4
+        }
+      ]
+    }
+  ]
+}

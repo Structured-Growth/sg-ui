@@ -1,0 +1,24 @@
+{
+  "classification": "library header/action content layout under valid public default widths; not an unsupported fixture configuration",
+  "sourceFinding": [
+    "DataGrid passes public flexible-column minWidth120 and React Aria applies resolved numeric header widths. Narrow captures already show horizontal overflow; the source does not demonstrate the shared min/max/flex solver shrinking below minima.",
+    "The columnHeader flex row combines the sorting caption, resizer and width-popover button in that same 120px allocation. Resize controls consume caption space, creating character towers even though the column minimum is passed.",
+    "Selection utility width150/min100 consumes much of a narrow viewport but is not the data-column allocation mechanism; this bounded fix preserves it.",
+    "Action container is an unconstrained flex row; explicitly wrapping and bounding children to the cell prevents long RTL action content extending outside its allocated utility column."
+  ],
+  "fix": [
+    "Wrap caption in columnLabel with full header width. Place caption above existing resize controls in a two-column grid.",
+    "Constrain action children to cell inline size and allow wrapping.",
+    "Do not change fixture labels/columns, public defaults, shared sizing core, utility allocations, resize callbacks, min/max or fill-column policy."
+  ],
+  "regression": "Existing eight visual cases additionally assert data-column minimum120, ordinary-word caption width, bounded header height, actual narrow horizontal overflow and action label/button/cell bounds in both directions. No extra screenshot cases or weakened entry/screenshot assertions.",
+  "rootReview": {
+    "path": "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/root-rendered-review.json",
+    "sha256": "824fae552fb9154fe6892e21bbc192e46273e83159a1543d50680872d3faaa9d",
+    "acceptedAtOriginalInputs": 43,
+    "rejected": 5,
+    "approvedBaseline": false
+  },
+  "originalCandidates": "../visual-baseline-48-plan/capture-02/candidates; all retained unchanged",
+  "validation": "admission-03 records affected units, one fresh library/host build, browser types and recapture; final native result pending at finding creation."
+}
