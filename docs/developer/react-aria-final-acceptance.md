@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 276/320 A leaves closed; 44 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 279/320 A leaves closed; 41 A, 0 editor V review leaves and six future leaves remain.**
+
+### Container, fluid layout and text stress accepted — 2026-10-17
+
+Corrected the enlarged-toolbar validation fixture to double the actual owned control-text roles and assert computed fonts/content bounds. All six existing normal/enlarged cases pass across three engines on one fresh fixture build. Named card/toolbar/shell/modal containment ownership and retained actual zoom, spacing, font substitution and reflow evidence complete the original scope.
+Wave 04 now closes 98 of 139 items; 41 remain.
 
 ### Native browser interaction acceptance reconciled — 2026-10-17
 

@@ -1,0 +1,164 @@
+{
+  "criteria": {
+    "C08": "Use container size queries for reusable card, toolbar, navigation, and modal compositions; choose/document containment boundaries so consumers know what supplies the container.",
+    "C12": "Use fluid sizing such as clamp where beneficial without preventing text zoom; establish mobile/reflow fallbacks.",
+    "D09": "Use rem-based text sizing and layouts that tolerate zoom, text spacing changes, long labels, and font substitution."
+  },
+  "refs": {
+    "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-actual-browser-zoom-closures.json": "2372349eac9277f4777823fffa61232eba72c672e5ca5165f9ef30a5d6dddc65",
+    "docs/developer/final-acceptance/wave-04/coordinator/css-fallback/receipt.json": "1bf0925014a032f4bb5b7f950a012c1327d63e74551b847b0fe8ad4707830b2d",
+    "docs/developer/final-acceptance/wave-04/02/composed-shell/receipt.json": "8041b4ade0a29f48701267769ce7371fcabca22f54840d4070af304045273c1e",
+    "docs/developer/final-acceptance/wave-03-09/reflow-results.json": "c1581b9f8d003853d1822295d1b31059a55a5b8eb08400c773ec2e2ed3ea78d3",
+    "docs/developer/final-acceptance/wave-03-09/screenshot-review.json": "2a19239f110ada339fb6e85e351357a3044792bebc9527b437848bd1ad971bb7",
+    "packages/ui/artifacts/wave03-integration/followup-final-results.json": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+    "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/results.json": "8e7047082fdbfb29b5c0e246943dcbab6be481e8b664855e36dabc32212cb97b",
+    "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/reviewed-baseline-05-provenance.json": "e47d3c24f2638befe1ec1b1ba103c74fe05b1b30a983febcaf7665b6479594e8",
+    "docs/developer/final-acceptance/wave-04/05/batch/visual-baseline-48-plan/compare-provenance-admission-01/receipt.json": "e5696920d3c592ca1832ff69df822ff5cc049977e459ca176d47109897161e0b"
+  },
+  "source": {
+    "packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css": "ea1b13e785cf93faa6e6d2947d40a74d0c56f675e561b45ba0b682ea576b10c5",
+    "packages/ui/src/components/DataToolbar/DataToolbar.module.css": "ed9842b74c5b1137b81e89ce8a6e0727cf7d9f1fca2fdefed54fca5f946bf392",
+    "packages/ui/src/components/AppShell/AppShell.module.css": "2b20ca5fcab874c3e2866da3688d535fec432e5ebc8bfc180900425363b0c2e7",
+    "packages/ui/src/components/AppModal/AppModal.module.css": "811bdbd4f695d6e54ac8d0528dacef97494a36e9522cf82c6d8314dd4218ab9c",
+    "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.module.css": "58c6ec4b67a1a899948ebd172402c9c765b80477b7456beda7f09a5567c2be21",
+    "packages/ui/src/experimental/Dialog/Dialog.module.css": "fc5dafaa09efdb601d4ffc001bbf9142f77c4801e91a69ed2de34b555567a41f",
+    "packages/ui/src/foundation/tokens.json": "a08079fb20ae728521a29aabb3b411b9d6df82e1e7ce101bc1307f4799d88617",
+    "docs/developer/react-aria-card-frames.md": "d0e3b28a7ff490c832e1369b2a6fea2dabec2b2b6490955bf23f0d4e39f38c30",
+    "docs/developer/react-aria-data-toolbar.md": "7c80e7f363584d717df17550f99331c8a7639d458014a09a0be65f5624df0522",
+    "docs/developer/react-aria-navigation-container.md": "3ec053e5e297ac7f160e4379a657a02badcc9ac1a8874a08deb86cf9fd60c6f0",
+    "docs/developer/react-aria-modal-container.md": "c21a713f39e8d9c1f97a14ec8c81e2d5e533da6bb031f50589905b555ccc0f96"
+  },
+  "boundaries": {
+    "ClassCardFrame": "sgui-class-card / inline-size,20rem slot spacing; allocated host width, no content-derived intrinsic width",
+    "DataToolbar": "sgui-data-toolbar / inline-size,24rem search width; external track/block/flex allocation, portaled menus separate",
+    "AppShell": "sgui-app-shell / inline-size,40rem stacking; internal descendant wrapper, independent scroll panes",
+    "AppModal": "sgui-app-modal / inline-size,30rem footer stacking; portaled surface owns width, opener container does not"
+  },
+  "cardNative3": [
+    {
+      "file": "card-container-boundary.spec.ts",
+      "title": "card query follows its allocation and preserves sibling and native focus",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "file": "card-container-boundary.spec.ts",
+      "title": "card query follows its allocation and preserves sibling and native focus",
+      "project": "firefox",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "file": "card-container-boundary.spec.ts",
+      "title": "card query follows its allocation and preserves sibling and native focus",
+      "project": "webkit",
+      "results": [
+        "passed"
+      ]
+    }
+  ],
+  "textSpacingNative3": [
+    {
+      "file": "wave04-browser-acceptance.spec.ts",
+      "title": "every tabbed-modal field and footer stop remains unobscured with text spacing and open resize",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "file": "wave04-browser-acceptance.spec.ts",
+      "title": "every tabbed-modal field and footer stop remains unobscured with text spacing and open resize",
+      "project": "firefox",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "file": "wave04-browser-acceptance.spec.ts",
+      "title": "every tabbed-modal field and footer stop remains unobscured with text spacing and open resize",
+      "project": "webkit",
+      "results": [
+        "passed"
+      ]
+    }
+  ],
+  "fontSubstitution4": [
+    {
+      "id": "en-compact-mono-320",
+      "requestedFont": "monospace",
+      "computedCardFont": "monospace",
+      "rootScale": 100,
+      "viewportWidth": 320,
+      "focusStops": 8,
+      "errors": []
+    },
+    {
+      "id": "ar-comfortable-serif-320",
+      "requestedFont": "serif",
+      "computedCardFont": "serif",
+      "rootScale": 100,
+      "viewportWidth": 320,
+      "focusStops": 8,
+      "errors": []
+    },
+    {
+      "id": "en-comfortable-serif-text200",
+      "requestedFont": "serif",
+      "computedCardFont": "serif",
+      "rootScale": 200,
+      "viewportWidth": 640,
+      "focusStops": 8,
+      "errors": []
+    },
+    {
+      "id": "ar-compact-mono-text200",
+      "requestedFont": "monospace",
+      "computedCardFont": "monospace",
+      "rootScale": 200,
+      "viewportWidth": 640,
+      "focusStops": 8,
+      "errors": []
+    }
+  ],
+  "retainedLimits": [
+    "Card native case includes200%root text, spacing and computed monospace reflow; no new execution claimed.",
+    "Four older font substitutions are supported Node24Chromium, mutable historical host and bounded card/modal geometry; not immutable current whole-host or actual browser zoom. Computed serif/monospace values are recorded.",
+    "Actual400% zoom is isolated Chromium, rootfont16/CSSzoom1/visualViewport.scale1/getZoom~4; FF/WK receipts cover resize/text spacing, not actual page zoom.",
+    "Visual48 establishes representative reviewed geometry/long-label/RTL scope, not every family/state/font/device.",
+    "CSS fallback6 proves current-engine unsupported-has fallback injection and four-presentation resize branches, not minimum old-engine or physical dynamic viewport.",
+    "No native-nestingC11 or physical dynamic-viewport inference."
+  ],
+  "concreteDefect": "Current toolbar ContainerBoundaryEnlarged changes only label/body tokens; actual compactTextField/comfortableSplitAction typography remains normal. Prepared correction adds actual control token overrides and computed font/content usability assertions.",
+  "implementationStatus": "Two-file patch prepared under proposed-files, not applied while memory job owns host/source closure. No library runtime changes indicated.",
+  "minimumNextNative": {
+    "cases": [
+      "independent container widths, resizing and keyboard actions",
+      "independent container widths, resizing and keyboard actions with enlarged labels"
+    ],
+    "engines": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "executions": 6,
+    "fixtureIds": [
+      "data-display-datatoolbar--container-boundary",
+      "data-display-datatoolbar--container-boundary-enlarged"
+    ],
+    "builds": "One fresh docs-native host after fixture integration; reuse unchanged built library.",
+    "keep": "All existing geometry/focus/menu/callback/draft/sibling assertions, plus24pxcompactInput/28pxcomfortableButton stress and content bounds. No general matrix sweep."
+  },
+  "completedLightValidation": {
+    "semanticVirtualOverlayDiagnostics": 0,
+    "patchDryRun": true,
+    "newTestCases": 0,
+    "existingCasesStrengthened": 2,
+    "nativeRuns": 0,
+    "builds": 0
+  },
+  "acceptanceOwner": "root; no count edits"
+}

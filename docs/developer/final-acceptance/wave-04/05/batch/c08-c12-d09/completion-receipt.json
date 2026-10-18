@@ -1,0 +1,138 @@
+{
+  "status": "six-existing-toolbar-cases-passed-enlargement-defect-corrected",
+  "cases": [
+    {
+      "title": "independent container widths, resizing and keyboard actions",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "independent container widths, resizing and keyboard actions with enlarged labels",
+      "project": "chromium",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "independent container widths, resizing and keyboard actions",
+      "project": "firefox",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "independent container widths, resizing and keyboard actions with enlarged labels",
+      "project": "firefox",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "independent container widths, resizing and keyboard actions",
+      "project": "webkit",
+      "results": [
+        "passed"
+      ]
+    },
+    {
+      "title": "independent container widths, resizing and keyboard actions with enlarged labels",
+      "project": "webkit",
+      "results": [
+        "passed"
+      ]
+    }
+  ],
+  "guardedFonts": {
+    "root16pxNormal": {
+      "compactInput": 12,
+      "comfortableAction": 14
+    },
+    "root16pxEnlarged": {
+      "compactInput": 24,
+      "comfortableAction": 28
+    },
+    "ownedScopedTokens": true,
+    "globalRootTypographyChanged": false
+  },
+  "behavior": "Actual computed fonts and action/input content bounds pass with exact allocated search widths, resize/sibling drafts, callbacks, menu and native keyboard/focus assertions retained.",
+  "fixtureBuilds": 1,
+  "libraryBuilds": 0,
+  "librarySha256Unchanged": "81ffe1230d98e5e41c05815d47989624baab407ad96e5fd595ca1eabe535f2fe",
+  "immutableHostSha256": "62e87270fb249de64a7a60e061e26bfeb5630b4265757734ba8ee57bd979b3c6",
+  "runtime": "v24.19.0",
+  "browserTypesExitCode": 0,
+  "workers": 1,
+  "retries": 0,
+  "sourceAndOutputsStableDuringRun": true,
+  "cleanup": {
+    "ownedServerClosed": true,
+    "ownedClaimsReleased": true,
+    "owner": "toolbar-container-6:89883"
+  },
+  "bindings": {
+    "native-01/results.json": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/native-01/results.json",
+      "sha256": "bf7d47e47a95669261e35eb1d869de53e7322de8c18b6c2ab0f6590732768f02"
+    },
+    "native-01/execution.json": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/native-01/execution.json",
+      "sha256": "be6389eac13be783f68fb84d0cbd143ceb79e1972cd0c720e41911272fa270bd"
+    },
+    "native-01/cleanup.json": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/native-01/cleanup.json",
+      "sha256": "238c33766e14e0dfd512e744da3a0db3151d3091dec53256b2e224957a317bf8"
+    },
+    "native-01/build-stages.json": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/native-01/build-stages.json",
+      "sha256": "3769d41ea27e7ac72e927d718a9d749f243b14fad4bc1146a6dda42372f4fe8f"
+    },
+    "native-01/inputs-and-outputs-before.json": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/native-01/inputs-and-outputs-before.json",
+      "sha256": "99b1ccc068514b1078ccced929305d0f219eeeca028e1160dbe8ae61b7a7a95a"
+    },
+    "native-01/inputs-and-outputs-after.json": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/native-01/inputs-and-outputs-after.json",
+      "sha256": "52652247c7703f97caf993d5cdb224761dcedeecbc056cf0b3d1cc6c34231a43"
+    },
+    "integration.json": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/integration.json",
+      "sha256": "d759c8e08409496a9dc7a8fc63d14901acf97b2410b6143ed728ae5e60b76994"
+    },
+    "files.json": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/files.json",
+      "sha256": "bc42b533cc417c95a92dc684f00c2b5bdabc1c503b36cdb3b9b1b5a5b81b064f"
+    },
+    "reconciliation.json": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/reconciliation.json",
+      "sha256": "d52a0522e143ca4c91fb0b37a3ecc3d5eaf24204949d25b5bc1357b2635feaab"
+    },
+    "documentation-correction.json": {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/documentation-correction.json",
+      "sha256": "985008055f5dce0c3b787cf1894af3ee13f41d37d89d6cecf94e54fba5b530fa"
+    }
+  },
+  "sourceChanges": [
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.fixture.tsx",
+      "beforeSha256": "5cda35a0470951a22e80c69b29989d5365f4d093fd0d7294557e12b1a949f817",
+      "afterSha256": "f82fc1c7f79ee710ef710d38f3dda51d89357876b4b35c8d1069da2e7aed24cf"
+    },
+    {
+      "path": "packages/ui/tests/browser/toolbar-container-boundary.spec.ts",
+      "beforeSha256": "c7ee00bb6ee5cf977705ae44f7f5670a08087ddb5ab53c1c7e4558ea94f8b023",
+      "afterSha256": "5a4482887edd45bb5d698f48198db6fd24fbf78229580ada49cb4d84729288fa"
+    },
+    {
+      "path": "docs/developer/react-aria-data-toolbar.md",
+      "beforeSha256": "7c80e7f363584d717df17550f99331c8a7639d458014a09a0be65f5624df0522",
+      "afterSha256": "5a3ed580480ccafe864500e31d17e39a0ed7d3e1716676a50f13e02be3d22f8e",
+      "documentationOnly": true
+    }
+  ],
+  "additionalNativeOrMatrixRuns": 0,
+  "C12D09RetainedEvidence": "reconciliation.json; actual zoom, CSS fallback6, visual48, card/text-spacing native and scoped serif/monospace substitution receipts keep their original limits. No repeated matrix.",
+  "acceptanceOwner": "Root; no counts/commits changed.",
+  "X08": "Source audit remains a separate queued next-task recommendation; no implementation expanded here."
+}

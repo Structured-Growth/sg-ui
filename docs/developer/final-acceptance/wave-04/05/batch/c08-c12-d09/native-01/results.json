@@ -1,0 +1,323 @@
+{
+  "config": {
+    "argv": [
+      "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/native.config.cjs"
+    ],
+    "configFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/native.config.cjs",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/native-01/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "toolbar-container-boundary.spec.ts"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/native-01/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "toolbar-container-boundary.spec.ts"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/native-01/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "toolbar-container-boundary.spec.ts"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/c08-c12-d09/native-01/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "toolbar-container-boundary.spec.ts",
+      "file": "toolbar-container-boundary.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "independent container widths, resizing and keyboard actions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 715,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:51:43.283Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48f49a14fd79322b7b79-dfedfb5950bbe2d0de88",
+          "file": "toolbar-container-boundary.spec.ts",
+          "line": 20,
+          "column": 3
+        },
+        {
+          "title": "independent container widths, resizing and keyboard actions with enlarged labels",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 542,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:51:44.212Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48f49a14fd79322b7b79-fa556593bf2b762e43de",
+          "file": "toolbar-container-boundary.spec.ts",
+          "line": 20,
+          "column": 3
+        },
+        {
+          "title": "independent container widths, resizing and keyboard actions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1438,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:51:44.974Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48f49a14fd79322b7b79-2734a784e415fb6639e9",
+          "file": "toolbar-container-boundary.spec.ts",
+          "line": 20,
+          "column": 3
+        },
+        {
+          "title": "independent container widths, resizing and keyboard actions with enlarged labels",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 731,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:51:47.125Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48f49a14fd79322b7b79-d2238eb2b57590c5d431",
+          "file": "toolbar-container-boundary.spec.ts",
+          "line": 20,
+          "column": 3
+        },
+        {
+          "title": "independent container widths, resizing and keyboard actions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1317,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:51:48.275Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48f49a14fd79322b7b79-bb70c64d981750e0afae",
+          "file": "toolbar-container-boundary.spec.ts",
+          "line": 20,
+          "column": 3
+        },
+        {
+          "title": "independent container widths, resizing and keyboard actions with enlarged labels",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 934,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:51:49.876Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "48f49a14fd79322b7b79-0c60a7e0e4fb8367b7d5",
+          "file": "toolbar-container-boundary.spec.ts",
+          "line": 20,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T00:51:43.049Z",
+    "duration": 7795.653,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 95,
-  "closedTotal": 276,
-  "remaining": 44,
+  "closedThisReview": 98,
+  "closedTotal": 279,
+  "remaining": 41,
   "entries": [
     {
       "id": "A-M-21",
@@ -848,6 +848,33 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/root-browser-interaction-review.json",
       "sha256": "ba82c013418ba201a217c47e4a49e075d780242cb5de0df6c9191e2d1b7b9b2f",
       "limits": "Retained cases stay at their original source/runtime; no whole-parent green, physical touch, spoken AT or universal clipboard-policy assertion."
+    },
+    {
+      "id": "A-C-08",
+      "basis": "Four named container owners and allocation boundaries are implemented/documented. Actual independent card and toolbar cases prove allocation-driven adaptation; corrected toolbar normal/enlarged cases pass six executions, retaining sibling state, resizing, menus and keyboard focus.",
+      "criterion": "- [ ] A-C-08 Reconcile original `C-08`: Use container size queries for reusable card, toolbar, navigation, and modal compositions; choose/document containment boundaries so consumers know what supplies the container. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-container-fluid-text-review.json",
+      "sha256": "f9e806808497a6c533a5368c3b5737a146f375499afdc3dc76f9a6f8e79c7be0",
+      "limits": "Exactly six fresh toolbar cases; other evidence retains original runtime/source scopes. Enlarged scoped font-token stress is distinct from real browser zoom. No new screenshot from passing toolbar run, physical dynamic-viewport, native-nesting support-floor, spoken AT or universal all-layout guarantee."
+    },
+    {
+      "id": "A-C-12",
+      "basis": "Owned beneficial fluid/min/max/rem sizing and viewport/reflow fallbacks are implemented with documented boundaries. Accepted actual browser zoom, cross-engine geometry, enlarged-control cases and rendered visual evidence establish primary mobile/reflow paths without claiming limited-support dependencies.",
+      "criterion": "- [ ] A-C-12 Reconcile original `C-12`: Use fluid sizing such as `clamp` where beneficial without preventing text zoom; establish mobile/reflow fallbacks. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-container-fluid-text-review.json",
+      "sha256": "f9e806808497a6c533a5368c3b5737a146f375499afdc3dc76f9a6f8e79c7be0",
+      "limits": "Exactly six fresh toolbar cases; other evidence retains original runtime/source scopes. Enlarged scoped font-token stress is distinct from real browser zoom. No new screenshot from passing toolbar run, physical dynamic-viewport, native-nesting support-floor, spoken AT or universal all-layout guarantee."
+    },
+    {
+      "id": "A-D-09",
+      "basis": "Rem-based text roles have actual zoom/text-spacing/long-label/font-substitution evidence. The discovered false-positive toolbar enlargement fixture is fixed and now proves 24/28px computed control fonts with bounds and usability across three engines.",
+      "criterion": "- [ ] A-D-09 Reconcile original `D-09`: Use rem-based text sizing and layouts that tolerate zoom, text spacing changes, long labels, and font substitution. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-container-fluid-text-review.json",
+      "sha256": "f9e806808497a6c533a5368c3b5737a146f375499afdc3dc76f9a6f8e79c7be0",
+      "limits": "Exactly six fresh toolbar cases; other evidence retains original runtime/source scopes. Enlarged scoped font-token stress is distinct from real browser zoom. No new screenshot from passing toolbar run, physical dynamic-viewport, native-nesting support-floor, spoken AT or universal all-layout guarantee."
     }
   ],
   "limits": [

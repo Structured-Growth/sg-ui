@@ -1,0 +1,21 @@
+{
+  "status": "two-files-integrated-waiting-for-heavy-lane-release",
+  "beforeHashesVerified": true,
+  "files": [
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.fixture.tsx",
+      "beforeSha256": "5cda35a0470951a22e80c69b29989d5365f4d093fd0d7294557e12b1a949f817",
+      "afterSha256": "f82fc1c7f79ee710ef710d38f3dda51d89357876b4b35c8d1069da2e7aed24cf"
+    },
+    {
+      "path": "packages/ui/tests/browser/toolbar-container-boundary.spec.ts",
+      "beforeSha256": "c7ee00bb6ee5cf977705ae44f7f5670a08087ddb5ab53c1c7e4558ea94f8b023",
+      "afterSha256": "5a4482887edd45bb5d698f48198db6fd24fbf78229580ada49cb4d84729288fa"
+    }
+  ],
+  "libraryRuntimeChanged": false,
+  "libraryDistChanged": false,
+  "fixtureBuildRun": false,
+  "nativeRun": false,
+  "assertionsPreserved": true
+}

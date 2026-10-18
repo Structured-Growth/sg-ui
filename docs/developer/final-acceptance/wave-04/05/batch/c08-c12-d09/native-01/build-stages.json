@@ -1,0 +1,27 @@
+[
+  {
+    "name": "fixture-build",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/build-browser-docs.mjs"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T00:51:34.295Z",
+    "exitCode": 0,
+    "completedAt": "2026-10-18T00:51:41.064Z"
+  },
+  {
+    "name": "browser-types",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "-p",
+      "tests/browser/tsconfig.json"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T00:51:41.203Z",
+    "exitCode": 0,
+    "completedAt": "2026-10-18T00:51:42.516Z"
+  }
+]
