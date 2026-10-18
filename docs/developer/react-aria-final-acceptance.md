@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 283/320 A leaves closed; 37 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 284/320 A leaves closed; 36 A, 0 editor V review leaves and six future leaves remain.**
+
+### Single-pointer alternatives completed — 2026-10-17
+
+Closed A-X-08 after adding inline calendar range adjustment, two-click editor table selection and bounded shelf width buttons. Nine affected native cases pass across Chromium, Firefox and WebKit; a real editor Escape-focus defect was fixed and the initial failures are retained. Existing grid, column, page and sort alternatives are explicitly mapped to retained evidence.
+Wave 04 now closes 103 of 139 items; 36 remain.
 
 ### Icon catalog, bundle and vector notices accepted — 2026-10-17
 

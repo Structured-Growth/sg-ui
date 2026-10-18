@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 102,
-  "closedTotal": 283,
-  "remaining": 37,
+  "closedThisReview": 103,
+  "closedTotal": 284,
+  "remaining": 36,
   "entries": [
     {
       "id": "A-M-21",
@@ -911,6 +911,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/root-icon-catalog-bundle-notice-review.json",
       "sha256": "dafe7988c3d0e2e1829e85a67d0b07f368174d5e5973bfdc6a57e650b3b2ef45",
       "limits": "Icon-vector attribution facts only, not whole-dependency/legal/release approval. Retired notices remain governed by independent L/Z review. Packed icon probe and later full-package notice audit keep different archive scopes."
+    },
+    {
+      "id": "A-X-08",
+      "basis": "Every shipped owned drag-operation family is mapped to keyboard and single-pointer alternatives. New calendar controls share the drag solver/constraints without another popup; editor two-click rectangles preserve actual focus/Escape and nested-editor ownership; optional shelf width steps share measured bounds. Six unchanged calendar/shelf native passes plus three corrected editor passes across three engines, 28 unique focused unit tests and current catalog/type checks support integration commit 4e5d9fd9.",
+      "criterion": "- [ ] A-X-08 Reconcile original `X-08`: Provide both keyboard and single-pointer non-drag alternatives for drag operations where required; keyboard support alone does not satisfy every dragging requirement. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/x08-pointer-alternatives.json",
+      "sha256": "89c5f5df9cb141cc55fd2f0350f7fb656e8332ea96539726be48a2cd1c94d17b",
+      "limits": "Native text/image drag and arbitrary host-added plugins are outside owned drag operations. Reused grid/page/sort evidence is identified as retained, not rerun. No spoken-AT, physical-device or complete accessibility conformance claim; D15/X06/X07/X11 remain separate."
     }
   ],
   "limits": [
