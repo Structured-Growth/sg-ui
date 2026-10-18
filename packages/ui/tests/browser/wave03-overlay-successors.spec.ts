@@ -116,6 +116,10 @@ test('combined dialog, menu, tooltip and editor dialog preserve ownership and li
     await expect(sibling.locator('xpath=ancestor::*[@data-sgui-scope][1]')).toHaveAttribute('data-sgui-theme', 'light');
   } finally {
     await info.attach('overlay-ownership', { body: JSON.stringify(observations, null, 2), contentType: 'application/json' });
+    if (!page.isClosed()) await info.attach('overlay-final-viewport', { contentType: 'application/json', body: JSON.stringify(await page.evaluate(() => ({
+      width: innerWidth, height: innerHeight, visual: visualViewport && { width: visualViewport.width, height: visualViewport.height, scale: visualViewport.scale },
+      tooltips: [...document.querySelectorAll('[role="tooltip"]')].map(node => ({ rect: node.getBoundingClientRect().toJSON(), style: node.getAttribute('style') })),
+    }))) });
   }
 });
 
