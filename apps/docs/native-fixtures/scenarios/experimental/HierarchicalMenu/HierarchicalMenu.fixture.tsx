@@ -23,8 +23,8 @@ type Story = StoryObj<typeof meta>;
 function IndependentHost() {
   const [result, setResult] = useState("");
   return <Stack direction="row" wrap gap={4}>
-    <ThemeScope density="compact"><HierarchicalMenu label="First navigation" items={fixtureItems} onAction={id => setResult(id)} style={{ width: "18rem", height: "18rem", maxWidth: "100%" }} /></ThemeScope>
-    <ThemeScope density="comfortable"><HierarchicalMenu label="Second navigation" items={fixtureItems} style={{ width: "18rem", height: "18rem", maxWidth: "100%" }} /></ThemeScope>
+    <ThemeScope density="compact" style={{ width: "18rem", maxWidth: "100%", minWidth: 0 }}><HierarchicalMenu label="First navigation" items={fixtureItems} onAction={id => setResult(id)} style={{ width: "100%", height: "18rem", maxWidth: "100%" }} /></ThemeScope>
+    <ThemeScope density="comfortable" style={{ width: "18rem", maxWidth: "100%", minWidth: 0 }}><HierarchicalMenu label="Second navigation" items={fixtureItems} style={{ width: "100%", height: "18rem", maxWidth: "100%" }} /></ThemeScope>
     {result && <output role="status" aria-label="Local action result">{result === "invite" ? "Invitation draft opened locally" : "Local action completed"}</output>}
   </Stack>;
 }

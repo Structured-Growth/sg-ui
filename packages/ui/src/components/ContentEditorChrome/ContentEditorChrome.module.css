@@ -8,6 +8,6 @@
   .title h4 { min-inline-size: 0; overflow-wrap: anywhere; }
   .right { min-inline-size: 0; max-inline-size: 100%; overflow-wrap: anywhere; }
   .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sgui-space1); margin-block-start: var(--sgui-space2); }
-  .action { min-inline-size: 0; max-inline-size: 100%; padding-inline: var(--sgui-space3); }
+  .action { min-inline-size: var(--sgui-control-minimum-target-size); max-inline-size: 100%; padding-inline: var(--sgui-space3); }
   .action > span { white-space: normal; overflow-wrap: anywhere; }
 }

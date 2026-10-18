@@ -209,7 +209,8 @@
     "how": [
       "Provide title and onTitleSave for the committed document name. Use titleReadOnly to keep that name visible while preventing edits.",
       "Supply menuItems with stable IDs and onPress(anchor) callbacks. Use the native button anchor to position a host-owned menu or dialog; there is no synthetic click event to inspect.",
-      "Expose disabled or loading command states and matching aria-haspopup, aria-expanded, and aria-controls when a command opens an overlay. Put saving or publication status in rightSlot."
+      "Expose disabled or loading command states and matching aria-haspopup, aria-expanded, and aria-controls when a command opens an overlay. Put saving or publication status in rightSlot.",
+      "Command hit areas retain the shared touch minimum even for short labels; compact pointer spacing and text size stay local to the control."
     ],
     "related": [
       {
@@ -315,7 +316,8 @@
       "Choose mode='foreground' or 'background', provide value, and apply onChange(nextColor) through the host editor command.",
       "Accept semantic preset values as CSS token references rather than assuming every choice is a hex literal. Clear emits an empty string so the host can remove the explicit style.",
       "Preserve the target selection while the picker is open, and set disabled when formatting is unavailable. Saved document colors remain part of the host's content and rendering policy.",
-      "Selected presets retain a double border independently of their outer focus outline. Only the decorative color-data fill opts out of forced-color recoloring; interactive chrome remains system painted."
+      "Selected presets retain a double border independently of their outer focus outline. Only the decorative color-data fill opts out of forced-color recoloring; interactive chrome remains system painted.",
+      "Preset hit areas and the native custom-color control honor the shared touch minimum. Compact pointer presets retain their small presentation."
     ],
     "related": [
       {

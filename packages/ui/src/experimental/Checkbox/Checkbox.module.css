@@ -1,6 +1,6 @@
 @layer sgui.components {
   .control { display: inline-flex; align-items: center; gap: var(--sgui-space2); min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); }
-  .root { display: inline-flex; flex-direction: column; align-items: start; gap: var(--sgui-space1); min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); color: var(--sgui-checkbox-text); font-family: var(--sgui-font-family); font-size: var(--sgui-control-text-size); line-height: var(--sgui-label-line-height); cursor: pointer; }
+  .root { min-inline-size: var(--sgui-control-minimum-target-size); display: inline-flex; flex-direction: column; align-items: start; gap: var(--sgui-space1); min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); color: var(--sgui-checkbox-text); font-family: var(--sgui-font-family); font-size: var(--sgui-control-text-size); line-height: var(--sgui-label-line-height); cursor: pointer; }
   .content { display: flex; flex-direction: column; gap: var(--sgui-space1); }
   .description { color: var(--sgui-checkbox-description-text); }
   .error { color: var(--sgui-checkbox-error-text); }

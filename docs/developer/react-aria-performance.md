@@ -59,7 +59,8 @@ wide uses 10,000 rows/20 columns/page 50; largePage uses the same data/page 200;
 selector renders 2,000 host-provided options. Each workload uses three warmup
 navigations and nine recorded navigations, sequential search input, selection,
 grid sorting, and 50 updates at 100ms intervals affecting ten rows. Measurements
-run from event capture or the timer callback to two post-commit animation frames;
+run from event capture, the selector's public selection callback, or the timer
+callback to two post-commit animation frames;
 they estimate presentation opportunities, not actual paint or standardized INP.
 Initial measurements start at fixture module evaluation, excluding network startup.
 Asset records include all emitted chunks, raw/gzip bytes and content hashes;
@@ -89,6 +90,22 @@ The 2026-10-16 local distribution stylesheet measures 262,185 raw / 21,871 level
 gzip bytes. This is a different artifact and must not be represented as a passing
 old consumer budget or a minimal-import size. Editor-only, grid-only and composed
 packed-consumer build graphs still require separate current-artifact receipts.
+
+### Selector measurement boundary
+
+The selector now records selection at its public `onValueChange` callback, followed
+by the same two post-commit animation frames. The original click-target heuristic
+recorded a generic click despite actual selected state during the update burst;
+that failed assertion remains in `backlog-to-ten/performance-01` and
+`backlog-to-ten/performance-02`. The callback measures host state-request to frame
+opportunity and excludes work before the callback; it is not full input latency.
+Grid selection retains its existing event-capture boundary. Compare only runs
+with identical fixture and runner hashes.
+
+After native query clear, the driver verifies the first result's text and uses its
+actual option element; it then requires `aria-selected=true`. This avoids repeated
+accessible-name enumeration across 2,000 results during the fixed update burst.
+All fifty updates and input/selection overlap assertions remain mandatory.
 
 
 ## Instrumented same-document disposal successor

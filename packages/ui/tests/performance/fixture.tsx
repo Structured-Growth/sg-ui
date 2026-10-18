@@ -59,7 +59,7 @@ function Fixture(){
   const options=useMemo(()=>rows.filter(row=>row.name.toLowerCase().includes(query.toLowerCase())).map(row=>({id:row.id,label:row.name})),[rows,query]);
   return <Provider><main onInputCapture={()=>mark('input')} onClickCapture={event=>{const target=event.target as HTMLElement;const button=target.closest('button');mark(button?.getAttribute('aria-label')?.startsWith('Sort ')?'sort':target.closest('[role=option],label')?'selection':'click');}}>
     <button onClick={()=>setRunning(true)} disabled={running}>Run 50 updates</button>
-    {workload==='selector'?<AsyncMultiSelect label="Courses" query={query} onQueryChange={setQuery} options={options} value={selected} onValueChange={setSelected}/>
+    {workload==='selector'?<AsyncMultiSelect label="Courses" query={query} onQueryChange={setQuery} options={options} value={selected} onValueChange={next=>{mark('selection');setSelected(next);}}/>
       :renderer==='catalog'?<><TextField type="search" label="Search" value={query} onValueChange={setQuery}/><AppDataGrid label="Courses" rows={rows} columns={catalogColumns} getRowId={row=>row.id} getRowLabel={row=>row.name} searchValue={query} defaultPaginationModel={{page:0,pageSize}} pageSizeOptions={[50,200]} onStateChange={()=>setRevision(value=>value+1)}/></>
       :<DataGrid label="Courses" rows={rows} columns={columns} getRowId={row=>row.id} getRowLabel={row=>row.name} state={state} onStateChange={setState}/>}
   </main></Provider>;

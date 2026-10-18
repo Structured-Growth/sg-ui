@@ -82,6 +82,12 @@ test('standard text, primary action, border and focus pairs retain their minimum
       pair('text',surface,4.5);pair('textMuted',surface,4.5);pair('textSubtle',surface,4.5);pair('border',surface,3);pair('focus',surface,3);
     }
     for(const action of ['action','actionHover','actionPressed'])pair('onAction',action,4.5);
+    for(const prefix of ['actionNeutral','actionDestructive'])for(const suffix of ['','Hover','Pressed']) {
+      pair(prefix==='actionNeutral'?'onActionNeutral':'onActionDestructive',prefix+suffix,4.5);
+    }
+    for(const status of ['validationError','validationInfo','validationSuccess','validationWarning']) {
+      pair(status,'surface',4.5);pair(status,'validationSurface',4.5);
+    }
     pair('textSelected','surfaceSelected',4.5);pair('borderSelected','surfaceSelected',3);
     pair('text','surfaceHover',4.5);pair('text','surfacePressed',4.5);
   }

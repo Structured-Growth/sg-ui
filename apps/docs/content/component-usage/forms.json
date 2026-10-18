@@ -144,7 +144,8 @@
       "Set mixed when the host's aggregate selection is partial. The host calculates that state and decides which items a checkbox activation selects or clears.",
       "Supply name and value for native form submission, using required for a required agreement and invalid with errorMessage for host validation. An unchecked checkbox does not contribute its value to ordinary native form data.",
       "Use disabled or readOnly for interaction restrictions. Native reset restores uncontrolled defaults; reset controlled checked and aggregate state through the host.",
-      "Wrap related fields in FormFieldScope to share message-placement defaults. Explicit field props override the nearest scope; nested scopes inherit settings they omit."
+      "Wrap related fields in FormFieldScope to share message-placement defaults. Explicit field props override the nearest scope; nested scopes inherit settings they omit.",
+      "The entire clickable label retains the shared touch minimum in both dimensions, including when a composition visually hides its label. Indicator glyph size is independent of the hit area."
     ],
     "related": [
       {
@@ -191,7 +192,8 @@
       "Choose horizontal or vertical orientation for the surrounding layout. Use description for group guidance and disabled or readOnly to restrict interaction.",
       "Supply name for native form data and required, invalid and errorMessage for validation. Native reset follows uncontrolled defaults; reset controlled selection explicitly.",
       "Required only constrains enabled native radio inputs. With zero options or all options disabled, the group contributes no successful form value and cannot block native submission. The host must represent loading/unavailable choices and prevent submission when an answer is mandatory. Once an enabled option exists, native required validation blocks submission until an enabled option is chosen. Reset restores the latest uncontrolled default after host cancellation is known; controlled values remain host-owned and reset does not request an edit.",
-      "Wrap related fields in FormFieldScope to share message-placement defaults. Explicit field props override the nearest scope; nested scopes inherit settings they omit."
+      "Wrap related fields in FormFieldScope to share message-placement defaults. Explicit field props override the nearest scope; nested scopes inherit settings they omit.",
+      "Each option label retains the shared touch minimum in both dimensions, including short horizontal choices; the radio indicator keeps its own visual size."
     ],
     "related": [
       {

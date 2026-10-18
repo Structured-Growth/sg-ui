@@ -3,11 +3,11 @@
   .indicator { position: absolute; inset-inline-start: var(--sgui-space1); inset-block-end: var(--sgui-space1); inline-size: 1rem; block-size: 0.15rem; border-radius: var(--sgui-control-radius); }
   .content { display: flex; flex-direction: column; gap: var(--sgui-space3); min-inline-size: 0; inline-size: min(18rem, 100%); }
   .swatches { display: flex; flex-wrap: wrap; gap: var(--sgui-space2); }
-  .swatch { position: relative; inline-size: 1.75rem; min-inline-size: 1.75rem; min-block-size: 1.75rem; padding: 0; border-color: var(--sgui-text-color-picker-control-border); }
+  .swatch { position: relative; inline-size: max(1.75rem, var(--sgui-control-minimum-target-size)); min-inline-size: max(1.75rem, var(--sgui-control-minimum-target-size)); min-block-size: max(1.75rem, var(--sgui-control-minimum-target-size)); padding: 0; border-color: var(--sgui-text-color-picker-control-border); }
   .swatchFill { position: absolute; inset: 0; border-radius: var(--sgui-button-radius); pointer-events: none; }
   .swatch[aria-pressed="true"] { border: 3px double var(--sgui-text-color-picker-control-text); }
   .nativeLabel { display: flex; flex-direction: column; gap: var(--sgui-space1); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); font-weight: var(--sgui-label-weight); }
-  .native { box-sizing: border-box; inline-size: 100%; block-size: 2.5rem; border: 1px solid var(--sgui-text-color-picker-control-border); border-radius: var(--sgui-field-control-radius); background: var(--sgui-text-color-picker-control-background); cursor: pointer; }
+  .native { box-sizing: border-box; inline-size: 100%; block-size: max(2.5rem, var(--sgui-control-minimum-target-size)); border: 1px solid var(--sgui-text-color-picker-control-border); border-radius: var(--sgui-field-control-radius); background: var(--sgui-text-color-picker-control-background); cursor: pointer; }
   .native:focus-visible { outline: var(--sgui-control-focus-width) solid var(--sgui-control-focus-color); outline-offset: var(--sgui-control-focus-offset); }
   .actions { display: flex; justify-content: flex-end; gap: var(--sgui-space1); }
   .sample { display: none; }
