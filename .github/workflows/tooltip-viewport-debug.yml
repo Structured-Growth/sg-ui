@@ -1,4 +1,4 @@
-name: Firefox tooltip viewport diagnostic
+name: WebKit shell focus diagnostic
 on:
   push:
     branches: [codex/tooltip-viewport-debug-9ca3e666]
@@ -6,7 +6,7 @@ permissions:
   contents: read
 jobs:
   diagnose:
-    name: Firefox viewport diagnostic
+    name: WebKit shell focus diagnostic
     runs-on: ubuntu-latest
     timeout-minutes: 15
     defaults:
@@ -31,15 +31,15 @@ jobs:
           node --version > artifacts/logs/node.txt
       - run: pnpm build
       - run: pnpm build:browser-docs
-      - run: pnpm exec playwright install --with-deps firefox
+      - run: pnpm exec playwright install --with-deps webkit
       - name: Repeat only the retained failure with native viewport diagnostics
         timeout-minutes: 8
-        run: xvfb-run --auto-servernum pnpm test:browser --project=firefox --headed --grep 'combined dialog, menu, tooltip and editor dialog' --repeat-each=3 2>&1 | tee artifacts/logs/browser.txt
+        run: pnpm test:browser --project=webkit --grep 'short host content scrolls independently with sequential focus \(dark, 200% text\)' --repeat-each=3 2>&1 | tee artifacts/logs/browser.txt
       - name: Preserve diagnostic evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: sgui-firefox-tooltip-diagnostic
+          name: sgui-webkit-shell-diagnostic
           path: |
             packages/ui/artifacts/logs/
             packages/ui/artifacts/browser-results.json

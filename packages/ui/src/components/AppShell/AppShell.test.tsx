@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
-import { cleanup, render, screen } from "@testing-library/react";
-import { afterEach, expect, it } from "vitest";
+import { act, cleanup, render, screen } from "@testing-library/react";
+import { afterEach, expect, it, vi } from "vitest";
 import { AppShell } from "./AppShell";
 import { SideNavigation } from "../SideNavigation/SideNavigation";
 afterEach(cleanup);
@@ -79,4 +79,31 @@ it("adds an optional trailing column without replacing main content or the left 
   expect(screen.getByRole("main")).toBe(main);
   expect(screen.getByRole("navigation", {name:"Routes"})).toBe(routes);
   expect(draft.value).toBe("Keep this draft");
+});
+
+
+it("reveals the whole focus outline in main without scrolling navigation", () => {
+  const frames: FrameRequestCallback[] = [];
+  vi.spyOn(window, "requestAnimationFrame").mockImplementation(callback => { frames.push(callback); return frames.length; });
+  vi.spyOn(window, "cancelAnimationFrame").mockImplementation(() => {});
+  const { unmount } = render(<AppShell navigation={<nav aria-label="Routes">Routes</nav>}><button style={{ outlineStyle: "solid", outlineWidth: 2, outlineOffset: 2 }}>Host action</button></AppShell>);
+  try {
+    const main = screen.getByRole("main");
+    const navigation = screen.getByRole("navigation").parentElement!;
+    const button = screen.getByRole("button", { name: "Host action" });
+    Object.defineProperties(main, { clientHeight: { value: 180 }, scrollHeight: { value: 1200 } });
+    main.scrollTop = 400;
+    navigation.scrollTop = 125;
+    vi.spyOn(main, "getBoundingClientRect").mockReturnValue({ top: 160, bottom: 340, left: 0, right: 320, width: 320, height: 180, x: 0, y: 160, toJSON() {} });
+    vi.spyOn(button, "getBoundingClientRect").mockReturnValue({ top: 160, bottom: 204, left: 10, right: 210, width: 200, height: 44, x: 10, y: 160, toJSON() {} });
+    act(() => button.focus());
+    frames.pop()!(0);
+    expect(document.activeElement).toBe(button);
+    expect(main.scrollTop).toBe(396);
+    expect(navigation.scrollTop).toBe(125);
+    unmount();
+  } finally {
+    unmount();
+    vi.restoreAllMocks();
+  }
 });
