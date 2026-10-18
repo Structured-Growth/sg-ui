@@ -196,28 +196,86 @@ original-source removal and production rollout require a separately authorized t
 SGUI accepts models, data, routing, translations and account actions from the host;
 it never imports platform contracts or owns API/database/login policy.
 
-True grid pinning, arbitrary row-detail expansion/editing and spreadsheet capabilities remain deferred; the supported section-subheader expand/collapse contract is separate.
-Reorder is restricted to a complete single-page dataset and requires host persistence
-and rollback. Advanced scheduling/recurrence and fiscal calculation are not calendar
-features; hosts can supply explicit presets. Representative spoken calendar range-preview output, actual IME/device behavior, assistive-technology output and broader rich-content trust still need acceptance. Implemented live-region DOM contracts and supported parsing are separate from those reviews. See [browser evidence](developer/react-aria-browser-acceptance.md)
-and [calendar limits](developer/react-aria-calendar-contracts.md).
+### Shipped limits and host responsibilities
 
-React 18.3/19 and representative packed Vite SSR/hydration, React Server Component
-and Next.js consumers have evidence in [server boundaries](developer/react-aria-server-components.md)
-and [runtime validation](developer/react-aria-runtime-ci.md). That does not certify
-every host/framework/device. `/experimental` contracts remain proofs; no new
-compatibility promise is made for them. Public breaking removals need documented
-migration and a breaking Conventional Commit/release marker; preserved Class/App
-names must not be renamed casually.
+| Area | Current boundary |
+| --- | --- |
+| Grids | True sticky/pinned columns, arbitrary row-detail editing/expansion and spreadsheet capabilities are not supplied. Section-subheader collapse is a separate shipped contract. Reorder requires a complete unsorted/unfiltered single client page; hosts own persistence, pending/error and rollback. Server rows/query translation, page totals and stale-response authority remain host-owned. See [grid contracts](developer/react-aria-grid-contracts.md) and [reorder](developer/react-aria-grid-reorder.md). |
+| Date and scheduling | Civil dates and local times have no implicit host timezone. Hosts supply availability/business rules and explicit instant conversion. Recurrence, resource scheduling and booking/conflict/persistence workflows are separate future work; explicit presets are supported. See [calendar contracts](developer/react-aria-calendar-contracts.md). |
+| Application integration | Hosts own routing, account actions, translations, datasets, persistence and rich-content trust policy. The library supplies presentation/interactions and bounded callbacks, not application services. See [adoption responsibilities](developer/react-aria-adoption-checklist.md). |
+| Environment evidence | React peer ranges, Node minimum and accepted Vite/Next SSR/hydration fixtures are declared/tested inputs, not certification of every framework, device or allowed patch. Browser/IME/touch observations retain their recorded scope. Live-region DOM feedback is not spoken screen-reader verification; remaining representative AT/environment and performance-budget decisions stay in the [current acceptance checklist](developer/react-aria-hardening-tasks.md). |
+| Public proof entry | `/experimental` contains shared implementations and proof contracts. Its name does not rename the public catalog or promise unimplemented features. Use the actual exported prop types and [public contract guide](developer/react-aria-public-contracts.md); do not expose React Aria objects/types through a host adapter. |
 
-The interaction engine is private, but replacing React Aria still costs engineering:
-reimplement focus, keyboard, collections, overlays, locale and date behavior; preserve
-owned observable contracts; rerun browser/accessibility/SSR/package acceptance; and
-review dependency licenses. Engine independence does not imply automatic portability
-to another framework.
+### Explicit future scope
 
+The following original IDs remain outside the required milestone unless selected
+by the user. Their [canonical definitions](developer/react-aria-hardening-tasks.md#deferred-features--outside-the-current-required-milestone)
+remain authoritative; this list neither implements them nor makes required work optional.
 
-Support decisions still required are recorded in the [dependency policy decision record](developer/react-aria-dependency-upgrades.md#human-decision-record-required-for-operational-acceptance): supported-release/backport window, routine review cadence and accountable maintainer, confidential intake and disclosure authority. This guide does not establish a support service, response SLA or deprecation schedule. Resolve those decisions before claiming operational support acceptance.
+| Future ID | Separate product work |
+| --- | --- |
+| FUT-A-20 | Share tokens/CSS and framework-independent models with another framework, with separate wrappers, tests and support decisions. |
+| FUT-D-21 | Token-to-design-tool export; no manually maintained second palette. |
+| FUT-G-24 | Grid export/import, aggregation/pivoting, tree data, range/paste/formula/undo and spreadsheet navigation. Existing copy and editor-table selection do not supply this grid feature set. |
+| FUT-K-13 | Recurrence UI and explicit host-owned recurrence processing. |
+| FUT-K-14 | Resource/week/day scheduler with overlapping events, slots/capacity, drag/resize, keyboard alternatives and virtualization. |
+| FUT-K-15 | Appointment/course-session/booking compositions; hosts retain availability, conflicts, reservations, permissions and persistence. |
+
+### Names, defaults and release impact
+
+AppButton/AppButtonProps are removed names; use Button/ButtonProps. Upstream prop
+bags, style systems and grid model/event aliases have explicit replacements in
+[consumer migration mappings](#consumer-migration-mappings). Removed names are not
+current deprecated aliases. AppThemeProvider, AppPaginationFooter, Class-prefixed
+names, SGLink, Autocomplete and Typography's primary-to-accent compatibility mapping
+remain according to their actual exported contracts; no removal date or deprecation
+schedule is implied. Native/inherited React DOM deprecated properties retained by
+the declaration inventory do not establish an SGUI alias-retirement policy.
+
+The accepted [public contract snapshot](developer/react-aria-public-contract-acceptance.md#frozen-contract-reconciliation)
+records removed contracts and changed omitted behavior; the maintained
+[migration map](../packages/ui/scripts/public-migration-map.json) records six
+source-owned default changes. Optional type syntax alone does not prove a runtime
+default. Explanations include AppDataGrid's now-enabled omitted selection and the
+calendar navigation/range-click/field defaults. A surviving component name does
+not make a changed callback/default compatible.
+
+The actual `339c958d` breaking marker is verified in the
+[release-safety receipt](developer/final-acceptance/wave-04/02/release-marking-safety/receipt.json).
+Public incompatibility requires a migration and an actual `!`/`BREAKING CHANGE:`
+marker in the history analyzed on main. Initial extraction is provenance, not
+proof that an API was published. Configured first publication starts at 1.0.0;
+a major after an existing 1.4.2 becomes 2.0.0. Semantic-release owns versioning;
+no version is edited by hand, and dev integration authorizes no production release.
+
+### Current maintenance and future React Aria replacement
+
+The [dependency procedure](developer/react-aria-dependency-upgrades.md#current-pre-release-maintenance-policy)
+documents current pre-release maintenance: latest integration on dev, role-based
+author/maintainer review, affected validation and separately approved main promotion.
+React 18.3/19 and representative consumer evidence are linked from
+[server boundaries](developer/react-aria-server-components.md) and
+[runtime validation](developer/react-aria-runtime-ci.md). Neither a service SLA,
+published-release backport window nor security contact is established here;
+commercial support commitments require the actual agreement. Earlier unapproved
+operating-policy templates are retained as future owner choices, not an invented
+open L-09 documentation gate or a new compatibility promise.
+
+React Aria is private interaction machinery, so replacement can preserve consumer
+names/types; it does not remove the engineering work. A separately authorized
+maintainer infrastructure change must account for these costs:
+
+| Work and responsibility | Required preservation/review |
+| --- | --- |
+| SGUI interaction maintainers: adapter/control replacement | Focus entry/restore, keyboard/pointer/touch/press semantics, cancellation, selection/collections, overlays/portals, validation, form wiring, locale/date behavior and announcements must preserve owned observable contracts. Replace shared owners before reviewing their transitive compositions. |
+| SGUI foundation maintainers: scope and public API | Preserve owned refs, callbacks, token/CSS layer contracts, controlled-state authority, SSR/hydration and React peers. Audit exported declarations/import graphs; engine-private types must remain private. Lexical document formats and TanStack row-processing responsibilities are separate systems to preserve. |
+| Change author and reviewers: evidence and distribution | Reuse assertions, add affected behavior regressions, and revalidate applicable native/AT/visual/consumer/type/package contracts against the new implementation. Record measured bundle/performance effects, dependency/license/notice changes and consumer migration/release impact. No automatic equivalence follows from matching prop names. |
+| Host teams: integration acceptance | Revalidate their routing, persistence, localization, content/trust and production workflows. The engine swap does not transfer backend or saved-data responsibility into SGUI. |
+
+No replacement engine, schedule, person-day budget or comparative performance
+advantage is selected. A new framework needs separately owned wrappers/tests and
+support policy under FUT-A-20; replacing one React interaction engine does not
+provide that support automatically.
 
 Commercial terms and third-party notices remain authoritative. Local validation
 does not publish packages; Actions handles semantic-release after approved merges.

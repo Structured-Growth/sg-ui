@@ -1,0 +1,73 @@
+{
+  "head": "5a09786dd6b10c103b7fa61defbc72f3b45aa30a",
+  "L09AcceptedScope": {
+    "id": "A-L-09",
+    "decision": "complete",
+    "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/13-results.json",
+    "sha256": "46b2b3d08ea5238df9fe09084c6b981eee31397b8e4a8940f42ad3b16632fdf9",
+    "criterion": "- [ ] A-L-09 Reconcile original `L-09`: Document dependency support/security update expectations and a deliberate upgrade process with behavioral regression checks. Historical status: open.",
+    "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+  },
+  "L09Disposition": "Already accepted documentary process, not an open support/SLA/appointment gate. Current guide corrects stale pending status; prior templates remain unapproved future commitments.",
+  "declaredCurrentManifest": {
+    "developmentVersion": "0.0.0-development",
+    "reactPeers": {
+      "react": "^18.3.1 || ^19.0.0",
+      "react-dom": "^18.3.1 || ^19.0.0"
+    },
+    "nodeEngine": {
+      "node": ">=22.12.0"
+    }
+  },
+  "retainedSnapshot": {
+    "path": "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation/fresh-declarations-01/public-contracts.json",
+    "sha256": "21f5d28dfb740b7d74969da368fa9cfc6c99119c749c3314fe56ee10e75ae904",
+    "contracts": 480,
+    "packageRoutes": 238,
+    "declarationFiles": 445,
+    "freshlyGenerated": false
+  },
+  "migrationMap": {
+    "removals": 12,
+    "sourceOwnedDefaults": 6
+  },
+  "futureIDs": [
+    "FUT-A-20",
+    "FUT-D-21",
+    "FUT-G-24",
+    "FUT-K-13",
+    "FUT-K-14",
+    "FUT-K-15"
+  ],
+  "currentSourceDeprecationInspection": {
+    "files": 781,
+    "orderedSourceHash": "316b5f8afd4756ed02baad11eac87bfd609ab8d395b964698a10ee8839921d19",
+    "ownedFilesWithDeprecatedTags": [],
+    "scope": "No owned source @deprecated tags; inherited native declaration tags retain their own contracts. This does not create alias-removal dates or infer future compatibility."
+  },
+  "inputHashes": {
+    "docs/developer/final-acceptance/wave-04/coordinator/accepted-closures.json": "20e5a6ddabfbe0ffb7bd16ebcf17c6cc67e06857164ef765f7e9a11d26e76a77",
+    "docs/developer/final-acceptance/wave-04/coordinator/reviewed/13-results.json": "46b2b3d08ea5238df9fe09084c6b981eee31397b8e4a8940f42ad3b16632fdf9",
+    "AGENTS.md": "6787b3f78b52898596e8be2f0d0caed1cc95365c46a045c5b9077ebbe32d58a8",
+    "docs/developer/react-aria-development-validation.md": "cb9c8740df25b42ff5e8eefa3b2eabb57aac7cc5c88723d0bcf1d323422d3fa6",
+    "docs/developer/react-aria-master-task-list.md": "99dad5bafa04b3d613265ac29788103ec331028ba5f60f3e63df54517ced5171",
+    "docs/developer/react-aria-architecture.md": "47ccc2236a95d722a8b52cb0dbbf7188e347c077ef86e6a624089b2734907a7d",
+    "docs/developer/component-architecture.md": "8ebc3c4c364166826ab09cc9a496afc9dae0f5e6e9173dd645f07b3e5cf4ea50",
+    "docs/commercial-licensing.md": "6652a8902f03af94453b7ffd3c2bd92fc89c30002022945530b984cfa35c5281",
+    "docs/developer/react-aria-public-contracts.md": "f289ad590fd1885c489ad622e028e38b146b653aefe418d4ad5e7d4c675c5268",
+    "docs/developer/react-aria-public-contract-acceptance.md": "36e5b7611d4cbcf56d3b8aa6704ee18aba7aeab035d0ce28edac9d4a54cc78d0",
+    "packages/ui/scripts/public-migration-map.json": "c1792223d26f229e07df6770732711421157074042e36786aa09d834337d06ee",
+    "docs/developer/final-acceptance/wave-04/02/public-contract-reconciliation/fresh-declarations-01/public-contracts.json": "21f5d28dfb740b7d74969da368fa9cfc6c99119c749c3314fe56ee10e75ae904",
+    "docs/developer/react-aria-hardening-tasks.md": "9ee9b4c35d64ef9af93da4b4b2764ce0b7e14ad2e734eb803ac478d10c80e8a8",
+    "packages/ui/package.json": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+    "docs/developer/final-acceptance/wave-04/02/release-marking-safety/offline-marker.json": "20fe22e66ce263c3d9073c86f8c004d785f80c61340f493390f303a368c6aec7",
+    "packages/ui/src/theme/AppThemeProvider.tsx": "9c23d173d1bfd880ed3a376fdece0e8a0aa126ca70a92feb03a61d8762a220a3",
+    "packages/ui/src/adapters/index.ts": "631ebad537f309a64b61391442ed79f056312271fa3515418f832fba1019d46b",
+    "packages/ui/src/components/primitives/index.ts": "28359830e61162d7d15559a9cc4c505547e8ac0bafafea7b22f9fe2637fe623e",
+    "packages/ui/src/experimental/Typography/Typography.tsx": "3df58c5e33ee0c5f9e2dd8969ef41cc858cb48385c77d08860bb3f8ab506546f",
+    "docs/migration.md": "2a9d0f27594623457d241a8333538ae05a8d381d2e5b0d3baa212c4f55d6f674",
+    "docs/developer/react-aria-dependency-upgrades.md": "4da7837f6638bc7e156307acc1db180d85ac2f137dd67d4f3ec12e1fd5215dcd"
+  },
+  "ownerDecisionNeededForW18": false,
+  "futureCommitments": "A new supported-release/backport/service/contact promise needs explicit owner/commercial terms if offered; none is adopted here."
+}

@@ -2,9 +2,36 @@
 
 Tasks: A-A-19 (dependency placement/version/upgrade policy), L-09 (operational policy).
 This guide defines the repository review procedure and records the
-human decisions still needed to operate it. It does not appoint an owner, promise
-a response time, certify dependency security or validate an upgrade. L-09 acceptance
-remains with the coordinator after independent review and human policy decisions.
+additional operating commitments that have not been adopted. It does not appoint
+an owner, promise a response time, certify dependency security or validate an
+upgrade. The original L-09 documentary obligation is accepted in the
+[closure record](final-acceptance/wave-04/coordinator/accepted-closures.json); that
+decision does not establish a service commitment or an executed future upgrade.
+
+## Current pre-release maintenance policy
+
+Development integrates the latest work into `dev`; `main` is reserved for a
+separately human-approved major/minor production promotion. Required production
+validation remains mandatory. The package manifest currently uses
+`0.0.0-development`; that value is a development label, not publication history
+or a support-window promise. See the [release procedure](../troubleshooting/release.md).
+
+The [master task list](react-aria-master-task-list.md) sequences functionality,
+regression and hardening. The [development validation policy](react-aria-development-validation.md)
+requires affected behavior/types/import/token checks and focused native or packed
+consumer evidence when needed; full production and exact-candidate evidence stay
+separate. Existing tests and failures are retained. The dependency/asset change
+author prepares graph, contract, notice, validation and rollback evidence;
+repository maintainers review changes before integration. These are roles,
+not newly appointed individuals or a support service.
+
+No published-version backport window, routine service-review interval, response
+SLA or confidential support channel is specified by this repository. The absence
+of those commitments is the current documented boundary, not a promise to refuse
+support or an EOL decision. Any commercial support terms belong in the actual
+written agreement; they cannot be inferred from public npm availability or a
+passing test. The planning record below is retained for additional commitments
+if the owner chooses to offer them; it is not an unclosed L-09 requirement.
 
 ## Supported inputs and maintenance expectations
 
@@ -218,10 +245,16 @@ browser engines, foundation browser hydration and Next production/browser checks
 Production-bound PRs, main pushes and reusable release CI retain these checks.
 A targeted dev pass or older CI result cannot certify a new upgrade head.
 
-## Human decision record required for operational acceptance
+<a id="human-decision-record-required-for-operational-acceptance"></a>
 
-All fields below are **awaiting human decision**. Record the approver, decision date
-and retained approval reference when filling them; this guide supplies no approval.
+## Decision record for additional operating commitments
+
+The fields below retain the earlier unapproved planning record. They are
+**awaiting owner decision if these additional commitments are requested or
+offered**. Record the approver, date and retained reference when adopting one;
+this guide supplies no approval. Named appointments, confidential intake and a
+published-release support window are not prerequisites for the already accepted
+L-09 documentation or W-18's factual account of current policy.
 
 | Field | Decision to record |
 | --- | --- |
@@ -235,5 +268,5 @@ and retained approval reference when filling them; this guide supplies no approv
 Use a per-review receipt containing dependency/advisory, affected head/graph,
 assigned owner, urgency/rationale, chosen action, validation scope/results,
 exceptions/expiry, next review date and human approval reference. Until decisions
-are recorded, this is a concrete review contract with unresolved governance,
-not evidence that security handling or future upgrade execution has passed.
+are adopted, use the role-based repository procedure above without claiming an
+SLA, adopted additional service policy or a future upgrade execution has passed.
