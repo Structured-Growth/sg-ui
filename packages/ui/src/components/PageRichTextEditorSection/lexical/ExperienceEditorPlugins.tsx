@@ -7,6 +7,7 @@ import { TablePlugin } from "@lexical/react/LexicalTablePlugin";
 import { HorizontalRuleSelectionPlugin } from "./HorizontalRuleSelectionPlugin";
 import { ImageInsertPlugin } from "./ImageInsertPlugin";
 import { OwnedLinkActivationPlugin } from "./OwnedLinkActivationPlugin";
+import { TableCellSelectionPlugin } from "./TableCellSelectionPlugin";
 
 export type ExperienceEditorPluginsProps = {
   onChange: (nextLexical: unknown) => void;
@@ -23,6 +24,7 @@ export function ExperienceEditorPlugins({ onChange }: ExperienceEditorPluginsPro
       <HorizontalRuleSelectionPlugin />
       <ImageInsertPlugin />
       <TablePlugin hasCellBackgroundColor hasCellMerge hasTabHandler />
+      <TableCellSelectionPlugin />
       <OnChangePlugin
         onChange={(editorState) => {
           onChange(editorState.toJSON());

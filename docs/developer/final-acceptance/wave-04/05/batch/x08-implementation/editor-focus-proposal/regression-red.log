@@ -1,0 +1,97 @@
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
+
+ ❯ src/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.test.tsx (2 tests | 1 failed) 152ms
+   × selects the drag-equivalent table rectangle with two clicks, cancels and respects read-only 109ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.test.tsx > selects the drag-equivalent table rectangle with two clicks, cancels and respects read-only
+AssertionError: expected <button …(11)>…(1)</button> to be <div aria-label="Document" …(5)>…(1)</div> // Object.is equality
+
+- Expected
++ Received
+
+- <div
+-   aria-label="Document"
+-   contenteditable="true"
+-   data-lexical-editor="true"
+-   role="textbox"
+-   spellcheck="true"
+-   style="user-select: text; white-space: pre-wrap; word-break: break-word;"
++ <button
++   aria-pressed="true"
++   class="_root_0829c1"
++   data-focused="true"
++   data-rac=""
++   data-react-aria-pressable="true"
++   data-sgui-part="button"
++   data-tone="neutral"
++   data-variant="outlined"
++   id="react-aria-_r_0_"
++   tabindex="0"
++   type="button"
+  >
+-   <table
+-     dir="auto"
++   <span
++     class="_label_0829c1"
+    >
+-     <colgroup>
+-       <col />
+-       <col />
+-     </colgroup>
+-     <tr>
+-       <th
+-         class="editor-table-cell-selected"
+-       >
+-         <p>
+-           <br />
+-         </p>
+-       </th>
+-       <th
+-         class="editor-table-cell-selected"
+-       >
+-         <p>
+-           <br />
+-         </p>
+-       </th>
+-     </tr>
+-     <tr>
+-       <th
+-         class="editor-table-cell-selected"
+-       >
+-         <p>
+-           <br />
+-         </p>
+-       </th>
+-       <td
+-         class="editor-table-cell-selected"
+-       >
+-         <p>
+-           <br />
+-         </p>
+-       </td>
+-     </tr>
+-   </table>
+- </div>
++     Select table cells
++   </span>
++ </button>
+
+ ❯ src/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.test.tsx:42:34
+     40|   await user.click(screen.getByRole('button',{name:'Select table cells…
+     41|   fireEvent.keyDown(screen.getByRole('textbox'),{key:'Escape'});
+     42|   expect(screen.getByRole('button',{name:'Select table cells'}).getAtt…
+       |                                  ^
+     43|   await act(async()=>editor.setEditable(false));
+     44|   expect(screen.queryByRole('button',{name:'Select table cells'})).toB…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  20:28:54
+   Duration  858ms (transform 91ms, setup 18ms, import 279ms, tests 152ms, environment 306ms)
+

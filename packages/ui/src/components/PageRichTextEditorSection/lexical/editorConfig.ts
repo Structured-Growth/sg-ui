@@ -24,6 +24,7 @@ export const EXPERIENCE_EDITOR_NODES = [
 ];
 
 export const EXPERIENCE_EDITOR_THEME = {
+  tableCellSelected: "editor-table-cell-selected",
   heading: {
     h1: "editor-heading-h1",
     h2: "editor-heading-h2",

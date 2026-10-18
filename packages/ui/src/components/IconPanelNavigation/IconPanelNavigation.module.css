@@ -12,6 +12,7 @@
   .resizeHandle:focus-visible { outline: 2px solid var(--sgui-icon-panel-navigation-text); outline-offset: -2px; }
   .root[data-side="end"] .resizeHandle { inset-inline-end: auto; inset-inline-start: calc(var(--resize-hit-size) / -2); }
   .panel[hidden] { display: none; }
+  .resizeActions { display: flex; flex-wrap: wrap; gap: var(--sgui-space2); padding: var(--sgui-space2); }
   .header { display: flex; flex: 0 0 auto; align-items: center; justify-content: space-between; gap: var(--sgui-space2); padding: var(--sgui-space2); border-block-end: 1px solid var(--sgui-icon-panel-navigation-divider); }
   .root .header h2 { font-size: var(--sgui-icon-panel-navigation-label-size); line-height: var(--sgui-body2-line-height); margin: 0; overflow-wrap: anywhere; }
   .content { flex: 1; min-block-size: 0; min-inline-size: 0; overflow: auto; overscroll-behavior: contain; padding: var(--sgui-space2); }

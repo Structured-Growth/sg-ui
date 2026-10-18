@@ -1,0 +1,97 @@
+{
+  "status": "X08_ready_for_coordinator_review_and_selective_integration",
+  "createdAt": "2026-10-18T01:30:56.972128+00:00",
+  "head": "debc3d2ba565f14776e09911c185152b0a5b342c",
+  "runtime": "v24.19.0",
+  "effectiveNativeCases": {
+    "passed": 9,
+    "engines": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "calendarAndShelf": {
+      "passed": 6,
+      "retainedFrom": "shared-native-01/x08/results.json",
+      "reconciledUnchangedInputs": {
+        "apps/docs/native-fixtures/scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx": "486daa903c54ccc95533e638eaf681104372fafb6c95423e794dd4ccd3358f87",
+        "apps/docs/native-fixtures/scenarios/foundation/FoundationCatalogue.fixture.tsx": "cb2ef42183c70cf6e17e779513ab7fb6021f9a7791cdb6d8edc54df4cdaf730c",
+        "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.module.css": "49dd0370adf800cd3b9666898d54926f1596d42c7418c136bafeba554ba64d25",
+        "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.test.tsx": "d0865fdd5b7fe54ace45da1f818366bae6242b1c8f234c73dbf9ce532c3690d2",
+        "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.tsx": "258411ea0268807be7a3ac841e08ce946eb5dfc73ce42d52654a04667b5fa3e0",
+        "packages/ui/src/components/IconPanelNavigation/index.ts": "142dc8a59546486383ebf28f329e37d763b85d67c7d919c5231c7a933783876c",
+        "packages/ui/src/components/IconPanelNavigation/PanelResizeHandle.tsx": "9253a0def778ee348d0269b62b2f945e415a5a5838f019742798fc397b351fd6",
+        "packages/ui/src/experimental/DateRangeSelector/CalendarFormValidity.tsx": "064064ff9187ed72a6635f8a16ef8a738b3391e9de1ec6c92ef88279fb5357fd",
+        "packages/ui/src/experimental/DateRangeSelector/date-contract.ts": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd",
+        "packages/ui/src/experimental/DateRangeSelector/DateContracts.next100-regression.test.tsx": "545611ff1736d427a59992038af10fec7557084117d68443c675a8e8070d8615",
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.behavior.test.tsx": "970a77680288be864a42d7817369132b0d62a715068c389233aa4f7dbc8c1786",
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css": "fed51be5a7dce55b7f4f0d0abd9db19aba8131710e9c5c3391155ad65e9a0f3b",
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.next100-regression.test.tsx": "ee15232419fb07d605ef3b1e0847b3c5f25733c8cf5185465f83ee1a85391a48",
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.period-navigation.test.tsx": "521e9cc3a4f0f514d56008395fac1db9d9a8975046a9db288e687584f131ff41",
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.presets.test.tsx": "1a7588994d3d1232166bb568efb1c62ceab0b92a597f06aafe9a30d94622ac27",
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.test.tsx": "36c23a06a423849d42319e0ff300d386541b4b90acd7b4c70da9a48deb6882dc",
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299",
+        "packages/ui/src/experimental/DateRangeSelector/RangeAdjustmentControls.test.tsx": "76f6eb217ac9af528a8924c96258cf59b3b279fc61711dfbf4584f7a39900744",
+        "packages/ui/src/experimental/DateRangeSelector/RangeAdjustmentControls.tsx": "684be29623544c428e995d532c27278317b5bed09ebcc3a5f0726f0ca2275258",
+        "packages/ui/src/experimental/DateRangeSelector/RangeGestures.test.tsx": "8fe31f633e60ea990500676004a216b90dda5c9ea4b14734958b463b504f4a5a",
+        "packages/ui/src/experimental/DateRangeSelector/RangeGestures.tsx": "8f0a65b8cd0dfc7d7dfb51efebb7c217d2316da34f639a5dc5778add2114ff65",
+        "packages/ui/src/experimental/DateRangeSelector/relative-date-range.test.ts": "0799edaf12d45b62573c045509104118f31ccaf52e96a7b6d990a89c16690362",
+        "packages/ui/src/experimental/DateRangeSelector/relative-date-range.ts": "f5be7ad2b944523a078af51c9a9574d1292232287fc3243dae0df7cb3f3a17ba",
+        "packages/ui/src/experimental/DateRangeSelector/useCalendarFormReset.ts": "b1abe36f849850e3aac5e1ddfef5b95d19cb8ba3cb538efebaafe91ea0b55cfc",
+        "packages/ui/src/experimental/DateRangeSelector/useNarrowWeekdays.ts": "420bb3c06d07d3ae43942aa8a9b53e2de201e2e3e3a7226ba0aed48ece6640c6",
+        "packages/ui/tests/browser/x08-pointer-alternatives.spec.ts": "4282e1adcc046980db5e70627413ed445e706b7f20b0712579144e569a055d2c"
+      }
+    },
+    "tableSelection": {
+      "passed": 3,
+      "currentEvidence": "editor-native-03/x08/results.json",
+      "durationSeconds": 5.1
+    }
+  },
+  "unitEvidence": {
+    "uniqueTests": 28,
+    "earlierFiveFileSuite": 27,
+    "additionalSupportedQuoteCase": 1,
+    "actualFocusFollowupCasesPassed": 2
+  },
+  "builds": {
+    "initialSharedLibraryCatalogFixture": "shared-native-01/stages.json",
+    "focusFixLibraryAndUnchangedDeclarations": "editor-native-02/stages.json",
+    "correctedDirectionFixtureOnly": "editor-native-03/stages.json",
+    "declarationFilesUnchanged": 445
+  },
+  "preservedFailures": [
+    {
+      "run": "shared-native-01",
+      "nativeFailures": 3,
+      "cause": "First cell pointer press suppressed native focus; Escape remained on action button. Concrete root.focus fix with actual-focus regression passes."
+    },
+    {
+      "run": "editor-native-02",
+      "executedCases": 0,
+      "cause": "Anchored full-title filter selected no tests. Root corrected four fixture/test files during this attempt; stability was rejected. All owned claims/server cleaned."
+    }
+  ],
+  "catalog": "generation/check passed after first fresh library build; private focus correction changed no public declaration bytes",
+  "sourceAndOutputStableForPassingEditorRetry": true,
+  "currentHost": {
+    "url": "http://127.0.0.1:6173",
+    "admission": "editor-native-03/host-admission.json",
+    "owner": "x08-d15-editor-retry:7316",
+    "rootD15Runner": "run-root-d15-retry.mjs",
+    "rootD15Config": "state.config.cjs",
+    "stopRequest": "editor-native-03/stop-request",
+    "cleanupPending": false,
+    "running": false,
+    "cleanupReceipt": "editor-native-03/cleanup.json"
+  },
+  "restrictionsObserved": [
+    "No commits/index/branch/push/release mutations",
+    "No paused Apple file edits",
+    "No baseline image updates",
+    "No repeated nine-case or all-state matrix"
+  ],
+  "rootD15": "Coordinator reported six corrected measured-context Chromium passes; root owns D15 acceptance and images.",
+  "selectiveStage": "selective-stage.json",
+  "originalFamilyMapping": "operation-mapping.json"
+}

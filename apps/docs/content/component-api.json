@@ -12936,7 +12936,7 @@
           "type": "RangeDragBehavior | undefined",
           "required": false,
           "default": "—",
-          "description": "Completed-range dragging. In move-and-resize (default), drag the first/last day to resize and an interior day to move. Shift+drag moves from any selected day. Fixed duration makes endpoint drags move the whole range; bounded length pushes the opposite boundary at min/max. A one-day range grows toward the dragged date. Move translates any selected day; resize enables endpoints only. Shift+Left/Right moves; Alt+Left/Right edits end; Alt+Shift edits start, with the same duration limits. Invalid drops roll back; Escape cancels."
+          "description": "Completed-range dragging. In move-and-resize (default), drag the first/last day to resize and an interior day to move. Shift+drag moves from any selected day. Fixed duration makes endpoint drags move the whole range; bounded length pushes the opposite boundary at min/max. A one-day range grows toward the dragged date. Move translates any selected day; resize enables endpoints only. Shift+Left/Right moves; Alt+Left/Right edits end; Alt+Shift edits start, with the same duration limits. Invalid drops roll back; Escape cancels. Complete non-fixed ranges expose Adjust dates with inline target selection in the existing calendar and one-day buttons for enabled operations; these share gesture validation and draft/commit callbacks. Fixed ranges relocate on a day click."
         },
         {
           "name": "renderDayContent",
@@ -13179,7 +13179,7 @@
           "type": "RangeDragBehavior | undefined",
           "required": false,
           "default": "\"move-and-resize\"",
-          "description": "Completed-range dragging. In move-and-resize (default), drag the first/last day to resize and an interior day to move. Shift+drag moves from any selected day. Fixed duration makes endpoint drags move the whole range; bounded length pushes the opposite boundary at min/max. A one-day range grows toward the dragged date. Move translates any selected day; resize enables endpoints only. Shift+Left/Right moves; Alt+Left/Right edits end; Alt+Shift edits start, with the same duration limits. Invalid drops roll back; Escape cancels."
+          "description": "Completed-range dragging. In move-and-resize (default), drag the first/last day to resize and an interior day to move. Shift+drag moves from any selected day. Fixed duration makes endpoint drags move the whole range; bounded length pushes the opposite boundary at min/max. A one-day range grows toward the dragged date. Move translates any selected day; resize enables endpoints only. Shift+Left/Right moves; Alt+Left/Right edits end; Alt+Shift edits start, with the same duration limits. Invalid drops roll back; Escape cancels. Complete non-fixed ranges expose Adjust dates with inline target selection in the existing calendar and one-day buttons for enabled operations; these share gesture validation and draft/commit callbacks. Fixed ranges relocate on a day click."
         },
         {
           "name": "rangeLength",
@@ -13484,7 +13484,7 @@
           "type": "boolean | undefined",
           "required": false,
           "default": "false",
-          "description": "Enable an inward-edge resize separator. Defaults false. Widths are retained per panel while mounted."
+          "description": "Enable an inward-edge resize separator and inline one-pixel Narrower/Wider buttons. Defaults false. Widths are retained per panel while mounted."
         },
         {
           "name": "minPanelWidth",

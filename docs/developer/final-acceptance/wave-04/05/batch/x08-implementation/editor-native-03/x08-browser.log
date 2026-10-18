@@ -1,0 +1,14 @@
+
+Running 3 tests using 1 worker
+
+(node:7440) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/browser/x08-pointer-alternatives.spec.ts:42:1 › editable table rectangles can be selected with two clicks and cancelled (589ms)
+(node:7454) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [firefox] › tests/browser/x08-pointer-alternatives.spec.ts:42:1 › editable table rectangles can be selected with two clicks and cancelled (1.3s)
+(node:7477) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [webkit] › tests/browser/x08-pointer-alternatives.spec.ts:42:1 › editable table rectangles can be selected with two clicks and cancelled (1.4s)
+
+  3 passed (5.1s)

@@ -29,7 +29,7 @@ export interface IconPanelNavigationProps {
   side?: "start" | "end";
   /** Panel width; constrained by the available container width. */
   panelWidth?: CSSProperties["width"];
-  /** Enable an inward-edge resize separator. Defaults false. Widths are retained per panel while mounted. */
+  /** Enable an inward-edge resize separator and inline one-pixel Narrower/Wider buttons. Defaults false. Widths are retained per panel while mounted. */
   resizable?: boolean;
   /** Minimum requested panel width in CSS pixels. Defaults 240; available space can constrain it further. */
   minPanelWidth?: number;
@@ -86,13 +86,13 @@ export const IconPanelNavigation = forwardRef<HTMLDivElement, IconPanelNavigatio
       data-sgui-part="icon-navigation-panel" onKeyDown={event => {
         if (event.key === "Escape" && !event.defaultPrevented) { event.stopPropagation(); change(null); }
       }}>
-      {resizable && selected === item.id && <PanelResizeHandle side={side} minWidth={minPanelWidth} maxWidth={maxPanelWidth}
-        label={t("common.ui.resizePanel", {defaultMessage:"Resize {label} panel", values:{label:item.label}})} controls={`${prefix}-panel-${index}`}
-        onResize={width => {setWidths(old => ({...old, [item.id]:width}));onPanelWidthChange?.(width,item.id);}}/>}
       <div className={styles.header}>
         <Typography as="h2" variant="h6">{item.label}</Typography>
         <IconButton className={styles.trigger} label={t("common.ui.closePanel", { defaultMessage: "Close panel" })} onPress={() => change(null)}><span className={styles.icon}><CloseIcon /></span></IconButton>
       </div>
+      {resizable && selected === item.id && <PanelResizeHandle side={side} minWidth={minPanelWidth} maxWidth={maxPanelWidth}
+        label={t("common.ui.resizePanel", {defaultMessage:"Resize {label} panel", values:{label:item.label}})} controls={`${prefix}-panel-${index}`}
+        onResize={width => {setWidths(old => ({...old, [item.id]:width}));onPanelWidthChange?.(width,item.id);}}/>}
       <div className={styles.content} data-sgui-part="icon-navigation-content">{item.content}</div>
     </section>)}
   </div>;

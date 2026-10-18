@@ -1,0 +1,545 @@
+{
+  "config": {
+    "argv": [
+      "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/native.config.cjs"
+    ],
+    "configFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/native.config.cjs",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/shared-native-01/x08/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "x08-pointer-alternatives.spec.ts"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/shared-native-01/x08/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "x08-pointer-alternatives.spec.ts"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/shared-native-01/x08/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "x08-pointer-alternatives.spec.ts"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/shared-native-01/x08/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "x08-pointer-alternatives.spec.ts",
+      "file": "x08-pointer-alternatives.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "required hidden-field ranges have click equivalents with bounded rejected-host requests",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1872,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:27:41.499Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b118aabe7abb392fff56-267e86de2ccc0f491e2e",
+          "file": "x08-pointer-alternatives.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "editable table rectangles can be selected with two clicks and cancelled",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5677,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Select table cells', exact: true })\nExpected: \u001b[32m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('button', { name: 'Select table cells', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Select table cells', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" data-tone=\"neutral\" aria-pressed=\"true\" data-focused=\"true\" data-variant=\"outlined\" data-sgui-part=\"button\" data-focus-visible=\"true\" class=\"sgui_root_4900c47b\" data-react-aria-pressable=\"true\" id=\"react-aria4822728689-_r_2j_\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"true\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Select table cells', exact: true })\nExpected: \u001b[32m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('button', { name: 'Select table cells', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Select table cells', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" data-tone=\"neutral\" aria-pressed=\"true\" data-focused=\"true\" data-variant=\"outlined\" data-sgui-part=\"button\" data-focus-visible=\"true\" class=\"sgui_root_4900c47b\" data-react-aria-pressable=\"true\" id=\"react-aria4822728689-_r_2j_\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"true\"\u001b[22m\n\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts:55:24",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts",
+                      "column": 24,
+                      "line": 55
+                    },
+                    "snippet": "  53 |   await expect(action).toHaveAttribute('aria-pressed','false');\n  54 |   await action.click();await cells.first().click();await page.keyboard.press('Escape');\n> 55 |   await expect(action).toHaveAttribute('aria-pressed','false');\n     |                        ^\n  56 |   await page.getByRole('button',{name:'Make read-only',exact:true}).click();\n  57 |   await expect(action).toHaveCount(0);\n  58 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts",
+                        "column": 24,
+                        "line": 55
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Select table cells', exact: true })\nExpected: \u001b[32m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('button', { name: 'Select table cells', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Select table cells', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" data-tone=\"neutral\" aria-pressed=\"true\" data-focused=\"true\" data-variant=\"outlined\" data-sgui-part=\"button\" data-focus-visible=\"true\" class=\"sgui_root_4900c47b\" data-react-aria-pressable=\"true\" id=\"react-aria4822728689-_r_2j_\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"true\"\u001b[22m\n\n\n  53 |   await expect(action).toHaveAttribute('aria-pressed','false');\n  54 |   await action.click();await cells.first().click();await page.keyboard.press('Escape');\n> 55 |   await expect(action).toHaveAttribute('aria-pressed','false');\n     |                        ^\n  56 |   await page.getByRole('button',{name:'Make read-only',exact:true}).click();\n  57 |   await expect(action).toHaveCount(0);\n  58 | });\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts:55:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:27:43.614Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/shared-native-01/x08/traces/x08-pointer-alternatives-e-240ad-th-two-clicks-and-cancelled-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/shared-native-01/x08/traces/x08-pointer-alternatives-e-240ad-th-two-clicks-and-cancelled-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/shared-native-01/x08/traces/x08-pointer-alternatives-e-240ad-th-two-clicks-and-cancelled-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts",
+                    "column": 24,
+                    "line": 55
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b118aabe7abb392fff56-20edf2ce773101da0d13",
+          "file": "x08-pointer-alternatives.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "resizable shelf widths have bounded inline single-pointer steps in LTR/start and RTL/end",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 751,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:27:49.583Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b118aabe7abb392fff56-16d1561aaa86c61e7788",
+          "file": "x08-pointer-alternatives.spec.ts",
+          "line": 61,
+          "column": 1
+        },
+        {
+          "title": "required hidden-field ranges have click equivalents with bounded rejected-host requests",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2599,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:27:50.724Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b118aabe7abb392fff56-6752609250fa2996e38a",
+          "file": "x08-pointer-alternatives.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "editable table rectangles can be selected with two clicks and cancelled",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5632,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Select table cells', exact: true })\nExpected: \u001b[32m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('button', { name: 'Select table cells', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Select table cells', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" data-tone=\"neutral\" aria-pressed=\"true\" data-focused=\"true\" data-variant=\"outlined\" data-sgui-part=\"button\" data-focus-visible=\"true\" class=\"sgui_root_4900c47b\" data-react-aria-pressable=\"true\" id=\"react-aria2494890464-_r_2j_\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"true\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Select table cells', exact: true })\nExpected: \u001b[32m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('button', { name: 'Select table cells', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Select table cells', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" data-tone=\"neutral\" aria-pressed=\"true\" data-focused=\"true\" data-variant=\"outlined\" data-sgui-part=\"button\" data-focus-visible=\"true\" class=\"sgui_root_4900c47b\" data-react-aria-pressable=\"true\" id=\"react-aria2494890464-_r_2j_\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"true\"\u001b[22m\n\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts:55:24",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts",
+                      "column": 24,
+                      "line": 55
+                    },
+                    "snippet": "  53 |   await expect(action).toHaveAttribute('aria-pressed','false');\n  54 |   await action.click();await cells.first().click();await page.keyboard.press('Escape');\n> 55 |   await expect(action).toHaveAttribute('aria-pressed','false');\n     |                        ^\n  56 |   await page.getByRole('button',{name:'Make read-only',exact:true}).click();\n  57 |   await expect(action).toHaveCount(0);\n  58 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts",
+                        "column": 24,
+                        "line": 55
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Select table cells', exact: true })\nExpected: \u001b[32m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('button', { name: 'Select table cells', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Select table cells', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" data-tone=\"neutral\" aria-pressed=\"true\" data-focused=\"true\" data-variant=\"outlined\" data-sgui-part=\"button\" data-focus-visible=\"true\" class=\"sgui_root_4900c47b\" data-react-aria-pressable=\"true\" id=\"react-aria2494890464-_r_2j_\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"true\"\u001b[22m\n\n\n  53 |   await expect(action).toHaveAttribute('aria-pressed','false');\n  54 |   await action.click();await cells.first().click();await page.keyboard.press('Escape');\n> 55 |   await expect(action).toHaveAttribute('aria-pressed','false');\n     |                        ^\n  56 |   await page.getByRole('button',{name:'Make read-only',exact:true}).click();\n  57 |   await expect(action).toHaveCount(0);\n  58 | });\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts:55:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:27:54.369Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/shared-native-01/x08/traces/x08-pointer-alternatives-e-240ad-th-two-clicks-and-cancelled-firefox/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/shared-native-01/x08/traces/x08-pointer-alternatives-e-240ad-th-two-clicks-and-cancelled-firefox/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/shared-native-01/x08/traces/x08-pointer-alternatives-e-240ad-th-two-clicks-and-cancelled-firefox/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts",
+                    "column": 24,
+                    "line": 55
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b118aabe7abb392fff56-815bd256f3d30d52f481",
+          "file": "x08-pointer-alternatives.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "resizable shelf widths have bounded inline single-pointer steps in LTR/start and RTL/end",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1210,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:28:00.390Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b118aabe7abb392fff56-c6807027b8a57a27efd6",
+          "file": "x08-pointer-alternatives.spec.ts",
+          "line": 61,
+          "column": 1
+        },
+        {
+          "title": "required hidden-field ranges have click equivalents with bounded rejected-host requests",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2063,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:28:02.569Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b118aabe7abb392fff56-7a8b9fe9322ec6e3b857",
+          "file": "x08-pointer-alternatives.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "editable table rectangles can be selected with two clicks and cancelled",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5627,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Select table cells', exact: true })\nExpected: \u001b[32m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('button', { name: 'Select table cells', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Select table cells', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" data-tone=\"neutral\" aria-pressed=\"true\" data-focused=\"true\" data-variant=\"outlined\" data-sgui-part=\"button\" data-focus-visible=\"true\" class=\"sgui_root_4900c47b\" data-react-aria-pressable=\"true\" id=\"react-aria7573024413-_r_2j_\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"true\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Select table cells', exact: true })\nExpected: \u001b[32m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('button', { name: 'Select table cells', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Select table cells', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" data-tone=\"neutral\" aria-pressed=\"true\" data-focused=\"true\" data-variant=\"outlined\" data-sgui-part=\"button\" data-focus-visible=\"true\" class=\"sgui_root_4900c47b\" data-react-aria-pressable=\"true\" id=\"react-aria7573024413-_r_2j_\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"true\"\u001b[22m\n\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts:55:24",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts",
+                      "column": 24,
+                      "line": 55
+                    },
+                    "snippet": "  53 |   await expect(action).toHaveAttribute('aria-pressed','false');\n  54 |   await action.click();await cells.first().click();await page.keyboard.press('Escape');\n> 55 |   await expect(action).toHaveAttribute('aria-pressed','false');\n     |                        ^\n  56 |   await page.getByRole('button',{name:'Make read-only',exact:true}).click();\n  57 |   await expect(action).toHaveCount(0);\n  58 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts",
+                        "column": 24,
+                        "line": 55
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Select table cells', exact: true })\nExpected: \u001b[32m\"\u001b[7mfals\u001b[27me\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mtru\u001b[27me\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('button', { name: 'Select table cells', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Select table cells', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" data-tone=\"neutral\" aria-pressed=\"true\" data-focused=\"true\" data-variant=\"outlined\" data-sgui-part=\"button\" data-focus-visible=\"true\" class=\"sgui_root_4900c47b\" data-react-aria-pressable=\"true\" id=\"react-aria7573024413-_r_2j_\">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"true\"\u001b[22m\n\n\n  53 |   await expect(action).toHaveAttribute('aria-pressed','false');\n  54 |   await action.click();await cells.first().click();await page.keyboard.press('Escape');\n> 55 |   await expect(action).toHaveAttribute('aria-pressed','false');\n     |                        ^\n  56 |   await page.getByRole('button',{name:'Make read-only',exact:true}).click();\n  57 |   await expect(action).toHaveCount(0);\n  58 | });\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts:55:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:28:05.300Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/shared-native-01/x08/traces/x08-pointer-alternatives-e-240ad-th-two-clicks-and-cancelled-webkit/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/shared-native-01/x08/traces/x08-pointer-alternatives-e-240ad-th-two-clicks-and-cancelled-webkit/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/shared-native-01/x08/traces/x08-pointer-alternatives-e-240ad-th-two-clicks-and-cancelled-webkit/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/x08-pointer-alternatives.spec.ts",
+                    "column": 24,
+                    "line": 55
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b118aabe7abb392fff56-6cb2a34e3a0b8216d437",
+          "file": "x08-pointer-alternatives.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "resizable shelf widths have bounded inline single-pointer steps in LTR/start and RTL/end",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1024,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T01:28:11.271Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b118aabe7abb392fff56-8adb29fc993673cca712",
+          "file": "x08-pointer-alternatives.spec.ts",
+          "line": 61,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T01:27:41.260Z",
+    "duration": 31264.826,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

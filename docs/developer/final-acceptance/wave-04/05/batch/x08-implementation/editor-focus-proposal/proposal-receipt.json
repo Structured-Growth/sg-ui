@@ -1,0 +1,25 @@
+{
+  "status": "proposal_only_not_applied",
+  "frozenPluginAndTestUnchanged": true,
+  "patch": "editor-focus.patch",
+  "runtime": "v24.19.0",
+  "testOnlyOverlay": {
+    "exitCode": 1,
+    "passed": 1,
+    "failed": 1,
+    "log": "regression-red.log",
+    "failure": "Actual focus remains on the selection action rather than editor root"
+  },
+  "fullProposalOverlay": {
+    "exitCode": 0,
+    "passed": 2,
+    "failed": 0,
+    "log": "proposal-green.log"
+  },
+  "changes": [
+    "Deliberately focus the owning editor root before applying the click-selected TableSelection",
+    "Use userEvent pointer clicks and actual-focus keyboard Escape instead of fireEvent dispatch on a chosen textbox"
+  ],
+  "nativeAssertions": "unchanged; preserve three frozen engine failures and rerun only editor case after actual rebuilt fix",
+  "requiresBeforeApplication": "Root D15 frozen-host completion signal"
+}

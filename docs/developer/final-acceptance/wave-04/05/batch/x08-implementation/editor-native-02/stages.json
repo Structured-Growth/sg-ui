@@ -1,0 +1,54 @@
+[
+  {
+    "name": "library-build",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/build.mjs"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T01:29:31.492Z",
+    "exitCode": 0,
+    "completedAt": "2026-10-18T01:29:39.702Z"
+  },
+  {
+    "name": "fixture-build",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/build-browser-docs.mjs"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T01:29:39.968Z",
+    "exitCode": 0,
+    "completedAt": "2026-10-18T01:29:48.361Z"
+  },
+  {
+    "name": "browser-types",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "-p",
+      "tests/browser/tsconfig.json"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T01:29:48.361Z",
+    "exitCode": 0,
+    "completedAt": "2026-10-18T01:29:50.761Z"
+  },
+  {
+    "name": "x08-browser",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/native.config.cjs",
+      "--grep",
+      "^editable table rectangles"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T01:29:51.069Z",
+    "exitCode": 1,
+    "completedAt": "2026-10-18T01:29:52.023Z"
+  }
+]

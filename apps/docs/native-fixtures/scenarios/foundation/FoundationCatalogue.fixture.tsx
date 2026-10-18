@@ -211,3 +211,14 @@ function MotionCancellationExample({ side }: { side: "start" | "end" }) {
 }
 export const MotionCancellationStart: Story = { render: () => <MotionCancellationExample side="start" /> };
 export const MotionCancellationEnd: Story = { render: () => <MotionCancellationExample side="end" /> };
+
+function PointerPanelWidth({side,dir}:{side:"start"|"end";dir:"ltr"|"rtl"}) {
+  const [requests,setRequests]=useState<number[]>([]);
+  return <ThemeScope dir={dir} density="compact" style={{height:260}}>
+    <IconPanelNavigation aria-label={`${side} width tools`} side={side} defaultActiveId="notes" resizable panelWidth={320} minPanelWidth={300} maxPanelWidth={322}
+      onPanelWidthChange={width=>setRequests(previous=>[...previous,width])}
+      items={[{id:"notes",label:`${side} notes`,icon:<span>N</span>,content:<label>Panel draft<input defaultValue="Retain draft"/></label>}]}/>
+    <output aria-label={`${side} width requests`}>{JSON.stringify(requests)}</output>
+  </ThemeScope>;
+}
+export const PointerPanelWidths:Story={render:()=> <><PointerPanelWidth side="start" dir="ltr"/><PointerPanelWidth side="end" dir="rtl"/></>};

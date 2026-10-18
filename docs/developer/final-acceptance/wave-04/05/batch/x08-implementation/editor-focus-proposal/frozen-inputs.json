@@ -1,0 +1,4 @@
+{
+  "packages/ui/src/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.tsx": "726bc1859b3e1ad458b70fab1e6b3a8cd9747e06f8e948dcec4b5818e0883ac7",
+  "packages/ui/src/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.test.tsx": "459b6b9958c3df54807c37068c64a98bc0452cbcb49d3c979321f0d2f0926949"
+}

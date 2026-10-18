@@ -1,0 +1,436 @@
+498 fixture IDs
+vite v7.3.6 building client environment for production...
+transforming...
+dist/i18n/index.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/i18n/index.js" was ignored.
+dist/theme/AppThemeProvider.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/theme/AppThemeProvider.js" was ignored.
+dist/experimental/Provider/Provider.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Provider/Provider.js" was ignored.
+dist/foundation/ThemeScope.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/foundation/ThemeScope.js" was ignored.
+dist/components/AppDataGrid/ownedGridParts.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridParts.js" was ignored.
+dist/components/AppDataGrid/ownedGridCells.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridCells.js" was ignored.
+../../apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/NativeInsertionHost.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+../../apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/NativeInsertionHost.tsx (1:0): Module level directives cause errors when bundled, "use client" in "../../apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/NativeInsertionHost.tsx" was ignored.
+dist/components/AppDataGrid/ownedGridController.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridController.js" was ignored.
+dist/components/AppDataGrid/ownedGridLayoutController.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridLayoutController.js" was ignored.
+dist/components/AppDataGrid/ownedGridInteraction.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridInteraction.js" was ignored.
+../../apps/docs/native-fixtures/scenarios/experimental/Select/SelectorDirectionFixture.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+../../apps/docs/native-fixtures/scenarios/experimental/Select/SelectorDirectionFixture.tsx (1:0): Module level directives cause errors when bundled, "use client" in "../../apps/docs/native-fixtures/scenarios/experimental/Select/SelectorDirectionFixture.tsx" was ignored.
+dist/components/Button/Button.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/Button/Button.js" was ignored.
+dist/experimental/MonthPicker/MonthPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/MonthPicker/MonthPicker.js" was ignored.
+dist/experimental/YearPicker/YearPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/YearPicker/YearPicker.js" was ignored.
+dist/experimental/Tabs/Tabs.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/Tabs.js" was ignored.
+dist/experimental/Dialog/Dialog.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Dialog/Dialog.js" was ignored.
+dist/experimental/ComboBox/ComboBox.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/ComboBox/ComboBox.js" was ignored.
+dist/experimental/AsyncMultiSelect/AsyncMultiSelect.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/AsyncMultiSelect/AsyncMultiSelect.js" was ignored.
+dist/experimental/TextField/TextField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/TextField.js" was ignored.
+dist/experimental/DateField/DateField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/DateField.js" was ignored.
+dist/experimental/TimeField/TimeField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TimeField/TimeField.js" was ignored.
+dist/experimental/Checkbox/Checkbox.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Checkbox/Checkbox.js" was ignored.
+dist/experimental/DatePicker/DatePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DatePicker/DatePicker.js" was ignored.
+dist/experimental/Calendar/Calendar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/Calendar.js" was ignored.
+dist/experimental/Popover/Popover.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Popover/Popover.js" was ignored.
+dist/experimental/DataGrid/DataGrid.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DataGrid/DataGrid.js" was ignored.
+dist/experimental/DateRangePicker/DateRangePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangePicker/DateRangePicker.js" was ignored.
+dist/experimental/IconButton/IconButton.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/IconButton/IconButton.js" was ignored.
+dist/experimental/DateRangeSelector/DateRangeSelector.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/DateRangeSelector.js" was ignored.
+dist/experimental/SplitAction/SplitAction.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/SplitAction/SplitAction.js" was ignored.
+dist/experimental/Switch/Switch.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Switch/Switch.js" was ignored.
+dist/experimental/RadioGroup/RadioGroup.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/RadioGroup/RadioGroup.js" was ignored.
+dist/experimental/Menu/Menu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Menu/Menu.js" was ignored.
+dist/experimental/Select/Select.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Select/Select.js" was ignored.
+dist/experimental/TextArea/TextArea.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextArea/TextArea.js" was ignored.
+dist/experimental/Breadcrumbs/Breadcrumbs.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Breadcrumbs/Breadcrumbs.js" was ignored.
+dist/experimental/Tooltip/Tooltip.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tooltip/Tooltip.js" was ignored.
+dist/experimental/ToggleButton/ToggleButton.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/ToggleButton/ToggleButton.js" was ignored.
+dist/experimental/List/List.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/List/List.js" was ignored.
+dist/experimental/Navigation/Navigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Navigation/Navigation.js" was ignored.
+dist/experimental/Disclosure/Disclosure.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Disclosure/Disclosure.js" was ignored.
+dist/experimental/Link/Link.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Link/Link.js" was ignored.
+dist/experimental/Progress/Progress.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Progress/Progress.js" was ignored.
+dist/experimental/TagGroup/TagGroup.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TagGroup/TagGroup.js" was ignored.
+dist/experimental/Avatar/Avatar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Avatar/Avatar.js" was ignored.
+dist/experimental/Pagination/Pagination.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Pagination/Pagination.js" was ignored.
+dist/experimental/SearchField/SearchField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/SearchField/SearchField.js" was ignored.
+dist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.js" was ignored.
+dist/experimental/FormFieldScope/FormFieldScope.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/FormFieldScope/FormFieldScope.js" was ignored.
+dist/experimental/PeriodPicker/PeriodPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/PeriodPicker/PeriodPicker.js" was ignored.
+dist/experimental/DateTimeRangePicker/DateTimeRangePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateTimeRangePicker/DateTimeRangePicker.js" was ignored.
+dist/adapters/Link.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/Link.js" was ignored.
+dist/adapters/navigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/navigation.js" was ignored.
+dist/adapters/accounts.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/accounts.js" was ignored.
+../../node_modules/.pnpm/react-error-boundary@6.1.6_@types+react@19.3.0_react@19.2.3/node_modules/react-error-boundary/dist/react-error-boundary.js (1:0): Module level directives cause errors when bundled, "use client" in "../../node_modules/.pnpm/react-error-boundary@6.1.6_@types+react@19.3.0_react@19.2.3/node_modules/react-error-boundary/dist/react-error-boundary.js" was ignored.
+dist/experimental/DataGrid/GridColumnWidthControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DataGrid/GridColumnWidthControl.js" was ignored.
+dist/components/AppDataGridRowDnd/DataGridDragHandle.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGridRowDnd/DataGridDragHandle.js" was ignored.
+dist/hooks/usePersistentPaginationModel.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/hooks/usePersistentPaginationModel.js" was ignored.
+dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.js" was ignored.
+dist/hooks/usePersistentState.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/hooks/usePersistentState.js" was ignored.
+dist/components/AppOperationSteps/AppOperationSteps.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppOperationSteps/AppOperationSteps.js" was ignored.
+dist/components/AuthShell/AuthShell.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AuthShell/AuthShell.js" was ignored.
+dist/components/AppInlineProgress/AppInlineProgress.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppInlineProgress/AppInlineProgress.js" was ignored.
+dist/components/AppPageHeader/AppPageHeader.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppPageHeader/AppPageHeader.js" was ignored.
+dist/components/DocumentEditorLayout/DocumentEditorLayout.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DocumentEditorLayout/DocumentEditorLayout.js" was ignored.
+dist/components/AppPageTabs/AppPageTabs.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppPageTabs/AppPageTabs.js" was ignored.
+dist/components/ColumnsLayoutModal/ColumnsLayoutModal.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/ColumnsLayoutModal/ColumnsLayoutModal.js" was ignored.
+dist/components/DocumentEditorToolbar/DocumentEditorToolbar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DocumentEditorToolbar/DocumentEditorToolbar.js" was ignored.
+dist/components/ContentEditorChrome/ContentEditorChrome.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/ContentEditorChrome/ContentEditorChrome.js" was ignored.
+dist/components/AppModal/AppModal.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppModal/AppModal.js" was ignored.
+dist/components/InsertContentMenuControl/InsertContentMenuControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/InsertContentMenuControl/InsertContentMenuControl.js" was ignored.
+dist/components/ImageUploadModal/ImageUploadModal.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/ImageUploadModal/ImageUploadModal.js" was ignored.
+dist/components/PageRichTextEditorSection/PageRichTextEditorSection.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/PageRichTextEditorSection.js" was ignored.
+dist/components/TextAlignMenuControl/TextAlignMenuControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/TextAlignMenuControl/TextAlignMenuControl.js" was ignored.
+dist/components/LinkUrlModal/LinkUrlModal.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/LinkUrlModal/LinkUrlModal.js" was ignored.
+dist/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.js" was ignored.
+dist/components/EditableTitleField/EditableTitleField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/EditableTitleField/EditableTitleField.js" was ignored.
+dist/components/TextStyleMenuControl/TextStyleMenuControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/TextStyleMenuControl/TextStyleMenuControl.js" was ignored.
+dist/components/AppDataGrid/AppDataGrid.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/AppDataGrid.js" was ignored.
+dist/components/TextColorPickerControl/TextColorPickerControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/TextColorPickerControl/TextColorPickerControl.js" was ignored.
+dist/components/AppDataGridRowDnd/useDataGridRowDnd.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGridRowDnd/useDataGridRowDnd.js" was ignored.
+dist/components/primitives/Progress.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/primitives/Progress.js" was ignored.
+dist/components/ExperiencePageNavigator/ExperiencePageNavigator.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/ExperiencePageNavigator/ExperiencePageNavigator.js" was ignored.
+dist/components/AppDataGridShell/AppDataGridShell.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGridShell/AppDataGridShell.js" was ignored.
+dist/components/DataToolbar/DataToolbar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/DataToolbar.js" was ignored.
+dist/components/DataToolbar/components/DataToolbarSelectionMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/components/DataToolbarSelectionMenu.js" was ignored.
+dist/components/CardCollectionWithFooter/CardCollectionWithFooter.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/CardCollectionWithFooter/CardCollectionWithFooter.js" was ignored.
+dist/components/InstructorClassCard/InstructorClassCard.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/InstructorClassCard/InstructorClassCard.js" was ignored.
+dist/components/LearnerClassCard/LearnerClassCard.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/LearnerClassCard/LearnerClassCard.js" was ignored.
+dist/components/CardPaginationFooter/CardPaginationFooter.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/CardPaginationFooter/CardPaginationFooter.js" was ignored.
+dist/components/LearnerClassesDataGrid/LearnerClassesDataGrid.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/LearnerClassesDataGrid/LearnerClassesDataGrid.js" was ignored.
+dist/components/IconPanelNavigation/IconPanelNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/IconPanelNavigation/IconPanelNavigation.js" was ignored.
+dist/components/SideNavigation/SideNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/SideNavigation/SideNavigation.js" was ignored.
+dist/experimental/Tabs/TabIndicator.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/TabIndicator.js" was ignored.
+dist/experimental/Tabs/useTabOverflow.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/useTabOverflow.js" was ignored.
+dist/experimental/TextField/FieldMessages.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/FieldMessages.js" was ignored.
+dist/experimental/useFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/useFormReset.js" was ignored.
+dist/experimental/TextField/useStandaloneFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/useStandaloneFormReset.js" was ignored.
+dist/experimental/DateField/DateFieldControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/DateFieldControl.js" was ignored.
+dist/experimental/DateField/TextDateField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/TextDateField.js" was ignored.
+dist/experimental/TimeField/TextTimeField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TimeField/TextTimeField.js" was ignored.
+dist/experimental/Calendar/CalendarPeriodNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarPeriodNavigation.js" was ignored.
+dist/experimental/Calendar/CalendarMonthTransition.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarMonthTransition.js" was ignored.
+dist/experimental/Calendar/CalendarNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarNavigation.js" was ignored.
+dist/experimental/DateRangeSelector/CalendarFormValidity.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/CalendarFormValidity.js" was ignored.
+dist/experimental/DateRangeSelector/useCalendarFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/useCalendarFormReset.js" was ignored.
+dist/experimental/DateRangeSelector/RangeAdjustmentControls.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/RangeAdjustmentControls.js" was ignored.
+dist/experimental/DateRangeSelector/RangeGestures.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/RangeGestures.js" was ignored.
+dist/experimental/Select/FramePositionedPopover.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Select/FramePositionedPopover.js" was ignored.
+dist/adapters/navigationContext.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/navigationContext.js" was ignored.
+dist/experimental/HierarchicalMenu/HierarchicalMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/HierarchicalMenu/HierarchicalMenu.js" was ignored.
+dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.js" was ignored.
+dist/components/AppDataGrid/ownedGridPersistence.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridPersistence.js" was ignored.
+dist/components/AppShell/AppShellMain.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppShell/AppShellMain.js" was ignored.
+dist/components/TextColorPickerControl/TextColorPickerControl.impl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/TextColorPickerControl/TextColorPickerControl.impl.js" was ignored.
+dist/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.js" was ignored.
+dist/components/DataToolbar/components/DataToolbarColumnsMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/components/DataToolbarColumnsMenu.js" was ignored.
+dist/components/DataToolbar/components/DataToolbarFilterMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/components/DataToolbarFilterMenu.js" was ignored.
+dist/components/DataToolbar/components/DataToolbarSortMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/components/DataToolbarSortMenu.js" was ignored.
+dist/components/IconPanelNavigation/PanelResizeHandle.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/IconPanelNavigation/PanelResizeHandle.js" was ignored.
+../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/context.mjs (2:0): Module level directives cause errors when bundled, "use client" in "../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/context.mjs" was ignored.
+../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/Icon.mjs (2:0): Module level directives cause errors when bundled, "use client" in "../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/Icon.mjs" was ignored.
+dist/components/PageRichTextEditorSection/lexical/EditorClipboardSafetyPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/EditorClipboardSafetyPlugin.js" was ignored.
+dist/components/PageRichTextEditorSection/DocumentContentEditable.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/DocumentContentEditable.js" was ignored.
+dist/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.js" was ignored.
+dist/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.js" was ignored.
+dist/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.js" was ignored.
+dist/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.js" was ignored.
+✓ 3863 modules transformed.
+rendering chunks...
+computing gzip size...
+../../../packages/ui/browser-docs-static/index.html                                                                     0.51 kB │ gzip:  0.35 kB
+../../../packages/ui/browser-docs-static/assets/NativeSelection-Col-VA7j.css                                            0.89 kB │ gzip:  0.37 kB
+../../../packages/ui/browser-docs-static/assets/index-BBTlhd0P.css                                                    249.68 kB │ gzip: 22.47 kB
+../../../packages/ui/browser-docs-static/assets/navigationContext-BLlH0m2A.js                                           0.09 kB │ gzip:  0.10 kB
+../../../packages/ui/browser-docs-static/assets/Form-DuGT4qRj.js                                                        0.09 kB │ gzip:  0.10 kB
+../../../packages/ui/browser-docs-static/assets/SelectionIndicator-B0vhnht-.js                                          0.10 kB │ gzip:  0.11 kB
+../../../packages/ui/browser-docs-static/assets/Autocomplete-DKnX7aM2.js                                                0.12 kB │ gzip:  0.11 kB
+../../../packages/ui/browser-docs-static/assets/GroupIcon-dCzXNs56.js                                                   0.13 kB │ gzip:  0.13 kB
+../../../packages/ui/browser-docs-static/assets/RemoveIcon-CY-S1sKk.js                                                  0.13 kB │ gzip:  0.13 kB
+../../../packages/ui/browser-docs-static/assets/PeopleIcon-Ch2IdoO4.js                                                  0.13 kB │ gzip:  0.13 kB
+../../../packages/ui/browser-docs-static/assets/MenuBookIcon-3-3VWE2d.js                                                0.14 kB │ gzip:  0.13 kB
+../../../packages/ui/browser-docs-static/assets/createActionMenuColumn-hdbZryRt.js                                      0.14 kB │ gzip:  0.14 kB
+../../../packages/ui/browser-docs-static/assets/AutoStoriesIcon-mx3RpzGH.js                                             0.14 kB │ gzip:  0.14 kB
+../../../packages/ui/browser-docs-static/assets/ExpandMoreIcon-BwhwhDaz.js                                              0.14 kB │ gzip:  0.14 kB
+../../../packages/ui/browser-docs-static/assets/ArrowDropDownIcon-CAE5ZGDh.js                                           0.14 kB │ gzip:  0.14 kB
+../../../packages/ui/browser-docs-static/assets/KeyboardArrowDownIcon-B9Hwsj-A.js                                       0.15 kB │ gzip:  0.14 kB
+../../../packages/ui/browser-docs-static/assets/filterRuleValue-BjAHLo2m.js                                             0.15 kB │ gzip:  0.15 kB
+../../../packages/ui/browser-docs-static/assets/minus-BtfzwxBN.js                                                       0.16 kB │ gzip:  0.16 kB
+../../../packages/ui/browser-docs-static/assets/ComboBox.module.css-BeIQAg-Q.js                                         0.17 kB │ gzip:  0.13 kB
+../../../packages/ui/browser-docs-static/assets/chevron-down-20dVlaLr.js                                                0.17 kB │ gzip:  0.16 kB
+../../../packages/ui/browser-docs-static/assets/CheckIcon-ClOdejnl.js                                                   0.19 kB │ gzip:  0.18 kB
+../../../packages/ui/browser-docs-static/assets/CircleIcon-D_a6Nmb3.js                                                  0.20 kB │ gzip:  0.18 kB
+../../../packages/ui/browser-docs-static/assets/ChevronRightIcon-433PSmga.js                                            0.21 kB │ gzip:  0.19 kB
+../../../packages/ui/browser-docs-static/assets/KeyboardArrowLeftIcon-DGEjFdna.js                                       0.21 kB │ gzip:  0.20 kB
+../../../packages/ui/browser-docs-static/assets/AddIcon-D97rUHUF.js                                                     0.21 kB │ gzip:  0.19 kB
+../../../packages/ui/browser-docs-static/assets/SharedElementTransition-DIXshvOo.js                                     0.21 kB │ gzip:  0.19 kB
+../../../packages/ui/browser-docs-static/assets/CloseIcon-nLyUNUFp.js                                                   0.22 kB │ gzip:  0.20 kB
+../../../packages/ui/browser-docs-static/assets/Collapse-DvLWjkL0.js                                                    0.24 kB │ gzip:  0.21 kB
+../../../packages/ui/browser-docs-static/assets/AccessTimeFilledIcon-B7Shg7e2.js                                        0.25 kB │ gzip:  0.22 kB
+../../../packages/ui/browser-docs-static/assets/Divider.fixture-CJL0sCRz.js                                             0.26 kB │ gzip:  0.21 kB
+../../../packages/ui/browser-docs-static/assets/Progress-Chrjpj8T.js                                                    0.28 kB │ gzip:  0.19 kB
+../../../packages/ui/browser-docs-static/assets/columns-3-B0MxMfnT.js                                                   0.29 kB │ gzip:  0.24 kB
+../../../packages/ui/browser-docs-static/assets/TextField.module.css-BRvKwHS-.js                                        0.30 kB │ gzip:  0.16 kB
+../../../packages/ui/browser-docs-static/assets/ContentCopyIcon-NahDWlvV.js                                             0.30 kB │ gzip:  0.25 kB
+../../../packages/ui/browser-docs-static/assets/SortIcon-BcSXyqEQ.js                                                    0.31 kB │ gzip:  0.23 kB
+../../../packages/ui/browser-docs-static/assets/Surface.fixture-Q9RgJFgD.js                                             0.31 kB │ gzip:  0.24 kB
+../../../packages/ui/browser-docs-static/assets/useSlot-DQp_z2tT.js                                                     0.32 kB │ gzip:  0.25 kB
+../../../packages/ui/browser-docs-static/assets/MoreHorizIcon-ClrFLCmv.js                                               0.33 kB │ gzip:  0.23 kB
+../../../packages/ui/browser-docs-static/assets/MoreVertIcon-LfRMk8wo.js                                                0.33 kB │ gzip:  0.23 kB
+../../../packages/ui/browser-docs-static/assets/Surface-wAsoAPz0.js                                                     0.33 kB │ gzip:  0.26 kB
+../../../packages/ui/browser-docs-static/assets/useUpdateEffect-ChpzoB6b.js                                             0.33 kB │ gzip:  0.24 kB
+../../../packages/ui/browser-docs-static/assets/book-open-OVENDzGv.js                                                   0.33 kB │ gzip:  0.25 kB
+../../../packages/ui/browser-docs-static/assets/Card.fixture-g_nVHvsc.js                                                0.33 kB │ gzip:  0.26 kB
+../../../packages/ui/browser-docs-static/assets/Typography-DEqRIX8n.js                                                  0.34 kB │ gzip:  0.27 kB
+../../../packages/ui/browser-docs-static/assets/EditIcon-DySFSU_S.js                                                    0.34 kB │ gzip:  0.27 kB
+../../../packages/ui/browser-docs-static/assets/Text-BglvXQ0k.js                                                        0.34 kB │ gzip:  0.26 kB
+../../../packages/ui/browser-docs-static/assets/useToggleState-CXdH3YI_.js                                              0.34 kB │ gzip:  0.25 kB
+../../../packages/ui/browser-docs-static/assets/users-BqnsMpFm.js                                                       0.35 kB │ gzip:  0.25 kB
+../../../packages/ui/browser-docs-static/assets/ButtonGroup-CN6k35m4.js                                                 0.35 kB │ gzip:  0.27 kB
+../../../packages/ui/browser-docs-static/assets/Card-Be12YVxA.js                                                        0.36 kB │ gzip:  0.25 kB
+../../../packages/ui/browser-docs-static/assets/Divider-B0-rPxaF.js                                                     0.37 kB │ gzip:  0.28 kB
+../../../packages/ui/browser-docs-static/assets/BuildIcon-5E-i_pws.js                                                   0.37 kB │ gzip:  0.29 kB
+../../../packages/ui/browser-docs-static/assets/Chip-DLU9Tfk1.js                                                        0.37 kB │ gzip:  0.28 kB
+../../../packages/ui/browser-docs-static/assets/Box-2iqNEGyC.js                                                         0.39 kB │ gzip:  0.30 kB
+../../../packages/ui/browser-docs-static/assets/SchoolIcon-DU85A5zi.js                                                  0.40 kB │ gzip:  0.29 kB
+../../../packages/ui/browser-docs-static/assets/Status-D-MG_dBP.js                                                      0.41 kB │ gzip:  0.30 kB
+../../../packages/ui/browser-docs-static/assets/navigation-C4C7neQ3.js                                                  0.42 kB │ gzip:  0.29 kB
+../../../packages/ui/browser-docs-static/assets/UploadFileIcon-pHAguVX3.js                                              0.43 kB │ gzip:  0.29 kB
+../../../packages/ui/browser-docs-static/assets/useField-2ZuAFL2r.js                                                    0.44 kB │ gzip:  0.29 kB
+../../../packages/ui/browser-docs-static/assets/DragIndicatorIcon-74SZwj9q.js                                           0.45 kB │ gzip:  0.25 kB
+../../../packages/ui/browser-docs-static/assets/IconButton-B1Q8a7zj.js                                                  0.45 kB │ gzip:  0.31 kB
+../../../packages/ui/browser-docs-static/assets/useFormReset-C4Ej552b.js                                                0.45 kB │ gzip:  0.29 kB
+../../../packages/ui/browser-docs-static/assets/Stack-vSHNTtzb.js                                                       0.48 kB │ gzip:  0.34 kB
+../../../packages/ui/browser-docs-static/assets/ViewWeekIcon-BCYzYCUk.js                                                0.48 kB │ gzip:  0.35 kB
+../../../packages/ui/browser-docs-static/assets/useHasTabbableChild-CGhifgJK.js                                         0.49 kB │ gzip:  0.33 kB
+../../../packages/ui/browser-docs-static/assets/useControlledState-BUHmvfT9.js                                          0.49 kB │ gzip:  0.33 kB
+../../../packages/ui/browser-docs-static/assets/FormatItalicIcon-TNjZe8-o.js                                            0.50 kB │ gzip:  0.31 kB
+../../../packages/ui/browser-docs-static/assets/IconButton.fixture-Caid6fAr.js                                          0.51 kB │ gzip:  0.34 kB
+../../../packages/ui/browser-docs-static/assets/Badge-mQ8uZ-Rs.js                                                       0.52 kB │ gzip:  0.34 kB
+../../../packages/ui/browser-docs-static/assets/LinkIcon-LztdGAQz.js                                                    0.53 kB │ gzip:  0.33 kB
+../../../packages/ui/browser-docs-static/assets/CalendarTodayIcon-CzEPUrFi.js                                           0.57 kB │ gzip:  0.32 kB
+../../../packages/ui/browser-docs-static/assets/LogoutIcon-CmRaJjGO.js                                                  0.59 kB │ gzip:  0.37 kB
+../../../packages/ui/browser-docs-static/assets/Navigation-UBweRU30.js                                                  0.59 kB │ gzip:  0.34 kB
+../../../packages/ui/browser-docs-static/assets/AppInlineProgress-CHrCnOe0.js                                           0.60 kB │ gzip:  0.40 kB
+../../../packages/ui/browser-docs-static/assets/DataGridDragHandle-DhtVtg23.js                                          0.60 kB │ gzip:  0.41 kB
+../../../packages/ui/browser-docs-static/assets/FieldError-B0IUC7ZQ.js                                                  0.63 kB │ gzip:  0.40 kB
+../../../packages/ui/browser-docs-static/assets/Typography.fixture-CbUgSfq0.js                                          0.63 kB │ gzip:  0.42 kB
+../../../packages/ui/browser-docs-static/assets/CodeIcon-DrRfNvbr.js                                                    0.66 kB │ gzip:  0.36 kB
+../../../packages/ui/browser-docs-static/assets/useFilter--Tx90Q21.js                                                   0.66 kB │ gzip:  0.34 kB
+../../../packages/ui/browser-docs-static/assets/FormatIndentIncreaseIcon-iLdmlTSm.js                                    0.68 kB │ gzip:  0.31 kB
+../../../packages/ui/browser-docs-static/assets/VisuallyHidden-DYCMhQQj.js                                              0.69 kB │ gzip:  0.47 kB
+../../../packages/ui/browser-docs-static/assets/SuperscriptIcon-CLW3Sm1P.js                                             0.70 kB │ gzip:  0.39 kB
+../../../packages/ui/browser-docs-static/assets/Avatar.fixture-BfOvNllm.js                                              0.71 kB │ gzip:  0.47 kB
+../../../packages/ui/browser-docs-static/assets/ThemeScope.fixture-BXDcsBlH.js                                          0.71 kB │ gzip:  0.38 kB
+../../../packages/ui/browser-docs-static/assets/Breadcrumbs.fixture-DDmbCglw.js                                         0.72 kB │ gzip:  0.42 kB
+../../../packages/ui/browser-docs-static/assets/Status.fixture-B8xMzats.js                                              0.72 kB │ gzip:  0.47 kB
+../../../packages/ui/browser-docs-static/assets/Progress.fixture-D8KPcpAR.js                                            0.74 kB │ gzip:  0.44 kB
+../../../packages/ui/browser-docs-static/assets/Stack.fixture-Dv8X_Z3n.js                                               0.74 kB │ gzip:  0.47 kB
+../../../packages/ui/browser-docs-static/assets/ExploreIcon-Bqptk5cd.js                                                 0.75 kB │ gzip:  0.44 kB
+../../../packages/ui/browser-docs-static/assets/FormatListNumberedIcon-Dmebq77I.js                                      0.76 kB │ gzip:  0.38 kB
+../../../packages/ui/browser-docs-static/assets/Chip.fixture-Djnnrn00.js                                                0.76 kB │ gzip:  0.42 kB
+../../../packages/ui/browser-docs-static/assets/useStandaloneFormReset-D8_5SRnV.js                                      0.77 kB │ gzip:  0.44 kB
+../../../packages/ui/browser-docs-static/assets/Collapse.fixture-DjGkrLu8.js                                            0.77 kB │ gzip:  0.46 kB
+../../../packages/ui/browser-docs-static/assets/Avatar-BmyPNaiG.js                                                      0.80 kB │ gzip:  0.47 kB
+../../../packages/ui/browser-docs-static/assets/AppInlineProgress.fixture-B0GWPhzv.js                                   0.81 kB │ gzip:  0.43 kB
+../../../packages/ui/browser-docs-static/assets/SplitAction-BuWqNu-2.js                                                 0.83 kB │ gzip:  0.51 kB
+../../../packages/ui/browser-docs-static/assets/FormatColorFillIcon-B0GRSTMQ.js                                         0.84 kB │ gzip:  0.47 kB
+../../../packages/ui/browser-docs-static/assets/HighlightIcon-qROp0ryc.js                                               0.85 kB │ gzip:  0.47 kB
+../../../packages/ui/browser-docs-static/assets/Breadcrumbs-CdHmIfay.js                                                 0.89 kB │ gzip:  0.51 kB
+../../../packages/ui/browser-docs-static/assets/ClassCardFrame-BHagMOH2.js                                              0.89 kB │ gzip:  0.40 kB
+../../../packages/ui/browser-docs-static/assets/DragAndDrop-CY_3pzYu.js                                                 0.96 kB │ gzip:  0.52 kB
+../../../packages/ui/browser-docs-static/assets/CardPaginationFooter.fixture-BMQyGxso.js                                1.00 kB │ gzip:  0.57 kB
+../../../packages/ui/browser-docs-static/assets/FormatAlignJustifyIcon-BK-goKPz.js                                      1.04 kB │ gzip:  0.44 kB
+../../../packages/ui/browser-docs-static/assets/date-contract-Bpp_XhSy.js                                               1.07 kB │ gzip:  0.59 kB
+../../../packages/ui/browser-docs-static/assets/SelectorDirectionFixture-BPaIthYn.js                                    1.09 kB │ gzip:  0.63 kB
+../../../packages/ui/browser-docs-static/assets/Link-cm_zzDV-.js                                                        1.09 kB │ gzip:  0.63 kB
+../../../packages/ui/browser-docs-static/assets/Table.fixture-DU2FZWB6.js                                               1.10 kB │ gzip:  0.52 kB
+../../../packages/ui/browser-docs-static/assets/Typefaces.fixture-iNt6tcr4.js                                           1.11 kB │ gzip:  0.58 kB
+../../../packages/ui/browser-docs-static/assets/CardCollectionWithFooter-D9etUbY4.js                                    1.12 kB │ gzip:  0.59 kB
+../../../packages/ui/browser-docs-static/assets/InsertContentMenuControl-CcxLPI8q.js                                    1.15 kB │ gzip:  0.58 kB
+../../../packages/ui/browser-docs-static/assets/ColumnsLayoutModal-DKkVngjA.js                                          1.21 kB │ gzip:  0.60 kB
+../../../packages/ui/browser-docs-static/assets/Table-DrXYOUWX.js                                                       1.33 kB │ gzip:  0.45 kB
+../../../packages/ui/browser-docs-static/assets/List-CQ9mJfB5.js                                                        1.33 kB │ gzip:  0.54 kB
+../../../packages/ui/browser-docs-static/assets/Disclosure-BH8rdtuO.js                                                  1.35 kB │ gzip:  0.73 kB
+../../../packages/ui/browser-docs-static/assets/DocumentEditorLayout-BRU4ob-p.js                                        1.35 kB │ gzip:  0.53 kB
+../../../packages/ui/browser-docs-static/assets/Badge.fixture-DDmZUOw7.js                                               1.39 kB │ gzip:  0.63 kB
+../../../packages/ui/browser-docs-static/assets/Progress-YSOS8JRR.js                                                    1.39 kB │ gzip:  0.70 kB
+../../../packages/ui/browser-docs-static/assets/Navigation.fixture-zhfdYwoV.js                                          1.40 kB │ gzip:  0.71 kB
+../../../packages/ui/browser-docs-static/assets/LearnerClassesDataGrid-hdVRBSDb.js                                      1.41 kB │ gzip:  0.74 kB
+../../../packages/ui/browser-docs-static/assets/AppPageTabs-CNf1kJv8.js                                                 1.44 kB │ gzip:  0.71 kB
+../../../packages/ui/browser-docs-static/assets/ToggleButton.fixture-DSRWJI6F.js                                        1.46 kB │ gzip:  0.71 kB
+../../../packages/ui/browser-docs-static/assets/CardPaginationFooter-CfXbFOVS.js                                        1.47 kB │ gzip:  0.73 kB
+../../../packages/ui/browser-docs-static/assets/WindowIcon-eoqsUArK.js                                                  1.49 kB │ gzip:  0.70 kB
+../../../packages/ui/browser-docs-static/assets/ButtonGroup.fixture-DqdQ3Tcj.js                                         1.54 kB │ gzip:  0.67 kB
+../../../packages/ui/browser-docs-static/assets/ColumnsLayoutModal.fixture-DMyf16li.js                                  1.59 kB │ gzip:  0.85 kB
+../../../packages/ui/browser-docs-static/assets/Switch.fixture-BkMz24xz.js                                              1.61 kB │ gzip:  0.80 kB
+../../../packages/ui/browser-docs-static/assets/ContentEditorChrome-_nkCHtWl.js                                         1.67 kB │ gzip:  0.77 kB
+../../../packages/ui/browser-docs-static/assets/Pagination.fixture-g_iljkXm.js                                          1.67 kB │ gzip:  0.84 kB
+../../../packages/ui/browser-docs-static/assets/List.fixture-CS6est5U.js                                                1.67 kB │ gzip:  0.82 kB
+../../../packages/ui/browser-docs-static/assets/formatDueDateLabel-VDYAfS8J.js                                          1.69 kB │ gzip:  0.75 kB
+../../../packages/ui/browser-docs-static/assets/AppModal-DfJniCUz.js                                                    1.75 kB │ gzip:  0.95 kB
+../../../packages/ui/browser-docs-static/assets/Disclosure.fixture-jUK6JAUK.js                                          1.77 kB │ gzip:  0.85 kB
+../../../packages/ui/browser-docs-static/assets/AppThemeProvider.fixture-CYDGzsM2.js                                    1.80 kB │ gzip:  0.94 kB
+../../../packages/ui/browser-docs-static/assets/AuthShell-BcBTcIWD.js                                                   1.86 kB │ gzip:  0.87 kB
+../../../packages/ui/browser-docs-static/assets/TextStyleMenuControl.fixture-DVmYaDwl.js                                1.87 kB │ gzip:  0.95 kB
+../../../packages/ui/browser-docs-static/assets/usePersistentPaginationModel.fixture-D8ybUWEv.js                        1.89 kB │ gzip:  0.93 kB
+../../../packages/ui/browser-docs-static/assets/EditableTitleField.fixture-SIjhZuYb.js                                  1.89 kB │ gzip:  0.93 kB
+../../../packages/ui/browser-docs-static/assets/Tooltip.fixture-Boib52MI.js                                             1.97 kB │ gzip:  0.99 kB
+../../../packages/ui/browser-docs-static/assets/TextField-BJP_3NDz.js                                                   2.03 kB │ gzip:  0.95 kB
+../../../packages/ui/browser-docs-static/assets/TextAlignMenuControl-BzBVGf1S.js                                        2.04 kB │ gzip:  1.00 kB
+../../../packages/ui/browser-docs-static/assets/useLocalizedStringFormatter-C36y_Hb7.js                                 2.10 kB │ gzip:  0.98 kB
+../../../packages/ui/browser-docs-static/assets/Pagination-J0rtI1fu.js                                                  2.12 kB │ gzip:  0.91 kB
+../../../packages/ui/browser-docs-static/assets/LinkUrlModal-B2mdzxH9.js                                                2.12 kB │ gzip:  1.12 kB
+../../../packages/ui/browser-docs-static/assets/TextArea-CtrFZWAf.js                                                    2.17 kB │ gzip:  1.00 kB
+../../../packages/ui/browser-docs-static/assets/useListState-B3xt6cnE.js                                                2.18 kB │ gzip:  0.91 kB
+../../../packages/ui/browser-docs-static/assets/useToggle-Ct6jvExk.js                                                   2.21 kB │ gzip:  0.96 kB
+../../../packages/ui/browser-docs-static/assets/TextStyleMenuControl-CMxPG7eI.js                                        2.27 kB │ gzip:  0.90 kB
+../../../packages/ui/browser-docs-static/assets/TextField-mpaDlv9a.js                                                   2.28 kB │ gzip:  1.08 kB
+../../../packages/ui/browser-docs-static/assets/SplitAction.fixture-Br8dKvSB.js                                         2.33 kB │ gzip:  1.17 kB
+../../../packages/ui/browser-docs-static/assets/EditableTitleField-DW-L5eaG.js                                          2.38 kB │ gzip:  1.14 kB
+../../../packages/ui/browser-docs-static/assets/Menu.fixture-DUwjVg3y.js                                                2.40 kB │ gzip:  1.04 kB
+../../../packages/ui/browser-docs-static/assets/TextAlignMenuControl.fixture-7yHC7dev.js                                2.41 kB │ gzip:  1.21 kB
+../../../packages/ui/browser-docs-static/assets/Tabs.fixture-BKdsi5Tx.js                                                2.44 kB │ gzip:  1.02 kB
+../../../packages/ui/browser-docs-static/assets/Popover.collision.fixture-DRDagjUB.js                                   2.45 kB │ gzip:  1.18 kB
+../../../packages/ui/browser-docs-static/assets/Link.fixture-CxRoSyIj.js                                                2.49 kB │ gzip:  1.09 kB
+../../../packages/ui/browser-docs-static/assets/RadioGroup.fixture-CUEBeu0J.js                                          2.51 kB │ gzip:  1.12 kB
+../../../packages/ui/browser-docs-static/assets/LearnerClassCard-Dwy4VC2_.js                                            2.55 kB │ gzip:  1.04 kB
+../../../packages/ui/browser-docs-static/assets/Calendar.native-locales.fixture-BJreoUly.js                             2.55 kB │ gzip:  1.24 kB
+../../../packages/ui/browser-docs-static/assets/Translations.fixture-Dnk1B3_J.js                                        2.56 kB │ gzip:  1.12 kB
+../../../packages/ui/browser-docs-static/assets/PaidIcon-CNckgOCP.js                                                    2.61 kB │ gzip:  1.02 kB
+../../../packages/ui/browser-docs-static/assets/AsyncMultiSelect-BpYE4pkz.js                                            2.69 kB │ gzip:  1.24 kB
+../../../packages/ui/browser-docs-static/assets/ownedGridParts.fixture-sKs8MknU.js                                      2.70 kB │ gzip:  1.28 kB
+../../../packages/ui/browser-docs-static/assets/useTextField-tvck3A2G.js                                                2.72 kB │ gzip:  1.23 kB
+../../../packages/ui/browser-docs-static/assets/InstructorClassCard-BIjam8Tu.js                                         2.75 kB │ gzip:  1.02 kB
+../../../packages/ui/browser-docs-static/assets/Calendar.fixture-Cw8DAeOM.js                                            2.79 kB │ gzip:  1.35 kB
+../../../packages/ui/browser-docs-static/assets/AdminDataGridOptions.fixture-C3bNTqMU.js                                2.84 kB │ gzip:  1.38 kB
+../../../packages/ui/browser-docs-static/assets/DateRangePicker.fixture-3Q0ydVLJ.js                                     2.91 kB │ gzip:  1.42 kB
+../../../packages/ui/browser-docs-static/assets/AppPageTabs.fixture-0iW552-2.js                                         2.94 kB │ gzip:  1.29 kB
+../../../packages/ui/browser-docs-static/assets/Select.fixture-V9zjSrkt.js                                              2.94 kB │ gzip:  1.28 kB
+../../../packages/ui/browser-docs-static/assets/DocumentEditorToolbar.fixture-DsOY2zNB.js                               2.95 kB │ gzip:  1.34 kB
+../../../packages/ui/browser-docs-static/assets/primitives.fixture-Dab89Tm2.js                                          2.95 kB │ gzip:  1.40 kB
+../../../packages/ui/browser-docs-static/assets/InstructorClassCard.fixture-DiYJzklA.js                                 2.98 kB │ gzip:  1.40 kB
+../../../packages/ui/browser-docs-static/assets/FloatingTextSelectionToolbar.fixture-dLvP65UL.js                        2.99 kB │ gzip:  1.35 kB
+../../../packages/ui/browser-docs-static/assets/DatePicker.fixture-B-El34HR.js                                          3.03 kB │ gzip:  1.45 kB
+../../../packages/ui/browser-docs-static/assets/Provider.fixture-BwZVXIGo.js                                            3.09 kB │ gzip:  1.47 kB
+../../../packages/ui/browser-docs-static/assets/ImageUploadModal.fixture-CMt9_oG0.js                                    3.15 kB │ gzip:  1.35 kB
+../../../packages/ui/browser-docs-static/assets/Checkbox.fixture-BP8h0ziY.js                                            3.17 kB │ gzip:  1.29 kB
+../../../packages/ui/browser-docs-static/assets/DataGrid.fixture-IgTsFHUo.js                                            3.21 kB │ gzip:  1.60 kB
+../../../packages/ui/browser-docs-static/assets/LearnerClassesDataGrid.fixture-3P_30Uns.js                              3.21 kB │ gzip:  1.55 kB
+../../../packages/ui/browser-docs-static/assets/DocumentEditorToolbar-sZlKdDvx.js                                       3.25 kB │ gzip:  1.44 kB
+../../../packages/ui/browser-docs-static/assets/SectionedRows-79rpbUaH.js                                               3.37 kB │ gzip:  1.56 kB
+../../../packages/ui/browser-docs-static/assets/usePersistentState-C3_ixW1n.js                                          3.45 kB │ gzip:  1.40 kB
+../../../packages/ui/browser-docs-static/assets/SideNavigation.organization-lifetime.fixture-CoX9Gfil.js                3.51 kB │ gzip:  1.61 kB
+../../../packages/ui/browser-docs-static/assets/TextColorPickerControl.fixture-BK2rjwK3.js                              3.55 kB │ gzip:  1.63 kB
+../../../packages/ui/browser-docs-static/assets/InsertContentMenuControl.fixture-D-RCxUuk.js                            3.56 kB │ gzip:  1.58 kB
+../../../packages/ui/browser-docs-static/assets/createVector-BVllGFsJ.js                                                3.56 kB │ gzip:  1.70 kB
+../../../packages/ui/browser-docs-static/assets/Switch-iO1bUQT3.js                                                      3.57 kB │ gzip:  1.51 kB
+../../../packages/ui/browser-docs-static/assets/DocumentEditorLayout.fixture-Cvjk_YYN.js                                3.57 kB │ gzip:  1.54 kB
+../../../packages/ui/browser-docs-static/assets/AppOperationStepsNativeState.fixture.fixture-D3KDc5--.js                3.58 kB │ gzip:  1.49 kB
+../../../packages/ui/browser-docs-static/assets/DateField.fixture-BrmxCPGc.js                                           3.62 kB │ gzip:  1.45 kB
+../../../packages/ui/browser-docs-static/assets/LinkUrlModal.fixture-IPeeDY1f.js                                        3.67 kB │ gzip:  1.65 kB
+../../../packages/ui/browser-docs-static/assets/ImageUploadModal-_jxRzYYi.js                                            3.67 kB │ gzip:  1.61 kB
+../../../packages/ui/browser-docs-static/assets/LearnerClassCard.fixture-CzsCz2ER.js                                    3.68 kB │ gzip:  1.60 kB
+../../../packages/ui/browser-docs-static/assets/Popover-BbHv9GHO.js                                                     3.68 kB │ gzip:  1.73 kB
+../../../packages/ui/browser-docs-static/assets/DatePicker-CHg1Zv1X.js                                                  3.69 kB │ gzip:  1.51 kB
+../../../packages/ui/browser-docs-static/assets/PageRichTextEditorSection.mixed-formatting.fixture-Cxg68R3G.js          3.69 kB │ gzip:  1.75 kB
+../../../packages/ui/browser-docs-static/assets/TextArea.fixture-BiBacz9u.js                                            3.71 kB │ gzip:  1.43 kB
+../../../packages/ui/browser-docs-static/assets/useCollator-BnbN22cH.js                                                 3.79 kB │ gzip:  1.57 kB
+../../../packages/ui/browser-docs-static/assets/DateRangePicker.controlled-transactions.fixture-CtSFN4Al.js             3.79 kB │ gzip:  1.72 kB
+../../../packages/ui/browser-docs-static/assets/ExperiencePageNavigator.native-transactions.fixture-BTUZBYpX.js         3.80 kB │ gzip:  1.69 kB
+../../../packages/ui/browser-docs-static/assets/usePersistentState.fixture-DqAglx_u.js                                  3.82 kB │ gzip:  1.60 kB
+../../../packages/ui/browser-docs-static/assets/Menu-BVo6GBSt.js                                                        3.82 kB │ gzip:  1.78 kB
+../../../packages/ui/browser-docs-static/assets/DataToolbar.column-order.fixture-C2Um43nd.js                            3.83 kB │ gzip:  1.76 kB
+../../../packages/ui/browser-docs-static/assets/ExperiencePageNavigator.fixture-CtXNPFvK.js                             3.90 kB │ gzip:  1.76 kB
+../../../packages/ui/browser-docs-static/assets/CardCollectionWithFooter.fixture-CryDePJX.js                            3.91 kB │ gzip:  1.81 kB
+../../../packages/ui/browser-docs-static/assets/TextColorPickerControl-4gct0bnP.js                                      3.93 kB │ gzip:  1.64 kB
+../../../packages/ui/browser-docs-static/assets/TagGroup.fixture-CoLumFRm.js                                            3.95 kB │ gzip:  1.71 kB
+../../../packages/ui/browser-docs-static/assets/TimeField.fixture-CjQPWyDj.js                                           3.98 kB │ gzip:  1.69 kB
+../../../packages/ui/browser-docs-static/assets/ComboBox.fixture-Bsv7ZN8s.js                                            4.00 kB │ gzip:  1.64 kB
+../../../packages/ui/browser-docs-static/assets/DocumentEditorToolbar.heading-lifetime.fixture-Dh4LV9RU.js              4.02 kB │ gzip:  1.86 kB
+../../../packages/ui/browser-docs-static/assets/NativeSelection.fixture-DtCvflAE.js                                     4.14 kB │ gzip:  1.83 kB
+../../../packages/ui/browser-docs-static/assets/ownedGridParts-BD0eX7lP.js                                              4.18 kB │ gzip:  1.54 kB
+../../../packages/ui/browser-docs-static/assets/Button-B4Hvtyjj.js                                                      4.18 kB │ gzip:  1.91 kB
+../../../packages/ui/browser-docs-static/assets/ownedGridSortAcceptance.fixture-Bv9uyQAG.js                             4.20 kB │ gzip:  1.92 kB
+../../../packages/ui/browser-docs-static/assets/DataGridDragHandle.fixture-BO-piwl9.js                                  4.23 kB │ gzip:  2.06 kB
+../../../packages/ui/browser-docs-static/assets/AppOperationSteps.fixture-D1V2W5lL.js                                   4.28 kB │ gzip:  1.90 kB
+../../../packages/ui/browser-docs-static/assets/token-source-kIfmxwAp.js                                                4.32 kB │ gzip:  0.59 kB
+../../../packages/ui/browser-docs-static/assets/Popover.fixture-eks0_AuR.js                                             4.33 kB │ gzip:  2.06 kB
+../../../packages/ui/browser-docs-static/assets/AppDataGrid.reorder-invalidation.fixture-DF70yTnE.js                    4.35 kB │ gzip:  1.91 kB
+../../../packages/ui/browser-docs-static/assets/Button.fixture-Cp6rNH7h.js                                              4.42 kB │ gzip:  1.82 kB
+../../../packages/ui/browser-docs-static/assets/AuthShell.fixture-C9XrdFqY.js                                           4.53 kB │ gzip:  1.73 kB
+../../../packages/ui/browser-docs-static/assets/useFormValidation-DPsguLnk.js                                           4.62 kB │ gzip:  1.75 kB
+../../../packages/ui/browser-docs-static/assets/DatePicker.native-transactions.fixture-TQ8FxHvZ.js                      4.66 kB │ gzip:  1.88 kB
+../../../packages/ui/browser-docs-static/assets/LearnerClassesDataGrid.native.fixture-Dq0Zmf7X.js                       4.69 kB │ gzip:  2.18 kB
+../../../packages/ui/browser-docs-static/assets/InstructorDataGridOptions-B38r9nuz.js                                   4.75 kB │ gzip:  0.84 kB
+../../../packages/ui/browser-docs-static/assets/RichTextFormattingToolbar.fixture-BYFteWRu.js                           4.83 kB │ gzip:  2.15 kB
+../../../packages/ui/browser-docs-static/assets/icons.fixture-BAbyi3ki.js                                               4.93 kB │ gzip:  2.17 kB
+../../../packages/ui/browser-docs-static/assets/BaselineHostFlow.fixture-BGPu_K17.js                                    5.08 kB │ gzip:  2.22 kB
+../../../packages/ui/browser-docs-static/assets/ExperiencePageNavigator-BqlMLx12.js                                     5.09 kB │ gzip:  2.03 kB
+../../../packages/ui/browser-docs-static/assets/ownedGridProcessing.fixture-CxVbwb71.js                                 5.13 kB │ gzip:  2.28 kB
+../../../packages/ui/browser-docs-static/assets/ClassCardFrame.fixture-ivru-nUf.js                                      5.34 kB │ gzip:  2.12 kB
+../../../packages/ui/browser-docs-static/assets/PageRichTextEditorSection.paragraph-transactions.fixture-Cew_MgYr.js    5.38 kB │ gzip:  2.44 kB
+../../../packages/ui/browser-docs-static/assets/FormParticipation.fixture-nJ89k5eE.js                                   5.44 kB │ gzip:  2.07 kB
+../../../packages/ui/browser-docs-static/assets/AsyncMultiSelect.fixture-CtvN5mkL.js                                    5.46 kB │ gzip:  2.10 kB
+../../../packages/ui/browser-docs-static/assets/RichTextFormattingToolbar.impl-HB_E2O-9.js                              5.48 kB │ gzip:  2.06 kB
+../../../packages/ui/browser-docs-static/assets/Tooltip-COpGu4uv.js                                                     5.53 kB │ gzip:  2.36 kB
+../../../packages/ui/browser-docs-static/assets/ToggleButton-C5SaY-RK.js                                                5.54 kB │ gzip:  2.14 kB
+../../../packages/ui/browser-docs-static/assets/Checkbox-C4E2AwGI.js                                                    5.57 kB │ gzip:  2.14 kB
+../../../packages/ui/browser-docs-static/assets/TokenTierScope.fixture-BX1jfruw.js                                      5.60 kB │ gzip:  1.88 kB
+../../../packages/ui/browser-docs-static/assets/intlStrings-BTHtKwgC.js                                                 5.63 kB │ gzip:  2.20 kB
+../../../packages/ui/browser-docs-static/assets/Dialog.fixture-CVQRr9QY.js                                              5.66 kB │ gzip:  2.31 kB
+../../../packages/ui/browser-docs-static/assets/Calendar-52VOiby2.js                                                    5.66 kB │ gzip:  2.18 kB
+../../../packages/ui/browser-docs-static/assets/ProgressBar-eX7Qp-RV.js                                                 5.78 kB │ gzip:  2.28 kB
+../../../packages/ui/browser-docs-static/assets/icons.fixture-DK0-g1z7.js                                               5.85 kB │ gzip:  2.45 kB
+../../../packages/ui/browser-docs-static/assets/filterDOMProps-BFldXKpm.js                                              5.91 kB │ gzip:  2.52 kB
+../../../packages/ui/browser-docs-static/assets/VisualAcceptance.fixture-eoWz7xpN.js                                    6.14 kB │ gzip:  2.52 kB
+../../../packages/ui/browser-docs-static/assets/GridHostOperations.fixture-CT7sQ7Vx.js                                  6.29 kB │ gzip:  2.88 kB
+../../../packages/ui/browser-docs-static/assets/AppDataGrid.fixture-q1rw6BD9.js                                         6.75 kB │ gzip:  2.94 kB
+../../../packages/ui/browser-docs-static/assets/adapters.fixture-I-nxQUgL.js                                            6.81 kB │ gzip:  2.57 kB
+../../../packages/ui/browser-docs-static/assets/SideNavigation.fixture-DSRGX77z.js                                      6.91 kB │ gzip:  2.60 kB
+../../../packages/ui/browser-docs-static/assets/AppDataGridShell.server-response-races.fixture-DMFJm52L.js              7.05 kB │ gzip:  3.18 kB
+../../../packages/ui/browser-docs-static/assets/TextField.fixture-Ao6lmsAj.js                                           7.19 kB │ gzip:  2.29 kB
+../../../packages/ui/browser-docs-static/assets/ownedGridCells.fixture-D3ScwM3q.js                                      7.45 kB │ gzip:  3.23 kB
+../../../packages/ui/browser-docs-static/assets/DateField-DDcdw3cr.js                                                   7.53 kB │ gzip:  3.11 kB
+../../../packages/ui/browser-docs-static/assets/AppDataGrid-BGZNYyO9.js                                                 7.66 kB │ gzip:  2.77 kB
+../../../packages/ui/browser-docs-static/assets/PrimitiveAcceptance.fixture-DHdW44I9.js                                 8.00 kB │ gzip:  2.92 kB
+../../../packages/ui/browser-docs-static/assets/DataToolbar.fixture-Dz2ZL06r.js                                         8.07 kB │ gzip:  3.04 kB
+../../../packages/ui/browser-docs-static/assets/DateRangeSelector.fixture-BlC9-xSg.js                                   8.17 kB │ gzip:  3.11 kB
+../../../packages/ui/browser-docs-static/assets/ownedGridState-C_kDX6xu.js                                              8.57 kB │ gzip:  3.08 kB
+../../../packages/ui/browser-docs-static/assets/AppPageHeader.fixture-DY1zqxgC.js                                       8.69 kB │ gzip:  3.44 kB
+../../../packages/ui/browser-docs-static/assets/BrushIcon-C_9cTN3r.js                                                   8.98 kB │ gzip:  3.42 kB
+../../../packages/ui/browser-docs-static/assets/RadioGroup-BB_84ADZ.js                                                  9.01 kB │ gzip:  3.44 kB
+../../../packages/ui/browser-docs-static/assets/Dialog-C5Yy6_NQ.js                                                      9.30 kB │ gzip:  3.46 kB
+../../../packages/ui/browser-docs-static/assets/DataGrid-42PVdiXR.js                                                    9.35 kB │ gzip:  3.46 kB
+../../../packages/ui/browser-docs-static/assets/AppDataGridShell-usx_kI0G.js                                            9.89 kB │ gzip:  3.47 kB
+../../../packages/ui/browser-docs-static/assets/AppShell.fixture-CIzvPDCE.js                                            9.99 kB │ gzip:  3.85 kB
+../../../packages/ui/browser-docs-static/assets/ListBox-DnHSiCB_.js                                                    10.27 kB │ gzip:  3.75 kB
+../../../packages/ui/browser-docs-static/assets/ownedGridInteraction.fixture-jMfWxwIq.js                               10.50 kB │ gzip:  3.97 kB
+../../../packages/ui/browser-docs-static/assets/TimeField-HdHwr41x.js                                                  10.64 kB │ gzip:  4.32 kB
+../../../packages/ui/browser-docs-static/assets/ContentEditorChrome.fixture-CCvNyAnR.js                                10.78 kB │ gzip:  4.33 kB
+../../../packages/ui/browser-docs-static/assets/animation-CRD0py3d.js                                                  10.88 kB │ gzip:  4.29 kB
+../../../packages/ui/browser-docs-static/assets/HierarchicalMenu.fixture--1CKBgq2.js                                   11.76 kB │ gzip:  4.40 kB
+../../../packages/ui/browser-docs-static/assets/AppDataGridShell.fixture-BvqE67Dw.js                                   12.40 kB │ gzip:  4.44 kB
+../../../packages/ui/browser-docs-static/assets/SideNavigation-CADItY4b.js                                             12.79 kB │ gzip:  4.73 kB
+../../../packages/ui/browser-docs-static/assets/FocusScope-BXOgdbMt.js                                                 13.47 kB │ gzip:  4.18 kB
+../../../packages/ui/browser-docs-static/assets/createCalendar-DfUtHanV.js                                             13.87 kB │ gzip:  5.72 kB
+../../../packages/ui/browser-docs-static/assets/AppModal.fixture-D4wVqJct.js                                           14.06 kB │ gzip:  5.07 kB
+../../../packages/ui/browser-docs-static/assets/Select-DqAssnS4.js                                                     14.68 kB │ gzip:  5.39 kB
+../../../packages/ui/browser-docs-static/assets/Tabs-DCm94-3P.js                                                       15.69 kB │ gzip:  5.78 kB
+../../../packages/ui/browser-docs-static/assets/useHighlightSelectionDescription-CZG0L9Xb.js                           17.48 kB │ gzip:  5.03 kB
+../../../packages/ui/browser-docs-static/assets/DataToolbar-DT7zp2oS.js                                                17.81 kB │ gzip:  5.24 kB
+../../../packages/ui/browser-docs-static/assets/TagGroup-C3anIyVj.js                                                   18.15 kB │ gzip:  7.21 kB
+../../../packages/ui/browser-docs-static/assets/useDateFormatter-CRmXx0f4.js                                           19.60 kB │ gzip:  6.48 kB
+../../../packages/ui/browser-docs-static/assets/PageRichTextEditorSection.fixture-BoWCg33m.js                          22.39 kB │ gzip:  7.14 kB
+../../../packages/ui/browser-docs-static/assets/ownedGridInteraction-DHhQYv8B.js                                       25.27 kB │ gzip:  8.39 kB
+../../../packages/ui/browser-docs-static/assets/useHover-gG2qPmxr.js                                                   30.73 kB │ gzip: 10.52 kB
+../../../packages/ui/browser-docs-static/assets/Box.fixture-DQhn6n1B.js                                                32.07 kB │ gzip: 10.36 kB
+../../../packages/ui/browser-docs-static/assets/DateRangePicker-Vd_G1C-E.js                                            33.67 kB │ gzip: 10.99 kB
+../../../packages/ui/browser-docs-static/assets/Dialog-DFo5Opbp.js                                                     34.57 kB │ gzip: 13.49 kB
+../../../packages/ui/browser-docs-static/assets/ComboBox-CTa_c2-Q.js                                                   38.72 kB │ gzip: 10.47 kB
+../../../packages/ui/browser-docs-static/assets/useMultipleSelectionState-LoXdBkbX.js                                  49.05 kB │ gzip: 14.36 kB
+../../../packages/ui/browser-docs-static/assets/index-TD5eAT0Q.js                                                      49.77 kB │ gzip: 13.21 kB
+../../../packages/ui/browser-docs-static/assets/DateField.module.css-4sln5g0Z.js                                       60.23 kB │ gzip: 19.99 kB
+../../../packages/ui/browser-docs-static/assets/useNarrowWeekdays-Brde8oGo.js                                          62.22 kB │ gzip: 19.21 kB
+../../../packages/ui/browser-docs-static/assets/PageRichTextEditorSection.impl-uGGeUH2P.js                            172.74 kB │ gzip: 54.45 kB
+../../../packages/ui/browser-docs-static/assets/LexicalErrorBoundary.prod-CitZDfXm.js                                 177.70 kB │ gzip: 57.84 kB
+../../../packages/ui/browser-docs-static/assets/GridColumnWidthControl-DNo2lQUZ.js                                    210.39 kB │ gzip: 53.65 kB
+../../../packages/ui/browser-docs-static/assets/FoundationCatalogue.fixture-xJdADqNS.js                               263.68 kB │ gzip: 63.21 kB
+../../../packages/ui/browser-docs-static/assets/index-BfcjSk3R.js                                                     492.14 kB │ gzip: 95.46 kB
+✓ built in 3.00s

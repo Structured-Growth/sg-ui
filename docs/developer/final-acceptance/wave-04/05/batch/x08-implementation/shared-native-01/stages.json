@@ -1,0 +1,74 @@
+[
+  {
+    "name": "library-build",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/build.mjs"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T01:27:12.002Z",
+    "exitCode": 0,
+    "completedAt": "2026-10-18T01:27:19.026Z"
+  },
+  {
+    "name": "catalog-generate",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/apps/docs/scripts/generate-catalog.mjs"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/apps/docs",
+    "startedAt": "2026-10-18T01:27:19.376Z",
+    "exitCode": 0,
+    "completedAt": "2026-10-18T01:27:23.103Z"
+  },
+  {
+    "name": "catalog-check",
+    "executable": "pnpm",
+    "args": [
+      "catalog:check"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/apps/docs",
+    "startedAt": "2026-10-18T01:27:23.103Z",
+    "exitCode": 0,
+    "completedAt": "2026-10-18T01:27:29.984Z"
+  },
+  {
+    "name": "fixture-build",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/scripts/build-browser-docs.mjs"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T01:27:29.984Z",
+    "exitCode": 0,
+    "completedAt": "2026-10-18T01:27:39.045Z"
+  },
+  {
+    "name": "browser-types",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "-p",
+      "tests/browser/tsconfig.json"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T01:27:39.046Z",
+    "exitCode": 0,
+    "completedAt": "2026-10-18T01:27:40.727Z"
+  },
+  {
+    "name": "x08-browser",
+    "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/native.config.cjs"
+    ],
+    "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+    "startedAt": "2026-10-18T01:27:40.994Z",
+    "exitCode": 1,
+    "completedAt": "2026-10-18T01:28:12.541Z"
+  }
+]

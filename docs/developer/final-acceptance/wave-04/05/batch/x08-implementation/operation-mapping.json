@@ -1,0 +1,133 @@
+{
+  "originalScope": "wave-02-09/operator-cases.md drag alternatives table and X08-RESIZE/RANGE/INVENTORY; wave-04/11 A-X-08 successor",
+  "rows": [
+    {
+      "family": "Grid row reorder (DataGrid/AppDataGrid/AppDataGridRowDnd)",
+      "keyboard": "Owned Move up/down buttons activate with Enter/Space; React Aria also retains keyboard drag/drop.",
+      "pointer": "Click the same Move up/down buttons; shared host reorder request, boundaries/pending/read-only guards.",
+      "source": [
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx"
+      ],
+      "evidence": "Retained reorder.spec.ts, batch01-grid-reorder.spec.ts, inventory-pointer-reorder-invalidation.spec.ts; wave-04/11 report preserves dated evidence. No new run claimed.",
+      "sourceHashes": {
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx": "e0fc3483fcfcccce40ffeb831aa3d548f3ade9224c9c99e9fa7a5b839b6c6906"
+      }
+    },
+    {
+      "family": "Column width (both grid renderers)",
+      "keyboard": "ColumnResizer keyboard path plus keyboard-operable width entry/Apply and one-pixel controls.",
+      "pointer": "GridColumnWidthControl width action with Narrower/Wider by one pixel; same bounded/flexible width core and complete width snapshot callback.",
+      "source": [
+        "packages/ui/src/experimental/DataGrid/GridColumnWidthControl.tsx",
+        "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx"
+      ],
+      "evidence": "Already reconciled in wave-04/11 A-X-08 row: both width step controls and complete-snapshot/focus assertions exist. acceptance-touch-targets.spec.ts retains width-action assertions. Reused accepted evidence, no new grid matrix.",
+      "sourceHashes": {
+        "packages/ui/src/experimental/DataGrid/GridColumnWidthControl.tsx": "94d6cf8a2732c12bc932e5a9427f98a8e84cb547602abebebd41170d8ecb409b",
+        "packages/ui/src/experimental/DataGrid/DataGrid.tsx": "c320eec3c58bd792ab14a3cc0d4493ce9cbf7f233c90e6f07869394300e03beb",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx": "e0fc3483fcfcccce40ffeb831aa3d548f3ade9224c9c99e9fa7a5b839b6c6906"
+      }
+    },
+    {
+      "family": "Grid column order",
+      "keyboard": "Keyboard-activate DataToolbarColumnsMenu Move up/down.",
+      "pointer": "Click those same actions; reordered records preserve existing locking/actions-last host normalization. This menu does not add another drag interaction.",
+      "source": [
+        "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx"
+      ],
+      "evidence": "Historical operator-cases.md row retained; current handler moveColumn verified, no new drag path or test pass invented.",
+      "sourceHashes": {
+        "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx": "95fa326ee237555bee7066f59b34326da7630d44742d803b518e57030430ea89"
+      }
+    },
+    {
+      "family": "Page reorder (ExperiencePageNavigator)",
+      "keyboard": "Menu navigation/Enter activates Move up/down.",
+      "pointer": "Click per-page Move up/down; both call the same onReorderPages(sourceKey,targetKey) adapter as native row drop.",
+      "source": [
+        "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx"
+      ],
+      "evidence": "Retained page-navigator-native-transactions.spec.ts covers accepted/rejected host order and read-only boundaries; historical wave-02-09 operator table retained.",
+      "sourceHashes": {
+        "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx": "f8fd457f8cdc85e1521872ee23de4d92e20df5263b9e3eb1faf3c3ae5501c668"
+      }
+    },
+    {
+      "family": "Sort priority (additional owned drag inventory)",
+      "keyboard": "Activate Move sort rule up/down buttons.",
+      "pointer": "Click the same buttons next to pointer drag handle; both invoke moveRule with draft IDs.",
+      "source": [
+        "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.tsx"
+      ],
+      "evidence": "Current shared moveRule source and retained batch06-grid-sort.spec.ts; no extra run.",
+      "sourceHashes": {
+        "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.tsx": "d31c4e4569f81bb159d71417b682f6c51cdcae4d0d780cf6ed5a436d70746ead"
+      }
+    },
+    {
+      "family": "Complete calendar range movement/end/start resizing",
+      "keyboard": "Retained Shift+Left/Right moves; Alt+Left/Right resizes end, Alt+Shift resizes start. Date-cell owner guard retained.",
+      "pointer": "Inline Adjust dates operation + target day in existing calendar (including month jumps), or selected-operation one-day controls. Same resolveRangeDrag/validation/edit; bounded coupling, required hidden fields and rejected host wires preserved. Fixed range retains existing one-click relocation.",
+      "source": [
+        "packages/ui/src/experimental/DateRangeSelector/RangeGestures.tsx",
+        "packages/ui/src/experimental/DateRangeSelector/RangeAdjustmentControls.tsx",
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx"
+      ],
+      "evidence": "Three focused calendar unit cases plus 18 retained gesture cases; three-engine calendar case passed in shared-native-01, unchanged component/fixture/spec hashes reconciled to final admission. No extra popup; Escape dismisses containing picker.",
+      "sourceHashes": {
+        "packages/ui/src/experimental/DateRangeSelector/RangeGestures.tsx": "8f0a65b8cd0dfc7d7dfb51efebb7c217d2316da34f639a5dc5778add2114ff65",
+        "packages/ui/src/experimental/DateRangeSelector/RangeAdjustmentControls.tsx": "684be29623544c428e995d532c27278317b5bed09ebcc3a5f0726f0ca2275258",
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx": "10085c41e796c08e2bceb339acaeee008145a12403a7390c761df1e6aeaf2299"
+      }
+    },
+    {
+      "family": "Editor table cell rectangle drag selection",
+      "keyboard": "Lexical table keyboard selection/Shift+arrow handling retained; owned action remains keyboard-activatable.",
+      "pointer": "Select table cells then two ordinary same-table clicks; public Lexical rectangle solver, actual editor-root focus and Escape cancellation. Attached below-root TableNodes discovered; nested-editor ownership guard retained.",
+      "source": [
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx"
+      ],
+      "evidence": "Two root/quote unit cases with actual keyboard input; initial three native Escape failures retained; editor-native-03 three engines passed after concrete focus fix.",
+      "sourceHashes": {
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.tsx": "ff85a72d195679d180718307e917030968d0ab86c19590045679756cb688affb",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx": "23fab30cff08b549c015f617b61d1ffa96b48c365074073abdeadd0290086fdf"
+      }
+    },
+    {
+      "family": "Optional IconPanelNavigation panel resize (additional owned drag inventory)",
+      "keyboard": "Separator Left/Right, Shift step, Home/End and Escape rollback retained.",
+      "pointer": "Inline one-pixel Narrower/Wider outside separator; same measured geometry clamp, per-item width retention and callback. Effective-limit disabled states; default resizable=false adds no UI.",
+      "source": [
+        "packages/ui/src/components/IconPanelNavigation/PanelResizeHandle.tsx",
+        "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.tsx"
+      ],
+      "evidence": "Existing resize unit expanded in place; three-engine shelf native case passed in shared-native-01, unchanged source/fixture hashes reconciled. LTR/start and RTL/end measured in that case.",
+      "sourceHashes": {
+        "packages/ui/src/components/IconPanelNavigation/PanelResizeHandle.tsx": "9253a0def778ee348d0269b62b2f945e415a5a5838f019742798fc397b351fd6",
+        "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.tsx": "258411ea0268807be7a3ac841e08ce946eb5dfc73ce42d52654a04667b5fa3e0"
+      }
+    },
+    {
+      "family": "Editor image/table resizing, custom block drag and host extensions",
+      "keyboard": "Not an enabled shipped owned operation; no substitute feature is invented.",
+      "pointer": "No owned image/table resize handles or custom block-drag plugin are registered. Image dimensions and table colWidths are serialized presentation metadata. ColumnsLayoutModal inserts an ordinary TableNode. Browser-native text/image selection/drag remains browser-owned.",
+      "source": [
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx"
+      ],
+      "evidence": "Fixed shipped plugin/node registry and public host callbacks audited. This does not certify arbitrary separately authored consumer editors/plugins. Active shipped TablePlugin drag selection is addressed in its own row, not dismissed as inactive.",
+      "sourceHashes": {
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts": "c7dc281a12707d791cd7551ead4a914e08764218f71b4e715e85bb1279e512d1",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx": "23fab30cff08b549c015f617b61d1ffa96b48c365074073abdeadd0290086fdf",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx": "a8c17fbe35ada8fd518358d90100418f2ce49ff167e30ffe28f9395612e9198c",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx": "2460d5e8f5e90aa33b31567d5af457fb44661ebf182d7984721abec87d988b58"
+      }
+    }
+  ],
+  "newHardwareOrSpeechGate": false,
+  "newBroadRegressionRuns": false
+}

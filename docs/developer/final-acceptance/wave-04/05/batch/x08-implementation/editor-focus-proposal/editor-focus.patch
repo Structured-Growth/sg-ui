@@ -1,0 +1,56 @@
+--- a/packages/ui/src/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.tsx
++++ b/packages/ui/src/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.tsx
+@@ -36,6 +36,8 @@
+     const click=(event:MouseEvent)=>{
+       if(event.button!==0||!isCell(event))return;
+       event.preventDefault();event.stopPropagation();
++      // Cell pointerdown prevents native focus; keyboard cancellation belongs to this root.
++      root.focus({preventScroll:true});
+       editor.update(()=>{
+         const node=$getNearestNodeFromDOMNode(event.target as Node);
+         const cell=node&&$findMatchingParent(node,$isTableCellNode);
+--- a/packages/ui/src/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.test.tsx
++++ b/packages/ui/src/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.test.tsx
+@@ -1,6 +1,6 @@
+ // @vitest-environment jsdom
+ import {afterEach,expect,it} from 'vitest';
+-import {act,cleanup,fireEvent,render,screen,waitFor} from '@testing-library/react';
++import {act,cleanup,render,screen,waitFor} from '@testing-library/react';
+ import userEvent from '@testing-library/user-event';
+ import {LexicalComposer} from '@lexical/react/LexicalComposer';
+ import {ContentEditable} from '@lexical/react/LexicalContentEditable';
+@@ -28,9 +28,9 @@
+   await waitFor(()=>expect(screen.getByRole('button',{name:'Select table cells'})).toBeTruthy());
+   const cells=container.querySelectorAll('td,th');
+   await user.click(screen.getByRole('button',{name:'Select table cells'}));
+-  fireEvent.pointerDown(cells[0],{button:0,pointerId:1});fireEvent.click(cells[0]);
++  await user.click(cells[0]);
+   await waitFor(()=>expect(screen.getByRole('status').textContent).toBe('Choose the last cell of the range.'));
+-  fireEvent.pointerDown(cells[3],{button:0,pointerId:2});fireEvent.click(cells[3]);
++  await user.click(cells[3]);
+   await waitFor(()=>expect(screen.queryByRole('status')).toBeNull());
+   await waitFor(()=>expect(container.querySelectorAll('.editor-table-cell-selected')).toHaveLength(4));
+   editor.getEditorState().read(()=>{
+@@ -38,7 +38,9 @@
+     if($isTableSelection(selection))expect(selection.getShape()).toEqual({fromX:0,fromY:0,toX:1,toY:1});
+   });
+   await user.click(screen.getByRole('button',{name:'Select table cells'}));
+-  fireEvent.keyDown(screen.getByRole('textbox'),{key:'Escape'});
++  await user.click(cells[0]);
++  expect(document.activeElement).toBe(screen.getByRole('textbox'));
++  await user.keyboard('{Escape}');
+   expect(screen.getByRole('button',{name:'Select table cells'}).getAttribute('aria-pressed')).toBe('false');
+   await act(async()=>editor.setEditable(false));
+   expect(screen.queryByRole('button',{name:'Select table cells'})).toBeNull();
+@@ -58,9 +60,9 @@
+   expect(prepareEditorDocument(saved)).not.toBeNull();
+   await user.click(await screen.findByRole('button',{name:'Select table cells'}));
+   const cells=container.querySelectorAll('blockquote td,blockquote th');
+-  fireEvent.pointerDown(cells[0],{button:0,pointerId:1});fireEvent.click(cells[0]);
++  await user.click(cells[0]);
+   await waitFor(()=>expect(screen.getByRole('status').textContent).toBe('Choose the last cell of the range.'));
+-  fireEvent.pointerDown(cells[3],{button:0,pointerId:2});fireEvent.click(cells[3]);
++  await user.click(cells[3]);
+   await waitFor(()=>expect(container.querySelectorAll('.editor-table-cell-selected')).toHaveLength(4));
+   editor.getEditorState().read(()=>{
+     const selection=$getSelection();expect($isTableSelection(selection)).toBe(true);

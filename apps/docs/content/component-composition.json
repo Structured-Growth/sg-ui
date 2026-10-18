@@ -1212,6 +1212,10 @@
       "name": "IconPanelNavigation",
       "children": [
         {
+          "name": "Button",
+          "slug": "button"
+        },
+        {
           "name": "CloseIcon",
           "slug": "icons"
         },
@@ -1806,6 +1810,10 @@
     {
       "name": "PageRichTextEditorSection",
       "children": [
+        {
+          "name": "Button",
+          "slug": "button"
+        },
         {
           "name": "ColumnsLayoutModal",
           "slug": "columns-layout-modal"

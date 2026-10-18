@@ -1,0 +1,18 @@
+{
+  "owner": "x08-d15-shared:4799",
+  "pid": 4799,
+  "claims": [
+    {
+      "path": "/tmp/sgui-parallel-batch-01-validation.lock",
+      "owner": "x08-d15-shared:4799"
+    },
+    {
+      "path": "/var/folders/vp/bckxx0097z9gb5q8_d1chsvh0000gn/T/sgui-heavyweight-build.lock",
+      "owner": "x08-d15-shared:4799"
+    },
+    {
+      "path": "/var/folders/vp/bckxx0097z9gb5q8_d1chsvh0000gn/T/sgui-browser-validation-pool-v1/ports/6173",
+      "owner": "x08-d15-shared:4799"
+    }
+  ]
+}

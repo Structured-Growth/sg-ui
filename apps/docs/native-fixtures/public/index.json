@@ -81,6 +81,16 @@
       "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
       "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
     },
+    "foundations-foundation-catalogue--pointer-panel-widths": {
+      "id": "foundations-foundation-catalogue--pointer-panel-widths",
+      "type": "fixture",
+      "title": "Foundations/Foundation Catalogue",
+      "name": "PointerPanelWidths",
+      "exportName": "PointerPanelWidths",
+      "module": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
+    },
     "foundations-tokentierscope--nested-overrides": {
       "id": "foundations-tokentierscope--nested-overrides",
       "type": "fixture",
@@ -3927,6 +3937,16 @@
       "title": "Migration proofs/DateRangeSelector",
       "name": "Reporting",
       "exportName": "Reporting",
+      "module": "./scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
+      "importPath": "./scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
+      "original": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.stories.tsx"
+    },
+    "migration-proofs-daterangeselector--pointer-alternatives": {
+      "id": "migration-proofs-daterangeselector--pointer-alternatives",
+      "type": "fixture",
+      "title": "Migration proofs/DateRangeSelector",
+      "name": "PointerAlternatives",
+      "exportName": "PointerAlternatives",
       "module": "./scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
       "importPath": "./scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
       "original": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.stories.tsx"

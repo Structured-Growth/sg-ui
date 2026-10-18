@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "../../../types";
 import { useCallback, useState } from "react";
-import { DateRangeSelector, type DateRange } from "@structured-growth/sg-ui/experimental";
+import { DateRangeSelector, DateRangePicker, type DateRange } from "@structured-growth/sg-ui/experimental";
 import { Button } from "@structured-growth/sg-ui/experimental";
 import { Provider } from "@structured-growth/sg-ui/theme";
 import { SGTranslationProvider } from "@structured-growth/sg-ui/i18n";
@@ -15,6 +15,20 @@ const meta = { title: "Migration proofs/DateRangeSelector", component: DateRange
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Reporting: Story = {};
+function PointerRange({bounded=false}:{bounded?:boolean}) {
+  const initial={start:'2026-10-07',end:'2026-10-09'};
+  const [value,setValue]=useState<DateRange|null>(initial);
+  const [requests,setRequests]=useState<DateRange[]>([]);
+  return <form aria-label={bounded?'Rejected bounded range':'Required nearest range'}>
+    <DateRangeSelector label={bounded?'Bounded trip':'Required trip'} months={1} name="trip" required value={bounded?initial:value}
+      commitBehavior="immediate" rangeClickBehavior={bounded?'adjust-end':'adjust-nearest'}
+      rangeLength={bounded?{mode:'bounded',min:3,max:3,unit:'days'}:undefined}
+      min="2026-10-07" max={bounded?"2026-10-20":undefined} unavailable={bounded?undefined:[{date:'2026-10-10',reason:'No availability'}]}
+      onValueChange={next=>{if(next)setRequests(current=>[...current,next]);if(!bounded)setValue(next);}}/>
+    <output aria-label="Range requests">{JSON.stringify(requests)}</output>
+  </form>;
+}
+export const PointerAlternatives: Story = {render:()=> <><PointerRange/><PointerRange bounded/><DateRangePicker label="Popup trip" months={1} required defaultValue={{start:"2026-10-07",end:"2026-10-09"}}/></>};
 export const Availability: Story = { args: { entryMode: "segments", showFields: true, rangeClickBehavior: "restart", label: "Booking dates", defaultFocusedDate: "2024-02-14", presets: [
   { id: "february", label: "February reporting period", description: "Includes the unavailable capacity date.", value: { start: "2024-02-01", end: "2024-02-29" } },
   { id: "early", label: "Early February", description: "First two weeks, before capacity closes.", value: { start: "2024-02-01", end: "2024-02-14" } },

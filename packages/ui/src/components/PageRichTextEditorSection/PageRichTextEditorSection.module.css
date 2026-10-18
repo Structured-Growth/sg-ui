@@ -120,6 +120,10 @@
     margin-block: var(--sgui-space2);
     inline-size: 100%;
   }
+  .document :global(.editor-table-cell-selected) {
+    outline: 2px solid var(--sgui-page-rich-text-editor-section-action);
+    outline-offset: -2px;
+  }
   .document td, .document th {
     border: 1px solid var(--sgui-page-rich-text-editor-section-divider);
     min-block-size: 2.25rem;
