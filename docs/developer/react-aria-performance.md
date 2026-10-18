@@ -219,3 +219,53 @@ The [finite execution receipt](final-acceptance/wave-04/02/instrumented-memory/r
 Listener counts remained fixed, while whole-page used heap grew in every configuration. Sampled strong paths locate native media-query groups under the document's StyleEngine, performance entries under browser buffers, and remaining React bookkeeping through the fixture's imported module context. No accumulating live SGUI callback/data path was identified in this bounded review; that is not a universal leak-free or plateau conclusion. The heap/native-cache growth remains a causal follow-up, and no numerical memory or latency budget is approved by this run.
 
 The [artifact manifest](final-acceptance/wave-04/02/instrumented-memory/artifact-manifest.json) indexes 14 local-only heap snapshots (174,219,779 bytes) and compact measurements/retaining paths. Their hashes and sizes were independently verified. Raw heaps are not committed to Git; the [retention record](final-acceptance/wave-04/02/instrumented-memory/coordinator-retention.json) also describes byte-identical compressed resource telemetry. Original fixture-build failure is retained: a broad import alias intercepted the grid's public subpath. The specific alias correction passed a fresh fixture build, three import-resolution checks, seven policy tests and the full unchanged run. No library build or dependency installation was needed.
+
+## Current production comparison — 2026-10-18
+
+A-B-10/A-G-20 close with the [measurement/phase receipt](backlog-to-ten/performance-grid-closure.json).
+The exact library source matches draft candidate `f049b215e28e4157200f99ebf5fe52a7c04cae5a`;
+the root checkout's historical HEAD is separately recorded. Fresh installed tarball
+SHA256 `238c37c0b6c0c705cb4da9000f43ae4e6ddcb023c51dde955b8ef318e746a56c`
+passes its package audit, independent React19 consumer and14 import-boundary builds.
+This is a local retained artifact, not an official Actions tarball.
+
+| Import boundary | Emitted JS bytes | gzip9 bytes |
+| --- | ---: | ---: |
+| Button | 70,293 | 20,255 |
+| AppDataGrid | 711,248 | 177,177 |
+| PageRichTextEditorSection | 888,349 | 237,379 |
+
+The separate shared stylesheet is253,155bytes /22,250gzip9bytes. Full fourteen-entry
+module inventories and output hashes remain in `backlog-to-ten/bundles-02`;
+these are emitted audit-fixture sizes, not universal application transfer sizes.
+
+`performance-06` runs84 current production navigations across seven configurations,
+with three warmups and nine recorded navigations each,4200 actual update samples,
+and seven successful active-update disposal probes. It reuses the exact
+`performance-05` baseline JSON; strict comparisons verify identical fixture/runner,
+method, runtime/browser, viewport, hardware and workload. Both artifacts are owned
+foundation builds; this does not compare React Aria with an original MUI build.
+
+| Measurement | Older baseline median ms | Current median ms | Baseline p95 ms | Current p95 ms |
+| --- | ---: | ---: | ---: | ---: |
+| Processing grid, large-page initial | 315.2 | 312.9 | 371.3 | 324.5 |
+| Catalog grid, large-page initial | 354.4 | 370.8 | 431.2 | 393.8 |
+| Catalog grid, large-page input during updates | 277.0 | 264.7 | 410.8 | 381.9 |
+| Catalog grid, large-page updates | 278.4 | 267.9 | 628.5 | 598.5 |
+| Catalog grid, large-page selection during updates | 265.8 | 266.2 | 343.3 | 514.5 |
+| Selector initial | 170.4 | 157.3 | 210.3 | 182.6 |
+
+The pre-fix catalog startup median476.1ms prompted removal of redundant DOM-ref
+state; the current370.8ms observation retains the remaining16.4ms median difference
+from the older baseline. The selection tail is explicitly unresolved:514.5ms is
+the maximum of nine recorded selection samples (nearest-rank p95), at iteration4;
+that iteration is also the baseline's343.3ms maximum. Every sample overlaps actual
+updates and its host selection is verified. Median selection remains nearly equal.
+No trace establishes a GC/load cause. Required A-P-08/A-X-19 work must evaluate
+stable repeats and representative consumer hardware before approving budgets;
+these results do not imply all distributions improved.
+
+Raw samples, baseline/candidate inventories, frame-opportunity method, timings and
+host load averages remain retained. The composed host totals246,048baseline and
+246,979currentgzipbytes across all emitted output, including both renderers;
+these are conservative totals, not minimum route payloads, paint timings or INP.

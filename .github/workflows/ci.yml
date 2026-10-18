@@ -178,7 +178,14 @@ jobs:
         run: pnpm exec playwright test --list --project=${{ matrix.browser }} --reporter=json > artifacts/logs/browser-collection.json
       - name: Browser interactions, accessibility and performance smoke
         timeout-minutes: 45
-        run: pnpm test:browser --project=${{ matrix.browser }} 2>&1 | tee artifacts/logs/browser.txt
+        # Firefox's Linux headless clipboard may omit native custom MIME data.
+        # Use a real X server for its native clipboard and retain every assertion.
+        run: |
+          if [ "${{ matrix.browser }}" = "firefox" ]; then
+            xvfb-run --auto-servernum pnpm test:browser --project=firefox --headed 2>&1 | tee artifacts/logs/browser.txt
+          else
+            pnpm test:browser --project=${{ matrix.browser }} 2>&1 | tee artifacts/logs/browser.txt
+          fi
       - name: Bind native build evidence
         run: |
           pnpm pack --pack-destination artifacts

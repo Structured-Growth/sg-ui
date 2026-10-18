@@ -1004,3 +1004,10 @@ one-month calendar with hidden endpoint fields can keep its preset list beside
 the calendar when both fit. Constrained hosts wrap panels in their existing DOM
 order, preserving before/after placement and keyboard order. Endpoint fields keep
 their usable width; this correction does not shrink controls or touch targets.
+
+## Calendar row alignment checkpoint
+
+Calendar table cells align to the top of their row so platform font baselines do
+not enlarge the six-week layout during month paging. The compact-navigation
+native check retains its constant-height assertion and records before/after row
+geometry; the Linux confirmation remains part of the current full checkpoint.

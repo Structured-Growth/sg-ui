@@ -194,3 +194,14 @@ SHA and GitHub synthetic merge SHA differ; validating one while labelling the
 artifact as the other breaks the download verifier's immutable-head binding.
 Main pushes and exact-ref reusable callers retain their existing source choice.
 The guard tests reject returning a PR job to the ambiguous merge-ref fallback.
+
+## Firefox native clipboard execution
+
+The next checkpoint runs the complete Firefox collection under a real X display
+with `xvfb-run --auto-servernum` and `--headed`. Run39171299366 failed the native
+custom-MIME clipboard scenario on Linux while its macOS counterpart passed. The
+new delivery attachment records trusted copy/paste events and exposed MIME types;
+no unsafe-content rejection, callback, selection or safe-content assertion is
+removed. This display change is a candidate correction, not a successful Linux
+clipboard claim until the complete current-head run passes. The workflow guard
+requires the exact unfiltered commands for both execution branches.

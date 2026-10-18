@@ -34,6 +34,8 @@ export const NarrowDark: Story = { render: () => <Provider theme="dark"><div sty
 // Chrome's File action requests the same controlled menu through its native anchor.
 export function NativeEditorChromeHost() {
   const editor = useRef<HTMLDivElement>(null);
+  const revealFrame = useRef<number | null>(null);
+  useEffect(() => () => { if (revealFrame.current !== null) cancelAnimationFrame(revealFrame.current); }, []);
   const focusTimers = useRef(new Set<ReturnType<typeof setTimeout>>());
   useEffect(() => () => { focusTimers.current.forEach(clearTimeout); }, []);
   const [open, setOpen] = useState(false);
@@ -53,7 +55,16 @@ export function NativeEditorChromeHost() {
   };
   const available = mode !== "unavailable";
   const canEdit = mode === "editable";
-  return <div data-testid="native-editor-host" style={{ maxWidth: "100%" }}>
+  return <div data-testid="native-editor-host" style={{ maxWidth: "100%" }} onFocusCapture={event => {
+    const control = event.target;
+    if (revealFrame.current !== null) cancelAnimationFrame(revealFrame.current);
+    // The application owns viewport scrolling and its contenteditable. Reveal
+    // the whole focused control after the browser's native caret scrolling.
+    revealFrame.current = requestAnimationFrame(() => {
+      revealFrame.current = null;
+      if (control.isConnected && control.ownerDocument.activeElement === control) control.scrollIntoView({ block: "nearest", inline: "nearest" });
+    });
+  }}>
     <div role="group" aria-label="Host fixture state" style={{ display: "flex", flexWrap: "wrap", gap: tokens.space1 }}>
       {(["editable", "read-only", "pending", "unavailable"] as const).map(value => <Button key={value} onPress={() => setMode(value)}>Use {value}</Button>)}
       <Button onPress={() => setCompact(value => !value)}>Toggle optional groups</Button>

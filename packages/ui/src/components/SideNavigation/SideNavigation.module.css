@@ -1,5 +1,5 @@
 @layer sgui.components {
-  .root { box-sizing: border-box; display: flex; flex-direction: column; flex: 0 0 17.5rem; inline-size: 17.5rem; max-inline-size: 100%; block-size: 100%; min-block-size: 0; min-inline-size: 0; border-inline-end: 1px solid var(--sgui-side-navigation-divider); background: var(--sgui-side-navigation-background); color: var(--sgui-side-navigation-text); font-family: var(--sgui-font-family); }
+  .root { box-sizing: border-box; display: flex; flex-direction: column; flex: 0 0 17.5rem; inline-size: 17.5rem; max-inline-size: 100%; block-size: 100%; min-block-size: 0; min-inline-size: 0; overflow: auto; border-inline-end: 1px solid var(--sgui-side-navigation-divider); background: var(--sgui-side-navigation-background); color: var(--sgui-side-navigation-text); font-family: var(--sgui-font-family); }
   .root[data-collapsed] { flex-basis: 3rem; inline-size: 3rem; }
   .userTrigger { flex: 0 0 auto; inline-size: 100%; border-radius: 0; padding: var(--sgui-space4); }
   .userTrigger > span { display: flex; align-items: center; gap: var(--sgui-space3); inline-size: 100%; min-inline-size: 0; }
@@ -10,7 +10,7 @@
   .menuContent:dir(rtl) { --_side-navigation-forward-offset: -1rem; --_side-navigation-back-offset: 1rem; }
   .menuContent[data-direction="forward"] { animation: forward var(--sgui-motion-duration) ease-out; }
   .menuContent[data-direction="back"] { animation: back var(--sgui-motion-duration) ease-out; }
-  .scroll { flex: 1; min-block-size: 0; overflow-y: auto; overscroll-behavior: contain; scroll-padding-block: var(--sgui-space3); padding: var(--sgui-space3) 0; }
+  .scroll { flex: 1; min-block-size: calc(max(var(--sgui-side-navigation-item-height), var(--sgui-control-minimum-target-size)) + 2 * (var(--sgui-control-focus-width) + var(--sgui-control-focus-offset))); overflow-y: auto; overscroll-behavior: contain; scroll-padding-block: var(--sgui-space3); padding: var(--sgui-space3) 0; }
   .section { margin-block-end: var(--sgui-space4); padding-inline: var(--sgui-space3); }
   .sectionTitle { margin: 0; padding: var(--sgui-space2); color: var(--sgui-side-navigation-muted-text); font-size: var(--sgui-label-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
   .list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }

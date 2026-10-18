@@ -31,7 +31,7 @@ function ControlledRangeForm() {
     const data = new FormData(event.currentTarget);
     setSubmitted(`${data.get("range.start")} – ${data.get("range.end")}`);
   }}>
-    <DateRangePicker showFields entryMode="segments" rangeClickBehavior="restart" label="Reporting dates" name="range" value={committed} defaultValue={{ start: "2024-01-01", end: "2024-01-02" }}
+    <DateRangePicker fieldMode="button" calendarNavigation="linked" navigation="arrows" showFields entryMode="segments" rangeClickBehavior="restart" label="Reporting dates" name="range" value={committed} defaultValue={{ start: "2024-01-01", end: "2024-01-02" }}
       defaultFocusedDate="2024-02-28" months={2}
       presets={[{ id: "march", label: "March", value: { start: "2024-03-01", end: "2024-03-31" } }]}
       onValueChange={range => { setRequests(values => [...values, range]); if (accept) setCommitted(range); }} />

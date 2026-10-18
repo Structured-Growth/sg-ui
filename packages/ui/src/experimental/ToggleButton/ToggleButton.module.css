@@ -30,6 +30,11 @@
   @media (forced-colors: active) {
     .button, .button[data-hovered], .button[data-pressed] { color: ButtonText; background-color: ButtonFace; }
     .button[data-selected], .button[data-selected][data-hovered] { color: ButtonText; background-color: ButtonFace; border-color: Highlight; }
+    /* Engines without forced-color adjustment still resolve system colors.
+       Use the Canvas pair together: their ButtonFace may stay light in dark mode. */
+    @supports not (forced-color-adjust: auto) {
+      .button, .button[data-hovered], .button[data-pressed], .button[data-selected], .button[data-selected][data-hovered] { color: CanvasText; background-color: Canvas; }
+    }
     .button[data-disabled] { color: GrayText; opacity: 1; }
     .button[data-focus-visible] { outline-color: Highlight; }
   }

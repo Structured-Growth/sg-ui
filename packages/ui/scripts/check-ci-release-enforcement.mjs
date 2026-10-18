@@ -56,7 +56,15 @@ export function workflowFindings(workflows) {
  for(const command of ['test-next-consumer.mjs','verify-native-ci.mjs'])requireStep(steps,command,"matrix.node == '24'");
  const nativeSteps=ci.jobs?.native?.steps??[];
  for(const command of ['ci-artifacts.mjs begin','pnpm build:browser-docs','ci-artifacts.mjs complete'])requireStep(nativeSteps,command);
- for(const run of ['pnpm build','pnpm exec playwright test --list --project=${{ matrix.browser }} --reporter=json > artifacts/logs/browser-collection.json','pnpm test:browser --project=${{ matrix.browser }} 2>&1 | tee artifacts/logs/browser.txt'])check(nativeSteps.filter(step=>step.run===run&&step.if===undefined).length===1,'CI: complete unfiltered native engine execution missing');
+ for(const run of ['pnpm build','pnpm exec playwright test --list --project=${{ matrix.browser }} --reporter=json > artifacts/logs/browser-collection.json'])check(nativeSteps.filter(step=>step.run===run&&step.if===undefined).length===1,'CI: complete unfiltered native engine execution missing');
+ const nativeExecution = [
+  'if [ "${{ matrix.browser }}" = "firefox" ]; then',
+  '  xvfb-run --auto-servernum pnpm test:browser --project=firefox --headed 2>&1 | tee artifacts/logs/browser.txt',
+  'else',
+  '  pnpm test:browser --project=${{ matrix.browser }} 2>&1 | tee artifacts/logs/browser.txt',
+  'fi',
+ ].join('\n');
+ check(nativeSteps.filter(step=>step.run?.trim()===nativeExecution&&step.if===undefined).length===1,'CI: complete unfiltered native execution and Firefox display missing');
  const gate=steps.filter(step=>step.name==='Require every native engine');
  check(gate.length===1&&gate[0].if===undefined&&gate[0].env?.NATIVE_RESULT==='${{ needs.native.result }}'&&gate[0].run==='test "$NATIVE_RESULT" = success','CI: native failure must fail named required contexts');
  check(steps.filter(step=>step.with?.pattern==='sgui-native-*-node-24'&&step.with?.path==='/tmp/sgui-native-ci'&&step.if==="matrix.node == '24'").length===1,'CI: native proof download missing');

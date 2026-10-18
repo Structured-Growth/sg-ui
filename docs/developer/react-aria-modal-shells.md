@@ -169,3 +169,10 @@ For an independent icon-only rail with arbitrary sliding tool content, use
 [IconPanelNavigation](react-aria-icon-panel-navigation.md) in either AppShell
 navigation slot or as a standalone bounded composition. It does not share the
 SideNavigation account header or menu model.
+
+## Enlarged navigation chrome
+
+SideNavigation reserves one density-sized item plus its complete focus outline
+in the menu scrollport. When account/back/footer chrome exhausts a short host,
+the navigation root can scroll rather than shrinking that last usable row. Its
+existing focus reveal still measures and adjusts only the menu scrollport.

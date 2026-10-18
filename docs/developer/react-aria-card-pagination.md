@@ -52,3 +52,12 @@ Colocated tests cover host navigation/size ordering, form-safe keyboard activati
 known/unknown/zero totals, invalid values, translation forwarding, stable row keys,
 shrinking data, empty/loading states, composed controlled navigation and SSR.
 Broader browser/assistive technology gates remain in the master task list.
+
+## Native focus visibility follow-up
+
+The collection measures its own grid scrollport on the next animation frame after
+focus. If a browser reveals only an input caret, it scrolls that same grid just
+enough to expose the complete focused control and its outline. Focus and the
+outer application scroll remain with their existing owners. Pending work is
+canceled on unmount and ignored if focus has moved elsewhere. The minimum grid
+height and oversized-footer root scrolling still apply.
