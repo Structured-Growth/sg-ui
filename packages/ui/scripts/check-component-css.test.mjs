@@ -98,3 +98,22 @@ test('only exact shared rich-document semantic declarations have a literal contr
     assert(semanticCheck(layer(`${selector} { ${declaration}; font-family: Arial; }`)).some(e => e.includes('Ad hoc typography')));
   }
 });
+
+
+test('native nesting permits one explicit component-owned level and at-rule conditions', () => {
+  for (const body of [
+    '.root { & > svg { display: block; } }',
+    '.root { @media (forced-colors: active) { &:focus { outline-color: Highlight; } } }',
+  ]) assert.deepEqual(check(layer(body)), []);
+});
+
+test('native nesting rejects deep or implicit ownership and grouped-parent specificity changes', () => {
+  for (const body of [
+    '.root { & > .child { & > svg { display: block; } } }',
+    '.root, .other:hover { & > svg { display: block; } }',
+    '.root { svg { display: block; } }',
+    '.root { .outside & { display: block; } }',
+    '.root { & & { display: block; } }',
+    '.root { &Element { display: block; } }',
+  ]) assert(check(layer(body)).some(error => error.includes('Native nesting')), body);
+});

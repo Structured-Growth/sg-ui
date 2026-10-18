@@ -1,0 +1,439 @@
+507 fixture IDs
+vite v7.3.6 building client environment for production...
+transforming...
+dist/i18n/index.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/i18n/index.js" was ignored.
+dist/theme/AppThemeProvider.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/theme/AppThemeProvider.js" was ignored.
+dist/experimental/Provider/Provider.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Provider/Provider.js" was ignored.
+dist/foundation/ThemeScope.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/foundation/ThemeScope.js" was ignored.
+dist/components/AppDataGrid/ownedGridParts.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridParts.js" was ignored.
+dist/components/AppDataGrid/ownedGridLayoutController.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridLayoutController.js" was ignored.
+dist/components/AppDataGrid/ownedGridCells.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridCells.js" was ignored.
+dist/components/AppDataGrid/ownedGridController.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridController.js" was ignored.
+dist/components/AppDataGrid/ownedGridInteraction.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridInteraction.js" was ignored.
+../../apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/NativeInsertionHost.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+../../apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/NativeInsertionHost.tsx (1:0): Module level directives cause errors when bundled, "use client" in "../../apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/NativeInsertionHost.tsx" was ignored.
+dist/hooks/usePersistentPaginationModel.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/hooks/usePersistentPaginationModel.js" was ignored.
+dist/hooks/usePersistentState.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/hooks/usePersistentState.js" was ignored.
+dist/experimental/MonthPicker/MonthPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/MonthPicker/MonthPicker.js" was ignored.
+dist/components/Button/Button.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/Button/Button.js" was ignored.
+dist/experimental/YearPicker/YearPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/YearPicker/YearPicker.js" was ignored.
+dist/experimental/TextField/TextField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/TextField.js" was ignored.
+dist/experimental/Tabs/Tabs.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/Tabs.js" was ignored.
+dist/experimental/ComboBox/ComboBox.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/ComboBox/ComboBox.js" was ignored.
+dist/experimental/Dialog/Dialog.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Dialog/Dialog.js" was ignored.
+dist/experimental/AsyncMultiSelect/AsyncMultiSelect.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/AsyncMultiSelect/AsyncMultiSelect.js" was ignored.
+dist/experimental/Popover/Popover.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Popover/Popover.js" was ignored.
+dist/experimental/DateField/DateField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/DateField.js" was ignored.
+dist/experimental/Calendar/Calendar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/Calendar.js" was ignored.
+dist/experimental/DatePicker/DatePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DatePicker/DatePicker.js" was ignored.
+dist/experimental/TimeField/TimeField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TimeField/TimeField.js" was ignored.
+dist/experimental/DateRangeSelector/DateRangeSelector.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/DateRangeSelector.js" was ignored.
+dist/experimental/DateRangePicker/DateRangePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangePicker/DateRangePicker.js" was ignored.
+dist/experimental/Checkbox/Checkbox.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Checkbox/Checkbox.js" was ignored.
+dist/experimental/IconButton/IconButton.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/IconButton/IconButton.js" was ignored.
+dist/experimental/Menu/Menu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Menu/Menu.js" was ignored.
+dist/experimental/SplitAction/SplitAction.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/SplitAction/SplitAction.js" was ignored.
+dist/experimental/DataGrid/DataGrid.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DataGrid/DataGrid.js" was ignored.
+dist/experimental/Switch/Switch.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Switch/Switch.js" was ignored.
+dist/experimental/TextArea/TextArea.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextArea/TextArea.js" was ignored.
+dist/experimental/Select/Select.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Select/Select.js" was ignored.
+dist/experimental/Link/Link.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Link/Link.js" was ignored.
+dist/experimental/ToggleButton/ToggleButton.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/ToggleButton/ToggleButton.js" was ignored.
+dist/experimental/Breadcrumbs/Breadcrumbs.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Breadcrumbs/Breadcrumbs.js" was ignored.
+dist/experimental/Navigation/Navigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Navigation/Navigation.js" was ignored.
+dist/experimental/RadioGroup/RadioGroup.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/RadioGroup/RadioGroup.js" was ignored.
+dist/experimental/List/List.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/List/List.js" was ignored.
+dist/experimental/Disclosure/Disclosure.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Disclosure/Disclosure.js" was ignored.
+dist/experimental/Tooltip/Tooltip.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tooltip/Tooltip.js" was ignored.
+dist/experimental/Progress/Progress.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Progress/Progress.js" was ignored.
+dist/experimental/TagGroup/TagGroup.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TagGroup/TagGroup.js" was ignored.
+dist/experimental/Avatar/Avatar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Avatar/Avatar.js" was ignored.
+dist/experimental/Pagination/Pagination.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Pagination/Pagination.js" was ignored.
+dist/experimental/PeriodPicker/PeriodPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/PeriodPicker/PeriodPicker.js" was ignored.
+dist/experimental/SearchField/SearchField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/SearchField/SearchField.js" was ignored.
+dist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.js" was ignored.
+dist/experimental/FormFieldScope/FormFieldScope.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/FormFieldScope/FormFieldScope.js" was ignored.
+dist/experimental/DateTimeRangePicker/DateTimeRangePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateTimeRangePicker/DateTimeRangePicker.js" was ignored.
+dist/adapters/navigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/navigation.js" was ignored.
+dist/adapters/Link.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/Link.js" was ignored.
+dist/adapters/accounts.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/accounts.js" was ignored.
+dist/components/AppDataGridRowDnd/DataGridDragHandle.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGridRowDnd/DataGridDragHandle.js" was ignored.
+dist/experimental/DataGrid/GridColumnWidthControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DataGrid/GridColumnWidthControl.js" was ignored.
+../../apps/docs/native-fixtures/scenarios/experimental/Select/SelectorDirectionFixture.tsx (1:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+../../apps/docs/native-fixtures/scenarios/experimental/Select/SelectorDirectionFixture.tsx (1:0): Module level directives cause errors when bundled, "use client" in "../../apps/docs/native-fixtures/scenarios/experimental/Select/SelectorDirectionFixture.tsx" was ignored.
+../../node_modules/.pnpm/react-error-boundary@6.1.6_@types+react@19.3.0_react@19.2.3/node_modules/react-error-boundary/dist/react-error-boundary.js (1:0): Module level directives cause errors when bundled, "use client" in "../../node_modules/.pnpm/react-error-boundary@6.1.6_@types+react@19.3.0_react@19.2.3/node_modules/react-error-boundary/dist/react-error-boundary.js" was ignored.
+dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.js" was ignored.
+dist/components/primitives/Progress.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/primitives/Progress.js" was ignored.
+dist/components/AuthShell/AuthShell.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AuthShell/AuthShell.js" was ignored.
+dist/components/AppInlineProgress/AppInlineProgress.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppInlineProgress/AppInlineProgress.js" was ignored.
+dist/components/AppPageTabs/AppPageTabs.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppPageTabs/AppPageTabs.js" was ignored.
+dist/components/AppModal/AppModal.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppModal/AppModal.js" was ignored.
+dist/components/AppPageHeader/AppPageHeader.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppPageHeader/AppPageHeader.js" was ignored.
+dist/components/DocumentEditorLayout/DocumentEditorLayout.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DocumentEditorLayout/DocumentEditorLayout.js" was ignored.
+dist/components/DocumentEditorToolbar/DocumentEditorToolbar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DocumentEditorToolbar/DocumentEditorToolbar.js" was ignored.
+dist/components/ColumnsLayoutModal/ColumnsLayoutModal.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/ColumnsLayoutModal/ColumnsLayoutModal.js" was ignored.
+dist/components/ContentEditorChrome/ContentEditorChrome.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/ContentEditorChrome/ContentEditorChrome.js" was ignored.
+dist/components/InsertContentMenuControl/InsertContentMenuControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/InsertContentMenuControl/InsertContentMenuControl.js" was ignored.
+dist/components/EditableTitleField/EditableTitleField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/EditableTitleField/EditableTitleField.js" was ignored.
+dist/components/LinkUrlModal/LinkUrlModal.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/LinkUrlModal/LinkUrlModal.js" was ignored.
+dist/components/TextAlignMenuControl/TextAlignMenuControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/TextAlignMenuControl/TextAlignMenuControl.js" was ignored.
+dist/components/PageRichTextEditorSection/PageRichTextEditorSection.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/PageRichTextEditorSection.js" was ignored.
+dist/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.js" was ignored.
+dist/components/TextStyleMenuControl/TextStyleMenuControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/TextStyleMenuControl/TextStyleMenuControl.js" was ignored.
+dist/components/TextColorPickerControl/TextColorPickerControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/TextColorPickerControl/TextColorPickerControl.js" was ignored.
+dist/components/ExperiencePageNavigator/ExperiencePageNavigator.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/ExperiencePageNavigator/ExperiencePageNavigator.js" was ignored.
+dist/components/AppDataGridRowDnd/useDataGridRowDnd.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGridRowDnd/useDataGridRowDnd.js" was ignored.
+dist/components/AppDataGrid/AppDataGrid.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/AppDataGrid.js" was ignored.
+dist/components/AppDataGridShell/AppDataGridShell.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGridShell/AppDataGridShell.js" was ignored.
+dist/components/DataToolbar/DataToolbar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/DataToolbar.js" was ignored.
+dist/components/DataToolbar/components/DataToolbarSelectionMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/components/DataToolbarSelectionMenu.js" was ignored.
+dist/components/CardPaginationFooter/CardPaginationFooter.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/CardPaginationFooter/CardPaginationFooter.js" was ignored.
+dist/components/ImageUploadModal/ImageUploadModal.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/ImageUploadModal/ImageUploadModal.js" was ignored.
+dist/components/CardCollectionWithFooter/CardCollectionWithFooter.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/CardCollectionWithFooter/CardCollectionWithFooter.js" was ignored.
+dist/components/InstructorClassCard/InstructorClassCard.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/InstructorClassCard/InstructorClassCard.js" was ignored.
+dist/components/LearnerClassCard/LearnerClassCard.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/LearnerClassCard/LearnerClassCard.js" was ignored.
+dist/components/LearnerClassesDataGrid/LearnerClassesDataGrid.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/LearnerClassesDataGrid/LearnerClassesDataGrid.js" was ignored.
+dist/components/IconPanelNavigation/IconPanelNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/IconPanelNavigation/IconPanelNavigation.js" was ignored.
+dist/components/AppOperationSteps/AppOperationSteps.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppOperationSteps/AppOperationSteps.js" was ignored.
+dist/experimental/TextField/FieldMessages.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/FieldMessages.js" was ignored.
+dist/experimental/TextField/useStandaloneFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/useStandaloneFormReset.js" was ignored.
+dist/experimental/Tabs/TabIndicator.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/TabIndicator.js" was ignored.
+dist/experimental/Tabs/useTabOverflow.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/useTabOverflow.js" was ignored.
+dist/experimental/useFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/useFormReset.js" was ignored.
+dist/components/SideNavigation/SideNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/SideNavigation/SideNavigation.js" was ignored.
+dist/experimental/DateField/DateFieldControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/DateFieldControl.js" was ignored.
+dist/experimental/DateField/TextDateField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/TextDateField.js" was ignored.
+dist/experimental/Calendar/CalendarNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarNavigation.js" was ignored.
+dist/experimental/Calendar/CalendarMonthTransition.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarMonthTransition.js" was ignored.
+dist/experimental/Calendar/CalendarPeriodNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarPeriodNavigation.js" was ignored.
+dist/experimental/DateRangeSelector/useCalendarFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/useCalendarFormReset.js" was ignored.
+dist/experimental/TimeField/TextTimeField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TimeField/TextTimeField.js" was ignored.
+dist/experimental/DateRangeSelector/CalendarFormValidity.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/CalendarFormValidity.js" was ignored.
+dist/experimental/DateRangeSelector/RangeAdjustmentControls.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/RangeAdjustmentControls.js" was ignored.
+dist/experimental/DateRangeSelector/RangeGestures.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/RangeGestures.js" was ignored.
+dist/experimental/Select/FramePositionedPopover.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Select/FramePositionedPopover.js" was ignored.
+dist/adapters/navigationContext.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/navigationContext.js" was ignored.
+dist/experimental/HierarchicalMenu/HierarchicalMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/HierarchicalMenu/HierarchicalMenu.js" was ignored.
+dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.js" was ignored.
+dist/components/TextColorPickerControl/TextColorPickerControl.impl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/TextColorPickerControl/TextColorPickerControl.impl.js" was ignored.
+dist/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.js" was ignored.
+dist/components/AppShell/AppShellMain.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppShell/AppShellMain.js" was ignored.
+dist/components/DataToolbar/components/DataToolbarColumnsMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/components/DataToolbarColumnsMenu.js" was ignored.
+dist/components/DataToolbar/components/DataToolbarSortMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/components/DataToolbarSortMenu.js" was ignored.
+dist/components/DataToolbar/components/DataToolbarFilterMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/DataToolbar/components/DataToolbarFilterMenu.js" was ignored.
+dist/components/IconPanelNavigation/PanelResizeHandle.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/IconPanelNavigation/PanelResizeHandle.js" was ignored.
+dist/components/AppDataGrid/ownedGridPersistence.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridPersistence.js" was ignored.
+../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/context.mjs (2:0): Module level directives cause errors when bundled, "use client" in "../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/context.mjs" was ignored.
+../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/Icon.mjs (2:0): Module level directives cause errors when bundled, "use client" in "../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/Icon.mjs" was ignored.
+dist/components/PageRichTextEditorSection/lexical/EditorClipboardSafetyPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/EditorClipboardSafetyPlugin.js" was ignored.
+dist/components/PageRichTextEditorSection/DocumentContentEditable.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/DocumentContentEditable.js" was ignored.
+dist/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.js" was ignored.
+dist/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.js" was ignored.
+dist/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.js" was ignored.
+dist/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/PageRichTextEditorSection/lexical/TableCellSelectionPlugin.js" was ignored.
+✓ 3864 modules transformed.
+rendering chunks...
+computing gzip size...
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/index.html                                                                     0.51 kB │ gzip:  0.35 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/NativeSelection-Col-VA7j.css                                            0.89 kB │ gzip:  0.37 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/index-D-wuHxjN.css                                                    252.91 kB │ gzip: 22.64 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/navigationContext-CrxRk0eC.js                                           0.09 kB │ gzip:  0.10 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Form-C_Y5sJn8.js                                                        0.09 kB │ gzip:  0.10 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/SelectionIndicator-COKaoSJ3.js                                          0.10 kB │ gzip:  0.11 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Autocomplete-BEW7_fFd.js                                                0.12 kB │ gzip:  0.11 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/GroupIcon-Bzzgof8Y.js                                                   0.13 kB │ gzip:  0.13 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/RemoveIcon-C-fwZ4cz.js                                                  0.13 kB │ gzip:  0.13 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/PeopleIcon-DBRr9Ru9.js                                                  0.13 kB │ gzip:  0.13 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/MenuBookIcon-Dl_rQIyk.js                                                0.14 kB │ gzip:  0.13 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/createActionMenuColumn-CQw_p-_Q.js                                      0.14 kB │ gzip:  0.14 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AutoStoriesIcon-DHHfcEBn.js                                             0.14 kB │ gzip:  0.14 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ExpandMoreIcon-2Qgx4Z6Z.js                                              0.14 kB │ gzip:  0.14 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ArrowDropDownIcon-s1qj1sTV.js                                           0.14 kB │ gzip:  0.14 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/KeyboardArrowDownIcon-CQHoY9CC.js                                       0.15 kB │ gzip:  0.15 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/filterRuleValue-BjAHLo2m.js                                             0.15 kB │ gzip:  0.15 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/minus-vJukgOXq.js                                                       0.16 kB │ gzip:  0.16 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ComboBox.module.css-BeIQAg-Q.js                                         0.17 kB │ gzip:  0.13 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/chevron-down-DtQYf3gZ.js                                                0.17 kB │ gzip:  0.17 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/CheckIcon-CQ02QzuV.js                                                   0.19 kB │ gzip:  0.18 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/CircleIcon-Bpx3wJEA.js                                                  0.20 kB │ gzip:  0.18 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ChevronRightIcon-Ch3WMIzN.js                                            0.21 kB │ gzip:  0.19 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/KeyboardArrowLeftIcon-auhc4QTD.js                                       0.21 kB │ gzip:  0.20 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AddIcon-Bj3QgSZv.js                                                     0.21 kB │ gzip:  0.19 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/SharedElementTransition-DQrsDcb1.js                                     0.21 kB │ gzip:  0.19 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/CloseIcon-20JtJaag.js                                                   0.22 kB │ gzip:  0.20 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Collapse-CJCFebV8.js                                                    0.24 kB │ gzip:  0.21 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AccessTimeFilledIcon-CloX5wiV.js                                        0.25 kB │ gzip:  0.22 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Divider.fixture-DbAfP7Yh.js                                             0.26 kB │ gzip:  0.21 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Progress-DiXD7cCS.js                                                    0.28 kB │ gzip:  0.19 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/columns-3-Dzn-OZpm.js                                                   0.29 kB │ gzip:  0.24 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TextField.module.css-BRvKwHS-.js                                        0.30 kB │ gzip:  0.16 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ContentCopyIcon-CMhcjtPD.js                                             0.30 kB │ gzip:  0.26 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/SortIcon-CeKX6qWG.js                                                    0.31 kB │ gzip:  0.24 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Surface.fixture-DStmzllm.js                                             0.31 kB │ gzip:  0.25 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useSlot-u7EgKn4V.js                                                     0.32 kB │ gzip:  0.25 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/MoreHorizIcon-DmfI_Kjh.js                                               0.33 kB │ gzip:  0.23 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/MoreVertIcon-zcAdJ3ey.js                                                0.33 kB │ gzip:  0.23 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Surface-BT9NZ_fd.js                                                     0.33 kB │ gzip:  0.26 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useUpdateEffect-WWl-9h2o.js                                             0.33 kB │ gzip:  0.24 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/book-open-DCuk9OE5.js                                                   0.33 kB │ gzip:  0.25 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Card.fixture-5WgoZgZE.js                                                0.33 kB │ gzip:  0.26 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Typography-z6jl0amu.js                                                  0.34 kB │ gzip:  0.27 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/EditIcon-_AItvp_Q.js                                                    0.34 kB │ gzip:  0.27 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Text-BYBQ254b.js                                                        0.34 kB │ gzip:  0.26 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useToggleState-rxQxY_hW.js                                              0.34 kB │ gzip:  0.24 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/users-mx7J67gn.js                                                       0.35 kB │ gzip:  0.25 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ButtonGroup-Bd0PhfVl.js                                                 0.35 kB │ gzip:  0.27 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Card-CMoQZhUi.js                                                        0.36 kB │ gzip:  0.25 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/state-indicator-host-BDWLWFP_.js                                        0.36 kB │ gzip:  0.27 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Divider-BBtGqhnp.js                                                     0.37 kB │ gzip:  0.28 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/BuildIcon-DOHKklGg.js                                                   0.37 kB │ gzip:  0.29 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Chip-Dh0eqf8i.js                                                        0.37 kB │ gzip:  0.28 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Box-C5HKgMKF.js                                                         0.39 kB │ gzip:  0.30 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/SchoolIcon-CAQ7PVLF.js                                                  0.40 kB │ gzip:  0.30 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Status-dGAGV4pt.js                                                      0.41 kB │ gzip:  0.30 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/navigation-xkc3T5s6.js                                                  0.42 kB │ gzip:  0.29 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/UploadFileIcon-BUPgzBbh.js                                              0.43 kB │ gzip:  0.30 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useField-B44fZUiX.js                                                    0.44 kB │ gzip:  0.29 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DragIndicatorIcon-CTzKnSII.js                                           0.45 kB │ gzip:  0.25 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/IconButton-BKWwJ6f4.js                                                  0.45 kB │ gzip:  0.31 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useFormReset-cVxbbSnY.js                                                0.45 kB │ gzip:  0.29 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Stack-BUW7H2v5.js                                                       0.48 kB │ gzip:  0.34 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ViewWeekIcon-CDE9---1.js                                                0.48 kB │ gzip:  0.35 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useHasTabbableChild-DTIdKcyI.js                                         0.49 kB │ gzip:  0.34 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useControlledState-CuenR0je.js                                          0.49 kB │ gzip:  0.33 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/FormatItalicIcon-BHDHPFm6.js                                            0.50 kB │ gzip:  0.32 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/IconButton.fixture-D8UBWg9O.js                                          0.51 kB │ gzip:  0.34 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Badge-D82Q2dqT.js                                                       0.52 kB │ gzip:  0.34 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/LinkIcon-DeHWkCKm.js                                                    0.53 kB │ gzip:  0.33 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/CalendarTodayIcon-BM3h7qEN.js                                           0.57 kB │ gzip:  0.32 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/LogoutIcon-CTBLrOEz.js                                                  0.59 kB │ gzip:  0.37 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Navigation-DvzgiRn4.js                                                  0.59 kB │ gzip:  0.34 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppInlineProgress-CddgEH1S.js                                           0.60 kB │ gzip:  0.40 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DataGridDragHandle-B60mzh2F.js                                          0.60 kB │ gzip:  0.41 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/FieldError-CGKAmnmq.js                                                  0.63 kB │ gzip:  0.40 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Typography.fixture-DzbtmXjR.js                                          0.63 kB │ gzip:  0.42 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/CodeIcon-DqmzB1gY.js                                                    0.66 kB │ gzip:  0.36 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useFilter-BTvFxCTi.js                                                   0.66 kB │ gzip:  0.34 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/FormatIndentIncreaseIcon-CRRVy1fk.js                                    0.68 kB │ gzip:  0.31 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/VisuallyHidden-DZguZeVe.js                                              0.69 kB │ gzip:  0.47 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/SuperscriptIcon-NRD3q8uf.js                                             0.70 kB │ gzip:  0.39 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Avatar.fixture-CltHrgdX.js                                              0.71 kB │ gzip:  0.47 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ThemeScope.fixture-lfAiVqGt.js                                          0.71 kB │ gzip:  0.38 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Breadcrumbs.fixture-Bl3E99Fz.js                                         0.72 kB │ gzip:  0.42 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Status.fixture-By5M3TVl.js                                              0.72 kB │ gzip:  0.47 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Progress.fixture-Cj0JmxJj.js                                            0.74 kB │ gzip:  0.44 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Stack.fixture-Oad_7BDD.js                                               0.74 kB │ gzip:  0.47 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ExploreIcon-B_r84oo6.js                                                 0.75 kB │ gzip:  0.44 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/FormatListNumberedIcon-CCtdxl1v.js                                      0.76 kB │ gzip:  0.38 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Chip.fixture-D7ljspNy.js                                                0.76 kB │ gzip:  0.42 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useStandaloneFormReset-BCJq29Mh.js                                      0.77 kB │ gzip:  0.44 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Collapse.fixture-ChQPQPlM.js                                            0.77 kB │ gzip:  0.46 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Avatar-MCkxQ-nY.js                                                      0.80 kB │ gzip:  0.47 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppInlineProgress.fixture-CH153UV-.js                                   0.81 kB │ gzip:  0.43 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/SplitAction-CaU5-efI.js                                                 0.83 kB │ gzip:  0.51 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/FormatColorFillIcon-q5urEulE.js                                         0.84 kB │ gzip:  0.47 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/HighlightIcon-C2rlHBRs.js                                               0.85 kB │ gzip:  0.47 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Breadcrumbs-C323fsei.js                                                 0.89 kB │ gzip:  0.51 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ClassCardFrame-BG8virYA.js                                              0.89 kB │ gzip:  0.40 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DragAndDrop-CHvd3u6y.js                                                 0.96 kB │ gzip:  0.52 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/CardPaginationFooter.fixture-CqV8PzTY.js                                1.00 kB │ gzip:  0.57 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/FormatAlignJustifyIcon-C54rbnmJ.js                                      1.04 kB │ gzip:  0.44 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/date-contract-C0cSntqW.js                                               1.07 kB │ gzip:  0.59 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/SelectorDirectionFixture-DnRRJEul.js                                    1.09 kB │ gzip:  0.63 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Link-CuAOCcd9.js                                                        1.09 kB │ gzip:  0.63 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Table.fixture-BI2La2KQ.js                                               1.10 kB │ gzip:  0.53 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Typefaces.fixture-kXUiEqzl.js                                           1.11 kB │ gzip:  0.58 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/CardCollectionWithFooter-50VcMX2p.js                                    1.12 kB │ gzip:  0.59 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/InsertContentMenuControl-DdJfdf_0.js                                    1.15 kB │ gzip:  0.58 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ColumnsLayoutModal-D4ks9XGG.js                                          1.21 kB │ gzip:  0.60 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Table-DmFlJ18b.js                                                       1.33 kB │ gzip:  0.45 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/List-BF9tZKiB.js                                                        1.33 kB │ gzip:  0.54 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Disclosure-Bf4gczpx.js                                                  1.35 kB │ gzip:  0.73 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DocumentEditorLayout-B23DtaPf.js                                        1.35 kB │ gzip:  0.52 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Badge.fixture-EfbAK5rs.js                                               1.39 kB │ gzip:  0.63 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Progress-BYlZMedz.js                                                    1.39 kB │ gzip:  0.70 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Navigation.fixture-C9XWtQKT.js                                          1.40 kB │ gzip:  0.71 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/LearnerClassesDataGrid-CWo6RPh6.js                                      1.41 kB │ gzip:  0.74 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppPageTabs-Ba2fT76S.js                                                 1.44 kB │ gzip:  0.72 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ToggleButton.fixture-Zf5L21bg.js                                        1.46 kB │ gzip:  0.72 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/CardPaginationFooter-B8grwJ-w.js                                        1.47 kB │ gzip:  0.73 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/WindowIcon-BSn8Z4LL.js                                                  1.49 kB │ gzip:  0.70 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ButtonGroup.fixture-CV8Zk3cl.js                                         1.54 kB │ gzip:  0.67 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ColumnsLayoutModal.fixture-B55q-Txt.js                                  1.59 kB │ gzip:  0.86 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Switch.fixture-KqlyHFgK.js                                              1.61 kB │ gzip:  0.80 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ContentEditorChrome-CeKj8So6.js                                         1.67 kB │ gzip:  0.77 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Pagination.fixture-DeZjaL9D.js                                          1.67 kB │ gzip:  0.84 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/List.fixture--K5t9xSV.js                                                1.67 kB │ gzip:  0.82 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/formatDueDateLabel-VDYAfS8J.js                                          1.69 kB │ gzip:  0.75 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppModal-T0BPA1e-.js                                                    1.75 kB │ gzip:  0.95 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Disclosure.fixture-BZcXBa1y.js                                          1.77 kB │ gzip:  0.85 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppThemeProvider.fixture-BGQkpjLE.js                                    1.80 kB │ gzip:  0.94 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AuthShell-CbU4CBJb.js                                                   1.86 kB │ gzip:  0.87 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TextStyleMenuControl.fixture-Cl8ZkwHc.js                                1.87 kB │ gzip:  0.96 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/usePersistentPaginationModel.fixture-DRPbX_9D.js                        1.89 kB │ gzip:  0.93 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/EditableTitleField.fixture-CJVf1Aeh.js                                  1.89 kB │ gzip:  0.93 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Tooltip.fixture-DUd39msF.js                                             1.97 kB │ gzip:  0.99 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TextField-BjuFawxI.js                                                   2.03 kB │ gzip:  0.95 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TextAlignMenuControl-abyaClat.js                                        2.04 kB │ gzip:  1.00 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useLocalizedStringFormatter-DbNNtKAv.js                                 2.10 kB │ gzip:  0.98 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Pagination-D_CC_c02.js                                                  2.12 kB │ gzip:  0.91 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/LinkUrlModal-BdBlhVnW.js                                                2.12 kB │ gzip:  1.12 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TextArea-Cj5CVjUK.js                                                    2.17 kB │ gzip:  1.00 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useListState-MtFokEI4.js                                                2.18 kB │ gzip:  0.91 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useToggle-Dht_jxQ0.js                                                   2.21 kB │ gzip:  0.96 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TextStyleMenuControl-BYwkxZcU.js                                        2.27 kB │ gzip:  0.90 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TextField-COPtd0Ap.js                                                   2.28 kB │ gzip:  1.08 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/SplitAction.fixture-D0vplzWV.js                                         2.33 kB │ gzip:  1.17 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/EditableTitleField-BJwQkIXv.js                                          2.38 kB │ gzip:  1.14 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Menu.fixture-CoKM5f-2.js                                                2.40 kB │ gzip:  1.04 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TextAlignMenuControl.fixture-B5IeYwFh.js                                2.41 kB │ gzip:  1.21 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Tabs.fixture-CuON_fZG.js                                                2.44 kB │ gzip:  1.03 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Popover.collision.fixture-Vgd5_K2P.js                                   2.45 kB │ gzip:  1.18 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Link.fixture-CfmAaUg6.js                                                2.49 kB │ gzip:  1.09 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/RadioGroup.fixture-Dc3Y6PlM.js                                          2.51 kB │ gzip:  1.12 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/LearnerClassCard-463VTk_f.js                                            2.55 kB │ gzip:  1.04 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Calendar.native-locales.fixture-BhpSXYcz.js                             2.55 kB │ gzip:  1.24 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Translations.fixture-BYoEVkrN.js                                        2.56 kB │ gzip:  1.12 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/PaidIcon-DaBqNbea.js                                                    2.61 kB │ gzip:  1.02 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AsyncMultiSelect-YTsj2wi6.js                                            2.69 kB │ gzip:  1.24 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ownedGridParts.fixture-BUpj8U9d.js                                      2.70 kB │ gzip:  1.28 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useTextField-ClBEFVxg.js                                                2.72 kB │ gzip:  1.23 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/InstructorClassCard-DED0ErtS.js                                         2.75 kB │ gzip:  1.02 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Calendar.fixture-Cdc-R3To.js                                            2.79 kB │ gzip:  1.36 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AdminDataGridOptions.fixture-C86eeoYs.js                                2.84 kB │ gzip:  1.39 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppPageTabs.fixture-ehVYVjVt.js                                         2.94 kB │ gzip:  1.29 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Select.fixture-BA9hNgWG.js                                              2.94 kB │ gzip:  1.28 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DocumentEditorToolbar.fixture-D_3v_s9A.js                               2.95 kB │ gzip:  1.35 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DateRangePicker.fixture-CeHP7JuP.js                                     2.95 kB │ gzip:  1.44 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/primitives.fixture-CpUYmQ3w.js                                          2.95 kB │ gzip:  1.41 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/InstructorClassCard.fixture-CNrQNt8c.js                                 2.98 kB │ gzip:  1.40 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DatePicker.fixture-CWMT6l7R.js                                          3.03 kB │ gzip:  1.45 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Provider.fixture-CjrrbKfT.js                                            3.09 kB │ gzip:  1.48 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ImageUploadModal.fixture-uZgkwVo1.js                                    3.15 kB │ gzip:  1.35 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/FloatingTextSelectionToolbar.fixture-CoYkmYPD.js                        3.17 kB │ gzip:  1.42 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Checkbox.fixture-CBNDzwRm.js                                            3.17 kB │ gzip:  1.29 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DataGrid.fixture-BR0TNWwQ.js                                            3.21 kB │ gzip:  1.61 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/LearnerClassesDataGrid.fixture-DNrK3kxx.js                              3.21 kB │ gzip:  1.55 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DocumentEditorToolbar-DdIuwyeC.js                                       3.25 kB │ gzip:  1.44 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/SectionedRows-DnoabNzA.js                                               3.37 kB │ gzip:  1.56 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/usePersistentState-Bgm3Z8tt.js                                          3.45 kB │ gzip:  1.40 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/SideNavigation.organization-lifetime.fixture-CYRkw2wD.js                3.51 kB │ gzip:  1.61 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TextColorPickerControl.fixture-CFfiEzj9.js                              3.55 kB │ gzip:  1.63 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/InsertContentMenuControl.fixture-C9M5NhGZ.js                            3.56 kB │ gzip:  1.59 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/createVector-DPA_NP0E.js                                                3.56 kB │ gzip:  1.70 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Switch-IA41TQXH.js                                                      3.57 kB │ gzip:  1.51 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DocumentEditorLayout.fixture-B-xDjqWv.js                                3.57 kB │ gzip:  1.54 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppOperationStepsNativeState.fixture.fixture-C82Mzf5C.js                3.58 kB │ gzip:  1.49 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DateField.fixture-_-uZ5ft2.js                                           3.62 kB │ gzip:  1.45 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/LinkUrlModal.fixture-CcChRWG7.js                                        3.67 kB │ gzip:  1.65 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ImageUploadModal-CuxhgwjR.js                                            3.67 kB │ gzip:  1.61 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/LearnerClassCard.fixture-C7Jj5GIl.js                                    3.68 kB │ gzip:  1.60 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Popover-DgpB1kf_.js                                                     3.68 kB │ gzip:  1.73 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DatePicker-DgZq-EOP.js                                                  3.69 kB │ gzip:  1.51 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/PageRichTextEditorSection.mixed-formatting.fixture-BsQiyQ9y.js          3.69 kB │ gzip:  1.75 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TextArea.fixture-M8BWWBD_.js                                            3.71 kB │ gzip:  1.43 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useCollator-v-mVHdZP.js                                                 3.79 kB │ gzip:  1.58 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ExperiencePageNavigator.native-transactions.fixture-DfJAVx8s.js         3.80 kB │ gzip:  1.69 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/usePersistentState.fixture-CEZYrYh_.js                                  3.82 kB │ gzip:  1.60 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Menu-C36BMqSi.js                                                        3.82 kB │ gzip:  1.78 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DataToolbar.column-order.fixture-Ddpwz8LV.js                            3.83 kB │ gzip:  1.77 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DateRangePicker.controlled-transactions.fixture-BWAxlGUU.js             3.84 kB │ gzip:  1.74 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ExperiencePageNavigator.fixture-DypAPnfM.js                             3.90 kB │ gzip:  1.77 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/CardCollectionWithFooter.fixture-DivXbXKU.js                            3.91 kB │ gzip:  1.81 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TextColorPickerControl-S_RT2ybM.js                                      3.93 kB │ gzip:  1.63 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TagGroup.fixture-XXROE-bI.js                                            3.95 kB │ gzip:  1.72 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TimeField.fixture-ecg4IyHU.js                                           3.98 kB │ gzip:  1.69 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ComboBox.fixture-Dd52EtQ6.js                                            4.00 kB │ gzip:  1.65 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DocumentEditorToolbar.heading-lifetime.fixture-BHSpO_v_.js              4.02 kB │ gzip:  1.87 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/NativeSelection.fixture-Cd0eELZX.js                                     4.14 kB │ gzip:  1.83 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ownedGridParts-B5Wg7etf.js                                              4.18 kB │ gzip:  1.54 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Button-CEVKQkse.js                                                      4.18 kB │ gzip:  1.91 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ownedGridSortAcceptance.fixture-s4tBHktq.js                             4.20 kB │ gzip:  1.93 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DataGridDragHandle.fixture-xY0JEW94.js                                  4.23 kB │ gzip:  2.06 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/HierarchicalMenu.fixture-CQeu5Dnu.js                                    4.26 kB │ gzip:  1.76 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppOperationSteps.fixture-BTST83RU.js                                   4.28 kB │ gzip:  1.90 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/token-source-kIfmxwAp.js                                                4.32 kB │ gzip:  0.59 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Popover.fixture-BG_Ec-1h.js                                             4.33 kB │ gzip:  2.06 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppDataGrid.reorder-invalidation.fixture-BLMPXxnR.js                    4.35 kB │ gzip:  1.91 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Button.fixture-96Z9khDk.js                                              4.42 kB │ gzip:  1.82 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AuthShell.fixture--4MPfoWt.js                                           4.53 kB │ gzip:  1.73 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useFormValidation-BRI9tXBY.js                                           4.62 kB │ gzip:  1.75 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/LearnerClassesDataGrid.native.fixture-BdSYzqNB.js                       4.69 kB │ gzip:  2.18 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DatePicker.native-transactions.fixture-DQQfgclY.js                      4.70 kB │ gzip:  1.90 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/InstructorDataGridOptions-B38r9nuz.js                                   4.75 kB │ gzip:  0.84 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/RichTextFormattingToolbar.fixture-DagHoVPh.js                           4.83 kB │ gzip:  2.15 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DateRangePicker-Bl51zdRd.js                                             4.89 kB │ gzip:  2.19 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/icons.fixture-De2-0FNp.js                                               4.93 kB │ gzip:  2.16 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/BaselineHostFlow.fixture-BNhH3pHu.js                                    5.08 kB │ gzip:  2.22 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ExperiencePageNavigator-B6WzP_Y0.js                                     5.09 kB │ gzip:  2.02 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ownedGridProcessing.fixture-bI1QIw9I.js                                 5.13 kB │ gzip:  2.28 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ClassCardFrame.fixture-DLFRcC7S.js                                      5.34 kB │ gzip:  2.12 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/PageRichTextEditorSection.paragraph-transactions.fixture-DT_wC0ed.js    5.38 kB │ gzip:  2.45 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/FormParticipation.fixture-qpmEaImI.js                                   5.44 kB │ gzip:  2.06 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AsyncMultiSelect.fixture-rI5vD93p.js                                    5.46 kB │ gzip:  2.10 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/RichTextFormattingToolbar.impl-CZCcDWzD.js                              5.48 kB │ gzip:  2.06 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Tooltip-CpAflp8i.js                                                     5.53 kB │ gzip:  2.36 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ToggleButton-D6LA2haG.js                                                5.54 kB │ gzip:  2.14 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Checkbox-gnJNmTqC.js                                                    5.57 kB │ gzip:  2.14 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TokenTierScope.fixture-Chb4XhSg.js                                      5.60 kB │ gzip:  1.88 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/intlStrings-BTHtKwgC.js                                                 5.63 kB │ gzip:  2.20 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Dialog.fixture-RQEXS7-Z.js                                              5.66 kB │ gzip:  2.31 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Calendar-CobWACu8.js                                                    5.66 kB │ gzip:  2.18 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ProgressBar-DyN5eJ21.js                                                 5.78 kB │ gzip:  2.28 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/icons.fixture-Bb6HeI7L.js                                               5.85 kB │ gzip:  2.45 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/filterDOMProps-BFkR08i7.js                                              5.91 kB │ gzip:  2.52 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/VisualAcceptance.fixture-C80hoGAk.js                                    6.14 kB │ gzip:  2.52 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/GridHostOperations.fixture-DVcKBuc6.js                                  6.29 kB │ gzip:  2.89 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppDataGrid.fixture-rG4Yconi.js                                         6.75 kB │ gzip:  2.94 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/adapters.fixture-juR6g2y3.js                                            6.81 kB │ gzip:  2.57 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/SideNavigation.fixture-CcXpvDlQ.js                                      6.91 kB │ gzip:  2.61 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppDataGridShell.server-response-races.fixture-6O1Rl2CK.js              7.05 kB │ gzip:  3.19 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TextField.fixture-BY8zAPV9.js                                           7.19 kB │ gzip:  2.29 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ownedGridCells.fixture-BMpMLO3W.js                                      7.45 kB │ gzip:  3.23 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DateField-CDU5KBii.js                                                   7.53 kB │ gzip:  3.12 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppDataGrid-CK_HCkAH.js                                                 7.66 kB │ gzip:  2.77 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/HierarchicalMenu-qPywVT5k.js                                            7.90 kB │ gzip:  3.01 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/PrimitiveAcceptance.fixture-AiLCqk9H.js                                 8.00 kB │ gzip:  2.93 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DataToolbar.fixture-C43tsI81.js                                         8.07 kB │ gzip:  3.04 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DateRangeSelector.fixture-bMeLsMnq.js                                   8.22 kB │ gzip:  3.13 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ownedGridState-C_kDX6xu.js                                              8.57 kB │ gzip:  3.08 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppPageHeader.fixture-CInRZdVI.js                                       8.69 kB │ gzip:  3.44 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/BrushIcon-C_PqxxQJ.js                                                   8.98 kB │ gzip:  3.42 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/RadioGroup-cHEPTdKT.js                                                  9.01 kB │ gzip:  3.45 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Dialog-DCyL2SRy.js                                                      9.30 kB │ gzip:  3.47 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DataGrid-DfI4Iv6j.js                                                    9.35 kB │ gzip:  3.45 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppDataGridShell-C0fHH0qS.js                                            9.89 kB │ gzip:  3.46 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppShell.fixture-DihJtBfs.js                                            9.99 kB │ gzip:  3.86 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ListBox-B_6e1yc2.js                                                    10.27 kB │ gzip:  3.75 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ownedGridInteraction.fixture-B5JNdYEJ.js                               10.50 kB │ gzip:  3.97 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TimeField-Ca75JiFs.js                                                  10.64 kB │ gzip:  4.32 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ContentEditorChrome.fixture-hSe1akQk.js                                10.78 kB │ gzip:  4.33 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/animation-C4i6XDEJ.js                                                  10.88 kB │ gzip:  4.29 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppDataGridShell.fixture-Czdkvcgt.js                                   12.40 kB │ gzip:  4.44 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/SideNavigation-B7n5t0Vt.js                                             12.80 kB │ gzip:  4.74 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/FocusScope-CCIpc5HT.js                                                 13.47 kB │ gzip:  4.19 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/createCalendar-C8GETXvk.js                                             13.87 kB │ gzip:  5.72 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/AppModal.fixture-Bt7S7OtT.js                                           14.06 kB │ gzip:  5.07 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Select-DFLt7cSC.js                                                     14.68 kB │ gzip:  5.39 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Tabs-C0T4AaLh.js                                                       15.69 kB │ gzip:  5.78 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useHighlightSelectionDescription-IB1bJMxF.js                           17.48 kB │ gzip:  5.03 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DataToolbar-BV3LdYQi.js                                                17.81 kB │ gzip:  5.24 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/TagGroup-D_sI5A4n.js                                                   18.15 kB │ gzip:  7.21 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useDateFormatter-BQ9BYAZ9.js                                           19.60 kB │ gzip:  6.48 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/PageRichTextEditorSection.fixture-B3qyOTr9.js                          22.39 kB │ gzip:  7.13 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ownedGridInteraction-3GbRvowy.js                                       25.27 kB │ gzip:  8.39 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/CalendarFormValidity-Df49HuH1.js                                       29.16 kB │ gzip:  9.56 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useHover-BSySYHe6.js                                                   30.73 kB │ gzip: 10.52 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Box.fixture-BhFSAnR1.js                                                32.12 kB │ gzip: 10.38 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/Dialog-BTdu_sY5.js                                                     34.57 kB │ gzip: 13.49 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/ComboBox-WGzFObUk.js                                                   38.72 kB │ gzip: 10.48 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useMultipleSelectionState-D4IylYOv.js                                  49.05 kB │ gzip: 14.36 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/index-TD5eAT0Q.js                                                      49.77 kB │ gzip: 13.21 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/DateField.module.css-BwW5rWwZ.js                                       60.23 kB │ gzip: 19.99 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/useNarrowWeekdays-BEssR8cJ.js                                          62.40 kB │ gzip: 19.26 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/PageRichTextEditorSection.impl-ohCW4RxK.js                            172.74 kB │ gzip: 54.45 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/LexicalErrorBoundary.prod-0ubQffps.js                                 177.70 kB │ gzip: 57.84 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/GridColumnWidthControl-gO_kHdJR.js                                    210.39 kB │ gzip: 53.64 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/FoundationCatalogue.fixture-BT9yJ8MO.js                               278.76 kB │ gzip: 67.99 kB
+../../../docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/host/assets/index-Qfr3ESyP.js                                                     496.99 kB │ gzip: 95.88 kB
+✓ built in 4.02s

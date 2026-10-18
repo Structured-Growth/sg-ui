@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process';
+import { copyFile } from 'node:fs/promises';
 import { build } from 'vite';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -18,3 +19,7 @@ await build({
   configFile: resolve(workspaceRoot, 'apps/docs/native-fixtures/vite.config.ts'),
   build: { outDir, emptyOutDir: true },
 });
+
+// Preserve the public stylesheet bytes for native-syntax consumer assertions.
+// Vite may downlevel nesting in its normal bundled CSS; this raw asset must not.
+await copyFile(resolve(libraryRoot, 'dist/styles.css'), resolve(outDir, 'sgui-library-styles.css'));

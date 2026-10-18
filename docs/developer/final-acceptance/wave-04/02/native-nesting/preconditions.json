@@ -1,0 +1,52 @@
+{
+  "head": "a9987c6f96ffd899201be011671751ef973ad892",
+  "sharedInputs": [
+    {
+      "path": "packages/ui/src/experimental/TextField/TextField.module.css",
+      "sha256": "be00aa2b75186be5845760e0285d2d009730aaf904adf83567a15c8af21a00d5",
+      "matchesHEAD": true
+    },
+    {
+      "path": "packages/ui/scripts/check-component-css.mjs",
+      "sha256": "5dccce4431f23e18637bbe3389464b6ad17cda85197c5122b47f159fba13c84d",
+      "matchesHEAD": true
+    },
+    {
+      "path": "packages/ui/scripts/check-component-css.test.mjs",
+      "sha256": "0d7247cd0eea8364a93c232d76719c2c4ae6f7d4ebc6406dd637289510c09f2d",
+      "matchesHEAD": true
+    },
+    {
+      "path": "packages/ui/scripts/css-modules.mjs",
+      "sha256": "5ab55de118449a64ea5c2ecc8476cca80b393639f59ff945f2f646c77c39c568",
+      "matchesHEAD": true
+    },
+    {
+      "path": "packages/ui/scripts/css-modules.test.mjs",
+      "sha256": "2f91c4d625f54d219c55b514de7799996077e9044ba0ed6f3b267ce5db2e6e1f",
+      "matchesHEAD": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/experimental/Popover/Popover.fixture.tsx",
+      "sha256": "37f7ae8d4534cbec9e3d81572c734ed1492ec2e6dadf2f0826ca929fac71b77f",
+      "matchesHEAD": true
+    },
+    {
+      "path": "docs/developer/react-aria-css-composition.md",
+      "sha256": "bed0be24f4da5d1b48867c60beb3829f5c95db440c17144e92fe9c44837e0e37",
+      "matchesHEAD": true
+    },
+    {
+      "path": "packages/ui/playwright.config.ts",
+      "sha256": "c873333a5084633b4392032fc0800c5b34539e72f7433d4403c65eb7b0e55dba",
+      "matchesHEAD": true
+    }
+  ],
+  "sharedSourceEdited": false,
+  "sharedOutputBuilds": 0,
+  "browserRuns": 0,
+  "isolation": "Only proposal mirrors and in-memory PostCSS fixtures; compileStyles never invoked",
+  "laneConstraint": "Wait for root D15 lane release before shared implementation or build",
+  "nextValidation": "plan.md",
+  "sources": "browser-support.md"
+}

@@ -20,7 +20,11 @@
   }
   .input::placeholder { color: var(--sgui-text-field-placeholder-text); opacity: 1; }
   .adornment { display: inline-flex; align-items: center; justify-content: center; flex: none; inline-size: var(--sgui-space4); block-size: var(--sgui-space4); pointer-events: none; }
+  /* Baseline retained while native nesting is introduced without a new browser floor. */
   .adornment > svg { inline-size: 100%; block-size: 100%; }
+  .adornment {
+    & > svg { inline-size: 100%; block-size: 100%; }
+  }
   .decoratedControl { display: flex; align-items: center; gap: var(--sgui-space2); flex: 1; min-inline-size: 0; box-sizing: border-box; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); padding-inline: var(--field-edge-padding); border: 1px solid var(--sgui-field-border); border-radius: var(--sgui-field-control-radius); background: var(--sgui-field-background); }
   .decoratedControl > .input { flex: 1; inline-size: 0; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); margin-block: -1px; border: 0; border-radius: 0; padding-inline: 0; background: transparent; }
   /* Keep the input ring unless the decorated wrapper can replace it. */

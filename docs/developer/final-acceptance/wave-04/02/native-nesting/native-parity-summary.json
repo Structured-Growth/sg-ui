@@ -1,0 +1,152 @@
+{
+  "stats": {
+    "startTime": "2026-10-18T02:08:09.289Z",
+    "duration": 6205.769,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "stylesheetSha256": "d2814ca177df9dd707e770853cb139d7abe792184232baaee6b1462264a9b1dd",
+      "proof": {
+        "original": {
+          "wrapperWidth": 16,
+          "wrapperHeight": 16,
+          "svgWidth": 16,
+          "svgHeight": 16
+        },
+        "nativeOnly": {
+          "wrapperWidth": 16,
+          "wrapperHeight": 16,
+          "svgWidth": 16,
+          "svgHeight": 16
+        },
+        "nativeHalf": {
+          "wrapperWidth": 16,
+          "wrapperHeight": 16,
+          "svgWidth": 8,
+          "svgHeight": 16
+        },
+        "fallbackOnly": {
+          "wrapperWidth": 16,
+          "wrapperHeight": 16,
+          "svgWidth": 16,
+          "svgHeight": 16
+        },
+        "parentSelector": ".sgui_adornment_3c6d7545",
+        "nativeSelector": "& > svg",
+        "flatSelectors": [
+          ".sgui_adornment_3c6d7545 > svg",
+          ".sgui_adornment_3c6d7545 > svg",
+          ".sgui_adornment_3c6d7545 > svg"
+        ],
+        "supportsAmpersand": true
+      },
+      "fit": {
+        "width": 16,
+        "svgWidth": 16,
+        "left": 25,
+        "right": 41,
+        "viewport": 320
+      }
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "stylesheetSha256": "d2814ca177df9dd707e770853cb139d7abe792184232baaee6b1462264a9b1dd",
+      "proof": {
+        "original": {
+          "wrapperWidth": 16,
+          "wrapperHeight": 16,
+          "svgWidth": 16,
+          "svgHeight": 16
+        },
+        "nativeOnly": {
+          "wrapperWidth": 16,
+          "wrapperHeight": 16,
+          "svgWidth": 16,
+          "svgHeight": 16
+        },
+        "nativeHalf": {
+          "wrapperWidth": 16,
+          "wrapperHeight": 16,
+          "svgWidth": 8,
+          "svgHeight": 16
+        },
+        "fallbackOnly": {
+          "wrapperWidth": 16,
+          "wrapperHeight": 16,
+          "svgWidth": 16,
+          "svgHeight": 16
+        },
+        "parentSelector": ".sgui_adornment_3c6d7545",
+        "nativeSelector": "& > svg",
+        "flatSelectors": [
+          ".sgui_adornment_3c6d7545 > svg",
+          ".sgui_adornment_3c6d7545 > svg",
+          ".sgui_adornment_3c6d7545 > svg"
+        ],
+        "supportsAmpersand": true
+      },
+      "fit": {
+        "width": 16,
+        "svgWidth": 16,
+        "left": 25,
+        "right": 41,
+        "viewport": 320
+      }
+    },
+    {
+      "engine": "webkit",
+      "version": "26.6",
+      "stylesheetSha256": "d2814ca177df9dd707e770853cb139d7abe792184232baaee6b1462264a9b1dd",
+      "proof": {
+        "original": {
+          "wrapperWidth": 16,
+          "wrapperHeight": 16,
+          "svgWidth": 16,
+          "svgHeight": 16
+        },
+        "nativeOnly": {
+          "wrapperWidth": 16,
+          "wrapperHeight": 16,
+          "svgWidth": 16,
+          "svgHeight": 16
+        },
+        "nativeHalf": {
+          "wrapperWidth": 16,
+          "wrapperHeight": 16,
+          "svgWidth": 8,
+          "svgHeight": 16
+        },
+        "fallbackOnly": {
+          "wrapperWidth": 16,
+          "wrapperHeight": 16,
+          "svgWidth": 16,
+          "svgHeight": 16
+        },
+        "parentSelector": ".sgui_adornment_3c6d7545",
+        "nativeSelector": "& > svg",
+        "flatSelectors": [
+          ".sgui_adornment_3c6d7545 > svg",
+          ".sgui_adornment_3c6d7545 > svg",
+          ".sgui_adornment_3c6d7545 > svg"
+        ],
+        "supportsAmpersand": true
+      },
+      "fit": {
+        "width": 16,
+        "svgWidth": 16,
+        "left": 25,
+        "right": 41,
+        "viewport": 320
+      }
+    }
+  ],
+  "assertions": "All three flat adornment rule copies disabled before native-only and 50% proof; native declarations removed for fallback-only; all mutations restored; named input value/focus and320px fit preserved",
+  "scope": "Current Chromium/Firefox/WebKit only; not historical versions, physicalSafari/mobile or a new browser floor"
+}

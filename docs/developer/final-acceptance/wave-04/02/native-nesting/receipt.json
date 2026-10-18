@@ -1,0 +1,91 @@
+{
+  "id": "A-C-11",
+  "recommendation": "complete",
+  "originalCriterion": "Use native nesting with documented tooling/browser support; keep selector depth shallow and component ownership obvious.",
+  "criterionMap": "report.md",
+  "maintainedFiles": [
+    {
+      "path": "packages/ui/src/experimental/TextField/TextField.module.css",
+      "sha256": "0f0f84fd5b3e0317ca3c71c569da0a3ad5eda03574a3366604cb371bae6d4379"
+    },
+    {
+      "path": "packages/ui/scripts/check-component-css.mjs",
+      "sha256": "d05cdbefa9483ab0e2a85f6f228b131784b5e394d8a2247bace564d8bf879067"
+    },
+    {
+      "path": "packages/ui/scripts/check-component-css.test.mjs",
+      "sha256": "19bd78d14bc465ba29dfd8f89ba1f977a341ad351738a377b3cf2caeda6b3ea2"
+    },
+    {
+      "path": "packages/ui/scripts/css-modules.test.mjs",
+      "sha256": "840d26fb971ff72c23c0552d08cfa12e0332db361f9e02040f80338b6a093b77"
+    },
+    {
+      "path": "packages/ui/scripts/build-browser-docs.mjs",
+      "sha256": "b00f009cd533ddfddcf8d1ad150efc587a9a1b8086178786b43d968ce8982863"
+    },
+    {
+      "path": "packages/ui/tests/browser/native-nesting.spec.ts",
+      "sha256": "af21ffc2ca0bdc115213f01e0af8406e288cfb2a87e3ed4a1c40e3709b056f06"
+    },
+    {
+      "path": "docs/developer/react-aria-css-composition.md",
+      "sha256": "3bfb04611492d0e0238da9dc48711850a2db379304d11a19d6025d10d0cc7fe7"
+    },
+    {
+      "path": "docs/developer/react-aria-css-lint.md",
+      "sha256": "661d9f76b79573151ca3e26fc6c012c3e57ffcc69c5d8b0afde3767c9051dc40"
+    }
+  ],
+  "fixtureSourceUnchanged": {
+    "path": "apps/docs/native-fixtures/scenarios/experimental/Popover/Popover.fixture.tsx",
+    "sha256": "37f7ae8d4534cbec9e3d81572c734ed1492ec2e6dadf2f0826ca929fac71b77f"
+  },
+  "affectedCompilerGuardTestsPassed": 14,
+  "preparationIsolatedTestsPassed": 15,
+  "otherSourceChecks": [
+    "foundations pass",
+    "browser types pass",
+    "ci artifact fixtures3pass",
+    "maintained links0defects"
+  ],
+  "builds": {
+    "library": 1,
+    "nativeHostModules": 1,
+    "declarations": 445,
+    "declarationBytesUnchanged": true
+  },
+  "initialNative": {
+    "path": "native-01/results.json",
+    "failed": 3,
+    "scope": "Test-host Vite lowered CSS; nativeCSSOM assumption invalid; preserved"
+  },
+  "correctedNative": {
+    "path": "native-02/results.json",
+    "passed": 3,
+    "failed": 0,
+    "skipped": 0,
+    "engines": [
+      {
+        "engine": "chromium",
+        "version": "153.0.8010.12"
+      },
+      {
+        "engine": "firefox",
+        "version": "155.0"
+      },
+      {
+        "engine": "webkit",
+        "version": "26.6"
+      }
+    ],
+    "libraryDigest": "5718c8815bcb2ecc8d4fa5345f864f7fa8413b45d1054396501abebe1df2b60f",
+    "hostDigest": "8782ba42a2c9c4bbee179b07334c8d77d1797bbb0f6b67b27c3f3a28f474150a",
+    "rawStylesheetSha256": "d2814ca177df9dd707e770853cb139d7abe792184232baaee6b1462264a9b1dd",
+    "sourceAndOutputsStable": true,
+    "hostModulesRebuilt": false
+  },
+  "browserBoundary": "Explicit& native syntax with exact flat fallback; no new numeric floor, historical engine or physicalSafari/mobile claim",
+  "retainedDiagnostics": "retained-traces.json",
+  "cleanup": "Owned immutable6173 and canonical leases released; no baseline/catalog matrix/release/Git/count mutation"
+}

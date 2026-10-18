@@ -1,0 +1,38 @@
+{
+  "startedAt": "2026-10-18T02:05:26.703Z",
+  "runtime": "v24.19.0",
+  "runs": [
+    {
+      "name": "compiler-guard",
+      "command": [
+        "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--test",
+        "scripts/css-modules.test.mjs",
+        "scripts/check-component-css.test.mjs"
+      ],
+      "status": "pass"
+    },
+    {
+      "name": "foundations",
+      "command": [
+        "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "scripts/check-foundations.mjs"
+      ],
+      "status": "pass"
+    },
+    {
+      "name": "browser-types",
+      "command": [
+        "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "-p",
+        "tests/browser/tsconfig.json"
+      ],
+      "status": "pass"
+    }
+  ],
+  "status": "pass",
+  "finishedAt": "2026-10-18T02:05:33.535Z",
+  "cleanup": "Canonical light released; no build in this step"
+}

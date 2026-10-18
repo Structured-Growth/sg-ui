@@ -102,16 +102,49 @@ The scoped acceptance fixture checks popover/dialog/drawer/auto at wide and narr
 
 ## Enhancement and tooling boundaries
 
-The package's PostCSS Modules pass scopes selectors and retains native CSS nesting;
-it does not flatten nesting or inject a browser polyfill. Keep any nested selector
-to one explicit component-owned `&` level and avoid grouped parent selectors whose
-maximum specificity would change the flat selector contract. The proposed
-`.adornment { & > svg { ... } }` has the same selector specificity (0,1,1) as
-`.adornment > svg`; it is a separately reviewed migration candidate. Ship it only
-when the host's browser policy includes native nesting and the chosen oldest
-engine versions have rendered evidence. Current Playwright project names establish
-engine coverage, not minimum browser versions or physical Safari/mobile support.
-No new minimum browser-version promise is established here.
+The package's PostCSS Modules pass scopes parent/child classes and retains native
+CSS nesting; it does not flatten nesting or inject a polyfill. The
+[style guard](../../packages/ui/scripts/check-component-css.mjs) enforces at most
+one component-owned style-rule level, a single parent selector and one explicit
+leading `&` in each nested selector. Media/support conditions do not add a
+style-rule level. Grouped parents, implicit/reverse ownership, repeated `&` and
+Sass-style suffix concatenation are rejected; existing token, layer, global-host
+and typography checks still apply.
+
+[TextField's adornment](../../packages/ui/src/experimental/TextField/TextField.module.css)
+uses `.adornment { & > svg { ... } }` and retains the identical flat
+`.adornment > svg` baseline. Both have specificity (0,1,1), with no grouped parent
+that could raise specificity. The flat rule preserves this styling when native
+nesting is unavailable; it is intentionally retained rather than silently raising
+the required browser syntax. The representative uses no bare nested type selector
+or mixed declaration ordering. This is a bounded adoption, not a mechanical
+rewrite of existing stylesheets.
+
+Vendor syntax history distinguishes this explicit-`&` subset from relaxed parsing:
+[Chrome](https://developer.chrome.com/blog/css-nesting-relaxed-syntax-update)
+introduced initial nesting in 112 and relaxed element-name syntax in 120;
+[Firefox 117](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/117)
+introduced nesting and `&`; [Safari 16.5](https://webkit.org/blog/14154/webkit-features-in-safari-16-5/)
+introduced initial nesting, while [Safari 17.2](https://webkit.org/blog/14787/webkit-features-in-safari-17-2/)
+added relaxed element-selector parsing. These are syntax-history facts, not new
+SGUI minimum-browser promises or executions in those historical versions.
+Current Playwright projects establish engine coverage, not numeric browser floors
+or physical Safari/mobile support. The existing flat baseline and recorded
+current-engine evidence keep those claims separate.
+
+The private native host may downlevel nesting in its normal Vite CSS bundle.
+Its builder also copies the exact public `dist/styles.css` bytes to a raw
+`sgui-library-styles.css` asset for this consumer-syntax check. The test verifies
+byte equality, loads that stylesheet and temporarily disables all applicable
+flat adornment declarations, including bundled duplicates, before exercising the
+native rule. Consumer-bundler lowering is distinct from the library's distributed
+CSS and does not demonstrate native browser parsing by itself.
+
+The [bounded native-nesting receipt](final-acceptance/wave-04/02/native-nesting/receipt.json)
+records compiler/guard evidence and actual native/fallback parity status. It does
+not update visual baselines or certify legacy devices. Other nesting migrations
+must preserve observable styling, shallow ownership and the documented browser
+boundary; native syntax alone does not prove behavior parity.
 
 Decorated TextField uses its input focus ring as the baseline. Only inside
 `@supports selector(:has(*))` may it suppress that ring and move the ring to the

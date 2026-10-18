@@ -1,0 +1,86 @@
+
+Running 3 tests using 1 worker
+
+(node:20786) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › packages/ui/tests/browser/native-nesting.spec.ts:3:1 › native adornment nesting and flat fallback preserve rendered size, value and focus (533ms)
+(node:20821) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [firefox] › packages/ui/tests/browser/native-nesting.spec.ts:3:1 › native adornment nesting and flat fallback preserve rendered size, value and focus (1.8s)
+(node:20978) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [webkit] › packages/ui/tests/browser/native-nesting.spec.ts:3:1 › native adornment nesting and flat fallback preserve rendered size, value and focus (962ms)
+
+
+  1) [chromium] › packages/ui/tests/browser/native-nesting.spec.ts:3:1 › native adornment nesting and flat fallback preserve rendered size, value and focus 
+
+    Error: locator.evaluate: Error: Expected compiled flat fallback and native nested adornment rule
+        at eval (eval at evaluate (:311:30), <anonymous>:19:33)
+        at UtilityScript.evaluate (<anonymous>:313:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at eval (eval at evaluate (:311:30), <anonymous>:19:33)
+        at UtilityScript.evaluate (<anonymous>:313:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/native-nesting.spec.ts:9:26
+
+    Error Context: docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/traces/native-nesting-native-ador-d10dd-ndered-size-value-and-focus-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/traces/native-nesting-native-ador-d10dd-ndered-size-value-and-focus-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/traces/native-nesting-native-ador-d10dd-ndered-size-value-and-focus-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [firefox] › packages/ui/tests/browser/native-nesting.spec.ts:3:1 › native adornment nesting and flat fallback preserve rendered size, value and focus 
+
+    Error: locator.evaluate: Expected compiled flat fallback and native nested adornment rule
+    @debugger eval code line 311 > eval:19:33
+    evaluate@debugger eval code:313:16
+    @debugger eval code:1:44
+    @debugger eval code:1:62
+
+        at @debugger eval code line 311 > eval:19:33
+        at evaluate@debugger eval code:313:16
+        at @debugger eval code:1:44
+        at @debugger eval code:1:62
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/native-nesting.spec.ts:9:26
+
+    Error Context: docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/traces/native-nesting-native-ador-d10dd-ndered-size-value-and-focus-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/traces/native-nesting-native-ador-d10dd-ndered-size-value-and-focus-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/traces/native-nesting-native-ador-d10dd-ndered-size-value-and-focus-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [webkit] › packages/ui/tests/browser/native-nesting.spec.ts:3:1 › native adornment nesting and flat fallback preserve rendered size, value and focus 
+
+    Error: locator.evaluate: Error: Expected compiled flat fallback and native nested adornment rule
+
+       7 |  const input=page.getByRole('textbox',{name:'Decorated note',exact:true});
+       8 |  await input.fill('Native nesting note');await input.focus();
+    >  9 |  const proof=await input.evaluate(async element=>{
+         |                          ^
+      10 |   const field=element.closest('[data-sgui-part="field"]')!;
+      11 |   const wrapper=field.querySelector<HTMLElement>('[data-sgui-part="field-start-icon"]')!;
+      12 |   const svg=wrapper.querySelector('svg')!;
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/native-nesting.spec.ts:9:26
+
+    Error Context: docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/traces/native-nesting-native-ador-d10dd-ndered-size-value-and-focus-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/traces/native-nesting-native-ador-d10dd-ndered-size-value-and-focus-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace docs/developer/final-acceptance/wave-04/02/native-nesting/native-01/traces/native-nesting-native-ador-d10dd-ndered-size-value-and-focus-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [chromium] › packages/ui/tests/browser/native-nesting.spec.ts:3:1 › native adornment nesting and flat fallback preserve rendered size, value and focus 
+    [firefox] › packages/ui/tests/browser/native-nesting.spec.ts:3:1 › native adornment nesting and flat fallback preserve rendered size, value and focus 
+    [webkit] › packages/ui/tests/browser/native-nesting.spec.ts:3:1 › native adornment nesting and flat fallback preserve rendered size, value and focus 

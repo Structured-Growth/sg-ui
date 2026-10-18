@@ -77,6 +77,17 @@ export function validateComponentCss(code, { path = '<component.css>', variables
     const layer = ancestor(rule, node => node.type === 'atrule' && node.name === 'layer');
     if (layer?.params !== 'sgui.components') fail(rule, 'Unlayered component rule');
     if (ancestor(rule, node => node.type === 'atrule' && /^(?:-webkit-)?keyframes$/i.test(node.name))) return;
+    const parents = [];
+    for (let parent = rule.parent; parent; parent = parent.parent) if (parent.type === 'rule') parents.push(parent);
+    if (parents.length) {
+      if (parents.length > 1) fail(rule, 'Native nesting exceeds one component-owned level');
+      if (postcss.list.comma(parents[0].selector.replace(/\/\*[\s\S]*?\*\//g, '')).length !== 1) fail(rule, 'Native nesting requires a single parent selector');
+      for (const selector of postcss.list.comma(rule.selector.replace(/\/\*[\s\S]*?\*\//g, ''))) {
+        const visible = withoutQuotedData(selector).trim();
+        if (!/^&(?=$|[\s.:[>#~+])/.test(visible) || (visible.match(/&/g) ?? []).length !== 1)
+          fail(rule, 'Native nesting requires one explicit leading &');
+      }
+    }
     for (const selector of postcss.list.comma(rule.selector.replace(/\/\*[\s\S]*?\*\//g, ''))) {
       if (/\.Mui[A-Z][\w-]*|\.(?:css|jss)-[\w-]+|\[\s*data-emotion(?=[\s~|^$*=\]])/.test(withoutQuotedData(selector))) fail(rule, `Retired foundation selector: ${selector}`);
       // Preserve and extend the original host-selector prohibition, including

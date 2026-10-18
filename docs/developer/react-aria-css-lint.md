@@ -85,14 +85,21 @@ Positive and negative PostCSS fixtures cover its exact boundaries.
 
 This is a bounded PostCSS rule/declaration guard with a conservative selector
 scanner, not a complete selector/value grammar or CSS semantic evaluator. Unusual
-escaped names, complex local functions and nesting can require future fixtures.
+escaped names and complex local functions can require additional fixtures.
+Native nesting has focused fixtures: one explicit leading `&`, one component-owned
+style-rule level and a single parent selector. Nested media/support conditions
+retain that level; deep nesting, grouped-parent specificity changes and Sass-style
+suffix concatenation fail. The compiler retains native syntax, so the shipped
+TextField representative also preserves its flat baseline. See
+[tooling and browser boundaries](react-aria-css-composition.md#enhancement-and-tooling-boundaries).
 An anchor is a module ownership check, not proof that every selected descendant
 belongs to the library; sibling combinators and host-inserted children still need
 review. Token existence does not prove the token has the correct typography role,
 and custom properties can hide literal values. Inline React styles, non-module CSS,
 emitted artifacts, specificity, visual output, browser support and accessibility
-are outside this validator. No native cases are needed or prepared for this
-build-time guard. Source exceptions need narrow explicit review, not blanket skips.
+are outside this validator. Inert fixtures test the guard; the native-nesting
+component case separately checks actual rendered syntax/fallback parity. Source
+exceptions need narrow explicit review, not blanket skips.
 
 [Batch 169 evidence](parallel-batch-169/css-lint-guards.md) records the prerequisite’s
 three source-red findings under its unconditional literal policy.

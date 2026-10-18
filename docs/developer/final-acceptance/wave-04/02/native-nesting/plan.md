@@ -1,0 +1,18 @@
+# C-11 bounded implementation and validation plan
+
+Current status: **isolated proposal ready; no shared source/build mutation**.
+D15's frozen host/output is reserved until the coordinator releases that lane.
+This is scheduling, not a request for a new human approval or browser-floor promise.
+
+1. Apply only the proposed TextField.module.css addition after lane release. Keep `.adornment > svg` unchanged as baseline and add `.adornment { & > svg { … } }` with identical inline/block-size declarations. Single parent class, explicit `&`, child element and specificity remain(0,1,1). No grouped parent, changed token, public API, typography, density or global selector. No whole-library rewrite or baseline snapshot update.
+2. Apply the proposed check-component-css guard and its two focused tests. Enforce at most one style-rule parent, a single parent selector and one leading explicit `&`; nested media/support conditions do not add a style-rule level. Preserve every current rule/token/layer/typography/global-selector assertion. The current guard demonstrably accepts two native levels; the proposed guard rejects them.
+3. Add the proposed compiler fixture to css-modules.test.mjs. It uses the real PostCSS Modules/scopedName pipeline, scopes both classes, retains native `&`, and proves the flat/nested baseline declarations match. No nesting transform or polyfill is introduced. Existing test files stay registered through test:foundations.
+4. Run affected CSS compiler/guard fixtures plus foundation checks under canonical light ownership. No UI unit-test expansion is needed for an equivalent selector. Current isolated15tests already pass, including all10 current guard assertions unchanged, new ownership negatives, actual proposed component compile/fallback equality and all existing module compatibility.
+5. After the D15 lane is released, request one coordinated fresh library/native-host build and immutable admission. No fixture source addition is necessary: existing migration-proofs-popover--css-contract renders a production-scope decorated TextField with an actual SVG. Reuse that host route and existing functional assertions.
+6. Run one focused case per current Chromium/Firefox/WebKit engine(three executions), recording actual versions/source/style/build hashes. Assert compiled stylesheet CSSOM contains the hashed parent/native `& > svg` child and the matching flat fallback; adorned SVG fits its wrapper and input remains named, editable and focused through the probe. With flat declarations temporarily removed in the test's page CSSOM, native100% still renders full size; temporarily changing native inline-size to50% must halve it, proving actual native rule application. Restore native declarations, remove them temporarily and verify the flat baseline still renders full size; restore all page-only mutations. Keep viewport/resize fit and input value/focus. No server asset edits, synthetic parser support claim, physical Safari claim or screenshot baseline update.
+7. Update maintained CSS composition/tooling guidance with the actual representative, shallow guard, vendor syntax references, fallback boundary and recorded current-engine result. Replace the stale requirement for a new oldest-browser approval with the precise fallback-preserving scope. Historical deferred proposals/results remain unchanged. Recommend C-11 only after the shipped rule, guard and current native assertions actually pass.
+
+Source/browser support rationale is in browser-support.md. Isolated output and
+compiler tests establish tooling facts only; C-11 is not closed yet and no native
+run/build was performed in this preparation. Production/browser fixtures and
+existing D15 assertions are preserved. Proposed files exist only under this packet.
