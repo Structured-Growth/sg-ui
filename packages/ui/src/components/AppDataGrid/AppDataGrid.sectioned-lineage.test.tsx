@@ -33,7 +33,9 @@ it('private server successor debounces new search text and accepts host-side sor
  expect(screen.getByRole('grid',{name:'Server courses'}).querySelector('tbody tr[data-grid-row]')?.getAttribute('data-grid-row')).toBe('course-29');
  await user.clear(screen.getByRole('searchbox',{name:'Search'}));await user.type(screen.getByRole('searchbox',{name:'Search'}),'course-3@example.test');
  await screen.findByText('Course 3');expect(screen.queryByText('Course 29')).toBeNull();
-});
+// Real debounce/request delays and per-key events can exceed five seconds on CI;
+// the 200ms pre-commit assertion above still enforces the debounce contract.
+},15000);
 it('sectioned selection survives collapse and accepted activity-only order while module sources stay disabled',async()=>{
  const user=userEvent.setup();render(<Provider><SectionedRows utilities/></Provider>);
  expect((screen.getByRole('checkbox',{name:'Select Lift and drag'}) as HTMLInputElement).checked).toBe(true);
