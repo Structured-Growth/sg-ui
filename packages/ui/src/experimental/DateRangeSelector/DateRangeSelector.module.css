@@ -13,6 +13,7 @@
   .layout:is([data-preset-placement="side"], [data-preset-placement="end"]) > .calendarBody { flex: 1 1 var(--calendar-body-width); max-inline-size: 100%; }
   .calendar { display: flex; flex-direction: column; gap: var(--sgui-space2); }
   .actions, .presets { display: flex; align-items: center; gap: var(--sgui-space2); flex-wrap: wrap; }
+  .adjustment { display: flex; flex-direction: column; gap: var(--sgui-space2); margin-block: var(--sgui-space2); }
   .periodViewport { position: relative; }
   .periodContents { position: absolute; inset: 0; overflow: auto; overscroll-behavior: contain; }
   .monthHeader { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; min-block-size: var(--calendar-day-size); gap: var(--sgui-space1); }
@@ -53,6 +54,11 @@
   .cell { position:relative; display: flex; align-items: center; justify-content: center; box-sizing: border-box; text-align: center; border-radius: var(--sgui-field-control-radius); min-inline-size: var(--calendar-day-size); block-size: var(--calendar-day-size); cursor: pointer; }
   .cell[data-outside-month] { visibility: hidden; }
   .cell[data-selected] { color: var(--sgui-date-range-selector-selected-text); background: var(--sgui-date-range-selector-selected-surface); }
+  /* Persistent selected-date geometry stays separate from keyboard focus. */
+  .grid:not(.rangeGrid) .cell[data-selected]::after {
+    content: ""; position: absolute; inset: 3px; border: 1px solid currentColor;
+    border-radius: inherit; pointer-events: none;
+  }
   /* Only ranges join across columns; independent Calendar dates keep their boxes. */
   .rangeGrid { border-spacing: 0 var(--sgui-space1); min-inline-size: calc(7 * var(--calendar-day-size)); }
   .rangeGrid .cell[data-selected] { border-radius: 0; }

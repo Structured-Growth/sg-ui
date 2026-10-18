@@ -1,0 +1,19 @@
+{
+  "executable": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+  "args": [
+    "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+    "test",
+    "--config",
+    "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/state.config.cjs"
+  ],
+  "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+  "env": {
+    "SGUI_X08_RUN": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/editor-native-03",
+    "PWTEST_CACHE_DIR": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/x08-implementation/editor-native-03/d15-transform-cache"
+  },
+  "expectedCases": 6,
+  "workers": 1,
+  "retries": 0,
+  "host": "http://127.0.0.1:6173",
+  "rebuild": false
+}

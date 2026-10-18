@@ -5,7 +5,7 @@ import { List, ListItem } from "@structured-growth/sg-ui/experimental";
 import { Disclosure } from "@structured-growth/sg-ui/experimental";
 import { Provider } from "@structured-growth/sg-ui/theme";
 import { SGNavigationProvider } from "@structured-growth/sg-ui/adapters";
-const meta = { title: "Migration proofs/Navigation", component: Navigation, tags: ["autodocs"], decorators: [(Story) => <Provider><Story /></Provider>], args: { label: "Main navigation" } } satisfies Meta<typeof Navigation>;
+const meta = { title: "Migration proofs/Navigation", component: Navigation, tags: ["autodocs"], decorators: [(Story, {globals}) => <Provider dir={globals.direction === 'auto' ? undefined : globals.direction}><Story /></Provider>], args: { label: "Main navigation" } } satisfies Meta<typeof Navigation>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 function Example() {

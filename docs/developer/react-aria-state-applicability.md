@@ -13,6 +13,8 @@ host-owned interactive content. The catalogued API snapshot, complete per-state
 rationale and exact source/test paths are preserved in the wave-03-08
 [state-matrix.json](final-acceptance/wave-03-08/state-matrix.json); test references are existing case locations, not new passes.
 
+Current source correction (2026-10-17): Progress, CircularProgress, LinearProgress and AppInlineProgress are passive progress indicators. They have no owned hover/focus/press contract; their loading/value semantics remain. The historical machine matrix is preserved as dated evidence and does not override these current rows. The current API name join adds HierarchicalMenu, FormFieldScope, MonthPicker and YearPicker below; every one of the 218 catalogued public names is represented, including the historical per-icon rows. This is an inventory join, not a new runtime pass for all rows.
+
 ## Required indicators
 
 | State | Design and non-color requirement |
@@ -69,9 +71,9 @@ examples; source owners and exact reference tests are in the machine matrix.
 | [Collapse](/docs/components/collapse) | — | — | — | — | — | — | — | — | — | — | — |
 | [Chip](/docs/components/chip) | — | — | — | — | — | — | — | — | — | — | — |
 | [Badge](/docs/components/badge) | — | — | — | — | — | — | — | — | — | — | — |
-| [Progress](/docs/components/progress) | A | A | A | — | — | — | — | — | — | A | — |
-| [CircularProgress](/docs/components/progress) | A | A | A | — | — | — | — | — | — | A | — |
-| [LinearProgress](/docs/components/progress) | A | A | A | — | — | — | — | — | — | A | — |
+| [Progress](/docs/components/progress) | — | — | — | — | — | — | — | — | — | A | — |
+| [CircularProgress](/docs/components/progress) | — | — | — | — | — | — | — | — | — | A | — |
+| [LinearProgress](/docs/components/progress) | — | — | — | — | — | — | — | — | — | A | — |
 | [Status](/docs/components/status) | — | — | — | — | — | — | — | H | H | H | H |
 | [Avatar](/docs/components/avatar) | A | A | A | — | — | — | — | — | A | — | A |
 | [Table](/docs/components/table) | — | — | — | — | — | — | — | — | — | — | — |
@@ -86,6 +88,10 @@ examples; source owners and exact reference tests are in the machine matrix.
 | [Provider](/docs/components/provider) | — | — | — | — | — | — | — | — | — | — | — |
 | [AppThemeProvider](/docs/components/provider) | — | — | — | — | — | — | — | — | — | — | — |
 | [ThemeScope](/docs/components/theme-scope) | — | — | — | — | — | — | — | — | — | — | — |
+| [FormFieldScope](/docs/components/form-field-scope) | — | — | — | — | — | — | — | — | — | — | — |
+| [MonthPicker](/docs/components/month-picker) | C | C | C | A | C | C | — | — | — | — | — |
+| [YearPicker](/docs/components/year-picker) | C | C | C | A | C | C | C | — | — | — | C |
+| [HierarchicalMenu](/docs/components/hierarchical-menu) | C | C | C | C | C | — | — | — | — | — | — |
 | [PeriodPicker](/docs/components/period-picker) | A | A | A | A | A | A | — | — | — | — | — |
 | [DateTimeRangePicker](/docs/components/date-time-range-picker) | A | A | A | A | A | A | — | — | — | — | — |
 | [DateRangeComparisonPicker](/docs/components/date-range-comparison-picker) | A | A | A | A | A | A | — | — | — | — | — |
@@ -135,7 +141,7 @@ examples; source owners and exact reference tests are in the machine matrix.
 | [SGLink](/docs/components/sg-link) | A | A | A | — | — | — | — | — | — | — | — |
 | [SGAccountProvider](/docs/components/account-provider) | — | — | — | — | — | — | — | — | — | — | — |
 | [SGTranslationProvider](/docs/components/translation-provider) | — | — | — | — | — | — | — | — | — | — | — |
-| [AppInlineProgress](/docs/components/inline-progress) | A | A | A | — | — | — | — | — | — | A | — |
+| [AppInlineProgress](/docs/components/inline-progress) | — | — | — | — | — | — | — | — | — | A | — |
 | [AppOperationSteps](/docs/components/operation-steps) | A | A | A | — | — | — | — | A | — | A | A |
 | [AppPaginationFooter](/docs/components/pagination-footer) | A | A | A | — | A | — | — | — | — | — | — |
 | [ClassCardFrame](/docs/components/card-frame) | — | — | — | — | — | — | — | — | — | — | — |
@@ -171,7 +177,7 @@ examples; source owners and exact reference tests are in the machine matrix.
   Select/ComboBox preserve selected text in the field, separate from popup focus.
 - Tabs/AppPageTabs expose a selected panel and current tab semantics. Date range
   presets use selected weight; endpoints have range shape and draft/value text.
-  Calendar selection additionally needs the visual check identified below.
+  Calendar selection has a separate inset outline, verified in the bounded native check below.
 - TextField/TextArea attach descriptions/errors and invalid state to native fields.
   The integrated BUG-0009 TextArea puts decorated focus on the outer boundary.
   `coordinator-fixes/evidence.json` records 31 affected unit cases and four native
@@ -194,16 +200,30 @@ examples; source owners and exact reference tests are in the machine matrix.
 ## Explicit remaining visual successors
 
 A-D-15 remains open. The matrix establishes applicability and preserves existing
-assertions; it does not certify every native state combination. In particular,
-`ToggleButton.module.css` selected styling, `List.module.css` selected action and
-`Navigation.module.css` current-item styling use background/text/border colors
-without a standard-mode structural indicator. Their aria-pressed/aria-current
-semantics are useful but do not close the visible non-color requirement. Add a
-consistent token-backed structural selected/current indicator without conflating
-it with the outer keyboard focus ring, preserve layout/accessible names, then
-validate each affected owner and its compound children. Calendar single-day
-selection also needs a reviewed non-color standard-mode indicator; range end
-shape and forced-color-specific outlines cannot prove the single-day case.
+assertions; it does not certify every native state combination. ToggleButton now
+has a double selected border with compensated padding. Navigation/List selected
+start borders and Calendar's inset selected-date outline now pass six focused
+Chromium cases across light/compact/LTR and dark/comfortable/RTL, each with normal
+and actual forced colors. Selection persists separately from keyboard focus and
+retains its dimensions. The [bounded receipt](final-acceptance/wave-04/coordinator/state-indicator-fixes/receipt.json)
+preserves initial locator failures, the corrected direction fixtures and reviewed
+images. This does not certify the complete state matrix.
+
+The new public-part review also identifies two remaining structural-indicator
+checks: HierarchicalMenu's current page has a selected background, while
+MonthPicker/YearPicker express a selected value through filled Button styling.
+Their current ARIA semantics do not establish a standard-mode non-color visual
+indicator. These need a bounded implementation and native review after the current
+frozen build, without changing focus-ring ownership.
+
+FormFieldScope creates no DOM or action state; it supplies inherited description
+and error placement. MonthPicker/YearPicker compose Button availability and focus;
+read-only prevents choice activation. YearPicker's text-entry mode additionally
+composes TextField validation on Enter or blur. HierarchicalMenu composes native
+links/buttons or command items, exposes host-provided current-item and disabled
+state, and owns drilldown focus rather than an editable value. These rows are
+source-backed applicability only. References: the respective experimental source
+directories and colocated tests; no new broad state matrix was executed.
 
 The neutral filled Button keyboard-press background is separately corrected by
 the scoped CSS patch and prepared native regression. A patch that has not been

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { List, ListItem, ListItemButton, ListItemText, ListItemIcon } from "@structured-growth/sg-ui/experimental";
 import { Provider } from "@structured-growth/sg-ui/theme";
 import { Button } from "@structured-growth/sg-ui/experimental";
-const meta = { title: "Migration proofs/List", component: List, tags: ["autodocs"], decorators: [(Story) => <Provider><Story /></Provider>] } satisfies Meta<typeof List>;
+const meta = { title: "Migration proofs/List", component: List, tags: ["autodocs"], decorators: [(Story, {globals}) => <Provider dir={globals.direction === 'auto' ? undefined : globals.direction}><Story /></Provider>] } satisfies Meta<typeof List>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 function Selection() {

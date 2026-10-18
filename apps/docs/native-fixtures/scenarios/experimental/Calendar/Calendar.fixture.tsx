@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "../../../types";
 import { Calendar } from "@structured-growth/sg-ui/experimental";
 import { Provider } from "@structured-growth/sg-ui/theme";
 const meta = { title: "Migration proofs/Calendar", component: Calendar, tags: ["autodocs"],
-  decorators: [(Story) => <Provider><div style={{ maxWidth: "48rem" }}><Story /></div></Provider>], args: { label: "Course date", defaultFocusedDate: "2024-02-01" },
+  decorators: [(Story, {globals}) => <Provider dir={globals.direction === 'auto' ? undefined : globals.direction}><div style={{ maxWidth: "48rem" }}><Story /></div></Provider>], args: { label: "Course date", defaultFocusedDate: "2024-02-01" },
 } satisfies Meta<typeof Calendar>;
 export default meta;
 // native fixture host intersects discriminated prop unions when inferring args; the component retains its owned union.
