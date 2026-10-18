@@ -1,0 +1,18 @@
+{
+  "owner": "d15-current-state-retry:18556",
+  "pid": 18556,
+  "claims": [
+    {
+      "path": "/tmp/sgui-parallel-batch-01-validation.lock",
+      "owner": "d15-current-state-retry:18556"
+    },
+    {
+      "path": "/var/folders/vp/bckxx0097z9gb5q8_d1chsvh0000gn/T/sgui-heavyweight-build.lock",
+      "owner": "d15-current-state-retry:18556"
+    },
+    {
+      "path": "/var/folders/vp/bckxx0097z9gb5q8_d1chsvh0000gn/T/sgui-browser-validation-pool-v1/ports/6173",
+      "owner": "d15-current-state-retry:18556"
+    }
+  ]
+}

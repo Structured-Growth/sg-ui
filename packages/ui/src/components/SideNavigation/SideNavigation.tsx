@@ -719,7 +719,7 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
   </section>);
   return <nav ref={ref} className={[styles.root, className].filter(Boolean).join(" ")} style={style} aria-label={ariaLabel ?? tr("landmark", "Main navigation")} data-collapsed={collapsed || undefined} data-sgui-part="side-navigation">
     {!collapsed && <>
-      <Menu label={tr("user.menu", "Account and organization")} density="compact" errorMessage={accountError ?? undefined} open={isUserMenuOpen} onOpenChange={open => { if (open || !accountOperation.current) setIsUserMenuOpen(open); }} items={accountItems} onAction={id => menuActions.get(id)?.()} trigger={<Button variant="text" tone="neutral" className={styles.userTrigger}>
+      <Menu label={tr("user.menu", "Account and organization")} density="compact" errorMessage={accountError ?? undefined} open={isUserMenuOpen} onOpenChange={open => { if (open || !accountOperation.current) setIsUserMenuOpen(open); }} items={accountItems} onAction={id => menuActions.get(id)?.()} trigger={<Button variant="text" tone="neutral" className={styles.userTrigger} loading={isSwitchingOrganization||isLoggingOut}>
         <Avatar alt="" fallback={displayUserInitials} /><span className={styles.identity}><span>{displayUserName}</span><span className={styles.organization}>{activeOrganization?.name}</span></span><ExpandMoreIcon />
       </Button>} />
       {accountError && !isUserMenuOpen && <p role="alert" className={styles.error}>{accountError}</p>}

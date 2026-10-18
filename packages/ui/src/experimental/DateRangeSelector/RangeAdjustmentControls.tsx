@@ -32,7 +32,7 @@ export function RangeAdjustmentControls({value,behavior,length,disabled,isAllowe
     <Button variant="outlined" tone="neutral" aria-expanded={Boolean(selected)} onPress={()=>onOperationChange(selected?null:enabled[0].id)}>{title}</Button>
     {selected&&<>
       <div className={styles.actions} role="group" aria-label={title}>
-        {enabled.map(item=><Button key={item.id} variant={item===selected?'filled':'outlined'} tone="neutral" aria-pressed={item===selected} onPress={()=>onOperationChange(item.id)}>{item.label}</Button>)}
+        {enabled.map(item=><Button key={item.id} className={styles.rangeChoice} variant={item===selected?'filled':'outlined'} tone="neutral" aria-pressed={item===selected} onPress={()=>onOperationChange(item.id)}>{item.label}</Button>)}
       </div>
       <p>{t('common.ui.rangeAdjustmentTarget',{defaultMessage:'Choose a day in this calendar as the target for the selected adjustment. Toggle Adjust dates to return to ordinary selection.'})}</p>
       <div className={styles.actions}>

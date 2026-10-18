@@ -1,0 +1,21 @@
+{
+  "reviewer": "root",
+  "date": "2026-10-17 America/Chicago",
+  "decision": "Accept D15 bounded source/state-design fixes after real forced-colors paint correction",
+  "sourceNames": 218,
+  "stateCells": 2398,
+  "reviewedImages": 34,
+  "observations": [
+    "All34effective passing images reviewed in three contact sheets; full original and corrected light/dark forced toggle images independently inspected.",
+    "Old computed-style pass had invisible selected label; retained root visual finding correctly blocked integration.",
+    "Corrected ButtonText/ButtonFace palette keeps automatic adjustment, visible black glyphs and double selected marker separate from peer focus.",
+    "Original text crops fail1:1/noink; final actual text paint passes21:1 with foreground/background pixels.",
+    "Other owners preserve independent current/selected/mixed/focus structure, pending indicator and box allocation in measured contexts."
+  ],
+  "evidence": [
+    "native-review.json",
+    "paint-regression.json",
+    "native-05/results.json"
+  ],
+  "limits": "Source/design criterion plus15boundedChromiumcases; no all-library runtime, all-engine/AT/target matrix or broad baseline update."
+}

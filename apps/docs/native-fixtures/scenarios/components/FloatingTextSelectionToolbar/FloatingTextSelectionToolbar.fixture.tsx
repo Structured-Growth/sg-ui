@@ -1,3 +1,4 @@
+import {StateIndicatorHost} from "../../../state-indicator-host";
 import { useRef, useState } from "react";
 import type { Meta, StoryObj } from "../../../types";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
@@ -58,3 +59,5 @@ export const NestedHostBoundary: Story = {
   parameters: { docs: { description: { story: "Select the first line and focus Bold with Alt+F10, then scroll the inner host until the selection is offscreen. Actions dismiss and focus returns to the editor while both host scroll positions and the selected text are preserved, including in WebKit." } } },
   render: () => <NestedBoundaryExample />,
 };
+
+export const CurrentFormattingStates:Story={render:(_args,{globals})=><StateIndicatorHost globals={globals}><Example dark={globals.theme==='dark'}/></StateIndicatorHost>};

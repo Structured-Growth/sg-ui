@@ -13,6 +13,7 @@
   .layout:is([data-preset-placement="side"], [data-preset-placement="end"]) > .calendarBody { flex: 1 1 var(--calendar-body-width); max-inline-size: 100%; }
   .calendar { display: flex; flex-direction: column; gap: var(--sgui-space2); }
   .actions, .presets { display: flex; align-items: center; gap: var(--sgui-space2); flex-wrap: wrap; }
+  .rangeChoice { composes: choice from "../PeriodPicker/PeriodPicker.module.css"; }
   .adjustment { display: flex; flex-direction: column; gap: var(--sgui-space2); margin-block: var(--sgui-space2); }
   .periodViewport { position: relative; }
   .periodContents { position: absolute; inset: 0; overflow: auto; overscroll-behavior: contain; }

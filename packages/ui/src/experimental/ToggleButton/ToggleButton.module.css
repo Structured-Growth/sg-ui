@@ -28,7 +28,7 @@
   .group[data-button-width="equal"] .button { overflow-wrap: anywhere; }
   .icon { display: inline-flex; }
   @media (forced-colors: active) {
-    .button[data-selected] { color: HighlightText; background-color: Highlight; border-color: Highlight; forced-color-adjust: none; }
+    .button[data-selected], .button[data-selected][data-hovered] { color: ButtonText; background-color: ButtonFace; border-color: Highlight; }
     .button[data-disabled] { color: GrayText; opacity: 1; }
     .button[data-focus-visible] { outline-color: Highlight; }
   }

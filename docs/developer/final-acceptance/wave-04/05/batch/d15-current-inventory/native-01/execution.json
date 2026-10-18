@@ -1,0 +1,6 @@
+{
+  "failure": "Error: native-browser failed",
+  "stable": true,
+  "expectedCases": 15,
+  "completedAt": "2026-10-18T01:58:35.368Z"
+}

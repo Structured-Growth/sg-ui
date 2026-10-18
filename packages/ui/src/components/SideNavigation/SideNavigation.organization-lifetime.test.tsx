@@ -77,7 +77,9 @@ it("keeps current-owner failure retryable and prevents concurrent switch/logout 
   const target = screen.getByRole("menuitem", { name: "Other (b@example.com)" });
   await user.click(target); await user.click(target); await user.click(screen.getByRole("menuitem", { name: "Logout (a@example.com)" }));
   expect(change).toHaveBeenCalledTimes(1); expect(host.logoutAccount).not.toHaveBeenCalled();
+  expect(screen.getByRole("progressbar",{hidden:true}).getAttribute("aria-label")).toBe("Pending");
   await act(async () => pending.reject(new Error("current")));
+  expect(screen.queryByRole("progressbar",{hidden:true})).toBeNull();
   expect(screen.getByRole("alert").textContent).toContain("Unable to switch");
   await user.click(target); await waitFor(() => expect(screen.queryByRole("menu")).toBeNull());
   expect(change).toHaveBeenCalledTimes(2); expect(host.markOrganizationSwitched).toHaveBeenCalledTimes(1);

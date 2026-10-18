@@ -1,0 +1,17 @@
+Listing tests:
+  [chromium] › current-state-design.spec.ts:51:2 › side owned selected/pending design (none)
+  [chromium] › current-state-design.spec.ts:51:2 › document owned selected/pending design (none)
+  [chromium] › current-state-design.spec.ts:51:2 › rich owned selected/pending design (none)
+  [chromium] › current-state-design.spec.ts:51:2 › floating owned selected/pending design (none)
+  [chromium] › current-state-design.spec.ts:51:2 › color owned selected/pending design (none)
+  [chromium] › current-state-design.spec.ts:51:2 › quarter owned selected/pending design (none)
+  [chromium] › current-state-design.spec.ts:51:2 › range owned selected/pending design (none)
+  [chromium] › current-state-design.spec.ts:51:2 › side owned selected/pending design (active)
+  [chromium] › current-state-design.spec.ts:51:2 › document owned selected/pending design (active)
+  [chromium] › current-state-design.spec.ts:51:2 › rich owned selected/pending design (active)
+  [chromium] › current-state-design.spec.ts:51:2 › floating owned selected/pending design (active)
+  [chromium] › current-state-design.spec.ts:51:2 › color owned selected/pending design (active)
+  [chromium] › current-state-design.spec.ts:51:2 › quarter owned selected/pending design (active)
+  [chromium] › current-state-design.spec.ts:51:2 › range owned selected/pending design (active)
+  [chromium] › current-state-design.spec.ts:105:1 › toggle selected hover retains system colors and geometry (active)
+Total: 15 tests in 1 file

@@ -9,9 +9,10 @@ A = applicable owned state; C = composed child/item state; H = host-driven messa
 or operation state; — = no owned contract (N/A). N/A means no supported state on
 that part: do not invent props. Layout, typography, scopes, pure helpers and
 standalone decorative SVGs have no built-in action state. They may contain
-host-owned interactive content. The catalogued API snapshot, complete per-state
-rationale and exact source/test paths are preserved in the wave-03-08
-[state-matrix.json](final-acceptance/wave-03-08/state-matrix.json); test references are existing case locations, not new passes.
+host-owned interactive content. The current API join, per-state rationale and exact source hashes are in the
+[current state matrix](react-aria-state-matrix.json). The wave-03-08
+[historical matrix](final-acceptance/wave-03-08/state-matrix.json) remains dated evidence;
+reference test paths identify cases, not fresh runtime passes.
 
 Current source correction (2026-10-17): Progress, CircularProgress, LinearProgress and AppInlineProgress are passive progress indicators. They have no owned hover/focus/press contract; their loading/value semantics remain. The historical machine matrix is preserved as dated evidence and does not override these current rows. The current API name join adds HierarchicalMenu, FormFieldScope, MonthPicker and YearPicker below; every one of the 218 catalogued public names is represented, including the historical per-icon rows. This is an inventory join, not a new runtime pass for all rows.
 
@@ -46,8 +47,9 @@ examples; source owners and exact reference tests are in the machine matrix.
 
 | Public part | Hov | Foc | Press | Sel | Dis | RO | Inv | Pend | Empty | Load | Error |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [AppModal](/docs/components/dialog) | C | C | C | — | — | — | — | — | — | — | — |
-| [All named SVG icon exports (individual rows in JSON)](/docs/components/icons) | — | — | — | — | — | — | — | — | — | — | — |
+| [AppModal](/docs/components/dialog) | C | C | C | — | C | — | — | C | — | — | — |
+| [HierarchicalMenu](/docs/components/hierarchical-menu) | C | C | C | C | C | — | — | — | — | — | — |
+| [All named SVG icon exports (individual rows in current JSON)](/docs/components/icons) | — | — | — | — | — | — | — | — | — | — | — |
 | [getActivityTypeIcon](/docs/components/icons) | — | — | — | — | — | — | — | — | — | — | — |
 | [Button](/docs/components/button) | A | A | A | — | A | — | — | A | — | — | — |
 | [Dialog](/docs/components/owned-dialog) | C | C | C | — | — | — | — | — | — | — | — |
@@ -65,15 +67,15 @@ examples; source owners and exact reference tests are in the machine matrix.
 | [Menu](/docs/components/menu) | C | A | C | A | C | — | — | — | — | — | H |
 | [SplitAction](/docs/components/split-action) | A | A | A | — | A | — | — | A | — | — | — |
 | [Link](/docs/components/link) | A | A | A | — | — | — | — | — | — | — | — |
-| [Breadcrumbs](/docs/components/breadcrumbs) | — | — | — | — | — | — | — | — | — | — | — |
+| [Breadcrumbs](/docs/components/breadcrumbs) | C | C | C | A | — | — | — | — | — | — | — |
 | [Tooltip](/docs/components/tooltip) | C | C | — | — | A | — | — | — | — | — | — |
 | [List](/docs/components/list) | — | — | — | — | — | — | — | — | — | — | — |
 | [ListItem](/docs/components/list) | — | — | — | — | — | — | — | — | — | — | — |
 | [ListItemButton](/docs/components/list) | A | A | A | A | A | — | — | A | — | — | — |
 | [ListItemText](/docs/components/list) | — | — | — | — | — | — | — | — | — | — | — |
 | [ListItemIcon](/docs/components/list) | — | — | — | — | — | — | — | — | — | — | — |
-| [Navigation](/docs/components/navigation) | — | — | — | — | C | — | — | — | — | — | — |
-| [NavigationItem](/docs/components/navigation) | A | A | A | A | C | — | — | — | — | — | — |
+| [Navigation](/docs/components/navigation) | — | — | — | — | — | — | — | — | — | — | — |
+| [NavigationItem](/docs/components/navigation) | A | A | A | A | — | — | — | — | — | — | — |
 | [Disclosure](/docs/components/disclosure) | A | A | A | — | A | — | — | — | — | — | — |
 | [Collapse](/docs/components/collapse) | — | — | — | — | — | — | — | — | — | — | — |
 | [Chip](/docs/components/chip) | — | — | — | — | — | — | — | — | — | — | — |
@@ -91,17 +93,16 @@ examples; source owners and exact reference tests are in the machine matrix.
 | [TableRow](/docs/components/table) | — | — | — | — | — | — | — | — | — | — | — |
 | [TableCell](/docs/components/table) | — | — | — | — | — | — | — | — | — | — | — |
 | [TableHeaderCell](/docs/components/table) | — | — | — | — | — | — | — | — | — | — | — |
-| [Pagination](/docs/components/pagination) | C | A | C | — | A | — | — | — | — | — | — |
+| [Pagination](/docs/components/pagination) | C | A | C | — | A | — | — | — | A | — | — |
 | [Provider](/docs/components/provider) | — | — | — | — | — | — | — | — | — | — | — |
 | [AppThemeProvider](/docs/components/provider) | — | — | — | — | — | — | — | — | — | — | — |
 | [ThemeScope](/docs/components/theme-scope) | — | — | — | — | — | — | — | — | — | — | — |
 | [FormFieldScope](/docs/components/form-field-scope) | — | — | — | — | — | — | — | — | — | — | — |
 | [MonthPicker](/docs/components/month-picker) | C | C | C | A | C | C | — | — | — | — | — |
 | [YearPicker](/docs/components/year-picker) | C | C | C | A | C | C | C | — | — | — | C |
-| [HierarchicalMenu](/docs/components/hierarchical-menu) | C | C | C | C | C | — | — | — | — | — | — |
-| [PeriodPicker](/docs/components/period-picker) | A | A | A | A | A | A | — | — | — | — | — |
-| [DateTimeRangePicker](/docs/components/date-time-range-picker) | A | A | A | A | A | A | — | — | — | — | — |
-| [DateRangeComparisonPicker](/docs/components/date-range-comparison-picker) | A | A | A | A | A | A | — | — | — | — | — |
+| [PeriodPicker](/docs/components/period-picker) | A | A | A | A | A | A | C | — | — | — | C |
+| [DateTimeRangePicker](/docs/components/date-time-range-picker) | A | A | A | A | A | A | C | — | — | — | C |
+| [DateRangeComparisonPicker](/docs/components/date-range-comparison-picker) | A | A | A | A | A | A | C | — | — | — | C |
 | [SearchField](/docs/components/search-field) | A | A | A | — | A | A | — | — | A | A | H |
 | [TextField](/docs/components/text-field) | — | A | — | — | A | A | A | — | — | — | A |
 | [TextArea](/docs/components/text-area) | — | A | — | — | A | A | A | — | — | — | A |
@@ -120,51 +121,51 @@ examples; source owners and exact reference tests are in the machine matrix.
 | [Calendar](/docs/components/calendar) | A | A | A | A | A | A | — | — | — | — | — |
 | [DatePicker](/docs/components/date-picker) | A | A | A | A | A | A | A | — | — | — | A |
 | [DateRangePicker](/docs/components/date-range-picker) | A | A | A | A | A | A | A | — | — | — | A |
-| [DateRangeSelector](/docs/components/date-range-selector) | A | A | A | A | A | A | — | — | — | — | — |
+| [DateRangeSelector](/docs/components/date-range-selector) | A | A | A | A | A | A | A | — | — | — | A |
 | [getRelativeDateRange](/docs/components/date-range-selector) | — | — | — | — | — | — | — | — | — | — | — |
 | [getDateRangeLength](/docs/components/date-range-selector) | — | — | — | — | — | — | — | — | — | — | — |
 | [IconPanelNavigation](/docs/components/icon-panel-navigation) | C | A | C | A | — | — | — | — | — | — | — |
 | [AuthShell](/docs/components/auth-shell) | — | — | — | — | — | — | — | — | — | — | — |
 | [AppShell](/docs/components/app-shell) | — | — | — | — | — | — | — | — | — | — | — |
-| [AppPageHeader](/docs/components/page-header) | C | C | C | — | — | — | — | — | — | — | — |
+| [AppPageHeader](/docs/components/page-header) | C | C | C | C | — | — | — | — | — | — | — |
 | [AppPageTabs](/docs/components/page-tabs) | C | A | C | A | C | — | — | — | — | — | — |
 | [ExperiencePageNavigator](/docs/components/experience-page-navigator) | C | C | C | A | — | A | — | — | — | — | — |
-| [SideNavigation](/docs/components/side-navigation) | C | A | C | A | C | — | — | — | — | — | — |
-| [EditableTitleField](/docs/components/editable-title-field) | A | A | A | — | — | A | — | — | — | — | — |
+| [SideNavigation](/docs/components/side-navigation) | C | A | C | A | C | — | — | C | — | — | H |
+| [EditableTitleField](/docs/components/editable-title-field) | A | A | A | — | — | A | C | A | — | — | C |
 | [DocumentEditorLayout](/docs/components/document-editor-layout) | — | — | — | — | — | — | — | — | — | — | — |
-| [DocumentEditorToolbar](/docs/components/document-editor-toolbar) | C | C | C | — | — | — | — | — | — | — | — |
-| [ContentEditorChrome](/docs/components/content-editor-chrome) | C | C | C | — | — | — | — | — | — | — | — |
-| [FloatingTextSelectionToolbar](/docs/components/floating-text-selection-toolbar) | C | C | C | — | — | — | — | — | — | — | — |
-| [RichTextFormattingToolbar](/docs/components/rich-text-formatting-toolbar) | C | C | C | — | — | — | — | — | — | — | — |
+| [DocumentEditorToolbar](/docs/components/document-editor-toolbar) | C | C | C | C | C | — | — | — | — | — | — |
+| [ContentEditorChrome](/docs/components/content-editor-chrome) | C | C | C | — | C | C | C | C | — | — | C |
+| [FloatingTextSelectionToolbar](/docs/components/floating-text-selection-toolbar) | C | C | C | C | — | — | — | — | — | — | — |
+| [RichTextFormattingToolbar](/docs/components/rich-text-formatting-toolbar) | C | C | C | C | C | — | — | — | — | — | — |
 | [InsertContentMenuControl](/docs/components/insert-content-menu-control) | A | A | A | — | A | — | — | — | — | — | — |
 | [TextAlignMenuControl](/docs/components/text-align-menu-control) | A | A | A | A | A | — | — | — | — | — | — |
-| [TextColorPickerControl](/docs/components/text-color-picker-control) | A | A | A | A | A | — | — | — | — | — | — |
-| [TextStyleMenuControl](/docs/components/text-style-menu-control) | A | A | A | — | A | — | — | — | — | — | — |
-| [ColumnsLayoutModal](/docs/components/columns-layout-modal) | C | C | C | — | — | — | — | — | — | — | — |
-| [LinkUrlModal](/docs/components/link-url-modal) | C | C | C | — | — | — | — | — | — | — | — |
-| [ImageUploadModal](/docs/components/image-upload-modal) | C | C | C | — | — | — | — | — | — | — | H |
-| [PageRichTextEditorSection](/docs/components/page-rich-text-editor-section) | A | A | A | — | — | A | — | — | — | — | — |
+| [TextColorPickerControl](/docs/components/text-color-picker-control) | A | A | A | A | A | — | C | — | — | — | C |
+| [TextStyleMenuControl](/docs/components/text-style-menu-control) | A | A | A | C | A | — | — | — | — | — | — |
+| [ColumnsLayoutModal](/docs/components/columns-layout-modal) | C | C | C | C | — | — | — | — | — | — | — |
+| [LinkUrlModal](/docs/components/link-url-modal) | C | C | C | — | — | — | C | — | — | — | C |
+| [ImageUploadModal](/docs/components/image-upload-modal) | C | C | C | — | C | — | — | C | — | H | H |
+| [PageRichTextEditorSection](/docs/components/page-rich-text-editor-section) | A | A | A | C | — | A | — | C | — | H | C |
 | [SGNavigationProvider](/docs/components/navigation-provider) | — | — | — | — | — | — | — | — | — | — | — |
 | [SGLink](/docs/components/sg-link) | A | A | A | — | — | — | — | — | — | — | — |
 | [SGAccountProvider](/docs/components/account-provider) | — | — | — | — | — | — | — | — | — | — | — |
 | [SGTranslationProvider](/docs/components/translation-provider) | — | — | — | — | — | — | — | — | — | — | — |
 | [AppInlineProgress](/docs/components/inline-progress) | — | — | — | — | — | — | — | — | — | A | — |
-| [AppOperationSteps](/docs/components/operation-steps) | A | A | A | — | — | — | — | A | — | A | A |
-| [AppPaginationFooter](/docs/components/pagination-footer) | A | A | A | — | A | — | — | — | — | — | — |
+| [AppOperationSteps](/docs/components/operation-steps) | — | — | — | — | — | — | — | H | — | C | H |
+| [AppPaginationFooter](/docs/components/pagination-footer) | A | A | A | — | A | — | — | — | C | — | — |
 | [ClassCardFrame](/docs/components/card-frame) | — | — | — | — | — | — | — | — | — | — | — |
 | [InstructorClassCard](/docs/components/instructor-card) | C | C | C | — | — | — | — | — | — | — | — |
 | [LearnerClassCard](/docs/components/learner-card) | C | C | C | — | — | — | — | — | — | — | — |
-| [CardCollectionWithFooter](/docs/components/card-collection) | A | A | A | — | — | — | — | — | A | A | — |
-| [AppDataGrid](/docs/components/app-data-grid) | A | A | A | A | — | — | — | — | A | A | H |
+| [CardCollectionWithFooter](/docs/components/card-collection) | C | C | C | — | C | — | — | — | A | A | — |
+| [AppDataGrid](/docs/components/app-data-grid) | A | A | A | A | C | — | — | — | A | A | H |
 | [createDataGridColumns](/docs/components/app-data-grid) | — | — | — | — | — | — | — | — | — | — | — |
 | [createActionMenuColumn](/docs/components/app-data-grid) | — | — | — | — | — | — | — | — | — | — | — |
-| [AppDataGridShell](/docs/components/data-grid-shell) | — | — | — | A | — | — | — | — | A | A | H |
+| [AppDataGridShell](/docs/components/data-grid-shell) | C | C | C | A | C | — | — | — | A | A | H |
 | [DataToolbar](/docs/components/data-toolbar) | C | C | C | A | C | — | — | — | — | — | — |
 | [DataToolbarSelectionMenu](/docs/components/selection-menu) | A | A | A | A | C | — | — | — | — | — | — |
 | [DataGridDragHandle](/docs/components/row-reorder) | A | A | A | — | A | — | — | — | — | — | — |
-| [LearnerClassesDataGrid](/docs/components/learner-grid) | A | A | A | A | — | — | — | — | A | A | H |
-| [DataGrid](/docs/components/processing-grid) | A | A | A | A | — | — | — | — | A | A | H |
-| [RowSubHeader](/docs/components/row-subheader) | — | C | C | — | — | — | — | — | — | — | — |
+| [LearnerClassesDataGrid](/docs/components/learner-grid) | A | A | A | A | C | — | — | — | A | A | H |
+| [DataGrid](/docs/components/processing-grid) | A | A | A | A | C | — | — | — | A | A | H |
+| [RowSubHeader](/docs/components/row-subheader) | C | C | C | — | — | — | — | — | — | — | — |
 | [createAdminCourseGridOptions](/docs/components/grid-presets) | — | — | — | — | — | — | — | — | — | — | — |
 | [createAdminPeopleGridOptions](/docs/components/grid-presets) | — | — | — | — | — | — | — | — | — | — | — |
 | [createInstructorCourseGridOptions](/docs/components/grid-presets) | — | — | — | — | — | — | — | — | — | — | — |
@@ -204,10 +205,15 @@ examples; source owners and exact reference tests are in the machine matrix.
   semantics and keeps a static indicator under reduced motion. Avatar uses
   initials/placeholder fallback for missing/failed imagery.
 
-## Explicit remaining visual successors
+## Design status and bounded retained evidence
 
-A-D-15 remains open. The matrix establishes applicability and preserves existing
-assertions; it does not certify every native state combination. ToggleButton now
+A-D-15 is a design criterion: complete applicability/meaning decisions and
+structural indicators do not require a Cartesian browser-state conformance run.
+The current 218-name, 2,398-cell matrix reconciles explicit props, derived state,
+fixed child ownership and N/A exclusions. Runtime accessibility, target/device
+and spoken-AT criteria remain separately owned by X06/X07/X11. Coordinator review
+owns design closure; referenced tests are not an all-library runtime receipt.
+ToggleButton now
 has a double selected border with compensated padding. Navigation/List selected
 start borders and Calendar's inset selected-date outline now pass six focused
 Chromium cases across light/compact/LTR and dark/comfortable/RTL, each with normal
@@ -241,9 +247,46 @@ state, and owns drilldown focus rather than an editable value. These rows are
 source-backed applicability only. References: the respective experimental source
 directories and colocated tests; no new broad state matrix was executed.
 
-The neutral filled Button keyboard-press background is separately corrected by
-the scoped CSS patch and prepared native regression. A patch that has not been
-integrated and executed is not runtime acceptance. The native regression checks
-actual Space-held data-pressed with the pointer away: a hovered pointer would
-hide the missing pressed selector. Reference fixtures, broad AT/device claims,
-and unrelated pending components must not be inferred from that result.
+The neutral filled Button source explicitly handles keyboard data-pressed for
+neutral filled, outlined and text configurations. The original held-Space native
+regression remains a bounded reference; source review does not invent execution
+of that historical prepared case or require all engines to close a design row.
+
+## Current source reconciliation and finite follow-up
+
+The current machine matrix corrects the heuristic historical rows without editing
+that dated artifact. AppOperationSteps is passive; Breadcrumbs composes owned
+ancestor links/current text; fixed composite validation, save/upload pending/error,
+formatting selection and disabled child contracts are represented even when no
+new root prop exists. Presentation wrappers, arbitrary slots and helper/icon
+exports do not acquire invented interaction states. EditableTitleField save
+failure and SideNavigation account errors are existing owned states, not new API.
+
+The source audit identified seven remaining marker owners: SideNavigation,
+DocumentEditorToolbar, RichTextFormattingToolbar, FloatingTextSelectionToolbar,
+TextColorPickerControl presets, PeriodPicker inline quarters and DateRangeSelector
+endpoint/adjustment operation choices. Source corrections use owned double bars,
+inset rings or double borders while preserving focus and box allocation; the
+mixed formatting dashed marker remains separate. SideNavigation now exposes its
+existing async operation as named pending progress as well as locked actions.
+ExperiencePageNavigator already has visible Active text and retains that existing
+non-color design; its proposed extra marker was withdrawn.
+
+A further ToggleButton source correction prevents its higher-specificity selected
+hover rule from retaining a brand background under a forced-color opt-out. It
+uses system ButtonText/ButtonFace with a Highlight double selection border and
+automatic adjustment. Screenshot review caught the initial HighlightText text
+backplate mismatch; the corrected raster retains readable selected labels. Decorative color
+swatch data and passive system-colored progress remain distinct exceptions; they
+do not justify opting interactive branding out of system colors.
+
+These eight owners have 15 effective Chromium cases in the bounded
+[current-inventory evidence](final-acceptance/wave-04/05/batch/d15-current-inventory/native-review.json):
+normal/forced marker pairs and one forced selected-hover toggle case, each measuring
+light/compact/LTR and dark/comfortable/RTL. Twelve initial passes were retained;
+two floating selection-driver failures and a toggle role timeout were corrected
+without changing library semantics. The toggle screenshot correction then passed
+its one affected case against a focused rebuild. All 34 final images were reviewed.
+445 declaration files remain byte-identical. No all-state/all-engine conformance,
+physical touch finding or spoken output is inferred; X06/X07/X11 remain separate.
+Prior accepted six+six marker cases retain their original named scope.

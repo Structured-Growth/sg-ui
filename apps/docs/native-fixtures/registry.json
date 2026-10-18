@@ -100,6 +100,76 @@
       "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
       "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
     },
+    "foundations-foundation-catalogue--current-side-navigation-states": {
+      "id": "foundations-foundation-catalogue--current-side-navigation-states",
+      "type": "fixture",
+      "title": "Foundations/Foundation Catalogue",
+      "name": "CurrentSideNavigationStates",
+      "exportName": "CurrentSideNavigationStates",
+      "module": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
+    },
+    "foundations-foundation-catalogue--current-document-toolbar-states": {
+      "id": "foundations-foundation-catalogue--current-document-toolbar-states",
+      "type": "fixture",
+      "title": "Foundations/Foundation Catalogue",
+      "name": "CurrentDocumentToolbarStates",
+      "exportName": "CurrentDocumentToolbarStates",
+      "module": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
+    },
+    "foundations-foundation-catalogue--current-rich-toolbar-states": {
+      "id": "foundations-foundation-catalogue--current-rich-toolbar-states",
+      "type": "fixture",
+      "title": "Foundations/Foundation Catalogue",
+      "name": "CurrentRichToolbarStates",
+      "exportName": "CurrentRichToolbarStates",
+      "module": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
+    },
+    "foundations-foundation-catalogue--current-color-preset-states": {
+      "id": "foundations-foundation-catalogue--current-color-preset-states",
+      "type": "fixture",
+      "title": "Foundations/Foundation Catalogue",
+      "name": "CurrentColorPresetStates",
+      "exportName": "CurrentColorPresetStates",
+      "module": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
+    },
+    "foundations-foundation-catalogue--current-quarter-states": {
+      "id": "foundations-foundation-catalogue--current-quarter-states",
+      "type": "fixture",
+      "title": "Foundations/Foundation Catalogue",
+      "name": "CurrentQuarterStates",
+      "exportName": "CurrentQuarterStates",
+      "module": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
+    },
+    "foundations-foundation-catalogue--current-range-intent-states": {
+      "id": "foundations-foundation-catalogue--current-range-intent-states",
+      "type": "fixture",
+      "title": "Foundations/Foundation Catalogue",
+      "name": "CurrentRangeIntentStates",
+      "exportName": "CurrentRangeIntentStates",
+      "module": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
+    },
+    "foundations-foundation-catalogue--current-forced-toggle-states": {
+      "id": "foundations-foundation-catalogue--current-forced-toggle-states",
+      "type": "fixture",
+      "title": "Foundations/Foundation Catalogue",
+      "name": "CurrentForcedToggleStates",
+      "exportName": "CurrentForcedToggleStates",
+      "module": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
+    },
     "foundations-tokentierscope--nested-overrides": {
       "id": "foundations-tokentierscope--nested-overrides",
       "type": "fixture",
@@ -1496,6 +1566,16 @@
       "title": "Editors/FloatingTextSelectionToolbar",
       "name": "NestedHostBoundary",
       "exportName": "NestedHostBoundary",
+      "module": "./scenarios/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.fixture.tsx",
+      "importPath": "./scenarios/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.fixture.tsx",
+      "original": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx"
+    },
+    "editors-floatingtextselectiontoolbar--current-formatting-states": {
+      "id": "editors-floatingtextselectiontoolbar--current-formatting-states",
+      "type": "fixture",
+      "title": "Editors/FloatingTextSelectionToolbar",
+      "name": "CurrentFormattingStates",
+      "exportName": "CurrentFormattingStates",
       "module": "./scenarios/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.fixture.tsx",
       "importPath": "./scenarios/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.fixture.tsx",
       "original": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx"

@@ -12,6 +12,11 @@ import { Surface } from "@structured-growth/sg-ui/experimental";
 import { Typography } from "@structured-growth/sg-ui/experimental";
 
 import { HierarchicalMenu, MonthPicker, YearPicker } from "@structured-growth/sg-ui/experimental";
+import {SideNavigation,DocumentEditorToolbar,RichTextFormattingToolbar,TextColorPickerControl,type SideNavigationModel} from "@structured-growth/sg-ui/components";
+import {DateRangeSelector,PeriodPicker,ToggleButtonGroup,type DateRange} from "@structured-growth/sg-ui/experimental";
+import {SGAccountProvider,SGNavigationProvider,type SGAccountAdapter} from "@structured-growth/sg-ui/adapters";
+import {StateIndicatorHost} from "../../state-indicator-host";
+import type {FixtureGlobals} from "../../types";
 import { IconPanelNavigation } from "@structured-growth/sg-ui/components";
 
 const themes = ["light", "dark"] as const;
@@ -236,3 +241,43 @@ export const StructuralSelectionIndicators:Story={render:(_args,{globals})=>
       <YearPicker label="Paged year indicators" yearNavigation="paged" defaultValue={2026} minYear={2020} maxYear={2031} isYearUnavailable={year=>year===2027}/>
     </div>
   </ThemeScope>};
+
+function CurrentSideNavigation({globals}:{globals:FixtureGlobals}){
+ const [path,setPath]=useState('/course');
+ const session={accountId:'native-state',email:'native@example.test',activeOrgId:'school',organizations:[{id:'school',name:'School'},{id:'other',name:'Other'}]};
+ const adapter:SGAccountAdapter={getStoredAuthSession:()=>session,getStoredAuthSessions:()=>[session],setActiveStoredAuthSession:()=>{},markOrganizationSwitched:()=>{},logoutAccount:()=>new Promise<void>(()=>{}),logoutAllAccounts:()=>new Promise<void>(()=>{})};
+ const model:SideNavigationModel={user:{initials:'ST',name:'State user',organization:'School',defaultOrganizationId:'school',organizations:[{id:'school',name:'School',role:'Member',billingScopeLabel:'Billing'},{id:'other',name:'Other',role:'Member',billingScopeLabel:'Billing'}]},rootMenu:{id:'root',sections:[{id:'routes',items:[{id:'course',label:'Current course',href:'/course'},{id:'reports',label:'Course reports',href:'/reports'}]}]}};
+ return <StateIndicatorHost globals={globals}><SGAccountProvider value={adapter}><SGNavigationProvider value={{pathname:path,navigate:setPath}}>
+  <div style={{height:400}}><SideNavigation aria-label="State navigation" model={model} onOrganizationChange={()=>new Promise<void>(()=>{})}/></div>
+ </SGNavigationProvider></SGAccountProvider></StateIndicatorHost>;
+}
+export const CurrentSideNavigationStates:Story={render:(_args,{globals})=><CurrentSideNavigation globals={globals}/>};
+function CurrentDocumentToolbar({globals}:{globals:FixtureGlobals}){
+ const [bold,setBold]=useState(true),[italic,setItalic]=useState(false);
+ return <StateIndicatorHost globals={globals}><DocumentEditorToolbar canEdit headingValue="normal" onHeadingChange={()=>{}} showZoomControls={false} showAlignmentControls={false}
+  actions={{bold:{active:bold,onClick:()=>setBold(value=>!value)},italic:{active:italic,onClick:()=>setItalic(value=>!value)},bulletList:{active:false},orderedList:{active:false}}}/></StateIndicatorHost>;
+}
+export const CurrentDocumentToolbarStates:Story={render:(_args,{globals})=><CurrentDocumentToolbar globals={globals}/>};
+function CurrentRichToolbar({globals}:{globals:FixtureGlobals}){
+ const [bold,setBold]=useState(true),[underline,setUnderline]=useState(false);
+ return <StateIndicatorHost globals={globals}><RichTextFormattingToolbar showFontFamilySelector={false} showFontSizeControls={false} boldActive={bold} onBold={()=>setBold(value=>!value)} italicActive="mixed" onItalic={()=>{}} underlineActive={underline} onUnderline={()=>setUnderline(value=>!value)}/></StateIndicatorHost>;
+}
+export const CurrentRichToolbarStates:Story={render:(_args,{globals})=><CurrentRichToolbar globals={globals}/>};
+function CurrentColorPreset({globals}:{globals:FixtureGlobals}){
+ const [color,setColor]=useState('var(--sgui-action)');
+ return <StateIndicatorHost globals={globals}><TextColorPickerControl value={color} onChange={setColor}/></StateIndicatorHost>;
+}
+export const CurrentColorPresetStates:Story={render:(_args,{globals})=><CurrentColorPreset globals={globals}/>};
+function CurrentQuarter({globals}:{globals:FixtureGlobals}){
+ const [value,setValue]=useState<DateRange|null>({start:'2026-10-01',end:'2026-12-31'});
+ return <StateIndicatorHost globals={globals}><form aria-label="Quarter state form"><PeriodPicker label="Quarter states" unit="quarter" display="inline" value={value} onValueChange={setValue} referenceDate="2026-10-16" name="quarter"/></form></StateIndicatorHost>;
+}
+export const CurrentQuarterStates:Story={render:(_args,{globals})=><CurrentQuarter globals={globals}/>};
+function CurrentRangeIntents({globals}:{globals:FixtureGlobals}){
+ return <StateIndicatorHost globals={globals}>
+  <DateRangeSelector label="Endpoint intent states" months={1} rangeClickBehavior="active-endpoint" defaultValue={{start:'2026-10-07',end:'2026-10-09'}}/>
+  <DateRangeSelector label="Adjustment intent states" months={1} defaultValue={{start:'2026-10-07',end:'2026-10-09'}}/>
+ </StateIndicatorHost>;
+}
+export const CurrentRangeIntentStates:Story={render:(_args,{globals})=><CurrentRangeIntents globals={globals}/>};
+export const CurrentForcedToggleStates:Story={render:(_args,{globals})=><StateIndicatorHost globals={globals}><ToggleButtonGroup label="Forced toggle choices" defaultSelectedIds={['selected']} options={[{id:'selected',label:'Selected option'},{id:'peer',label:'Other option'}]}/></StateIndicatorHost>};

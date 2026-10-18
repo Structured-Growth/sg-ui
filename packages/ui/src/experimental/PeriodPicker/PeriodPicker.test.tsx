@@ -5,9 +5,15 @@ import userEvent from '@testing-library/user-event';
 import {PeriodPicker} from './PeriodPicker';
 afterEach(cleanup);
 it('resolves a whole Gregorian quarter only on Apply',async()=>{
- const user=userEvent.setup(),change=vi.fn();render(<PeriodPicker label="Quarter" unit="quarter" referenceDate="2026-10-16" onValueChange={change}/>);
+ const user=userEvent.setup(),change=vi.fn();const {rerender}=render(<PeriodPicker label="Quarter" unit="quarter" referenceDate="2026-10-16" onValueChange={change}/>);
  await user.click(screen.getByRole('button',{name:'Quarter',exact:true}));expect(change).not.toHaveBeenCalled();await user.click(screen.getByRole('button',{name:'Apply',exact:true}));
  expect(change).toHaveBeenCalledExactlyOnceWith({start:'2026-10-01',end:'2026-12-31'});
+ change.mockClear();rerender(<PeriodPicker key="inline-quarter" label="Inline quarter" display="inline" unit="quarter" referenceDate="2026-10-16" onValueChange={change}/>);
+ expect(screen.getByRole('button',{name:'Quarter 4',exact:true}).getAttribute('aria-pressed')).toBe('true');
+ await user.click(screen.getByRole('button',{name:'Quarter 2',exact:true}));expect(change).not.toHaveBeenCalled();
+ expect(screen.getByRole('button',{name:'Quarter 2',exact:true}).getAttribute('aria-pressed')).toBe('true');expect(screen.getByRole('button',{name:'Quarter 4',exact:true}).getAttribute('aria-pressed')).toBe('false');
+ await user.tab();expect(document.activeElement).toBe(screen.getByRole('button',{name:'Quarter 3',exact:true}));expect(screen.getByRole('button',{name:'Quarter 2',exact:true}).getAttribute('aria-pressed')).toBe('true');
+ await user.click(screen.getByRole('button',{name:'Apply',exact:true}));expect(change).toHaveBeenCalledExactlyOnceWith({start:'2026-04-01',end:'2026-06-30'});
 });
 it('rejects an unavailable date anywhere in the complete period',async()=>{
  const user=userEvent.setup();render(<PeriodPicker label="Year" unit="year" referenceDate="2026-10-16" unavailable={[{date:'2026-07-01',reason:'Closed'}]}/>);

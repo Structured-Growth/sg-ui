@@ -126,7 +126,8 @@
       "Navigation rows share a leading icon column, regular-weight labels and density-aware minimum height. Hover and selection use independent theme aliases; supply icons in the model or through resolveIcon.",
       "Supply model.user and model.rootMenu with stable IDs, labels, sections, and optional destinations. Set childBehavior per branch: 'expand' reveals inline children and 'drilldown' opens a separate level with Back. Mix both with direct destinations and action items in the same menu, including inside nested levels; these are not whole-menu modes.",
       "Connect route-aware destinations through SGNavigationProvider and use onItemSelect for host actions that are represented by menu IDs rather than URLs.",
-      "Provide SGAccountProvider and onOrganizationChange only when the host implements those account operations. Supply translated runtime labels and resolveIcon when the model uses icon keys."
+      "Provide SGAccountProvider and onOrganizationChange only when the host implements those account operations. Supply translated runtime labels and resolveIcon when the model uses icon keys.",
+      "Current routes retain a structural double start marker independently of focus. Async account operations retain their labels and blocked callbacks, show the existing named pending Button progress, and preserve useful retryable errors; adapters still own the transaction."
     ],
     "related": [
       {
@@ -187,9 +188,10 @@
     "when": "Use DocumentEditorToolbar for a document host that needs a small controlled heading, formatting, zoom, and status bar. It requests commands from an existing editor rather than implementing document editing itself.",
     "how": [
       "Supply canEdit, headingValue, and actions with controlled active flags and real onClick callbacks. Derive those flags from the host editor selection; missing callbacks leave their commands unavailable.",
-      "Connect onHeadingChange to a host editor command and accept the requested normal/h1–h5 value. Heading requests finish the chooser interaction before invoking the host callback.",
+      "Connect onHeadingChange to a host editor command and accept the requested normal/h1\u2013h5 value. Heading requests finish the chooser interaction before invoking the host callback.",
       "Provide zoomValue and zoom callbacks separately from editing availability. Hide optional groups that the host does not use; alignment and custom-component placeholders do not provide active editing commands.",
-      "Use statusLabel, a token-based statusColor, or rightSlot for host status. Saving and error recovery remain application responsibilities."
+      "Use statusLabel, a token-based statusColor, or rightSlot for host status. Saving and error recovery remain application responsibilities.",
+      "Active formatting actions retain an inset selected ring independently of the Button focus outline. The heading select continues to show its selected text; callbacks and canEdit remain host-owned."
     ],
     "related": [
       {
@@ -229,7 +231,8 @@
     "how": [
       "Mount it inside the document's LexicalComposer and provide boundaryRef when the host needs to constrain positioning to a particular visible editor area.",
       "Select a non-collapsed text range to expose formatting. The toolbar anchors to the first visible selected line inside the viewport/boundary, even when earlier selected lines have scrolled away. When every selected line leaves view, actions hide; a focused toolbar returns focus to the editor without changing host scroll. Alt+F10 provides a keyboard route to its actions, and Escape returns control to the editor.",
-      "Connect onRequestLink to a host-owned link workflow and preserve the editor selection for that workflow. Keep the viewport-positioned toolbar outside ancestors that establish a transformed fixed-position containing block."
+      "Connect onRequestLink to a host-owned link workflow and preserve the editor selection for that workflow. Keep the viewport-positioned toolbar outside ancestors that establish a transformed fixed-position containing block.",
+      "Active formatting actions retain inset selected rings independently of focus. The editor selection and existing focus/selection restoration still belong to the same Lexical context; the marker does not add an editing or persistence contract."
     ],
     "related": [
       {
@@ -248,7 +251,8 @@
       "Connect the command callbacks to the existing editor and supply heading, alignment, color, font, and active formatting values from its current selection. Boolean or mixed inline states describe the selection; the toolbar does not infer them.",
       "Use hiddenControls or hiddenControlSets to omit features, and disabledControls or disabledControlSets to show temporarily unavailable features. Missing callbacks also disable the corresponding commands.",
       "Preserve or prepare the editor selection before a link or insertion workflow moves focus. Connect undo/redo and insertion callbacks only when the host implements those operations.",
-      "Choose the font-family and font-size groups you actually support, and provide named host content for leftSlot or rightSlot when composing additional controls."
+      "Choose the font-family and font-size groups you actually support, and provide named host content for leftSlot or rightSlot when composing additional controls.",
+      "True formatting actions retain inset selected rings independently of focus. Mixed formatting keeps its distinct dashed marker; these states do not replace the host-controlled formatting values or selection snapshot."
     ],
     "related": [
       {
@@ -310,7 +314,8 @@
     "how": [
       "Choose mode='foreground' or 'background', provide value, and apply onChange(nextColor) through the host editor command.",
       "Accept semantic preset values as CSS token references rather than assuming every choice is a hex literal. Clear emits an empty string so the host can remove the explicit style.",
-      "Preserve the target selection while the picker is open, and set disabled when formatting is unavailable. Saved document colors remain part of the host's content and rendering policy."
+      "Preserve the target selection while the picker is open, and set disabled when formatting is unavailable. Saved document colors remain part of the host's content and rendering policy.",
+      "Selected presets retain a double border independently of their outer focus outline. Only the decorative color-data fill opts out of forced-color recoloring; interactive chrome remains system painted."
     ],
     "related": [
       {

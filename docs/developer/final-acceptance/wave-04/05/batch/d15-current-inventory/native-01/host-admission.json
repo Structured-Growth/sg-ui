@@ -1,0 +1,13 @@
+{
+  "head": "5a09786dd6b10c103b7fa61defbc72f3b45aa30a",
+  "node": "v24.19.0",
+  "owner": "d15-current-state:16320",
+  "pid": 16320,
+  "sourceManifest": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/d15-current-inventory/native-01/source-after-build.json",
+  "sourceSha256": "5e48e8a53ca94e59b634ec39c79c6ef58914172fb11194477b23cfabb0d58d0e",
+  "librarySha256": "01f4296f8b21d7f68ac4df38b9d6929d6dfa4224501bcb7168279df2393ad731",
+  "hostSha256": "6941bb0963bca9ff13b8371bd0445759ae1b6274ce077024aab7fedf429bb52d",
+  "hostRoot": "/Users/thomashall/Repositories/sg-ui/packages/ui/browser-docs-static",
+  "baseURL": "http://127.0.0.1:6173",
+  "immutable": true
+}

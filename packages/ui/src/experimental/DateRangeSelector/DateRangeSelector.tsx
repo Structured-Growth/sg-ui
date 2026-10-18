@@ -420,8 +420,8 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
     <ButtonContext.Provider value={null}>
     <RangeAdjustmentControls value={draft?.start&&draft.end?{start:draft.start,end:draft.end}:null} behavior={rangeDragBehavior} length={rangeLength} disabled={disabled||readOnly} isAllowed={validRange} onEdit={edit} operation={adjustmentOperation} onOperationChange={setAdjustment}/>
     {rangeClickBehavior==='active-endpoint'&&<div className={styles.actions} role="group" aria-label={t("common.ui.editRangeEndpoint",{defaultMessage:"Edit range endpoint"})}>
-      <Button variant={endpoint==='start'?'filled':'outlined'} aria-pressed={endpoint==='start'} disabled={disabled||readOnly} onPress={()=>setEndpoint('start')}>{t("common.ui.startDate",{defaultMessage:"Start date"})}</Button>
-      <Button variant={endpoint==='end'?'filled':'outlined'} aria-pressed={endpoint==='end'} disabled={disabled||readOnly} onPress={()=>setEndpoint('end')}>{t("common.ui.endDate",{defaultMessage:"End date"})}</Button>
+      <Button className={styles.rangeChoice} variant={endpoint==='start'?'filled':'outlined'} aria-pressed={endpoint==='start'} disabled={disabled||readOnly} onPress={()=>setEndpoint('start')}>{t("common.ui.startDate",{defaultMessage:"Start date"})}</Button>
+      <Button className={styles.rangeChoice} variant={endpoint==='end'?'filled':'outlined'} aria-pressed={endpoint==='end'} disabled={disabled||readOnly} onPress={()=>setEndpoint('end')}>{t("common.ui.endDate",{defaultMessage:"End date"})}</Button>
     </div>}
     {showFields&&<div className={styles.fields} onFocusCapture={event=>{const target=event.target as HTMLElement;const controls=event.currentTarget.children;setEndpoint(controls[0]?.contains(target)?'start':'end');}}>
       <DateField descriptionPlacement={descriptionPlacement} errorPlacement={errorPlacement} key={`start-${resetRevision}-${selectionRevision}`} entryMode={entryMode} referenceDate={referenceDate} onValidityChange={setStartValid} label={t("common.ui.startDate", { defaultMessage: "Start date" })} value={draft?.start || null}

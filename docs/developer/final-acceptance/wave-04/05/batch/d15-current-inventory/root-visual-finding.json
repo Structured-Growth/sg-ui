@@ -2,7 +2,7 @@
   "id": "D15-TOGGLE-FORCED-LABEL-PAINT",
   "reviewer": "root",
   "date": "2026-10-17 America/Chicago",
-  "status": "confirmed visual defect; integration held",
+  "status": "resolved after actual paint regression and source fix; root visual review complete",
   "evidence": "native-02/results.json contains original screenshot attachment bytes",
   "images": [
     {
@@ -21,5 +21,10 @@
     "Both full light/compact/LTR image and all34 passing images via three contact sheets reviewed. This is a paint defect, not screenshot scaling.",
     "Computed root foreground/background contrast assertions passed but do not establish readable painted glyphs."
   ],
-  "next": "Add actual label-paint regression in existing toggle case, prove red on same old output, fix forced-color system palette preserving automatic adjustment and double selection marker, rebuild only necessary outputs and rerun affected toggle case. Other14 unaffected case evidence stays retained."
+  "next": "Add actual label-paint regression in existing toggle case, prove red on same old output, fix forced-color system palette preserving automatic adjustment and double selection marker, rebuild only necessary outputs and rerun affected toggle case. Other14 unaffected case evidence stays retained.",
+  "resolution": {
+    "evidence": "paint-regression.json and native-05/results.json",
+    "rootReview": "root-final-review.json",
+    "systemPalette": "ButtonText/ButtonFace, automatic adjustment, Highlight selection border"
+  }
 }
