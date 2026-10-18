@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 257/320 A leaves closed; 63 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 258/320 A leaves closed; 62 A, 0 editor V review leaves and six future leaves remain.**
+
+### Composed semantics and hydration review — 2026-10-17
+
+Closed A-X-03 after the two concrete remaining successors executed:24 installed hydration cases and6 English/Arabic composed-shell cases. Their node/IDREF/native-form/heading assertions join retained selector validation/state semantics and the emitted announcement support evidence. Actual spoken review stays separate.
+Wave 04 now closes 77 of 139 items; 62 remain.
 
 ### Installed lifecycle and ownership review — 2026-10-17
 

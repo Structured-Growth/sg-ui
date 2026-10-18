@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 76,
-  "closedTotal": 257,
-  "remaining": 63,
+  "closedThisReview": 77,
+  "closedTotal": 258,
+  "remaining": 62,
   "entries": [
     {
       "id": "A-M-21",
@@ -677,6 +677,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-scoped-lifecycle-review.json",
       "sha256": "da01deae238dfb9ad271e248e73c4a8638184e2dd1171b11ef1c5789425a6bce",
       "limits": "Production hydration and development StrictMode cleanup retain distinct evidence. Later-expanded field test files reuse named unchanged assertions at their accepted checkpoint scope, not a fresh whole-file pass claim. No arbitrary controlled/uncontrolled mode switching, physical input, spoken AT or release approval is inferred. Original resolver/token failures remain preserved; only corrected complete runs count."
+    },
+    {
+      "id": "A-X-03",
+      "basis": "The prior X03 reconciliation identified initial hydrated label/description/native-wire preservation and composed route headings/landmarks/form submission as the remaining concrete gaps. Both now execute successfully:24 exact-tarball React18/19 cases preserve all initial ID-bearing nodes, values/disabled flags and resolved IDREFs while checking portal/sibling semantics; six en/ar\u00d7three-engine shell cases assert named main/navigation, oneh1/twelveh2/noh3,currentlink,field name/form association and native Enter/status feedback through narrow reflow. Retained native selector role/description/validation/reset and rejecting controlled-host tests, plus calendar full-date/range live messages and host-owned Status assertions, supply the supported state/validation contracts. Host responsibility and naming-union documentation remain explicit. No actual speech claim is inferred from DOM/AX assertions.",
+      "criterion": "- [ ] A-X-03 Reconcile original `X-03`: Verify accessible names/descriptions, roles, state announcements, validation, heading hierarchy, landmarks, and native form semantics. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/12-names-form-semantics-review.json",
+      "sha256": "921b97c8b85272e92a59d245fba2c564b08950524d10f0f9dd033a58642d6a96",
+      "limits": "Concrete supported composition semantics at their recorded inputs, not universal arbitrary host-content or accessibility conformance. State-message implementation/DOM assertions do not establish audible delivery, timing or manual review; A-X-11 remains open. Existing broader keyboard/focus/visual/device criteria retain separate scope."
     }
   ],
   "limits": [
