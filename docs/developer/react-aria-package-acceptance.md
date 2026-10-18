@@ -49,24 +49,11 @@ and [server boundaries](react-aria-server-components.md) for their exact scope.
 These commands build hydration entries; browser hydration is established only
 when browser checks are separately executed.
 
-## Boundaries still requiring decisions
+## Distribution and import boundaries
 
-See the [import recipes and package decision proposal](react-aria-import-boundaries.md)
-for the measured single-package tradeoff, the compatibility-preserving recommendation
-and the alternative required for a dependency-light core installation. Maintainer
-acceptance and focused packed output validation remain pending.
+The [import recipes and distribution decision](react-aria-import-boundaries.md) retain the existing package and explicit component subpaths, following the target architecture. Fourteen actual installed-consumer production probes establish the bounded module graphs and intentional editor/grid positive controls. Root convenience imports retain their broader resolution graph and can tree-shake unused engines.
 
-Granular imports avoid editor code in basic consumer module graphs, but the
-manifest still declares `lexical` and `@lexical/*` as direct dependencies. A basic
-consumer installs those packages. E-08 therefore remains open for a separate
-editor package or another explicitly approved dependency/installation design.
-Changing dependencies, exports or build entry points is outside this slice.
-
-The root and `/components` barrels intentionally expose editors as well as
-presentation components. They are convenience entry points rather than isolated
-presentation boundaries. Use granular component entry points when dependency
-traversal or server boundaries matter. A fully separated core/grid/editor public
-entry-point design remains R-03/R-04 work.
+Granular imports avoid editor code in basic consumer module graphs; they do not remove the ten direct Lexical dependencies from installation. The measured editor-exclusive installed closure and the separate core/editor package alternative are documented in the decision. This migration retains compatibility and accepts that installation cost. It does not claim optional editor installation, component-split CSS or establish new package names. A future lightweight-install requirement would need the documented package split and clean-install compatibility checks.
 
 The tarball retains retired names in preserved third-party notices (including
 Emotion and the former component/grid packages). The current README has no

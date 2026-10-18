@@ -1,0 +1,41 @@
+{
+  "entries": [
+    {
+      "id": "A-A-18",
+      "basis": "Existing architecture selects the single package plus granular subpaths. Fourteen packed production probes verify core isolation, icon pruning, explicit CSS and grid/editor positive controls; root convenience traversal remains documented.",
+      "criterion": "- [ ] A-A-18 Reconcile original `A-18`: Keep heavyweight modules out of basic-control dependency paths; decide which require separate subpaths versus separate packages. Historical status: open."
+    },
+    {
+      "id": "A-E-08",
+      "basis": "Editor-only module traversal is behind its granular component boundary; installation weight has been measured and a compatibility-preserving single-package choice versus separate core/editor packages is explicitly assessed. No requirement for optional editor installation is silently claimed or new package/API introduced.",
+      "criterion": "- [ ] A-E-08 Reconcile original `E-08`: Put editor-only dependencies behind a granular import boundary and assess whether separate packages are required to avoid mandatory installation weight. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/react-aria-architecture.md",
+      "sha256": "47ccc2236a95d722a8b52cb0dbbf7188e347c077ef86e6a624089b2734907a7d"
+    },
+    {
+      "path": "docs/developer/react-aria-import-boundaries.md",
+      "sha256": "72ea3509ff8424710dc40538ba523c1bb95c1212828af49e7f7d91a65905eba3"
+    },
+    {
+      "path": "docs/developer/react-aria-package-acceptance.md",
+      "sha256": "e33a92a75552b891c5767e876888b0b1ba1d0a9a491c9cf48960bb0c5a3c6ba0"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/consumer-driver-integration/current-import-boundaries.json",
+      "sha256": "ed783960f9ef2ff1314b0533ba34369a059cc8e9e9a67933813cd25257b194bc"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-05/install-footprint.json",
+      "sha256": "08243db90cbe750263b3ae30bf632605bbe275f66ebd7117deeea5a78f901e4d"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/current-grid-package/receipt.json",
+      "sha256": "4ddc8718df370f86a8d8d98cc16ba467464083e0994d376181e989b77806e636"
+    }
+  ],
+  "limits": "Dependency traversal/bundle behavior is distinct from package-manager installation. Single-package consumers still install editor dependencies and shared stylesheet. Prior fourteen-probe archive and later layout-only archive check retain their distinct inputs; no fresh performance, publication or release claim."
+}

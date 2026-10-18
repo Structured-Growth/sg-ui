@@ -1,10 +1,8 @@
 # Import boundaries and package decision
 
-Tasks: A-A-18, A-E-08, A-I-04, A-R-03, A-R-04. This is a proposed maintainer
-package decision, pending review and the focused packed validation below. Existing
-exports remain supported. No dependency, version or release change is proposed.
+Tasks: A-A-18, A-E-08, A-I-04, A-R-03, A-R-04. The development distribution decision follows the target architecture: keep the existing package with explicit subpaths. The focused packed validation below has passed. Existing exports remain supported; no dependency, version or release change is introduced.
 
-## Recommended distribution
+## Current distribution decision
 
 Keep `@structured-growth/sg-ui` as the compatibility package for this migration.
 Use its existing declared subpaths as domain boundaries. Do not add `/core`,
@@ -75,9 +73,7 @@ or a core-only product footprint. The remaining package still installs TanStack,
 Lucide and React Aria. Exact manifest hashes and identities are retained in
 [the assessment](final-acceptance/wave-03-05/install-footprint.json).
 
-The recommended compatibility choice accepts this installation cost for the
-current package and avoids adding peer setup or breaking established root editor
-imports. Maintainer acceptance of that tradeoff is still pending. If avoiding
+The current compatibility choice accepts this measured installation cost and avoids adding peer setup or breaking established root editor imports. This follows the existing target architecture's instruction to keep the package and explicit subpaths before considering separate packages. No separate package is required for the migration's module-graph isolation; a dependency-light installation would require the different distribution described below. If avoiding
 mandatory editor installation is required, create a separate optional editor
 package and a dependency-light core package, with the existing package retained
 as an umbrella depending on both. Existing root consumers would retain the cost;
@@ -88,9 +84,7 @@ is insufficient: root module resolution could fail when the editor is absent.
 A split requires reviewed package names, exports, CSS/token ownership without
 conflicting duplicate scopes, aligned release/dependency ranges, legal notices,
 editor type imports, root compatibility tests and clean core/editor installations.
-This proposal does not invent approved package names or silently remove existing
-paths. No breaking migration is needed for the recommended existing-package
-choice; a later split must supply an explicit import/dependency migration map.
+No new package names are reserved and no existing paths are removed. No breaking migration is needed for the existing-package choice; a later split must supply an explicit import/dependency migration map.
 
 ## Bounded validation
 
@@ -116,3 +110,9 @@ Lucide can resolve its own catalog before tree shaking; the relevant output
 assertion checks rendered modules. This is not a browser, Flight or fresh-install
 receipt. Preserve existing packed SSR/Flight checks for server behavior; do not
 infer their success from this module audit.
+
+## Accepted packed evidence — 2026-10-17
+
+The [14-probe installed-consumer audit](final-acceptance/wave-04/02/consumer-driver-integration/current-import-boundaries.json) passed against frozen archive SHA-256 `4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959`. All eleven basic/presentation probes avoid both Lexical and grid modules; the grid and editor positive controls retain their intended engines. The supported root Button probe resolves both engines through convenience reexports but removes them from rendered JavaScript, matching the granular Button output. Each probe explicitly loads one stylesheet; CSS remains the shared full-library stylesheet, not component-split CSS. These are production bundler checks, not installation-size or browser-performance measurements.
+
+The later [fresh grid-layout package audit](final-acceptance/wave-04/coordinator/current-grid-package/receipt.json) verifies the updated archive's build/exports/consumer types and byte inventory. It does not relabel the earlier fourteen probes as a new run. The grid fix changes layout only; package dependencies, public exports and import topology remain unchanged. Separate packages remain an available future product decision if avoiding mandatory editor installation becomes a requirement.

@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 260/320 A leaves closed; 60 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 262/320 A leaves closed; 58 A, 0 editor V review leaves and six future leaves remain.**
+
+### Granular import boundaries and distribution assessment accepted — 2026-10-17
+
+Reconciled the existing target architecture with the actual fourteen installed-consumer production probes. Keep the current package and declared subpaths; basic module graphs avoid editor/grid code, while positive controls retain intended engines. Document the mandatory Lexical installation cost and separate-package alternative without claiming subpaths reduce installed dependencies.
+Wave 04 now closes 81 of 139 items; 58 remain.
 
 ### Representative visual capture and interactions accepted — 2026-10-17
 

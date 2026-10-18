@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 79,
-  "closedTotal": 260,
-  "remaining": 60,
+  "closedThisReview": 81,
+  "closedTotal": 262,
+  "remaining": 58,
   "entries": [
     {
       "id": "A-M-21",
@@ -704,6 +704,24 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-representative-visual-review.json",
       "sha256": "cee497d86a10b7b902c30cde9ac3c1db00553978988de6c5c5b99875d0067756",
       "limits": "Bounded Chromium/macOS environment with recorded browser-used fonts; not all-engine visual portability, spoken AT, physical-device coverage or production release approval. Durable future-candidate regression provenance is tracked separately in A-X-14."
+    },
+    {
+      "id": "A-A-18",
+      "basis": "Existing architecture selects the single package plus granular subpaths. Fourteen packed production probes verify core isolation, icon pruning, explicit CSS and grid/editor positive controls; root convenience traversal remains documented.",
+      "criterion": "- [ ] A-A-18 Reconcile original `A-18`: Keep heavyweight modules out of basic-control dependency paths; decide which require separate subpaths versus separate packages. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/root-import-distribution-review.json",
+      "sha256": "a737ec9d89cac60ca41d76a2416afec5ff348b75ddec419ca26f53b43130c197",
+      "limits": "Dependency traversal/bundle behavior is distinct from package-manager installation. Single-package consumers still install editor dependencies and shared stylesheet. Prior fourteen-probe archive and later layout-only archive check retain their distinct inputs; no fresh performance, publication or release claim."
+    },
+    {
+      "id": "A-E-08",
+      "basis": "Editor-only module traversal is behind its granular component boundary; installation weight has been measured and a compatibility-preserving single-package choice versus separate core/editor packages is explicitly assessed. No requirement for optional editor installation is silently claimed or new package/API introduced.",
+      "criterion": "- [ ] A-E-08 Reconcile original `E-08`: Put editor-only dependencies behind a granular import boundary and assess whether separate packages are required to avoid mandatory installation weight. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/root-import-distribution-review.json",
+      "sha256": "a737ec9d89cac60ca41d76a2416afec5ff348b75ddec419ca26f53b43130c197",
+      "limits": "Dependency traversal/bundle behavior is distinct from package-manager installation. Single-package consumers still install editor dependencies and shared stylesheet. Prior fourteen-probe archive and later layout-only archive check retain their distinct inputs; no fresh performance, publication or release claim."
     }
   ],
   "limits": [
