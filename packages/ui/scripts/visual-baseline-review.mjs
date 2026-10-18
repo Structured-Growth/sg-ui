@@ -1,5 +1,7 @@
 import { readFileSync, realpathSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
+import { gunzipSync } from 'node:zlib';
 import { resolve, relative, isAbsolute, dirname, basename } from 'node:path';
 
 const digest = path => createHash('sha256').update(readFileSync(path)).digest('hex');
@@ -20,6 +22,88 @@ export const visualBaselineNames = [
   'dark-comfortable-360-en-US-ltr-long', 'dark-comfortable-1280-ar-rtl-long',
 ].flatMap(key => ['focused-action', 'controls', 'grids', 'navigation', 'editor', 'overlay'].map(family => `${key}-${family}.png`));
 
+// A reviewed historical manifest may bind tracked inputs to an immutable Git
+// commit and non-Git outputs to retained artifact copies. Neither reads HEAD or
+// the current candidate's source files. The review still hashes this manifest.
+function validateSourceFiles(manifest, repositoryRoot) {
+  if (!manifest.files || !Object.keys(manifest.files).length) throw Error('Empty source files manifest');
+  const provenance = manifest.provenance;
+  if (!provenance) {
+    // Explicit compatibility for existing receipts; migration is required before
+    // an old current-tree manifest can compare a later candidate.
+    for (const [file, expected] of Object.entries(manifest.files)) {
+      if (!sha(expected) || digest(contained(repositoryRoot, file)) !== expected) throw Error(`Stale source ${file}`);
+    }
+    return;
+  }
+  if (provenance.kind !== 'git-and-artifact-snapshot' || !/^(?:[a-f0-9]{40}|[a-f0-9]{64})$/.test(provenance.commit ?? '')) throw Error('Immutable source commit required');
+  const git = args => execFileSync('git', args, {cwd: repositoryRoot, stdio: 'pipe', maxBuffer: 128 * 1024 * 1024});
+  const commit = git(['rev-parse', '--verify', `${provenance.commit}^{commit}`]).toString().trim();
+  if (commit !== provenance.commit) throw Error('Source commit does not match immutable commit');
+  const tree = new Map(git(['ls-tree', '-r', '-z', commit]).toString().split('\0').filter(Boolean).map(entry => {
+    const tab = entry.indexOf('\t'), metadata = entry.slice(0, tab).split(' ');
+    return [entry.slice(tab + 1), {mode:metadata[0], type:metadata[1], object:metadata[2]}];
+  }));
+  const tracked = [];
+  let artifacts;
+  const usedArtifacts = new Set();
+  const loadArtifacts = () => {
+    if (artifacts) return artifacts;
+    const record = provenance.artifactSnapshot;
+    const packedPath = contained(repositoryRoot, record?.path);
+    if (!sha(record?.sha256) || digest(packedPath) !== record.sha256) throw Error('Historical artifact snapshot hash mismatch');
+    const packed = JSON.parse(gunzipSync(readFileSync(packedPath), {maxOutputLength:128 * 1024 * 1024}).toString('utf8'));
+    if (packed.schemaVersion !== 1 || !packed.files || typeof packed.files !== 'object' || Array.isArray(packed.files)) throw Error('Invalid historical artifact map');
+    for (const [file, encoded] of Object.entries(packed.files)) {
+      if (!text(file) || isAbsolute(file) || file.split(/[\\/]/).some(part => part === '..' || part === '.' || !part) || /[\r\n\0]/.test(file)) throw Error('Invalid historical artifact path');
+      if (typeof encoded !== 'string' || Buffer.from(encoded, 'base64').toString('base64') !== encoded) throw Error('Invalid historical artifact base64');
+    }
+    artifacts = packed.files;
+    return artifacts;
+  };
+  for (const [file, expected] of Object.entries(manifest.files)) {
+    // Validate names even when Git is their byte source.
+    if (!text(file) || isAbsolute(file) || file.split(/[\\/]/).includes('..') || /[\r\n]/.test(file) || !sha(expected)) throw Error('Invalid source manifest entry');
+    if (tree.has(file)) {
+      const entry = tree.get(file);
+      if (entry.type !== 'blob' || !['100644','100755'].includes(entry.mode)) throw Error(`Non-regular Git source ${file}`);
+      tracked.push({file, expected, object:entry.object});
+    } else {
+      const entries = loadArtifacts();
+      if (!Object.hasOwn(entries, file)) throw Error(`Missing historical artifact ${file}`);
+      usedArtifacts.add(file);
+      if (createHash('sha256').update(Buffer.from(entries[file], 'base64')).digest('hex') !== expected) throw Error(`Historical artifact hash mismatch ${file}`);
+    }
+  }
+  if (artifacts && Object.keys(artifacts).some(file => !usedArtifacts.has(file))) throw Error('Unexpected historical artifact entry');
+  // One batch, by immutable object ID: never evaluate candidate paths as refs.
+  if (tracked.length) {
+    const bytes = execFileSync('git', ['cat-file', '--batch'], {cwd:repositoryRoot, stdio:'pipe',
+      input:tracked.map(entry => entry.object + '\n').join(''), maxBuffer:128 * 1024 * 1024});
+    let offset = 0;
+    for (const entry of tracked) {
+      const end = bytes.indexOf(10, offset), header = bytes.subarray(offset, end).toString().split(' '), size = Number(header[2]);
+      if (end < 0 || header[0] !== entry.object || header[1] !== 'blob' || !Number.isSafeInteger(size) || size < 0) throw Error('Invalid Git blob response');
+      const content = bytes.subarray(end + 1, end + 1 + size);
+      if (content.length !== size || createHash('sha256').update(content).digest('hex') !== entry.expected) throw Error(`Historical Git source hash mismatch ${entry.file}`);
+      offset = end + 1 + size + 1;
+    }
+  }
+}
+
+/** Bind a separately recorded candidate manifest to the mutable candidate tree. */
+export function validateVisualCandidate({candidatePath, candidateSha256, repositoryRoot}) {
+  try {
+    if (!isAbsolute(candidatePath ?? '') || !sha(candidateSha256)) throw Error('Absolute candidate manifest and SHA-256 required');
+    const path = contained(repositoryRoot, relative(repositoryRoot, candidatePath));
+    if (digest(path) !== candidateSha256) throw Error('Candidate manifest hash mismatch');
+    const candidate = JSON.parse(readFileSync(path, 'utf8'));
+    if (candidate.provenance) throw Error('Candidate manifest must bind current inputs');
+    validateSourceFiles(candidate, repositoryRoot);
+    return [];
+  } catch (error) { return [`candidate: ${error.message}`]; }
+}
+
 /** Completeness/integrity gate only. It cannot perform or authenticate a review. */
 export function validateVisualBaseline({ receiptPath, baselineRoot, repositoryRoot }) {
   const errors = [];
@@ -36,10 +120,7 @@ export function validateVisualBaseline({ receiptPath, baselineRoot, repositoryRo
       if (!sha(record.sha256) || digest(path) !== record.sha256) throw Error('Receipt hash mismatch');
       if (kind === 'source') {
         const manifest = JSON.parse(readFileSync(path, 'utf8'));
-        if (!manifest.files || !Object.keys(manifest.files).length) throw Error('Empty source files manifest');
-        for (const [file, expected] of Object.entries(manifest.files)) {
-          if (!sha(expected) || digest(contained(repositoryRoot, file)) !== expected) throw Error(`Stale source ${file}`);
-        }
+        validateSourceFiles(manifest, repositoryRoot);
       }
     } catch (error) { errors.push(`${kind}: ${error.message}`); }
   }
@@ -69,7 +150,7 @@ function destination(path) {
   return resolve(realpathSync(parent), ...suffix);
 }
 export function validateVisualExecution({ mode, updateSnapshots, snapshotPaths, outputDirectory,
-  baselineRoot, receiptPath, repositoryRoot, argv = [] }) {
+  baselineRoot, receiptPath, repositoryRoot, candidatePath, candidateSha256, argv = [] }) {
   const errors = [];
   if (!['capture', 'compare'].includes(mode)) return ['Explicit capture or compare mode required'];
   if (argv.some(argument => /^--update-snapshots(?:=|$)/.test(argument) || argument === '-u')) errors.push('Snapshot update flags are forbidden');
@@ -91,6 +172,7 @@ export function validateVisualExecution({ mode, updateSnapshots, snapshotPaths, 
     } catch (error) { errors.push(error.message); }
   }
   if (mode === 'compare') {
+    errors.push(...validateVisualCandidate({candidatePath, candidateSha256, repositoryRoot}));
     if (!isAbsolute(receiptPath ?? '')) errors.push('Absolute actual review receipt required');
     else {
       errors.push(...validateVisualBaseline({ receiptPath, baselineRoot, repositoryRoot }));

@@ -24,7 +24,8 @@ for (const [theme,density,width,locale,direction,longLabels] of configurations) 
       mode: process.env.SGUI_VISUAL_MODE ?? 'compare', updateSnapshots: info.config.updateSnapshots,
       snapshotPaths: ['focused-action','controls','grids','navigation','editor','overlay'].map(family => info.snapshotPath(`${key}-${family}.png`)),
       outputDirectory: process.env.SGUI_VISUAL_OUTPUT ?? '', baselineRoot: process.env.SGUI_VISUAL_BASELINES,
-      receiptPath: process.env.SGUI_VISUAL_REVIEW, repositoryRoot: resolve(import.meta.dirname, '../../../..'), argv: process.argv,
+      receiptPath: process.env.SGUI_VISUAL_REVIEW, candidatePath: process.env.SGUI_VISUAL_CANDIDATE,
+      candidateSha256: process.env.SGUI_VISUAL_CANDIDATE_SHA256, repositoryRoot: resolve(import.meta.dirname, '../../../..'), argv: process.argv,
     });
     expect(reviewErrors, 'Deliberate screenshot review is mandatory for every visual test entry').toEqual([]);
     const warnings: string[] = [];

@@ -2,7 +2,7 @@ import {defineConfig, devices} from '@playwright/test';
 import {isAbsolute, resolve} from 'node:path';
 import {existsSync, mkdirSync, readFileSync, writeFileSync, lstatSync} from 'node:fs';
 import {randomUUID} from 'node:crypto';
-import {visualBaselineNames, validateVisualBaseline} from './scripts/visual-baseline-review.mjs';
+import {visualBaselineNames, validateVisualBaseline, validateVisualCandidate} from './scripts/visual-baseline-review.mjs';
 // Coordinator starts an immutable built docs-owned native host separately.
 const baseURL = process.env.SGUI_VISUAL_BASE_URL;
 const output = process.env.SGUI_VISUAL_OUTPUT;
@@ -39,6 +39,7 @@ if (mode === 'capture') {
   const receiptPath = process.env.SGUI_VISUAL_REVIEW ?? '';
   if (!isAbsolute(baselines) || !isAbsolute(receiptPath)) throw new Error('Comparison requires absolute SGUI_VISUAL_BASELINES and SGUI_VISUAL_REVIEW');
   const errors = validateVisualBaseline({receiptPath, baselineRoot: baselines, repositoryRoot: resolve(import.meta.dirname, '../..')});
+  errors.push(...validateVisualCandidate({candidatePath:process.env.SGUI_VISUAL_CANDIDATE, candidateSha256:process.env.SGUI_VISUAL_CANDIDATE_SHA256, repositoryRoot:resolve(import.meta.dirname, '../..')}));
   if (errors.length) throw new Error(`Reviewed ${visualBaselineNames.length}-image baseline required:\n${errors.join('\n')}`);
 }
 export default defineConfig({
