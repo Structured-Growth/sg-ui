@@ -245,9 +245,57 @@ leaving untouched flex columns responsive to container measurement. Focus is
 tracked by row ID, field ID and nested control index. Refresh/sort preserves
 mounted controls; deleted/hidden controls fall back within their grid, including
 an empty grid entry. A page transition initiated while focus is inside the grid
-resets vertical scroll and focuses the first page cell or empty table entry.
-Focus held by a footer, toolbar or another grid is not stolen; the later shell
-owns those entry transitions. Reorder and persistence remain subsequent batches.
+resets both scroll axes and focuses the first page cell or empty table entry.
+An unrelated toolbar, another grid or an external host control keeps its focus.
+The standalone AppDataGrid footer intentionally requests page-entry focus and
+resets vertical scroll after its accepted page transition; it does not explicitly
+reset horizontal scroll. A newer host focus move cancels that pending repair.
+Shell hosts own entry transitions outside that explicit standalone path. Reorder and persistence use the shipped owned contracts described in their dedicated guides.
+
+## Keyboard, semantics and focus contract (G-16/G-29)
+
+AppDataGrid uses an interactive `grid` on its native table because the collection
+owns arrow navigation, selection, nested actions, sorting and resizing. Disabling
+selection does not turn that implementation into a plain reading table. Use the
+public Table parts for native static/composed table semantics; Table does not add
+the grid's roving collection keyboard behavior. Hosts must supply a meaningful
+collection label, stable row IDs and accessible row labels.
+
+Tab enters the remembered collection entry; Shift+Tab returns to the preceding
+host control, and Tab leaves the collection. The overflow container has native
+tabIndex=-1 so Firefox does not insert another implicit scroll-pane entry. Arrow
+navigation moves within the collection and through its nested controls; the
+native focus fixture verifies row movement, entering Inspect/Review actions,
+single Enter activation without selecting the row, and Tab exit. Links retain
+native navigation semantics. Do not add a host Tab trap or replace the collection's
+keyboard handling with DOM event forwarding. Open action/sort menus follow the
+public Menu contract and restore their own trigger focus on dismissal.
+
+| Update | Focus and scroll behavior |
+| --- | --- |
+| Refresh or stable-identity data update | Retain the mounted row/field/nested control and both scroll offsets when its anchor remains usable. |
+| Focused field becomes hidden | Find a surviving control/cell in that row; use preventScroll and preserve offsets where the native scroll bounds allow. |
+| Focused or selected row disappears | Fall back within the same collection, preferring its surviving field; retain a usable empty collection entry if no rows remain. Native reveal may move/clamp an invalid viewport so the successor remains visible. |
+| Accepted page or page-size change while the grid owns focus | Enter the first text cell or empty collection and reset both axes to zero. |
+| Accepted standalone footer page transition | Request the first text cell or empty collection and reset vertical scroll; horizontal scroll has no explicit reset. A newer external focus move cancels the pending entry request. Unrelated toolbar/host focus remains with its owner. |
+| Focused Retry control disappears | Repair to the retained row or empty collection entry while preserving the grid's saved scroll; do not recapture focus after a host or sibling takes ownership. |
+| Another grid or external host control owns focus | Do not steal focus or change that sibling's selection/scroll when this grid updates. |
+
+Selection stays ID-based and host-controlled where configured. A removed row's
+ID is not a persistence/delete confirmation; hosts decide whether off-page or
+removed selection IDs remain selected. Copied source examples and tests use each
+owner independently, including views with colliding row IDs.
+
+Retained executable evidence: `batch01-grid-focus.spec.ts` covers refresh, hidden
+columns, disappearing/empty rows, accepted page/size changes and sibling/host
+ownership. `batch08-grid-retry-focus.spec.ts` covers empty/retained Retry removal.
+`wave03-grid-successors.spec.ts` adds native Tab/Shift+Tab entry and selected-row
+removal with exact both-axis retention, visible successor and sibling preservation;
+its three cases passed in Chromium, Firefox and WebKit in the retained wave03
+followup receipt. Colocated `ownedGridInteraction.test.tsx` separately verifies
+hidden-field scroll and both-axis page-size reset. These checks establish the
+interaction contract; they are not recordings of spoken screen-reader output,
+physical touch, universal viewport geometry or production persistence.
 
 ## Persistence, focus and implementation sequence
 

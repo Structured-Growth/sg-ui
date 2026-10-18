@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 88,
-  "closedTotal": 269,
-  "remaining": 51,
+  "closedThisReview": 90,
+  "closedTotal": 271,
+  "remaining": 49,
   "entries": [
     {
       "id": "A-M-21",
@@ -785,6 +785,24 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-grid-states-cells-review.json",
       "sha256": "f1b3471732a6b7f76bc8ce454ab327b18e6a83f318c34302209e862dff0a3615",
       "limits": "Live-region assertions establish DOM/native contracts, not spoken output; representative speech remains X11. Clipboard failure case deliberately injects rejection and does not prove Firefox OS permission denial. Historical unit/native results retain original dates and inputs; no broad rerun or all-state matrix claim."
+    },
+    {
+      "id": "A-G-16",
+      "basis": "The owned interactive-grid contract now explicitly defines native Tab entry/exit, roving arrows, nested actions, trigger restoration and distinction from static native Table. Actual retained three-engine navigation and current clipboard/lineage evidence support the documented contract.",
+      "criterion": "- [ ] A-G-16 Reconcile original `G-16`: Define keyboard navigation, tab stops, focus retention after updates, row actions, and table versus interactive-grid semantics based on actual behavior. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-grid-keyboard-scroll-review.json",
+      "sha256": "d0bb4158f4563a3303fcf6c8d1c21494038a64ba6369f26d5d6054eeb298cf02",
+      "limits": "Documentation correction and source/evidence reconciliation; no fresh full grid matrix. Retained selected cases keep original inputs and original failed lineage executions remain visible. No universal fixed-scroll promise, physical touch or spoken AT claim."
+    },
+    {
+      "id": "A-G-29",
+      "basis": "Source/tests and retained native cases establish refresh/hidden-field/disappearing-row/empty/page-size/Retry focus and scroll behavior with independent grids. Guide accurately distinguishes accepted footer repair, pending/rejected requests, external focus ownership and native viewport reveal/clamping.",
+      "criterion": "- [ ] A-G-29 Reconcile original `G-29`: Define focus and scroll preservation when data refreshes, pages change, columns hide, or a selected row disappears; test multiple independent grids. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-grid-keyboard-scroll-review.json",
+      "sha256": "d0bb4158f4563a3303fcf6c8d1c21494038a64ba6369f26d5d6054eeb298cf02",
+      "limits": "Documentation correction and source/evidence reconciliation; no fresh full grid matrix. Retained selected cases keep original inputs and original failed lineage executions remain visible. No universal fixed-scroll promise, physical touch or spoken AT claim."
     }
   ],
   "limits": [

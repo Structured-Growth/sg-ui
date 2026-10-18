@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 269/320 A leaves closed; 51 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 271/320 A leaves closed; 49 A, 0 editor V review leaves and six future leaves remain.**
+
+### Grid keyboard and focus-scroll transitions accepted — 2026-10-17
+
+Reconciled actual native grid entry, navigation, nested actions and stable-owner focus/scroll receipts. Corrected the live guide to distinguish both-axis grid-owned page resets from the standalone footer's vertical reset and deliberate accepted-page focus request. Existing exact-source results establish the behavior; documentation changes required no duplicate browser run.
+Wave 04 now closes 90 of 139 items; 49 remain.
 
 ### Grid state and cell acceptance completed — 2026-10-17
 

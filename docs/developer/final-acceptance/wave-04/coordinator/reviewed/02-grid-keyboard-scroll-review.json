@@ -1,0 +1,33 @@
+{
+  "entries": [
+    {
+      "id": "A-G-16",
+      "basis": "The owned interactive-grid contract now explicitly defines native Tab entry/exit, roving arrows, nested actions, trigger restoration and distinction from static native Table. Actual retained three-engine navigation and current clipboard/lineage evidence support the documented contract.",
+      "criterion": "- [ ] A-G-16 Reconcile original `G-16`: Define keyboard navigation, tab stops, focus retention after updates, row actions, and table versus interactive-grid semantics based on actual behavior. Historical status: open."
+    },
+    {
+      "id": "A-G-29",
+      "basis": "Source/tests and retained native cases establish refresh/hidden-field/disappearing-row/empty/page-size/Retry focus and scroll behavior with independent grids. Guide accurately distinguishes accepted footer repair, pending/rejected requests, external focus ownership and native viewport reveal/clamping.",
+      "criterion": "- [ ] A-G-29 Reconcile original `G-29`: Define focus and scroll preservation when data refreshes, pages change, columns hide, or a selected row disappears; test multiple independent grids. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/grid-keyboard-scroll/receipt.json",
+      "sha256": "20f0b2036f16246e9a1ce2d3711f7fbe77e9fe750662fb22b478b88f84056f33"
+    },
+    {
+      "path": "docs/developer/react-aria-grid-contracts.md",
+      "sha256": "36872d3b67f02097837e97cf449c59978dfe79aa6e0b9e3c0817b8141eebe293"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/grid-state-cell/receipt.json",
+      "sha256": "d9a3bd6b813e9dd10b4537262549157b4d3a36a71a81a93165e16eb0968bd09b"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/grid-provenance-16/native-validation.json",
+      "sha256": "535e2fff52deab626f6435dbca107ead9c64eb501100cba9921b7d8a87d08d82"
+    }
+  ],
+  "limits": "Documentation correction and source/evidence reconciliation; no fresh full grid matrix. Retained selected cases keep original inputs and original failed lineage executions remain visible. No universal fixed-scroll promise, physical touch or spoken AT claim."
+}

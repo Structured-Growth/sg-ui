@@ -1,0 +1,438 @@
+{
+  "ids": [
+    "A-G-16",
+    "A-G-29"
+  ],
+  "status": "Ready for root closure review; no concrete missing implementation/native clause found",
+  "centralCountsChanged": false,
+  "productionCodeChanges": [],
+  "documentationChange": "Integrated prior04 precise keyboard/focus contract into live guide, then clarified footer vertical-only explicit reset against actual source. Grid-owned page transitions reset both axes.",
+  "validation": "Documentation-only; git diff --check passed. No tests/build/install/browser rerun. Existing source/test/receipt reconciliation only.",
+  "clauses": [
+    {
+      "id": "A-G-16",
+      "clause": "Interactive grid versus native table",
+      "basis": "Owned interaction uses React Aria Table with collection navigation, selection, sorting, resize and nested row actions. selection=none keeps grid behavior. Public Table parts render native table/thead/tbody/th/td with explicit associations and no roving collection behavior.",
+      "files": [
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+        "packages/ui/src/experimental/Table/Table.tsx",
+        "packages/ui/src/experimental/Table/Table.test.tsx"
+      ]
+    },
+    {
+      "id": "A-G-16",
+      "clause": "Tab entry/exit, arrows, nested buttons and native links",
+      "basis": "Wave03 retained3engine native Tab/Shift+Tab remembered entry/exit. batch01 native rows/arrows/Inspect\u2192Review/Enter once/no accidental selection. LatestFirefox clipboard3 verifies native action entry/activation, focus ring and no selection; corrected lineage9 retains nested section and native Enter destinations.",
+      "files": [
+        "packages/ui/tests/browser/wave03-grid-successors.spec.ts",
+        "packages/ui/tests/browser/batch01-grid-focus.spec.ts",
+        "packages/ui/tests/browser/grid-scenario-lineage.spec.ts",
+        "packages/ui/tests/browser/batch05-grid-clipboard.spec.ts"
+      ]
+    },
+    {
+      "id": "A-G-29",
+      "clause": "Refresh and hidden columns",
+      "basis": "Retained batch01 native nested focus and both-axis refresh; hidden column falls back within row. Colocated hidden-field test explicitly checks both offsets. Stable identity/field/nested-index restoration uses preventScroll and checks current focus owner.",
+      "files": [
+        "packages/ui/tests/browser/batch01-grid-focus.spec.ts",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx"
+      ]
+    },
+    {
+      "id": "A-G-29",
+      "clause": "Page/size transitions and standalone footer",
+      "basis": "Owned-grid in-collection page/size changes reset both axes and first text/empty entry; retained native page and size case plus colocated size-reset assertions. Standalone footer separately requests entry after accepted page and explicitly resets only vertical scroll, with newer external focus canceling request. Guide distinguishes these actual contracts.",
+      "files": [
+        "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+        "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx",
+        "packages/ui/tests/browser/batch01-grid-focus.spec.ts"
+      ]
+    },
+    {
+      "id": "A-G-29",
+      "clause": "Selected/focused disappearance, empty entry, siblings and host ownership",
+      "basis": "Wave03 selected-row disappearance passed3engines: visible same-field successor, both offsets preserved when valid, independent selection/scroll unaffected. batch01 covers empty entry and host/sibling focus. Retry4 cases cover retained/empty removal, host/sibling ownership and no late focus recapture. Native reveal/clamping may adjust invalid viewport; no universal fixed-offset promise.",
+      "files": [
+        "packages/ui/tests/browser/wave03-grid-successors.spec.ts",
+        "packages/ui/tests/browser/batch01-grid-focus.spec.ts",
+        "packages/ui/tests/browser/batch08-grid-retry-focus.spec.ts",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx"
+      ]
+    }
+  ],
+  "newNativeRuns": 0,
+  "retainedRawResults": {
+    "paths": {
+      "wave03": "packages/ui/artifacts/wave03-integration/followup-final-results.json",
+      "lineageInitial": "docs/developer/final-acceptance/wave-04/05/batch/grid-lineage-native-9-built-01/results.json",
+      "lineageCorrected": "docs/developer/final-acceptance/wave-04/05/batch/grid-lineage-keyboard-affected4-01/results.json",
+      "clipboard": "docs/developer/final-acceptance/wave-04/02/grid-state-cell/firefox-01/results.json"
+    },
+    "wave03Selected9": [
+      {
+        "file": "wave03-grid-successors.spec.ts",
+        "title": "native Tab and Shift+Tab enter and leave the remembered grid entry",
+        "engine": "chromium",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "wave03-grid-successors.spec.ts",
+        "title": "selected focused row disappearance preserves sibling selection, focus ownership and scroll",
+        "engine": "chromium",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "wave03-grid-successors.spec.ts",
+        "title": "optimistic row action rollback, retry, reorder cancel and late settlement remain per host",
+        "engine": "chromium",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "wave03-grid-successors.spec.ts",
+        "title": "native Tab and Shift+Tab enter and leave the remembered grid entry",
+        "engine": "firefox",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "wave03-grid-successors.spec.ts",
+        "title": "selected focused row disappearance preserves sibling selection, focus ownership and scroll",
+        "engine": "firefox",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "wave03-grid-successors.spec.ts",
+        "title": "optimistic row action rollback, retry, reorder cancel and late settlement remain per host",
+        "engine": "firefox",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "wave03-grid-successors.spec.ts",
+        "title": "native Tab and Shift+Tab enter and leave the remembered grid entry",
+        "engine": "webkit",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "wave03-grid-successors.spec.ts",
+        "title": "selected focused row disappearance preserves sibling selection, focus ownership and scroll",
+        "engine": "webkit",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "wave03-grid-successors.spec.ts",
+        "title": "optimistic row action rollback, retry, reorder cancel and late settlement remain per host",
+        "engine": "webkit",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      }
+    ],
+    "wave03ParentAggregate": "Mixed whole-file result retained; only the9named active passed grid cases are cited.",
+    "lineageInitial9": [
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "sectioned host keeps hidden selection and activity order, criteria and per-kind destinations coherent",
+        "engine": "chromium",
+        "status": "unexpected",
+        "attempts": [
+          "failed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "debounced server search retains the old page before debounce, then accepts sort and email matching",
+        "engine": "chromium",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "linked cards preserve list selection and one footer, then navigate natively once with Enter",
+        "engine": "chromium",
+        "status": "unexpected",
+        "attempts": [
+          "failed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "sectioned host keeps hidden selection and activity order, criteria and per-kind destinations coherent",
+        "engine": "firefox",
+        "status": "unexpected",
+        "attempts": [
+          "failed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "debounced server search retains the old page before debounce, then accepts sort and email matching",
+        "engine": "firefox",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "linked cards preserve list selection and one footer, then navigate natively once with Enter",
+        "engine": "firefox",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "sectioned host keeps hidden selection and activity order, criteria and per-kind destinations coherent",
+        "engine": "webkit",
+        "status": "unexpected",
+        "attempts": [
+          "failed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "debounced server search retains the old page before debounce, then accepts sort and email matching",
+        "engine": "webkit",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "linked cards preserve list selection and one footer, then navigate natively once with Enter",
+        "engine": "webkit",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      }
+    ],
+    "lineageCorrection4": [
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "sectioned host keeps hidden selection and activity order, criteria and per-kind destinations coherent",
+        "engine": "chromium",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "linked cards preserve list selection and one footer, then navigate natively once with Enter",
+        "engine": "chromium",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "sectioned host keeps hidden selection and activity order, criteria and per-kind destinations coherent",
+        "engine": "firefox",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "sectioned host keeps hidden selection and activity order, criteria and per-kind destinations coherent",
+        "engine": "webkit",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      }
+    ],
+    "lineageJoined9": [
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "sectioned host keeps hidden selection and activity order, criteria and per-kind destinations coherent",
+        "engine": "chromium",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "debounced server search retains the old page before debounce, then accepts sort and email matching",
+        "engine": "chromium",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "linked cards preserve list selection and one footer, then navigate natively once with Enter",
+        "engine": "chromium",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "sectioned host keeps hidden selection and activity order, criteria and per-kind destinations coherent",
+        "engine": "firefox",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "debounced server search retains the old page before debounce, then accepts sort and email matching",
+        "engine": "firefox",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "linked cards preserve list selection and one footer, then navigate natively once with Enter",
+        "engine": "firefox",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "sectioned host keeps hidden selection and activity order, criteria and per-kind destinations coherent",
+        "engine": "webkit",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "debounced server search retains the old page before debounce, then accepts sort and email matching",
+        "engine": "webkit",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "grid-scenario-lineage.spec.ts",
+        "title": "linked cards preserve list selection and one footer, then navigate natively once with Enter",
+        "engine": "webkit",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      }
+    ],
+    "lineageReconciliation": "Original5passed/4failed + corrected4passed =9accepted logical cases. Original failures retained; not represented as initial9/9 pass.",
+    "clipboard3": [
+      {
+        "file": "batch05-grid-clipboard.spec.ts",
+        "title": "native keyboard copy preserves focus, selection and escaped text/JSON: light",
+        "engine": "firefox",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "batch05-grid-clipboard.spec.ts",
+        "title": "native keyboard copy preserves focus, selection and escaped text/JSON: dark",
+        "engine": "firefox",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      },
+      {
+        "file": "batch05-grid-clipboard.spec.ts",
+        "title": "controlled rejection isolates feedback and replacement/unmount cleanup",
+        "engine": "firefox",
+        "status": "expected",
+        "attempts": [
+          "passed"
+        ]
+      }
+    ]
+  },
+  "historicalEvidenceScope": "batch01 and batch08 retained accepted checkpoint records remain dated; no fresh current-head all-engine claim. Core implementation/controller/unit/CSS hashes equal packet04 reviewed source.",
+  "sourceReconciliation": {
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx": {
+      "currentSha256": "e0fc3483fcfcccce40ffeb831aa3d548f3ade9224c9c99e9fa7a5b839b6c6906",
+      "matchesPreviouslyReviewed": true
+    },
+    "packages/ui/src/components/AppDataGrid/ownedGridController.ts": {
+      "currentSha256": "cd099ccba9c0c15cd7adf4ba2a8537ac08e08500b98cb7df4f0ae130a87cb5fe",
+      "matchesPreviouslyReviewed": true
+    },
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx": {
+      "currentSha256": "27111468b259d5eff812bf24611b023c5188fa1ea7ba92795443a0588e32c022",
+      "matchesPreviouslyReviewed": true
+    },
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css": {
+      "currentSha256": "06d76bdecc8495ae7884ac4ea8b47c9b8c987ebaf1de57fe39d3d707b82d8f60",
+      "matchesPreviouslyReviewed": true
+    }
+  },
+  "sha256": {
+    "docs/developer/backlog-execution-2026-10-15.md": "75a4996497dd31574bd8a7fa82e01e2345aed262697ec0515de7ae3f60ad2809",
+    "docs/developer/final-acceptance/wave-04/02/grid-state-cell/firefox-01/results.json": "3c6db5f5dddc933cd401dcd440d0e4f41c4769310ce8ad0356604b9c05c9aec1",
+    "docs/developer/final-acceptance/wave-04/04/grid-closure/closure-decisions.json": "0657a385a6e3b9f7e1dc9e6fda50ecc1367fc7a4a26848037603b5797aea7684",
+    "docs/developer/final-acceptance/wave-04/05/batch/grid-lineage-keyboard-affected4-01/results.json": "cc7b5c9438b5b476de44b27bfaba3430681c9ef2adf5b90ce3d6de61f85b813b",
+    "docs/developer/final-acceptance/wave-04/05/batch/grid-lineage-native-9-built-01/results.json": "e0a220e33406c3cfb8982d65f021b6758ac469c64c141daf004887017e2e69af",
+    "docs/developer/react-aria-grid-contracts.md": "36872d3b67f02097837e97cf449c59978dfe79aa6e0b9e3c0817b8141eebe293",
+    "packages/ui/artifacts/wave03-integration/followup-final-results.json": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+    "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx": "d5037a206368dde03af63d5e755d035311b9818c4595fbc67593a69775bf91aa",
+    "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx": "52b7748e0e039295ac31db6318d934884d1a36b402a5cbcadab9ddd31a8a8b6e",
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx": "27111468b259d5eff812bf24611b023c5188fa1ea7ba92795443a0588e32c022",
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx": "e0fc3483fcfcccce40ffeb831aa3d548f3ade9224c9c99e9fa7a5b839b6c6906",
+    "packages/ui/src/experimental/Table/Table.test.tsx": "de613ae4cd5646b46b0b74bf3b4fa559101628ef37f43217c5c8ba012d3715c5",
+    "packages/ui/src/experimental/Table/Table.tsx": "fd16ddb941fc551cb6a9b39772b3a0de4d62ed96d56ddcc4120b04cba8e8adbb",
+    "packages/ui/tests/browser/batch01-grid-focus.spec.ts": "57d727810bcff5098e654ae1f3540611b52add84b3f061fd485a128f80183048",
+    "packages/ui/tests/browser/batch05-grid-clipboard.spec.ts": "77d19c8a4845005babfa06a93ba4d3103c40b90b726311202fded5cbfe2facae",
+    "packages/ui/tests/browser/batch08-grid-retry-focus.spec.ts": "1aae010e3572e9a5be06b5977d4f4e0407adc98ad22570b3e146d1818e7d702f",
+    "packages/ui/tests/browser/grid-scenario-lineage.spec.ts": "29b7ce2f97b40917aede95054262253df6e622cd26d222a2f75e0b64974e14db",
+    "packages/ui/tests/browser/wave03-grid-successors.spec.ts": "90600d9ff82d252f7a03b5b5fa4365c9ff90cd4095b2ab06e0a2051bc194abfc"
+  },
+  "limits": [
+    "No actual spoken screen-reader utterance, physical touch or universal viewport evidence claimed.",
+    "Native reveal/clamping allowed for invalid viewport/removed content.",
+    "Root alone changes acceptance counts and Git."
+  ],
+  "finishedAt": "2026-10-18T00:24:05.652202+00:00"
+}
