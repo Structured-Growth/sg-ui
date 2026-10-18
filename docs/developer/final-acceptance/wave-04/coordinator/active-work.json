@@ -1,17 +1,17 @@
 {
-  "lastIntegratedHead": "351f1f50",
+  "lastIntegratedHead": "9ffbbb0b",
   "ongoing": [
     {
       "threadId": "01a14bd4-fbcc-7460-93a5-571ced620baa",
-      "task": "R15/R28 release marking and safe configuration reconciliation",
-      "state": "R25 complete; reconcile actual breaking markers, release rules and ordinary dev/main boundaries without publication",
-      "evidence": "docs/developer/final-acceptance/wave-04/02/workflow-dependencies/receipt.json (completed prior task)",
-      "limits": "Source/read-only light first; no dispatch, main, tag, publish, secret/settings/version mutation"
+      "task": "W18 limitations, support-policy scope and replacement responsibility",
+      "state": "R15/R28 completed; write source-backed guidance and isolate only genuine owner policy decisions",
+      "evidence": "docs/developer/final-acceptance/wave-04/02/release-marking-safety/receipt.json (completed prior task)",
+      "limits": "Source/light only; no invented SLA/contact/appointment/compatibility promise; no release/admin/AT mutation"
     },
     {
       "threadId": "01a14bd5-0ddf-72d2-8b9f-5b37d1bde6e6",
       "task": "D15 current state applicability and remaining design gaps",
-      "state": "Current218-name source reconciliation and concrete selected/current marker fixes in progress; preserve existing Active text rather than adding redundant geometry",
+      "state": "Source frozen for eight owners;119 affected existing tests pass; one shared build/fifteen bounded Chromium cases authorized",
       "evidence": "docs/developer/final-acceptance/wave-04/05/batch/d15-remaining-indicators/completion-receipt.json",
       "plannedValidation": "Source/light first; reuse accepted evidence; no Cartesian matrix or invented AT/device gate for design-only criteria",
       "rootReviewPoints": [

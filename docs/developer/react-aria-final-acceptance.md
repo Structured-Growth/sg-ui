@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 291/320 A leaves closed; 29 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 293/320 A leaves closed; 27 A, 0 editor V review leaves and six future leaves remain.**
+
+### Release marking and offline configuration checks completed — 2026-10-17
+
+Closed A-R-15 and A-R-28 against real committed breaking markers, maintained offline version-calculation tests and unchanged main-only release configuration. Six release tests and14workflow tests pass without invoking release lifecycle hooks or publishing.
+Wave 04 now closes 112 of 139 items; 27 remain.
 
 ### Workflow dependency pin and review checks completed — 2026-10-17
 

@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 110,
-  "closedTotal": 291,
-  "remaining": 29,
+  "closedThisReview": 112,
+  "closedTotal": 293,
+  "remaining": 27,
   "entries": [
     {
       "id": "A-M-21",
@@ -983,6 +983,24 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/r25-workflow-dependency-policy.json",
       "sha256": "2b4c0268ac4a7c318063770be2f01424c5b21ac9e10a504e3b7263dee4db84ed",
       "limits": "Reference form and source review do not certify upstream safety or immutable downloaded tools. Optional Codex CLI version and floating hosted Node/Ubuntu boundaries remain explicit. No new live Actions, AI PR, effective branch-protection, release, main, tag or publication success inferred; R21/R23/R27 and release authority scopes remain separate."
+    },
+    {
+      "id": "A-R-15",
+      "basis": "Accepted public API/migration review identifies incompatible removals/default changes and actual major markers. Actual339c958d message hash matches accepted commitlint/analyzer proof and is an ancestor of dev. Configured analyzer returns major; maintained pure tool tests prove initial1.0.0 versus existing1.4.2\u21922.0.0 and0.9.0\u21921.0.0 for both supported breaking syntaxes, without editing versions or deciding publication authority.",
+      "criterion": "- [ ] A-R-15 Reconcile original `R-15`: Mark breaking public API removals appropriately; if a release already exists, migration needs a major bump, while a first publication follows the configured initial-release policy. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/r15-r28-offline-release-safety.json",
+      "sha256": "953066f395433ff91dcb6e32969b49c7fbfcfaec7a8ac50067efbb5c458a0b7e",
+      "limits": "Pure synthetic prior-version inputs establish tool behavior, not authoritative publication history. Read-only empty GitHub tag/release observations and public npm404 do not certify private/deleted history or rights. No main promotion, version edit, dispatch, tag or publish action. R17 authority, R27 effective protection, legal and final-candidate checks remain separate."
+    },
+    {
+      "id": "A-R-28",
+      "basis": "Safe validation calls only configured commit analyzer and installed pure next-version helper; six release-policy and14workflow-policy tests pass. Root release forwards to packages/ui; config branches and release push/guard are main-only and release requires full reusable validation. Dev integration cannot trigger release; an approved main promotion can publish after validation and is documented accordingly. Source hashes prove release config/workflows/manifests unchanged; no lifecycle/dry-run/publish hooks invoked.",
+      "criterion": "- [ ] A-R-28 Reconcile original `R-28`: Validate release configuration safely without publishing while implementing it; explicitly control whether final migration merges will trigger the first public release or a subsequent major release. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/r15-r28-offline-release-safety.json",
+      "sha256": "953066f395433ff91dcb6e32969b49c7fbfcfaec7a8ac50067efbb5c458a0b7e",
+      "limits": "Pure synthetic prior-version inputs establish tool behavior, not authoritative publication history. Read-only empty GitHub tag/release observations and public npm404 do not certify private/deleted history or rights. No main promotion, version edit, dispatch, tag or publish action. R17 authority, R27 effective protection, legal and final-candidate checks remain separate."
     }
   ],
   "limits": [
