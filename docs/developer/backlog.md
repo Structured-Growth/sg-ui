@@ -51,6 +51,17 @@ not authorize implementation. Split selected scope into concrete tasks later.
 
 ## Status and evidence
 
+On 2026-10-19, reconciled `codex/tooltip-viewport-debug-9ca3e666` into
+`dev`. Its tooltip lifetime and AppShell focus-outline fixes, affected tests,
+native diagnostic attachment and usage guidance already match `dev` byte for
+byte. The merge records ancestry and omits the temporary branch-only diagnostic
+workflow. Targeted Tooltip/AppShell unit validation passes 15 tests in two files.
+Existing browser evidence remains in
+[the saved stop record](backlog-to-ten/STOP-STATE.md) and
+[shell reconciliation receipt](backlog-to-ten/shell-focus-reconciliation.json).
+This completes branch reconciliation only; A-Z-11, A-R-12 and DOCS-005-l retain
+their broader outstanding acceptance obligations. No active task count changes.
+
 The last execution closed nine leaves, reducing the active count from 29 to 20.
 The saved [stop record](backlog-to-ten/STOP-STATE.md) identifies bounded passes and
 the then-pending full checkpoint. Consolidation does not relabel that run as a
