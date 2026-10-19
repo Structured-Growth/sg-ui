@@ -8,46 +8,50 @@ A host rollout is a separate implementation task after version/license selection
 For controlled/default/empty values, repeated accessible names, callback content,
 refs and supported slots, follow the [public composition contracts](react-aria-public-composition-contracts.md).
 
+This is a reusable host review template, not an SGUI backlog or an authorized
+host rollout. Its bullets are prompts to apply when a host adoption is requested;
+they are not eleven additional open project tasks.
+
 ## Review before an implementation task
 
-- [ ] Confirm the written commercial agreement, available package version or validated
+- Confirm the written commercial agreement, available package version or validated
   tarball, React/React DOM 18.3.1 or 19 peer compatibility and Node >=22.12.0.
-- [ ] Inventory host `@ui`/upstream imports, prop bags, theme objects, direct icon/primitive
+- Inventory host `@ui`/upstream imports, prop bags, theme objects, direct icon/primitive
   usage and private internals. Match each use to a declared public export and the
   [consumer mapping](../migration.md#consumer-migration-mappings). Preserved names do
   not preserve removed props; do not redirect aliases without reviewing call sites.
-- [ ] Plan one global `/styles.css` import and owned Provider scopes. Identify overlays,
+- Plan one global `/styles.css` import and owned Provider scopes. Identify overlays,
   nested scopes, host resets/backgrounds/font loading and CSS overrides. Keep reusable
   styles in tokens/shared styles; use declared native slots/parts for context layout.
-- [ ] Map routing/pathname/replace through SGNavigationProvider, translations and locale
+- Map routing/pathname/replace through SGNavigationProvider, translations and locale
   through SGTranslationProvider, and account operations through SGAccountProvider.
   Keep application APIs, credentials, session policy and post-account navigation in
   the host. Adapters do not grant data access or enforce application authorization.
-- [ ] Identify controlled values and accept requested changes atomically where needed.
+- Identify controlled values and accept requested changes atomically where needed.
   Grid shell/list/cards/footer share one state owner and stable IDs. Server criteria
   snapshots drive host requests; host owns stale-response cancellation, loading/errors,
   selection reconciliation, reorder persistence/rollback and distinct storage keys.
-- [ ] Choose explicit opt-in persistence and review restored state/schema/reset behavior.
+- Choose explicit opt-in persistence and review restored state/schema/reset behavior.
   Controlled state wins; view identity changes may require remounting. Preserve
   hydration loading behavior rather than reading browser storage during server render.
-- [ ] Map editor save/upload/document reset/read-only behavior. Host uploads must supply
+- Map editor save/upload/document reset/read-only behavior. Host uploads must supply
   durable approved URLs; temporary local previews are not durable assets. Host owns
   network abort, byte/size/asset authorization and cleanup. Validate current editor
   contract acceptance limits before exposing untrusted content.
-- [ ] Review form semantics: explicit submit/reset, required names/labels, string/boolean
+- Review form semantics: explicit submit/reset, required names/labels, string/boolean
   value callbacks, uncontrolled native reset and host validation. Apply the
   [component-specific read-only policy](#read-only-focus-and-form-values) below;
   disabled and readOnly have distinct focus and submission effects. Avoid duplicate
   click/press handling.
-- [ ] Review date-only versus local datetime/time/instant semantics. Supply valid ISO
+- Review date-only versus local datetime/time/instant semantics. Supply valid ISO
   values and explicit host timezone/DST choices; do not infer booking permissions or
   organization fiscal calendars from a date widget. Calendar controls remain proof
   contracts under `/experimental`; check their acceptance limits before adoption.
-- [ ] Plan representative light/dark/system, density, locale/RTL, narrow layout, text
+- Plan representative light/dark/system, density, locale/RTL, narrow layout, text
   enlargement, keyboard/focus and native clipboard/download checks. Test actual
   devices, IME and assistive technology where required; DOM/browser emulation alone
   does not certify them. Retain loading/empty/error states and full accessible text.
-- [ ] Keep original source until a separately authorized rollout establishes parity,
+- Keep original source until a separately authorized rollout establishes parity,
   license/notice requirements and recovery. Record deferred features and unsupported
   old props instead of silently reproducing them in host styling.
 

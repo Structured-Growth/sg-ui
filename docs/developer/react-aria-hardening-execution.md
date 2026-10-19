@@ -41,8 +41,8 @@ batches as the remaining V-04/V-05 gaps are reviewed; do not prepopulate empty
 defect tasks or invent acceptance evidence.
 
 Results and exact V closures belong in
-[the execution receipt](backlog-execution-2026-10-15.md). The canonical remaining
-items stay in [the hardening checklist](react-aria-hardening-tasks.md).
+[the execution receipt](archive/2026-10-18-task-lists/backlog-execution-2026-10-15.md). The canonical remaining
+items stay in [the hardening checklist](backlog.md).
 
 Current canonical progress: **300 / 300 complete; 0 remaining V review leaves**. This counts V
 checklist items only, not test cases, engine executions, acceptance or future work.

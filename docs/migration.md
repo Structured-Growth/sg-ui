@@ -15,7 +15,7 @@ Components, helpers, stories and tests were initially copied, then adapted to a
 standalone library. That extraction is provenance, not today's runtime architecture.
 The catalog, grid renderer/reorder, editor, primitives, icons and public theme now
 use owned contracts. Broad G/K/E/U/X/R/Z acceptance remains open; source and
-[execution evidence](developer/react-aria-progress.md) outrank stale planning boxes.
+[execution evidence](developer/archive/2026-10-18-task-lists/react-aria-progress.md) outrank stale planning boxes.
 
 ## Source architecture and disposition
 
@@ -203,13 +203,13 @@ it never imports platform contracts or owns API/database/login policy.
 | Grids | True sticky/pinned columns, arbitrary row-detail editing/expansion and spreadsheet capabilities are not supplied. Section-subheader collapse is a separate shipped contract. Reorder requires a complete unsorted/unfiltered single client page; hosts own persistence, pending/error and rollback. Server rows/query translation, page totals and stale-response authority remain host-owned. See [grid contracts](developer/react-aria-grid-contracts.md) and [reorder](developer/react-aria-grid-reorder.md). |
 | Date and scheduling | Civil dates and local times have no implicit host timezone. Hosts supply availability/business rules and explicit instant conversion. Recurrence, resource scheduling and booking/conflict/persistence workflows are separate future work; explicit presets are supported. See [calendar contracts](developer/react-aria-calendar-contracts.md). |
 | Application integration | Hosts own routing, account actions, translations, datasets, persistence and rich-content trust policy. The library supplies presentation/interactions and bounded callbacks, not application services. See [adoption responsibilities](developer/react-aria-adoption-checklist.md). |
-| Environment evidence | React peer ranges, Node minimum and accepted Vite/Next SSR/hydration fixtures are declared/tested inputs, not certification of every framework, device or allowed patch. Browser/IME/touch observations retain their [recorded scope](developer/react-aria-browser-support.md). Live-region DOM feedback is not spoken screen-reader verification; remaining representative AT/environment and performance-budget decisions stay in the [current acceptance checklist](developer/react-aria-hardening-tasks.md). |
+| Environment evidence | React peer ranges, Node minimum and accepted Vite/Next SSR/hydration fixtures are declared/tested inputs, not certification of every framework, device or allowed patch. Browser/IME/touch observations retain their [recorded scope](developer/react-aria-browser-support.md). Live-region DOM feedback is not spoken screen-reader verification; remaining representative AT/environment and performance-budget decisions stay in the [current acceptance checklist](developer/backlog.md). |
 | Public proof entry | `/experimental` contains shared implementations and proof contracts. Its name does not rename the public catalog or promise unimplemented features. Use the actual exported prop types and [public contract guide](developer/react-aria-public-contracts.md); do not expose React Aria objects/types through a host adapter. |
 
 ### Explicit future scope
 
 The following original IDs remain outside the required milestone unless selected
-by the user. Their [canonical definitions](developer/react-aria-hardening-tasks.md#deferred-features--outside-the-current-required-milestone)
+by the user. Their [canonical definitions](developer/backlog.md#deferred-features)
 remain authoritative; this list neither implements them nor makes required work optional.
 
 | Future ID | Separate product work |

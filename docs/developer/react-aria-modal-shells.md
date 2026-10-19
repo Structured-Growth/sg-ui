@@ -86,7 +86,7 @@ AppShell retains navigation/children and adds optional rightNavigation and expor
 customization. SideNavigation retains its presentation model, item selection,
 organization-change callbacks, icon resolver and routing/account/translation
 adapters. Navigation and account data remain host-supplied. See the colocated
-stories/tests and [execution evidence](react-aria-progress.md) for responsive,
+stories/tests and [execution evidence](archive/2026-10-18-task-lists/react-aria-progress.md) for responsive,
 focus and account behavior checks and outstanding browser acceptance gates.
 
 SideNavigation exposes a native nav ref, className/style and optional aria-label.

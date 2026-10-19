@@ -14,7 +14,7 @@ original limits. New documentation does not require repeating accepted browser w
 
 ## A-M-21 — DocumentEditorLayout
 
-F-C21 is retained complete from the [owned implementation record](react-aria-progress.md#editor-layout-and-floating-selection)
+F-C21 is retained complete from the [owned implementation record](archive/2026-10-18-task-lists/react-aria-progress.md#editor-layout-and-floating-selection)
 and the [prior reconciliation](final-acceptance/wave-02-03/report.md).
 T-C21's exact unit cases are mapped in [next100-c21](parallel-next100/next100-c21.md).
 The current [layout tests](../../packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx)
@@ -69,7 +69,7 @@ is identified.
 F-C25 is retained complete. [T-C25](parallel-next100/next100-c25.md) maps real
 Lexical commands, saved ranges, Alt+F10/Tab/Enter/Space/Escape, collapse/offscreen
 hiding, read-only/unmount cancellation and sibling isolation. Its old native
-boundary hold was superseded by the [docs-host execution receipt](backlog-execution-2026-10-15.md).
+boundary hold was superseded by the [docs-host execution receipt](archive/2026-10-18-task-lists/backlog-execution-2026-10-15.md).
 Current [unit tests](../../packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx)
 also assert exact selected formatting scope, observer disconnect and multi-line
 visible-fragment anchoring. Synthetic unit geometry remains explicitly jsdom evidence.

@@ -109,29 +109,12 @@ These are requirements, not shipped prop names:
 
 ## Delivery and acceptance leaves
 
-This plan is separate from historical F/T/V counts. Follow the
-[master execution policy](react-aria-master-task-list.md) and
-[current shell contracts](react-aria-modal-shells.md).
+The completed checklist is [archived](archive/2026-10-18-task-lists/hierarchical-menu-scope.md#delivery-and-acceptance-leaves).
+Track HM-ADOPT-01 only in the [unified backlog](backlog.md).
 
-- [x] HM-SCOPE-01 Inspect the reference sliding drilldown/Back pattern, reconcile
-  existing SGUI support and record the standalone component boundary here.
-- [x] HM-F-01 Finalize the owned panel model, controlled/local path contract,
-  per-level content options and navigation-versus-command host composition.
-- [x] HM-F-02 Extract reusable drilldown/Back rendering and transitions; preserve
-  SideNavigation's public model, routing behavior and existing assertions.
-- [x] HM-F-03 Add a public prop playground and independent source-backed examples:
-  three levels with Back, different sibling configurations, mixed inline/drilldown
-  navigation and compact/comfortable references. Update usage, catalog exports
-  and composition metadata; validate snippets against built public types.
-- [x] HM-F-04 Establish the primary entry/Back/action flows using existing coverage
-  and only 1–3 meaningful added/adapted smoke cases per affected component in total.
-  Use a focused browser check to verify how motion, Back and scrolling appear.
-- [x] HM-T-01 Cover deeper path/model changes, controlled ownership and independent
-  panel instances after functionality.
-- [x] HM-V-01 Validate direction, reduced motion, text enlargement, narrow hosts,
-  focus and forced colors; retain explicit device/assistive-technology limits.
-- [ ] HM-ADOPT-01 Apply the component to the current menu in a follow-up, preserving
-  host adapters and pending/error behavior.
+This plan is separate from historical F/T/V counts. Follow the
+[master execution policy](react-aria-execution-policy.md) and
+[current shell contracts](react-aria-modal-shells.md).
 
 HM-SCOPE-01 evidence: inspected the local reference SideNavigation source/stories
 and linked SGUI source/tests; verified document links and diff whitespace.
@@ -162,7 +145,6 @@ review caught the original RTL underflow that a document scrollWidth check misse
 All three final narrow captures were reviewed. Original animation-driver failures
 remain retained; the corrected driver waits for animationstart and resolves
 Firefox rem/calc keyframes through CSS. No physical-device or spoken-AT claim.
-
 
 ## Prepared owned contract
 

@@ -6,45 +6,12 @@ The existing library palette and public scope contracts remain compatible. The
 website retains its Structured Growth identity; demo identities remain Material,
 Apple and Editorial. This task does not change commercial terms or F/T/V/A counts.
 
-## Functionality tasks
+## Completed delivery
 
-- [x] DOCS-012-a01 Define named raw palettes for all four identities and shared
-  validation/system colors. Palette values have no component names or UI roles.
-- [x] DOCS-012-a02 Separate identity font/shape settings from colors. Preserve
-  current family, radius, density and standard/increased focus behavior.
-- [x] DOCS-012-b01 Define complete light/dark standard semantic maps for all 41
-  owned color roles using palette or semantic references rather than literal colors.
-- [x] DOCS-012-b02 Define complete increased-contrast maps independently of
-  appearance. Keep meaningful text/action/validation and focus/border pairs readable.
-- [x] DOCS-012-b03 Define forced-color system mappings that take precedence over
-  selected appearance/contrast. Retain stable SSR and live system subscriptions.
-- [x] DOCS-012-c01 Audit existing component aliases and introduce owned slots for
-  remaining component color dependencies. Preserve the exact semantic role of each
-  migrated declaration; do not silently switch a surface or interaction state.
-- [x] DOCS-012-c02 Route every library CSS module's semantic color dependencies
-  through component aliases. Keep shared spacing/typography roles and intentional
-  native system-color rules; preserve compiled layers, focus and scroll behavior.
-- [x] DOCS-012-d01 Emit typed component-reference metadata with public tokens so
-  the docs can inspect the actual graph through compiled exports.
-- [x] DOCS-012-d02 Validate palette/semantic references, cycles, role completeness,
-  alias types and component style routing. Reject literal palette colors and direct
-  semantic color consumption in library component styles.
-- [x] DOCS-012-f01 Show the pipeline, role mappings and component dependencies on
-  the theming page using SGUI elements. Explain component override points and shared
-  geometry; copied component examples use the same resolved theme as their preview.
-
-## Bounded validation tasks
-
-- [x] DOCS-012-e01 Run existing theme/source/portal checks and meaningful graph
-  failures. Verify website/demo isolation and component-only overrides with real
-  production components at both densities and relevant contrast/appearance modes.
-- [x] DOCS-012-e02 Run owned token/style/type guards and affected native scope
-  checks after rebuilding once. Record exact tested inputs and remaining acceptance
-  limits; do not rebuild a fixture host during a suite.
-
-Do not check a leaf merely because its source file exists. Record implemented
-boundaries, commands and outcomes in the receipt below; broaden regression only
-when a concrete failure or changed contract warrants it.
+All twelve token-pipeline tasks are complete. Their checklist is
+[archived](archive/2026-10-18-task-lists/theme-token-pipeline.md#functionality-tasks).
+This guide retains technical decisions and evidence; current work belongs in
+[the unified backlog](backlog.md).
 
 ## Implementation receipt
 

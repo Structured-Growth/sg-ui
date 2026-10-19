@@ -70,7 +70,7 @@ a broader TypeScript matrix, or browser/device/assistive-technology acceptance.
 
 ## Current acceptance inventory — 2026-10-16
 
-The [first final-acceptance batch](react-aria-final-acceptance.md) captures the
+The [first final-acceptance batch](archive/2026-10-18-task-lists/react-aria-final-acceptance.md) captures the
 modified `dev` checkout, package metadata, runtime/declaration export names and
 direct icon modules. Its fresh package audit imports declared routes, typechecks
 the existing consumer fixture and verifies packed bytes against the current build.

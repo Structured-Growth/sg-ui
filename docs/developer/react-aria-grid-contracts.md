@@ -7,7 +7,7 @@ These requirements now underpin the owned public catalog APIs. The
 [public integration guide](react-aria-catalog-grid.md) records shipped mappings;
 broad runtime acceptance remains open. The [engine decision](react-aria-grid-decision.md) selects
 TanStack Table 8.21.3 for row processing and React Aria Components 1.21.1 for
-interaction. The [migration backlog](react-aria-master-task-list.md) remains
+interaction. The [migration backlog](react-aria-execution-policy.md) remains
 authoritative for implementation and acceptance status.
 
 The first M-16 implementation batch adds internal owned row-processing and
@@ -17,7 +17,7 @@ multi-sort and page slicing; server processing preserves host input. These are
 internal building blocks, not replacement public AppDataGrid types or helpers.
 Internal cell/presentation and registered interaction batches now compose this
 processing. Public catalog replacement, persistence and shell integration remain
-pending. See the [execution record](react-aria-progress.md#catalog-grid-processing-batch).
+pending. See the [execution record](archive/2026-10-18-task-lists/react-aria-progress.md#catalog-grid-processing-batch).
 
 ## Required capability matrix
 

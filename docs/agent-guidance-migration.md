@@ -74,4 +74,4 @@ notice removal or expands the human-approved task scope.
 The [canonical recipe](developer/react-aria-component-recipe.md) defines library
 implementation steps. The [read-only adoption checklist](developer/react-aria-adoption-checklist.md)
 plans host integration without authorizing application edits. Broad acceptance and
-remaining reconciliation are recorded in the [execution record](developer/react-aria-progress.md).
+remaining reconciliation are recorded in the [execution record](developer/archive/2026-10-18-task-lists/react-aria-progress.md).

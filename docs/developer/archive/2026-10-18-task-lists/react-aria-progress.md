@@ -2,7 +2,7 @@
 
 ## A-B-10/A-G-20/A-M-16 production measurement closure — 2026-10-18
 
-Complete | [bound measurements/source/F-T-V join](backlog-to-ten/performance-grid-closure.json) |
+Complete | [bound measurements/source/F-T-V join](../../backlog-to-ten/performance-grid-closure.json) |
 committed draft candidate f049b215e28e4157200f99ebf5fe52a7c04cae5a;
 local fresh installed package and fourteen import boundaries pass;84 production
 navigations/4200 updates/seven disposal probes compare with the identical older
@@ -13,8 +13,8 @@ The full CI packet remains a separate required gate; no dev merge or release inf
 
 ## HM-V-01 hierarchical menu presentation closure — 2026-10-17
 
-HM-V-01 | complete | [bound native receipt](backlog-to-ten/menu-presentation-closure.json),
-[maintained presentation cases](../../packages/ui/tests/browser/hierarchical-menu-presentation.spec.ts) |
+HM-V-01 | complete | [bound native receipt](../../backlog-to-ten/menu-presentation-closure.json),
+[maintained presentation cases](../../../../packages/ui/tests/browser/hierarchical-menu-presentation.spec.ts) |
 working tree based on `bfed38a1f867f4493049c3a38541e6b26709bad7` |
 fresh library/private-host builds and browser types; nine effective native cases
 across Chromium/Firefox/WebKit; three final narrow captures reviewed | fixed
@@ -23,7 +23,7 @@ failures; browser emulation is not device/AT evidence | HM-ADOPT-01 remains open
 
 ## A-X-06/A-X-07 composed contrast and target-size closure — 2026-10-17
 
-A-X-06/A-X-07 | complete | [bound closure receipt](backlog-to-ten/x06-x07-closure.json),
+A-X-06/A-X-07 | complete | [bound closure receipt](../../backlog-to-ten/x06-x07-closure.json),
 [acceptance reconciliation](react-aria-final-acceptance.md#composed-contrast-and-coarse-pointer-targets-completed--2026-10-17) |
 working tree based on `bfed38a1f867f4493049c3a38541e6b26709bad7` |
 Node24 fresh library/private-host builds and browser types pass; 6 contrast and
@@ -34,7 +34,7 @@ spoken-AT evidence | A-X-10/A-X-11 and HM-V-01 retain their separate scopes.
 
 ## HM-T-01 hierarchical menu regression closure — 2026-10-17
 
-HM-T-01 | complete | [menu tests](../../packages/ui/src/experimental/HierarchicalMenu/HierarchicalMenu.test.tsx),
+HM-T-01 | complete | [menu tests](../../../../packages/ui/src/experimental/HierarchicalMenu/HierarchicalMenu.test.tsx),
 [scope checklist](hierarchical-menu-scope.md#delivery-and-acceptance-leaves) |
 working tree based on `bfed38a1f867f4493049c3a38541e6b26709bad7` |
 from `packages/ui`: `pnpm exec vitest run src/experimental/HierarchicalMenu/HierarchicalMenu.test.tsx`
@@ -46,7 +46,7 @@ Historical F/T/V/A counts are unchanged; this menu follow-up has its own checkli
 
 Current-link maintenance (2026-10-17): links to removed story files now point to their docs-owned native fixture replacements. Historical execution claims below retain their original scope and dates.
 
-Current M-01–M-37 implementation, dev-commit, transitive-boundary and phase/acceptance tracking is in the [37-row migration map](react-aria-migration-inventory-acceptance.md). Historical execution entries below retain their original dates and scopes.
+Current M-01–M-37 implementation, dev-commit, transitive-boundary and phase/acceptance tracking is in the [37-row migration map](../../react-aria-migration-inventory-acceptance.md). Historical execution entries below retain their original dates and scopes.
 
 ## Backlog sequencing update — 2026-10-08
 
@@ -89,13 +89,13 @@ At baseline no implementation commit, draft PR, merge or publication had been ma
 
 Implemented the foundation and button/field proof slice. At this first milestone
 the catalog had not been converted; the migration remains **in progress**. The
-[architecture decision](react-aria-architecture.md) records owned contracts,
+[architecture decision](../../react-aria-architecture.md) records owned contracts,
 dependency direction, stylesheet output and the temporary experimental entry point.
 
 | Tasks | Evidence and disposition |
 | --- | --- |
 | B-01, B-02, B-06, B-14 | Captured initial state/package/API, read all required guidance, established a green baseline, left the learner platform unchanged. |
-| B-03–B-05 | Partial inventory: [foundation references and public barrels](migration-baseline/inventory.json), [built public declarations](migration-baseline/public-api.json), [package metadata](migration-baseline/package.json). Defaults, DOM/focus audit and full transitive review remain open. |
+| B-03–B-05 | Partial inventory: [foundation references and public barrels](../../migration-baseline/inventory.json), [built public declarations](../../migration-baseline/public-api.json), [package metadata](../../migration-baseline/package.json). Defaults, DOM/focus audit and full transitive review remain open. |
 | A-01, A-19, C-21 | Recorded implementation/dependency decisions in the architecture document. The grid engine decision is recorded below; final catalog API mappings remain open. |
 | A-02–A-18, L | Partial implementation: explicit new layers, owned proof props and declarations, import guard, exact interaction dependency, retained commercial terms and added upstream Apache license. Remaining catalog mappings and full license inventory remain open. |
 | D-01, D-03 | Reviewable typed token source, deterministic CSS/TypeScript generation, alias/type/cycle validation. |
@@ -108,7 +108,7 @@ dependency direction, stylesheet output and the temporary experimental entry poi
 ## Dialog and form proof continuation
 
 Implemented P-02 with owned `Dialog`, `Popover`, `Tabs`, `ComboBox` and `Provider`
-contracts. See the [control recipe and contracts](react-aria-proof-controls.md).
+contracts. See the [control recipe and contracts](../../react-aria-proof-controls.md).
 The composed Storybook form includes required validation, disabled tabs/options,
 sticky tabs with independently scrolling panel content, and a nested form popover.
 The host keeps drafts and submits them; the proof does not persist application data.
@@ -168,8 +168,8 @@ collection caching during column hiding. Test-only zero geometry prevents reliab
 ArrowDown list positioning in jsdom; Home/End selection is covered there, and
 ArrowDown multi-selection was verified in-browser without interaction mocks.
 
-See [calendar contracts and limits](react-aria-calendar-contracts.md) and
-[grid ownership/candidate comparison](react-aria-grid-decision.md). P-09 selects
+See [calendar contracts and limits](../../react-aria-calendar-contracts.md) and
+[grid ownership/candidate comparison](../../react-aria-grid-decision.md). P-09 selects
 TanStack v8 row processing plus React Aria interaction, with SGUI public state and
 no duplicated selection model. TanStack MIT notices were added without changing
 SGUI's commercial license. P-10 retains one general interaction foundation.
@@ -187,7 +187,7 @@ Typography, Box, Stack, Surface, Card/CardContent and Divider now have native,
 server-renderable implementations and colocated stories/tests. IconButton,
 ButtonGroup, command Menu and SplitAction have owned contracts, keyboard/ref/
 loading coverage and portal scope inheritance. See the
-[layout/action contracts](react-aria-layout-actions.md). Tests caught and fixed
+[layout/action contracts](../../react-aria-layout-actions.md). Tests caught and fixed
 menu context overriding the explicitly supplied accessible name.
 
 Switch and RadioGroup additionally cover keyboard activation, disabled skipping,
@@ -205,9 +205,9 @@ storage selection, stable SSR/default snapshots, cross-tab events and working
 memory fallbacks for blocked/quota-failing storage. A regression verifies local
 storage clear events do not erase an unmounted session fallback. Pagination now
 validates stored shapes before normalization; its inherited size policy remains
-until replacement grid integration. See [persistent view state](persistent-view-state.md).
+until replacement grid integration. See [persistent view state](../../persistent-view-state.md).
 
-The [performance reference](react-aria-performance.md) records reproducible server
+The [performance reference](../../react-aria-performance.md) records reproducible server
 workloads, composed production assets and initial investigation budgets. Client
 interaction/memory and slower-hardware measurements remain open.
 
@@ -266,18 +266,18 @@ command-menu work. Most of U/M/E/G/K and the final X/R/Z gates remain open.
 
 | Tasks | Implementation and acceptance evidence |
 | --- | --- |
-| U-03, M-35 | [Owned Typography](../../packages/ui/src/experimental/Typography/Typography.tsx), native semantics/ref and SSR tests, all typography roles including bodyAlt2/code. [Typefaces](../../apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx) keeps the catalog and adds missing roles/dark mode using production tokens. |
-| U-11 | [List](../../packages/ui/src/experimental/List/List.tsx), [Navigation](../../packages/ui/src/experimental/Navigation/Navigation.tsx), [Disclosure](../../packages/ui/src/experimental/Disclosure/Disclosure.tsx), [Collapse](../../packages/ui/src/experimental/Collapse/Collapse.tsx). Colocated stories and 11 behavior/SSR tests cover host routing, native roles, selected state, controlled/uncontrolled expansion, disabled state, tab order and focus restoration. Browser collapse removed the focused panel's input while preserving trigger focus. |
-| U-12 | [Chip](../../packages/ui/src/experimental/Chip/Chip.tsx), [Badge](../../packages/ui/src/experimental/Badge/Badge.tsx), [TagGroup](../../packages/ui/src/experimental/TagGroup/TagGroup.tsx). Nine tests cover refs/names, group/item disabling, translated removal, keyboard next/previous/empty focus and pointer removal. Browser Delete moved React→Design focus; pointer removal moved to the list when only a disabled tag remained. |
-| U-13, U-14 | [Progress](../../packages/ui/src/experimental/Progress/Progress.tsx), [Status](../../packages/ui/src/experimental/Status/Status.tsx), [Avatar](../../packages/ui/src/experimental/Avatar/Avatar.tsx), stories and behavior/SSR tests. Determinate/indeterminate semantics, optional announcements, name/ref, source replacement and image load/error. Browser native image success showed opacity 1/natural width 80 with a 40×40 root; native error removed the image and retained initials in the 48×48 large root. |
-| U-15 | [Table](../../packages/ui/src/experimental/Table/Table.tsx) and [Pagination](../../packages/ui/src/experimental/Pagination/Pagination.tsx), six tests and stories. Native table refs/caption/headers, known/unknown totals, zero pages, boundaries, disabled state, form-safe keyboard actions and page-zero-before-size callbacks. Browser last-page navigation and size 25→50 reset Page 4→Page 1. |
-| U-16 | [ToggleButton/ToggleButtonGroup](../../packages/ui/src/experimental/ToggleButton/ToggleButton.tsx), five behavior tests and stories. Native refs, controlled/uncontrolled selection, single/multiple selection, no form submission, disabled skipping, required selection, RTL and vertical arrows. Browser arrows moved focus independently, then Space committed Grid→Cards. |
-| U-07 partial | [Tooltip](../../packages/ui/src/experimental/Tooltip/Tooltip.tsx), four behavior tests and stories. Focus description, hover, Escape/return focus, disabled state and portal visual/locale overrides; browser keyboard opening/dismissal. Submenus and broader overlay/browser checks stay open. |
-| M-02, M-03 | [AppInlineProgress](../../packages/ui/src/components/AppInlineProgress/AppInlineProgress.tsx) and [AppOperationSteps](../../packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx) now use owned controls/icons/styles. Public names/props retained; percentage normalization, ordered steps, translated status text and accessible progress covered by behavior tests and updated stories. Non-finite inline values now become 0%; completed-step color now uses the action token. |
-| M-24 | [EditableTitleField](../../packages/ui/src/components/EditableTitleField/EditableTitleField.tsx) now uses owned controls/icons/styles. Existing props and host-owned persistence preserved. Behavior/SSR and parent compatibility tests cover Enter/blur/Escape, trimming, duplicate pending saves, rejection/retry, IME and focus. Browser saved Updated course title and restored Edit title focus; rejection retained Retry title with aria-invalid and an associated error, Escape restored focus without another save. |
+| U-03, M-35 | [Owned Typography](../../../../packages/ui/src/experimental/Typography/Typography.tsx), native semantics/ref and SSR tests, all typography roles including bodyAlt2/code. [Typefaces](../../../../apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx) keeps the catalog and adds missing roles/dark mode using production tokens. |
+| U-11 | [List](../../../../packages/ui/src/experimental/List/List.tsx), [Navigation](../../../../packages/ui/src/experimental/Navigation/Navigation.tsx), [Disclosure](../../../../packages/ui/src/experimental/Disclosure/Disclosure.tsx), [Collapse](../../../../packages/ui/src/experimental/Collapse/Collapse.tsx). Colocated stories and 11 behavior/SSR tests cover host routing, native roles, selected state, controlled/uncontrolled expansion, disabled state, tab order and focus restoration. Browser collapse removed the focused panel's input while preserving trigger focus. |
+| U-12 | [Chip](../../../../packages/ui/src/experimental/Chip/Chip.tsx), [Badge](../../../../packages/ui/src/experimental/Badge/Badge.tsx), [TagGroup](../../../../packages/ui/src/experimental/TagGroup/TagGroup.tsx). Nine tests cover refs/names, group/item disabling, translated removal, keyboard next/previous/empty focus and pointer removal. Browser Delete moved React→Design focus; pointer removal moved to the list when only a disabled tag remained. |
+| U-13, U-14 | [Progress](../../../../packages/ui/src/experimental/Progress/Progress.tsx), [Status](../../../../packages/ui/src/experimental/Status/Status.tsx), [Avatar](../../../../packages/ui/src/experimental/Avatar/Avatar.tsx), stories and behavior/SSR tests. Determinate/indeterminate semantics, optional announcements, name/ref, source replacement and image load/error. Browser native image success showed opacity 1/natural width 80 with a 40×40 root; native error removed the image and retained initials in the 48×48 large root. |
+| U-15 | [Table](../../../../packages/ui/src/experimental/Table/Table.tsx) and [Pagination](../../../../packages/ui/src/experimental/Pagination/Pagination.tsx), six tests and stories. Native table refs/caption/headers, known/unknown totals, zero pages, boundaries, disabled state, form-safe keyboard actions and page-zero-before-size callbacks. Browser last-page navigation and size 25→50 reset Page 4→Page 1. |
+| U-16 | [ToggleButton/ToggleButtonGroup](../../../../packages/ui/src/experimental/ToggleButton/ToggleButton.tsx), five behavior tests and stories. Native refs, controlled/uncontrolled selection, single/multiple selection, no form submission, disabled skipping, required selection, RTL and vertical arrows. Browser arrows moved focus independently, then Space committed Grid→Cards. |
+| U-07 partial | [Tooltip](../../../../packages/ui/src/experimental/Tooltip/Tooltip.tsx), four behavior tests and stories. Focus description, hover, Escape/return focus, disabled state and portal visual/locale overrides; browser keyboard opening/dismissal. Submenus and broader overlay/browser checks stay open. |
+| M-02, M-03 | [AppInlineProgress](../../../../packages/ui/src/components/AppInlineProgress/AppInlineProgress.tsx) and [AppOperationSteps](../../../../packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx) now use owned controls/icons/styles. Public names/props retained; percentage normalization, ordered steps, translated status text and accessible progress covered by behavior tests and updated stories. Non-finite inline values now become 0%; completed-step color now uses the action token. |
+| M-24 | [EditableTitleField](../../../../packages/ui/src/components/EditableTitleField/EditableTitleField.tsx) now uses owned controls/icons/styles. Existing props and host-owned persistence preserved. Behavior/SSR and parent compatibility tests cover Enter/blur/Escape, trimming, duplicate pending saves, rejection/retry, IME and focus. Browser saved Updated course title and restored Edit title focus; rejection retained Retry title with aria-invalid and an associated error, Escape restored focus without another save. |
 
-Contracts and integration changes are in [remaining controls](react-aria-remaining-controls.md)
-and [progress/avatar](react-aria-progress-avatar.md). Migrated catalog controls require
+Contracts and integration changes are in [remaining controls](../../react-aria-remaining-controls.md)
+and [progress/avatar](../../react-aria-progress-avatar.md). Migrated catalog controls require
 `/styles.css` and an owned scope; this is a consumer integration change even with
 preserved props. Granular `/components/AppInlineProgress`,
 `/components/AppOperationSteps` and `/components/EditableTitleField` avoid resolving
@@ -323,18 +323,18 @@ the coherent first batch before those subsequent card edits.
 Completed on 2026-10-06: M-11, M-12, M-13, M-14 and M-15. The preceding uncommitted
 foundation work was preserved and is included in [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1)
 (branch `feat/react-aria-owned-foundation-cards`);
-no merge or publication is authorized. See [card pagination contracts](react-aria-card-pagination.md)
-and [frame/card mappings](react-aria-card-frames.md) for the breaking stylesheet/scope,
+no merge or publication is authorized. See [card pagination contracts](../../react-aria-card-pagination.md)
+and [frame/card mappings](../../react-aria-card-frames.md) for the breaking stylesheet/scope,
 frame styling slots and page-size callback integrations. Public component names,
 Class-prefixed contracts, routing, translation and host callbacks remain available.
 
 | Task | Implementation and acceptance evidence |
 | --- | --- |
-| M-12 | [AppPaginationFooter](../../packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.tsx) uses owned Pagination, translated range/page labels, normalized page/size/counts, unknown totals and disabled boundaries. Six behavior/SSR tests include namespace/values, page-zero-before-size ordering and form-safe keyboard activation. |
-| M-11 | [CardCollectionWithFooter](../../packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx) uses responsive container columns, stable row keys, independent grid scrolling and translated host-replaceable empty/loading states. Six tests cover keyed identity, shrinking rows with consistent footer, controlled size/navigation, SSR and nested learner action/form composition. |
-| M-13 | [ClassCardFrame](../../packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx) uses owned Card and tokenized slots, preserves 420/360 constants and allows container shrinkage. Three tests cover native article slots, optional footer, width and slot class/style overrides plus server rendering. |
-| M-14 | [InstructorClassCard](../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx) uses owned avatar/typography/icons/host Link, status labels, archived metadata branch and retained action-label mappings. Three tests cover host keyboard routing, state/custom-label branches, translation values and SSR. No menu or persistence callback was present in its existing contract; none is invented. |
-| M-15 | [LearnerClassCard](../../packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx) uses named Progress, owned actions/links/avatar/icons and the retained locale/due formatter. Three tests cover normalized displayed/accessible percentages including non-finite inputs, callback once, host Details routing, isolated Continue links/fallbacks, translation values and SSR. |
+| M-12 | [AppPaginationFooter](../../../../packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.tsx) uses owned Pagination, translated range/page labels, normalized page/size/counts, unknown totals and disabled boundaries. Six behavior/SSR tests include namespace/values, page-zero-before-size ordering and form-safe keyboard activation. |
+| M-11 | [CardCollectionWithFooter](../../../../packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx) uses responsive container columns, stable row keys, independent grid scrolling and translated host-replaceable empty/loading states. Six tests cover keyed identity, shrinking rows with consistent footer, controlled size/navigation, SSR and nested learner action/form composition. |
+| M-13 | [ClassCardFrame](../../../../packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx) uses owned Card and tokenized slots, preserves 420/360 constants and allows container shrinkage. Three tests cover native article slots, optional footer, width and slot class/style overrides plus server rendering. |
+| M-14 | [InstructorClassCard](../../../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx) uses owned avatar/typography/icons/host Link, status labels, archived metadata branch and retained action-label mappings. Three tests cover host keyboard routing, state/custom-label branches, translation values and SSR. No menu or persistence callback was present in its existing contract; none is invented. |
+| M-15 | [LearnerClassCard](../../../../packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx) uses named Progress, owned actions/links/avatar/icons and the retained locale/due formatter. Three tests cover normalized displayed/accessible percentages including non-finite inputs, callback once, host Details routing, isolated Continue links/fallbacks, translation values and SSR. |
 
 Each directory has updated colocated stories, including interactive pagination,
 empty/loading states, composed course cards, narrow long names, frame slot styling
@@ -407,8 +407,8 @@ Most catalog rows and broad U/X/R/Z gates remain open.
 | M-04 | AppPageHeader preserves title, metadata, breadcrumbs, menu/action precedence and owned zero-argument callbacks. Native heading level is independent of visual typography. Primary/subpage surfaces use shared light/dark tokens. Long paths retain collapsed ancestor menus with native route anchors, disabled commands and return focus. Metadata/actions and long text wrap in narrow containers. |
 | M-10 | ExperiencePageNavigator retains the actual authoring page-list model and host callbacks. Separate selection/actions, translated rename/remove, guarded native-form rename, read-only/last-page restrictions and drag source/target validation remain. Move up/down adds keyboard/touch reorder requests using the existing callback. Removal moves focus to a surviving adjacent page after the host commits row removal. |
 
-The [button](react-aria-button.md), [page layout](react-aria-page-layout.md) and
-[page navigation](react-aria-page-navigation.md) guides document breaking prop/style
+The [button](../../react-aria-button.md), [page layout](../../react-aria-page-layout.md) and
+[page navigation](../../react-aria-page-navigation.md) guides document breaking prop/style
 mappings and host integration. All four directories have granular exports,
 transitive source guards, owned declaration checks, colocated stories/tests and
 packed fixtures. Consumer typings reject AppButton sx, native onClick and href.
@@ -465,7 +465,7 @@ backlog in dependency order without overlapping checkout writes.
 Completed on 2026-10-06: M-06, M-07, M-08 and M-09, in the shared
 [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1) on
 `feat/react-aria-owned-foundation-cards`. No merge or publication is authorized.
-See [modal/shell mappings](react-aria-modal-shells.md) for the breaking modal
+See [modal/shell mappings](../../react-aria-modal-shells.md) for the breaking modal
 callbacks/actions/size/style contract and deliberate navigation behavior changes.
 
 | Task | Implementation and evidence |
@@ -527,7 +527,7 @@ Continue all required tasks in dependency order, with future tasks deferred.
 
 Completed on 2026-10-06: M-31, M-32 and M-33, in the shared
 [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1) on
-`feat/react-aria-owned-foundation-cards`. The [dialog contracts](react-aria-editor-dialogs.md)
+`feat/react-aria-owned-foundation-cards`. The [dialog contracts](../../react-aria-editor-dialogs.md)
 map the preserved host callbacks and deliberate URL/draft behavior changes.
 The surrounding editor, formatting/menu controls and general acceptance gates
 remain open; this batch does not complete M-34 or broader E/U/X/R/Z work.
@@ -598,7 +598,7 @@ buttons in this story lack accessible names and remain required M-26 work.
 Completed on 2026-10-06: M-27–M-30, in shared
 [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1) on
 `feat/react-aria-owned-foundation-cards`. See the
-[editor menu contracts](react-aria-editor-menus.md) for preserved callbacks,
+[editor menu contracts](../../react-aria-editor-menus.md) for preserved callbacks,
 new controlled selection/restrictions and breaking semantic color presets.
 M-26/M-25/M-21–M-23/M-34 and general editor/grid/U/X/R/Z gates remain open.
 
@@ -668,7 +668,7 @@ Do not count representative checks as completion of broad acceptance gates.
 Completed on 2026-10-06: M-26, in shared
 [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1) on
 `feat/react-aria-owned-foundation-cards`. See the
-[formatting toolbar contract](react-aria-formatting-toolbar.md) for retained
+[formatting toolbar contract](../../react-aria-formatting-toolbar.md) for retained
 control IDs, callbacks, heading/font-family values and host selection ownership.
 
 The migration composes owned Button/Select/icons and the migrated menu controls,
@@ -729,7 +729,7 @@ dependencies allow. Complete checks/commit/push before the successor local chat.
 Completed on 2026-10-06: M-21–M-23 and M-25, in shared
 [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1) on
 `feat/react-aria-owned-foundation-cards`. See the
-[editor layout/selection contracts](react-aria-editor-layout.md).
+[editor layout/selection contracts](../../react-aria-editor-layout.md).
 
 DocumentEditorLayout keeps title/menu/toolbar/content slots and host-owned scrolling.
 DocumentEditorToolbar preserves heading/zoom/format callbacks and controlled state,
@@ -816,7 +816,7 @@ PageRichTextEditorSection and its transitive ImageNode now use native markup,
 owned controls and token CSS Modules. The strict migrated import/layer/token and
 recursive declaration boundaries include the entire directory. Added granular
 component export, native div ref/class/style, translated accessible document name,
-placeholder and generic upload failure. See [consumer contract](react-aria-editor-section.md).
+placeholder and generic upload failure. See [consumer contract](../../react-aria-editor-section.md).
 
 Lexical nodes/plugins/commands, serialized document markers, asset metadata,
 heading/body roles, toolbar presets and upload/change callbacks remain available.
@@ -869,7 +869,7 @@ or secret changes. Next batch: grid migration following the G matrix and depende
 ## Data toolbar
 
 Completed on 2026-10-06: M-20, in shared [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1), pending review.
-See [data toolbar contracts](react-aria-data-toolbar.md). DataToolbar and all four
+See [data toolbar contracts](../../react-aria-data-toolbar.md). DataToolbar and all four
 menus now use owned controls, native markup and token CSS Modules. The whole
 directory enters strict import/layer/token and recursive declaration guards.
 Granular export, public consumer typing and packed fixture coverage were added.
@@ -932,7 +932,7 @@ the next local sg-ui chat; do not overlap checkout edits after dispatch.
 
 Completed on 2026-10-06: G-01–G-03 design definitions, in shared
 [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1), pending review.
-See [catalog grid contracts](react-aria-grid-contracts.md). No runtime grid or
+See [catalog grid contracts](../../react-aria-grid-contracts.md). No runtime grid or
 public declaration change is included in this documentation batch.
 
 The required capability matrix covers existing cell/helper/subheader behavior,
@@ -994,7 +994,7 @@ producing duplicate transactions. Optional compatible
 `AppPaginationFooter.onPaginationModelChange({page,pageSize})` now supersedes the
 two legacy callbacks; `Pagination.onPaginationChange(page,pageSize)` similarly
 sends one size request. Without these optional callbacks, the existing
-page-zero-before-size order remains unchanged. See [pagination contracts](react-aria-card-pagination.md).
+page-zero-before-size order remains unchanged. See [pagination contracts](../../react-aria-card-pagination.md).
 
 Validation:
 
@@ -1169,7 +1169,7 @@ Server rows pass through unchanged in both views, including unknown totals.
 M-19 learner grid removes retired rendering/typing/styling in favor of owned
 link/date/action columns and grid state. Existing Class-prefixed names remain.
 Breaking mappings, scope/style requirements and retained/deferred features are in
-[catalog integration](react-aria-catalog-grid.md).
+[catalog integration](../../react-aria-catalog-grid.md).
 
 Optional versioned persistence validates current fields, criteria, page sizes,
 layout/order/widths and view mode; legacy list pagination wins over cards. It never
@@ -1231,7 +1231,7 @@ owned row selectors and grid isolation, scoped token preview and lifecycle/SSR
 guards. Its granular entry, registered interaction, source/transitive and full
 declaration audit now join the strict migrated boundary. The action menu remains
 the last column; reorder controls precede text and page-entry focus skips control
-columns. See [reorder contracts](react-aria-grid-reorder.md) for breaking mappings
+columns. See [reorder contracts](../../react-aria-grid-reorder.md) for breaking mappings
 and host optimistic persistence/rollback responsibilities. HostOwnedReorder and
 ReorderUnavailableWhileSorted stories exercise the new behavior.
 
@@ -1273,7 +1273,7 @@ case-insensitive matching, default fallback and host override/fallback options
 use the owned size/options contract. Public tests cover every vector, native SVG
 refs, decorative/meaningful names and RTL. The complete mapping tables close
 B-04, and activity implementation/tests close I-07. See
-[icon mappings](react-aria-icons.md).
+[icon mappings](../../react-aria-icons.md).
 
 Every extracted primitive reexport now maps to a real owned implementation or
 an explicit documented removal. Public CircularProgress and LinearProgress
@@ -1284,7 +1284,7 @@ Table headers now use explicit native TableHeaderCell semantics. `/primitives`
 no longer imports typography augmentation or legacy theme. Public barrel and
 individual icon dependency roots, complete component/public declaration directories
 and shared adapter/hook/i18n declarations join strict audit coverage. See
-[primitive mappings](react-aria-primitives.md).
+[primitive mappings](../../react-aria-primitives.md).
 
 Validation: pnpm check passed 135 files / 819 tests, four foundation and four
 release tests, production/story typing, ESM/declarations, public import/type checks
@@ -1320,7 +1320,7 @@ is the owned Provider under its preserved name; root and `/theme` expose Provide
 ThemeScope and owned props. Provider forwards a native div ref for React 18.3/19,
 bridges host locale, and allows an explicit visual direction override. Removed
 old theme objects, typography augmentation and the last retired source imports.
-See [theme mappings](react-aria-theme.md). Storybook uses production tokens/scopes
+See [theme mappings](../../react-aria-theme.md). Storybook uses production tokens/scopes
 with theme, density, locale and direction controls; its host canvas supplies the
 production surface token after removal of the global baseline.
 
@@ -1337,7 +1337,7 @@ immutable presentation statuses, first/action column locks and fresh empty
 sort/filter defaults. Existing Class-named exports/identifiers remain; each factory
 has isolated arrays and English fallbacks. Ten tests and two controlled toolbar
 stories cover translations, canonical enum options, instance isolation and hiding/
-resetting unlocked columns. See [preset contracts](react-aria-grid-presets.md).
+resetting unlocked columns. See [preset contracts](../../react-aria-grid-presets.md).
 
 Final validation: `pnpm check` passed 135 files/829 tests, four foundation and four
 release tests, production/story typing, ESM/declarations, all entry imports and
@@ -1368,7 +1368,7 @@ owned. Live validation/migration/version changes apply to cached and blocked
 snapshots; absent or malformed storage never migrates the initial default.
 Thirty real-hook tests include SSR-to-hydration restoration without recoverable
 errors. The pure normalization helper remains server-importable. See
-[hook mappings](react-aria-pagination-state.md).
+[hook mappings](../../react-aria-pagination-state.md).
 
 Root/subpath reconciliation exposes LearnerClassesDataGridProps through all three
 public entries and adds built consumer typing for learner models/grid props,
@@ -1387,7 +1387,7 @@ removes legacy keys, and suppresses the unchanged pre-reset controlled snapshot.
 A changed host snapshot or later interaction resumes persistence, including when
 the host accepts an alternative. Four reset regressions plus persistence tests
 cover remount, controlled requests, mutation isolation and native refs. See
-[grid reset contract](react-aria-catalog-grid.md).
+[grid reset contract](../../react-aria-catalog-grid.md).
 
 The build no longer adds client directives by directory. Source implementations
 own the boundary, with explicit directives added to two Lexical plugins using
@@ -1398,7 +1398,7 @@ AppShell and pagination normalization execute on the server, while Provider and
 AppButton serialize as client references. The disposable fixture's loader converts
 Node module bytes to text and resolves relative source-map URLs for the official
 loader; it preserves maps and directives. No package dependency was added. See
-[server/client packaging](react-aria-server-components.md). Broader framework
+[server/client packaging](../../react-aria-server-components.md). Broader framework
 and barrel-weight acceptance remains open under R-04/R-08 and related gates.
 
 H-02 implementation fixes download="" interception while preserving explicit
@@ -1439,7 +1439,7 @@ manual version changes, licensing and workflow permissions/secrets are untouched
 
 This batch on [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1)
 reconciles M-40/M-41 and closes M-43/R-10 with concrete code and tests.
-[Cell/helper acceptance](react-aria-grid-cell-acceptance.md) maps every required
+[Cell/helper acceptance](../../react-aria-grid-cell-acceptance.md) maps every required
 cell and helper to its implementation and behavior assertions. The audit found
 `TextTableCell` discarded its truncation option. Shared text presentation now
 preserves multiline content with `truncate={false}`; the supported public grid
@@ -1465,7 +1465,7 @@ after collection reconciliation, survives an unrelated render and preserves late
 host focus. The host reorder story includes an owned availability toggle. Unit
 assertions do not claim pointer/touch reorder or browser focus-timing acceptance.
 
-[Runtimes and CI artifacts](react-aria-runtime-ci.md) distinguish the Node 22.12.0
+[Runtimes and CI artifacts](../../react-aria-runtime-ci.md) distinguish the Node 22.12.0
 consumer minimum from Node 24 development/AI/release tools. CI tests both runtimes,
 serially installs packed React 18.3.1 and 19.2.3 foundation/editor consumers and
 retains matrix-specific package, Storybook and validation-log artifacts for 14 days.
@@ -1507,7 +1507,7 @@ artifact verification remain open. The PR stays draft.
 
 R-11/X-12 now have a real Playwright gate against built static Storybook,
 requiring Chromium/Firefox/WebKit in the Node 24 CI job. See
-[browser acceptance](react-aria-browser-acceptance.md) for scope and failure policy.
+[browser acceptance](../../react-aria-browser-acceptance.md) for scope and failure policy.
 Saved downloads verify exact bytes for empty/named/boolean attributes; explicit
 false routing, click ordering, cancellation, modifier/target/external behavior
 execute natively. Keyboard tests cover nested Escape focus, grid cell navigation,
@@ -1533,7 +1533,7 @@ it is not counted as a browser success. No OS permissions were changed.
 Logs and reports: `/tmp/sgui-browser-final.log`, `artifacts/browser-results.json`.
 CI retains `sgui-browser-node-24` plus browser logs for 14 days.
 
-The [classified removal audit](react-aria-removal-audit.md) inspects every tracked
+The [classified removal audit](../../react-aria-removal-audit.md) inspects every tracked
 file, including hidden configuration, historical snapshots, manifests, guards,
 lockfile and protected legal files. Six extraction destinations now have truthful
 existence/removal/rename and owned replacement metadata, retaining source paths,
@@ -1549,7 +1549,7 @@ R-12 closes with exact `c78a24e` CI
 success: both Node targets, all four consumers per target, package/Storybook
 uploads and six unexpired 14-day artifacts. Downloaded logs and the official
 Node 24 tarball confirm the result. Its only retired text is protected legal
-content. [Runtime evidence](react-aria-runtime-ci.md) records IDs and expiration.
+content. [Runtime evidence](../../react-aria-runtime-ci.md) records IDs and expiration.
 This validates the prior commit rather than later browser changes.
 
 Final local full checks on Node 24 and exact-minimum Node 22.12.0 pass 138 files /
@@ -1605,7 +1605,7 @@ and WebKit pass with zero browser errors or warnings. Next remains fixture-only.
 CI Node 24 now runs all three engines for both packed Vite React versions and
 the Next fixture, with diagnostic JSON/failure screenshots/traces in the existing
 14-day browser artifact. Local engine subsets are explicit and forbidden in CI.
-The [browser acceptance guide](react-aria-browser-acceptance.md) records commands,
+The [browser acceptance guide](../../react-aria-browser-acceptance.md) records commands,
 scope and limits. Logs: `/tmp/sgui-packed-browser18.log`,
 `/tmp/sgui-packed-browser19.log`, `/tmp/sgui-next-consumer.log`.
 
@@ -1661,7 +1661,7 @@ could leave focused fields clipped. A token-sized panel minimum and outer dialog
 scroll fallback keep content/actions reachable. Focus visibility checks run after
 layout/restoration against intersecting scrollports, stop when focus changes or
 content unmounts, and ignore nested portaled focus. The TextReflow story and
-[modal contract](react-aria-modal-shells.md) document this behavior.
+[modal contract](../../react-aria-modal-shells.md) document this behavior.
 
 Browser preferences stop linear/circular/button loading animations while keeping
 pending/indeterminate semantics. Every configured engine must apply forced-color
@@ -1669,7 +1669,7 @@ emulation; system Highlight focus outlines and disabled/pending meaning are chec
 Chromium and WebKit both report the active query. Actual chrome zoom, physical
 high-contrast settings, assistive technology and full catalog contrast/state
 acceptance remain open. Root text scaling/effective reflow are scoped accurately
-in the [browser guide](react-aria-browser-acceptance.md#display-preferences-and-modal-reflow-x-05x-06-partial).
+in the [browser guide](../../react-aria-browser-acceptance.md#display-preferences-and-modal-reflow-x-05x-06-partial).
 
 Prior exact head `1a6c3d51` CI
 [37561495918](https://github.com/Structured-Growth/sg-ui/actions/runs/37561495918)
@@ -1793,7 +1793,7 @@ mandatory diagnostics; four new image lifecycle cases pass alongside 16 axe scan
 Fresh serial Node 24 packed React 18/19 editor SSR/hydration-entry builds pass.
 Packed Vite/Next browser consumers were not repeated for this resource-only batch;
 calendar-head CI independently passes all three engines and all eight consumers,
-as recorded in [runtime evidence](react-aria-runtime-ci.md). Local Firefox retains
+as recorded in [runtime evidence](../../react-aria-runtime-ci.md). Local Firefox retains
 its launch limitation and remains mandatory in Linux CI. Evidence:
 `/tmp/sgui-image-check-storybook.log`, `/tmp/sgui-image-check22.log`,
 `/tmp/sgui-image-browser.log`, `/tmp/sgui-image-browser-results.json` and
@@ -1826,7 +1826,7 @@ trusted HTML paste event enumerated no MIME types despite passing rich rendering
 serialization and subsequent editing. Observation now requires actual HTML bytes
 containing the copied bold content from the same trusted event; no clipboard
 injection, retries or diagnostic exclusions were added. See the failed exact-head
-[runtime record](react-aria-runtime-ci.md); new Linux verification remains required.
+[runtime record](../../react-aria-runtime-ci.md); new Linux verification remains required.
 
 Image-lifetime CI also finished with two Firefox failures rejecting its PNG
 fixture and the same two WebKit clipboard assertions (107/111 passed). A chunk
@@ -1865,7 +1865,7 @@ to absolute destinations, while WebKit preserves their relative spelling; the
 paste test verifies the exact resolved native href property across both. It does
 not alter clipboard contents or bypass browser diagnostics.
 
-The [link contract](react-aria-editor-section.md#link-destination-policy-e-06e-07-partial)
+The [link contract](../../react-aria-editor-section.md#link-destination-policy-e-06e-07-partial)
 records accepted destinations and host responsibilities. Rejected original URLs
 remain in host JSON for fidelity; external host renderers must apply their own
 policy. Image sources, upload/file validation, document styles and broader
@@ -1900,7 +1900,7 @@ render translated placeholders without resource requests, preserve meaningful
 alt names/decorative semantics, and retain original source/dimensions/asset JSON.
 Rejected new upload results leave the same file and description available for
 retry. Host URL ownership and local undo/document URL lifetimes remain unchanged.
-The [image source contract](react-aria-editor-section.md#image-source-policy-e-06e-07-partial)
+The [image source contract](../../react-aria-editor-section.md#image-source-policy-e-06e-07-partial)
 states the syntax/context boundary; image bytes, asset authorization, redirects,
 upload cancellation matrix and broader rich-content/style acceptance remain open.
 
@@ -1945,7 +1945,7 @@ Native Chromium/WebKit cases require no stale image/error, clean reopening,
 enabled file selection, an empty description and Escape dismissal. Read-only
 retains the original text. Host callbacks remain File-only, returned URLs remain
 host-owned and UI invalidation does not abort transport or undo created assets.
-See the [upload lifetime contract](react-aria-editor-section.md#host-upload-lifetime-e-06-partial).
+See the [upload lifetime contract](../../react-aria-editor-section.md#host-upload-lifetime-e-06-partial).
 E-06/E-07 remain open for wider file/content validation, author styles and trust
 acceptance; formal closure stays 94/320 required tasks.
 
@@ -2105,18 +2105,18 @@ bugs tracked separately). The website still has three open entries.
 
 ## Final acceptance inventory — 2026-10-16
 
-A-B-01 | captured modified dev Git/package/public-entry state | [inventory](final-acceptance/2026-10-16-inventory.json) | uncommitted base 540f47d | package audit and 238 runtime/declaration entry comparisons pass | local tracking refs only; no release acceptance | A-B-03/A-B-05.
+A-B-01 | captured modified dev Git/package/public-entry state | [inventory](../../final-acceptance/2026-10-16-inventory.json) | uncommitted base 540f47d | package audit and 238 runtime/declaration entry comparisons pass | local tracking refs only; no release acceptance | A-B-03/A-B-05.
 
 A-B-02 | reviewed required repository guidance before this batch | [execution](react-aria-final-acceptance.md) | uncommitted base 540f47d | guidance/path reconciliation | review is not all-component conformance | A-B-03.
 
-A-B-04 | captured all primitive and direct icon exports including wildcard helper routes | [capture script](../../packages/ui/scripts/capture-acceptance-inventory.mjs) | uncommitted base 540f47d | resolved declarations match every runtime entry; packed bytes/consumer types pass | signatures/defaults and legal/AT gates remain | A-B-05/A-Z-08/A-Z-13.
+A-B-04 | captured all primitive and direct icon exports including wildcard helper routes | [capture script](../../../../packages/ui/scripts/capture-acceptance-inventory.mjs) | uncommitted base 540f47d | resolved declarations match every runtime entry; packed bytes/consumer types pass | signatures/defaults and legal/AT gates remain | A-B-05/A-Z-08/A-Z-13.
 
 Remaining active counts: 317 acceptance, 20 editor hardening and six future leaves. No production promotion or publication.
 
 
 ## Final acceptance FA-02/03 — 2026-10-16
 
-A-B-03 | inventoried maintained source/imports, CSS/classes, DOM candidates, ambient declarations, hidden configuration, installed workspace dependency graph and generated-output linkage | [source snapshot](final-acceptance/2026-10-16-source-inventory.json) | uncommitted dev base 540f47d | AST/PostCSS capture and foundation guards pass | inventory is not DOM/SSR/legal conformance; personal state/secrets excluded | A-B-05/A-B-09/A-Z-05/06/08.
+A-B-03 | inventoried maintained source/imports, CSS/classes, DOM candidates, ambient declarations, hidden configuration, installed workspace dependency graph and generated-output linkage | [source snapshot](../../final-acceptance/2026-10-16-source-inventory.json) | uncommitted dev base 540f47d | AST/PostCSS capture and foundation guards pass | inventory is not DOM/SSR/legal conformance; personal state/secrets excluded | A-B-05/A-B-09/A-Z-05/06/08.
 
 A-B-11 | recorded separate React/Node/TypeScript/bundler/browser/SSR/RSC promises and configured versus executed evidence | [support matrix and resume ledger](react-aria-final-acceptance.md) | uncommitted dev base 540f47d | inspected manifests, CI and consumer fixtures | no new remote CI/device/AT/support-range claim | A-B-06/A-Z-11.
 
@@ -2135,7 +2135,7 @@ Remaining: 314 A, 20 editor V and six future leaves. Next A-B-05. Completed inve
 Reviewed all fifteen reports covering 55 distinct leaves. Accepted 32 complete
 architecture/contract/inventory obligations, retained 23 partial with explicit
 successors and removed only completed rows from the active checklist.
-[Machine reconciliation](final-acceptance/parallel-reconciliation-2026-10-16.json)
+[Machine reconciliation](../../final-acceptance/parallel-reconciliation-2026-10-16.json)
 preserves each original task, report/result hashes and limits. All 1778 built
 outputs unchanged from FA-01; source deltas remain the four FA-04 test/fixture
 changes. No production mutation or broad suite rerun.
@@ -2157,8 +2157,8 @@ user-authorized fix conversations delivered and were reviewed; coordinator
 validation closes A-G-02 and A-K-16 as two further narrow contract/publication
 obligations. Current total **167/320 A closed; 153 A, 20 editor V and six future
 items remain**. This pass closed 129 of 282. Original wording, outcomes and
-successors are preserved in [wave reconciliation](final-acceptance/wave-02-reconciliation.json)
-and [supplement](final-acceptance/coordinator-integration/supplemental-reconciliation.json).
+successors are preserved in [wave reconciliation](../../final-acceptance/wave-02-reconciliation.json)
+and [supplement](../../final-acceptance/coordinator-integration/supplemental-reconciliation.json).
 
 BUG-0008–0012 are corrected: picker disabled/read-only Clear/commit guards,
 TextArea inherited icons/multiline alignment, DatePicker availability parity,
@@ -2171,7 +2171,7 @@ native cases per desktop engine pass in Chromium/Firefox/WebKit (21 executions;
 18 unaffected earlier passes plus three enriched datetime reruns). First build
 and test-driver failures remain preserved alongside successful corrections.
 
-[Integration receipts](final-acceptance/coordinator-integration/evidence.json)
+[Integration receipts](../../final-acceptance/coordinator-integration/evidence.json)
 record exact current working inputs and built outputs. Earlier FA snapshots and
 report hashes are immutable dated evidence. Documentation/manifest fixes are
 separate from physical device/AT, legal/owner approval and full production
@@ -2185,8 +2185,8 @@ passing checks. Uncommitted dev work only; no production branch/tag/publication.
 Reviewed all40 handoffs; integrated compatible51patch-file portions and subsequent
 reproduced native fixes, preserving the preexisting calendar/editor/search work.
 Closed14 bounded original A leaves;181/320 closed,139 A /20V /6future remain.
-[Per-leaf decisions](final-acceptance/wave-03-integration/reconciliation.json) and
-[push receipts](final-acceptance/wave-03-integration/push-evidence.json) retain exact
+[Per-leaf decisions](../../final-acceptance/wave-03-integration/reconciliation.json) and
+[push receipts](../../final-acceptance/wave-03-integration/push-evidence.json) retain exact
 evidence and unperformed gates. Fresh build/type/foundation/token/docs/fixture/
 package/browser-type/release-policy checks pass. Initial full unit run1843pass/1fail
 was corrected with focused23-case rerun; current editor190case run and Select6
@@ -2197,38 +2197,38 @@ Personal .obsidian state excluded; main/tags/publication/version untouched.
 
 ## Validated browser follow-up — 2026-10-16
 
-Known automated failures are resolved in the [follow-up receipts](final-acceptance/wave-03-followup/validation-results.json). Full unit checkpoint:297 files /1,851 tests pass; the final Menu type guard also passes17 affected tests. Fresh library/foundation/token/docs/fixture/type/package checks pass. Native evidence covers161 passing cases and one unsupported Firefox touch skip: the full run passed160 cases, and its last WebKit CSS-capability assertion was corrected and passed in a three-engine focused rerun. Unsupported WebKit forced-color-adjust coverage is explicitly recorded rather than claimed. Docs evidence covers11 passing cases, including94 routes and1,138 compiled source snapshots, using the original eight passes plus three corrected cases.
+Known automated failures are resolved in the [follow-up receipts](../../final-acceptance/wave-03-followup/validation-results.json). Full unit checkpoint:297 files /1,851 tests pass; the final Menu type guard also passes17 affected tests. Fresh library/foundation/token/docs/fixture/type/package checks pass. Native evidence covers161 passing cases and one unsupported Firefox touch skip: the full run passed160 cases, and its last WebKit CSS-capability assertion was corrected and passed in a three-engine focused rerun. Unsupported WebKit forced-color-adjust coverage is explicitly recorded rather than claimed. Docs evidence covers11 passing cases, including94 routes and1,138 compiled source snapshots, using the original eight passes plus three corrected cases.
 
 Menu native Tab dismissal, neutral Button feedback and editor Cancel restoration order are fixed. Original failing runs remain retained. **139 A,20 editor V and six future leaves remain**; this follow-up does not close physical-device/AT, reviewed visual-baseline, installed-consumer or owner/legal/production gates.
 
 
 ## iOS Simulator VoiceOver automation proof — 2026-10-16
 
-User prefers simulator automation. Verified installed Xcode27.1/iOS27.0; added a private standalone XCTest/Safari harness and leased runner under `packages/ui/tests/apple`. Two executions pass the Select interaction plus actual VoiceOver speech capture. The maintained runner passes build/test/summary/shutdown, retains immutable host/source hashes and xcresult. [Receipts and original failed locator run](final-acceptance/apple-simulator/results.json). No library source, public exports or consumer dependencies change. This is a bounded capability proof, not physical-device or whole manual-AT acceptance; existing139 A/20V/6future counts remain. No operator intervention was required.
+User prefers simulator automation. Verified installed Xcode27.1/iOS27.0; added a private standalone XCTest/Safari harness and leased runner under `packages/ui/tests/apple`. Two executions pass the Select interaction plus actual VoiceOver speech capture. The maintained runner passes build/test/summary/shutdown, retains immutable host/source hashes and xcresult. [Receipts and original failed locator run](../../final-acceptance/apple-simulator/results.json). No library source, public exports or consumer dependencies change. This is a bounded capability proof, not physical-device or whole manual-AT acceptance; existing139 A/20V/6future counts remain. No operator intervention was required.
 
 
 ## Compact calendar defaults and text navigation — 2026-10-16
 
 Completed the requested calendar layout update: tighter pointer cells in both densities, default hidden endpoint fields, logical-start month/year with grouped text navigation buttons, and horizontal month slides. Touch minimum targets remain intact; RTL reverses motion and reduced motion disables it. A private inert outgoing snapshot preserves one live grid/focus owner. Compact headers reserve enough width to keep longer month names from changing height.
 
-[Task receipts](final-acceptance/calendar-compact-layout/results.json): affected units 15 files / 82 tests pass; library, foundation, production docs/catalog, native fixture and browser type checks pass. Browser evidence covers 42 passing configurations across Chromium/Firefox/WebKit: initial 41 passes plus a corrected 12-case navigation/reflow rerun after waiting for motion to settle. The original WebKit timing failure is retained. This feature does not change the remaining 139 A / 20 V / 6 future acceptance counts.
+[Task receipts](../../final-acceptance/calendar-compact-layout/results.json): affected units 15 files / 82 tests pass; library, foundation, production docs/catalog, native fixture and browser type checks pass. Browser evidence covers 42 passing configurations across Chromium/Firefox/WebKit: initial 41 passes plus a corrected 12-case navigation/reflow rerun after waiting for motion to settle. The original WebKit timing failure is retained. This feature does not change the remaining 139 A / 20 V / 6 future acceptance counts.
 
 
 ## Presets opt-in in default date examples — 2026-10-16
 
-Corrected the docs-owned default that injected presets into date-range overviews, playgrounds, density and form examples. Show presets now starts off; explicit preset examples and the playground option remain available. The library already defaults to an empty preset list. Production docs build/catalog checks and four focused browser checks pass, covering both inline/dropdown defaults, opt-in choices/source/isolation and desktop/narrow overview sizing. [Receipt](final-acceptance/calendar-compact-layout/preset-defaults.json). Existing acceptance counts remain unchanged.
+Corrected the docs-owned default that injected presets into date-range overviews, playgrounds, density and form examples. Show presets now starts off; explicit preset examples and the playground option remain available. The library already defaults to an empty preset list. Production docs build/catalog checks and four focused browser checks pass, covering both inline/dropdown defaults, opt-in choices/source/isolation and desktop/narrow overview sizing. [Receipt](../../final-acceptance/calendar-compact-layout/preset-defaults.json). Existing acceptance counts remain unchanged.
 
 
 ## Independent calendar endpoint assignment — 2026-10-16
 
 Added optional `calendarEndpoints` index mapping for independent paged range calendars. The From/To reference examples now use `["start", "end"]`, and the range playgrounds expose an assignment option. Assigned calendars edit their endpoint and evaluate its restrictions; either endpoint can be entered first, crossing clears only the opposite endpoint, and incomplete drafts cannot commit. Shared/unassigned, linked and scrolling behavior remains covered. Updated public prop declarations, usage guidance and copied source.
 
-[Receipts](final-acceptance/calendar-independent-endpoints/results.json): 89 affected tests / 15 files pass; fresh library/foundation/production docs/catalog/native fixture/browser-type checks pass; six native docs cases pass across Chromium/Firefox/WebKit for inline and dropdown From/To selection, keyboard/pointer input, navigation, Apply/Cancel and compiled source. Existing 139 A / 20 V / 6 future acceptance counts remain unchanged.
+[Receipts](../../final-acceptance/calendar-independent-endpoints/results.json): 89 affected tests / 15 files pass; fresh library/foundation/production docs/catalog/native fixture/browser-type checks pass; six native docs cases pass across Chromium/Firefox/WebKit for inline and dropdown From/To selection, keyboard/pointer input, navigation, Apply/Cancel and compiled source. Existing 139 A / 20 V / 6 future acceptance counts remain unchanged.
 
 
 ## DatePicker popup width correction — 2026-10-16
 
-Removed the stale seven-control-width calculation from DatePicker's calendar wrapper; its content width now follows the actual compact calendar while retaining the viewport cap. [Receipt](final-acceptance/calendar-compact-layout/popup-width.json): all 12 browser checks pass across Chromium/Firefox/WebKit, including balanced padding at both densities on desktop/narrow viewports plus existing width/source/focus checks. Fresh library/foundation/production docs/catalog/native fixture/browser-type validation passes. Reviewed the Material dark popup screenshot. No public API change or broad acceptance closure.
+Removed the stale seven-control-width calculation from DatePicker's calendar wrapper; its content width now follows the actual compact calendar while retaining the viewport cap. [Receipt](../../final-acceptance/calendar-compact-layout/popup-width.json): all 12 browser checks pass across Chromium/Firefox/WebKit, including balanced padding at both densities on desktop/narrow viewports plus existing width/source/focus checks. Fresh library/foundation/production docs/catalog/native fixture/browser-type validation passes. Reviewed the Material dark popup screenshot. No public API change or broad acceptance closure.
 
 
 ## One-calendar preset example without endpoint fields — 2026-10-16
@@ -2238,9 +2238,9 @@ Removed the optional start/end textboxes from DateRangePicker's “Preset panel 
 
 ## Shared form-field message placement — 2026-10-16
 
-Implemented the requested default descriptions above controls and independently configurable `descriptionPlacement` / `errorPlacement` values (`above` / `below`; errors default below). A shared private helper/type keeps existing message nodes, IDs and interaction state owned by each field. Covers text, selection, choice, date/time (text and segments) and composed range/period fields. Switch/search/async selection expose description placement and retain their existing request-status semantics. Inline choice labels remain beside indicators; private grid/toolbar label hiding now targets the owned choice label marker. Updated public declarations, every affected playground/source, both-density message examples, usage guidance and the [contract guide](form-field-message-placement.md).
+Implemented the requested default descriptions above controls and independently configurable `descriptionPlacement` / `errorPlacement` values (`above` / `below`; errors default below). A shared private helper/type keeps existing message nodes, IDs and interaction state owned by each field. Covers text, selection, choice, date/time (text and segments) and composed range/period fields. Switch/search/async selection expose description placement and retain their existing request-status semantics. Inline choice labels remain beside indicators; private grid/toolbar label hiding now targets the owned choice label marker. Updated public declarations, every affected playground/source, both-density message examples, usage guidance and the [contract guide](../../form-field-message-placement.md).
 
-[Receipts](final-acceptance/form-field-message-placement/results.json): 92 affected test files / 642 tests pass; fresh library/foundation/production docs/catalog/native fixture/browser types and final docs types pass. All 81 targeted native docs cases pass across Chromium/Firefox/WebKit, including composed forwarding and both grid renderers' visible selection controls. Reviewed aligned row screenshots. Initial locator/focus-driver failures are retained; native input focus inside managed grids is not used as a keyboard acceptance claim. Existing 139 A / 20 V / 6 future counts remain unchanged.
+[Receipts](../../final-acceptance/form-field-message-placement/results.json): 92 affected test files / 642 tests pass; fresh library/foundation/production docs/catalog/native fixture/browser types and final docs types pass. All 81 targeted native docs cases pass across Chromium/Firefox/WebKit, including composed forwarding and both grid renderers' visible selection controls. Reviewed aligned row screenshots. Initial locator/focus-driver failures are retained; native input focus inside managed grids is not used as a keyboard acceptance claim. Existing 139 A / 20 V / 6 future counts remain unchanged.
 
 ## 2026-10-16 — FormFieldScope presentation defaults
 
@@ -2262,7 +2262,7 @@ Foundation guards, fresh library build, production docs build/catalog checks,
 docs typecheck, and packed package imports/declarations/assets passed. New docs
 browser scenario passed in Chromium, Firefox and WebKit (**3/3**), checking
 inheritance, overrides, state/source isolation and narrow reflow. Evidence:
-[form-field-scope/results.json](final-acceptance/form-field-scope/results.json).
+[form-field-scope/results.json](../../final-acceptance/form-field-scope/results.json).
 These feature checks do not close the broader device/AT/visual acceptance gates.
 
 ## 2026-10-17 — Opt-in resizable icon-panel shelves
@@ -2288,7 +2288,7 @@ checks pass. **9 browser cases pass**: six new resize cases across Chromium,
 Firefox and WebKit, plus the three existing rail cases in their configured
 Chromium environment. They cover drag, keyboard/RTL, cancellation, retained widths,
 opt-in/default behavior, source compilation and narrow viewport fit.
-Evidence: [resizable-icon-panel/results.json](final-acceptance/resizable-icon-panel/results.json).
+Evidence: [resizable-icon-panel/results.json](../../final-acceptance/resizable-icon-panel/results.json).
 
 Retained probes: initial narrow viewport overflow was fixed by accounting for the
 document gutter. A Chromium pointer driver was stabilized by disabling opening
@@ -2331,7 +2331,7 @@ absent in navigation mode and retained in inline selection mode.
 
 Updated public API/composition metadata, component guidance, prop playgrounds,
 compact/comfortable examples, birthday and date/time scenarios, and
-[calendar contracts](react-aria-calendar-contracts.md). Each Example owns state.
+[calendar contracts](../../react-aria-calendar-contracts.md). Each Example owns state.
 
 Final targeted validation: **136 units / 23 files**, fresh library build,
 foundation/source graph guards, production docs build/catalog guards, docs
@@ -2342,7 +2342,7 @@ popup, unchanged width/height across view changes, no default inline scrolling,
 availability/bounds, native values remaining uncommitted, cancellation and focus,
 year paging/leap-day selection, narrow fit, source compilation and existing
 date/time draft ownership. Compact and comfortable chooser screenshots were
-reviewed. Evidence: [results.json](final-acceptance/date-picker-inline-period-navigation/results.json).
+reviewed. Evidence: [results.json](../../final-acceptance/date-picker-inline-period-navigation/results.json).
 Broader device/AT/visual gates remain separate and unchanged.
 
 ### Separate month/year navigation and optional heading controls (2026-10-17)
@@ -2369,7 +2369,7 @@ The cases cover independent choices, immediate view changes without date commits
 missing action controls, partial/full availability bounds, stable dimensions,
 compact/comfortable/narrow layouts, Escape/focus return, week-only restrictions,
 and source compilation. Month-choice screenshots reviewed. Evidence:
-[separate month/year navigation](final-acceptance/separate-month-year-navigation/results.json).
+[separate month/year navigation](../../final-acceptance/separate-month-year-navigation/results.json).
 Broader historical acceptance/device/AT gates remain separate.
 
 
@@ -2404,7 +2404,7 @@ including public root picker imports. All 34 targeted browser cases passed acros
 Chromium/Firefox/WebKit (existing single-date flows plus shared/range/standalone
 checks). Two extra Chromium runs captured compact/comfortable range month/year
 views for visual review. Evidence is recorded in
-[shared calendar pickers](final-acceptance/shared-calendar-pickers/results.json).
+[shared calendar pickers](../../final-acceptance/shared-calendar-pickers/results.json).
 Broader historical acceptance/device/AT gates remain unchanged.
 
 ### DateRangePicker field-description correction (2026-10-17)
@@ -2432,7 +2432,7 @@ field routes, plus dark/forced-color visibility and attached-action focus checks
 All 15 focused cases passed (five each in Chromium, Firefox and WebKit). Screenshot
 review confirmed inset outlines. Library/production docs builds, catalog checks
 and foundation import/layer/token guards passed. Evidence:
-[focus boundary](final-acceptance/field-focus-boundary/results.json).
+[focus boundary](../../final-acceptance/field-focus-boundary/results.json).
 
 Open follow-up: the separate, unchanged picker-radius.spec.ts year-label fit
 assertion fails in Material Compact/Light and Comfortable/Dark at line 30 in the
@@ -2460,7 +2460,7 @@ pagination opt-in, stable in-place chooser geometry, sibling isolation, source
 compilation, bidirectional range creation and independent endpoint/drag/touch flows.
 Library/production docs builds, foundation guards, docs TypeScript and packed
 consumer checks passed. Evidence and source fingerprints:
-[year scrolling and navigation](final-acceptance/year-scroll-independent-navigation/results.json).
+[year scrolling and navigation](../../final-acceptance/year-scroll-independent-navigation/results.json).
 This does not close unrelated historical acceptance gates or the previously
 recorded optional legacy picker-radius year-label fit failures.
 
@@ -2479,7 +2479,7 @@ popup dimensions, source compilation, navigation isolation and explicit paginati
 checks remain. Library/docs builds, catalog and foundation guards passed. The
 first browser run exposed an inline-example viewport setup issue (35/36); bringing
 the whole host into view retained all assertions and the final run passed 36/36.
-[Evidence](final-acceptance/year-chooser-fill/results.json).
+[Evidence](../../final-acceptance/year-chooser-fill/results.json).
 
 
 ### 2026-10-17 — Responsive month choices
@@ -2496,7 +2496,7 @@ Validation: 149 affected units; 54 production browser cases (18 each in Chromium
 Firefox and WebKit), including layout/resize/source checks and existing shared
 month/year isolation, range preservation and year-scroll regressions. Library/docs
 builds, catalog, foundation guards, docs TypeScript and packed consumers passed.
-[Evidence](final-acceptance/responsive-month-choices/results.json).
+[Evidence](../../final-acceptance/responsive-month-choices/results.json).
 
 
 ### 2026-10-17 — Center fitting month choices
@@ -2513,7 +2513,7 @@ DatePicker popup and other chooser frames, retaining responsive/source/selection
 month/year isolation and year-scroll checks. Birthday, narrow popup and atomic
 datetime scenarios also passed. Library/docs builds, catalog, foundation guards,
 docs TypeScript and packed consumers passed. Screenshot review confirmed balanced
-spacing. [Evidence](final-acceptance/centered-month-choices/results.json).
+spacing. [Evidence](../../final-acceptance/centered-month-choices/results.json).
 
 
 ### 2026-10-17 — Sliding tab selection indicators
@@ -2535,10 +2535,10 @@ only the unchanged zero-page-error assertion with a ResizeObserver loop warning.
 The warning reproduces with the entire indicator function bypassed in the browser;
 this is isolation evidence, not an exact full-repository baseline checkout.
 
-Recorded bounded follow-up [TABS-MENU-WEBKIT-RO](final-acceptance/animated-tab-indicators/open-followup.md)
+Recorded bounded follow-up [TABS-MENU-WEBKIT-RO](../../final-acceptance/animated-tab-indicators/open-followup.md)
 without removing or filtering assertions. Library/docs builds, foundation guards,
 catalog, docs TypeScript and packed consumers pass. This is not an all-green
-browser or historical acceptance claim. [Evidence](final-acceptance/animated-tab-indicators/results.json).
+browser or historical acceptance claim. [Evidence](../../final-acceptance/animated-tab-indicators/results.json).
 
 
 ### 2026-10-17 — Nearest range endpoint adjustment
@@ -2564,7 +2564,7 @@ Validation: 157 unit cases in 26 files and all 12 native browser cases pass
 across Chromium, Firefox and WebKit, including both rapid-touch flows. Library
 and production docs builds, foundation guards, docs TypeScript, catalog and
 packed-package checks pass. Source fingerprints and logs are recorded in
-[the focused receipt](final-acceptance/nearest-range-endpoint/results.json).
+[the focused receipt](../../final-acceptance/nearest-range-endpoint/results.json).
 
 
 ### 2026-10-17 — Nearest endpoint is the default
@@ -2581,7 +2581,7 @@ tie preferences, validation, draft/Apply and form ownership.
 Validation: 158 unit cases in 26 files and all 12 browser cases pass across
 Chromium, Firefox and WebKit. Library/docs builds, foundation guards, docs
 TypeScript, catalog and packed-package checks pass. Source fingerprints and logs
-are recorded in [the focused receipt](final-acceptance/default-nearest-range/results.json).
+are recorded in [the focused receipt](../../final-acceptance/default-nearest-range/results.json).
 
 
 ## HB-19 — editor layout/chrome presentation, 2026-10-17
@@ -2594,7 +2594,7 @@ independent scroll ownership, focus return and logical reading order pass.
 No production implementation change or spoken AT claim. The host textarea does
 not close the separate Lexical editor/formatting leaves. Exact source hashes,
 commands/results, limits and screenshot names are in the
-[HB-19 receipt](final-acceptance/editor-chrome-presentation/results.json).
+[HB-19 receipt](../../final-acceptance/editor-chrome-presentation/results.json).
 Current hardening count: 286/300 complete, 14 remaining. Final acceptance remains
 139 open A leaves, with six explicitly deferred future leaves separate.
 
@@ -2614,7 +2614,7 @@ host scroll/focus behavior remain tested. TABS-MENU-WEBKIT-RO: owned Menu popove
 use intrinsic inline size within their existing viewport cap, avoiding width
 feedback as native positioning changes left/right. No observer, error assertion
 or native positioning path was disabled. Earlier warnings and unsuccessful,
-reverted experiments remain in [the receipt](final-acceptance/rich-editor-presentation/results.json).
+reverted experiments remain in [the receipt](../../final-acceptance/rich-editor-presentation/results.json).
 239 affected unit tests and library/docs/fixture/type/catalog/package/foundation
 checks pass. This completes the original V review checklist at300/300;139 A and
 six deferred future leaves remain. No broad production/device/spoken-AT claim.
@@ -2623,17 +2623,17 @@ reproduction; these changes do not silently close it.
 
 ## Original commitment review — 2026-10-18
 
-A-Z-12 closes against the [17-conversation reconciliation](backlog-to-ten/conversation-reconciliation.md). Current architecture, later calendar defaults, docs migration and source-backed component attributions are mapped; remaining legal, hardware, manual review and release gates retain their IDs. No publication or migration-complete approval is inferred.
+A-Z-12 closes against the [17-conversation reconciliation](../../backlog-to-ten/conversation-reconciliation.md). Current architecture, later calendar defaults, docs migration and source-backed component attributions are mapped; remaining legal, hardware, manual review and release gates retain their IDs. No publication or migration-complete approval is inferred.
 
 ## Browser coverage matrix — 2026-10-18
 
-A-X-10 closes against the [named browser/input/AT coverage matrix](react-aria-browser-support.md) and hash-verified successful actual iOS VoiceOver Select receipts. Current trusted coarse-input and all-three-engine presentation/contrast checks retain their scope. A-X-11 remains the explicit manual six-family review; no physical-device or current whole-library speech claim is inferred.
+A-X-10 closes against the [named browser/input/AT coverage matrix](../../react-aria-browser-support.md) and hash-verified successful actual iOS VoiceOver Select receipts. Current trusted coarse-input and all-three-engine presentation/contrast checks retain their scope. A-X-11 remains the explicit manual six-family review; no physical-device or current whole-library speech claim is inferred.
 
 
 ## User-requested dev save and stop — 2026-10-18
 
 Saved current source and progress records to dev at the user's request.
-[Stop state](backlog-to-ten/STOP-STATE.md) records nine closed leaves, 20 active
+[Stop state](../../backlog-to-ten/STOP-STATE.md) records nine closed leaves, 20 active
 items, bounded validation, the still-running complete checkpoint and remaining
 owner evidence. The ten-item target is not reached; no full current-head pass or
 release approval is claimed.

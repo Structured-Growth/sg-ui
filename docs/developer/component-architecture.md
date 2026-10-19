@@ -5,7 +5,7 @@ tokens, compiled CSS Modules, TanStack row processing and Lexical editing. The
 learner platform is extraction provenance and supplies no runtime dependency.
 Public App/Class names remain where useful; new learning presentation APIs use Course.
 Implementation removal and final acceptance are separate: consult the
-[execution record](react-aria-progress.md), [master list](react-aria-master-task-list.md)
+[execution record](archive/2026-10-18-task-lists/react-aria-progress.md), [master list](react-aria-execution-policy.md)
 and [removal audit](react-aria-removal-audit.md) for remaining gates.
 
 Library paths in this document are relative to `packages/ui`. The Next.js app

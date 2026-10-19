@@ -11,7 +11,7 @@ the historical baseline and regression evidence. Close only the named result.
 
 ### Production bundle/grid measurement and component row completed — 2026-10-18
 
-Closed A-B-10, A-G-20 and A-M-16 against the [bound measurement and phase join](backlog-to-ten/performance-grid-closure.json).
+Closed A-B-10, A-G-20 and A-M-16 against the [bound measurement and phase join](../../backlog-to-ten/performance-grid-closure.json).
 The fresh installed tarball passes14 import-boundary builds. Seven production
 configurations complete84 current navigations,4200 updates and seven active-update
 cleanup probes; identical retained baseline bytes and strict raw-sample comparators
@@ -31,7 +31,7 @@ remain unchanged.
 
 Closed A-X-10 against maintained three-engine browser checks, current twelve
 trusted coarse-input executions and the hash-verified retained iOS Safari/actual
-VoiceOver Select capture. The [coverage matrix](react-aria-browser-support.md)
+VoiceOver Select capture. The [coverage matrix](../../react-aria-browser-support.md)
 names distributions/platforms, historical source scope, unsupported pairings and
 physical/manual limits. This satisfies establishing checks and documenting
 representative coverage; the separate A-X-11 six-family manual review stays open.
@@ -42,7 +42,7 @@ items; 20 remain.
 
 Closed A-Z-12 after reviewing complete available turn streams of 17 SGUI project
 root conversations against imported principles, current instructions and accepted
-component attribution. The [reconciliation](backlog-to-ten/conversation-reconciliation.md)
+component attribution. The [reconciliation](../../backlog-to-ten/conversation-reconciliation.md)
 preserves source identities, policy choices, later superseding requests and every
 remaining required gate; private transcripts are excluded. The former M10/M14/M30
 questions are resolved by shipped successors and accepted source-bound evidence.
@@ -51,7 +51,7 @@ No legal, publishing, manual-AT or release approval is inferred. Wave 04 now clo
 
 ### Composed contrast and coarse-pointer targets completed — 2026-10-17
 
-Closed A-X-06 and A-X-07. The [closure receipt](backlog-to-ten/x06-x07-closure.json)
+Closed A-X-06 and A-X-07. The [closure receipt](../../backlog-to-ten/x06-x07-closure.json)
 binds the current source and native results to the retained requirements and fixes.
 The standard/light success role now uses the existing darker owned palette color;
 the expanded theme-pair test preserves the original failure and passes after the fix.
@@ -67,7 +67,7 @@ run are outside these closures and remain recorded; the menu task stays open.
 Forced colors and coarse input are browser emulations; physical-device and spoken
 AT scope remains under its original open tasks. Earlier structural-state, focus,
 non-text and reduced-motion evidence remains as mapped in the
-[criterion map](final-acceptance/wave-04/02/contrast-runtime/criterion-map.md).
+[criterion map](../../final-acceptance/wave-04/02/contrast-runtime/criterion-map.md).
 Wave 04 now closes 117 of 139 items; 22 remain.
 
 ### Native nesting and shallow ownership completed — 2026-10-17
@@ -364,7 +364,7 @@ actual isolated lock generation/frozen installation and fresh packed-archive
 checks. The exact candidate archive is `08c25637e641540c38fe0d42f3d143f8edaabf19716c1c5718a18fb155211f35`;
 all1,857 packed members were scanned,1,853 dist members match the build and no
 retired-reference error remains. The lock remains unchanged;507 installed package
-instances were inspected. [Per-leaf decisions](final-acceptance/wave-04/coordinator/accepted-closures.json)
+instances were inspected. [Per-leaf decisions](../../final-acceptance/wave-04/coordinator/accepted-closures.json)
 retain truthful limits, including the independent client-only legal evidence gap.
 Wave04 now closes26 of139;113 A remain. No production approval is inferred.
 
@@ -373,21 +373,21 @@ Wave04 now closes26 of139;113 A remain. No production approval is inferred.
 A-A-08/09/10 close their original definition criteria after reviewing the owned
 public visual/placement/validation contracts, practical typed names and documented
 composition/ref/style escape hatches. Built declarations and exact evidence remain
-in the [closure receipt](final-acceptance/wave-04/coordinator/accepted-closures.json).
+in the [closure receipt](../../final-acceptance/wave-04/coordinator/accepted-closures.json).
 This brings wave04 to22 closures,203/320 total;117 remain. Historical compatibility,
 installed consumers and manual AT remain separate obligations.
 
 ### Wave 04 reviewed closures — 2026-10-17
 
 Nineteen original A obligations now close against retained accepted evidence;
-[per-leaf decisions and frozen recommendations](final-acceptance/wave-04/coordinator/accepted-closures.json)
+[per-leaf decisions and frozen recommendations](../../final-acceptance/wave-04/coordinator/accepted-closures.json)
 record each original criterion. These closures leave120 A, zero V and six future
 leaves. New implementation and simulator results are validated separately.
 
 ### Wave 04 — fifteen acceptance conversations, 2026-10-17
 
 At the user's request, fifteen local conversations own all 139 open A leaves
-exactly once. The [dispatch registry](final-acceptance/wave-04/dispatch.json)
+exactly once. The [dispatch registry](../../final-acceptance/wave-04/dispatch.json)
 records the tested starting head, original obligations, exclusive evidence
 directories and conversation IDs. Accepted F/T/V evidence remains valid within
 its recorded scope; this wave targets concrete remaining successors rather than
@@ -409,15 +409,15 @@ reviews and native evidence in all three engines. BUG-0013 and the separately
 tracked TABS-MENU-WEBKIT-RO warning are fixed. All 33 tab cases now pass, preserving
 the zero-page-error assertion that previously failed in WebKit. This does not
 close any of the 139 broader A obligations or infer device/spoken-AT approval.
-See [chrome](final-acceptance/editor-chrome-presentation/results.json) and
-[rich editor](final-acceptance/rich-editor-presentation/results.json) receipts.
+See [chrome](../../final-acceptance/editor-chrome-presentation/results.json) and
+[rich editor](../../final-acceptance/rich-editor-presentation/results.json) receipts.
 The historical Material calendar year-label fit follow-up remains for fresh
 reproduction. Resume the existing per-leaf A successors without repeating accepted
 inventories, and retain the six deferred future leaves outside required counts.
 
 ### Validated browser follow-up after bd169b54 — 2026-10-16
 
-Known automated failures are resolved in the [follow-up receipts](final-acceptance/wave-03-followup/validation-results.json). Full unit checkpoint:297 files /1,851 tests pass; the final Menu type guard also passes17 affected tests. Fresh library/foundation/token/docs/fixture/type/package checks pass. Native evidence covers161 passing cases and one unsupported Firefox touch skip: the full run passed160 cases, and its last WebKit CSS-capability assertion was corrected and passed in a three-engine focused rerun. Unsupported WebKit forced-color-adjust coverage is explicitly recorded rather than claimed. Docs evidence covers11 passing cases, including94 routes and1,138 compiled source snapshots, using the original eight passes plus three corrected cases.
+Known automated failures are resolved in the [follow-up receipts](../../final-acceptance/wave-03-followup/validation-results.json). Full unit checkpoint:297 files /1,851 tests pass; the final Menu type guard also passes17 affected tests. Fresh library/foundation/token/docs/fixture/type/package checks pass. Native evidence covers161 passing cases and one unsupported Firefox touch skip: the full run passed160 cases, and its last WebKit CSS-capability assertion was corrected and passed in a three-engine focused rerun. Unsupported WebKit forced-color-adjust coverage is explicitly recorded rather than claimed. Docs evidence covers11 passing cases, including94 routes and1,138 compiled source snapshots, using the original eight passes plus three corrected cases.
 
 Menu native Tab dismissal, neutral Button feedback and editor Cancel restoration order are fixed. Original failing runs remain retained. **139 A,20 editor V and six future leaves remain**; this follow-up does not close physical-device/AT, reviewed visual-baseline, installed-consumer or owner/legal/production gates.
 
@@ -425,11 +425,11 @@ Menu native Tab dismissal, neutral Button feedback and editor Cancel restoration
 
 All forty handoffs reviewed; compatible source, tests, docs, fixtures and workflow
 changes integrated. Fourteen original definition/documentation/boundary/inventory
-obligations close with [per-leaf decisions](final-acceptance/wave-03-integration/reconciliation.json).
+obligations close with [per-leaf decisions](../../final-acceptance/wave-03-integration/reconciliation.json).
 The current counter is **139 A remaining**, plus20 editor V and six future items.
 The full migration and production/release gates remain open.
 
-The [push evidence](final-acceptance/wave-03-integration/push-evidence.json) retains
+The [push evidence](../../final-acceptance/wave-03-integration/push-evidence.json) retains
 exact candidate hashes, fresh library/type/foundation/token/docs/native-fixture/
 package/browser-type/release-policy checks, the1843-pass initial unit checkpoint
 and corrected23-case grid suite,190 current editor cases and focused control
@@ -449,9 +449,9 @@ condition; its prepared evidence is retained. Historical snapshots are unchanged
 ### Wave 03 — forty conversations dispatched
 
 At the user's request, forty new local conversations now own all **153 remaining
-A leaves exactly once**. [Dispatch registry](final-acceptance/wave-03-dispatch.json)
+A leaves exactly once**. [Dispatch registry](../../final-acceptance/wave-03-dispatch.json)
 records every thread ID, full original obligation, prior successor/evidence and
-specific objective. [Initial status snapshot](final-acceptance/wave-03-started.json)
+specific objective. [Initial status snapshot](../../final-acceptance/wave-03-started.json)
 confirms all forty started. Twenty editor V and six future items stay separate.
 No acceptance item closes merely by dispatch.
 
@@ -459,7 +459,7 @@ Each conversation owns its numbered wave-03 evidence directory and prepares
 concrete implementation/test/documentation patches there. Shared production edits,
 fixture/catalog builds, native execution and acceptance-count updates remain
 coordinator-owned. This protects the uncommitted dev checkout from forty writers
-changing the same source or build output. The [shared instructions](final-acceptance/wave-03-instructions.txt)
+changing the same source or build output. The [shared instructions](../../final-acceptance/wave-03-instructions.txt)
 require exact hashes/limits, reuse of unchanged passing results, report.md,
 results.json and a runnable validation-plan.json for remaining integration. Human
 screen-reader observations, legal/owner decisions and release approvals cannot be
@@ -467,20 +467,20 @@ inferred from automated work. Resume by reading the registry and delivered repor
 apply/review compatible patches and run only affected validation before closure.
 
 Wave 02 is complete: the original 15 conversations reviewed all 282 remaining A
-leaves exactly once. [Assignments](final-acceptance/wave-02-dispatch.json) and
-[reconciliation](final-acceptance/wave-02-reconciliation.json) retain original
+leaves exactly once. [Assignments](../../final-acceptance/wave-02-dispatch.json) and
+[reconciliation](../../final-acceptance/wave-02-reconciliation.json) retain original
 statements, report hashes and concrete successors: 127 complete, 154 partial,
 one blocked at review. Twelve additional user-authorized conversations delivered
 bounded source/documentation fixes. Coordinator integration closes two further
 contract/publication leaves, A-G-02 and A-K-16, with their original requirements
-preserved in the [supplement](final-acceptance/coordinator-integration/supplemental-reconciliation.json).
+preserved in the [supplement](../../final-acceptance/coordinator-integration/supplemental-reconciliation.json).
 This pass therefore closes **129 of 282**, retaining 152 partial and one blocked.
 A-X-11 requires actual screen-reader/operator evidence; DOM/axe/source inspection
 does not replace it. No dispatch alone earns closure.
 
 ### Integrated corrections and validation — 2026-10-16
 
-[Integration evidence](final-acceptance/coordinator-integration/evidence.json)
+[Integration evidence](../../final-acceptance/coordinator-integration/evidence.json)
 records current source/output hashes, fresh Node 24 library/type, package-import/
 consumer type and packed-file checks, foundation guard, docs production/catalog
 build and private docs-native fixture build. Focused native checks pass in
@@ -493,11 +493,11 @@ failure remain preserved with their corrections; neither is hidden by a retry.
 
 | Correction | Result / retained evidence |
 | --- | --- |
-| BUG-0008 | Disabled/read-only Clear and commit guards; [coordinator unit/browser receipts](final-acceptance/coordinator-fixes/evidence.json). |
+| BUG-0008 | Disabled/read-only Clear and commit guards; [coordinator unit/browser receipts](../../final-acceptance/coordinator-fixes/evidence.json). |
 | BUG-0009 | TextArea decorative slots, multiline alignment, form/ref semantics and eight independent source-backed variants; same receipts. |
-| BUG-0010 | DatePicker availability across text, segments and datetime; [37 affected units](final-acceptance/fix-08/results.json), native form rejection/recovery and Apply host-policy change. |
-| BUG-0011 | Callback/static Calendar reason descriptions and visible-interval keyboard disclosure; [Calendar/locale units](final-acceptance/fix-09/results.json), native name/description/disclosure checks. |
-| BUG-0012 | Shared reserved utility IDs reject __reorder before processing/render; [123 grid units](final-acceptance/fix-10/results.json), fresh declaration/consumer-import validation. |
+| BUG-0010 | DatePicker availability across text, segments and datetime; [37 affected units](../../final-acceptance/fix-08/results.json), native form rejection/recovery and Apply host-policy change. |
+| BUG-0011 | Callback/static Calendar reason descriptions and visible-interval keyboard disclosure; [Calendar/locale units](../../final-acceptance/fix-09/results.json), native name/description/disclosure checks. |
+| BUG-0012 | Shared reserved utility IDs reject __reorder before processing/render; [123 grid units](../../final-acceptance/fix-10/results.json), fresh declaration/consumer-import validation. |
 
 After shared DateField changes, 24 directly affected composed/transaction unit
 cases also pass. Five bugs are resolved, but their broader component and
@@ -507,10 +507,10 @@ touch device, spoken AT, remote CI, full packed-consumer engine matrix, producti
 approval or release is implied. All work remains uncommitted on dev.
 
 All twelve follow-up reports are reviewed in the
-[seven initial fixes](final-acceptance/fix-dispatch.json),
-[two calendar fixes](final-acceptance/calendar-fix-dispatch.json),
-[grid fix](final-acceptance/grid-fix-dispatch.json) and
-[two documentation fixes](final-acceptance/docs-fix-dispatch.json) registries.
+[seven initial fixes](../../final-acceptance/fix-dispatch.json),
+[two calendar fixes](../../final-acceptance/calendar-fix-dispatch.json),
+[grid fix](../../final-acceptance/grid-fix-dispatch.json) and
+[two documentation fixes](../../final-acceptance/docs-fix-dispatch.json) registries.
 They repair token schema/action/CSS/dependency guidance, 36 stale extraction
 manifest rows, Brush mapping, read-only policy, calendar limits and one maintained
 local link. Historical provenance and partial successors remain intact. Of the
@@ -526,13 +526,13 @@ report-only cycle/focus patches were not applied without an established fix scop
 
 At the user's explicit request, 15 separate local conversations were created.
 All 15 delivered report.md and results.json, now reviewed. The
-[dispatch registry](final-acceptance/dispatch-2026-10-16.json)
+[dispatch registry](../../final-acceptance/dispatch-2026-10-16.json)
 records all thread IDs, 55 distinct assigned acceptance leaves and report ownership.
 Each owns only its numbered parallel-01 through parallel-15 evidence directory;
 source/shared-checklist edits, builds and broad suites are coordinator-owned to
 avoid concurrent mutation. Each must deliver report.md and results.json with
 complete/partial/blocked leaf outcomes, exact evidence limits and successors.
-The [coordinator reconciliation](final-acceptance/parallel-reconciliation-2026-10-16.json)
+The [coordinator reconciliation](../../final-acceptance/parallel-reconciliation-2026-10-16.json)
 preserves all 55 original checklist statements, report/result hashes, outcomes and
 successors. **32 leaves accepted complete; 23 remain partial; none was marked
 blocked.** Completed rows were removed from the active checklist. Reports close
@@ -544,7 +544,7 @@ production code was changed by these conversations. FA-01–04 evidence is retai
 ### Earlier first-review checkpoint (superseded by wave 02 above)
 
 At that checkpoint: **38 A leaves closed; 282 A, 20 V and six future leaves remained**.
-BUG-0008/9 are now fixed with [durable receipts](final-acceptance/coordinator-fixes/evidence.json):
+BUG-0008/9 are now fixed with [durable receipts](../../final-acceptance/coordinator-fixes/evidence.json):
 31 affected unit cases and four native cases in each of Chromium, Firefox and
 WebKit pass. All six TextArea geometry captures are preserved there; rendered
 review corrected initial icon centering through a scoped CSS specificity fix.
@@ -591,8 +591,8 @@ Keep logs in this repository rather than relying only on temporary paths.
 
 | Batch | Status | Completed leaves / evidence | Resume action |
 | --- | --- | --- | --- |
-| FA-01 | Complete | A-B-01/02/04; [inventory](final-acceptance/2026-10-16-inventory.json), [package transcript](final-acceptance/fa01-package.txt) | Reuse unless a new package snapshot is explicitly needed. |
-| FA-02 | Complete | A-B-03; [source/dependency inventory](final-acceptance/2026-10-16-source-inventory.json), [capture receipt](final-acceptance/fa02-capture.txt), [foundation transcript](final-acceptance/fa02-foundations.txt) | Reconcile new source/dependency changes as deltas; do not restart the original scan. |
+| FA-01 | Complete | A-B-01/02/04; [inventory](../../final-acceptance/2026-10-16-inventory.json), [package transcript](../../final-acceptance/fa01-package.txt) | Reuse unless a new package snapshot is explicitly needed. |
+| FA-02 | Complete | A-B-03; [source/dependency inventory](../../final-acceptance/2026-10-16-source-inventory.json), [capture receipt](../../final-acceptance/fa02-capture.txt), [foundation transcript](../../final-acceptance/fa02-foundations.txt) | Reconcile new source/dependency changes as deltas; do not restart the original scan. |
 | FA-03 | Complete | A-B-11; support boundaries below | Recheck only when peers, engines, CI targets or consumer fixtures change. |
 | FA-04 | Complete | A-B-06; original failure, corrected affected suites, subsequent build/package/release transcripts below | Reuse unaffected results; rerun only changed inputs. This is not full production acceptance. |
 
@@ -601,7 +601,7 @@ Keep logs in this repository rather than relying only on temporary paths.
 
 Closed leaves: **A-B-01, A-B-02, A-B-04**. Source base:
 `540f47d4059a9cea8890b80927f34f51ef2fbc3e`, modified `dev` checkout.
-The [machine-readable snapshot](final-acceptance/2026-10-16-inventory.json)
+The [machine-readable snapshot](../../final-acceptance/2026-10-16-inventory.json)
 records its capture timestamp, complete porcelain status including untracked
 files, local tags, local origin/dev tracking SHA, package metadata, export
 conditions, runtime/declaration names and SHA-256 hashes of library inputs and
@@ -689,8 +689,8 @@ Closed leaf: **A-B-11**, configuration and promise reconciliation only. Evidence
 `packages/ui/package.json`, `.nvmrc`, `.github/workflows/ci.yml`, the library/docs
 Playwright configurations and the foundation/editor/Next packed-consumer scripts.
 Their current bytes are captured in FA-02. Existing detailed receipts remain in
-[runtime/CI guidance](react-aria-runtime-ci.md) and
-[server boundaries](react-aria-server-components.md); older runs validate only
+[runtime/CI guidance](../../react-aria-runtime-ci.md) and
+[server boundaries](../../react-aria-server-components.md); older runs validate only
 their recorded heads. No remote CI run was queried or claimed for this checkout.
 
 | Concern | Declared/configured boundary | Evidence limit |
@@ -712,7 +712,7 @@ No new support promises, workflow changes or requirement reductions were made.
 Closed leaf: **A-B-06**. The first `pnpm --filter @structured-growth/sg-ui check`
 passed foundation/token guards, 32 foundation tests and production typechecking,
 then failed nine unit cases in four files: 1,729 passed / 1,738 total. That exact
-[failure transcript](final-acceptance/fa04-original-check.txt) remains preserved;
+[failure transcript](../../final-acceptance/fa04-original-check.txt) remains preserved;
 the original all-in-one command is not represented as a green run.
 
 All failures were reconciled with already requested calendar contracts:
@@ -725,9 +725,9 @@ All failures were reconciled with already requested calendar contracts:
   callback and verifies that hidden values still follow the rejecting host.
 
 No production implementation or assertion was disabled. The
-[input delta](final-acceptance/fa04-library-input-delta.json) identifies exactly
+[input delta](../../final-acceptance/fa04-library-input-delta.json) identifies exactly
 four changed library inputs relative to FA-02: one source-context fixture and
-three tests. The [affected rerun](final-acceptance/fa04-calendar-rerun.txt) passed
+three tests. The [affected rerun](../../final-acceptance/fa04-calendar-rerun.txt) passed
 all ten cases across those four previously failing suites. Retain the 1,728 passing
 cases outside that affected set: combined, all 1,738 cases in 279 suites now have
 passing evidence for their current inputs. One originally passing case in an
@@ -735,17 +735,17 @@ affected suite is counted only once. No second full unit run was needed.
 
 The remaining stages ran separately after correction:
 
-- [Release policy](final-acceptance/fa04-release.txt): four checks pass.
-- [Fresh library build](final-acceptance/fa04-library.txt): passes.
-- [Docs-owned native fixture build/typecheck](final-acceptance/fa04-fixtures.txt): passes.
-- [Fresh package audit](final-acceptance/fa04-package.txt): imports, consumer types,
+- [Release policy](../../final-acceptance/fa04-release.txt): four checks pass.
+- [Fresh library build](../../final-acceptance/fa04-library.txt): passes.
+- [Docs-owned native fixture build/typecheck](../../final-acceptance/fa04-fixtures.txt): passes.
+- [Fresh package audit](../../final-acceptance/fa04-package.txt): imports, consumer types,
   source/client boundary checks and actual packed-file equality pass.
 
 All 1,778 freshly built output hashes were also compared with FA-01: zero changed
 or missing files. This confirms that the test/fixture reconciliation left the
 library distributable unchanged and supports retaining unaffected prior evidence.
 
-The [production docs build](final-acceptance/fa04-retained-docs-build.txt) is retained
+The [production docs build](../../final-acceptance/fa04-retained-docs-build.txt) is retained
 from the preceding gesture batch: no docs application or library runtime source
 changed in this acceptance batch. Source-context fixture/test changes above do
 not alter that production application. These builds replace the original B-06

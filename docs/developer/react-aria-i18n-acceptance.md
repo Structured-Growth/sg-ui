@@ -135,7 +135,7 @@ the visual matrix is not an all-locale certification. Installed scoped-lifecycle
 its recorded tarball. Spoken AT remains separate under A-X-11. The dated Storybook
 build above is retained only as historical evidence; Storybook has been removed. Broader component catalog coverage, host catalog integration and engine
 specific ICU styles remain outside this slice. See the
-[master task list](react-aria-master-task-list.md) for H-07–H-09 and broad acceptance.
+[master task list](react-aria-execution-policy.md) for H-07–H-09 and broad acceptance.
 
 ## Current fixture-host supplement — 2026-10-16
 

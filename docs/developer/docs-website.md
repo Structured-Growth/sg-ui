@@ -88,29 +88,14 @@ frozen prior worktree receipts must not be rewritten or reused as current passes
 
 ## Delivery checklist
 
-- [x] DOCS-001 Establish library/docs workspaces, public package dependency and docs theme.
-- [x] DOCS-002 Add navigable skeleton and development version manifest.
-- [x] DOCS-003 Transfer AppButton examples and add live Button/Dialog playgrounds.
-- [x] DOCS-004 Validate production app, library checks, Storybook build and docs browser smoke.
-- [ ] DOCS-005 Complete docs migration reconciliation: Storybook retirement, native-test transfer and the twelve bounded public-example leaves are delivered; the complete production gate remains under DOCS-005-l.
-- [x] DOCS-006 Generate a complete public prop reference (catalog/examples/search delivered by DOCS-011).
-- [ ] DOCS-007 Add immutable release docs deployment and missing-page version fallback.
-- [x] DOCS-008 Add library watch mode (isolated demo/website scopes already delivered).
-- [x] DOCS-011 Complete the current public component catalog, expanded examples and searchable navigation.
-- [x] DOCS-012 Complete palette → semantic → component token separation for the website and demo identities.
-- [x] DOCS-013 Add component-specific when/how guidance and related-component choices to every catalog page, with required coverage checks.
-- [x] DOCS-014 Isolate playground settings from fixed reference examples and expand meaningful layout/density/state matrices with independent interactions and current source.
-- [x] DOCS-015 Simplify copyable source to component imports, state/callbacks and JSX; keep application theme setup in dedicated guidance.
-- [x] DOCS-016 Document one-level component composition with linked children, distinct compound-part lists and source-derived metadata.
-- [x] DOCS-017 Group sidebar components by purpose, with expandable categories, active-page visibility and alias-aware search.
-- [x] DOCS-018 Preserve document/content width across dropdown and dialog scroll locks, including native scrollbar and resize checks.
-- [x] DOCS-019 Give every example block its own interaction-state owner and prevent sibling state/source changes across the full catalog.
-- [x] PLAN-DOCS-001 Make the Next.js website the target for examples and browser fixtures; preserve legacy evidence and define the removal work.
-
-This backlog supplements the migration checklist; no T/V/A acceptance is closed by
-website restructuring. Build and browser outcomes are recorded below after execution.
+Current docs tasks DOCS-005-l and DOCS-007 are tracked only in the
+[unified backlog](backlog.md). DOCS-005 is their migration rollup, not another
+active leaf. [Completed checklist and transition snapshot](archive/2026-10-18-task-lists/docs-website.md#delivery-checklist).
 
 ## Active transition plan — 2026-10-14
+
+This section preserves migration guidance and evidence. Current work is listed
+only in [the unified backlog](backlog.md); the dated checkbox inventory is archived.
 
 The Next.js website is the permanent documentation and UI design environment.
 Author new public examples in `apps/docs`, with prop playgrounds and current
@@ -123,59 +108,28 @@ is removed; fixture provenance and previous acceptance receipts remain recorded.
 native scenarios are mapped separately, and their execution receipts remain
 separate from the public-example reconciliation.
 
-Execute DOCS-005-a/b/c before porting dependent families. Complete each family as
-one bounded scenario/spec migration, splitting a family leaf into stable numbered
-children in the scenario ledger. Existing React Aria F/T/V/A priority and counts
+The migration sequenced DOCS-005-a/b/c before dependent families and transferred
+each family as a bounded scenario/spec migration with numbered scenario leaves. Existing React Aria F/T/V/A priority and counts
 remain unchanged; this work moves existing evidence to a new host rather than
 adding broad coverage ahead of its assigned phase. DOCS-012 records the completed bounded
 UI design token pipeline; DOCS-006/007/008 retain their independent deliverables.
 
 ### DOCS-005: retire Storybook without losing behavior coverage
 
-- [x] DOCS-005-a Inventory every remaining story/export, all 102 native browser spec files, helper and CI/script reference. Create a scenario ledger naming existing fixture/story ID, assertions, acceptance IDs, destination route, owning family and transfer status. Classify demonstration-only stories separately from required native fixtures; assign every spec to exactly one transfer leaf.
-- [x] DOCS-005-b Reconcile existing website examples against that ledger. Transfer missing variants, tones, content, density, loading/empty/error states and composed host flows into their owning pages. Retain playground/source requirements; do not recreate examples that already exist. A catalog export entry alone is not evidence of scenario parity.
-- [x] DOCS-005-c Establish docs-owned native test entry points using compiled public package imports, production scopes and host adapters. Specify build/route boundaries so private test fixtures are absent from public deployments; verify public builds return 404 and exclude their fixture code. Avoid embedding test-only controls in public component pages.
-- [x] DOCS-005-d Port shared Playwright navigation, frame/locator helpers, web-server/build lifecycle and browser configuration to the new host. Use immutable fresh builds, never rebuild during a suite. Keep engine coverage, focus/keyboard, portal, clipboard and native event assertions intact; no skipped or weakened checks to make a port pass.
-- [x] DOCS-005-e Transfer primitives, actions, forms and date/calendar scenarios. Keep native form/reset/validation, selection, overlays, range availability and focus assertions; record old/new fixture paths and the executed engine for each mapped spec.
-- [x] DOCS-005-f Transfer grid, toolbar, course-card, pagination and row-reorder scenarios. Preserve state ownership, sorting/filtering, selection, viewport/scroll, server response and native drag/Move assertions with equivalent datasets.
-- [x] DOCS-005-g Transfer editor, formatting/menu and editor-dialog scenarios. Preserve Lexical document/selection, read-only/reset, clipboard, link/image policies, upload lifetime and host scrolling assertions.
-- [x] DOCS-005-h Transfer shells, navigation, page layout, typography, icons and supporting theme/adapter scenarios. Preserve route/account callbacks, responsive layout, density, direction, locale and scoped portal assertions.
-- [x] DOCS-005-i Transfer existing axe, visual, download/performance and browser artifact checks to the correct new fixtures. Retain applicable rules, remediation ownership and thresholds. Keep library/tarball measurements comparable; separately record docs-host payload costs. Document any required host-specific baseline change with before/after evidence.
-- [x] DOCS-005-j Run all mapped existing native specs against the new host in Chromium, Firefox and WebKit, plus affected consumer/type/import/token checks. Reconcile failures without weakening assertions; record exact tested source/build and coverage boundaries. Verify every ledger row has evidence and no spec still targets Storybook.
-- [x] DOCS-005-k Remove transferred story files, Storybook configuration/dependencies/scripts, server helpers and CI build/artifact steps once their references are reconciled. Replace active commands/artifacts with docs equivalents and update their policy tests, README and agent guidance. Preserve legal notices, historical evidence and original acceptance IDs.
-- [ ] DOCS-005-l Audit runtime/source/dev dependency and CI references, perform a clean frozen install and production library/docs builds, and run the preserved native/consumer gates. Record zero active Storybook dependencies and a complete scenario mapping; then close DOCS-005. Historical/legal prose may still name Storybook. Local dependency audit, frozen install, builds and affected consumer gates are delivered; the complete final production matrix remains separate from bounded development validation.
+The transferred scenario checklist is archived. DOCS-005-l remains in the
+[unified backlog](backlog.md); accepted transfer evidence follows below.
 
 ### DOCS-005-b: bounded public-example parity follow-ups
 
-All twelve public scenarios are implemented in existing independent Example owners. The [source-backed disposition table](docs-fixture-migration.md#public-example-parity-audit--docs-005-b) identifies each component, copied source and focused browser case. The [2026-10-15 receipt](backlog-execution-2026-10-15.md#website-scenario-completion) retains their original focused execution; the latest accepted production catalog run verifies 98 routes and 1,284 current setup/initial/changed source snapshots. Neither count implies a public duplicate for every private fixture or a fresh rerun of the older interaction suite.
-
-- [x] DOCS-005-b01 — Native form reset. [NativeResetFormExample](../../apps/docs/examples/FormIntegrationExamples.tsx): Required controlled name and uncontrolled email defaults share a native form, explicit host reset, submit handling and local operation result.
-- [x] DOCS-005-b02 — Host-owned asynchronous search. [AsyncSearchExample](../../apps/docs/examples/AsyncSearchExample.tsx): A bounded 350ms mock request owns pending/error/retry; AbortController cleanup and a freshness guard protect query replacement/unmount, while selections stay independent.
-- [x] DOCS-005-b03 — Local datetime and host timezone. [TimezoneInstantExample](../../apps/docs/examples/FormIntegrationExamples.tsx): Public dateTimeToInstant resolves a local datetime with an explicit IANA zone and reject/earlier/later clock-change policy; civil dates remain separate.
-- [x] DOCS-005-b04 — Localized civil calendar presentation. [LocalizedRangeExample](../../apps/docs/examples/LocalizedRangeExample.tsx): Independent de-DE/ar-EG locale scopes display the same ISO civil range and disclose America/Chicago reference context; source includes the required locale adapter and Provider.
-- [x] DOCS-005-b05 — Independent navigation and long content. [AppShellScrollingExample](../../apps/docs/examples/AppShellScrollingExample.tsx): Thirty navigation entries and twenty-four lesson paragraphs overflow independently in a bounded AppShell; the optional third column and existing responsive shell contract remain available.
-- [x] DOCS-005-b06 — Long authentication form and footer. [LongAuthFormExample](../../apps/docs/examples/ShellContentExamples.tsx): A bounded long form supplies seven required fields, consent, native validation, a host-owned result and longer help/privacy footer; no account API is implied.
-- [x] DOCS-005-b07 — Primary actions and deep breadcrumbs. [HeaderActionsExample](../../apps/docs/examples/ShellContentExamples.tsx): The public actionButtons slot contains a neutral SplitAction; five breadcrumb levels condense middle ancestors into Show path while keeping the current page and host-owned callbacks.
-- [x] DOCS-005-b08 — Controlled server criteria and response ownership. [ServerGridExample](../../apps/docs/examples/GridHostExamples.tsx): One controlled criteria owner accepts combined page/search/sort/filter/selection transactions. A local async adapter rejects stale success/error/pending updates and demonstrates failure/retry without diagnostic resolve buttons.
-- [x] DOCS-005-b09 — Persisted view and complete reset. [PersistedGridExample](../../apps/docs/examples/GridHostExamples.tsx): An isolated docs-course-view-v1 key opts into SSR-safe persistence; declared pagination/search/sort/filter/visibility/order/width/list defaults drive Reset view. Selection and host rows are not persisted.
-- [x] DOCS-005-b10 — Due labels and course content. [LearnerDueExamples](../../apps/docs/examples/LearnerDueExamples.tsx): A fixed host clock covers overdue/today/tomorrow/later plus long/missing supporting content. The required dueAt prop uses its shipped empty-string unavailable-date fallback; no optional API is invented.
-- [x] DOCS-005-b11 — Saved rich document. [SavedDocumentExample](../../apps/docs/examples/SavedDocumentExamples.tsx): Separate editable/read-only owners render public JSON containing headings, formatted/link text, list, code, table and a loaded host-served image; edits stay local.
-- [x] DOCS-005-b12 — Host upload and retry. [HostImageUploadExample](../../apps/docs/examples/SavedDocumentExamples.tsx): The bounded onUploadImage mock rejects once and returns a predefined durable /course-guide.svg asset on retry. It explicitly does not transfer selected bytes; the host owns transport, authorization, asset metadata and storage.
+All twelve public scenarios are implemented in existing independent Example owners. The [source-backed disposition table](docs-fixture-migration.md#public-example-parity-audit--docs-005-b) identifies each component, copied source and focused browser case. The [2026-10-15 receipt](archive/2026-10-18-task-lists/backlog-execution-2026-10-15.md#website-scenario-completion) retains their original focused execution; the latest accepted production catalog run verifies 98 routes and 1,284 current setup/initial/changed source snapshots. Neither count implies a public duplicate for every private fixture or a fresh rerun of the older interaction suite.
 
 The owning page playgrounds and reference panels remain independent. Saved image URLs and timezone/persistence/request policies are host responsibilities; local mocks disclose their limits. The required dueAt string/Date contract is preserved using its existing unavailable-date fallback. No Storybook runtime or private diagnostic UI is restored. See [W10 reconciliation and bounded validation](final-acceptance/wave-04/02/public-example-parity/receipt.json) for source hashes, retained evidence and the fresh production build plus twelve passing focused Chromium flows. Initial runner working-directory failures remain recorded, and only their eleven affected cases were rerun. Broader production/AT/release gates remain separate.
 
 ### DOCS-012: consistent UI design token layers
 
-Execute the granular tasks and validation in the
-[token pipeline checklist](theme-token-pipeline.md). The bounded baseline is implemented and validated;
-the parent leaves below summarize its acceptance criteria and completed evidence.
-
-- [x] DOCS-012-a Extract named raw palettes for Material, Apple and Editorial; give the fixed Structured Growth website its own explicit palette. Keep colors out of component styles and semantic definitions where a palette reference is appropriate.
-- [x] DOCS-012-b Map each identity's palettes into complete semantic roles for light/dark and standard/increased contrast, including surfaces, text, actions, focus, borders, selection, disabled and validation states. Preserve live system preference resolution and forced-color precedence.
-- [x] DOCS-012-c Audit and complete component aliases for actions, fields, menus, dialogs, cards, grids and remaining components. Replace direct semantic color consumption with component aliases where component-specific override is intended; preserve public APIs and interaction behavior.
-- [x] DOCS-012-d Generate/validate the palette → semantic → component references and token types. Reject missing references, cycles and unintended hard-coded component colors; ensure source examples include the same identity/mode mappings as previews.
-- [x] DOCS-012-e Verify representative components and portals across identities, appearances and contrast, with local density and visible focus. Record bounded color/contrast evidence; confirm website branding and controls remain isolated from demo changes.
-- [x] DOCS-012-f Document token layers, component override points and theme-authoring examples in the website. Keep named palettes, semantics, component mappings and source panels inspectable; do not present inspired themes as native platform implementations.
+The [token pipeline guide](theme-token-pipeline.md) records the implemented and
+validated bounded baseline. Its completed checklist is archived; technical
+decisions and evidence remain available.
 
 Planning completion is not implementation completion. Checked migration leaves
 have the source deliverables described in the retirement receipt; execution and
@@ -216,7 +170,6 @@ are not those browser consumers. Existing migration acceptance remains unchanged
 Frozen historical checkpoints require new workspace-aware plans; prior receipts
 retain their original identity. The docs app's localhost preview is not a deployment.
 
-
 ## Example density and theme direction — 2026-10-14
 
 Density is no longer a header control. The docs shell uses the default comfortable
@@ -234,7 +187,6 @@ of header density and presence of both local comparison scopes; existing callbac
 disabled, themed portal, save/focus and overflow assertions remain. Logs:
 `/tmp/sgui-docs-density-build.log`, `/tmp/sgui-docs-density-browser.log`. No library
 source change or broader browser acceptance is claimed.
-
 
 ## Prop playgrounds and current-example source — 2026-10-14
 
@@ -254,91 +206,6 @@ retain their original validation scope.
 
 ### Per-component playground rollout
 
-- [x] DOCS-PLAY-C01 AppButton: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C02 AppInlineProgress: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C03 AppOperationSteps: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C04 AppPageHeader: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C05 AppPageTabs: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C06 AppShell: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C07 AuthShell: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C08 AppModal: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C09 SideNavigation: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C10 ExperiencePageNavigator: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C11 CardCollectionWithFooter: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C12 CardPaginationFooter: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C13 ClassCardFrame: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C14 InstructorClassCard: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C15 LearnerClassCard: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C16 AppDataGrid: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C17 AppDataGridShell: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C18 AppDataGridRowDnd: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C19 LearnerClassesDataGrid: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C20 DataToolbar: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C21 DocumentEditorLayout: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C22 DocumentEditorToolbar: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C23 ContentEditorChrome: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C24 EditableTitleField: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C25 FloatingTextSelectionToolbar: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C26 RichTextFormattingToolbar: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C27 InsertContentMenuControl: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C28 TextAlignMenuControl: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C29 TextColorPickerControl: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C30 TextStyleMenuControl: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C31 ColumnsLayoutModal: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C32 ImageUploadModal: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C33 LinkUrlModal: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C34 PageRichTextEditorSection: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C35 Typefaces: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C36 icons: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-C37 primitives: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P01 Box: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P02 Stack: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P03 Surface: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P04 Card: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P05 Divider: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P06 Typography: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P07 Button: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P08 IconButton: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P09 ButtonGroup: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P10 SplitAction: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P11 TextField: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P12 TextArea: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P13 Checkbox: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P14 Switch: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P15 RadioGroup: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P16 Select: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P17 ComboBox: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P18 AsyncMultiSelect: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P19 Menu: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P20 Popover: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P21 Tooltip: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P22 Dialog: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P23 Tabs: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P24 Link: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P25 Breadcrumbs: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P26 Navigation: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P27 List: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P28 Disclosure: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P29 Collapse: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P30 Chip: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P31 Badge: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P32 TagGroup: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P33 Progress: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P34 Status: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P35 Avatar: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P36 Table: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P37 Pagination: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P38 ToggleButton: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P39 DateField: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P40 TimeField: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P41 Calendar: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P42 DatePicker: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P43 DateRangePicker: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P44 DateRangeSelector: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P45 Provider: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P46 DataGrid: playground, applicable props and per-example current source.
-- [x] DOCS-PLAY-P47 icons: playground, applicable props and per-example current source.
-
 Source-panel validation: Node 24 docs typecheck and fresh production build passed.
 The existing Chromium smoke passed, compiling nine rendered source snippets against
 the built package, checking quoted/brace/angle-bracket label serialization, changed
@@ -348,7 +215,6 @@ callback, disabled, themed dialog, focus and narrow-width assertions. Logs:
 `/tmp/sgui-docs-source-build.log`, `/tmp/sgui-docs-source-browser.log`. Clipboard
 read/write permissions are granted by the test context; the app requests no grants.
 Firefox/WebKit and all-library example coverage remain pending.
-
 
 ## Website versus demonstration scopes — 2026-10-14
 
@@ -377,10 +243,8 @@ content. No assertions were removed. Logs: `/tmp/sgui-docs-isolation-build.log`,
 `/tmp/sgui-docs-isolation-browser.log`. Library source and acceptance counts did
 not change; Firefox/WebKit and high-contrast/system modes are not claimed.
 
-
 ## Identities, appearance, contrast and system preferences — 2026-10-14
 
-- [x] DOCS-009 Add three independently scoped demo identities, system-following
   appearance/contrast, increased palettes and OS forced-color precedence.
 
 Identities: Structured Growth (indigo), SGUI Default (owned palette), Editorial
@@ -419,10 +283,7 @@ entry-link checks pass. No library runtime change, publication or broad migratio
 acceptance is claimed. Browser-emulated preferences are not physical OS/device
 or spoken assistive-technology acceptance; Firefox/WebKit were not rerun.
 
-
 ## Shared Demo settings toolbar — 2026-10-14
-
-- [x] DOCS-010 Replace per-page appearance panels with one persistent demo toolbar.
 
 DemoSettingsProvider lives in the root DocsShell, above route children. It owns
 identity, appearance, contrast and native preference subscriptions. One website-
@@ -444,7 +305,6 @@ compilations and clipboard bytes. Narrow viewport overflow remains checked. Logs
 `/tmp/sgui-docs-toolbar-build.log`, `/tmp/sgui-docs-toolbar-browser.log`. Source
 links/whitespace pass. No extra test matrix, backend storage, package runtime change
 or migration acceptance is claimed.
-
 
 ## Complete public component catalog — DOCS-011, 2026-10-14
 
@@ -697,7 +557,6 @@ Evidence: `/tmp/sgui-example-matrices-types.log`,
 Public-example parity follow-ups under DOCS-005-b retain their separate criteria;
 additional variants alone do not establish every historical composed workflow.
 
-
 ## Component-only source receipt — 2026-10-14
 
 DOCS-015 follows the user's revised source-panel requirement and supersedes earlier
@@ -722,7 +581,6 @@ Validation: docs typecheck and production build pass; `pnpm --filter
 snapshots, plus three explicit theme-override snapshots. Log:
 `/tmp/sgui-component-source-tests.log`. Preview restored at port 3000. Library
 runtime, licensing and broader acceptance counts are unchanged.
-
 
 ## Component composition receipt — 2026-10-14
 
@@ -758,7 +616,6 @@ Log: `/tmp/sgui-composition-tests.log`. Visually inspected the grid shell's Cont
 section; preview restored at port 3000. Library APIs, runtime, licensing and broader
 F/T/V/A acceptance counts are unchanged.
 
-
 ## Grouped navigation receipt — 2026-10-14
 
 DOCS-017 replaces the flat All components list with ten expandable categories:
@@ -784,7 +641,6 @@ catalog navigation smoke was updated for persistent grouped search. Log:
 `/tmp/sgui-grouped-nav-tests.log`. Visually inspected the grouped sidebar on
 AppDataGridShell; local preview restored at port 3000. No library APIs, licensing,
 release or broader acceptance counts changed.
-
 
 ## Stable overlay layout receipt — 2026-10-14
 
@@ -814,7 +670,6 @@ passed again (7.2s). Logs: `/tmp/sgui-scrollbar-docs-tests.log` and
 `playwright.scrollbars.config.ts` bounds the three-browser run to this spec.
 Preview restored at port 3000. Library APIs, releases, licensing and broad native/
 physical-device/assistive-technology acceptance counts are unchanged.
-
 
 ## Independent example state receipt — 2026-10-14
 
@@ -853,7 +708,6 @@ initial/changed compilable source snapshots. Logs:
 `/tmp/sgui-independent-isolation-tests.log` and
 `/tmp/sgui-independent-docs-tests.log`. Preview restored at port 3000. Library APIs,
 licensing, releases and broader acceptance counts are unchanged.
-
 
 ## Development branch integration — 2026-10-14
 
@@ -1741,7 +1595,6 @@ contexts, panel opening/dismissal/focus, retained drafts, theme isolation,
 responsive overlays, scroll locking and independently scrolling panes. Changes
 remain local and uncommitted.
 
-
 ## Backlog scenario completion — 2026-10-15
 
 DOCS-005-b and its twelve scenario leaves, DOCS-006 and DOCS-008 now have
@@ -1752,7 +1605,7 @@ initial/changed example source snapshots. API/isolation/theme checks passed
 The watch command completed three serialized public builds/metadata generations,
 including a queued source change, then shut down cleanly with unchanged source
 content and released validation leases. See the
-[task-to-evidence receipt](backlog-execution-2026-10-15.md).
+[task-to-evidence receipt](archive/2026-10-18-task-lists/backlog-execution-2026-10-15.md).
 
 DOCS-007 remains open pending the hosting target and implementation;
 DOCS-005-l and its parent retain the complete final production-matrix gate.

@@ -12,7 +12,7 @@ Bounded W-19 / M-10 / M-14 / M-30 evidence, 2026-10-07. Inspected current
 baseline `e372781c2b1ceca630cda6fc7a989af2d6c05c33`, with a clean isolated
 worktree before edits. This supplements the [37-row inventory audit](react-aria-migration-inventory-acceptance.md)
 and [its report](parallel-batch-05/inventory-evidence.md); it does not repeat that
-audit, rescore its six recommended rows, or edit/close the [master rows](react-aria-master-task-list.md).
+audit, rescore its six recommended rows, or edit/close the [master rows](react-aria-execution-policy.md).
 All three rows remain held pending intent decisions and complete acceptance.
 Native/manual/device/assistive-technology and broad G/K/E/U/X/R/Z gates stay open.
 
@@ -79,7 +79,7 @@ names, keyboard reorder boundaries, invalid/self/read-only drag, last-page remov
 host removal during rename, adjacent removal focus and live read-only changes.
 [SSR test](../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.ssr.test.tsx)
 and [stories](../../apps/docs/native-fixtures/scenarios/components/ExperiencePageNavigator/ExperiencePageNavigator.fixture.tsx)
-cover server rendering and host composition. The [page-navigation execution record](react-aria-progress.md#page-actions-and-navigation)
+cover server rendering and host composition. The [page-navigation execution record](archive/2026-10-18-task-lists/react-aria-progress.md#page-actions-and-navigation)
 records representative native rename/reorder/removal focus and independent list
 scrolling, plus packed React 18/19 checks. These are historical passes at their
 reported implementation/runtime, not a fresh test of this baseline. Complete
@@ -132,7 +132,7 @@ cover keyboard routing, active metadata, archived omission, closed/custom activi
 and action text, draft label mapping, namespace/interpolation and SSR. They do
 not establish exhaustive empty/malformed/date/icon fallback acceptance.
 [Stories](../../apps/docs/native-fixtures/scenarios/components/InstructorClassCard/InstructorClassCard.fixture.tsx)
-and the [card execution record](react-aria-progress.md#card-pagination-and-course-cards)
+and the [card execution record](archive/2026-10-18-task-lists/react-aria-progress.md#card-pagination-and-course-cards)
 record narrow long-name wrapping and dark token rendering. Those historical
 checks do not close native navigation/reflow, device or AT acceptance.
 
@@ -197,10 +197,10 @@ Existing [five menu tests](../../packages/ui/src/components/TextStyleMenuControl
 cover all eight callbacks once, disabled activation, keyboard skipping/focus,
 controlled checked state, ordinary Clear and translated scoped dark portal.
 [Menu stories](../../apps/docs/native-fixtures/scenarios/components/TextStyleMenuControl/TextStyleMenuControl.fixture.tsx)
-and the [menu execution record](react-aria-progress.md#editor-menu-controls)
+and the [menu execution record](archive/2026-10-18-task-lists/react-aria-progress.md#editor-menu-controls)
 record packed/native keyboard checks. [Toolbar tests](../../packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx)
 cover single controlled heading/font requests and callback-after-keydown focus
-timing; the [toolbar execution record](react-aria-progress.md#rich-text-formatting-toolbar)
+timing; the [toolbar execution record](archive/2026-10-18-task-lists/react-aria-progress.md#rich-text-formatting-toolbar)
 records representative native Georgia/H2 selection preserving editor text.
 These do not prove a complete Lexical mixed-selection/history/formatting matrix,
 native/device/AT focus acceptance, or typeface behavior in M-30.

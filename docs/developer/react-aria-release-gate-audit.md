@@ -6,14 +6,14 @@ to publish. Evidence was collected on 2026-10-07, with the PR snapshot at
 12:37:57 UTC (07:37:57 America/Chicago). Source baseline:
 `d8342a1b76c2fffe986ecce22252c8282873dbf1`, the head of draft PR #4.
 See the [batch report](parallel-batch-04/release-audit.md) for ownership,
-reproduction commands and validation limits, the [master list](react-aria-master-task-list.md)
+reproduction commands and validation limits, the [master list](react-aria-execution-policy.md)
 for acceptance criteria and [setup guide](../github-setup.md) for owner procedures.
 
 ## Evidence levels and live state
 
 Source inspection establishes configured paths. GitHub run/job/check metadata
 establishes observed execution at the named head. Earlier worker validation in
-the [execution record](react-aria-progress.md) is separate evidence and was not
+the [execution record](archive/2026-10-18-task-lists/react-aria-progress.md) is separate evidence and was not
 rerun here. Job success does not establish every assertion's coverage, artifact
 contents, native/device acceptance or publication identity.
 

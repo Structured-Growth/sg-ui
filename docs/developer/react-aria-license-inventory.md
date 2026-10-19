@@ -4,7 +4,7 @@
 manifest declarations, pnpm v9 locked identities/edges, available installed package
 metadata, legal-file hashes and distributed asset candidates. It supplies evidence
 for review; it does not approve licenses, change notices or decide commercial terms.
-See [L-01–L-09](react-aria-hardening-tasks.md),
+See [L-01–L-09](backlog.md),
 [architecture policy](react-aria-architecture.md#dependency-and-license-policy),
 [commercial guidance](../commercial-licensing.md) and the
 [batch 98 gap record](https://github.com/Structured-Growth/sg-ui/blob/7335e41c35ea0af07f72b133ced92e04e1e896ca/docs/developer/parallel-batch-98/acceptance-evidence.md).

@@ -69,4 +69,4 @@ hosts applying Clear through Lexical map the empty string to null style removal.
 This contract does not complete floating toolbar anchoring (M-25), editor
 layout/chrome (M-21–M-23), PageRichTextEditorSection (M-34), grid migration or the
 general U/X/R/Z acceptance gates. Validation evidence belongs in the
-[execution record](react-aria-progress.md#rich-text-formatting-toolbar).
+[execution record](archive/2026-10-18-task-lists/react-aria-progress.md#rich-text-formatting-toolbar).

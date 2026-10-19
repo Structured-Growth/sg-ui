@@ -6,8 +6,8 @@ CSS Modules externally. Implementation began on 2026-10-05. The catalog, grid,
 editor, primitives, icons and public theme now use owned implementations; broad
 G/K/E/U/X/R/Z acceptance remains open. `/experimental` retains proof contracts
 and shared implementations without authorizing public catalog renames. See the
-[execution record](react-aria-progress.md) and
-[master backlog](react-aria-master-task-list.md). See [CSS composition and compatibility](react-aria-css-composition.md) for layer order, consumer overrides, geometry exceptions and enhancement/CSP boundaries.
+[execution record](archive/2026-10-18-task-lists/react-aria-progress.md) and
+[master backlog](react-aria-execution-policy.md). See [CSS composition and compatibility](react-aria-css-composition.md) for layer order, consumer overrides, geometry exceptions and enhancement/CSP boundaries.
 
 Button, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
 foundation. See [button mappings](react-aria-button.md),

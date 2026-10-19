@@ -352,7 +352,7 @@ Fresh Storybook/typecheck, Node 24 full checks (143 files/960 behavior tests) an
 packed React 18/19 editor SSR/hydration-entry builds pass. Current-head Linux
 Firefox and the wider consumer/device/trust matrix remain independently required.
 See the [image contract](react-aria-editor-section.md#image-source-policy-e-06e-07-partial)
-and [execution record](react-aria-progress.md#saved-and-uploaded-image-source-policy-e-06e-07-partial).
+and [execution record](archive/2026-10-18-task-lists/react-aria-progress.md#saved-and-uploaded-image-source-policy-e-06e-07-partial).
 
 Local Node 24 validation: `pnpm check` passes 142 files/914 behavior tests,
 foundation/release guards, source/story typing, ESM/declarations and package imports.

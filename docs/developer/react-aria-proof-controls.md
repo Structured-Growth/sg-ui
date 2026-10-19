@@ -119,7 +119,7 @@ browser and packed SSR/hydration evidence is tracked in
 [browser acceptance](react-aria-browser-acceptance.md) and
 [server boundaries](react-aria-server-components.md); broader acceptance stays open.
 
-See the [execution record](react-aria-progress.md) for current counts and validation,
+See the [execution record](archive/2026-10-18-task-lists/react-aria-progress.md) for current counts and validation,
 and the [architecture decision](react-aria-architecture.md) for build/distribution.
 
 ## Link navigation and native downloads

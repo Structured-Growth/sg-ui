@@ -16,7 +16,7 @@ validation remains mandatory. The package manifest currently uses
 `0.0.0-development`; that value is a development label, not publication history
 or a support-window promise. See the [release procedure](../troubleshooting/release.md).
 
-The [master task list](react-aria-master-task-list.md) sequences functionality,
+The [master task list](react-aria-execution-policy.md) sequences functionality,
 regression and hardening. The [development validation policy](react-aria-development-validation.md)
 requires affected behavior/types/import/token checks and focused native or packed
 consumer evidence when needed; full production and exact-candidate evidence stay
@@ -104,7 +104,7 @@ require it. Prefer compatible deduplication, while retaining genuinely incompati
 versions until their owning graph is deliberately migrated; never coerce them with
 an incompatible override. Recheck the resulting graph and affected behavior.
 
-The dated [FA-02 inventory](react-aria-final-acceptance.md#fa-02-dependency-source-and-generated-output-inventory)
+The dated [FA-02 inventory](archive/2026-10-18-task-lists/react-aria-final-acceptance.md#fa-02-dependency-source-and-generated-output-inventory)
 and [parallel-07 receipt](final-acceptance/parallel-07/input-receipt.json) retain one
 name/version observation for each direct interaction/date input and date edges
 resolving to 3.12.4. They do not certify one physical instance, identical peer

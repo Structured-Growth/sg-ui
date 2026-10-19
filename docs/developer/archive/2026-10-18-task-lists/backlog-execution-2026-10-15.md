@@ -1893,7 +1893,7 @@ No stage, commit, push, release or production promotion.
 Dispatched fifteen separate project conversations covering 55 distinct open A
 leaves: API, architecture, interaction/state/props, naming, host boundaries, tokens,
 typography/density, CSS, icons, adapters/translations and extraction/storage. All
-fifteen confirmed active. [Registry](final-acceptance/dispatch-2026-10-16.json)
+fifteen confirmed active. [Registry](../../final-acceptance/dispatch-2026-10-16.json)
 retains thread IDs, task IDs and unique evidence directories. Each must reuse
 FA-01–04, inspect full obligations and record actual status/evidence/successors.
 Shared source/checklists/counts remain coordinator-owned. No task is closed merely
@@ -1922,8 +1922,8 @@ user-authorized fix conversations delivered and were reviewed; coordinator
 validation closes A-G-02 and A-K-16 as two further narrow contract/publication
 obligations. Current total **167/320 A closed; 153 A, 20 editor V and six future
 items remain**. This pass closed 129 of 282. Original wording, outcomes and
-successors are preserved in [wave reconciliation](final-acceptance/wave-02-reconciliation.json)
-and [supplement](final-acceptance/coordinator-integration/supplemental-reconciliation.json).
+successors are preserved in [wave reconciliation](../../final-acceptance/wave-02-reconciliation.json)
+and [supplement](../../final-acceptance/coordinator-integration/supplemental-reconciliation.json).
 
 BUG-0008–0012 are corrected: picker disabled/read-only Clear/commit guards,
 TextArea inherited icons/multiline alignment, DatePicker availability parity,
@@ -1936,7 +1936,7 @@ native cases per desktop engine pass in Chromium/Firefox/WebKit (21 executions;
 18 unaffected earlier passes plus three enriched datetime reruns). First build
 and test-driver failures remain preserved alongside successful corrections.
 
-[Integration receipts](final-acceptance/coordinator-integration/evidence.json)
+[Integration receipts](../../final-acceptance/coordinator-integration/evidence.json)
 record exact current working inputs and built outputs. Earlier FA snapshots and
 report hashes are immutable dated evidence. Documentation/manifest fixes are
 separate from physical device/AT, legal/owner approval and full production
@@ -1949,7 +1949,7 @@ passing checks. Uncommitted dev work only; no production branch/tag/publication.
 
 Created forty user-requested local conversations for all153 remaining A leaves,
 assigned exactly once. All40 confirmed active in the first status snapshot.
-[Registry](final-acceptance/wave-03-dispatch.json) retains original requirements,
+[Registry](../../final-acceptance/wave-03-dispatch.json) retains original requirements,
 prior report/successor links and individual objectives. Each owns its numbered
 patch/evidence directory; shared integration/builds/checklists remain coordinated.
 Counts remain153A/20V/6future until reviewed evidence justifies closure.
@@ -1961,8 +1961,8 @@ No repeated completed inventories, production branch changes or release actions.
 Reviewed all40 handoffs; integrated compatible51patch-file portions and subsequent
 reproduced native fixes, preserving the preexisting calendar/editor/search work.
 Closed14 bounded original A leaves;181/320 closed,139 A /20V /6future remain.
-[Per-leaf decisions](final-acceptance/wave-03-integration/reconciliation.json) and
-[push receipts](final-acceptance/wave-03-integration/push-evidence.json) retain exact
+[Per-leaf decisions](../../final-acceptance/wave-03-integration/reconciliation.json) and
+[push receipts](../../final-acceptance/wave-03-integration/push-evidence.json) retain exact
 evidence and unperformed gates. Fresh build/type/foundation/token/docs/fixture/
 package/browser-type/release-policy checks pass. Initial full unit run1843pass/1fail
 was corrected with focused23-case rerun; current editor190case run and Select6
@@ -1973,7 +1973,7 @@ Personal .obsidian state excluded; main/tags/publication/version untouched.
 
 ## Browser follow-up after dev snapshot bd169b54
 
-Known automated failures resolved:1,851 unit tests pass;161 native cases have passing evidence with one unsupported Firefox touch skip;11 docs cases pass, including94 routes/1,138 compiled source snapshots. Fresh build/type/foundation/token/docs/fixture/package checks pass. Retain full-run and targeted-rerun distinctions in [receipts](final-acceptance/wave-03-followup/validation-results.json). No broader acceptance-count changes:139 A,20 V and six future items remain.
+Known automated failures resolved:1,851 unit tests pass;161 native cases have passing evidence with one unsupported Firefox touch skip;11 docs cases pass, including94 routes/1,138 compiled source snapshots. Fresh build/type/foundation/token/docs/fixture/package checks pass. Retain full-run and targeted-rerun distinctions in [receipts](../../final-acceptance/wave-03-followup/validation-results.json). No broader acceptance-count changes:139 A,20 V and six future items remain.
 
 
 ## HB-19 — editor layout/chrome presentation, 2026-10-17
@@ -1986,7 +1986,7 @@ independent scroll ownership, focus return and logical reading order pass.
 No production implementation change or spoken AT claim. The host textarea does
 not close the separate Lexical editor/formatting leaves. Exact source hashes,
 commands/results, limits and screenshot names are in the
-[HB-19 receipt](final-acceptance/editor-chrome-presentation/results.json).
+[HB-19 receipt](../../final-acceptance/editor-chrome-presentation/results.json).
 Current hardening count: 286/300 complete, 14 remaining. Final acceptance remains
 139 open A leaves, with six explicitly deferred future leaves separate.
 
@@ -2006,7 +2006,7 @@ host scroll/focus behavior remain tested. TABS-MENU-WEBKIT-RO: owned Menu popove
 use intrinsic inline size within their existing viewport cap, avoiding width
 feedback as native positioning changes left/right. No observer, error assertion
 or native positioning path was disabled. Earlier warnings and unsuccessful,
-reverted experiments remain in [the receipt](final-acceptance/rich-editor-presentation/results.json).
+reverted experiments remain in [the receipt](../../final-acceptance/rich-editor-presentation/results.json).
 239 affected unit tests and library/docs/fixture/type/catalog/package/foundation
 checks pass. This completes the original V review checklist at300/300;139 A and
 six deferred future leaves remain. No broad production/device/spoken-AT claim.

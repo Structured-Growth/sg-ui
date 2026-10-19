@@ -1,12 +1,12 @@
 # Remaining browser, visual and final acceptance work
 
-**Current open work:** 0 hardening (V) review items, 17 final-acceptance (A) items and six explicitly deferred future items. Completed items have been removed; evidence remains in the [execution receipt](backlog-execution-2026-10-15.md) and [current closure receipt](backlog-to-ten/performance-grid-closure.json).
+**Current open work:** 0 hardening (V) review items, 17 final-acceptance (A) items and six explicitly deferred future items. Completed items have been removed; evidence remains in the [execution receipt](backlog-execution-2026-10-15.md) and [current closure receipt](../../backlog-to-ten/performance-grid-closure.json).
 
 Priority: P3 — third, only after the required functionality baseline and regression tasks are complete. P4 final acceptance follows hardening. Known defects are recorded individually as `BUG-0001`, `BUG-0002`, etc. with reproduction, expected result, affected component, priority and linked regression; allocate IDs only when a real defect is found. Do not create empty defect tasks.
 
 Browser evidence must name engine and tested scope. Visual review must name theme, density, width and locale. Do not convert DOM-emulation evidence into native/device/screen-reader evidence. Accept sufficient existing evidence without rerunning it solely for checklist credit.
 
-Use the [resumable execution index](react-aria-hardening-execution.md) to retain
+Use the [resumable execution index](../../react-aria-hardening-execution.md) to retain
 passing batches and resume only unfinished or affected coverage.
 
 Not-applicable cases require a concrete source-based reason, not a silent checkmark. Split an engine or state matrix further when one chat cannot close it; retain the original parent and append stable child suffixes.
@@ -26,11 +26,11 @@ BUG-0008–0012 are fixed with bounded evidence:
 - **BUG-0012:** Both grid validators reject the actual reserved __reorder field
   before row traversal/rendering; existing reserved aliases remain rejected.
 
-[Coordinator fix receipts](final-acceptance/coordinator-fixes/evidence.json),
-[fix-08](final-acceptance/fix-08/report.md),
-[fix-09](final-acceptance/fix-09/report.md),
-[fix-10](final-acceptance/fix-10/report.md) and
-[integrated results](final-acceptance/coordinator-integration/evidence.json)
+[Coordinator fix receipts](../../final-acceptance/coordinator-fixes/evidence.json),
+[fix-08](../../final-acceptance/fix-08/report.md),
+[fix-09](../../final-acceptance/fix-09/report.md),
+[fix-10](../../final-acceptance/fix-10/report.md) and
+[integrated results](../../final-acceptance/coordinator-integration/evidence.json)
 retain original failures, affected units and native browser evidence. That historical fix packet kept
 broader A-A-06/A-A-10/A-K-04/A-K-07/A-K-17/A-M-16 obligations separate; current
 dispositions are recorded in the final acceptance execution ledger.
@@ -40,8 +40,8 @@ All 282 remaining A leaves were reviewed exactly once in wave 02: 127 complete,
 154 partial and one blocked before integration. Two additional narrow closures
 bring this pass to **129 complete, 152 partial and one blocked**. Original tasks,
 report hashes and successors remain in the
-[wave reconciliation](final-acceptance/wave-02-reconciliation.json) and
-[supplement](final-acceptance/coordinator-integration/supplemental-reconciliation.json).
+[wave reconciliation](../../final-acceptance/wave-02-reconciliation.json) and
+[supplement](../../final-acceptance/coordinator-integration/supplemental-reconciliation.json).
 
 The [website transition plan](docs-website.md#active-transition-plan--2026-10-14)
 governs new examples and fixture migration. New public examples use the Next.js
@@ -55,22 +55,22 @@ claiming old evidence exercised the website or changing acceptance counts.
 ## Editor review completion — 2026-10-17
 
 HB-19 and HB-20 close the final 20 named V presentation/translated reading-order
-leaves. [Chrome evidence](final-acceptance/editor-chrome-presentation/results.json)
-and [rich editor evidence](final-acceptance/rich-editor-presentation/results.json)
+leaves. [Chrome evidence](../../final-acceptance/editor-chrome-presentation/results.json)
+and [rich editor evidence](../../final-acceptance/rich-editor-presentation/results.json)
 retain exact matrices, reviewed captures, source hashes, original failures and
 successful corrections. BUG-0013 (partly visible multi-line selection anchoring)
 and TABS-MENU-WEBKIT-RO (intrinsic menu sizing feedback) are fixed and validated.
 
 This is completion of the original 300 V checklist leaves, not all final acceptance
 or production approval. The historical Material calendar year-label fit follow-up
-in [field-focus evidence](final-acceptance/field-focus-boundary/results.json) still
+in [field-focus evidence](../../final-acceptance/field-focus-boundary/results.json) still
 needs current-head reproduction; keep its strict fit assertion. Continue with
 specific remaining A successors after checking current focused defects.
 
 ## Wave 04 acceptance reconciliation — 2026-10-17
 
 Nineteen original A obligations close after reviewing retained implementation,
-F/T/V and later native/documentation evidence. The [per-leaf decisions](final-acceptance/wave-04/coordinator/accepted-closures.json)
+F/T/V and later native/documentation evidence. The [per-leaf decisions](../../final-acceptance/wave-04/coordinator/accepted-closures.json)
 preserve exact criteria and reviewed recommendation bytes. Current total:200/320
 closed,120 A remain. New patches and active simulator execution are separate
 from these closures; no dispatch alone counts as acceptance.
@@ -78,7 +78,7 @@ from these closures; no dispatch alone counts as acceptance.
 ## P4: catalog component acceptance closure
 
 All37 original inventory rows now have their required row-specific acceptance;
-see the [AppDataGrid measurement/phase join](backlog-to-ten/performance-grid-closure.json).
+see the [AppDataGrid measurement/phase join](../../backlog-to-ten/performance-grid-closure.json).
 Broader manual, legal and release gates retain their own required leaves.
 
 First inventory batch closed A-B-01/02/04; see [final acceptance execution](react-aria-final-acceptance.md).
@@ -94,7 +94,7 @@ Each `A-*` acceptance item below reconciles one original parent with its impleme
 - [ ] A-P-08 Reconcile original `P-08`: Set reproducible performance budgets from baseline and representative consumer hardware; do not invent universal speed or size rankings. Historical status: open.
 - [ ] A-X-11 Reconcile original `X-11`: Perform manual screen-reader reviews of representative dialogs, selectors, calendars, navigation, tables and editors; document platform/version and findings. Historical status: open.
 - [ ] A-X-19 Reconcile original `X-19`: Record performance and memory budgets, profile large grids/selectors, and test listener/observer/timer/object-URL cleanup during mount/unmount. Historical status: open.
-- [ ] A-R-12 Reconcile original `R-12`: Keep Storybook builds and official tarballs as Actions artifacts; record artifact names, retention, and validation results. Both runtime jobs and six unexpired artifacts verified at `c78a24e`, run 37559276148; [artifact evidence](react-aria-runtime-ci.md). Historical status: checked.
+- [ ] A-R-12 Reconcile original `R-12`: Keep Storybook builds and official tarballs as Actions artifacts; record artifact names, retention, and validation results. Both runtime jobs and six unexpired artifacts verified at `c78a24e`, run 37559276148; [artifact evidence](../../react-aria-runtime-ci.md). Historical status: checked.
 - [ ] A-R-17 Reconcile original `R-17`: Verify npm scope ownership, public access, trusted-publishing/token setup, GitHub release/tag permissions, provenance requirements, and commercial notices before publication. Historical status: open.
 - [ ] A-R-21 Reconcile original `R-21`: Preserve minimal workflow permissions, trusted/untrusted input separation, credential isolation, separate validation, and draft-PR review; never auto-merge AI proposals. Historical status: open.
 - [ ] A-R-23 Reconcile original `R-23`: Verify AI-created draft PR validation even when default-token PR creation does not trigger another workflow; do not rely on absent CI events. Historical status: open.

@@ -213,7 +213,7 @@ directive. At baseline `AppThemeProvider` installed a global stylesheet; the pub
 ## 9. Host adapters, translations, dates, and persistence
 
 - [ ] H-01 Preserve native-anchor fallback, custom router links, pathname tracking, navigation replace behavior, refs, and forwarded attributes.
-- [x] H-02 Verify modifier clicks, downloads, external links, targets, default prevention, and navigation callback ordering through browser tests. Exact-byte transfers and native semantics in all three engines, CI 37560065588; [browser evidence](react-aria-browser-acceptance.md).
+- [x] H-02 Verify modifier clicks, downloads, external links, targets, default prevention, and navigation callback ordering through browser tests. Exact-byte transfers and native semantics in all three engines, CI 37560065588; [browser evidence](../../react-aria-browser-acceptance.md).
 - [ ] H-03 Integrate React Aria routing where needed behind the existing host adapter; avoid two competing navigation systems or a runtime Next.js dependency.
 - [x] H-04 Preserve account/organization/logout callback boundaries; no credentials, platform fetches, or implicit session refresh enter SGUI.
 - [ ] H-05 Define pending/error handling for asynchronous host actions without duplicating requests or swallowing useful errors.
@@ -224,9 +224,9 @@ directive. At baseline `AppThemeProvider` installed a global stylesheet; the pub
 - [x] H-10 Define serializable owned date-only, local date-time, and zoned instant contracts; do not collapse all values into JavaScript `Date` or leak date-library classes casually.
 - [ ] H-11 Specify time zones, daylight-saving transitions, locale calendar display, parsing, invalid inputs, serialization, and round-trip behavior.
 - [ ] H-12 Preserve due-date formatting and missing/invalid value fallbacks; test midnight, timezone, and localization boundaries.
-- [x] H-13 Make persistence opt-in/configurable with distinct keys per view; document ownership, schema versioning, migration/reset, and sensitive-data restrictions. [Hook contracts](react-aria-pagination-state.md) and [grid persistence/reset](react-aria-catalog-grid.md).
-- [x] H-14 Validate stored data and support SSR, blocked storage, quota failures, malformed JSON, key changes, cross-tab updates, and a working in-memory fallback. Real hook, live-settings and hydration regressions; [contracts](react-aria-pagination-state.md).
-- [x] H-15 Remove the pagination helper's inherited page-size cap unless it is deliberately part of SGUI policy; define supported sizes through owned configuration and test normalization. [Configured sizes](react-aria-pagination-state.md).
+- [x] H-13 Make persistence opt-in/configurable with distinct keys per view; document ownership, schema versioning, migration/reset, and sensitive-data restrictions. [Hook contracts](../../react-aria-pagination-state.md) and [grid persistence/reset](../../react-aria-catalog-grid.md).
+- [x] H-14 Validate stored data and support SSR, blocked storage, quota failures, malformed JSON, key changes, cross-tab updates, and a working in-memory fallback. Real hook, live-settings and hydration regressions; [contracts](../../react-aria-pagination-state.md).
+- [x] H-15 Remove the pagination helper's inherited page-size cap unless it is deliberately part of SGUI policy; define supported sizes through owned configuration and test normalization. [Configured sizes](../../react-aria-pagination-state.md).
 - [ ] H-16 Ensure filters/page-size changes reset or clamp pages coherently, including unknown row counts and disappearing rows.
 - [ ] H-17 Preserve independent view state for tabs/card/grid views; avoid leaking selection, sort, or filter state between unrelated instances.
 
@@ -332,10 +332,10 @@ Checklist IDs cover all 37 current directories, including catalog-only directori
 | M-37 | primitives | Replace every reexport with an owned implementation/type or documented removal |
 
 
-Current M-01–M-37 tracking is maintained in the [37-row migration map](react-aria-migration-inventory-acceptance.md), with integrated commits, transitive-boundary evidence and separate F/T/V versus original-A dispositions. The acceptance counts and checkboxes in the dated 2026-10-07 snapshot below are historical evidence, not current completion totals.
+Current M-01–M-37 tracking is maintained in the [37-row migration map](../../react-aria-migration-inventory-acceptance.md), with integrated commits, transitive-boundary evidence and separate F/T/V versus original-A dispositions. The acceptance counts and checkboxes in the dated 2026-10-07 snapshot below are historical evidence, not current completion totals.
 
 Inventory whole-row acceptance reconciled 2026-10-07 from
-[the inventory evidence record](react-aria-migration-inventory-acceptance.md).
+[the inventory evidence record](../../react-aria-migration-inventory-acceptance.md).
 These checkbox entries score the same stable IDs as the table above, not extra
 tasks. The initial six rows were reviewed against source/tests/contracts and
 unchanged implementations from the combined `75b7c3f` check (148 files/1038 tests).
@@ -349,36 +349,36 @@ manual/device/AT gates remain open. The other 27 inventory rows remain held.
 - [x] M-31 ColumnsLayoutModal individual inventory-row acceptance: presets, selected state, validation and Apply/Cancel.
 - [x] M-35 Typefaces individual inventory-row acceptance: story-only foundation typography/token catalog.
 - [x] M-36 icons individual inventory-row acceptance: public/direct icon mappings and activity-type behavior.
-- [x] M-21 DocumentEditorLayout individual inventory-row acceptance: tokenized chrome regions, host scroll ownership and live slot replacement with retained native focus/scroll; see the [criterion record](react-aria-migration-inventory-acceptance.md#m-21-criterion-reconciliation-2026-10-07).
-- [x] M-13 ClassCardFrame individual inventory-row acceptance: owned surface/spacing, responsive image/content slots, width constants and native style/state; see the [criterion record](react-aria-migration-inventory-acceptance.md#m-13-criterion-reconciliation-2026-10-07).
+- [x] M-21 DocumentEditorLayout individual inventory-row acceptance: tokenized chrome regions, host scroll ownership and live slot replacement with retained native focus/scroll; see the [criterion record](../../react-aria-migration-inventory-acceptance.md#m-21-criterion-reconciliation-2026-10-07).
+- [x] M-13 ClassCardFrame individual inventory-row acceptance: owned surface/spacing, responsive image/content slots, width constants and native style/state; see the [criterion record](../../react-aria-migration-inventory-acceptance.md#m-13-criterion-reconciliation-2026-10-07).
 
-- [x] M-04 AppPageHeader individual inventory-row acceptance: owned hierarchy, breadcrumbs/actions/metadata and native wrapping; see the [criterion review](parallel-batch-60/page-navigation-evidence.md).
-- [x] M-05 AppPageTabs individual inventory-row acceptance: owned tab/route contracts, controlled keyboard/density/overflow matrix and independent panels; see the [criterion review](parallel-batch-60/page-navigation-evidence.md).
-- [x] M-06 AppShell individual inventory-row acceptance: landmark/layout semantics, responsive navigation and main reflow; see the [criterion record](react-aria-migration-inventory-acceptance.md#m-06-criterion-reconciliation-2026-10-07).
-- [x] M-19 LearnerClassesDataGrid individual inventory-row acceptance: owned model/columns, localized date/link/action cells and controlled host state; see the [criterion record](react-aria-migration-inventory-acceptance.md#m-19-criterion-reconciliation-2026-10-07).
+- [x] M-04 AppPageHeader individual inventory-row acceptance: owned hierarchy, breadcrumbs/actions/metadata and native wrapping; see the [criterion review](../../parallel-batch-60/page-navigation-evidence.md).
+- [x] M-05 AppPageTabs individual inventory-row acceptance: owned tab/route contracts, controlled keyboard/density/overflow matrix and independent panels; see the [criterion review](../../parallel-batch-60/page-navigation-evidence.md).
+- [x] M-06 AppShell individual inventory-row acceptance: landmark/layout semantics, responsive navigation and main reflow; see the [criterion record](../../react-aria-migration-inventory-acceptance.md#m-06-criterion-reconciliation-2026-10-07).
+- [x] M-19 LearnerClassesDataGrid individual inventory-row acceptance: owned model/columns, localized date/link/action cells and controlled host state; see the [criterion record](../../react-aria-migration-inventory-acceptance.md#m-19-criterion-reconciliation-2026-10-07).
 
 Recorded catalog completions ([draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1), pending review): M-02, M-03, M-24,
 M-35, M-11, M-12, M-13, M-14, M-15, M-01, M-04, M-05, M-10, M-06–M-09 and M-31–M-33, M-26–M-30, M-21–M-23, M-25, M-34 and M-20, M-36 and M-37.
-The [data toolbar contracts](react-aria-data-toolbar.md) and
+The [data toolbar contracts](../../react-aria-data-toolbar.md) and
 [execution evidence](react-aria-progress.md#data-toolbar) cover M-20; grid integration remains open.
 M-16 now has the public owned renderer/helpers/parts and optional validated
 persistence, with the M-17 shared shell and M-19 learner composition integrated.
-See [catalog integration](react-aria-catalog-grid.md) and the
+See [catalog integration](../../react-aria-catalog-grid.md) and the
 [execution record](react-aria-progress.md#catalog-grid-public-integration-batch).
 M-18 now has the owned handle/helper and public bounded reorder integration; see
-[reorder contracts](react-aria-grid-reorder.md). Public reset-view now ships under
+[reorder contracts](../../react-aria-grid-reorder.md). Public reset-view now ships under
 G-22; broad G/U/X/R/Z acceptance remains open. Migration rows are not whole-backlog completion markers.
 
-M-36/M-37 completion and B-04/I-07 evidence are recorded in [icon mappings](react-aria-icons.md),
-[primitive mappings](react-aria-primitives.md) and the execution record, on
+M-36/M-37 completion and B-04/I-07 evidence are recorded in [icon mappings](../../react-aria-icons.md),
+[primitive mappings](../../react-aria-primitives.md) and the execution record, on
 [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1). All public aliases
-resolve to owned implementations under transitive audits. Public theme and retired dependency removal have now landed; full native acceptance remains open. See [theme mappings](react-aria-theme.md) and [M-39 preset contracts](react-aria-grid-presets.md).
+resolve to owned implementations under transitive audits. Public theme and retired dependency removal have now landed; full native acceptance remains open. See [theme mappings](../../react-aria-theme.md) and [M-39 preset contracts](../../react-aria-grid-presets.md).
 
 - [ ] M-38 Track completion of M-01 through M-37 individually with PR and validation links; do not count a directory as migrated while it still imports a retired primitive transitively.
 - [x] M-39 Migrate `AdminDataGridOptions.ts` and `InstructorDataGridOptions.ts`, including column locks, static enums, filter/sort defaults, and translation labels.
-- [x] M-40 Migrate all grid cells: text, date, date-time, link, copyable, JSON, image, action menu, custom cell, and fallback; preserve escaping and truncation/accessibility behavior. [Cell evidence](react-aria-grid-cell-acceptance.md).
-- [x] M-41 Migrate grid subheaders, empty/loading overlays, column builders, action-menu builder, toolbar option builder, and header sort menu. [Helper evidence](react-aria-grid-cell-acceptance.md#m-41-helper-and-part-coverage).
-- [x] M-42 Reconcile root and subpath barrels, `src/models.ts`, fixtures, date helpers, pagination/state hooks, and all inferred exported declaration types. Owned model/fixture/date audit, public learner-grid prop export and built consumer typing; [hook mappings](react-aria-pagination-state.md).
+- [x] M-40 Migrate all grid cells: text, date, date-time, link, copyable, JSON, image, action menu, custom cell, and fallback; preserve escaping and truncation/accessibility behavior. [Cell evidence](../../react-aria-grid-cell-acceptance.md).
+- [x] M-41 Migrate grid subheaders, empty/loading overlays, column builders, action-menu builder, toolbar option builder, and header sort menu. [Helper evidence](../../react-aria-grid-cell-acceptance.md#m-41-helper-and-part-coverage).
+- [x] M-42 Reconcile root and subpath barrels, `src/models.ts`, fixtures, date helpers, pagination/state hooks, and all inferred exported declaration types. Owned model/fixture/date audit, public learner-grid prop export and built consumer typing; [hook mappings](../../react-aria-pagination-state.md).
 - [x] M-43 Update stories importing third-party layout primitives and tests mocking retired modules; behavioral replacements must render real owned components where practical.
 - [ ] M-44 Document deliberate UX improvements separately from parity changes; retain regression fixtures for legacy use cases.
 
@@ -390,9 +390,9 @@ logic; a dedicated grid provides more assembled functionality. None is assumed t
 be a drop-in replacement for the extracted grid. Assess licensing, accessibility,
 styling, performance, and implementation effort together.
 
-- [x] G-01 Create a capability matrix with required parity, agreed enhancements, and explicitly deferred spreadsheet/analytics features. [Design review](react-aria-grid-contracts.md); runtime parity remains open.
-- [x] G-02 Define owned row IDs, column IDs, accessors, cell renderers, value formatting, action callbacks, row models, and generic typing. [Target contracts](react-aria-grid-contracts.md); M-16 implementation/declaration validation remains open.
-- [x] G-03 Define controlled/default selection, sort, filters, pagination, visibility, order, width, and expansion; one state owner per concern. [State authority](react-aria-grid-contracts.md#state-authority-and-transactions); expansion explicitly deferred, runtime integration remains open.
+- [x] G-01 Create a capability matrix with required parity, agreed enhancements, and explicitly deferred spreadsheet/analytics features. [Design review](../../react-aria-grid-contracts.md); runtime parity remains open.
+- [x] G-02 Define owned row IDs, column IDs, accessors, cell renderers, value formatting, action callbacks, row models, and generic typing. [Target contracts](../../react-aria-grid-contracts.md); M-16 implementation/declaration validation remains open.
+- [x] G-03 Define controlled/default selection, sort, filters, pagination, visibility, order, width, and expansion; one state owner per concern. [State authority](../../react-aria-grid-contracts.md#state-authority-and-transactions); expansion explicitly deferred, runtime integration remains open.
 - [ ] G-04 Support client filtering before sorting and pagination; implement stable null/date/number/text semantics with tests.
 - [ ] G-05 Support server mode through host callbacks, known/unknown totals, pending/error/refresh states, and stale-request handling examples; the grid does not fetch platform APIs.
 - [ ] G-06 Preserve first-column checkboxes, mixed header state, selected count, select-none, and explicit current-page versus all-matching selection semantics.
@@ -411,7 +411,7 @@ styling, performance, and implementation effort together.
 - [ ] G-19 Define virtualization responsibilities and row/column overscan only where needed; test variable content, dynamic measurements, focus, screen-reader position metadata, and pinned columns.
 - [ ] G-20 Benchmark large row/column counts and frequent updates, including selection and text input; compare production builds against the baseline.
 - [ ] G-21 Preserve link adapter semantics, visible focus, copy success/error feedback, escaped JSON/text, date localization, and image fallback behavior in cells.
-- [x] G-22 Test view-state persistence and schema migration for retired grid models; restore defensively and offer reset-to-defaults. Public live reset with controlled callbacks, stale snapshot suppression, remount and native focus evidence; [contract](react-aria-catalog-grid.md).
+- [x] G-22 Test view-state persistence and schema migration for retired grid models; restore defensively and offer reset-to-defaults. Public live reset with controlled callbacks, stale snapshot suppression, remount and native focus evidence; [contract](../../react-aria-catalog-grid.md).
 - [ ] G-23 Add grouped headers, expandable rows, or inline editing only if part of the chosen requirement matrix; define edit/commit/cancel/validation contracts before adding them.
 - [ ] G-24 [Future] Record export/import, aggregation/pivoting, tree data, range selection, clipboard paste, formulas, undo, and spreadsheet navigation as separate features unless explicitly selected.
 - [ ] G-25 If combining TanStack and React Aria, prototype the integration and map row models/state/events deliberately; avoid two selection/sort models and unsupported virtualization assumptions.
@@ -451,8 +451,8 @@ to a full booking backend or scheduling product.
 - [ ] E-03 Replace editor toolbars, menus, modals, palettes and selection overlays with owned controls while preserving selection across commands and modal dismissal.
 - [ ] E-04 Cover undo/redo, links, lists, code, tables, alignment, indentation, colors, and inline formatting that current consumers use.
 - [ ] E-05 Address IME composition, paste, keyboard shortcuts, read-only/disabled state, and toolbar accessibility without hijacking ordinary editing keys.
-- [ ] E-06 Define safe URL/protocol handling, image metadata/alt text, host upload callbacks, file validation, cancellation, and object-URL cleanup. Shared saved/pasted link policy and activation: [partial contract](react-aria-editor-section.md#link-destination-policy-e-06e-07-partial). Saved image sources and upload-result retry: [partial image contract](react-aria-editor-section.md#image-source-policy-e-06e-07-partial); [upload lifetime matrix](react-aria-editor-section.md#host-upload-lifetime-e-06-partial) covers stale results after cancellation/reset/read-only/unmount; [file presentation validation](react-aria-editor-dialogs.md#file-presentation-validation-e-06-partial) covers empty files and MIME/extension metadata; wider image/upload acceptance remains open.
-- [ ] E-07 Review rich-content rendering and trust boundaries; do not render arbitrary HTML or unsafe links merely because they arrived in a presentation model. Saved/pasted link destinations are governed by the [owned policy](react-aria-editor-section.md#link-destination-policy-e-06e-07-partial), and image decoration by the [image source policy](react-aria-editor-section.md#image-source-policy-e-06e-07-partial); broader rich-content acceptance remains open.
+- [ ] E-06 Define safe URL/protocol handling, image metadata/alt text, host upload callbacks, file validation, cancellation, and object-URL cleanup. Shared saved/pasted link policy and activation: [partial contract](../../react-aria-editor-section.md#link-destination-policy-e-06e-07-partial). Saved image sources and upload-result retry: [partial image contract](../../react-aria-editor-section.md#image-source-policy-e-06e-07-partial); [upload lifetime matrix](../../react-aria-editor-section.md#host-upload-lifetime-e-06-partial) covers stale results after cancellation/reset/read-only/unmount; [file presentation validation](../../react-aria-editor-dialogs.md#file-presentation-validation-e-06-partial) covers empty files and MIME/extension metadata; wider image/upload acceptance remains open.
+- [ ] E-07 Review rich-content rendering and trust boundaries; do not render arbitrary HTML or unsafe links merely because they arrived in a presentation model. Saved/pasted link destinations are governed by the [owned policy](../../react-aria-editor-section.md#link-destination-policy-e-06e-07-partial), and image decoration by the [image source policy](../../react-aria-editor-section.md#image-source-policy-e-06e-07-partial); broader rich-content acceptance remains open.
 - [ ] E-08 Put editor-only dependencies behind a granular import boundary and assess whether separate packages are required to avoid mandatory installation weight.
 - [ ] E-09 Put learner/instructor cards, course grids, activity mappings, and admin/instructor presets in a documented learning extension boundary without copying app screens.
 - [x] E-10 Keep generic layout/controls independent of course-specific models; document naming compatibility and module migration.
@@ -467,15 +467,15 @@ responsibilities. Automated checks help but do not establish complete conformanc
 - [ ] X-03 Verify accessible names/descriptions, roles, state announcements, validation, heading hierarchy, landmarks, and native form semantics.
 - [ ] X-04 Verify initial focus, return focus, focus after removal/reorder/update, trapped focus in modals, and nested-overlay dismissal ordering.
 - [ ] X-05 Ensure sticky headers/footers do not obscure focused controls; verify zoom/reflow/text-spacing behavior and scroll padding where needed.
-  Representative tabbed-modal native focus/reflow/text-spacing gates and a production scroll fallback now execute; full catalog/browser zoom acceptance remains open. See [display preference evidence](react-aria-browser-acceptance.md#display-preferences-and-modal-reflow-x-05x-06-partial).
+  Representative tabbed-modal native focus/reflow/text-spacing gates and a production scroll fallback now execute; full catalog/browser zoom acceptance remains open. See [display preference evidence](../../react-aria-browser-acceptance.md#display-preferences-and-modal-reflow-x-05x-06-partial).
 - [ ] X-06 Verify text/non-text contrast, visible focus, high contrast/forced colors, reduced motion, and state meaning beyond color.
-  Representative system focus-color and loading-motion gates now execute with engine capability evidence; the complete contrast/state matrix remains open. See [display preference evidence](react-aria-browser-acceptance.md#display-preferences-and-modal-reflow-x-05x-06-partial).
+  Representative system focus-color and loading-motion gates now execute with engine capability evidence; the complete contrast/state matrix remains open. See [display preference evidence](../../react-aria-browser-acceptance.md#display-preferences-and-modal-reflow-x-05x-06-partial).
 - [ ] X-07 Verify target size/spacing against WCAG requirements and aim for comfortable primary touch targets; test coarse-pointer use rather than shrinking every hit area with density.
 - [ ] X-08 Provide both keyboard and single-pointer non-drag alternatives for drag operations where required; keyboard support alone does not satisfy every dragging requirement.
 - [ ] X-09 Test real browser interaction, including pointer/touch, focus, layout, portals and clipboard; DOM-emulation tests alone are insufficient.
 - [ ] X-10 Establish supported Chrome/Firefox/WebKit browser checks and document representative touch and assistive-technology coverage.
 - [ ] X-11 Perform manual screen-reader reviews of representative dialogs, selectors, calendars, navigation, tables and editors; document platform/version and findings.
-- [x] X-12 Enable Storybook accessibility failures in CI for applicable checks, with scoped documented exceptions and remediation ownership. Twenty-four executed WCAG scans, no rule/node exceptions; [scope and remediation ownership](react-aria-browser-acceptance.md).
+- [x] X-12 Enable Storybook accessibility failures in CI for applicable checks, with scoped documented exceptions and remediation ownership. Twenty-four executed WCAG scans, no rule/node exceptions; [scope and remediation ownership](../../react-aria-browser-acceptance.md).
 - [ ] X-13 Add browser interaction stories/tests for all changed behavior; keep deterministic local fixtures and no authentication/database/network dependency.
 - [ ] X-14 Add visual regression coverage for light/dark, density, narrow/wide containers, long/pseudo-localized labels, RTL, focus/error/loading/empty/selected states.
 - [ ] X-15 Require deliberate review of screenshot changes; do not automatically accept new snapshots to silence regressions.
@@ -489,7 +489,7 @@ responsibilities. Automated checks help but do not establish complete conformanc
 ## 17. Packaging, builds, GitHub Actions, AI work, and releases
 
 - [ ] R-01 Update the build to emit compiled CSS/assets and correct ESM/declarations; verify relative extensions and package consumer resolution.
-- [x] R-02 Remove blanket client-directive injection; preserve directives for interactive components and keep eligible presentation/token modules server-compatible. Source/output guard and packed React 19 Flight evidence; [server/client packaging](react-aria-server-components.md).
+- [x] R-02 Remove blanket client-directive injection; preserve directives for interactive components and keep eligible presentation/token modules server-compatible. Source/output guard and packed React 19 Flight evidence; [server/client packaging](../../react-aria-server-components.md).
 - [ ] R-03 Design root and granular entry points for core, theme/tokens/styles, primitives, icons, hooks, adapters, i18n, grid, editor and learning compositions.
 - [ ] R-04 Ensure barrels do not accidentally pull interactive/heavyweight dependencies into presentation-only imports or make server consumers import all editors.
 - [ ] R-05 Update `files`, `exports`, `types`, and `sideEffects` for CSS and new output; remove the old augmentation entry and ensure required CSS survives bundlers.
@@ -497,9 +497,9 @@ responsibilities. Automated checks help but do not establish complete conformanc
 - [ ] R-07 Regenerate the lockfile through the package manager and inspect resolved transitive dependencies, overrides, patched dependencies and optional packages.
 - [x] R-08 Verify packed artifacts rather than only source imports; install the tarball in clean Vite and Next.js/SSR consumer fixtures and build production output.
 - [ ] R-09 Test published type declarations with supported TypeScript versions and ensure no retired imports/augmentation or accidental private upstream types escape.
-- [x] R-10 Keep the supported Node/runtime requirements explicit; reconcile development, CI, AI and release Node versions where their tool requirements differ. [Runtime matrix](react-aria-runtime-ci.md).
-- [x] R-11 Extend `pnpm check` and CI with necessary token/CSS/import-boundary/type/API checks, browser interactions, accessibility, package consumers, and performance smoke checks. Both runtime jobs, eight packed consumers and 45 browser gates pass at `83b8dae2`; [runtime evidence](react-aria-runtime-ci.md). Broader framework/device budgets remain separate tasks.
-- [x] R-12 Keep Storybook builds and official tarballs as Actions artifacts; record artifact names, retention, and validation results. Both runtime jobs and six unexpired artifacts verified at `c78a24e`, run 37559276148; [artifact evidence](react-aria-runtime-ci.md).
+- [x] R-10 Keep the supported Node/runtime requirements explicit; reconcile development, CI, AI and release Node versions where their tool requirements differ. [Runtime matrix](../../react-aria-runtime-ci.md).
+- [x] R-11 Extend `pnpm check` and CI with necessary token/CSS/import-boundary/type/API checks, browser interactions, accessibility, package consumers, and performance smoke checks. Both runtime jobs, eight packed consumers and 45 browser gates pass at `83b8dae2`; [runtime evidence](../../react-aria-runtime-ci.md). Broader framework/device budgets remain separate tasks.
+- [x] R-12 Keep Storybook builds and official tarballs as Actions artifacts; record artifact names, retention, and validation results. Both runtime jobs and six unexpired artifacts verified at `c78a24e`, run 37559276148; [artifact evidence](../../react-aria-runtime-ci.md).
 - [ ] R-13 Preserve release sequencing: full required checks pass before semantic-release publishes on main, with correct concurrency and full tag history.
 - [ ] R-14 Preserve Conventional Commit PR-title validation, squash title/footer guidance, release-policy tests, and automatic patch/minor/major inference.
 - [ ] R-15 Mark breaking public API removals appropriately; if a release already exists, migration needs a major bump, while a first publication follows the configured initial-release policy.
@@ -552,8 +552,8 @@ conflict rather than silently removing notices.
 
 - [x] Z-01 Remove every direct/runtime/peer/dev/optional retired package and any remaining transitive dependency on it; include Emotion and all grid/icon packages.
 - [ ] Z-02 Remove retired imports/reexports, public names/types, declaration augmentation, theme aliases, internal class selectors, mocks and story requirements.
-- [x] Z-03 Replace/remove `src/theme/mui-typography.ts`, `baseGridSx.ts`, and any filename whose branding or purpose belongs to the retired implementation; verify all referencing files. Physical removal and extraction destination/replacement reconciliation: [removal audit](react-aria-removal-audit.md).
-- [x] Z-04 Audit every tracked text/configuration file, including lockfile, workflows, scripts, docs, manifests, READMEs, templates and this task list, for `@mui`, case-insensitive branded names, `Mui*`, and Emotion references; inspect matches rather than hiding them with exclusions. [Classified audit](react-aria-removal-audit.md); historical/legal reconciliation remains Z-05/Z-06.
+- [x] Z-03 Replace/remove `src/theme/mui-typography.ts`, `baseGridSx.ts`, and any filename whose branding or purpose belongs to the retired implementation; verify all referencing files. Physical removal and extraction destination/replacement reconciliation: [removal audit](../../react-aria-removal-audit.md).
+- [x] Z-04 Audit every tracked text/configuration file, including lockfile, workflows, scripts, docs, manifests, READMEs, templates and this task list, for `@mui`, case-insensitive branded names, `Mui*`, and Emotion references; inspect matches rather than hiding them with exclusions. [Classified audit](../../react-aria-removal-audit.md); historical/legal reconciliation remains Z-05/Z-06.
 - [ ] Z-05 Rewrite historical manifest entries/document explanations where necessary for literal-reference removal while retaining source repository/commit provenance; do not rewrite Git history or invent provenance.
 - [ ] Z-06 Remove obsolete notices only after confirming no associated source/assets remain in package or catalog; final third-party notices match shipped work.
 - [x] Z-07 Delete/rebuild generated dist, Storybook and package output during verification; no stale artifact may pass as migrated source. Fresh build, executed static stories and eight new packed consumers in the [browser batch record](react-aria-progress.md#executable-browser-gates-and-removal-audit).
@@ -659,7 +659,7 @@ Reverify versions and browser support when each task is implemented.
 - [shadcn/ui code ownership](https://ui.shadcn.com/docs)
 - [HeroUI's React Aria implementation](https://heroui.com/docs/introduction)
 
-Local background: [current component architecture](component-architecture.md),
-[extraction inventory](../migration.md), [guidance provenance](../agent-guidance-migration.md),
-[GitHub setup](../github-setup.md), [commercial licensing](../commercial-licensing.md),
-and [agent instructions](../../AGENTS.md).
+Local background: [current component architecture](../../component-architecture.md),
+[extraction inventory](../../../migration.md), [guidance provenance](../../../agent-guidance-migration.md),
+[GitHub setup](../../../github-setup.md), [commercial licensing](../../../commercial-licensing.md),
+and [agent instructions](../../../../AGENTS.md).

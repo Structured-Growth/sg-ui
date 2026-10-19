@@ -66,7 +66,7 @@ use `onUploadImage` before saving a document that must survive reload or replace
 
 See [dialogs](react-aria-editor-dialogs.md), [formatting toolbar](react-aria-formatting-toolbar.md),
 [layout and selection](react-aria-editor-layout.md) and
-[execution evidence](react-aria-progress.md#page-rich-text-editor-section).
+[execution evidence](archive/2026-10-18-task-lists/react-aria-progress.md#page-rich-text-editor-section).
 `node scripts/test-editor-consumer.mjs` and `--react18` build actual packed
 SSR/hydration/Vite consumers of the full section with strict retired-peer guards.
 Full browser/touch/assistive-technology, visual, performance and release gates

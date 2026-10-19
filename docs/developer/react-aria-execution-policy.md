@@ -1,8 +1,8 @@
-# SGUI React Aria migration: functionality-first master task list
+# Migration execution policy and architecture
 
-Rewritten: 2026-10-08. Goal: a usable baseline of **every existing component in the owned architecture first**, followed by separate regression, bug-fix and acceptance passes. A baseline can have known bugs. Baseline completion does not mean production acceptance or migration completion.
-
-The [execution record](react-aria-progress.md) remains the evidence source. The [original scope ledger](react-aria-scope-ledger.md) preserves all previous IDs, checked status, mappings, deferred work and evidence, including changes already present in the working tree. No completed implementation is reset or inferred missing by this rewrite. Historical acceptance percentages remain history; the new finer leaves start open for evidence mapping, not because accepted work needs reimplementation.
+Current work is tracked only in [the unified backlog](backlog.md). This guide
+preserves implementation order, acceptance discipline and architecture; historical
+F/T/V/A inventories are archived and are not additional active task lists.
 
 ## Execution order
 
@@ -20,8 +20,7 @@ Scheduling order is **functionality → regression → hardening** across the wh
 
 Evidence reconciliation belongs to the current phase. Reuse existing passing tests and retain required validation during functionality work. Fix a build/import or primary-flow failure as part of its functionality task, with only the minimal smoke evidence needed to establish that flow. Record other bugs for the later phases; discovering them does not promote a regression or hardening assignment ahead of functionality. Existing guards, public contracts, licensing and host boundaries remain in force.
 
-The separate [Next.js docs workspace backlog](docs-website.md#delivery-checklist)
-tracks the authorized website/repository restructuring and Storybook transition.
+The [unified backlog](backlog.md) tracks the authorized website/repository restructuring and Storybook transition.
 The [active transition plan](docs-website.md#active-transition-plan--2026-10-14)
 makes `apps/docs` the permanent UI design/examples environment and defines
 `DOCS-005-a`–`DOCS-005-l` for moving all existing native scenarios and removing
@@ -31,17 +30,11 @@ native scenarios use the private docs-owned fixture host, with source-context un
 fixtures remaining colocated. Historical story evidence and original IDs stay
 valid within their recorded scope. This does not change F/T/V/A acceptance counts.
 
-## Detailed checklists
+## Task ownership
 
-- [P1 functionality baseline](react-aria-baseline-tasks.md): complete; no open items.
-- [P2 expanded regression coverage](react-aria-regression-tasks.md): complete; no open items.
-- [P3/P4 hardening and scope closure](react-aria-hardening-tasks.md): remaining items only; see its current open-work counts.
-
-The files are one backlog split for readability. They cover all 37 catalog directories, all 47 current experimental directories, and 18 supporting modules/concerns. IDs encode the inventory row, not a renamed public API. Matching `F-C01-01` and `T-C01-01` separate delivery of the same feature from deeper regression evidence. `V-*` adds native/visual evidence, and `A-E-06` closes the original E-06 obligation. Never add historical parent totals to the active child totals or report baseline percentage as overall acceptance.
-
-The user requested starting final acceptance on 2026-10-16. Bounded inventory
-reconciliation is recorded in [final acceptance execution](react-aria-final-acceptance.md);
-the remaining editor hardening and production gates are not waived.
+Use [the unified backlog](backlog.md) for open and deferred work. The functionality
+and regression baseline inventories are complete; retain their accepted evidence
+in the [archive](archive/2026-10-18-task-lists/README.md).
 
 ## Every implementation chat closes a small task
 
@@ -49,7 +42,7 @@ the remaining editor hardening and production gates are not waived.
 2. Inspect current source, docs examples, tests, transitional stories and accepted evidence first. If it is already done, reconcile evidence and check the task; do not invent work or duplicate tests.
 3. Deliver the smallest reviewable functionality slice. If the selected item is still too large, retain it as a parent and create concrete `-a`, `-b`, etc. children before implementation. Children must name observable deliverables, not “continue work.”
 4. Run the minimum checks required by repository policy. Close the functionality task independently from future regression/browser tasks. Record bugs as separate tasks with expected/actual behavior and reproduction.
-5. Update the checkbox and append evidence to the execution record in the same change. The final report names checked IDs, result, validation and any newly identified successor IDs.
+5. Update the backlog row and append evidence to the execution record in the same change. The final report names checked IDs, result, validation and any newly identified successor IDs.
 
 Every productive chat should close at least one reviewable leaf task: implementation, accepted evidence reconciliation, focused regression, reproducible defect diagnosis, documentation, or a concrete prerequisite resolution. A read-only diagnosis must leave a reproducible finding and an actionable successor. Do not check an unfinished task merely to meet this rule. If externally blocked, record the exact blocker and completed independent work; ask for input only when actually needed.
 
@@ -69,14 +62,14 @@ scenario provenance are retained in the migration ledger. Production acceptance 
 consumer and native checks. Do not delete tests, weaken assertions, disable CI or
 alter workflow permissions. Never rebuild either host during an active suite.
 
-## Baseline milestone and later acceptance
+## Acceptance rollups
 
-- [ ] ACCEPT-001 Confirm all required `T-*`, `V-*` and `A-*` leaves and original obligations are closed, with honestly bounded device/assistive-technology evidence and explicit future scope.
-- [ ] ACCEPT-002 Mark full migration complete only after original Z-16 requirements are met. Publication remains a separately authorized workflow action.
+A-Z-15 and A-Z-16 in the unified backlog retain ACCEPT-001/002 intent. Do not
+count those old rollups separately or declare completion before their evidence.
 
-## Keeping this backlog complete
+## Keeping task scope complete
 
-The detailed feature slices supplement the original scope; they do not discard original obligations. The hardening file gives each original checklist item an independent closure task and retains each deferred feature. Catalog M-01–M-37 inventory rows map to C01–C37 exactly; their status evidence remains in the ledger/execution record. Broad original parents stay open while their functionality children can close.
+The detailed feature slices supplement the original scope; they do not discard original obligations. The unified backlog retains the unfinished original acceptance tasks and deferred features. Catalog M-01–M-37 inventory rows map to C01–C37 exactly; their status evidence remains in the ledger/execution record. Broad original parents stay open while their functionality children can close.
 
 Add a leaf when a chat discovers a missing helper, public alias, state, or bug. New components get their own inventory row, specific functionality leaves, a shared minimal-smoke task, and separate regression/native tasks. Do not create thousands of placeholder tasks merely to inflate counts. Keep independent useful work granular enough that a chat can finish it.
 

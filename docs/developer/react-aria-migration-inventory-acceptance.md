@@ -78,7 +78,7 @@ Current-link maintenance (2026-10-17): links to removed story files now point to
 Task slice: W-19/Z-10/Z-15, M-01–M-37 evidence reconciliation (2026-10-07).
 Inspected exact source baseline `cca9452f384d5ffaa34ad5bd4ddd015b43a2870b`.
 This is a bounded audit, not a production acceptance decision or a change to the
-[master checklist](react-aria-master-task-list.md). No broad G/K/E/U/X/R/Z gate is closed.
+[master checklist](react-aria-execution-policy.md). No broad G/K/E/U/X/R/Z gate is closed.
 
 “Shipped” below means implementation exists in this migration snapshot, not
 merged, released or commercially licensed to a consumer. All 37 directories are
@@ -100,7 +100,7 @@ all shared primitives or broad gates. “Hold” identifies insufficient evidenc
 an unresolved inventory contract. Missing evidence is not a demonstrated defect.
 Historical test passes belong to their reported head/runtime; none is relabeled
 as a fresh pass at this baseline. Initial implementation PR attribution and tests
-are recorded in the [execution record](react-aria-progress.md) and
+are recorded in the [execution record](archive/2026-10-18-task-lists/react-aria-progress.md) and
 [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1); targeted later
 reports below record their distinct commits/PRs and limitations.
 

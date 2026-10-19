@@ -256,7 +256,7 @@ Range preview descriptions stay visually hidden, so they cannot resize the popup
 between pointerdown and pointerup. One-month range popups fit the calendar and
 endpoint fields, plus any side preset panel, bounded by the viewport;
 inline-size containment must not collapse them to the trigger title width.
-See [CAL-UX evidence](backlog-execution-2026-10-15.md#cal-ux--calendar-options-and-entry-2026-10-16).
+See [CAL-UX evidence](archive/2026-10-18-task-lists/backlog-execution-2026-10-15.md#cal-ux--calendar-options-and-entry-2026-10-16).
 
 
 ## Configurable fixed and relative presets — 2026-10-16

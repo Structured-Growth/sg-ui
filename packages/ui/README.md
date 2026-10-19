@@ -11,8 +11,8 @@ to use this library. Obtain a written agreement from Structured Growth before us
 See [LICENSE](LICENSE) and [commercial licensing](../../docs/commercial-licensing.md).
 
 Implementation migration is distinct from final acceptance. The
-[execution record](../../docs/developer/react-aria-progress.md),
-[master task list](../../docs/developer/react-aria-master-task-list.md) and
+[execution record](../../docs/developer/archive/2026-10-18-task-lists/react-aria-progress.md),
+[master task list](../../docs/developer/react-aria-execution-policy.md) and
 [removal audit](../../docs/developer/react-aria-removal-audit.md) record evidence and
 remaining browser, device, assistive-technology, packaging and legal gates.
 

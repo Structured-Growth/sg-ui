@@ -81,7 +81,7 @@ hosts must avoid transformed fixed-position containing blocks around it. The nam
 Firefox and WebKit; see the [component acceptance reconciliation](react-aria-editor-chrome-acceptance.md).
 Physical-device and spoken assistive-technology acceptance remain separate.
 
-See the [execution evidence](react-aria-progress.md#editor-layout-and-floating-selection)
+See the [execution evidence](archive/2026-10-18-task-lists/react-aria-progress.md#editor-layout-and-floating-selection)
 and [formatting toolbar](react-aria-formatting-toolbar.md) for the surrounding
 owned toolbar integration. `node scripts/test-editor-consumer.mjs` (or --react18)
 validates a real packed editor-controls consumer separately from the basic fixture,
