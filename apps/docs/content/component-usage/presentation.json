@@ -391,7 +391,7 @@
     "when": "Use Tooltip for a short supplementary description of a control whose action is already understandable from its visible label or accessible name. Essential instructions and interactive content belong in visible text, Popover or Dialog.",
     "how": [
       "Provide a Button-compatible trigger and plain-string content. Name an icon-only trigger with IconButton.label; tooltip text does not replace that action name.",
-      "Choose placement and use delay and closeDelay when the display timing needs adjustment. Keyboard focus keeps the tooltip open when layout changes move the pointer away. Escape and blur request dismissal; help opened only by hovering closes on pointer leave.",
+      "Choose placement and use delay and closeDelay when the display timing needs adjustment. Keyboard focus keeps the tooltip open when layout changes move the pointer away. Escape and blur request dismissal. After Escape, layout-generated hover does not reopen help while the same control keeps keyboard focus; a new pointer interaction or focus entry can open it again. Help opened only by hovering closes on pointer leave.",
       "Use disabled to suppress the tooltip, or open/onOpenChange for host-controlled visibility. Change the trigger key if replacing the action with a different identity.",
       "Keep the trigger within its production theme scope so the portaled tooltip follows the demonstrated theme rather than the surrounding website."
     ],

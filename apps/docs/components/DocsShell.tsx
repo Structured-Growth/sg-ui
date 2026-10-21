@@ -1,5 +1,5 @@
 'use client';
-import { Suspense, useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import { Suspense, forwardRef, useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { IconPanelNavigation } from '@structured-growth/sg-ui/components';
 import { BrushIcon, DescriptionIcon } from '@structured-growth/sg-ui/icons';
 import catalog from '../content/catalog.json';
@@ -9,7 +9,7 @@ import { Surface } from '@structured-growth/sg-ui/experimental';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import NextLink from 'next/link';
 import { Provider, ThemeScope } from '@structured-growth/sg-ui/theme';
-import { SGNavigationProvider } from '@structured-growth/sg-ui/adapters';
+import { SGNavigationProvider, type SGLinkProps } from '@structured-growth/sg-ui/adapters';
 import { Box, Stack, Typography, Link } from '@structured-growth/sg-ui/primitives';
 import { Select } from '@structured-growth/sg-ui/experimental';
 import { CatalogNavigation } from './CatalogNavigation';
@@ -19,6 +19,11 @@ import { documentationVersions } from '../content/navigation';
 import {documentationVersionTarget,unavailableDocumentationPath,canonicalDocumentationPath} from '../content/documentation-versioning.mjs';
 import styles from './docs.module.css';
 import { useStableDocumentWidth } from './useStableDocumentWidth';
+// Consumer examples contain host-owned destinations; do not prefetch them as
+// documentation routes. Next Link still supplies the build-time base path.
+const DocsNavigationLink=forwardRef<HTMLAnchorElement,SGLinkProps>(function DocsNavigationLink(props,ref){
+  return <NextLink {...props} ref={ref} prefetch={false}/>;
+});
 function DocumentationVersionNotice() {
   const search=useSearchParams();
   const missingPage=unavailableDocumentationPath(search.toString());
@@ -45,7 +50,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
     mainRef.current?.scrollTo({top:0,left:0,behavior:'instant'});
     toolsRef.current?.querySelectorAll<HTMLElement>('[data-sgui-part="icon-navigation-content"]')[1]?.scrollTo({top:0,left:0,behavior:'instant'});
   },[pathname]);
-  return <SGNavigationProvider value={{ pathname, Link: NextLink, navigate: (href, options) => options?.replace ? router.replace(href) : router.push(href) }}>
+  return <SGNavigationProvider value={{ pathname, Link: DocsNavigationLink, navigate: (href, options) => options?.replace ? router.replace(href) : router.push(href) }}>
     <PageDocumentationContext.Provider value={registerDocumentation}><DemoSettingsProvider><Provider density="compact" theme="light" style={docsTheme('light')} className={styles.root}>
       <Link href="#main-content" className={styles.skip}>Skip to content</Link>
       <Box as="header" padding={2} className={styles.header}>

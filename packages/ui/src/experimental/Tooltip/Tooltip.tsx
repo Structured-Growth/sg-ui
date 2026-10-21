@@ -1,6 +1,6 @@
 "use client";
 import { forwardRef, useContext, useEffect, useRef, useState, type Ref, type CSSProperties, type ReactElement } from "react";
-import { Tooltip as AriaTooltip, TooltipTrigger, TooltipContext, TooltipTriggerStateContext } from "react-aria-components/Tooltip";
+import { Tooltip as AriaTooltip, TooltipTrigger, TooltipContext } from "react-aria-components/Tooltip";
 import { useFocusVisible } from "react-aria/useFocusVisible";
 import { useOverlayScope } from "../../foundation/ThemeScope";
 import type { ButtonProps } from "../../components/Button/Button";
@@ -47,17 +47,16 @@ function TooltipLifetime(
   </TooltipTrigger>;
 }
 
-/** A keyboard description keeps its focus lifetime when layout moves the pointer away. */
+/** Keyboard focus owns hover suppression through Escape until focus/modality changes. */
 function TooltipFocusPriority({ onChange }: { onChange: (focused: boolean) => void }) {
-  const state = useContext(TooltipTriggerStateContext);
   const context = useContext(TooltipContext);
   const trigger = context && "triggerRef" in context ? context.triggerRef : null;
   const { isFocusVisible } = useFocusVisible();
   useEffect(() => {
     const node = trigger?.current;
-    const update = () => onChange(Boolean(state?.isOpen && isFocusVisible && node && node.ownerDocument.activeElement === node));
+    const update = () => onChange(Boolean(isFocusVisible && node && node.ownerDocument.activeElement === node));
     update();
-    if (!node || !state?.isOpen) return;
+    if (!node) return;
     // Focus may arrive after a hover has already opened the same description.
     node.addEventListener("focus", update);
     node.addEventListener("blur", update);
@@ -65,6 +64,6 @@ function TooltipFocusPriority({ onChange }: { onChange: (focused: boolean) => vo
       node.removeEventListener("focus", update);
       node.removeEventListener("blur", update);
     };
-  }, [state?.isOpen, isFocusVisible, trigger, onChange]);
+  }, [isFocusVisible, trigger, onChange]);
   return null;
 }

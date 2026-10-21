@@ -98,3 +98,17 @@ it("keeps keyboard-owned help when layout moves the pointer away, while Escape a
   await user.unhover(button);
   await waitFor(() => expect(screen.queryByRole("tooltip")).toBeNull());
 });
+
+it("does not reopen dismissed keyboard help when resize restores hover over the focused trigger", async () => {
+  const user = userEvent.setup(); const change=vi.fn();
+  render(<Tooltip trigger={<Button>Refresh</Button>} content="Refresh courses" onOpenChange={change} delay={0} closeDelay={0}/>);
+  const button=screen.getByRole("button");
+  fireEvent.mouseMove(document.body);await user.hover(button);await screen.findByRole("tooltip");
+  await user.tab();await user.unhover(button);expect(button).toBe(document.activeElement);
+  await user.keyboard("{Escape}");await waitFor(()=>expect(screen.queryByRole("tooltip")).toBeNull());
+  change.mockClear();
+  // Layout-driven enter events do not represent a new pointer interaction.
+  fireEvent.mouseOver(button);fireEvent.pointerOver(button,{pointerType:"mouse"});
+  expect(screen.queryByRole("tooltip")).toBeNull();expect(change).not.toHaveBeenCalledWith(true);
+  expect(button).toBe(document.activeElement);
+});
