@@ -165,3 +165,17 @@ test('proposal mode checks cannot be omitted or skipped in capture or validation
   assert(workflowFindings(candidate).some(f=>f.includes('nonregular/executable')));
  }
 });
+
+
+test('rejects floating or inconsistent patch versions across native, docs and package jobs',()=>{
+ const setup=job=>job.steps.find(step=>step.uses?.startsWith('actions/setup-node@'));
+ for(const mutate of [
+  w=>w.ci.env.SGUI_CI_NODE_24='24',
+  w=>delete w.ci.env.SGUI_CI_NODE_24,
+  w=>setup(w.ci.jobs.validate).with['node-version']='${{ matrix.node }}',
+  w=>setup(w.ci.jobs.native).with['node-version']='24.21.0',
+  w=>setup(w.ci.jobs.docs).with['node-version']='24',
+  w=>w.ci.jobs.native.env={SGUI_CI_NODE_24:'24.21.0'},
+  w=>setup(w.ci.jobs.docs).env={SGUI_CI_NODE_24:'24.21.0'},
+ ]){const w=structuredClone(workflows);mutate(w);assert(workflowFindings(w).some(f=>/runtime/.test(f)));}
+});

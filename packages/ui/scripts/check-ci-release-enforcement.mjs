@@ -30,6 +30,7 @@ export function workflowFindings(workflows) {
  check(equal(ci.permissions,{contents:'read'}),'CI: default credentials expanded');
  check(ci.jobs?.validate?.if==="always() && (github.event_name != 'pull_request' || github.base_ref != 'dev')" && ci.jobs?.docs?.if===undefined,'CI: mandatory job can be skipped');
  check(equal(ci.jobs?.validate?.strategy?.matrix?.node,['22.12.0','24']),'CI: required runtime matrix changed');
+ check(/^24\.\d+\.\d+$/.test(ci.env?.SGUI_CI_NODE_24??''),'CI: exact shared Node 24 runtime pin missing');
  check(ci.jobs?.validate?.name==='Validate Node ${{ matrix.node }}' && ci.jobs?.docs?.name==='Next.js docs','CI: named required contexts changed');
  check(ci.jobs?.validate?.needs==='native','CI: named runtime gates must require native matrix');
  check(equal(ci.jobs?.native?.strategy?.matrix?.browser,['chromium','firefox','webkit']) && ci.jobs?.native?.strategy?.['fail-fast']===false,'CI: complete independent engine matrix missing');
@@ -37,6 +38,9 @@ export function workflowFindings(workflows) {
  for(const id of ['validate','native','docs']) {
   const job=ci.jobs?.[id];const steps=job?.steps??[];
   check(job && !job['continue-on-error'],'CI: mandatory job failure can be ignored');
+  const setup=steps.filter(step=>step.uses?.startsWith('actions/setup-node@'));
+  const nodeVersion=id==='validate'?"${{ matrix.node == '24' && env.SGUI_CI_NODE_24 || matrix.node }}":'${{ env.SGUI_CI_NODE_24 }}';
+  check(setup.length===1 && setup[0].with?.['node-version']===nodeVersion && setup[0].if===undefined && job?.env?.SGUI_CI_NODE_24===undefined && setup[0].env?.SGUI_CI_NODE_24===undefined,`CI ${id}: shared exact runtime selection missing or overridden`);
   check(readOnlyJob(job),`CI ${id}: job credentials override read-only default`);
   check(steps[0]?.with?.ref==='${{ inputs.ref || github.event.pull_request.head.sha || github.sha }}' && steps[0]?.with?.['persist-credentials']===false,`CI ${id}: exact ref/credential isolation missing`);
   check(steps.some(s=>s.name==='Record exact checked head' && s.if===undefined && s.env?.EXPECTED_HEAD==='${{ inputs.ref || github.event.pull_request.head.sha || github.sha }}' && s.run?.includes('test "$actual" = "$EXPECTED_HEAD"')),`CI ${id}: checked-head assertion missing`);

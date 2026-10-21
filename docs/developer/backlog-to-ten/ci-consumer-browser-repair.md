@@ -85,3 +85,20 @@ including cached imports. A focused test delays either the shared dependency or
 its consumer and requires byte-identical CSS/classes with dependency-first order.
 The three CSS compilation tests pass. A fresh exact-head CI/artifact checkpoint
 is still required after the repair.
+
+### Shared runtime patch pin — 2026-10-21
+
+Run [39677889242](https://github.com/Structured-Growth/sg-ui/actions/runs/39677889242)
+at `f1e9325fc9e59746eaa3cd6079229883e1de55ac` passed docs, all three native
+engines and Node 22. Node 24 passed its consumer flows but correctly failed the
+native artifact join: the independently provisioned Firefox runner used
+`v24.22.0`, while the final package runner resolved floating `24` to `v24.21.0`.
+The [original failure](owner-ci-follow-up/node24-patch-mismatch.log) is retained;
+this run is not accepted as a successful checkpoint.
+
+CI now selects Node 24.22.0 from one workflow-level exact pin for native, docs
+and the Node 24 package job. The Node 22.12.0 matrix label and named required
+contexts remain stable. The runtime equality and compiled-byte assertions are
+unchanged. The enforcement guard rejects floating pins, inconsistent selection,
+skipped setup and job/step overrides. All 29 focused enforcement/download/native
+verifier cases pass locally. A new complete exact-head run remains required.
