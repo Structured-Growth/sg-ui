@@ -31,9 +31,10 @@ AWS Amplify and the `ui.structured-growth.com` URL convention are recorded. The
 current app uses Next.js 16.4.0; the checked
 [AWS support guide](https://docs.aws.amazon.com/amplify/latest/userguide/ssr-amplify-support.html)
 currently documents managed SSR support through Next.js 15. Do not assume the
-current `.next` output is a supported managed-SSR deployment. A static export or
-explicitly supported adapter/runtime must be validated before deployment; no
-dependency downgrade is implied by the hosting choice.
+current `.next` output is a supported managed-SSR deployment. The new static export and prefixed navigation have passed an initial production
+build/browser smoke. See [Amplify preparation](../deployment/amplify.md). Final
+changed-tree checks and live deployment validation remain required; no dependency
+downgrade is implied by the hosting choice.
 
 AWS's [monorepo configuration guide](https://docs.aws.amazon.com/amplify/latest/userguide/monorepo-configuration.html)
 documents the app root, root build path and pnpm linker requirements. The account

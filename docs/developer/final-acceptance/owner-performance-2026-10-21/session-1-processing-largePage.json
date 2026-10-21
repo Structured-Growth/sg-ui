@@ -1,0 +1,7650 @@
+{
+  "schemaVersion": 2,
+  "renderer": "processing",
+  "sourceHead": "2b611c2e689e598856f605ce03c429218cf2238e",
+  "selectedWorkloads": [
+    "largePage"
+  ],
+  "iterations": 12,
+  "fixtureHashes": {
+    "fixture.tsx": "0adfbcf9f5b7f6ef560eda2e3f3d8fed5c8b0d270ad1e6d2356605de55afa2de",
+    "measure-browser.mjs": "6607f9f1e88b846476da71f6dafe2b420e68964ba2cddbccbe60fd9164f51bd2",
+    "vite.config.mjs": "d228799d17777f0d828dcc75bdd98954509ac15566120f5c8d0bc4ef01c1a1cd",
+    "index.html": "a8c3f3b25b4e902a49e370d949215b52d8baed026dbf66fd3371c2795d6cfa73"
+  },
+  "cleanupProbes": [
+    {
+      "workload": "largePage",
+      "before": {
+        "mounted": true,
+        "pendingFrames": 1,
+        "activeTimers": 1,
+        "updating": true
+      },
+      "after": {
+        "mounted": false,
+        "pendingFrames": 0,
+        "activeTimers": 0,
+        "updating": false,
+        "sampleCount": 4
+      },
+      "laterSampleCount": 4
+    }
+  ],
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "summaries": {
+    "largePage:initial:idle": {
+      "count": 9,
+      "medianMs": 1085.5,
+      "p95Ms": 1246.5,
+      "maxMs": 1246.5
+    },
+    "largePage:click:idle": {
+      "count": 9,
+      "medianMs": 1706.5999999940395,
+      "p95Ms": 1790.9000000059605,
+      "maxMs": 1790.9000000059605
+    },
+    "largePage:update:updating": {
+      "count": 450,
+      "medianMs": 847.5999999940395,
+      "p95Ms": 2440.5999999940395,
+      "maxMs": 6164
+    },
+    "largePage:input:updating": {
+      "count": 81,
+      "medianMs": 807.0999999940395,
+      "p95Ms": 1439.9000000059605,
+      "maxMs": 1622.7999999970198
+    },
+    "largePage:selection:updating": {
+      "count": 9,
+      "medianMs": 894.5,
+      "p95Ms": 2048.5,
+      "maxMs": 2048.5
+    },
+    "largePage:sort:updating": {
+      "count": 9,
+      "medianMs": 880.7000000029802,
+      "p95Ms": 1152.4000000059605,
+      "maxMs": 1152.4000000059605
+    }
+  },
+  "measuredAt": "2026-10-21T18:21:49.271Z",
+  "environment": {
+    "react": "19.2.3",
+    "throttlePolicy": "cdp-cpu-4x",
+    "cpuThrottleRate": 4,
+    "node": "v26.5.0",
+    "browser": "153.0.8010.12",
+    "os": "Darwin",
+    "release": "25.6.0",
+    "arch": "arm64",
+    "cpu": "Apple M5",
+    "totalMemoryBytes": 17179869184,
+    "loadAverage": [
+      31.5517578125,
+      12.44970703125,
+      7.296875
+    ]
+  },
+  "assets": {
+    "index-CUnwNo0-.js": {
+      "bytes": 765170,
+      "gzipLevel9Bytes": 223423,
+      "sha256": "e80c1f399c6ccf7080762b6d9b87a088c67390f877411ac8a3a7d98759135274"
+    },
+    "index-DE4ZVnWY.css": {
+      "bytes": 253954,
+      "gzipLevel9Bytes": 22386,
+      "sha256": "fa8d7b5e0a588e03ffab62314476daa689aad042cfaf654dfa81feb1856c51b3"
+    }
+  },
+  "results": [
+    {
+      "workload": "largePage",
+      "iteration": 0,
+      "warmup": true,
+      "samples": [
+        {
+          "action": "initial",
+          "ms": 1184.7999999970198,
+          "duringUpdates": false
+        },
+        {
+          "action": "click",
+          "ms": 1576,
+          "duringUpdates": false
+        },
+        {
+          "action": "update",
+          "ms": 780.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 767.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 782.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 738,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1117.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 686.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 698.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1639.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 765,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 759.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 723,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 704.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1501.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 801.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 725.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 696.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1484.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 788.6999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 724.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 703.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1397.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 698.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2230.199999988079,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1418.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 696.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 731.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1556.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 785.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 781.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 721.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1996.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1312.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1309.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 745.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 709.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 693.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2013.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1288,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 769.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 755.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 881,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 777,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 759.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 896.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 906.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 785.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 801.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 893.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 881.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2426.800000011921,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1559.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "selection",
+          "ms": 784.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 816.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 794.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1327.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 886.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 893,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 860.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1081.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2156.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "sort",
+          "ms": 873,
+          "duringUpdates": false
+        }
+      ],
+      "driverActions": [
+        {
+          "name": "C",
+          "driverWallMs": 2914.7316249999994,
+          "updating": true,
+          "updateCount": 6,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 686.3000000119209,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "o",
+          "driverWallMs": 2190.7609169999996,
+          "updating": true,
+          "updateCount": 9,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 686.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 759.2999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "u",
+          "driverWallMs": 2921.6194160000014,
+          "updating": true,
+          "updateCount": 12,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 686.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 759.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 801.4000000059605,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "r",
+          "driverWallMs": 2911.254917,
+          "updating": true,
+          "updateCount": 15,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 686.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 759.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 801.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788.6999999880791,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "s",
+          "driverWallMs": 2219.9811249999984,
+          "updating": true,
+          "updateCount": 17,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 686.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 759.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 801.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 698.8999999910593,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "e",
+          "driverWallMs": 2929.326666000001,
+          "updating": true,
+          "updateCount": 20,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 686.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 759.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 801.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 698.8999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 696.7000000029802,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "driverWallMs": 2226.519874999998,
+          "updating": true,
+          "updateCount": 23,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 686.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 759.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 801.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 698.8999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 696.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 781.2999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "9",
+          "driverWallMs": 2767.040874999999,
+          "updating": true,
+          "updateCount": 26,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 686.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 759.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 801.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 698.8999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 696.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 781.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1309.7999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "clear",
+          "driverWallMs": 4233.246917,
+          "updating": true,
+          "updateCount": 30,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 686.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 759.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 801.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 698.8999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 696.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 781.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1309.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1288,
+              "duringUpdates": true
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "mounted": false,
+        "pendingFrames": 0,
+        "activeTimers": 0,
+        "updating": false,
+        "sampleCount": 63
+      }
+    },
+    {
+      "workload": "largePage",
+      "iteration": 1,
+      "warmup": true,
+      "samples": [
+        {
+          "action": "initial",
+          "ms": 1091.7000000029802,
+          "duringUpdates": false
+        },
+        {
+          "action": "click",
+          "ms": 1744.6000000089407,
+          "duringUpdates": false
+        },
+        {
+          "action": "update",
+          "ms": 913.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 813.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 759.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 782.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 878.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2635.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 746.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 751.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 872.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 836.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 832.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 745.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 741.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1684.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 832.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 766.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 732.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1589,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 853.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 851.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1558.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 777.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 847.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1562.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1487.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 733,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 762.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1617.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 796.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 784.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 808.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1365.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1362.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 768.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 743.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1360.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1355.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 804.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 757.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 765.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 806.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 826.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 865.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 823,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 773.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2377,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1615.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "selection",
+          "ms": 841.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 831.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 751.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 749,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 749.1999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 864.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 800.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2783.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2052.199999988079,
+          "duringUpdates": true
+        },
+        {
+          "action": "sort",
+          "ms": 955,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1078.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 947.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 955.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 956.2000000029802,
+          "duringUpdates": true
+        }
+      ],
+      "driverActions": [
+        {
+          "name": "C",
+          "driverWallMs": 3073.9421250000014,
+          "updating": true,
+          "updateCount": 7,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 746.7000000029802,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "o",
+          "driverWallMs": 2322.7210410000043,
+          "updating": true,
+          "updateCount": 10,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 746.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.7000000029802,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "u",
+          "driverWallMs": 3181.592417,
+          "updating": true,
+          "updateCount": 13,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 746.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.9000000059605,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "r",
+          "driverWallMs": 2437.079958000002,
+          "updating": true,
+          "updateCount": 15,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 746.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 853.7000000029802,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "s",
+          "driverWallMs": 3199.4094579999946,
+          "updating": true,
+          "updateCount": 18,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 746.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 853.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 777.1000000089407,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "e",
+          "driverWallMs": 2260.6676670000015,
+          "updating": true,
+          "updateCount": 20,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 746.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 853.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 777.1000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1487.6000000089407,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "driverWallMs": 3208.963208999994,
+          "updating": true,
+          "updateCount": 23,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 746.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 853.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 777.1000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1487.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.2999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "9",
+          "driverWallMs": 2877.376999999993,
+          "updating": true,
+          "updateCount": 26,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 746.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 853.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 777.1000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1487.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1362.5,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "clear",
+          "driverWallMs": 2926.339000000007,
+          "updating": true,
+          "updateCount": 29,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 746.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 832.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 853.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 777.1000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1487.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1362.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1355.0999999940395,
+              "duringUpdates": true
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "mounted": false,
+        "pendingFrames": 0,
+        "activeTimers": 0,
+        "updating": false,
+        "sampleCount": 63
+      }
+    },
+    {
+      "workload": "largePage",
+      "iteration": 2,
+      "warmup": true,
+      "samples": [
+        {
+          "action": "initial",
+          "ms": 1156.5999999940395,
+          "duringUpdates": false
+        },
+        {
+          "action": "click",
+          "ms": 1727,
+          "duringUpdates": false
+        },
+        {
+          "action": "update",
+          "ms": 900.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 916.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 852.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1016.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1360.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2800.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 987.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 882.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1562.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 776.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 837.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1779.800000011921,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 875.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 798.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 844.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 912.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 909,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 918,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 818.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 785.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 782.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 822.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 911.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 824.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 822.1999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 834.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 807.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1763.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 873.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 3179.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2355.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1564.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1012.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 792.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 805.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2405.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1641.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 993.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 866.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 897,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 976.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 912.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 884.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 896.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1134,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2060.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1116.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2854.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "selection",
+          "ms": 1974.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1021.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 933.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 862.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1746.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 912,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 968,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 889.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 869.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2222.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "sort",
+          "ms": 967.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1024.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 968.2000000029802,
+          "duringUpdates": true
+        }
+      ],
+      "driverActions": [
+        {
+          "name": "C",
+          "driverWallMs": 3666.787166000009,
+          "updating": true,
+          "updateCount": 6,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 987.7000000029802,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "o",
+          "driverWallMs": 2398.0967079999973,
+          "updating": true,
+          "updateCount": 8,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 987.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 776.1000000089407,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "u",
+          "driverWallMs": 3420.386333000002,
+          "updating": true,
+          "updateCount": 11,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 987.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 776.1000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 875.5,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "r",
+          "driverWallMs": 2649.624125000002,
+          "updating": true,
+          "updateCount": 14,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 987.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 776.1000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 875.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 909,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "s",
+          "driverWallMs": 2517.793666999991,
+          "updating": true,
+          "updateCount": 17,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 987.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 776.1000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 875.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 909,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 782.9000000059605,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "e",
+          "driverWallMs": 2467.3032500000118,
+          "updating": true,
+          "updateCount": 20,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 987.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 776.1000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 875.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 909,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 782.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 822.1999999880791,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "driverWallMs": 2645.4655409999978,
+          "updating": true,
+          "updateCount": 22,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 987.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 776.1000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 875.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 909,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 782.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 822.1999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 873.2999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "9",
+          "driverWallMs": 4158.806832999995,
+          "updating": true,
+          "updateCount": 25,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 987.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 776.1000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 875.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 909,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 782.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 822.1999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 873.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1564.1000000089407,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "clear",
+          "driverWallMs": 5127.471250000002,
+          "updating": true,
+          "updateCount": 29,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 987.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 776.1000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 875.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 909,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 782.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 822.1999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 873.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1564.1000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1641.7000000029802,
+              "duringUpdates": true
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "mounted": false,
+        "pendingFrames": 0,
+        "activeTimers": 0,
+        "updating": false,
+        "sampleCount": 63
+      }
+    },
+    {
+      "workload": "largePage",
+      "iteration": 3,
+      "warmup": false,
+      "samples": [
+        {
+          "action": "initial",
+          "ms": 1106.800000011921,
+          "duringUpdates": false
+        },
+        {
+          "action": "click",
+          "ms": 1723.7000000029802,
+          "duringUpdates": false
+        },
+        {
+          "action": "update",
+          "ms": 935.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 840.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 794.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 780.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2402.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 785.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 755.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 779.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 897.1999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 891.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2289.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1494.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 737,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 766.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1648.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 804.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 801.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 751.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1633.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 847.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 845.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 920.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1551.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 766,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 763.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 776.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1674.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 802.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 799.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 779.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 759.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1430.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1427.800000011921,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 789.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 801,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 794,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2170.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1406.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 836.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 973.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 857.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 819,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 816.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 842.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 862.6999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 782.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 732.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2267.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "selection",
+          "ms": 884.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 794.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 769.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 750.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 720.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 853.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 776.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2746.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1983.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "sort",
+          "ms": 882.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 843.6999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 807.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 788.0999999940395,
+          "duringUpdates": true
+        }
+      ],
+      "driverActions": [
+        {
+          "name": "C",
+          "driverWallMs": 3175.9848340000026,
+          "updating": true,
+          "updateCount": 6,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 785.2999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "o",
+          "driverWallMs": 1703.7174999999988,
+          "updating": true,
+          "updateCount": 8,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 785.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 891.5,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "u",
+          "driverWallMs": 3112.1863750000193,
+          "updating": true,
+          "updateCount": 11,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 785.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 891.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 737,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "r",
+          "driverWallMs": 2350.1633339999826,
+          "updating": true,
+          "updateCount": 14,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 785.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 891.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 737,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 801.9000000059605,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "s",
+          "driverWallMs": 2558.16287499998,
+          "updating": true,
+          "updateCount": 17,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 785.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 891.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 737,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 801.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 845.2999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "e",
+          "driverWallMs": 2423.129749999993,
+          "updating": true,
+          "updateCount": 20,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 785.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 891.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 737,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 801.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 845.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 763.5,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "driverWallMs": 2342.116666999995,
+          "updating": true,
+          "updateCount": 23,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 785.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 891.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 737,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 801.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 845.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 763.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 799.4000000059605,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "9",
+          "driverWallMs": 3022.868583000003,
+          "updating": true,
+          "updateCount": 26,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 785.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 891.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 737,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 801.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 845.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 763.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 799.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1427.800000011921,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "clear",
+          "driverWallMs": 4774.4430410000205,
+          "updating": true,
+          "updateCount": 30,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 785.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 891.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 737,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 801.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 845.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 763.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 799.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1427.800000011921,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1406.5,
+              "duringUpdates": true
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "mounted": false,
+        "pendingFrames": 0,
+        "activeTimers": 0,
+        "updating": false,
+        "sampleCount": 63
+      }
+    },
+    {
+      "workload": "largePage",
+      "iteration": 4,
+      "warmup": false,
+      "samples": [
+        {
+          "action": "initial",
+          "ms": 1028.2999999970198,
+          "duringUpdates": false
+        },
+        {
+          "action": "click",
+          "ms": 1760.7000000029802,
+          "duringUpdates": false
+        },
+        {
+          "action": "update",
+          "ms": 903.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 842.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 793.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 856.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1353,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 770.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2432.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1655.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 812,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 791.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 807.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1640.199999988079,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 842.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 830.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 778.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 756.8000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 754.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2401.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1642.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 785.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 747.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 752.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 851.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 849.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 817.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 766.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1471.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 742.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 847.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 796.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1332.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1329.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 720.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 777.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2084,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1306.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 751,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 823,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 824.1999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 765,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 741.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 785.1999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 923.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 808.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 736.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2327.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "selection",
+          "ms": 1658.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 827.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 787.6999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 753.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 753.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 859.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 817.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 754.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2749.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2009.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "sort",
+          "ms": 835.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 812.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 783.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 780.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 927.7999999970198,
+          "duringUpdates": true
+        }
+      ],
+      "driverActions": [
+        {
+          "name": "C",
+          "driverWallMs": 2293.437333000009,
+          "updating": true,
+          "updateCount": 5,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 770.0999999940395,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "o",
+          "driverWallMs": 3254.306958000001,
+          "updating": true,
+          "updateCount": 8,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 770.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 812,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "u",
+          "driverWallMs": 3247.3647089999868,
+          "updating": true,
+          "updateCount": 11,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 770.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 812,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 842.2999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "r",
+          "driverWallMs": 1529.136125000019,
+          "updating": true,
+          "updateCount": 13,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 770.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 812,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 842.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 754.2000000029802,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "s",
+          "driverWallMs": 3142.1576249999925,
+          "updating": true,
+          "updateCount": 16,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 770.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 812,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 842.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 754.2000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 785.3999999910593,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "e",
+          "driverWallMs": 2436.0302920000104,
+          "updating": true,
+          "updateCount": 19,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 770.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 812,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 842.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 754.2000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 785.3999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 849.2999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "driverWallMs": 3113.522917000024,
+          "updating": true,
+          "updateCount": 22,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 770.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 812,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 842.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 754.2000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 785.3999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 849.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 742.6000000089407,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "9",
+          "driverWallMs": 2053.5506250000035,
+          "updating": true,
+          "updateCount": 24,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 770.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 812,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 842.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 754.2000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 785.3999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 849.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 742.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1329.5,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "clear",
+          "driverWallMs": 4437.542916000006,
+          "updating": true,
+          "updateCount": 28,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 770.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 812,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 842.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 754.2000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 785.3999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 849.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 742.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1329.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1306.7000000029802,
+              "duringUpdates": true
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "mounted": false,
+        "pendingFrames": 0,
+        "activeTimers": 0,
+        "updating": false,
+        "sampleCount": 63
+      }
+    },
+    {
+      "workload": "largePage",
+      "iteration": 5,
+      "warmup": false,
+      "samples": [
+        {
+          "action": "initial",
+          "ms": 1072.300000011921,
+          "duringUpdates": false
+        },
+        {
+          "action": "click",
+          "ms": 1678.8999999910593,
+          "duringUpdates": false
+        },
+        {
+          "action": "update",
+          "ms": 858.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 922.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 875.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 864.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2487.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 883.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 845,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 822.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 843.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 840.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 884.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 940.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 966.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 963.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 882,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 836,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 920.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 917.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 856.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 820.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 827.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 823.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2593.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1743.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 858.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 814.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 786.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1702.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 813.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 795.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2018.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1316.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1313.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 843.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 765.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1269.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1267.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 814.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 811.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 774.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 808.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 824,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 847.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 805.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 753.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2353.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1616.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "selection",
+          "ms": 845,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 838.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 752.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 757.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 759,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 856.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1967.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "sort",
+          "ms": 788,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 803.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 874.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 911.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 837.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 858.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 941.6999999880791,
+          "duringUpdates": true
+        }
+      ],
+      "driverActions": [
+        {
+          "name": "C",
+          "driverWallMs": 3316.526125000033,
+          "updating": true,
+          "updateCount": 6,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 883.9000000059605,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "o",
+          "driverWallMs": 2666.3143750000163,
+          "updating": true,
+          "updateCount": 9,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 883.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 840.5999999940395,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "u",
+          "driverWallMs": 2685.21212500002,
+          "updating": true,
+          "updateCount": 12,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 883.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 840.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 963.3000000119209,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "r",
+          "driverWallMs": 2597.575375000015,
+          "updating": true,
+          "updateCount": 15,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 883.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 840.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 963.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 917.8999999910593,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "s",
+          "driverWallMs": 1689.3895000000484,
+          "updating": true,
+          "updateCount": 17,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 883.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 840.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 963.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 917.8999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 823.8999999910593,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "e",
+          "driverWallMs": 3342.1572499999893,
+          "updating": true,
+          "updateCount": 20,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 883.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 840.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 963.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 917.8999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 823.8999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 858.7999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "driverWallMs": 3242.0791249999893,
+          "updating": true,
+          "updateCount": 23,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 883.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 840.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 963.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 917.8999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 823.8999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 858.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 813.5,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "9",
+          "driverWallMs": 2914.6871670000255,
+          "updating": true,
+          "updateCount": 26,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 883.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 840.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 963.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 917.8999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 823.8999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 858.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 813.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1313.8999999910593,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "clear",
+          "driverWallMs": 2896.9797920000274,
+          "updating": true,
+          "updateCount": 29,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 883.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 840.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 963.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 917.8999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 823.8999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 858.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 813.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1313.8999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1267.2000000029802,
+              "duringUpdates": true
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "mounted": false,
+        "pendingFrames": 0,
+        "activeTimers": 0,
+        "updating": false,
+        "sampleCount": 63
+      }
+    },
+    {
+      "workload": "largePage",
+      "iteration": 6,
+      "warmup": false,
+      "samples": [
+        {
+          "action": "initial",
+          "ms": 1217.7000000029802,
+          "duringUpdates": false
+        },
+        {
+          "action": "click",
+          "ms": 1790.9000000059605,
+          "duringUpdates": false
+        },
+        {
+          "action": "update",
+          "ms": 856.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 915.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 832.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 999.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2290,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 767.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 979.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 911.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 789,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 786.8000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2583.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1860.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 981.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 793.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 793.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1573.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 790.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2429.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1562.800000011921,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 773.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 796,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1716.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 955.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 928.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 780.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 810,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 807.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 3221.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2201.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1337.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 884.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 868.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 882.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1363.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1355.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 769.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 878.8000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 827.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 781.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 780.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 791.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 954.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 890.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 765.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2614.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1791.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "selection",
+          "ms": 910.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 916.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 879.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 861,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 831.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 894.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 819.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 792.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2032.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "sort",
+          "ms": 908.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 866,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 862.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 798.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 794.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 952.0999999940395,
+          "duringUpdates": true
+        }
+      ],
+      "driverActions": [
+        {
+          "name": "C",
+          "driverWallMs": 3367.55349999998,
+          "updating": true,
+          "updateCount": 6,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 767.7000000029802,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "o",
+          "driverWallMs": 1524.8874579999829,
+          "updating": true,
+          "updateCount": 8,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 767.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 786.8000000119209,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "u",
+          "driverWallMs": 3448.558250000002,
+          "updating": true,
+          "updateCount": 11,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 767.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 786.8000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 981.5999999940395,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "r",
+          "driverWallMs": 2450.8156660000095,
+          "updating": true,
+          "updateCount": 13,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 767.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 786.8000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 981.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 790.9000000059605,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "s",
+          "driverWallMs": 2356.417833000014,
+          "updating": true,
+          "updateCount": 15,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 767.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 786.8000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 981.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 790.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 773.4000000059605,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "e",
+          "driverWallMs": 3423.4262500000186,
+          "updating": true,
+          "updateCount": 18,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 767.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 786.8000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 981.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 790.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 773.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 955.5999999940395,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "driverWallMs": 1873.6045419999864,
+          "updating": true,
+          "updateCount": 20,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 767.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 786.8000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 981.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 790.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 773.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 955.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 807.0999999940395,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "9",
+          "driverWallMs": 3953.639208000037,
+          "updating": true,
+          "updateCount": 23,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 767.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 786.8000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 981.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 790.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 773.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 955.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 807.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1337.2000000029802,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "clear",
+          "driverWallMs": 3895.9431249999907,
+          "updating": true,
+          "updateCount": 27,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 767.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 786.8000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 981.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 790.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 773.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 955.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 807.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1337.2000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1355.7000000029802,
+              "duringUpdates": true
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "mounted": false,
+        "pendingFrames": 0,
+        "activeTimers": 0,
+        "updating": false,
+        "sampleCount": 63
+      }
+    },
+    {
+      "workload": "largePage",
+      "iteration": 7,
+      "warmup": false,
+      "samples": [
+        {
+          "action": "initial",
+          "ms": 1246.5,
+          "duringUpdates": false
+        },
+        {
+          "action": "click",
+          "ms": 1706.5999999940395,
+          "duringUpdates": false
+        },
+        {
+          "action": "update",
+          "ms": 877.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 941.1999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 849.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 824.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2469.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 912.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 826,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1548.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 783.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 780.6999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 759,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1686.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 814.6999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 811.6999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 757.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1582.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 820.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 812.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 794.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1532.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 774.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 884.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1557.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 762.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 761.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 751.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1761.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 955.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 888.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 863.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2464.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1622.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 812.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 789.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 765.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2161.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1328.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 856.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 888.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 822.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 770.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 737.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 813.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 873.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 788.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 754.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 740.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 744,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1750.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "selection",
+          "ms": 835.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 820.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 769.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 742.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 874.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 827,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 778.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2066,
+          "duringUpdates": true
+        },
+        {
+          "action": "sort",
+          "ms": 909.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 894.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 863.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 830,
+          "duringUpdates": true
+        }
+      ],
+      "driverActions": [
+        {
+          "name": "C",
+          "driverWallMs": 3286.5477079999982,
+          "updating": true,
+          "updateCount": 6,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 912.2999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "o",
+          "driverWallMs": 2423.991207999992,
+          "updating": true,
+          "updateCount": 9,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 912.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 780.6999999880791,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "u",
+          "driverWallMs": 2335.0464159999974,
+          "updating": true,
+          "updateCount": 12,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 912.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 780.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811.6999999880791,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "r",
+          "driverWallMs": 2429.0203330000513,
+          "updating": true,
+          "updateCount": 14,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 912.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 780.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 820.3999999910593,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "s",
+          "driverWallMs": 3218.0800839999574,
+          "updating": true,
+          "updateCount": 17,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 912.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 780.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 820.3999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 774.4000000059605,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "e",
+          "driverWallMs": 1514.413750000007,
+          "updating": true,
+          "updateCount": 19,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 912.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 780.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 820.3999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 774.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 761.2000000029802,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "driverWallMs": 3511.7361669999664,
+          "updating": true,
+          "updateCount": 22,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 912.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 780.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 820.3999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 774.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 761.2000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 955.5,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "9",
+          "driverWallMs": 4065.1341660000035,
+          "updating": true,
+          "updateCount": 25,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 912.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 780.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 820.3999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 774.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 761.2000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 955.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1622.7999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "clear",
+          "driverWallMs": 4669.613416999986,
+          "updating": true,
+          "updateCount": 29,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 912.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 780.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811.6999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 820.3999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 774.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 761.2000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 955.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1622.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1328.7999999970198,
+              "duringUpdates": true
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "mounted": false,
+        "pendingFrames": 0,
+        "activeTimers": 0,
+        "updating": false,
+        "sampleCount": 63
+      }
+    },
+    {
+      "workload": "largePage",
+      "iteration": 8,
+      "warmup": false,
+      "samples": [
+        {
+          "action": "initial",
+          "ms": 1066.2000000029802,
+          "duringUpdates": false
+        },
+        {
+          "action": "click",
+          "ms": 1634.1000000089407,
+          "duringUpdates": false
+        },
+        {
+          "action": "update",
+          "ms": 796.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 781.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 818.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 795.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1405.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 750.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 790.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 850.8000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 813.1999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 811,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 748.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1458.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 726.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2331.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1504.800000011921,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 738.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 722.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 716.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 848.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 845.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 800,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 769.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1487.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 766.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 873.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 759,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 737.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 734.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2963.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2242.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1394.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 777.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 789.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 780.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2206.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1395.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 783.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 828.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 922.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 899.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 899,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 918.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 948.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 863,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 848.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2488.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "selection",
+          "ms": 894.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 961.6999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 844.6999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 787,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 815.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 848,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 902.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2789.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1957.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "sort",
+          "ms": 828.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 951.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 878.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 847.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 822.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 857.2000000029802,
+          "duringUpdates": true
+        }
+      ],
+      "driverActions": [
+        {
+          "name": "C",
+          "driverWallMs": 3174.4891669999924,
+          "updating": true,
+          "updateCount": 6,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 750.7999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "o",
+          "driverWallMs": 1562.224709000031,
+          "updating": true,
+          "updateCount": 8,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 750.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "u",
+          "driverWallMs": 2293.549707999977,
+          "updating": true,
+          "updateCount": 10,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 750.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 726.7000000029802,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "r",
+          "driverWallMs": 2941.4655419999617,
+          "updating": true,
+          "updateCount": 13,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 750.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 726.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 738.6000000089407,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "s",
+          "driverWallMs": 2418.984666000004,
+          "updating": true,
+          "updateCount": 16,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 750.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 726.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 738.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 845.7000000029802,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "e",
+          "driverWallMs": 3118.4711670000106,
+          "updating": true,
+          "updateCount": 19,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 750.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 726.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 738.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 845.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 766.6000000089407,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "driverWallMs": 1498.7717499999562,
+          "updating": true,
+          "updateCount": 21,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 750.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 726.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 738.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 845.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 766.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 734.4000000059605,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "9",
+          "driverWallMs": 3809.8562500000116,
+          "updating": true,
+          "updateCount": 24,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 750.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 726.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 738.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 845.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 766.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 734.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1394.5,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "clear",
+          "driverWallMs": 4642.194207999972,
+          "updating": true,
+          "updateCount": 28,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 750.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 811,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 726.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 738.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 845.7000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 766.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 734.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1394.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1395.8999999910593,
+              "duringUpdates": true
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "mounted": false,
+        "pendingFrames": 0,
+        "activeTimers": 0,
+        "updating": false,
+        "sampleCount": 63
+      }
+    },
+    {
+      "workload": "largePage",
+      "iteration": 9,
+      "warmup": false,
+      "samples": [
+        {
+          "action": "initial",
+          "ms": 1085.5,
+          "duringUpdates": false
+        },
+        {
+          "action": "click",
+          "ms": 1522.5999999940395,
+          "duringUpdates": false
+        },
+        {
+          "action": "update",
+          "ms": 757.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 751,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 771.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 868.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2685.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 874.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 866.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 835.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1511.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 744.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 823.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 902,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 843.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 839.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 774.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1570.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 792.6999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 790.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2487,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1607.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 790.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 803.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1639.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 769.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 751,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 740.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1590.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 796.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 743.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1983.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1271.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 822,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 734.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1268.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1264.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 836.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 813.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 752.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 779.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 825.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 862.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 771.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 728.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 766.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 835.1999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2197.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "selection",
+          "ms": 1483.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 762.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 820.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 886.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1439.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 864.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 843.1999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 953.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2090.8999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "sort",
+          "ms": 805.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 844.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 868.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1016.6999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 921.6999999880791,
+          "duringUpdates": true
+        }
+      ],
+      "driverActions": [
+        {
+          "name": "C",
+          "driverWallMs": 3287.8853750000126,
+          "updating": true,
+          "updateCount": 6,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 874.6000000089407,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "o",
+          "driverWallMs": 3234.971291999973,
+          "updating": true,
+          "updateCount": 9,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 874.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 744.2999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "u",
+          "driverWallMs": 2404.227458999958,
+          "updating": true,
+          "updateCount": 12,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 874.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 744.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 839.6000000089407,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "r",
+          "driverWallMs": 1684.5021670000278,
+          "updating": true,
+          "updateCount": 14,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 874.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 744.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 839.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 790.5999999940395,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "s",
+          "driverWallMs": 3198.7839159999858,
+          "updating": true,
+          "updateCount": 17,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 874.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 744.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 839.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 790.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 802,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "e",
+          "driverWallMs": 3130.7088329999824,
+          "updating": true,
+          "updateCount": 20,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 874.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 744.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 839.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 790.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 769.5,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "driverWallMs": 2330.666333000001,
+          "updating": true,
+          "updateCount": 22,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 874.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 744.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 839.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 790.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 769.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.5,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "9",
+          "driverWallMs": 3527.920832999982,
+          "updating": true,
+          "updateCount": 25,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 874.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 744.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 839.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 790.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 769.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1271.2000000029802,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "clear",
+          "driverWallMs": 2919.782292000018,
+          "updating": true,
+          "updateCount": 28,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 874.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 744.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 839.6000000089407,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 790.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 769.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1271.2000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1264.9000000059605,
+              "duringUpdates": true
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "mounted": false,
+        "pendingFrames": 0,
+        "activeTimers": 0,
+        "updating": false,
+        "sampleCount": 63
+      }
+    },
+    {
+      "workload": "largePage",
+      "iteration": 10,
+      "warmup": false,
+      "samples": [
+        {
+          "action": "initial",
+          "ms": 1096.7000000029802,
+          "duringUpdates": false
+        },
+        {
+          "action": "click",
+          "ms": 1767.2000000029802,
+          "duringUpdates": false
+        },
+        {
+          "action": "update",
+          "ms": 916.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 782.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 767.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 831.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 899.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2298.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 762.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 777.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 851.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 790.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 788,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 756.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 756.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 749.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 747.1999999880791,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2451.800000011921,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1585.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 742.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 730.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1599.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 795.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 793.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 759.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1547.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 791.3999999910593,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2440.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1533.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 728.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 755.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2253.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1486.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1484.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 773.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 762.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2235.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1506,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 813.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 810.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 811,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 934.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 861.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 871.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 794.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 785,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 935.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 877,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2413.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "selection",
+          "ms": 814.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 970.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 868.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 831.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 818.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 903.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 852.1000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2102.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "sort",
+          "ms": 880.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 894.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1012.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 993.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 967,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 870.2999999970198,
+          "duringUpdates": true
+        }
+      ],
+      "driverActions": [
+        {
+          "name": "C",
+          "driverWallMs": 3106.714457999915,
+          "updating": true,
+          "updateCount": 7,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 762.3000000119209,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "o",
+          "driverWallMs": 2303.21791700006,
+          "updating": true,
+          "updateCount": 10,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 762.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "u",
+          "driverWallMs": 1626.2427500000922,
+          "updating": true,
+          "updateCount": 12,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 762.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 747.1999999880791,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "r",
+          "driverWallMs": 3132.3168750000186,
+          "updating": true,
+          "updateCount": 15,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 762.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 747.1999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 742.2999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "s",
+          "driverWallMs": 1555.2743340000743,
+          "updating": true,
+          "updateCount": 17,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 762.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 747.1999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 742.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 793.2000000029802,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "e",
+          "driverWallMs": 2462.840916999965,
+          "updating": true,
+          "updateCount": 19,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 762.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 747.1999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 742.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 793.2000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 791.3999999910593,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "driverWallMs": 3094.507291999995,
+          "updating": true,
+          "updateCount": 22,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 762.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 747.1999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 742.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 793.2000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 791.3999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 728.9000000059605,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "9",
+          "driverWallMs": 3022.264415999991,
+          "updating": true,
+          "updateCount": 25,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 762.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 747.1999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 742.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 793.2000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 791.3999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 728.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1484.2999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "clear",
+          "driverWallMs": 3898.4816249998985,
+          "updating": true,
+          "updateCount": 28,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 762.3000000119209,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 747.1999999880791,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 742.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 793.2000000029802,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 791.3999999910593,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 728.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1484.2999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1506,
+              "duringUpdates": true
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "mounted": false,
+        "pendingFrames": 0,
+        "activeTimers": 0,
+        "updating": false,
+        "sampleCount": 63
+      }
+    },
+    {
+      "workload": "largePage",
+      "iteration": 11,
+      "warmup": false,
+      "samples": [
+        {
+          "action": "initial",
+          "ms": 1051.9000000059605,
+          "duringUpdates": false
+        },
+        {
+          "action": "click",
+          "ms": 1574.2000000029802,
+          "duringUpdates": false
+        },
+        {
+          "action": "update",
+          "ms": 780.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 767.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 804,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 966.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1207.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 761.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 775.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 859.8000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 787.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 784.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 734,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 728.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 798.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 796.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 785.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 760.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 755.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 753.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 756.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1624.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 788.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 731.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 951.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 801,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 796.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2429.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1576.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 765,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 734.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2255.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1439.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 754.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 789,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1522.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "input",
+          "ms": 1515.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 748.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 740.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 701.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 877.3000000119209,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 3328.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 6164,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 3699.2999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2626.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2208.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1271.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 4732.9000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "selection",
+          "ms": 2048.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2506.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1577.2000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1611,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1475.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1266.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 826.5999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1088.0999999940395,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 2429.6000000089407,
+          "duringUpdates": true
+        },
+        {
+          "action": "sort",
+          "ms": 1152.4000000059605,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1201.7000000029802,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 1873.199999988079,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 912.7999999970198,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 906.5,
+          "duringUpdates": true
+        },
+        {
+          "action": "update",
+          "ms": 4410.4000000059605,
+          "duringUpdates": true
+        }
+      ],
+      "driverActions": [
+        {
+          "name": "C",
+          "driverWallMs": 3084.6571669999976,
+          "updating": true,
+          "updateCount": 6,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 761.5999999940395,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "o",
+          "driverWallMs": 2250.214583000052,
+          "updating": true,
+          "updateCount": 9,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 761.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 784.9000000059605,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "u",
+          "driverWallMs": 2343.7808749999385,
+          "updating": true,
+          "updateCount": 12,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 761.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 784.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.0999999940395,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "r",
+          "driverWallMs": 2348.3126659999834,
+          "updating": true,
+          "updateCount": 15,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 761.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 784.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 753.5,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "s",
+          "driverWallMs": 2472.3595839999616,
+          "updating": true,
+          "updateCount": 17,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 761.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 784.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 753.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788.4000000059605,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "e",
+          "driverWallMs": 1665.0574999999953,
+          "updating": true,
+          "updateCount": 19,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 761.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 784.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 753.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.7999999970198,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": " ",
+          "driverWallMs": 2310.3201249999693,
+          "updating": true,
+          "updateCount": 21,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 761.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 784.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 753.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 765,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "9",
+          "driverWallMs": 3798.437957999995,
+          "updating": true,
+          "updateCount": 24,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 761.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 784.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 753.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 765,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1439.9000000059605,
+              "duringUpdates": true
+            }
+          ]
+        },
+        {
+          "name": "clear",
+          "driverWallMs": 2270.59062500007,
+          "updating": true,
+          "updateCount": 26,
+          "samples": [
+            {
+              "action": "input",
+              "ms": 761.5999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 784.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.0999999940395,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 753.5,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 788.4000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 796.7999999970198,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 765,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1439.9000000059605,
+              "duringUpdates": true
+            },
+            {
+              "action": "input",
+              "ms": 1515.7000000029802,
+              "duringUpdates": true
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "mounted": false,
+        "pendingFrames": 0,
+        "activeTimers": 0,
+        "updating": false,
+        "sampleCount": 63
+      }
+    }
+  ],
+  "method": "Production React; 3 warmup/9 recorded navigations per workload; overlapping native input/selection during 50 updates; input/grid-click capture, selector keyboard selection public callback or timer callback to two post-commit RAFs. Frame-opportunity estimate, not physical paint/INP/AT. All emitted assets summed separately, not route transfer.",
+  "limits": [
+    "No cross-build baseline or physical-device result without second matching run.",
+    "No heap retention/GC plateau or global listener census.",
+    "No budget auto-record/update."
+  ]
+}

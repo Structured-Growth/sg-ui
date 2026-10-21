@@ -7,6 +7,7 @@ import { DemoSettingsToolbar } from './DemoSettingsToolbar';
 import { PageDocumentationContext } from './PageDocumentation';
 import { Surface } from '@structured-growth/sg-ui/experimental';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import NextLink from 'next/link';
 import { Provider, ThemeScope } from '@structured-growth/sg-ui/theme';
 import { SGNavigationProvider } from '@structured-growth/sg-ui/adapters';
 import { Box, Stack, Typography, Link } from '@structured-growth/sg-ui/primitives';
@@ -15,7 +16,7 @@ import { CatalogNavigation } from './CatalogNavigation';
 import { DemoSettingsProvider } from './DemoSettings';
 import { docsTheme } from './docs-theme';
 import { documentationVersions } from '../content/navigation';
-import {documentationVersionTarget,unavailableDocumentationPath} from '../content/documentation-versioning.mjs';
+import {documentationVersionTarget,unavailableDocumentationPath,canonicalDocumentationPath} from '../content/documentation-versioning.mjs';
 import styles from './docs.module.css';
 import { useStableDocumentWidth } from './useStableDocumentWidth';
 function DocumentationVersionNotice() {
@@ -25,7 +26,7 @@ function DocumentationVersionNotice() {
 }
 export function DocsShell({ children }: { children: React.ReactNode }) {
   useStableDocumentWidth();
-  const pathname = usePathname(); const router = useRouter();
+  const pathname = canonicalDocumentationPath(usePathname(),process.env.NEXT_PUBLIC_DOCS_BASE_PATH); const router = useRouter();
   const [documentation,setDocumentation]=useState<{pathname:string;content:ReactNode}|null>(null);
   const [activeTool,setActiveTool]=useState<string|null>(null);
   const [versionError,setVersionError]=useState(false);
@@ -44,7 +45,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
     mainRef.current?.scrollTo({top:0,left:0,behavior:'instant'});
     toolsRef.current?.querySelectorAll<HTMLElement>('[data-sgui-part="icon-navigation-content"]')[1]?.scrollTo({top:0,left:0,behavior:'instant'});
   },[pathname]);
-  return <SGNavigationProvider value={{ pathname, navigate: (href, options) => options?.replace ? router.replace(href) : router.push(href) }}>
+  return <SGNavigationProvider value={{ pathname, Link: NextLink, navigate: (href, options) => options?.replace ? router.replace(href) : router.push(href) }}>
     <PageDocumentationContext.Provider value={registerDocumentation}><DemoSettingsProvider><Provider density="compact" theme="light" style={docsTheme('light')} className={styles.root}>
       <Link href="#main-content" className={styles.skip}>Skip to content</Link>
       <Box as="header" padding={2} className={styles.header}>

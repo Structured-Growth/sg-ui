@@ -19,3 +19,12 @@ test('unsafe destinations, mutable versions and incomplete route manifests fail 
   assert.equal(unavailableDocumentationPath('?documentation-unavailable='+encodeURIComponent(path)),null);
  }
 });
+test('reject malformed or ambiguous numeric release versions',()=>{
+ for(const id of ['01.2.3','1.02.3','1.2.03','1.2.3-','1.2.3-..','1.2.3-rc..1','1.2.3-rc.01'])assert.throws(()=>documentationVersionTarget({...release,id},'/'));
+ for(const id of ['0.0.0','v1.2.3','1.2.3-rc.0','1.2.3-alpha-beta'])assert.equal(new URL(documentationVersionTarget({...release,id},'/')).pathname,'/releases/1.2.3/');
+});
+test('static prefixes and trailing slashes preserve canonical catalog identity',async()=>{
+ const {canonicalDocumentationPath}=await import('../content/documentation-versioning.mjs');
+ for(const path of ['/dev/docs/components/button/','/docs/components/button/'])assert.equal(canonicalDocumentationPath(path,'/dev'),'/docs/components/button');
+ assert.equal(canonicalDocumentationPath('/dev/','/dev'),'/');assert.equal(canonicalDocumentationPath('/developer/','/dev'),'/developer');
+});

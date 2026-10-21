@@ -1,5 +1,6 @@
 'use client';
 import { usePathname } from 'next/navigation';
+import {canonicalDocumentationPath} from '../content/documentation-versioning.mjs';
 import catalog from '../content/catalog.json';
 import { Select } from '@structured-growth/sg-ui/experimental';
 import { Stack, Typography } from '@structured-growth/sg-ui/primitives';
@@ -7,7 +8,7 @@ import { identities } from './demo-theme';
 import { useDemoSettings } from './DemoSettings';
 const componentRoutes = new Set(catalog.map(entry=>`/docs/components/${entry.slug}`));
 export function DemoSettingsToolbar() {
-  const pathname = usePathname();
+  const pathname = canonicalDocumentationPath(usePathname(),process.env.NEXT_PUBLIC_DOCS_BASE_PATH);
   const {mode, identity, contrast, resolvedMode, resolvedContrast, forcedColors, setMode, setIdentity, setContrast} = useDemoSettings();
   if (!componentRoutes.has(pathname)) return null;
   return (

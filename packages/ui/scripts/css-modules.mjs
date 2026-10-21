@@ -3,6 +3,7 @@ import { relative, resolve } from 'node:path';
 import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
 import postcss from 'postcss';
 import modules from 'postcss-modules';
+import {DeterministicCSSLoader} from './deterministic-css-loader.mjs';
 
 export function scopedName(name, filename) {
   const path = relative(resolve('src'), filename).replaceAll('\\', '/');
@@ -17,7 +18,7 @@ export async function compileStyles() {
       if (entry.isDirectory()) await visit(path);
       else if (path.endsWith('.module.css')) {
         let classes;
-        const output = await postcss([modules({ generateScopedName: scopedName, getJSON: (_file, json) => { classes = json; } })])
+        const output = await postcss([modules({ Loader: DeterministicCSSLoader, generateScopedName: scopedName, getJSON: (_file, json) => { classes = json; } })])
           .process(await readFile(path, 'utf8'), { from: resolve(path), map: false });
         chunks.push(output.css);
         const target = path.replace(/^src\//, 'dist/');

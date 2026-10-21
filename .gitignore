@@ -15,3 +15,7 @@ out/
 next-env.d.ts
 playwright-report/
 test-results/
+
+.next-static/
+apps/docs/amplify-output/
+apps/docs/public/THIRD_PARTY_NOTICES.txt

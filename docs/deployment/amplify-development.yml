@@ -1,0 +1,27 @@
+# Copy into Amplify's build settings for the dev documentation app only.
+# Do not use this to rebuild or replace immutable published releases.
+version: 1
+applications:
+  - appRoot: apps/docs
+    frontend:
+      buildPath: /
+      phases:
+        preBuild:
+          commands:
+            - nvm use 24
+            - corepack enable
+            - pnpm config set node-linker hoisted --location project
+            - pnpm install --frozen-lockfile
+        build:
+          commands:
+            - test "$AWS_BRANCH" = dev
+            - pnpm build
+            - SGUI_DOCS_STATIC_EXPORT=1 NEXT_PUBLIC_DOCS_BASE_PATH=/dev pnpm --filter @structured-growth/docs build
+            - NEXT_PUBLIC_DOCS_BASE_PATH=/dev SGUI_DOCS_SOURCE_HEAD="$AWS_COMMIT_ID" node apps/docs/scripts/stage-static-export.mjs apps/docs/amplify-output
+      artifacts:
+        baseDirectory: apps/docs/amplify-output
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*

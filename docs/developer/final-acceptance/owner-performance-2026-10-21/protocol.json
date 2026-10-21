@@ -1,0 +1,15 @@
+{
+  "head": "2b611c2e689e598856f605ce03c429218cf2238e",
+  "profile": "Current physical Apple M5 / 16GiB with explicit 4x Chromium CPU proxy; no population-percentile claim",
+  "commands": [
+    "pnpm build",
+    "pnpm --filter @structured-growth/sg-ui exec vite build --config tests/performance/vite.config.mjs"
+  ],
+  "sessions": 2,
+  "latencyWorkloads": [
+    "processing:small",
+    "processing:selector"
+  ],
+  "method": "3 warmup/9 recorded navigation samples per configuration, fixed 50 updates; separate full 7-workload instrumented lifecycle/GC run",
+  "hardwareCorrection": "Initial handwritten M4 label corrected against the runner-recorded os.cpus() Apple M5 identity; measured results unchanged."
+}

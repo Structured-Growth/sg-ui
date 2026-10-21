@@ -759,3 +759,10 @@ The original unit log also retains jsdom not-implemented scrollBy/navigation
 diagnostics in passing tests. Those are recorded environment limitations, not
 evidence of browser behavior. No test runner settings or console output were
 suppressed. No production/main promotion, version edit or publication occurred.
+
+## Owner follow-through — 2026-10-21
+
+A-L-02 closes for the current Apache preservation scope after complete runtime
+legal-text joins and restoration of the pinned copied-action LICENSE/NOTICE.
+See [technical reconciliation](../../backlog-to-ten/owner-license-reconciliation.md).
+This does not close A-L-01/A-L-04/A-Z-06 or authorize publication.

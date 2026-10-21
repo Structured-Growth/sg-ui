@@ -65,3 +65,23 @@ links and unavailable local receipts/logs). Its finding in the execution history
 is the existing conversation-reconciliation link, not the appended repair link.
 Those findings are not certified by this workflow repair; retain them for the
 A-Z-15 documentation/evidence reconciliation.
+
+## Second checkpoint — CSS composition-order defect
+
+Run [39646417347](https://github.com/Structured-Growth/sg-ui/actions/runs/39646417347)
+at `2b611c2e689e598856f605ce03c429218cf2238e` passed docs, all three native engines,
+Node22 and the Node24 packed consumers. Node24 then correctly failed the native
+artifact join: only `dist/styles.css` differed. Native/Node22 SHA-256 was
+`03fa0472abdedda04500df89274b61ae8d92be225ef6482361d6e81c5d19850f`;
+the Node24/local alternative was
+`1d6107313579ecab3375afaa9232e48b5b13807d61e0d3a4ddf6a981fcc070d8`.
+No artifact mismatch was suppressed or accepted.
+
+The byte comparison moves the shared Scrollbars rules before/after PeriodPicker
+rules inside a diamond composition. The upstream CSS Modules loader omits a
+trace edge on a dependency cache hit, so completion timing changes dependency
+ordering. `deterministic-css-loader.mjs` records every edge before awaiting reads,
+including cached imports. A focused test delays either the shared dependency or
+its consumer and requires byte-identical CSS/classes with dependency-first order.
+The three CSS compilation tests pass. A fresh exact-head CI/artifact checkpoint
+is still required after the repair.

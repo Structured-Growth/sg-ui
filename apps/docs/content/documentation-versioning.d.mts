@@ -7,3 +7,5 @@ export interface DocumentationVersion {
 }
 export function documentationVersionTarget(version:DocumentationVersion,pathname:string):string|null;
 export function unavailableDocumentationPath(search:string):string|null;
+export function isDocumentationReleaseVersion(value:unknown):boolean;
+export function canonicalDocumentationPath(pathname:string,basePath?:string):string;
