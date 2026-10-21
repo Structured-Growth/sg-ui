@@ -41,7 +41,10 @@ try{
  const image=page.getByRole('img',{name:'Learning sequence: learn, practice, reflect',exact:true}).first();
  await image.waitFor();assert.equal(await image.getAttribute('src'),'/dev/course-guide.svg');
  assert(await image.evaluate(img=>img.complete&&img.naturalWidth>0),'Prefixed editor image must load');
+ await page.goto(origin+'/dev/docs/components/learner-grid/');
+ await page.getByRole('heading',{level:1,name:'LearnerClassesDataGrid',exact:true}).waitFor();
+ await page.waitForTimeout(300); // Observe accidental prefetches of host-only destinations.
  await page.waitForTimeout(200);
  assert.deepEqual(errors,[],'Hydration/runtime errors');assert.deepEqual(failed,[],'Failed static asset/route requests');
- console.log(JSON.stringify({status:'pass',checks:['prefixed hrefs','component hydration','client navigation','hard refresh','404-to-overview fallback and notice','route manifest','served third-party notices','prefixed editor image','no runtime errors','no failed requests']}));
+ console.log(JSON.stringify({status:'pass',checks:['prefixed hrefs','component hydration','client navigation','hard refresh','404-to-overview fallback and notice','route manifest','no demo-destination prefetch','served third-party notices','prefixed editor image','no runtime errors','no failed requests']}));
 }finally{await browser?.close();await new Promise(done=>server.close(done));}

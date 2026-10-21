@@ -17,3 +17,17 @@ test('rejects incomparable environments and incomplete matrices',()=>{const x=fi
 test('rejects fabricated summaries and late lifecycle publication',()=>{const x=fixture();x.measurements[0].summaries['small:input:updating'].p95Ms=1;assert.throws(()=>checkReferenceBudgets(x.budget,x.measurements,x.memory),/Summary differs/);const y=fixture();y.memory.workloads[0].cycles[5].later={...y.memory.workloads[0].cycles[5].later,samples:4};assert.throws(()=>checkReferenceBudgets(y.budget,y.measurements,y.memory),/kept producing/);});
 
 test('rejects changed benchmark inputs',()=>{const x=fixture();x.measurements[0].fixtureHashes={'fixture.tsx':'c'.repeat(64)};assert.throws(()=>checkReferenceBudgets(x.budget,x.measurements,x.memory),/Changed benchmark/);});
+
+
+test('accepts sparse incidental click buckets while preserving required overlap evidence',()=>{
+ const x=fixture(),packet=x.measurements[0],key='small:click:updating';
+ x.budget.latency['processing:small'][key]={medianMs:100,p95Ms:200};
+ for(const row of packet.results.filter(row=>!row.warmup).slice(0,2))row.samples.push({action:'click',duringUpdates:true,ms:50});
+ packet.summaries[key]={count:2,medianMs:50,p95Ms:50,maxMs:50};
+ assert.deepEqual(checkReferenceBudgets(x.budget,x.measurements,x.memory),[]);
+ for(const row of packet.results)row.samples=row.samples.filter(sample=>sample.action!=='click');
+ delete packet.summaries[key];
+ assert.deepEqual(checkReferenceBudgets(x.budget,x.measurements,x.memory),[]);
+ packet.results[3].samples=packet.results[3].samples.filter(sample=>sample.action!=='selection');
+ assert.throws(()=>checkReferenceBudgets(x.budget,x.measurements,x.memory));
+});
