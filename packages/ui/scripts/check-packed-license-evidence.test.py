@@ -90,6 +90,14 @@ class EvidenceTests(unittest.TestCase):
         codes = {x['code'] for x in self.run_audit()['findings']}
         self.assertTrue({'runtime-legal-evidence-missing', 'packed-dist-current-drift'} <= codes)
 
+    def test_one_installed_instance_cannot_hide_another_missing_legal_file(self):
+        metadata = dict(self.inventory['packages'][0]['metadata'][0], evidence=[])
+        self.inventory['packages'][0]['metadata'].append(metadata)
+        result = self.run_audit()
+        self.assertFalse(result['byteChecksPass'])
+        self.assertIn({'code': 'runtime-instance-legal-evidence-missing', 'subject': metadata['path']}, result['findings'])
+        self.assertTrue(result['runtimePeerClosure'][0]['legalEvidence'])
+
     def test_reject_unsafe_duplicate_and_evidence_escape(self):
         for extra in [[('../escape', b'x')], [('LICENSE', b'duplicate')]]:
             with self.assertRaises(ValueError):

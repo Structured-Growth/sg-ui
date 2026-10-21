@@ -12,7 +12,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The snapshots already contain the declarations, but the 678 default candidates mix public props with private logic. I also found ambiguous grid migration wording. I\u2019ll classify the candidates and prepare precise guide corrections; historical inherited APIs and release marking will remain explicit gaps where evidence is missing."
+      "latestCommentary": "The snapshots already contain the declarations, but the 678 default candidates mix public props with private logic. I also found ambiguous grid migration wording. I’ll classify the candidates and prepare precise guide corrections; historical inherited APIs and release marking will remain explicit gaps where evidence is missing."
     },
     {
       "threadId": "01a146f4-177b-7731-b103-f516af10ff1f",
@@ -23,7 +23,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The prior proposal found three cycles with type-only return edges and no runtime cycle. DateField\u2019s source has changed since that patch was prepared. I\u2019ll preserve its current contract and add a TypeScript-resolved guard so deep paths, aliases and import-type syntax cannot bypass enforcement."
+      "latestCommentary": "The prior proposal found three cycles with type-only return edges and no runtime cycle. DateField’s source has changed since that patch was prepared. I’ll preserve its current contract and add a TypeScript-resolved guard so deep paths, aliases and import-type syntax cannot bypass enforcement."
     },
     {
       "threadId": "01a146f4-1b24-7781-b7c6-166394460c56",
@@ -34,7 +34,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The grid already provides contextual row-action names, and the editor and shell expose several of the required hooks. I\u2019m preparing focused tests for repeated controls, host-owned empty values, hydration IDs, and slot/ref behavior, plus a documentation patch that states who owns each contract."
+      "latestCommentary": "The grid already provides contextual row-action names, and the editor and shell expose several of the required hooks. I’m preparing focused tests for repeated controls, host-owned empty values, hydration IDs, and slot/ref behavior, plus a documentation patch that states who owns each contract."
     },
     {
       "threadId": "01a146f4-1f00-7190-b264-bb6cb0744a6c",
@@ -45,7 +45,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The current code already guards duplicate requests and stale results, so I haven\u2019t found a production change to make. I\u2019m preparing a host-diagnostics guidance patch, operation-specific tests for all three async actions, and a focused native fixture/spec for callback counts and form-event ordering. Native execution will remain a coordinator validation step."
+      "latestCommentary": "The current code already guards duplicate requests and stale results, so I haven’t found a production change to make. I’m preparing a host-diagnostics guidance patch, operation-specific tests for all three async actions, and a focused native fixture/spec for callback counts and form-event ordering. Native execution will remain a coordinator validation step."
     },
     {
       "threadId": "01a146f4-22ca-7e21-be80-d2cc72c22509",
@@ -56,7 +56,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The package already exposes granular component and icon paths, but Lexical remains an installation dependency for every consumer. I\u2019m checking the emitted dependency graph to distinguish bundle reachability from install weight and identify any accidental barrel imports."
+      "latestCommentary": "The package already exposes granular component and icon paths, but Lexical remains an installation dependency for every consumer. I’m checking the emitted dependency graph to distinguish bundle reachability from install weight and identify any accidental barrel imports."
     },
     {
       "threadId": "01a146f4-2720-7fe3-92d8-e2f079b72176",
@@ -67,7 +67,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The installed @swc/helpers license includes SWC copyright text absent from the aggregate notices. The prior review also identified 17 other missing full texts. I\u2019ll prepare exact-byte additions for all 18, preserve the five retired notice sections, and correct the outdated \u201cmigration proof\u201d descriptions without changing commercial terms."
+      "latestCommentary": "The installed @swc/helpers license includes SWC copyright text absent from the aggregate notices. The prior review also identified 17 other missing full texts. I’ll prepare exact-byte additions for all 18, preserve the five retired notice sections, and correct the outdated “migration proof” descriptions without changing commercial terms."
     },
     {
       "threadId": "01a146f4-2b2c-7f52-9353-82f3dc86ccaa",
@@ -78,7 +78,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The license inventory checker already exists, but its guide still uses commands from before the workspace move. The dependency upgrade guide has since been corrected. I\u2019ll patch the remaining stale guidance and add a read-only policy check with focused mutation tests. Named ownership, legal approval and live npm/GitHub settings remain unevidenced."
+      "latestCommentary": "The license inventory checker already exists, but its guide still uses commands from before the workspace move. The dependency upgrade guide has since been corrected. I’ll patch the remaining stale guidance and add a read-only policy check with focused mutation tests. Named ownership, legal approval and live npm/GitHub settings remain unevidenced."
     },
     {
       "threadId": "01a146f4-2fb0-7ef1-bd42-8b1835bd53ff",
@@ -89,7 +89,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The integrated picker-disabled and decorated TextArea fixes now have unit and desktop-browser receipts. I\u2019ll retain those results where the input hashes match. For the state matrix, I\u2019ll record applicability and non-color indicators per public part, with visual checks kept separate from observed source behavior."
+      "latestCommentary": "The integrated picker-disabled and decorated TextArea fixes now have unit and desktop-browser receipts. I’ll retain those results where the input hashes match. For the state matrix, I’ll record applicability and non-color indicators per public part, with visual checks kept separate from observed source behavior."
     },
     {
       "threadId": "01a146f4-3433-7c40-8777-fe2348bc4661",
@@ -100,7 +100,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The prior reports leave two concrete gaps: card containment has no size-query boundary, and reflow evidence still lacks actual browser-zoom results. I\u2019ll check whether an existing host is usable and prepare bounded checks for text spacing, font substitution and focus visibility."
+      "latestCommentary": "The prior reports leave two concrete gaps: card containment has no size-query boundary, and reflow evidence still lacks actual browser-zoom results. I’ll check whether an existing host is usable and prepare bounded checks for text spacing, font substitution and focus visibility."
     },
     {
       "threadId": "01a146f4-3908-7bf2-a546-82f7293a45b8",
@@ -111,7 +111,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The prior audit left two concrete gaps: TagGroup\u2019s remove button expands vertically for touch but retains its compact width, and both grid renderers expose column dragging without a width-entry control. I\u2019m preparing patches for those gaps and focused browser checks, with physical-device evidence kept separate."
+      "latestCommentary": "The prior audit left two concrete gaps: TagGroup’s remove button expands vertically for touch but retains its compact width, and both grid renderers expose column dragging without a width-entry control. I’m preparing patches for those gaps and focused browser checks, with physical-device evidence kept separate."
     },
     {
       "threadId": "01a146f4-4b90-7492-a2d4-6de024fb4109",
@@ -122,7 +122,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The current scope code forwards theme, density, direction, locale and token overrides to portals. Existing tests cover reopening portals; the remaining gap is updating those settings while a nested overlay stays open. I\u2019ll add that scenario, plus focused StrictMode cleanup and SSR/hydration checks, while retaining the existing evidence where its inputs still match."
+      "latestCommentary": "The current scope code forwards theme, density, direction, locale and token overrides to portals. Existing tests cover reopening portals; the remaining gap is updating those settings while a nested overlay stays open. I’ll add that scenario, plus focused StrictMode cleanup and SSR/hydration checks, while retaining the existing evidence where its inputs still match."
     },
     {
       "threadId": "01a146f4-4f34-7620-b6cf-82a2ba8a8a0d",
@@ -133,7 +133,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The color picker opts the entire swatch button out of forced-color adjustment to preserve its color sample. That also exempts its border and keyboard focus outline from system recoloring. I\u2019ll prepare a patch that limits the exception to a noninteractive color chip, plus checks for system-colored focus and selection indicators."
+      "latestCommentary": "The color picker opts the entire swatch button out of forced-color adjustment to preserve its color sample. That also exempts its border and keyboard focus outline from system recoloring. I’ll prepare a patch that limits the exception to a noninteractive color chip, plus checks for system-colored focus and selection indicators."
     },
     {
       "threadId": "01a146f4-53e4-77e3-af90-7d44c4bd4771",
@@ -144,7 +144,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The current source still has both reported focus gaps: decorated TextField suppresses the input outline before relying on :has, and the grid shell\u2019s empty-content focus target has no replacement ring. Popover also retains 13 !important geometry declarations. I\u2019m preparing fixes and focused checks; native behavior will remain pending until the coordinator applies and validates the patches."
+      "latestCommentary": "The current source still has both reported focus gaps: decorated TextField suppresses the input outline before relying on :has, and the grid shell’s empty-content focus target has no replacement ring. Popover also retains 13 !important geometry declarations. I’m preparing fixes and focused checks; native behavior will remain pending until the coordinator applies and validates the patches."
     },
     {
       "threadId": "01a146f4-585c-7f52-94cf-b9aa565520bd",
@@ -155,7 +155,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The existing source and tests cover nested dismissal and removed-opener recovery. The remaining gaps are mainly browser evidence: a combined dialog/menu/tooltip/editor stack, scroll-lock and shell-width checks, and the full AppModal size/height matrix. I\u2019ll prepare focused tests for those gaps; I haven\u2019t reproduced a defect that warrants changing the overlay implementation."
+      "latestCommentary": "The existing source and tests cover nested dismissal and removed-opener recovery. The remaining gaps are mainly browser evidence: a combined dialog/menu/tooltip/editor stack, scroll-lock and shell-width checks, and the full AppModal size/height matrix. I’ll prepare focused tests for those gaps; I haven’t reproduced a defect that warrants changing the overlay implementation."
     },
     {
       "threadId": "01a146f4-5cd3-7d33-8376-bab3dbbab44f",
@@ -166,7 +166,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The Brush mapping fix is present. The remaining gaps are rendered presentation checks, current bundle-pruning evidence, and icon-page interactions. I\u2019ll prepare runnable browser checks and run an isolated bundle probe against the existing compiled package, with outputs confined to my evidence directory."
+      "latestCommentary": "The Brush mapping fix is present. The remaining gaps are rendered presentation checks, current bundle-pruning evidence, and icon-page interactions. I’ll prepare runnable browser checks and run an isolated bundle probe against the existing compiled package, with outputs confined to my evidence directory."
     },
     {
       "threadId": "01a146f4-60dc-7661-827d-cae3bd7c11be",
@@ -177,7 +177,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The host adapter already preserves native navigation and delegates custom links to the host. The remaining routing gap is composed behavior coverage, so I\u2019m preparing a fixture and focused probes. ExperiencePageNavigator is still an authoring list with no previous/next or href API; that part needs an owner decision before it can be accepted."
+      "latestCommentary": "The host adapter already preserves native navigation and delegates custom links to the host. The remaining routing gap is composed behavior coverage, so I’m preparing a fixture and focused probes. ExperiencePageNavigator is still an authoring list with no previous/next or href API; that part needs an owner decision before it can be accepted."
     },
     {
       "threadId": "01a146f4-64e2-7fb3-9b62-dfcb6a88555d",
@@ -188,7 +188,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The existing Arabic fixture already gets its locale through SGTranslationProvider and public Provider. It lacks focused native assertions and fixed date/number output. I also confirmed that SideNavigation uses the same animation direction in LTR and RTL; I\u2019ll prepare a mirroring fix with tests for motion, reduced motion, and Back focus."
+      "latestCommentary": "The existing Arabic fixture already gets its locale through SGTranslationProvider and public Provider. It lacks focused native assertions and fixed date/number output. I also confirmed that SideNavigation uses the same animation direction in LTR and RTL; I’ll prepare a mirroring fix with tests for motion, reduced motion, and Back focus."
     },
     {
       "threadId": "01a146f4-6a50-7c11-bdd7-756f03ccfa9b",
@@ -199,7 +199,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The coordinator\u2019s receipts include the TextArea icon fix passing in Chromium, Firefox and WebKit. I also found that TextArea uses a separate reset listener that lacks TextField\u2019s canceled-validation restoration and form-association handling. I\u2019m checking that gap and preparing focused grouped-field, radio and layout cases."
+      "latestCommentary": "The coordinator’s receipts include the TextArea icon fix passing in Chromium, Firefox and WebKit. I also found that TextArea uses a separate reset listener that lacks TextField’s canceled-validation restoration and form-association handling. I’m checking that gap and preparing focused grouped-field, radio and layout cases."
     },
     {
       "threadId": "01a146f4-6ef6-7cf3-8360-1aec0df80571",
@@ -210,7 +210,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "Only the user\u2019s server on port 3000 is running; there\u2019s no available fixture host. I\u2019ll prepare coordinator-runnable browser tests for selector identity/reset and host authority, menu keyboard behavior, Popover form content, and Tooltip descriptions. Native acceptance will stay open until those tests run against an integrated, frozen build."
+      "latestCommentary": "Only the user’s server on port 3000 is running; there’s no available fixture host. I’ll prepare coordinator-runnable browser tests for selector identity/reset and host authority, menu keyboard behavior, Popover form content, and Tooltip descriptions. Native acceptance will stay open until those tests run against an integrated, frozen build."
     },
     {
       "threadId": "01a146f4-7394-7911-8211-bf40eb220903",
@@ -221,7 +221,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The prior reports already cover much of the grid behavior. The main implementation gap is the host example for optimistic row actions and reorder failures; spoken announcements and current-host browser checks still need separate evidence. I\u2019ll prepare that example and add focused checks for keyboard entry and selected-row removal."
+      "latestCommentary": "The prior reports already cover much of the grid behavior. The main implementation gap is the host example for optimistic row actions and reorder failures; spoken announcements and current-host browser checks still need separate evidence. I’ll prepare that example and add focused checks for keyboard entry and selected-row removal."
     },
     {
       "threadId": "01a146f4-8a83-7bc1-9d0b-16c2489b4f05",
@@ -232,7 +232,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The existing evidence covers pointer dragging, keyboard cancel/drop, Move actions and host rollback. The remaining acceptance gap requires physical touch and spoken screen-reader evidence. I\u2019m checking criteria changes during an active drag and cross-grid isolation for any regression work I can prepare here."
+      "latestCommentary": "The existing evidence covers pointer dragging, keyboard cancel/drop, Move actions and host rollback. The remaining acceptance gap requires physical touch and spoken screen-reader evidence. I’m checking criteria changes during an active drag and cross-grid isolation for any regression work I can prepare here."
     },
     {
       "threadId": "01a146f4-8ff6-7b70-8036-a9207dc0942b",
@@ -243,7 +243,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The shared card frame and Typography styles already provide wrapping, so that does not warrant a patch. I found a concrete content defect instead: InstructorClassCard runs placeholder replacement after translation has already formatted the activity label. That can alter literal {value} text in host content. I\u2019ll prepare the fix and regression cases; the AT and scope holds remain separate."
+      "latestCommentary": "The shared card frame and Typography styles already provide wrapping, so that does not warrant a patch. I found a concrete content defect instead: InstructorClassCard runs placeholder replacement after translation has already formatted the activity label. That can alter literal {value} text in host content. I’ll prepare the fix and regression cases; the AT and scope holds remain separate."
     },
     {
       "threadId": "01a146f4-9586-7323-9868-4a3bf3070687",
@@ -254,7 +254,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The earlier evidence covers the basic chrome interactions and deferred heading callbacks. The remaining gaps are narrow/RTL presentation and specific retained-selection cases. I\u2019m checking existing fixtures so the new artifacts target those gaps without duplicating accepted tests."
+      "latestCommentary": "The earlier evidence covers the basic chrome interactions and deferred heading callbacks. The remaining gaps are narrow/RTL presentation and specific retained-selection cases. I’m checking existing fixtures so the new artifacts target those gaps without duplicating accepted tests."
     },
     {
       "threadId": "01a146f4-9a60-7f72-b003-2d4b0c48263e",
@@ -265,7 +265,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The retained evidence covers mixed Bold/Italic/Underline, table insertion and history, paragraph alignment, and insertion-menu focus. The remaining command gaps include case/style actions and selected-run color changes. I\u2019ll add real Lexical transaction tests for those cases; visual, RTL and native color-chooser acceptance will remain separate."
+      "latestCommentary": "The retained evidence covers mixed Bold/Italic/Underline, table insertion and history, paragraph alignment, and insertion-menu focus. The remaining command gaps include case/style actions and selected-run color changes. I’ll add real Lexical transaction tests for those cases; visual, RTL and native color-chooser acceptance will remain separate."
     },
     {
       "threadId": "01a146f4-a00b-7f90-91e1-f58e27ae8c98",
@@ -276,7 +276,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "Existing tests cover the representative rich-document round trip and floating-toolbar scroll cleanup. The remaining gaps include narrow/RTL review and real IME/device evidence. I\u2019ll preserve those results and add focused tests for normal typing after selection dismissal and read-only transitions, plus an operator run sheet for the evidence automation cannot supply."
+      "latestCommentary": "Existing tests cover the representative rich-document round trip and floating-toolbar scroll cleanup. The remaining gaps include narrow/RTL review and real IME/device evidence. I’ll preserve those results and add focused tests for normal typing after selection dismissal and read-only transitions, plus an operator run sheet for the evidence automation cannot supply."
     },
     {
       "threadId": "01a146f4-a475-7fc3-8cf7-8668ba8fe7e0",
@@ -287,7 +287,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The existing code covers URL filtering and stale-upload results. I found another gap: saved images and upload results trust TypeScript metadata types at runtime, allowing malformed fields to reach the node factory. I\u2019ll prepare a patch that rejects invalid field shapes while preserving valid metadata and the current URL policy. Broader author-style and remote-asset rules still need an owner decision."
+      "latestCommentary": "The existing code covers URL filtering and stale-upload results. I found another gap: saved images and upload results trust TypeScript metadata types at runtime, allowing malformed fields to reach the node factory. I’ll prepare a patch that rejects invalid field shapes while preserving valid metadata and the current URL policy. Broader author-style and remote-asset rules still need an owner decision."
     },
     {
       "threadId": "01a146f4-a984-73f3-b206-db18cf28b6c8",
@@ -298,7 +298,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The current source includes the DatePicker availability and Calendar reason-disclosure fixes. I\u2019ll compare their hashes with the accepted receipts and focus new work on paste, bounds, reset, and preview/preset contracts."
+      "latestCommentary": "The current source includes the DatePicker availability and Calendar reason-disclosure fixes. I’ll compare their hashes with the accepted receipts and focus new work on paste, bounds, reset, and preview/preset contracts."
     },
     {
       "threadId": "01a146f4-ae7d-7852-969d-9564718d46ba",
@@ -309,7 +309,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The maintained contract now includes the selected period and comparison features. I\u2019ll check which coordinator results still match the current source, then add focused coverage for overnight ranges, midnight bounds, retained seconds, and exclusive-end conversion. Native reflow and spoken announcements remain separate evidence gaps."
+      "latestCommentary": "The maintained contract now includes the selected period and comparison features. I’ll check which coordinator results still match the current source, then add focused coverage for overnight ranges, midnight bounds, retained seconds, and exclusive-end conversion. Native reflow and spoken announcements remain separate evidence gaps."
     },
     {
       "threadId": "01a146f4-b48e-7da1-ae77-8cdc69bc33b1",
@@ -320,7 +320,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The coordinator\u2019s evidence records passing picker fixes across all three desktop engines. I\u2019ll compare those input hashes for reuse. Earlier raw screenshot paths were missing, so I\u2019ll check what can be recovered and add a review receipt format that leaves every image pending until deliberately reviewed."
+      "latestCommentary": "The coordinator’s evidence records passing picker fixes across all three desktop engines. I’ll compare those input hashes for reuse. Earlier raw screenshot paths were missing, so I’ll check what can be recovered and add a review receipt format that leaves every image pending until deliberately reviewed."
     },
     {
       "threadId": "01a146f4-b9e1-7ae3-a97e-ff92966fbd96",
@@ -331,7 +331,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The prior reports identify missing public spacing, focus and motion examples. I\u2019ll prepare those for /theming and a bounded screenshot capture suite. Prototype evidence still has gaps in actual browser zoom, physical touch and spoken screen-reader results; I\u2019ll keep those limits explicit."
+      "latestCommentary": "The prior reports identify missing public spacing, focus and motion examples. I’ll prepare those for /theming and a bounded screenshot capture suite. Prototype evidence still has gaps in actual browser zoom, physical touch and spoken screen-reader results; I’ll keep those limits explicit."
     },
     {
       "threadId": "01a146f4-ce6f-7a70-94a1-14960786cb78",
@@ -342,7 +342,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The existing baseline covers local SSR timings, but it does not measure browser updates or large-grid memory. I also found a cleanup bug: calling the scrollbar observer\u2019s disposer twice can release another scope\u2019s shared listener. I\u2019ll prepare an idempotent-disposal fix and a focused regression, while retaining the existing object-URL cleanup tests."
+      "latestCommentary": "The existing baseline covers local SSR timings, but it does not measure browser updates or large-grid memory. I also found a cleanup bug: calling the scrollbar observer’s disposer twice can release another scope’s shared listener. I’ll prepare an idempotent-disposal fix and a focused regression, while retaining the existing object-URL cleanup tests."
     },
     {
       "threadId": "01a146f4-d385-7a20-875d-f99d2f4a4953",
@@ -353,7 +353,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "I\u2019ll inspect the assigned leaves and prior evidence, then prepare an isolated consumer matrix and reviewable artifacts within wave-03-32."
+      "latestCommentary": "I’ll inspect the assigned leaves and prior evidence, then prepare an isolated consumer matrix and reviewable artifacts within wave-03-32."
     },
     {
       "threadId": "01a146f4-d959-7d73-83b1-22f406d5e888",
@@ -364,7 +364,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The 36 manifest repairs are already present. The remaining AppButton gap is narrower: local Git history preserves its examples and unit assertions, but the recorded learner-platform commit is unavailable here. I\u2019m separating that upstream limit from the replacement mapping we can establish locally."
+      "latestCommentary": "The 36 manifest repairs are already present. The remaining AppButton gap is narrower: local Git history preserves its examples and unit assertions, but the recorded host application commit is unavailable here. I’m separating that upstream limit from the replacement mapping we can establish locally."
     },
     {
       "threadId": "01a146f4-def8-7c00-996d-7304bb9485bc",
@@ -375,7 +375,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "The earlier corrections are still needed in the recipe, guidance mapping, and several setup guides; the moved release-config link is already fixed. I\u2019ll preserve historical records and patch the current instructions. Support ownership decisions remain pending and can\u2019t be inferred from repository evidence."
+      "latestCommentary": "The earlier corrections are still needed in the recipe, guidance mapping, and several setup guides; the moved release-config link is already fixed. I’ll preserve historical records and patch the current instructions. Support ownership decisions remain pending and can’t be inferred from repository evidence."
     },
     {
       "threadId": "01a146f4-e658-71e2-907c-c0522444f5e4",
@@ -386,7 +386,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "I\u2019ll read the acceptance requirements and prior evidence, then prepare concrete audit and patch artifacts within wave-03-35. I\u2019ll keep historical and legal references separate from runtime dependencies."
+      "latestCommentary": "I’ll read the acceptance requirements and prior evidence, then prepare concrete audit and patch artifacts within wave-03-35. I’ll keep historical and legal references separate from runtime dependencies."
     },
     {
       "threadId": "01a146f4-ecaa-7d72-a098-f645fec9ea9e",
@@ -397,7 +397,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "I\u2019ll read the assigned acceptance leaves and existing evidence, then prepare workflow patches and focused validation artifacts in wave-03-36 only."
+      "latestCommentary": "I’ll read the assigned acceptance leaves and existing evidence, then prepare workflow patches and focused validation artifacts in wave-03-36 only."
     },
     {
       "threadId": "01a146f4-f2f4-75b0-b982-a6489e3bc041",
@@ -408,7 +408,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "I\u2019ll read the assigned acceptance requirements and prior evidence, then prepare workflow/template patches and focused validation artifacts in wave-03-37."
+      "latestCommentary": "I’ll read the assigned acceptance requirements and prior evidence, then prepare workflow/template patches and focused validation artifacts in wave-03-37."
     },
     {
       "threadId": "01a146f4-fb2c-7480-a244-33801127f6bc",
@@ -419,7 +419,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "I\u2019ll inspect the assigned acceptance evidence and release workflow, then prepare bounded patches and validation instructions inside wave-03-38."
+      "latestCommentary": "I’ll inspect the assigned acceptance evidence and release workflow, then prepare bounded patches and validation instructions inside wave-03-38."
     },
     {
       "threadId": "01a146f5-00fd-7813-9cd6-d0b307efbed4",
@@ -430,7 +430,7 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "I\u2019ll read the acceptance requirement and prior evidence, then prepare a focused test patch and validation plan inside wave-03-39."
+      "latestCommentary": "I’ll read the acceptance requirement and prior evidence, then prepare a focused test patch and validation plan inside wave-03-39."
     },
     {
       "threadId": "01a146f5-06ac-7370-b7d3-43d9ee550674",
@@ -441,7 +441,8 @@
         "activeFlags": []
       },
       "turnStatus": "inProgress",
-      "latestCommentary": "I\u2019ll read the assigned acceptance leaves and prior evidence, then prepare the commitment map and proposed ledger updates inside wave-03-40."
+      "latestCommentary": "I’ll read the assigned acceptance leaves and prior evidence, then prepare the commitment map and proposed ledger updates inside wave-03-40."
     }
-  ]
+  ],
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

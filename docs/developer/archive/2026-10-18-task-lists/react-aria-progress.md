@@ -94,7 +94,7 @@ dependency direction, stylesheet output and the temporary experimental entry poi
 
 | Tasks | Evidence and disposition |
 | --- | --- |
-| B-01, B-02, B-06, B-14 | Captured initial state/package/API, read all required guidance, established a green baseline, left the learner platform unchanged. |
+| B-01, B-02, B-06, B-14 | Captured initial state/package/API, read all required guidance, established a green baseline, left the host application unchanged. |
 | B-03–B-05 | Partial inventory: [foundation references and public barrels](../../migration-baseline/inventory.json), [built public declarations](../../migration-baseline/public-api.json), [package metadata](../../migration-baseline/package.json). Defaults, DOM/focus audit and full transitive review remain open. |
 | A-01, A-19, C-21 | Recorded implementation/dependency decisions in the architecture document. The grid engine decision is recorded below; final catalog API mappings remain open. |
 | A-02–A-18, L | Partial implementation: explicit new layers, owned proof props and declarations, import guard, exact interaction dependency, retained commercial terms and added upstream Apache license. Remaining catalog mappings and full license inventory remain open. |
@@ -2623,7 +2623,7 @@ reproduction; these changes do not silently close it.
 
 ## Original commitment review — 2026-10-18
 
-A-Z-12 closes against the [17-conversation reconciliation](../../backlog-to-ten/conversation-reconciliation.md). Current architecture, later calendar defaults, docs migration and source-backed component attributions are mapped; remaining legal, hardware, manual review and release gates retain their IDs. No publication or migration-complete approval is inferred.
+A-Z-12 closes against the historical 17-conversation reconciliation; its [availability and recorded identity](../../evidence-availability.md#commitment-reconciliation) are documented separately. Current architecture, later calendar defaults, docs migration and source-backed component attributions are mapped; remaining legal, hardware, manual review and release gates retain their IDs. No publication or migration-complete approval is inferred.
 
 ## Browser coverage matrix — 2026-10-18
 
@@ -2637,3 +2637,34 @@ Saved current source and progress records to dev at the user's request.
 items, bounded validation, the still-running complete checkpoint and remaining
 owner evidence. The ten-item target is not reached; no full current-head pass or
 release approval is claimed.
+
+## Packed consumer checkpoint repair — 2026-10-21
+
+A-R-12-a | repaired job-local Playwright browser provisioning after observing
+the completed Node 24 checkpoint failure | `.github/workflows/ci.yml` and
+`packages/ui/scripts/check-ci-release-enforcement.{mjs,test.mjs}` | working tree
+based on `98c678d6`; [repair receipt](../../backlog-to-ten/ci-consumer-browser-repair.md) |
+25 CI enforcement/artifact verifier tests pass locally | new exact-head Actions
+execution and official artifact acceptance pending | A-R-12, DOCS-005-l.
+The parent tasks and active count remain unchanged.
+
+## Documentation sidebar menu adoption — 2026-10-21
+
+HM-ADOPT-01 | complete for CatalogNavigation using the public HierarchicalMenu |
+`apps/docs/components/CatalogNavigation.tsx`, website styles, grouped navigation
+browser tests and documented navigation scroll hook | working tree based on
+`98c678d6`; [integration evidence](../../hierarchical-menu-scope.md#documentation-sidebar-adoption--2026-10-21) |
+fresh production library/docs build and catalog pass, seven component units,
+five Chromium integration cases, library types and foundation guards pass |
+Node 26 local results; batch Firefox/WebKit/device/AT and release gates retain
+their scope | A-Z-11. Active tasks decrease from 20 to 19.
+
+## Nine corrective children — 2026-10-21
+
+A-Z-15-a, A-R-12-b, A-R-21-a, A-R-23-a, A-L-01-a, A-L-04-a, A-Z-06-a,
+DOCS-005-l-a and DOCS-007-a | implemented and targeted tests pass |
+[combined source/evidence receipt](../../backlog-to-ten/nine-corrections-2026-10-21.md) |
+working tree based on `98c678d6` | 69 JavaScript tests, six Python tests, nine
+Chromium cases and fresh production library/docs build pass | manual/legal/live
+workflow/hosting and full official matrix remain under original parents |
+original nine parents remain open; active parent count stays 19.

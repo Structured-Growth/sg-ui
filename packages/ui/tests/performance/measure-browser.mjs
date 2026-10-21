@@ -16,6 +16,8 @@ const renderer=process.argv[3]??'processing';assert.ok(['processing','catalog'].
 const availableWorkloads=renderer==='catalog'?['small','wide','largePage']:['small','wide','largePage','selector'];
 const only=process.argv[4];assert.ok(only===undefined||availableWorkloads.includes(only),'Optional workload must be an existing renderer workload');
 const workloads=only?[only]:availableWorkloads;
+const cpuRate=Number(process.env.SGUI_PERF_CPU_THROTTLE??1);
+assert.ok([1,4].includes(cpuRate),'Use the unthrottled reference or the explicit 4x conservative CPU proxy');
 const iterations=process.argv[5]===undefined?12:Number(process.argv[5]);assert.ok([1,12].includes(iterations),'Use one diagnostic navigation or the existing twelve-navigation protocol');
 const sourceHead=process.env.SGUI_PERF_SOURCE_HEAD;assert.match(sourceHead??'',/^[a-f0-9]{40}$/,'Set SGUI_PERF_SOURCE_HEAD to the immutable measured source commit');
 const fixtureHashes={};for(const name of ['fixture.tsx','measure-browser.mjs','vite.config.mjs','index.html'])fixtureHashes[name]=createHash('sha256').update(await readFile(here+'/'+name)).digest('hex');
@@ -23,6 +25,7 @@ const browser=await chromium.launch();const results=[],cleanupProbes=[];let curr
 try {
   const context=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'});
   const page=activePage=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(String(e)));
+  if(cpuRate!==1){const cdp=await context.newCDPSession(page);await cdp.send('Emulation.setCPUThrottlingRate',{rate:cpuRate});}
   for(const workload of workloads)for(let iteration=0;iteration<iterations;iteration++){
     currentAttempt={workload,iteration,actions:[]};
     await page.goto('http://127.0.0.1:4179/?renderer='+renderer+'&workload='+workload);
@@ -56,7 +59,7 @@ try {
       await page.getByRole('button',{name:'Sort Name',exact:true}).click();
       if(renderer==='catalog')await page.getByRole('menuitemradio',{name:'Sort Ascending',exact:true}).click();
     }
-    await page.waitForFunction(()=>!window.sguiPerf.updating,{},{timeout:20000});
+    await page.waitForFunction(()=>!window.sguiPerf.updating,{},{timeout:20000*cpuRate});
     await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
     const samples=await page.evaluate(()=>window.sguiPerf.samples);
     assertLatencySamples(samples);
@@ -85,7 +88,7 @@ try {
   assert.deepEqual(errors,[]);
   const summaries={};for(const row of results.filter(r=>!r.warmup))for(const sample of row.samples){const key=row.workload+':'+sample.action+(sample.duringUpdates?':updating':':idle');(summaries[key]??=[]).push(sample.ms);}
   for(const [key,values] of Object.entries(summaries)){values.sort((a,b)=>a-b);summaries[key]={count:values.length,medianMs:values[Math.ceil(values.length*.5)-1],p95Ms:values[Math.ceil(values.length*.95)-1],maxMs:values.at(-1)};}
-  await writeFile(destination,JSON.stringify({schemaVersion:2,renderer,sourceHead,selectedWorkloads:workloads,iterations,fixtureHashes,cleanupProbes,viewport:{width:1440,height:900},summaries,measuredAt:new Date().toISOString(),environment:{react:JSON.parse(await readFile(resolve(here,'../../node_modules/react/package.json'),'utf8')).version,throttlePolicy:'none',node:process.version,browser:browser.version(),os:os.type(),release:os.release(),arch:os.arch(),cpu:os.cpus()[0]?.model,totalMemoryBytes:os.totalmem(),loadAverage:os.loadavg()},assets,results,method:'Production React; 3 warmup/9 recorded navigations per workload; overlapping native input/selection during 50 updates; input/grid-click capture, selector keyboard selection public callback or timer callback to two post-commit RAFs. Frame-opportunity estimate, not physical paint/INP/AT. All emitted assets summed separately, not route transfer.',limits:['No cross-build baseline or physical-device result without second matching run.','No heap retention/GC plateau or global listener census.','No budget auto-record/update.']},null,2)+'\n',{flag:'wx'});
+  await writeFile(destination,JSON.stringify({schemaVersion:2,renderer,sourceHead,selectedWorkloads:workloads,iterations,fixtureHashes,cleanupProbes,viewport:{width:1440,height:900},summaries,measuredAt:new Date().toISOString(),environment:{react:JSON.parse(await readFile(resolve(here,'../../node_modules/react/package.json'),'utf8')).version,throttlePolicy:cpuRate===1?'none':'cdp-cpu-4x',cpuThrottleRate:cpuRate,node:process.version,browser:browser.version(),os:os.type(),release:os.release(),arch:os.arch(),cpu:os.cpus()[0]?.model,totalMemoryBytes:os.totalmem(),loadAverage:os.loadavg()},assets,results,method:'Production React; 3 warmup/9 recorded navigations per workload; overlapping native input/selection during 50 updates; input/grid-click capture, selector keyboard selection public callback or timer callback to two post-commit RAFs. Frame-opportunity estimate, not physical paint/INP/AT. All emitted assets summed separately, not route transfer.',limits:['No cross-build baseline or physical-device result without second matching run.','No heap retention/GC plateau or global listener census.','No budget auto-record/update.']},null,2)+'\n',{flag:'wx'});
 } catch(error) {
   if(currentAttempt&&activePage){
     currentAttempt.browserState=await activePage.evaluate(()=>({updating:window.sguiPerf?.updating,samples:window.sguiPerf?.samples,bodyText:document.body.innerText,options:document.querySelectorAll('[role=option]').length,activeElement:{tag:document.activeElement?.tagName,name:document.activeElement?.getAttribute('aria-label'),value:document.activeElement?.value}})).catch(failure=>({error:String(failure)}));

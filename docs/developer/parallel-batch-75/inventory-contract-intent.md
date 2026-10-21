@@ -32,7 +32,7 @@ Path history identifies owned implementation migrations `8f41479` (navigator),
 `51734ed` (cards), and `615b978` (editor menus). Current contracts preserve these
 component responsibilities while adding owned interaction/style behavior. This
 history supports a wording mismatch; it does not prove what the master author
-intended. The learner-platform extraction is provenance only; no external source
+intended. The host application extraction is provenance only; no external source
 or host application was modified or used as a runtime dependency.
 
 ## M-10 ExperiencePageNavigator

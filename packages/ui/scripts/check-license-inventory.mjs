@@ -149,7 +149,9 @@ export async function inventory(root) {
       const evidence = [];
       for (const legal of await entries(directory)) if (/^(licen[sc]e|copying|notice)(?:[.-].*)?$/i.test(legal.name) && legal.isFile()) {
         const legalPath = join(directory, legal.name);
-        evidence.push({ path: path(legalPath), sha256: hash(await readFile(legalPath)) });
+        const legalBytes=await readFile(legalPath);
+        evidence.push({ path: path(legalPath), sha256: hash(legalBytes) });
+        if (!legalBytes.toString('utf8').trim()) issue('empty-license-file', id, path(legalPath));
       }
       const item = { path: path(file), sha256: hash(data), license: metadata.license ?? null, legacyLicenses: metadata.licenses ?? null, repository: metadata.repository ?? null, evidence };
       if (!metadataIndex.has(id)) metadataIndex.set(id, []);
@@ -202,12 +204,15 @@ export async function inventory(root) {
     if (!data) issue('missing-project-legal-file', name, 'Existing legal material required');
   }
   const notices = [];
+  const seenNotices = new Set();
   const noticeBytes = await bytes(join(root, 'THIRD_PARTY_NOTICES.md'));
   for (const [index, line] of (noticeBytes?.toString() ?? '').split(/\r?\n/).entries()) {
     if (!line.startsWith('## ')) continue;
     const match = /^## (\S+) (\d+\.\d+\.\d+(?:[-+][\w.-]+)?) \((.+)\)$/.exec(line);
     if (!match) { issue('unparsed-notice-heading', `THIRD_PARTY_NOTICES.md:${index + 1}`, line); continue; }
     const id = `${match[1]}@${match[2]}`;
+    if (seenNotices.has(id)) issue('duplicate-notice-reference', id, `THIRD_PARTY_NOTICES.md:${index + 1}; review duplicate sections without automatically removing attribution`);
+    seenNotices.add(id);
     notices.push({ id, declaredLicense: match[3], line: index + 1, locked: lock.packages.has(id) });
     if (!lock.packages.has(id)) issue('unmatched-notice-reference', id, 'Heading has no locked identity; removal requires shipped-code/asset review');
     for (const item of metadataIndex.get(id) ?? []) if (typeof item.license === 'string' && item.license !== match[3]) {

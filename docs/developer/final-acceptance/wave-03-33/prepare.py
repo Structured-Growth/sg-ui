@@ -29,7 +29,7 @@ mapping = [
 manifest = json.loads((ROOT / 'docs/extraction-manifest.json').read_text())
 row = next(r for r in manifest['files'] if r['source'] == 'components/AppButton/AppButton.stories.tsx')
 row['migration']['replacements'] = [fixture, public]
-row['migration']['evidenceLimit'] = 'Deliberate local-history replacement, not an exact docs-native module transfer. See docs/developer/extraction-lineage.md. All inspected local AppButton stories have no play/expect/assert execution; original learner-platform commit contents and behavior remain unverified.'
+row['migration']['evidenceLimit'] = 'Deliberate local-history replacement, not an exact docs-native module transfer. See docs/developer/extraction-lineage.md. All inspected local AppButton stories have no play/expect/assert execution; original host application commit contents and behavior remain unverified.'
 row['migration']['localReconciliation'] = {
     'initialExtractionCommit': '21adebd61bedfc6a1ed395fe664ff4be83896821',
     'initialStoryBlob': evidence['history'][0]['blob'].strip(),
@@ -47,9 +47,9 @@ doc = '''# Extraction and example lineage
 
 This reconciliation distinguishes the recorded upstream source, local extracted
 files, later owned contracts and the docs-native replacement host. The upstream
-identity remains `Structured-Growth/learning-platform`, commit
-`8e63f1e16fc3d43d851908b312603a1099ca13d9`, root `apps/web/src/ui`.
-That commit object is unavailable in this SGUI repository. No learner-platform
+identity remains `owner-confirmed first-party code`, commit
+`source-identity-omitted`, root `apps/web/src/ui`.
+That commit object is unavailable in this SGUI repository. No host application
 checkout or remote was accessed. Local extraction history is evidence of local
 contents; it does not independently authenticate upstream bytes or behavior.
 
@@ -152,15 +152,15 @@ still needed. Legal notices remain subject to their separate owner review.
 [Audit evidence](final-acceptance/wave-03-33/evidence.json) records exact local Git
 blobs, source SHA-256 hashes, scenario export comparisons, unit assertion texts,
 the unavailable-upstream diagnostic and prior-receipt input comparisons. No
-learner-platform mutation, runtime/browser/AT/device execution, legal approval,
+host application mutation, runtime/browser/AT/device execution, legal approval,
 publication or historical-evidence rewrite is implied.
 '''
 propose('docs/developer/extraction-lineage.md', doc)
 
 p='docs/migration.md'
 text=(ROOT/p).read_text()
-text=text.replace('This documentation slice does not change that manifest or the learner platform.',
-    'The [lineage reconciliation](developer/extraction-lineage.md) separates original\nsource identity from local Git evidence, deliberate AppButton replacements and\nremaining early grid scenario dispositions. The learner platform remains outside\nthis migration; no upstream checkout is modified.')
+text=text.replace('This documentation slice does not change that manifest or the host application.',
+    'The [lineage reconciliation](developer/extraction-lineage.md) separates original\nsource identity from local Git evidence, deliberate AppButton replacements and\nremaining early grid scenario dispositions. The host application remains outside\nthis migration; no upstream checkout is modified.')
 propose(p,text)
 p='docs/developer/react-aria-removal-audit.md'
 text=(ROOT/p).read_text()

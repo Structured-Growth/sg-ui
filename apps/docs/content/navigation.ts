@@ -9,6 +9,7 @@ export const navigation = [
   { label: 'Licenses', href: '/licensing' },
 ];
 // Populate with validated immutable deployments when releases exist.
-export const documentationVersions: { id: string; label: string; baseUrl: string }[] = [
+export const documentationVersions: DocumentationVersion[] = [
   { id: 'development', label: 'Development · unreleased', baseUrl: '' },
 ];
+import type {DocumentationVersion} from './documentation-versioning.mjs';

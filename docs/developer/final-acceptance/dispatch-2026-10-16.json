@@ -454,7 +454,7 @@
         "A-B-13",
         "A-B-14"
       ],
-      "task": "Audit extraction manifest against current helpers/presets/models/editor nodes/plugins/fixtures/tests. Inventory public storage keys/schema/locale-date/error contracts. Preserve learner-platform provenance read-only; do not access or modify another checkout.",
+      "task": "Audit extraction manifest against current helpers/presets/models/editor nodes/plugins/fixtures/tests. Inventory public storage keys/schema/locale-date/error contracts. Preserve host application provenance read-only; do not access or modify another checkout.",
       "status": "reviewed",
       "threadId": "01a146da-0e8b-7253-8022-b8af6bc8cd8c",
       "hostId": "local",
@@ -474,5 +474,6 @@
         }
       ]
     }
-  ]
+  ],
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

@@ -10398,7 +10398,7 @@
       "removedRoutes": [],
       "addedRoutes": [],
       "guide": "docs/developer/react-aria-catalog-grid.md",
-      "releaseImpact": "Local presentation model retained independently of learner-platform HTTP/database contracts.",
+      "releaseImpact": "Local presentation model retained independently of host application HTTP/database contracts.",
       "inheritedPropCompatibilityCertified": false
     }
   ],
@@ -19765,7 +19765,7 @@
       ],
       "disposition": "owned-replacement-of-retained-names",
       "guide": "docs/developer/react-aria-catalog-grid.md",
-      "releaseImpact": "Local presentation model retained independently of learner-platform HTTP/database contracts.",
+      "releaseImpact": "Local presentation model retained independently of host application HTTP/database contracts.",
       "declarations": [
         {
           "file": "packages/ui/dist/models.d.ts",
@@ -29599,5 +29599,6 @@
       "theme"
     ],
     "additiveContracts": 217
-  }
+  },
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

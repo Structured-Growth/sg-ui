@@ -24,7 +24,7 @@
   "obligations": [
     "- [ ] A-B-07 Reconcile original `B-07`: Capture representative screenshots and browser interactions for light/dark UI, compact/comfortable controls, editors, navigation, modals, and grids. Historical status: open.",
     "- [ ] A-B-12 Reconcile original `B-12`: Review the extraction manifest against actual files so helpers, model presets, nodes/plugins, fixtures, and tests are not lost when directories move. Historical status: open.",
-    "- [ ] A-B-14 Reconcile original `B-14`: Keep the learner platform unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
+    "- [ ] A-B-14 Reconcile original `B-14`: Keep the host application unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
     "- [ ] A-D-20 Reconcile original `D-20`: Publish foundation stories for palettes, typography, spacing, density, surfaces, focus, and motion, all consuming production tokens. Historical status: open.",
     "- [ ] A-I-08 Reconcile original `I-08`: Add icon catalog, accessibility, and bundle checks; update notices for all shipped vector assets. Historical status: open.",
     "- [ ] A-H-08 Reconcile original `H-08`: Validate ICU variables, pluralization, selection counts, date/number formatting, long labels, RTL, and pseudo-localized stories. Historical status: open.",
@@ -39,5 +39,6 @@
     "- [ ] A-Z-12 Reconcile original `Z-12`: Review the plan against every conversation commitment and imported UI principle; resolve duplicates, gaps, incompatible rules and unsupported feature claims. Historical status: open.",
     "- [ ] A-Z-15 Reconcile original `Z-15`: Record final dependency/feature decisions, accepted test evidence, completed PRs, and explicitly deferred future tasks; no unchecked required migration item is dismissed as optional after the fact. Historical status: open.",
     "- [ ] A-Z-16 Reconcile original `Z-16`: Only then mark the migration complete. Publishing is performed through the configured release workflow when authorized release-worthy changes merge. Historical status: open."
-  ]
+  ],
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

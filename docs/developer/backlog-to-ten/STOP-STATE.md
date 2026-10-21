@@ -10,7 +10,7 @@ Six future features are excluded; parent rollups are not double-counted.
 ## Completed
 
 Nine leaves closed: HM-T-01, HM-V-01, A-X-06, A-X-07, A-X-10, A-Z-12,
-A-B-10, A-G-20 and A-M-16. See [the acceptance ledger](../react-aria-final-acceptance.md),
+A-B-10, A-G-20 and A-M-16. See [the acceptance ledger](../archive/2026-10-18-task-lists/react-aria-final-acceptance.md),
 [closure receipt](performance-grid-closure.json), [remaining item list](remaining-20.json)
 and [owner evidence needed](owner-evidence-needed.md).
 

@@ -844,7 +844,7 @@
     {
       "id": "A-B-14",
       "status": "partial",
-      "originalChecklistText": "- [ ] A-B-14 Reconcile original `B-14`: Keep the learner platform unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
+      "originalChecklistText": "- [ ] A-B-14 Reconcile original `B-14`: Keep the host application unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
       "conversationNumber": 15,
       "report": "docs/developer/final-acceptance/parallel-15/report.md",
       "results": "docs/developer/final-acceptance/parallel-15/results.json",
@@ -856,5 +856,6 @@
       ],
       "scope": "Accepted only for the architectural/contract/inventory criterion and evidence limits stated in the report; no inferred browser/device/AT/release closure."
     }
-  ]
+  ],
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

@@ -111,7 +111,7 @@ check without exposing private state, then reconciles this narrow remaining scop
 Do not rerun the completed AST/dependency inventory or erase evidence matches.
 
 **A-Z-05 — partial, reviewable amendments supplied.** The two source identities
-remain `Structured-Growth/learning-platform@8e63f1e16fc3d43d851908b312603a1099ca13d9`
+remain `owner-confirmed first-party code@source-identity-omitted`
 and initial SGUI extraction `21adebd61bedfc6a1ed395fe664ff4be83896821`.
 `manifest-amendments.json` progresses parallel-15's exact successor: 32 rows map
 to known migrated fixtures, three to Button source/test/index candidates, and the

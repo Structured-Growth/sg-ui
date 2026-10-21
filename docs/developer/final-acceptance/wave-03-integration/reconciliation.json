@@ -1457,7 +1457,7 @@
     },
     {
       "id": "A-B-14",
-      "originalChecklistText": "- [ ] A-B-14 Reconcile original `B-14`: Keep the learner platform unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
+      "originalChecklistText": "- [ ] A-B-14 Reconcile original `B-14`: Keep the host application unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
       "owner": 33,
       "report": "docs/developer/final-acceptance/wave-03-33/report.md",
       "results": "docs/developer/final-acceptance/wave-03-33/results.json",
@@ -1844,5 +1844,6 @@
   "remainingAcceptance": 139,
   "overallClosedAcceptance": 181,
   "remainingEditorHardening": 20,
-  "future": 6
+  "future": 6,
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

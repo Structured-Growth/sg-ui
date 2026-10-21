@@ -76,6 +76,14 @@ separate provenance review. A missing `dist` is a finding; the checker never bui
 it. Root legal-file inspection does not prove packed byte preservation, which is
 the separate existing [package audit](../../packages/ui/scripts/check-package.mjs).
 
+The checker reports empty/whitespace-only installed legal files separately from
+absent files, and reports duplicate exact notice identities without removing
+either section. A sibling NOTICE cannot make an empty LICENSE complete evidence.
+The packed-evidence companion checks each installed instance for missing legal
+evidence, so one instance cannot hide another's missing files. These are evidence
+integrity checks, not determinations of legal sufficiency. See the
+[nine-correction receipt](backlog-to-ten/nine-corrections-2026-10-21.md).
+
 ## Ownership and update workflow
 
 The dependency or asset change author owns the inventory/notice update for that
@@ -177,15 +185,10 @@ receipt failure handling; they do not constitute an actual repository install.
 
 ## Verified attribution facts and their scope
 
-The [read-only extraction verification](extraction-lineage.md#read-only-upstream-verification--2026-10-17)
-authenticates the recorded learner-platform commit/tree and all 201 extraction
-paths. Initial local extraction has 117 identical Git blobs and 84 adapted blob
-identities. All 33 original story blobs were independently checked. This resolves
-the earlier lack of authoritative upstream source access; it does not establish
-rights, license compatibility, imported-helper execution or upstream application
-runtime behavior. Retain the source repository/commit, file identity and adaptation
-record rather than treating all adapted files as verbatim copies or all owned
-implementations as proof of no historical copying.
+The owner confirms all rights to first-party code and requires no additional
+first-party legal review; see [owner decisions](owner-decisions.md). Source-origin
+history is omitted at the owner's request. Third-party dependency and asset
+licenses retain their separate obligations.
 
 The accepted [icon attribution receipt](final-acceptance/wave-04/coordinator/icon-vector-attribution/receipt.json)
 identifies 96 Lucide-backed wrappers. The installed lucide-react 1.52.0 legal text

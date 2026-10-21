@@ -47,7 +47,7 @@
       "successors": [
         {
           "id": "W02-01-C03-AT",
-          "deliverable": "Operator receipt naming OS/browser/AT versions, source/fixture hashes and observed pending\u2192active\u2192completed/error\u2192retry speech. Confirm milestone once, quiet percentage ticks and retained keyboard focus. Reuse existing Transitions fixture; do not add an unsolicited component live region.",
+          "deliverable": "Operator receipt naming OS/browser/AT versions, source/fixture hashes and observed pending→active→completed/error→retry speech. Confirm milestone once, quiet percentage ticks and retained keyboard focus. Reuse existing Transitions fixture; do not add an unsolicited component live region.",
           "prerequisite": "Human/operator session with actual supported screen reader; DOM assertions cannot substitute."
         }
       ],
@@ -260,7 +260,7 @@
         },
         {
           "id": "M16-G-gates",
-          "deliverable": "Coordinator must reconcile remaining G-15\u2013G-29 original obligations independently, especially full focus/scroll, workload/performance, physical touch/AT and exact-artifact gates; retain required deferrals only where explicitly approved. Attach resulting evidence to M16 rather than closing it from the baseline."
+          "deliverable": "Coordinator must reconcile remaining G-15–G-29 original obligations independently, especially full focus/scroll, workload/performance, physical touch/AT and exact-artifact gates; retain required deferrals only where explicitly approved. Attach resulting evidence to M16 rather than closing it from the baseline."
         }
       ],
       "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
@@ -1960,7 +1960,7 @@
       "successors": [
         {
           "id": "W02-08-U07-HIERARCHY",
-          "deliverable": "Resolve the required hierarchy against HM-F-01: owned model/path, command-versus-navigation semantics, recursive levels and Back focus/dismissal. Deliver HM-F-02\u201304 standalone implementation, public playground/source/metadata, and bounded forward/Back/leaf-action proof; preserve existing SideNavigation behavior. If popup flyout submenus are required, specify that separate contract instead of silently substituting drilldown.",
+          "deliverable": "Resolve the required hierarchy against HM-F-01: owned model/path, command-versus-navigation semantics, recursive levels and Back focus/dismissal. Deliver HM-F-02–04 standalone implementation, public playground/source/metadata, and bounded forward/Back/leaf-action proof; preserve existing SideNavigation behavior. If popup flyout submenus are required, specify that separate contract instead of silently substituting drilldown.",
           "prerequisites": "Owner scope/API decision and implementation authorization beyond this report-only directory. Current flat command Menu alone does not close the hierarchy obligation."
         },
         {
@@ -2001,7 +2001,7 @@
       "successors": [
         {
           "id": "W02-08-U09-NATIVE",
-          "deliverable": "Use tabs-vertical-orientation.spec.ts and batch05-tabs-overflow.spec.ts plus existing manual-tabs-host-scroll coverage. Retain current immutable-host proof of horizontal/vertical \u00d7 automatic/manual, disabled skipping, two densities, RTL, clipped focus reveal, menu promotion and resize while rejecting/accepting controlled values. Reuse matching prior cases; select only missing/changed scopes.",
+          "deliverable": "Use tabs-vertical-orientation.spec.ts and batch05-tabs-overflow.spec.ts plus existing manual-tabs-host-scroll coverage. Retain current immutable-host proof of horizontal/vertical × automatic/manual, disabled skipping, two densities, RTL, clipped focus reveal, menu promotion and resize while rejecting/accepting controlled values. Reuse matching prior cases; select only missing/changed scopes.",
           "prerequisites": "Coordinator native window; record actual scroll offsets/bounds and focus ring visibility, not merely role attributes. Spoken tab/panel output needs a separate AT operator."
         }
       ],
@@ -3319,7 +3319,7 @@
     {
       "id": "A-W-02",
       "status": "complete",
-      "originalChecklistText": "- [ ] A-W-02 Reconcile original `W-02`: Retain valid learner-platform principles: shared components first, props/variants before custom styles, tokenized typography, neutral split actions, consistent grid alignment/filtering, and stories with behavior changes. Historical status: open.",
+      "originalChecklistText": "- [ ] A-W-02 Reconcile original `W-02`: Retain valid host application principles: shared components first, props/variants before custom styles, tokenized typography, neutral split actions, consistent grid alignment/filtering, and stories with behavior changes. Historical status: open.",
       "conversationNumber": 13,
       "report": "docs/developer/final-acceptance/wave-02-13/report.md",
       "results": "docs/developer/final-acceptance/wave-02-13/results.json",
@@ -3475,7 +3475,7 @@
     {
       "id": "A-W-15",
       "status": "complete",
-      "originalChecklistText": "- [ ] A-W-15 Reconcile original `W-15`: Provide a read-only learner-platform adoption checklist; modifying that application remains a separate implementation task. Historical status: open.",
+      "originalChecklistText": "- [ ] A-W-15 Reconcile original `W-15`: Provide a read-only host application adoption checklist; modifying that application remains a separate implementation task. Historical status: open.",
       "conversationNumber": 13,
       "report": "docs/developer/final-acceptance/wave-02-13/report.md",
       "results": "docs/developer/final-acceptance/wave-02-13/results.json",
@@ -3708,7 +3708,7 @@
       "reportSha256": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
       "resultsSha256": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
       "successors": [
-        "coordinator joins actual human commitments/owner decisions to\nnamed acceptance IDs and current source evidence, resolves retained intent rows,\nand documents approved exceptions without dropping requirements. Historical\nstatements such as \u201cAppDataGrid still renders MUI X\u201d in the dated early progress\nbatch remain dated history, not current implementation guidance."
+        "coordinator joins actual human commitments/owner decisions to\nnamed acceptance IDs and current source evidence, resolves retained intent rows,\nand documents approved exceptions without dropping requirements. Historical\nstatements such as “AppDataGrid still renders MUI X” in the dated early progress\nbatch remain dated history, not current implementation guidance."
       ],
       "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
     },
@@ -3764,7 +3764,7 @@
       "reportSha256": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
       "resultsSha256": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
       "successors": [
-        "only after all required leaf/operator/legal/owner\nresults are reconciled, the human approves the release-worthy promotion and the\nconfigured workflow validates/publishes on main. Development acceptance work\ncontinues on dev. \u201cPartial\u201d records the unmet completion gate; it does not imply\npublishing is authorized or that the gate can be waived locally."
+        "only after all required leaf/operator/legal/owner\nresults are reconciled, the human approves the release-worthy promotion and the\nconfigured workflow validates/publishes on main. Development acceptance work\ncontinues on dev. “Partial” records the unmet completion gate; it does not imply\npublishing is authorized or that the gate can be waived locally."
       ],
       "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
     },
@@ -4094,7 +4094,7 @@
     {
       "id": "A-B-14",
       "status": "partial",
-      "originalChecklistText": "- [ ] A-B-14 Reconcile original `B-14`: Keep the learner platform unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
+      "originalChecklistText": "- [ ] A-B-14 Reconcile original `B-14`: Keep the host application unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
       "conversationNumber": 15,
       "report": "docs/developer/final-acceptance/wave-02-15/report.md",
       "results": "docs/developer/final-acceptance/wave-02-15/results.json",
@@ -4102,10 +4102,11 @@
       "resultsSha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
       "successors": [
         "Attach durable original-source-commit-bound read-only reference captures or separately authorize original provenance review; reconcile helper/preset/editor/Button behavior against those references.",
-        "Preserve unchanged learner platform; no mutation or access to another checkout authorized here."
+        "Preserve unchanged host application; no mutation or access to another checkout authorized here."
       ],
       "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
     }
   ],
-  "concurrentChanges": "Coordinator and ten/twelve explicitly owned fix conversations changed source/metadata/guidance after some captures. Reports record those boundaries. Current implementation acceptance for changed code uses coordinator/fix-specific receipts; no claim that FA-01 output hashes still match."
+  "concurrentChanges": "Coordinator and ten/twelve explicitly owned fix conversations changed source/metadata/guidance after some captures. Reports record those boundaries. Current implementation acceptance for changed code uses coordinator/fix-specific receipts; no claim that FA-01 output hashes still match.",
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

@@ -42,7 +42,9 @@ items; 20 remain.
 
 Closed A-Z-12 after reviewing complete available turn streams of 17 SGUI project
 root conversations against imported principles, current instructions and accepted
-component attribution. The [reconciliation](../../backlog-to-ten/conversation-reconciliation.md)
+component attribution. The historical reconciliation, whose
+[availability and recorded identity](../../evidence-availability.md#commitment-reconciliation)
+are now documented,
 preserves source identities, policy choices, later superseding requests and every
 remaining required gate; private transcripts are excluded. The former M10/M14/M30
 questions are resolved by shipped successors and accepted source-bound evidence.
@@ -67,7 +69,7 @@ run are outside these closures and remain recorded; the menu task stays open.
 Forced colors and coarse input are browser emulations; physical-device and spoken
 AT scope remains under its original open tasks. Earlier structural-state, focus,
 non-text and reduced-motion evidence remains as mapped in the
-[criterion map](../../final-acceptance/wave-04/02/contrast-runtime/criterion-map.md).
+[criterion map (availability and recorded identity)](../../evidence-availability.md#contrast-criterion-map).
 Wave 04 now closes 117 of 139 items; 22 remain.
 
 ### Native nesting and shallow ownership completed — 2026-10-17

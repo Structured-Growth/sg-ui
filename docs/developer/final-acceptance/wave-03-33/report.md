@@ -72,7 +72,7 @@ This proves local assertion source continuity, not a fresh test run or the
 original upstream behavior. HEAD's breaking-change message explicitly removes
 AppButton/AppButtonProps; the patch does not restore them.
 
-The original upstream commit `8e63f1e16fc3d43d851908b312603a1099ca13d9`
+The original upstream commit `source-identity-omitted`
 is absent from this SGUI object database. `git cat-file -t` returned exit 128;
 the exact diagnostic is preserved in evidence.json. No network, learner checkout
 or other repository was accessed. External unchanged-repository status relative
@@ -103,10 +103,10 @@ or explicitly accept the bounded local replacement scope, and disposition the
 
 ### A-B-14 — partial
 
-Original: Keep the learner platform unchanged; collect reference behavior and
+Original: Keep the host application unchanged; collect reference behavior and
 source provenance read-only.
 
-All reference collection used local SGUI Git reads; learner platform was neither
+All reference collection used local SGUI Git reads; host application was neither
 accessed nor mutated. Original identity remains intact and unavailable upstream
 object is explicitly recorded. Remaining: durable original-commit-bound source
 and behavior evidence, supplied through an authorized read-only archive/capture.

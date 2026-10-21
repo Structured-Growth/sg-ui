@@ -21,16 +21,15 @@
 .usageListItem + .usageListItem { margin-block-start: var(--sgui-space2); }
 
 .navigationViewport { overflow: hidden; min-inline-size: 0; padding: var(--sgui-space1); margin: calc(-1 * var(--sgui-space1)); }
-.navigationPanel { min-inline-size: 0; animation: navigationForward var(--sgui-motion-duration) ease-out; }
-.navigationPanel[data-direction='back'] { animation-name: navigationBack; }
-.navigationButton { inline-size: 100%; justify-content: flex-start; text-align: start; }
-.navigationButton > span:nth-child(2) { flex: 1; min-inline-size: 0; }
-.navigationBack { justify-content: flex-start; }
-@keyframes navigationForward { from { opacity: 0; transform: translateX(1rem); } to { opacity: 1; transform: translateX(0); } }
-@keyframes navigationBack { from { opacity: 0; transform: translateX(-1rem); } to { opacity: 1; transform: translateX(0); } }
-:global([dir='rtl']) .navigationPanel { animation-name: navigationBack; }
-:global([dir='rtl']) .navigationPanel[data-direction='back'] { animation-name: navigationForward; }
-@media (prefers-reduced-motion: reduce) { .navigationPanel { animation: none; } }
+/* The sidebar owns scrolling; the reusable panel owns level state and motion. */
+.componentMenu { flex: none; background: transparent; }
+.componentMenu [data-sgui-part="hierarchical-scroll"] { overflow: visible; scrollbar-gutter: auto; }
+.componentMenu :where(a,button) {
+  font-size: var(--sgui-side-navigation-label-size);
+  font-weight: var(--sgui-body2-weight);
+  line-height: var(--sgui-body2-line-height);
+  padding-inline: var(--sgui-space2);
+}
 
 .flushPreview { padding: 0; }
 
@@ -66,7 +65,7 @@
 }
 
 /* Desktop navigation has its own compact scale; reading and form type stay unchanged. */
-.navLink, .navigationButton {
+.navLink {
   box-sizing: border-box;
   display: flex;
   align-items: center;

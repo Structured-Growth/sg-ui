@@ -1,6 +1,6 @@
 # Structured Growth UI (SGUI)
 
-A reusable React library for Structured Growth, extracted from the learner platform.
+A reusable React UI library for Structured Growth.
 SGUI owns its public contracts, design tokens and compiled CSS Modules. React Aria
 implements interactions, TanStack processes grid rows, and Lexical powers rich text.
 The catalog, primitives, icons and public theme use the owned foundation; `/experimental`
@@ -110,10 +110,10 @@ production consumer. See [server boundaries](../../docs/developer/react-aria-ser
 ## AI coding and releases
 
 [AGENTS.md](../../AGENTS.md) defines the library's development conventions, including
-the UI rules adapted from the learner platform. See [guidance provenance](../../docs/agent-guidance-migration.md)
+the UI development rules. See [agent guidance](../../docs/agent-guidance-migration.md)
 and [component architecture](../../docs/developer/component-architecture.md).
 [GitHub setup](../../docs/github-setup.md) explains required secrets and settings.
-[Migration inventory](../../docs/migration.md) records the extraction and application
+[Migration inventory](../../docs/migration.md) records consumer compatibility and application
 integration boundaries.
 
 Start **AI implementation** in GitHub Actions with a task and acceptance criteria.

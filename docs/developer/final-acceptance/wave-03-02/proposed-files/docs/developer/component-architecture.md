@@ -2,7 +2,7 @@
 
 The shipped catalog uses SGUI-owned contracts, React Aria interactions, generated
 tokens, compiled CSS Modules, TanStack row processing and Lexical editing. The
-learner platform is extraction provenance and supplies no runtime dependency.
+host application is extraction provenance and supplies no runtime dependency.
 Public App/Class names remain where useful; new learning presentation APIs use Course.
 Implementation removal and final acceptance are separate: consult the
 [execution record](react-aria-progress.md), [master list](react-aria-master-task-list.md)

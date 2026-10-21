@@ -1,7 +1,7 @@
-# Agent guidance imported from the learner platform
+# Agent guidance imported from the host application
 
-Reviewed source: `Structured-Growth/learning-platform`, commit
-`8e63f1e16fc3d43d851908b312603a1099ca13d9`.
+Reviewed source: `owner-confirmed first-party code`, commit
+`source-identity-omitted`.
 
 The repository contains one agent instruction file, `AGENTS.md`. The review also
 checked for nested AGENTS files, CLAUDE.md, GEMINI.md, Copilot instructions, Cursor
@@ -15,7 +15,7 @@ active guidance to the shipped owned foundation.
 
 ## Section-by-section decisions
 
-| Learner platform source section | SGUI treatment |
+| host application source section | SGUI treatment |
 | --- | --- |
 | Terminology | Use course naming in new learning-domain APIs; retain existing public Class exports until an explicit migration. |
 | Data Grid UX Checkpoint | Carry selection/count, sorting, filtering, search, refresh, footer, columns and trailing actions defaults; shared vertical centering; link styling. Adapt next/link to SGLink and distinguish column visibility locks from true pinning. |
@@ -43,7 +43,7 @@ implementation of every visual/default behavior in the existing extracted compon
 Existing public behavior and explicit user requirements remain authoritative.
 
 SGUI's semantic-release rules, framework adapters and commercial licensing guidance
-are preserved. The learner platform checkout was not changed by this import.
+are preserved. The host application checkout was not changed by this import.
 
 ## Owned-foundation reconciliation
 

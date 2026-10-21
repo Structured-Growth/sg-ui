@@ -83,6 +83,8 @@ def audit(root, archive, inventory_path):
             continue
         evidence = []
         for metadata in item['metadata']:
+            if not metadata['evidence']:
+                finding('runtime-instance-legal-evidence-missing', metadata['path'])
             metadata_bytes = local(package / metadata['path'])
             if sha(metadata_bytes) != metadata['sha256']:
                 finding('stale-package-metadata', item['id'])

@@ -53,6 +53,12 @@ jobs:
           const allowedComponentPath = path => { if (!/^(packages\/ui\/src\/|apps\/docs\/(examples\/|native-fixtures\/scenarios\/)|docs\/|README\.md$)/.test(path)) return false; const p = path.replace(/^packages\/ui\//, ""); return /^(src\/|apps\/docs\/(examples\/|native-fixtures\/scenarios\/)|docs\/|README\.md$)/.test(p)
             && !/^(src\/(foundation|theme|adapters|i18n|experimental|hooks)(\/|$)|src\/models\.ts$|src\/(?:[^/]+\/)*index\.[^/]+$|docs\/developer\/component-architecture\.md$|docs\/developer\/react-aria-(architecture|master-task-list|component-recipe|public-api-reconciliation)\.md$)/.test(p); };
           if (paths.some(p => !allowedComponentPath(p))) throw new Error('Proposal contains a maintainer-only path.');
+          const raw = execFileSync('git', ['diff', '--cached', '--raw', '--no-abbrev', '--no-renames', '-z'], { encoding: 'utf8' }).split('\0').filter(Boolean);
+          if (raw.length % 2) throw new Error('Malformed proposal file metadata.');
+          for (let index = 0; index < raw.length; index += 2) {
+            const match = /^:[0-7]{6} ([0-7]{6}) [0-9a-f]{40,64} [0-9a-f]{40,64} [A-Z]$/.exec(raw[index]);
+            if (!match || !['100644', '000000'].includes(match[1])) throw new Error('Proposal contains a nonregular or executable file.');
+          }
           JS
           git diff --cached --binary > "$RUNNER_TEMP/sgui.patch"
           cp .codex-output.md "$RUNNER_TEMP/sgui-summary.md"
@@ -93,6 +99,12 @@ jobs:
           const allowedComponentPath = path => { if (!/^(packages\/ui\/src\/|apps\/docs\/(examples\/|native-fixtures\/scenarios\/)|docs\/|README\.md$)/.test(path)) return false; const p = path.replace(/^packages\/ui\//, ""); return /^(src\/|apps\/docs\/(examples\/|native-fixtures\/scenarios\/)|docs\/|README\.md$)/.test(p)
             && !/^(src\/(foundation|theme|adapters|i18n|experimental|hooks)(\/|$)|src\/models\.ts$|src\/(?:[^/]+\/)*index\.[^/]+$|docs\/developer\/component-architecture\.md$|docs\/developer\/react-aria-(architecture|master-task-list|component-recipe|public-api-reconciliation)\.md$)/.test(p); };
           if (paths.some(p => !allowedComponentPath(p))) throw new Error('Proposal contains a maintainer-only path.');
+          const raw = execFileSync('git', ['diff', '--raw', '--no-abbrev', '--no-renames', '-z'], { encoding: 'utf8' }).split('\0').filter(Boolean);
+          if (raw.length % 2) throw new Error('Malformed proposal file metadata.');
+          for (let index = 0; index < raw.length; index += 2) {
+            const match = /^:[0-7]{6} ([0-7]{6}) [0-9a-f]{40,64} [0-9a-f]{40,64} [A-Z]$/.exec(raw[index]);
+            if (!match || !['100644', '000000'].includes(match[1])) throw new Error('Proposal contains a nonregular or executable file.');
+          }
           JS
       - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4

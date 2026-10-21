@@ -10,13 +10,13 @@
 Status: in progress; owned control coverage and first catalog migrations implemented.
 See the [execution record](react-aria-progress.md) for evidence and remaining gates.
 Prepared: 2026-10-05. Source: the full SGUI planning conversation, the current
-SGUI checkout, and the learner platform UI guidance.
+SGUI checkout, and the host application UI guidance.
 
 This is the execution backlog for turning the extracted UI into an independent,
 commercial React design system. An unchecked item is work to do, not a claim that
 the capability already exists. Mark an item complete only with reviewable evidence.
 This document does not authorize publishing, changing commercial terms, or
-modifying the learner platform checkout.
+modifying the host application checkout.
 
 ## 1. Accepted direction and boundaries
 
@@ -114,7 +114,7 @@ directive. At baseline `AppThemeProvider` installed a global stylesheet; the pub
 - [ ] B-11 Record browser, React, TypeScript, Node, bundler, SSR, and React Server Component support promises separately; maintain current React 18.3/19 support unless evidence justifies a documented change.
 - [x] B-12 Review the extraction manifest against actual files so helpers, model presets, nodes/plugins, fixtures, and tests are not lost when directories move.
 - [x] B-13 Inventory storage keys, persisted schema shapes, locale/date behavior, and error states that consumers rely on.
-- [x] B-14 Keep the learner platform unchanged; collect reference behavior and source provenance read-only.
+- [x] B-14 Keep the host application unchanged; collect reference behavior and source provenance read-only.
 
 ## 4. Architecture, public API ownership, and replaceability
 
@@ -520,7 +520,7 @@ responsibilities. Automated checks help but do not establish complete conformanc
 ## 18. Storybook, agent guidance, and consumer documentation
 
 - [x] W-01 Rewrite active `AGENTS.md` for the new foundation as migration lands; obsolete direct imports, `sx`, augmentation, retired links and grid assumptions must not guide future AI work.
-- [x] W-02 Retain valid learner-platform principles: shared components first, props/variants before custom styles, tokenized typography, neutral split actions, consistent grid alignment/filtering, and stories with behavior changes.
+- [x] W-02 Retain valid host application principles: shared components first, props/variants before custom styles, tokenized typography, neutral split actions, consistent grid alignment/filtering, and stories with behavior changes.
 - [x] W-03 Adapt modal guidance: simple reusable create/edit examples, no one-step numbering, sticky tab header with independently scrolling content, appropriate size, focus and host-owned persistence.
 - [x] W-04 Retain course naming for new APIs, compatibility rules, host integration boundaries, translation requirements, doc organization, licensing and semantic-release rules.
 - [x] W-05 Replace blanket compact-menu advice with explicit density defaults and compatibility policy; preserve usability/accessibility at both densities.
@@ -533,7 +533,7 @@ responsibilities. Automated checks help but do not establish complete conformanc
 - [x] W-12 Document tokens/themes, CSS override layers, parts/slots, density, icons, form semantics, locale/direction, date contracts, and accessibility responsibilities.
 - [x] W-13 Publish a consumer migration guide mapping imports, removed styling props, theme objects, typography, grid types, pagination/selection, icons and changed defaults.
 - [x] W-14 Provide representative Vite and Next.js host examples without importing framework APIs into the library; document SSR/client and CSS loading boundaries.
-- [x] W-15 Provide a read-only learner-platform adoption checklist; modifying that application remains a separate implementation task.
+- [x] W-15 Provide a read-only host application adoption checklist; modifying that application remains a separate implementation task.
 - [x] W-16 Update `docs/migration.md` and the extraction manifest to preserve useful provenance and account for moves/deletions; do not misrepresent the original extraction as the final architecture.
 - [ ] W-17 Update component architecture, GitHub setup, commercial licensing, package fixtures, issue/PR templates, and troubleshooting for final behavior.
 - [ ] W-18 Document known limitations, deferred features, support policy, deprecated names, release impact, and the cost/responsibility of eventually replacing React Aria.
@@ -582,7 +582,7 @@ conflict rather than silently removing notices.
 | Future multi-framework support is not automatic | A-20 |
 | Application routing/accounts/translations/data stay host-owned | H, A-17, W |
 | Storybook components, fixtures and interaction/a11y coverage | B, M, X, W |
-| Learner platform agent guidance carried forward appropriately | B-02, W-01 through W-06 |
+| host application agent guidance carried forward appropriately | B-02, W-01 through W-06 |
 | Public npm with commercial SGUI license and upstream licenses | L, R-17, W-17, Z-14 |
 | GitHub Actions AI triggers/builds/releases and reviewable changes | R-11 through R-26 |
 | Automatic semantic-release; no manual changesets | R-14 through R-18, Z-14 |
@@ -601,7 +601,7 @@ Review completed on 2026-10-05:
 - Compared all 37 actual component directories with M-01 through M-37; no missing
   or extra directory entries. Also checked directly imported controls, public
   primitive/icon barrels, presets, adapters, hooks, editor plugins and helpers.
-- Re-read the original learner-platform agent file and the imported guidance;
+- Re-read the original host application agent file and the imported guidance;
   retained useful UI principles while keeping database/API/authentication rules
   outside the library. Resolved the compact-menu versus configurable-density rule.
 - Reviewed package/build/story/AI/release configuration and added explicit tasks
@@ -612,7 +612,7 @@ Review completed on 2026-10-05:
 - Verified unique task IDs, complete component coverage, existing local link
   targets, and whitespace. Implementation checkboxes remained unchecked at that documentation-delivery review; subsequent completion evidence is in the execution record.
 - This delivery changes documentation only. UI tests and builds have not been
-  rerun, and no migration, publication, remote configuration, or learner-platform
+  rerun, and no migration, publication, remote configuration, or host application
   modification is represented as completed.
 
 Remaining decisions are explicit tasks: grid engine/integration (P-09), final

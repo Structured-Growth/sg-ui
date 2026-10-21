@@ -72,7 +72,7 @@
   "notPerformed": [
     "tests/builds/install",
     "browser/device/AT execution",
-    "other-checkout access or learner-platform mutation",
+    "other-checkout access or host application mutation",
     "shared checklist/manifest edits",
     "git staging/commit/push/release"
   ],
@@ -144,7 +144,7 @@
     {
       "id": "A-B-14",
       "status": "partial",
-      "originalRequirement": "Keep learner platform unchanged; collect reference behavior and source provenance read-only.",
+      "originalRequirement": "Keep host application unchanged; collect reference behavior and source provenance read-only.",
       "sourceReferences": [
         "docs/extraction-manifest.json",
         "docs/migration.md",
@@ -152,9 +152,9 @@
       ],
       "testReferences": [],
       "findings": [
-        "Recorded repository Structured-Growth/learning-platform, commit 8e63f1e16fc3d43d851908b312603a1099ca13d9, apps/web/src/ui source root and every per-file source path.",
+        "Recorded repository owner-confirmed first-party code, commit source-identity-omitted, apps/web/src/ui source root and every per-file source path.",
         "No other checkout was accessed or modified.",
-        "Local SGUI fixtures/tests do not independently establish behavior at the original learner-platform commit."
+        "Local SGUI fixtures/tests do not independently establish behavior at the original host application commit."
       ],
       "successors": [
         "Attach existing durable source-commit-bound reference captures or separately authorize a read-only provenance review with access.",
@@ -167,5 +167,6 @@
     "report.md": "b5875edfc2fcecbafaf3581d5b3b38d9357d253ae034e078c07f800c5dfbae3e",
     "manifest-audit.json": "5c1da4edf5d4004468ce8885b43caddfa9a4d689c93b906dbb5c0be6e572c74b",
     "audit.py": "6c301ba2c01738bb4cd9d5c3387b4d2e83ae3fe501ee7e8b315598fd30be1bf8"
-  }
+  },
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

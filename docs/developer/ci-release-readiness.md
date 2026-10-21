@@ -154,3 +154,9 @@ The review records the later read-only patch capture/upload steps as a remaining
 trust-review consideration. It is not a maintainer approval, a review of all
 bundled dependency bytes, an Ubuntu sandbox proof or a live AI draft result.
 A-R-21 and A-R-23 remain open with their original acceptance requirements.
+
+The [2026-10-21 correction batch](backlog-to-ten/nine-corrections-2026-10-21.md)
+adds proposal file-mode checks at capture and fresh validation, requires the
+returned draft identity guard in structural policy checks, and requires successful
+packed-consumer browser setup in downloaded Node 24 evidence. These targeted
+guards do not supply the missing live token-isolation or maintainer review.

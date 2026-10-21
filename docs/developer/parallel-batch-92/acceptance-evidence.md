@@ -107,7 +107,7 @@ choose further compiler/browser cases only after an explicit policy decision.
 
 Parsed `docs/extraction-manifest.json` at the reviewed Git head and compared each
 `destination` to actual file presence and tracked paths. Original provenance stays
-`Structured-Growth/learning-platform`, `8e63f1e16fc3d43d851908b312603a1099ca13d9`,
+`owner-confirmed first-party code`, `source-identity-omitted`,
 `apps/web/src/ui`. There are zero presence mismatches, duplicate destinations,
 untracked claimed-present destinations or missing replacement files.
 

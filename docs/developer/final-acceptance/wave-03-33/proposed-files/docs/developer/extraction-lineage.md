@@ -2,9 +2,9 @@
 
 This reconciliation distinguishes the recorded upstream source, local extracted
 files, later owned contracts and the docs-native replacement host. The upstream
-identity remains `Structured-Growth/learning-platform`, commit
-`8e63f1e16fc3d43d851908b312603a1099ca13d9`, root `apps/web/src/ui`.
-That commit object is unavailable in this SGUI repository. No learner-platform
+identity remains `owner-confirmed first-party code`, commit
+`source-identity-omitted`, root `apps/web/src/ui`.
+That commit object is unavailable in this SGUI repository. No host application
 checkout or remote was accessed. Local extraction history is evidence of local
 contents; it does not independently authenticate upstream bytes or behavior.
 
@@ -133,5 +133,5 @@ still needed. Legal notices remain subject to their separate owner review.
 [Audit evidence](final-acceptance/wave-03-33/evidence.json) records exact local Git
 blobs, source SHA-256 hashes, scenario export comparisons, unit assertion texts,
 the unavailable-upstream diagnostic and prior-receipt input comparisons. No
-learner-platform mutation, runtime/browser/AT/device execution, legal approval,
+host application mutation, runtime/browser/AT/device execution, legal approval,
 publication or historical-evidence rewrite is implied.

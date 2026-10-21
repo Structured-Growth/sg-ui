@@ -22,6 +22,6 @@ The docs-native manifest maps `packages/ui/src/experimental/Button/Button.storie
 
 ## Remaining requirements
 
-**A-B-12/story-lineage:** attach original-platform evidence bound to source commit `8e63f1e16fc3d43d851908b312603a1099ca13d9`, or explicitly reconcile and accept the proposed AppButton story mappings in the separately owned migration metadata. That original-platform commit object is unavailable in this local SGUI repository. Local Git extraction history cannot independently prove its contents or original reference behavior. The migration manifest and original snapshots were left unchanged.
+**A-B-12/story-lineage:** attach original-platform evidence bound to source commit `source-identity-omitted`, or explicitly reconcile and accept the proposed AppButton story mappings in the separately owned migration metadata. That original-platform commit object is unavailable in this local SGUI repository. Local Git extraction history cannot independently prove its contents or original reference behavior. The migration manifest and original snapshots were left unchanged.
 
 A-B-14 source/reference provenance, current behavior tests and browser/engine gates, physical-device and spoken-AT evidence, legal approval and production/release requirements remain separate. No remote CI, legal approval, full acceptance closure or production readiness is claimed. No staging, commit, push, worktree, version, tag or release action occurred.

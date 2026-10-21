@@ -8,7 +8,7 @@ Captured 2026-10-16 in the shared modified `dev` checkout, HEAD `540f47d4059a9ce
 | --- | --- | --- |
 | A-B-12 | partial | File-by-file extraction reconciliation performed; 36 stale presence flags need an authorized manifest update. Current helper/preset/model/editor inventory recorded. |
 | A-B-13 | complete | Consumer storage keys, persisted shapes, locale/date behavior and error contracts inventoried below. This is an inventory leaf, not behavior/AT certification. |
-| A-B-14 | partial | Recorded learner-platform provenance preserved and used read-only from SGUI documents; no other checkout accessed. Independent source/reference-behavior verification cannot be established from the available local evidence. |
+| A-B-14 | partial | Recorded host application provenance preserved and used read-only from SGUI documents; no other checkout accessed. Independent source/reference-behavior verification cannot be established from the available local evidence. |
 
 ## Checks and evidence limits
 
@@ -72,10 +72,10 @@ Source/test references: date-contract and DateContracts.next100 tests; DateField
 
 Successors (do not block this inventory leaf): preserve these schemas/keys in future API changes; separately evaluate malformed saved editor documents and the silent Lexical onError diagnostic contract; assess account/view key scoping in each real host. Runtime/AT validation belongs to the corresponding acceptance leaves. No new bug fix or assertion was authorized in this report-only scope.
 
-## A-B-14 — provenance and unchanged learner platform
+## A-B-14 — provenance and unchanged host application
 
-The original full leaf asks to keep the learner platform unchanged and collect reference behavior/source provenance read-only. `docs/extraction-manifest.json` and `docs/migration.md` consistently identify `Structured-Growth/learning-platform`, commit `8e63f1e16fc3d43d851908b312603a1099ca13d9`, source root `apps/web/src/ui`. Every original file's source path remains available in the audit JSON. `docs/agent-guidance-migration.md`, migration guidance and the recorded extraction mappings supply local provenance. Existing tests/fixtures document SGUI behavior only; they are not a new execution of that original platform.
+The original full leaf asks to keep the host application unchanged and collect reference behavior/source provenance read-only. `docs/extraction-manifest.json` and `docs/migration.md` consistently identify `owner-confirmed first-party code`, commit `source-identity-omitted`, source root `apps/web/src/ui`. Every original file's source path remains available in the audit JSON. `docs/agent-guidance-migration.md`, migration guidance and the recorded extraction mappings supply local provenance. Existing tests/fixtures document SGUI behavior only; they are not a new execution of that original platform.
 
-No learner-platform checkout was opened, read, changed or executed; no network request to that repository occurred. Consequently this work satisfies the no-mutation constraint, but cannot independently verify the source commit contents, the original extraction's semantic completeness, or historical platform behavior. The historically checked box alone is insufficient for full final closure.
+No host application checkout was opened, read, changed or executed; no network request to that repository occurred. Consequently this work satisfies the no-mutation constraint, but cannot independently verify the source commit contents, the original extraction's semantic completeness, or historical platform behavior. The historically checked box alone is insufficient for full final closure.
 
-Successor: coordinator should attach durable, already available read-only reference captures tied to the original source commit (or schedule a separately authorized provenance review with access). Reconcile representative helper/preset/editor behavior against those captures, including Button-story assertion lineage. Do not claim this leaf complete based solely on destination files or reopen/mutate the learner platform under the current authorization.
+Successor: coordinator should attach durable, already available read-only reference captures tied to the original source commit (or schedule a separately authorized provenance review with access). Reconcile representative helper/preset/editor behavior against those captures, including Button-story assertion lineage. Do not claim this leaf complete based solely on destination files or reopen/mutate the host application under the current authorization.

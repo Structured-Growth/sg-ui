@@ -1,12 +1,12 @@
 'use client';
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import { Suspense, useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { IconPanelNavigation } from '@structured-growth/sg-ui/components';
 import { BrushIcon, DescriptionIcon } from '@structured-growth/sg-ui/icons';
 import catalog from '../content/catalog.json';
 import { DemoSettingsToolbar } from './DemoSettingsToolbar';
 import { PageDocumentationContext } from './PageDocumentation';
 import { Surface } from '@structured-growth/sg-ui/experimental';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Provider, ThemeScope } from '@structured-growth/sg-ui/theme';
 import { SGNavigationProvider } from '@structured-growth/sg-ui/adapters';
 import { Box, Stack, Typography, Link } from '@structured-growth/sg-ui/primitives';
@@ -15,13 +15,20 @@ import { CatalogNavigation } from './CatalogNavigation';
 import { DemoSettingsProvider } from './DemoSettings';
 import { docsTheme } from './docs-theme';
 import { documentationVersions } from '../content/navigation';
+import {documentationVersionTarget,unavailableDocumentationPath} from '../content/documentation-versioning.mjs';
 import styles from './docs.module.css';
 import { useStableDocumentWidth } from './useStableDocumentWidth';
+function DocumentationVersionNotice() {
+  const search=useSearchParams();
+  const missingPage=unavailableDocumentationPath(search.toString());
+  return missingPage?<Typography role="status">This documentation version does not include {missingPage}. Showing its overview.</Typography>:null;
+}
 export function DocsShell({ children }: { children: React.ReactNode }) {
   useStableDocumentWidth();
   const pathname = usePathname(); const router = useRouter();
   const [documentation,setDocumentation]=useState<{pathname:string;content:ReactNode}|null>(null);
   const [activeTool,setActiveTool]=useState<string|null>(null);
+  const [versionError,setVersionError]=useState(false);
   const componentPage=catalog.some(entry=>pathname===`/docs/components/${entry.slug}`);
   const registerDocumentation=useCallback((route:string,content:ReactNode)=>{
     const value={pathname:route,content};setDocumentation(value);
@@ -44,7 +51,13 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
         <Stack direction="row" wrap align="center" justify="between" gap={3}>
           <Stack gap={0}><Link href="/" underline="none"><Typography as="span" variant="subtitle2">Structured Growth UI</Typography></Link><Typography className={styles.applicationDescription} variant="caption" tone="muted">Component documentation</Typography></Stack>
           <Stack direction="row" wrap align="end" gap={2}>
-            <Select className={styles.versionPicker} label="Documentation version" value="development" options={documentationVersions.map(v => ({ id: v.id, label: v.label }))} onValueChange={id => { const v = documentationVersions.find(v => v.id === id); if (v?.baseUrl) window.location.assign(`${v.baseUrl}${pathname}`); }} />
+            <Select className={styles.versionPicker} label="Documentation version" value="development" options={documentationVersions.map(v => ({ id: v.id, label: v.label }))} onValueChange={id => {
+              const version=documentationVersions.find(v=>v.id===id);
+              if(!version)return;
+              try {const target=documentationVersionTarget(version,pathname);setVersionError(false);if(target)window.location.assign(target);}
+              catch {setVersionError(true);}
+            }} />
+            {versionError&&<Typography role="alert" tone="danger">This documentation version is unavailable.</Typography>}
           </Stack>
         </Stack>
       </Box>
@@ -57,7 +70,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
             <Typography variant="caption" tone="muted">Public source. Commercial license required.</Typography>
           </Stack>
         </Surface>
-        <Box ref={mainRef} as="main" id="main-content" tabIndex={-1} className={styles.main}><Box className={styles.mainContent} style={{padding:"clamp(1rem, 2vw, 2rem)"}}>{children}</Box></Box>
+        <Box ref={mainRef} as="main" id="main-content" tabIndex={-1} className={styles.main}><Box className={styles.mainContent} style={{padding:"clamp(1rem, 2vw, 2rem)"}}><Suspense fallback={null}><DocumentationVersionNotice/></Suspense>{children}</Box></Box>
         {componentPage&&<Box ref={toolsRef} as="aside" aria-label="Component tools" className={styles.tools} data-active-tool={activeTool??undefined}>
           <ThemeScope density="compact" className={styles.toolsScope}><IconPanelNavigation items={tools} activeId={activeTool} onActiveIdChange={setActiveTool} side="end" resizable={activeTool==='documentation'} panelWidth="var(--docs-tool-panel-width)" aria-label="Component tools navigation"/></ThemeScope>
         </Box>}

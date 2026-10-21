@@ -371,7 +371,7 @@ Remaining deliverables:
 
 ### A-B-14 — partial
 
-- [ ] A-B-14 Reconcile original `B-14`: Keep the learner platform unchanged; collect reference behavior and source provenance read-only. Historical status: checked.
+- [ ] A-B-14 Reconcile original `B-14`: Keep the host application unchanged; collect reference behavior and source provenance read-only. Historical status: checked.
 
 Progress: Collected six exact local initial-extraction files from sg-ui Git at 21adebd plus reused twelve historical contracts, without opening another checkout. Recorded original platform repository/root/commit remains preserved; local hook default/preset/editor-schema differences are reviewable in defaults-and-state.md. Local extracted code does not independently verify original platform commit or native reference behavior.
 
@@ -383,7 +383,7 @@ Tests/evidence: `local-extraction-reference.json`, `defaults-and-state.md`, `doc
 
 Remaining deliverables:
 - Attach durable original-source-commit-bound read-only reference captures or separately authorize original provenance review; reconcile helper/preset/editor/Button behavior against those references.
-- Preserve unchanged learner platform; no mutation or access to another checkout authorized here.
+- Preserve unchanged host application; no mutation or access to another checkout authorized here.
 
 All findings are limited to the exact input hashes and hosts above. Coordinator alone updates shared acceptance counts.
 

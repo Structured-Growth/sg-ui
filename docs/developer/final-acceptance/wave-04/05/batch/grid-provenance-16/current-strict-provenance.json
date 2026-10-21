@@ -4,7 +4,7 @@
   "localBaseline": {
     "commit": "21adebd61bedfc6a1ed395fe664ff4be83896821",
     "preDocs": "530bbc00465d9dbf1e9948f8a2c01b2e51b1a479^",
-    "originalSourceCommit": "8e63f1e16fc3d43d851908b312603a1099ca13d9"
+    "originalSourceCommit": "source-identity-omitted"
   },
   "extractionRows": [
     {
@@ -3048,5 +3048,6 @@
     "Source/metadata/command existence only; no product, browser, spoken AT, legal, release or upstream authentication result.",
     "Command code spans/fences checked only in four named current guides; script names/package filters, not shell flags, arguments or actual execution.",
     "Semantic dispositions bind original hashes, behavior/differences/gaps and current host/assertion anchors; they do not prove runtime parity. Strict-history fails for unresolved records."
-  ]
+  ],
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

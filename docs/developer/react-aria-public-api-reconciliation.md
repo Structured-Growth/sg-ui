@@ -22,8 +22,8 @@ commit `21adebd61bedfc6a1ed395fe664ff4be83896821`; its
 [public API snapshot](migration-baseline/public-api.json) contains historical
 declarations, including retired primitive imports and grid types. Those entries
 are comparison provenance, not current exports. [Extraction guidance](../migration.md)
-and the [manifest](../extraction-manifest.json) identify learner-platform source
-commit `8e63f1e16fc3d43d851908b312603a1099ca13d9`. Neither source is a runtime dependency.
+and the [manifest](../extraction-manifest.json) identify host application source
+commit `source-identity-omitted`. Neither source is a runtime dependency.
 
 ## Forms: exact owned mapping
 

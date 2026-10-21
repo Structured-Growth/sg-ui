@@ -1,36 +1,9 @@
-# Learner platform extraction and consumer migration
+# Consumer migration and compatibility
 
-Task references: W-11–W-18 (bounded documentation reconciliation).
-Source: `Structured-Growth/learning-platform`, commit
-`8e63f1e16fc3d43d851908b312603a1099ca13d9`, `apps/web/src/ui`.
-The file-by-file [manifest](extraction-manifest.json) preserves original source
-paths and destinations. Its `present` flags and migration replacement metadata
-were reconciled in the [removal audit](developer/react-aria-removal-audit.md).
-The [lineage reconciliation](developer/extraction-lineage.md) separates original
-source identity from local Git evidence, deliberate AppButton replacements and
-remaining early grid scenario dispositions. The learner platform remains outside
-this migration; no upstream checkout is modified.
-
-Components, helpers, stories and tests were initially copied, then adapted to a
-standalone library. That extraction is provenance, not today's runtime architecture.
-The catalog, grid renderer/reorder, editor, primitives, icons and public theme now
-use owned contracts. Broad G/K/E/U/X/R/Z acceptance remains open; source and
-[execution evidence](developer/archive/2026-10-18-task-lists/react-aria-progress.md) outrank stale planning boxes.
-
-## Source architecture and disposition
-
-| Source concern | Extraction and current disposition |
-| --- | --- |
-| Shared components under `apps/web/src/ui/components` | Public names preserved where useful; implementations now owned |
-| Original theme/typography and primitive/icon reexports | Replaced with scopes, generated tokens, owned typography/primitives and SVG icons; augmentation removed |
-| State/pagination hooks | Public hooks retained; persistence now explicit opt-in |
-| Extracted Storybook stories | Original story files/framework removed; docs website examples and private native fixtures use production scopes. [Scenario ledger](developer/docs-fixture-migration.md) preserves provenance; inventory growth is separate from original extraction counts |
-| Router links/navigation | Framework imports replaced by host navigation adapter |
-| Account/session operations | Replaced by host account adapter; credentials and endpoints remain host-owned |
-| Translation provider | Host translation adapter with English/defaultMessage fallback |
-| Learner grid model | Local presentation model; no API contract dependency |
-| Due-date formatting | Extracted helper with behavior coverage |
-| Application screens, API/contracts and session storage | Remain in learner platform; never library runtime dependencies |
+SGUI owns its public React contracts, styles, tokens and component compositions.
+Applications own routing, data, authentication, translations and persistence.
+Use the [current architecture](developer/component-architecture.md) and
+[backlog](developer/backlog.md) for implementation and remaining acceptance.
 
 ## Component inventory
 
@@ -191,7 +164,7 @@ changes versions nor authorizes promotion from dev to main.
 ## Adoption and remaining limits
 
 The [read-only adoption checklist](developer/react-aria-adoption-checklist.md) is
-planning guidance for the learner platform or another host. Application modification,
+planning guidance for the host application or another host. Application modification,
 original-source removal and production rollout require a separately authorized task.
 SGUI accepts models, data, routing, translations and account actions from the host;
 it never imports platform contracts or owns API/database/login policy.

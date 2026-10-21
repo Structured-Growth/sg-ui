@@ -71,10 +71,10 @@
     },
     {
       "id": "A-B-14",
-      "originalChecklistText": "- [ ] A-B-14 Reconcile original `B-14`: Keep the learner platform unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
+      "originalChecklistText": "- [ ] A-B-14 Reconcile original `B-14`: Keep the host application unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
       "recommendation": "partial",
       "status": "partial",
-      "decision": "This pass uses local read-only SGUI evidence; no learner-platform access or modification. Original upstream identity is unchanged, and prior unavailable-object diagnostic is retained.",
+      "decision": "This pass uses local read-only SGUI evidence; no host application access or modification. Original upstream identity is unchanged, and prior unavailable-object diagnostic is retained.",
       "remainingSuccessors": "B14-AUTHENTICATE: owner supplies read-only commit-bound upstream source/behavior evidence and unchanged status against a known upstream baseline. Local extraction commits cannot authenticate unavailable upstream bytes.",
       "evidence": [
         {
@@ -476,5 +476,6 @@
       "validationPlan": "validation-plan.json",
       "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
     }
-  ]
+  ],
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

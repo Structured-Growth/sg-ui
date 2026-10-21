@@ -110,9 +110,11 @@ API. Its DOM live-region assertions establish rendered count/clear updates. Actu
 spoken delivery belongs to the separate A-X-11/operator evidence; H-08 formatting
 validation makes no spoken-delivery claim.
 
-The retained supported-host [native receipt](../../packages/ui/artifacts/wave03-integration/followup-final-results.json)
-contains nine passing locale cases (three scenarios in Chromium, Firefox and
-WebKit), plus six passing English/Arabic navigation-motion cases. The fixture and
+The retained C09/H08 reconciliation records nine passing locale cases (three
+scenarios in Chromium, Firefox and WebKit), plus six passing English/Arabic
+navigation-motion cases selected from a supported-host raw report. That raw
+report is unavailable in this checkout; its digest and surviving evidence are
+listed in the [availability record](evidence-availability.md#locale-and-navigation-native-results). The fixture and
 locale-spec bytes match their integrated inputs; the owned ICU/adapter and
 Provider/ThemeScope source joins remain recorded in the
 [C09/H08 reconciliation](final-acceptance/wave-04/05/batch/c09-h08-reconciliation/evidence.json).

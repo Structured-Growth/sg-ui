@@ -28,7 +28,7 @@ export async function verifyCI(download) {
   requireThat(job?.head_sha===expectedHead && job.status==='completed' && job.conclusion==='success' && job.name===`Validate Node ${runtime}`,'Runtime job failed, incomplete, or wrong head/name');
   requireThat(new URL(run.html_url).origin==='https://github.com' && run.html_url===`https://github.com/Structured-Growth/sg-ui/actions/runs/${run.id}`,'Wrong producing run URL');
   requireThat(job.run_id===run.id && job.run_attempt===run.run_attempt,'Job belongs to another run/attempt');
-  for(const name of ['Require every native engine','Package and behavior checks','Build native docs fixtures','Packed React 18.3 foundation consumer','Packed React 19 foundation and Flight consumer','Packed React 18.3 editor consumer','Packed React 19 editor consumer','Pack validated package','Bind fresh outputs and tarball to validated inputs',...(runtime==='24'?['Verify native engine scope and compiled package identity','Packed Next.js production and browser consumer']:[])]) {
+  for(const name of ['Require every native engine','Package and behavior checks','Build native docs fixtures','Packed React 18.3 foundation consumer','Packed React 19 foundation and Flight consumer','Packed React 18.3 editor consumer','Packed React 19 editor consumer','Pack validated package','Bind fresh outputs and tarball to validated inputs',...(runtime==='24'?['Install packed consumer browsers','Verify native engine scope and compiled package identity','Packed Next.js production and browser consumer']:[])]) {
     const matches=job.steps?.filter(step=>step.name===name)??[];
     requireThat(matches.length===1 && matches[0].status==='completed' && matches[0].conclusion==='success',`Missing/unsuccessful required step: ${name}`);
   }

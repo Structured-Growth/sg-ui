@@ -36,7 +36,7 @@
     {
       "id": "A-W-02",
       "status": "complete",
-      "original_requirement": "Retain valid learner-platform principles: shared components first, props/variants before custom styles, tokenized typography, neutral split actions, consistent grid alignment/filtering, and stories with behavior changes.",
+      "original_requirement": "Retain valid host application principles: shared components first, props/variants before custom styles, tokenized typography, neutral split actions, consistent grid alignment/filtering, and stories with behavior changes.",
       "source_references": [
         "AGENTS.md:280",
         "AGENTS.md:304",
@@ -170,7 +170,7 @@
       "checks_actually_performed": [
         "Compared all nine recipe steps to current AGENTS functionality-first/host/example rules; prepared exact edits."
       ],
-      "findings": "A single linked canonical recipe already covers owned props/refs/native semantics, private React Aria mapping, generated CSS tokens, translations, exports and acceptance. Step 7 still tells agents to colocate stories. Step 8 lacks the current baseline 1\u20133 smoke constraint. A concrete replacement for both is prepared, including independent Example panels, meaningful playgrounds, public source and docs/native fixture ownership.",
+      "findings": "A single linked canonical recipe already covers owned props/refs/native semantics, private React Aria mapping, generated CSS tokens, translations, exports and acceptance. Step 7 still tells agents to colocate stories. Step 8 lacks the current baseline 1–3 smoke constraint. A concrete replacement for both is prepared, including independent Example panels, meaningful playgrounds, public source and docs/native fixture ownership.",
       "successor_deliverables": [
         "W07-RECIPE: apply/review the recipe hunk, verify links to current Example/playground requirements and remove any positive new-story instruction; preserve bounded baseline versus later regression/hardening distinction."
       ],
@@ -323,7 +323,7 @@
       ],
       "findings": "The published-in-repository migration table covers all named categories and links component contracts, including intentional AppButton removal and preserved Class names. Existing A-B-05 successor remains: selection mapping conflates legacy engine include/exclude objects with already-owned selection.selectedRowIds Set callers, and omitted old selection versus current selection=true needs an explicit before/after preservation recipe. This is a documented breaking default, not a newly found runtime bug.",
       "successor_deliverables": [
-        "W13-SELECTION: add an explicit old engine object \u2192 owned ID set mapping distinct from unchanged Set callers; document omitted-selection default change and selection=false preservation. Finish public-symbol defaults/breaking mappings from parallel-01 snapshot before asserting exhaustive consumer migration; do not mark compatibility aliases deprecated without policy."
+        "W13-SELECTION: add an explicit old engine object → owned ID set mapping distinct from unchanged Set callers; document omitted-selection default change and selection=false preservation. Finish public-symbol defaults/breaking mappings from parallel-01 snapshot before asserting exhaustive consumer migration; do not mark compatibility aliases deprecated without policy."
       ],
       "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
       "input_limits": "Exact inspected input hashes in evidence.json. 43 of 44 listed inputs match FA-02; LICENSE has no FA-02 source hash and is independently hashed, not reported changed. Shared uncommitted checkout; no assumption that existing dist reflects concurrent BUG-0008/0009 source edits.",
@@ -356,7 +356,7 @@
     {
       "id": "A-W-15",
       "status": "complete",
-      "original_requirement": "Provide a read-only learner-platform adoption checklist; modifying that application remains a separate implementation task.",
+      "original_requirement": "Provide a read-only host application adoption checklist; modifying that application remains a separate implementation task.",
       "source_references": [
         "docs/developer/react-aria-adoption-checklist.md:1",
         "docs/migration.md:119"
@@ -519,5 +519,6 @@
   "tests_executed": [],
   "shared_files_modified": false,
   "release_action": false,
-  "final_verification": "verification.json; coordinator concurrently appended BUG-0008/0009 guidance to AGENTS; original reviewed sections unchanged, append inspected; original input hashes preserved."
+  "final_verification": "verification.json; coordinator concurrently appended BUG-0008/0009 guidance to AGENTS; original reviewed sections unchanged, append inspected; original input hashes preserved.",
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

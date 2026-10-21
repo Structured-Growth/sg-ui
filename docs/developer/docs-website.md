@@ -1610,3 +1610,25 @@ content and released validation leases. See the
 DOCS-007 remains open pending the hosting target and implementation;
 DOCS-005-l and its parent retain the complete final production-matrix gate.
 These development checks do not close those gates or authorize a release.
+
+## Version-route fallback preparation — 2026-10-21
+
+DOCS-007-a now exports the current canonical route list at
+`/documentation-routes.json` during catalog generation. After a release host is
+confirmed, register its exact version ID, immutable base URL and that release's
+own route list in `apps/docs/content/navigation.ts`. Never use the current dev
+route list to claim which routes an older deployment contains. The current
+selector still offers development only; no release deployment is invented.
+
+Version navigation uses `documentationVersionTarget`: an available route stays
+inside the selected deployment's base path; an absent route opens that release's
+overview with a bounded, plain-text fallback notice. Invalid/mutable version
+identities, unsafe base URLs and missing route manifests fail closed. The notice
+tracks query-only navigation as well as pathname changes. Host-level URL
+immutability and deployment configuration remain DOCS-007's outstanding scope.
+
+The production docs build now runs `pnpm host:check` before catalog generation.
+This audits active manifests, lock identities, CI/source references and native
+manifest/registry mappings while retaining original story identities as data.
+It supplements the complete DOCS-005-l matrix; it does not execute native cases.
+See the [combined correction/test receipt](backlog-to-ten/nine-corrections-2026-10-21.md).

@@ -15,7 +15,7 @@ function source(step) {
   assert.ok(script, `missing inline JS for ${step}`);
   return script[1].replace(/^          /gm, '').replace(/^import .*;\n/gm, '');
 }
-function fixture(step, { task = '', summary = '', paths = [], patch = 'inert patch', head = 'e'.repeat(40) } = {}) {
+function fixture(step, { task = '', summary = '', paths = [], patch = 'inert patch', head = 'e'.repeat(40), mode = '100644' } = {}) {
   const files = new Map([['/tmp/sgui-proposal/sgui-summary.md', summary], ['/tmp/sgui-proposal/sgui.patch', patch], ['/tmp/sgui-original/sgui.patch', 'inert patch']]);
   const env = { TASK: task, RUNNER_TEMP: '/fixture', GITHUB_OUTPUT: '/outputs', GITHUB_SERVER_URL: 'https://github.example', GITHUB_REPOSITORY: 'fixture/repo', GITHUB_RUN_ID: '123' };
   const context = createContext({
@@ -26,6 +26,7 @@ function fixture(step, { task = '', summary = '', paths = [], patch = 'inert pat
     execFileSync: (command, args) => {
       assert.equal(command, 'git');
       if (args.join(' ') === 'rev-parse HEAD') return `${head}\n`;
+      if (args.includes('--raw')) return paths.map(path => `:000000 ${mode} ${'0'.repeat(40)} ${'0'.repeat(40)} A\0${path}\0`).join('');
       assert.ok(['diff --cached --name-only -z', 'diff --name-only -z'].includes(args.join(' ')));
       return paths.join('\0') + '\0';
     },
@@ -110,4 +111,13 @@ test('write job rejects patch bytes replaced during generated validation', () =>
 });
 test('missing draft identity fails before the full CI call', () => {
   assert.throws(() => fixture('Require a resulting draft head'), /No resulting draft identity/);
+});
+
+
+test('proposal capture and validation reject symlinks, gitlinks and executable modes',()=>{
+ for(const step of ['Capture proposed changes','Apply proposed changes']) {
+  for(const mode of ['120000','160000','100755']) assert.throws(()=>fixture(step,{paths:['packages/ui/src/components/Button/unsafe.tsx'],mode}),/nonregular or executable/);
+  fixture(step,{paths:['packages/ui/src/components/Button/regular.tsx'],mode:'100644'});
+  fixture(step,{paths:['packages/ui/src/components/Button/deleted.tsx'],mode:'000000'});
+ }
 });

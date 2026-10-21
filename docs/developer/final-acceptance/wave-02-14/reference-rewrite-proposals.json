@@ -2,7 +2,7 @@
   "applied": false,
   "preserveUnchanged": [
     "Git history",
-    "original learner-platform repository/commit/source paths",
+    "original host application repository/commit/source paths",
     "dated baseline snapshots",
     "dated acceptance receipts",
     "negative regression guards",
@@ -46,5 +46,6 @@
       "ownerRequired": true
     }
   ],
-  "decisionStillRequired": "Accept explicit historical/legal-reference exceptions or define a provenance-preserving representation if literal zero retired-name text is demanded. Current reports do not silently waive the original Z-05 obligation."
+  "decisionStillRequired": "Accept explicit historical/legal-reference exceptions or define a provenance-preserving representation if literal zero retired-name text is demanded. Current reports do not silently waive the original Z-05 obligation.",
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

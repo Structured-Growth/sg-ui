@@ -45,7 +45,7 @@ explicit public subpaths, stylesheet/scopes, and host-owned routing/data/account
 The remaining `LearnerClass` name and Class-prefixed components are compatibility
 exports, not an authorization to rename them. Preset column identifiers such as
 `className` continue to match host datasets. Extraction provenance is documented;
-this review does not inspect the external learner-platform repository or certify
+this review does not inspect the external host application repository or certify
 all historical copying. It inspects the actual SGUI source members and their imports.
 
 ## Read-only source checks performed

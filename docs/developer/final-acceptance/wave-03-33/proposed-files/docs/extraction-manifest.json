@@ -1,6 +1,6 @@
 {
-  "sourceRepository": "Structured-Growth/learning-platform",
-  "sourceCommit": "8e63f1e16fc3d43d851908b312603a1099ca13d9",
+  "sourceRepository": "owner-confirmed first-party code",
+  "sourceCommit": "source-identity-omitted",
   "sourceRoot": "apps/web/src/ui",
   "presenceScope": "Current destinations interpret src/ relative to packages/ui; original repository, commit and source paths retain extraction provenance. Removed stories use docs-native replacement hosts; replacement presence does not establish assertion or behavior equivalence.",
   "files": [
@@ -19,7 +19,7 @@
           "apps/docs/native-fixtures/scenarios/experimental/Button/Button.fixture.tsx",
           "apps/docs/examples/ButtonDocumentation.tsx"
         ],
-        "evidenceLimit": "Deliberate local-history replacement, not an exact docs-native module transfer. See docs/developer/extraction-lineage.md. All inspected local AppButton stories have no play/expect/assert execution; original learner-platform commit contents and behavior remain unverified.",
+        "evidenceLimit": "Deliberate local-history replacement, not an exact docs-native module transfer. See docs/developer/extraction-lineage.md. All inspected local AppButton stories have no play/expect/assert execution; original host application commit contents and behavior remain unverified.",
         "localReconciliation": {
           "initialExtractionCommit": "21adebd61bedfc6a1ed395fe664ff4be83896821",
           "initialStoryBlob": "55e160e15e974ffa4e9814724aa1223b84aed6d8",
@@ -1310,5 +1310,6 @@
         ]
       }
     }
-  ]
+  ],
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

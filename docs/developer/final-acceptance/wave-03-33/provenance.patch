@@ -8,7 +8,7 @@
 +          "apps/docs/examples/ButtonDocumentation.tsx"
          ],
 -        "evidenceLimit": "Related current Button examples; no exact AppButton story mapping in the docs-native migration manifest. Local historical stories have no executable assertions. Original-platform assertion lineage remains unverified; see docs/developer/final-acceptance/fix-05/report.md."
-+        "evidenceLimit": "Deliberate local-history replacement, not an exact docs-native module transfer. See docs/developer/extraction-lineage.md. All inspected local AppButton stories have no play/expect/assert execution; original learner-platform commit contents and behavior remain unverified.",
++        "evidenceLimit": "Deliberate local-history replacement, not an exact docs-native module transfer. See docs/developer/extraction-lineage.md. All inspected local AppButton stories have no play/expect/assert execution; original host application commit contents and behavior remain unverified.",
 +        "localReconciliation": {
 +          "initialExtractionCommit": "21adebd61bedfc6a1ed395fe664ff4be83896821",
 +          "initialStoryBlob": "55e160e15e974ffa4e9814724aa1223b84aed6d8",
@@ -56,9 +56,9 @@
 +
 +This reconciliation distinguishes the recorded upstream source, local extracted
 +files, later owned contracts and the docs-native replacement host. The upstream
-+identity remains `Structured-Growth/learning-platform`, commit
-+`8e63f1e16fc3d43d851908b312603a1099ca13d9`, root `apps/web/src/ui`.
-+That commit object is unavailable in this SGUI repository. No learner-platform
++identity remains `owner-confirmed first-party code`, commit
++`source-identity-omitted`, root `apps/web/src/ui`.
++That commit object is unavailable in this SGUI repository. No host application
 +checkout or remote was accessed. Local extraction history is evidence of local
 +contents; it does not independently authenticate upstream bytes or behavior.
 +
@@ -187,7 +187,7 @@
 +[Audit evidence](final-acceptance/wave-03-33/evidence.json) records exact local Git
 +blobs, source SHA-256 hashes, scenario export comparisons, unit assertion texts,
 +the unavailable-upstream diagnostic and prior-receipt input comparisons. No
-+learner-platform mutation, runtime/browser/AT/device execution, legal approval,
++host application mutation, runtime/browser/AT/device execution, legal approval,
 +publication or historical-evidence rewrite is implied.
 --- a/docs/migration.md
 +++ b/docs/migration.md
@@ -195,10 +195,10 @@
  The file-by-file [manifest](extraction-manifest.json) preserves original source
  paths and destinations. Its `present` flags and migration replacement metadata
  were reconciled in the [removal audit](developer/react-aria-removal-audit.md).
--This documentation slice does not change that manifest or the learner platform.
+-This documentation slice does not change that manifest or the host application.
 +The [lineage reconciliation](developer/extraction-lineage.md) separates original
 +source identity from local Git evidence, deliberate AppButton replacements and
-+remaining early grid scenario dispositions. The learner platform remains outside
++remaining early grid scenario dispositions. The host application remains outside
 +this migration; no upstream checkout is modified.
  
  Components, helpers, stories and tests were initially copied, then adapted to a

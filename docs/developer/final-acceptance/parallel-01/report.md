@@ -29,7 +29,7 @@ are **not** an exhaustive normalized public-default table. There are zero
 properties. Compatibility aliases are therefore not automatically deprecations.
 The snapshot includes exact historical source for 12 relevant files from initial
 extraction commit `21adebd61bedfc6a1ed395fe664ff4be83896821`; this is a local Git
-comparison, not a new learner-platform checkout or upstream API reconstruction.
+comparison, not a new host application checkout or upstream API reconstruction.
 
 ## A-A-15: completed mappings
 

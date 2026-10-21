@@ -1,5 +1,12 @@
 name: CI
 on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Exact development commit to validate without publishing
+        required: false
+        default: ''
+        type: string
   pull_request:
     branches-ignore: [dev]
   push:
@@ -69,6 +76,11 @@ jobs:
         run: pnpm check 2>&1 | tee artifacts/logs/check.txt
       - name: Build native docs fixtures
         run: pnpm build:browser-docs 2>&1 | tee artifacts/logs/browser-docs.txt
+      # Each job has its own runner; the native matrix cannot provision these
+      # packed SSR/hydration and Next.js consumer browsers for the runtime job.
+      - name: Install packed consumer browsers
+        if: matrix.node == '24'
+        run: pnpm exec playwright install --with-deps chromium firefox webkit 2>&1 | tee artifacts/logs/consumer-browsers.txt
       # Do not rebuild dist while these fixtures pack it. Vite SSR also shares a
       # port, so React versions and foundation/editor fixtures run serially.
       - name: Packed React 18.3 foundation consumer

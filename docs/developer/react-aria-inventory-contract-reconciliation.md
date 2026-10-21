@@ -2,7 +2,8 @@
 
 Current disposition (2026-10-18): the M10/M14/M30 questions below are historical.
 Shipped adjacent navigation and accepted card/toolbar clause-attribution successors
-resolve them; see the [current commitment reconciliation](backlog-to-ten/conversation-reconciliation.md).
+resolve them; see the historical commitment reconciliation's
+[availability and recorded identity](evidence-availability.md#commitment-reconciliation).
 The bounded historical evidence and proposed wording below are preserved unchanged.
 
 
@@ -30,10 +31,9 @@ Historical source at repository baseline `21adebd61bedfc6a1ed395fe664ff4be838968
 was read with `git show`: it already has the same authoring-page callbacks,
 instructor-card presentation fields and eight text-style callbacks. The
 [baseline inventory](migration-baseline/inventory.json) identifies that commit;
-[extraction provenance](../migration.md#source-architecture-and-disposition) and
-the [manifest](../extraction-manifest.json) identify learner-platform commit
-`8e63f1e16fc3d43d851908b312603a1099ca13d9`. Provenance is not a runtime dependency
-or evidence of approval to expand or remove behavior. Public types are reexported
+the [current compatibility guide](../migration.md#consumer-migration-mappings)
+and [component inventory](../extraction-manifest.json) describe supported local
+contracts. These records do not approve expanding or removing behavior. Public types are reexported
 through their component indexes and the [component barrel](../../packages/ui/src/components/index.ts),
 with subpaths declared in [package exports](../../package.json).
 

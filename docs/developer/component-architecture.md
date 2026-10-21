@@ -1,8 +1,7 @@
 # SGUI component architecture
 
 The shipped catalog uses SGUI-owned contracts, React Aria interactions, generated
-tokens, compiled CSS Modules, TanStack row processing and Lexical editing. The
-learner platform is extraction provenance and supplies no runtime dependency.
+tokens, compiled CSS Modules, TanStack row processing and Lexical editing. Host applications supply no library runtime dependency.
 Public App/Class names remain where useful; new learning presentation APIs use Course.
 Implementation removal and final acceptance are separate: consult the
 [execution record](archive/2026-10-18-task-lists/react-aria-progress.md), [master list](react-aria-execution-policy.md)

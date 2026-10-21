@@ -4,8 +4,8 @@
   "runtime": "v26.5.0",
   "typescript": "5.9.3",
   "originalProvenance": {
-    "sourceRepository": "Structured-Growth/learning-platform",
-    "sourceCommit": "8e63f1e16fc3d43d851908b312603a1099ca13d9",
+    "sourceRepository": "owner-confirmed first-party code",
+    "sourceCommit": "source-identity-omitted",
     "sourceRoot": "apps/web/src/ui"
   },
   "upstreamObject": {
@@ -3808,7 +3808,8 @@
   ],
   "limits": [
     "Local Git/source audit only; no runtime/browser/AT/device execution.",
-    "Original learner-platform commit unavailable; no other checkout or network accessed.",
+    "Original host application commit unavailable; no other checkout or network accessed.",
     "No generated registry, historical receipt, production file, or learner checkout was modified."
-  ]
+  ],
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

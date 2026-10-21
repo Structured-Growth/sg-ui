@@ -40,6 +40,15 @@ removing generated output, runs `pnpm check` and `pnpm build:browser-docs`, then
 - `node scripts/test-editor-consumer.mjs --react18`
 - `node scripts/test-editor-consumer.mjs`
 
+Before those consumers, the Node 24 job installs Chromium, Firefox and WebKit
+with their OS dependencies on its own runner. Its foundation consumers add
+`--browser` to execute packed SSR/hydration checks in all three engines; the
+Next.js consumer also executes there. Native matrix installs belong to separate
+runners and cannot provision the runtime job. The setup log is retained as
+`artifacts/logs/consumer-browsers.txt`. See the
+[2026-10-21 checkpoint repair](backlog-to-ten/ci-consumer-browser-repair.md)
+for the observed missing-browser failure and validation limits.
+
 Each script creates a disposable fixture, packs the already built library,
 installs that tarball with its specified React version and builds production
 Vite output. Foundation assertions cover ordinary SSR, emitted CSS, icon

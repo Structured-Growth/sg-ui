@@ -10,7 +10,15 @@ test('sidebar slides into categories, restores Back focus and derives the level 
   const actions=nav.getByRole('button',{name:'Buttons & actions',exact:true});
   await actions.focus();await page.keyboard.press('Enter');
   const back=nav.getByRole('button',{name:'Back to Components',exact:true});
-  await expect(back).toBeFocused();
+  await expect(nav.getByRole('link',{name:'Button',exact:true})).toBeFocused();
+  await expect(nav.locator('[data-sgui-part="hierarchical-menu"]')).toHaveCount(1);
+  await expect(page).toHaveURL(/\/docs\/components$/);
+  const categoryNav=nav.getByRole('navigation',{name:'Component categories',exact:true});
+  await expect(categoryNav.getByRole('link')).toHaveText(['Button','Icon button','Button group','Split action','Menu','Hierarchical menu','ToggleButton','ToggleButtonGroup']);
+  await expect(categoryNav.locator('[data-sgui-part="hierarchical-scroll"]')).toHaveCSS('overflow-y','visible');
+  await page.keyboard.press('Escape');
+  await expect(nav.getByRole('link',{name:'Button',exact:true})).toBeFocused();
+  await expect(back).toBeVisible();
   await page.screenshot({animations:'disabled',path:'/tmp/sgui-drilldown-child.png',clip:{...((await nav.boundingBox())!),height:600}});
   await expect(nav.getByRole('heading',{name:exampleName('Buttons & actions'),exact:true})).toBeVisible();
   await expect(nav.getByRole('link',{name:'Button',exact:true})).toBeVisible();

@@ -10,10 +10,11 @@ current copied source and reference independence; the complete catalog verifies
 approval is inferred from this technical component validation.
 The requested component is the sliding panel that replaces a menu level and
 provides a Back button. Dropdown/flyout submenus are outside this scope.
-Adopting the component in the current menu is a separate follow-up.
+The documentation sidebar now adopts the component; see the dated integration
+evidence below. SideNavigation keeps its existing account-aware implementation.
 HM-T-01 regression coverage is complete: seven menu tests and 63 related
 SideNavigation tests pass. HM-V-01 presentation validation is complete;
-HM-ADOPT-01 remains open.
+HM-ADOPT-01 is complete for the documentation sidebar.
 
 ## Reference and existing SGUI behavior
 
@@ -110,7 +111,8 @@ These are requirements, not shipped prop names:
 ## Delivery and acceptance leaves
 
 The completed checklist is [archived](archive/2026-10-18-task-lists/hierarchical-menu-scope.md#delivery-and-acceptance-leaves).
-Track HM-ADOPT-01 only in the [unified backlog](backlog.md).
+The HM-ADOPT-01 integration result is recorded below; remaining tasks live only
+in the [unified backlog](backlog.md).
 
 This plan is separate from historical F/T/V counts. Follow the
 [master execution policy](react-aria-execution-policy.md) and
@@ -157,5 +159,61 @@ children identify deeper levels and navigation supports mixed inline/drilldown.
 Commands use a React Aria menu collection, while navigation uses native Link and
 Button controls. Branches do not activate hrefs or leaf callbacks. The outer
 Popover or persistent host owns geometry/opening/dismissal. Reset follows remount;
-controlled paths remain authoritative. Existing SideNavigation is untouched;
-HM-ADOPT-01 remains separate.
+controlled paths remain authoritative. Existing SideNavigation is untouched.
+
+## Documentation sidebar adoption — 2026-10-21
+
+HM-ADOPT-01 | complete for the documentation sidebar |
+`apps/docs/components/CatalogNavigation.tsx`, `docs.module.css`,
+`apps/docs/tests/grouped-navigation.spec.ts` and the HierarchicalMenu navigation
+scroll hook | working tree based on `98c678d6` | validation below | Chromium-only
+integration evidence, no new device/spoken-AT or release approval | A-Z-11.
+
+CatalogNavigation supplies the existing category/slug model to the public
+HierarchicalMenu export with a controlled path. Route changes and search results
+select the correct category; leaf links retain the existing Next.js host adapter,
+native modified-click semantics and current-page markers. Overview, search and
+general links remain outside the replaceable category level. The static catalog
+has no fetching, pending or error state to migrate; SearchField retains its
+existing empty-results behavior. SideNavigation and its tests remain unchanged.
+
+The reusable panel now owns entry motion, path requests and focus recovery,
+replacing the sidebar's duplicate implementation. Entering a category focuses its
+first destination, following the panel's shipped behavior; the integration test
+now asserts that destination instead of the previous host-specific Back focus.
+Back returns focus to the opening category. The category heading stays semantic;
+Back retains the accessible name “Back to Components” and displays the branch
+name using the library's existing contract. Persistent navigation does not dismiss
+or unwind on Escape. Searching across categories and browser history still derive
+the category from the destination route.
+
+The compact website scope retains its fixed identity and token-based typography.
+The public `data-sgui-part="hierarchical-scroll"` navigation hook lets this host
+keep overflow visible and omit the nested gutter, so the sidebar owns scrolling.
+Bounded standalone panels keep their existing internal scrolling by default.
+The component usage guidance documents that host styling hook. No prop contract,
+component example state or copied example source changes.
+
+Validation:
+
+- `pnpm build:docs`: fresh library build, docs production build/typecheck, theme
+  checks and catalog checks pass (98 pages, 209 public names, 173 isolated owners).
+- From `packages/ui`, `node node_modules/vitest/vitest.mjs run
+  src/experimental/HierarchicalMenu/HierarchicalMenu.test.tsx`: all seven tests pass.
+- From `packages/ui`, `node node_modules/typescript/bin/tsc --noEmit` and
+  `node scripts/check-foundations.mjs`: pass.
+- `pnpm --filter @structured-growth/docs exec playwright test
+  tests/grouped-navigation.spec.ts`: all five Chromium cases pass against the
+  fresh production docs build under the shared validation leases. They cover
+  first-destination/Back focus, branch activation without routing, all action
+  category entries, outer scroll ownership, persistent Escape behavior, direct
+  routes, search/history, navigation ordering, hover/focus, narrow/touch layouts
+  and doubled text. Root/child screenshots were reviewed. An initial new assertion
+  incorrectly used export names for four existing catalog display labels; fixing
+  the expected labels produced the five-case pass with no application change.
+
+Local runtime: Node 26.5.0 and repository-pinned pnpm 10.29.3. These are targeted
+development results, not supported Node 22/24 or whole-catalog browser acceptance.
+Firefox/WebKit integration checks remain for the batch checkpoint under the
+development validation policy; existing standalone component evidence retains
+its recorded scope.

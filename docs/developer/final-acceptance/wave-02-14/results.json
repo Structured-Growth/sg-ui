@@ -263,7 +263,7 @@
         "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
         "No unit/browser/consumer/build/release command executed"
       ],
-      "findings": "**A-Z-05 — partial, reviewable amendments supplied.** The two source identities\nremain `Structured-Growth/learning-platform@8e63f1e16fc3d43d851908b312603a1099ca13d9`\nand initial SGUI extraction `21adebd61bedfc6a1ed395fe664ff4be83896821`.\n`manifest-amendments.json` progresses parallel-15's exact successor: 32 rows map\nto known migrated fixtures, three to Button source/test/index candidates, and the\nAppButton story has a separately identified current Button fixture requiring\nassertion mapping. All 36 proposed `present:false` amendments preserve original\nsource fields and include replacement metadata for review. They are not applied\nand do not certify assertion parity. The old historical records and baseline\nsnapshots still contain original names. `reference-rewrite-proposals.json` lists\ncurrent host/prose corrections and explicit preserve categories. Required\nsuccessors: apply/review the 36 rows, establish AppButton-story assertion mapping,\ncorrect active-current prose, and record the exact historical-reference policy\nconsistent with original provenance. Do not rewrite Git history or relabel\nbaseline captures as current. Literal zero-match closure has not been achieved.",
+      "findings": "**A-Z-05 — partial, reviewable amendments supplied.** The two source identities\nremain `owner-confirmed first-party code@source-identity-omitted`\nand initial SGUI extraction `21adebd61bedfc6a1ed395fe664ff4be83896821`.\n`manifest-amendments.json` progresses parallel-15's exact successor: 32 rows map\nto known migrated fixtures, three to Button source/test/index candidates, and the\nAppButton story has a separately identified current Button fixture requiring\nassertion mapping. All 36 proposed `present:false` amendments preserve original\nsource fields and include replacement metadata for review. They are not applied\nand do not certify assertion parity. The old historical records and baseline\nsnapshots still contain original names. `reference-rewrite-proposals.json` lists\ncurrent host/prose corrections and explicit preserve categories. Required\nsuccessors: apply/review the 36 rows, establish AppButton-story assertion mapping,\ncorrect active-current prose, and record the exact historical-reference policy\nconsistent with original provenance. Do not rewrite Git history or relabel\nbaseline captures as current. Literal zero-match closure has not been achieved.",
       "successorDeliverables": [
         "See explicit required successor in report; no implied closure."
       ],
@@ -954,5 +954,6 @@
   ],
   "coordinatorReconciliationRequired": true,
   "noPublicationOrMigrationCompletionClaim": true,
-  "remainingEditorVLeaves": 20
+  "remainingEditorVLeaves": 20,
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

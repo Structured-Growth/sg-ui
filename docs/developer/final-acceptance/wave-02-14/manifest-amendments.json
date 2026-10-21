@@ -1,7 +1,7 @@
 {
   "sourceProvenance": {
-    "sourceRepository": "Structured-Growth/learning-platform",
-    "sourceCommit": "8e63f1e16fc3d43d851908b312603a1099ca13d9",
+    "sourceRepository": "owner-confirmed first-party code",
+    "sourceCommit": "source-identity-omitted",
     "sourceRoot": "apps/web/src/ui"
   },
   "amendments": [
@@ -583,5 +583,6 @@
     }
   ],
   "originalManifestSha256": "dd156daf1ed4403dd21af9349e21fad834660bea956fb08e4a03569a6d789066",
-  "applied": false
+  "applied": false,
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

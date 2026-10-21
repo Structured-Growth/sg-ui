@@ -43,7 +43,7 @@
           "result": "pass; patch not applied"
         },
         {
-          "command": "git cat-file -t 8e63f1e16fc3d43d851908b312603a1099ca13d9",
+          "command": "git cat-file -t source-identity-omitted",
           "result": "unavailable; exit 128, preserved in evidence.json; no network or other checkout attempted"
         }
       ],
@@ -99,7 +99,7 @@
           "result": "pass; patch not applied"
         },
         {
-          "command": "git cat-file -t 8e63f1e16fc3d43d851908b312603a1099ca13d9",
+          "command": "git cat-file -t source-identity-omitted",
           "result": "unavailable; exit 128, preserved in evidence.json; no network or other checkout attempted"
         }
       ],
@@ -114,7 +114,7 @@
         "No fresh unit/browser/AT/device/packed/CI execution, legal approval, release or original upstream byte equivalence."
       ],
       "id": "A-B-14",
-      "originalRequirement": "- [ ] A-B-14 Reconcile original `B-14`: Keep the learner platform unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
+      "originalRequirement": "- [ ] A-B-14 Reconcile original `B-14`: Keep the host application unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
       "substantiveOutcome": "All operations were confined to SGUI local Git/source reads and owned evidence writes. Preserved repository/sourceCommit/sourceRoot and recorded exit-128 absence of upstream commit object; learner repository was not accessed or mutated.",
       "residualSuccessors": [
         "Original upstream source/reference behavior remains externally unavailable. Supply a durable read-only source-commit-bound archive/reference capture; local extracted files cannot independently authenticate the learner commit.",
@@ -154,7 +154,7 @@
           "result": "pass; patch not applied"
         },
         {
-          "command": "git cat-file -t 8e63f1e16fc3d43d851908b312603a1099ca13d9",
+          "command": "git cat-file -t source-identity-omitted",
           "result": "unavailable; exit 128, preserved in evidence.json; no network or other checkout attempted"
         }
       ],
@@ -210,7 +210,7 @@
           "result": "pass; patch not applied"
         },
         {
-          "command": "git cat-file -t 8e63f1e16fc3d43d851908b312603a1099ca13d9",
+          "command": "git cat-file -t source-identity-omitted",
           "result": "unavailable; exit 128, preserved in evidence.json; no network or other checkout attempted"
         }
       ],
@@ -265,7 +265,7 @@
           "result": "pass; patch not applied"
         },
         {
-          "command": "git cat-file -t 8e63f1e16fc3d43d851908b312603a1099ca13d9",
+          "command": "git cat-file -t source-identity-omitted",
           "result": "unavailable; exit 128, preserved in evidence.json; no network or other checkout attempted"
         }
       ],
@@ -312,5 +312,6 @@
     "prepare-output.json": "d85bc724325a4eca55a447582528327b665c19fbff0d607b05b1c705bfa06fb5",
     "audit-output.json": "4aef86a77a793db0ab8657b3b80eccefe4d5290702966b7ccef65e4f48dbb939",
     "prepare.py": "c5f3a8b8085ad67b49497c0d66e464a860cdb7b7e85d6ce938997fa6c58fae7b"
-  }
+  },
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

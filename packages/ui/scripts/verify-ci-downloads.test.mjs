@@ -34,7 +34,7 @@ test('rejects packaged notices that differ from the fingerprinted input',async t
 
 test('Node24 downloaded evidence requires all three complete engine proofs matching packaged bytes',async t=>{
  const f=await fixture(t),d=f.download;d.runtime='24';d.job.name='Validate Node 24';f.receipt.node='v24.19.0';
- for(const step of ['Verify native engine scope and compiled package identity','Packed Next.js production and browser consumer'])d.job.steps.push({name:step,status:'completed',conclusion:'success'});
+ for(const step of ['Install packed consumer browsers','Verify native engine scope and compiled package identity','Packed Next.js production and browser consumer'])d.job.steps.push({name:step,status:'completed',conclusion:'success'});
  for(const a of d.artifacts)a.name=a.name.replace('22.12.0','24');
  for(const name of ['sgui-browser-node-24',...['chromium','firefox','webkit'].map(b=>`sgui-native-${b}-node-24`)])d.artifacts.push({name,expired:false,expires_at:'2099-01-01T00:00:00Z',workflow_run:{id:123,head_sha:d.expectedHead},digest:'sha256:'+hash('archive'),archivePath:await f.put(name+'.zip','archive')});
  await f.put('receipt.json',JSON.stringify(f.receipt));
@@ -46,6 +46,12 @@ test('Node24 downloaded evidence requires all three complete engine proofs match
   await f.put(base+'logs/browser-collection.json',JSON.stringify(report));await f.put(base+'browser-results.json',JSON.stringify(report));
  }
  assert.equal((await verifyCI(d)).runtime,'24');
+ for(const conclusion of ['skipped','failure']) {
+  const altered=structuredClone(d);altered.job.steps.find(step=>step.name==='Install packed consumer browsers').conclusion=conclusion;
+  await assert.rejects(verifyCI(altered),/Install packed consumer browsers/);
+ }
+ const absent=structuredClone(d);absent.job.steps=absent.job.steps.filter(step=>step.name!=='Install packed consumer browsers');
+ await assert.rejects(verifyCI(absent),/Install packed consumer browsers/);
  await f.put('engines/sgui-native-webkit-node-24/browser-results.json','{"suites":[]}');
  await assert.rejects(verifyCI(d),/Empty native collection/);
 });

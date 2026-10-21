@@ -1,19 +1,18 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {checkManifest,checkCommands,checkScenarioTransfer,exportsIn,commandCodeIn,checkScenarioDispositions} from './check-docs-provenance-wave04.mjs';
-const baseline={sourceRepository:'owner/source',sourceCommit:'immutable',sourceRoot:'app/ui',files:[{source:'A.stories.tsx',destination:'src/A.stories.tsx',present:true}]};
-const migrated={...baseline,files:[{...baseline.files[0],present:false,migration:{replacements:['apps/docs/A.fixture.tsx']}}]};
-test('removed extraction requires an existing replacement and preserves upstream identity/order',()=>{
- assert.deepEqual(checkManifest(migrated,baseline,p=>p==='apps/docs/A.fixture.tsx').issues,[]);
- assert.match(checkManifest(migrated,baseline,()=>false).issues.join('\n'),/Missing replacement/);
- assert.match(checkManifest({...migrated,sourceCommit:'invented'},baseline,()=>false).issues.join('\n'),/Changed original provenance/);
- assert.match(checkManifest({...migrated,files:[]},baseline,()=>false).issues.join('\n'),/Original ordered extraction/);
- assert.match(checkManifest({...migrated,files:[{...migrated.files[0],migration:undefined}]},baseline,()=>false).issues.join('\n'),/no explicit replacement/);
+const baseline={files:[{destination:'src/A.stories.tsx',present:true}]};
+const migrated={files:[{...baseline.files[0],present:false,migration:{replacements:['apps/docs/A.fixture.tsx']}}]};
+test('removed components require existing replacements and current paths cannot duplicate',()=>{
+ assert.deepEqual(checkManifest(migrated,p=>p==='apps/docs/A.fixture.tsx').issues,[]);
+ assert.match(checkManifest(migrated,()=>false).issues.join('\n'),/Missing replacement/);
+ assert.match(checkManifest({files:[baseline.files[0],baseline.files[0]]},()=>true).issues.join('\n'),/Duplicate current path/);
+ assert.match(checkManifest({files:[{...migrated.files[0],migration:undefined}]},()=>false).issues.join('\n'),/no explicit replacement/);
 });
-test('legacy src replacement references resolve through library workspace and stale present flags fail',()=>{
- const manifest={...baseline,files:[{...baseline.files[0],present:false,migration:{replacements:['src/A.tsx']}}]};
- assert.deepEqual(checkManifest(manifest,baseline,p=>p==='packages/ui/src/A.tsx').issues,[]);
- assert.match(checkManifest(baseline,baseline,()=>false).issues.join('\n'),/Presence mismatch/);
+test('legacy src replacement references resolve through the library workspace and stale presence fails',()=>{
+ const manifest={files:[{...baseline.files[0],present:false,migration:{replacements:['src/A.tsx']}}]};
+ assert.deepEqual(checkManifest(manifest,p=>p==='packages/ui/src/A.tsx').issues,[]);
+ assert.match(checkManifest(baseline,()=>false).issues.join('\n'),/Presence mismatch/);
 });
 test('scenario transfer uses exported AST names, preserves aliases and detects a dropped scenario',()=>{
  const before='export const Normal={}; export const NativeForm={}; const local={}; export { local as Alias }; // export const Fake={}';

@@ -1,7 +1,7 @@
 # Read-only host adoption checklist
 
 Task reference: W-15, with W-11–W-14/W-18 integration guidance. This checklist is a
-review aid for the learner platform or another host. It does not authorize editing
+review aid for the host application or another host. It does not authorize editing
 that application, changing routes/data contracts or removing its original UI tree.
 A host rollout is a separate implementation task after version/license selection.
 

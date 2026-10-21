@@ -680,7 +680,7 @@
     },
     {
       "id": "A-X-03",
-      "basis": "The prior X03 reconciliation identified initial hydrated label/description/native-wire preservation and composed route headings/landmarks/form submission as the remaining concrete gaps. Both now execute successfully:24 exact-tarball React18/19 cases preserve all initial ID-bearing nodes, values/disabled flags and resolved IDREFs while checking portal/sibling semantics; six en/ar\u00d7three-engine shell cases assert named main/navigation, oneh1/twelveh2/noh3,currentlink,field name/form association and native Enter/status feedback through narrow reflow. Retained native selector role/description/validation/reset and rejecting controlled-host tests, plus calendar full-date/range live messages and host-owned Status assertions, supply the supported state/validation contracts. Host responsibility and naming-union documentation remain explicit. No actual speech claim is inferred from DOM/AX assertions.",
+      "basis": "The prior X03 reconciliation identified initial hydrated label/description/native-wire preservation and composed route headings/landmarks/form submission as the remaining concrete gaps. Both now execute successfully:24 exact-tarball React18/19 cases preserve all initial ID-bearing nodes, values/disabled flags and resolved IDREFs while checking portal/sibling semantics; six en/ar×three-engine shell cases assert named main/navigation, oneh1/twelveh2/noh3,currentlink,field name/form association and native Enter/status feedback through narrow reflow. Retained native selector role/description/validation/reset and rejecting controlled-host tests, plus calendar full-date/range live messages and host-owned Status assertions, supply the supported state/validation contracts. Host responsibility and naming-union documentation remain explicit. No actual speech claim is inferred from DOM/AX assertions.",
       "criterion": "- [ ] A-X-03 Reconcile original `X-03`: Verify accessible names/descriptions, roles, state announcements, validation, heading hierarchy, landmarks, and native form semantics. Historical status: open.",
       "decision": "complete",
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/12-names-form-semantics-review.json",
@@ -833,7 +833,7 @@
     },
     {
       "id": "A-D-17",
-      "basis": "Explicit light/dark/system and initial server/host contracts are documented. The accepted24case React18/19\u00d7locale\u00d7engine\u00d7system-preference execution covers the named gated prehydration styling successor without browser reads in server render, while preserving fixed nested scopes and zero hydration diagnostics.",
+      "basis": "Explicit light/dark/system and initial server/host contracts are documented. The accepted24case React18/19×locale×engine×system-preference execution covers the named gated prehydration styling successor without browser reads in server render, while preserving fixed nested scopes and zero hydration diagnostics.",
       "criterion": "- [ ] A-D-17 Reconcile original `D-17`: Specify explicit light/dark/system settings, initial server theme, `color-scheme`, and hydration behavior without unwanted flashes or browser-global assumptions. Historical status: open.",
       "decision": "complete",
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/root-initial-theme-hydration-review.json",
@@ -887,8 +887,8 @@
     },
     {
       "id": "A-B-14",
-      "basis": "Original repository/commit/tree/source-path identities and source-declared reference story behavior are now directly verified from authoritative read-only upstream data. Only GET/read operations were used; no learner-platform checkout, source, branch or remote setting changed. Initial local adaptation and docs-native replacement scopes remain explicit.",
-      "criterion": "- [ ] A-B-14 Reconcile original `B-14`: Keep the learner platform unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
+      "basis": "Original repository/commit/tree/source-path identities and source-declared reference story behavior are now directly verified from authoritative read-only upstream data. Only GET/read operations were used; no host application checkout, source, branch or remote setting changed. Initial local adaptation and docs-native replacement scopes remain explicit.",
+      "criterion": "- [ ] A-B-14 Reconcile original `B-14`: Keep the host application unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
       "decision": "complete",
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/root-upstream-readonly-provenance-review.json",
       "sha256": "abdc9c80a51f52a5eaadf27ccabbf6c3bb9759fe56b745dc0ff9ae673a2c19c2",
@@ -986,7 +986,7 @@
     },
     {
       "id": "A-R-15",
-      "basis": "Accepted public API/migration review identifies incompatible removals/default changes and actual major markers. Actual339c958d message hash matches accepted commitlint/analyzer proof and is an ancestor of dev. Configured analyzer returns major; maintained pure tool tests prove initial1.0.0 versus existing1.4.2\u21922.0.0 and0.9.0\u21921.0.0 for both supported breaking syntaxes, without editing versions or deciding publication authority.",
+      "basis": "Accepted public API/migration review identifies incompatible removals/default changes and actual major markers. Actual339c958d message hash matches accepted commitlint/analyzer proof and is an ancestor of dev. Configured analyzer returns major; maintained pure tool tests prove initial1.0.0 versus existing1.4.2→2.0.0 and0.9.0→1.0.0 for both supported breaking syntaxes, without editing versions or deciding publication authority.",
       "criterion": "- [ ] A-R-15 Reconcile original `R-15`: Mark breaking public API removals appropriately; if a release already exists, migration needs a major bump, while a first publication follows the configured initial-release policy. Historical status: open.",
       "decision": "complete",
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/r15-r28-offline-release-safety.json",
@@ -1034,5 +1034,6 @@
     "All300V remain accepted. Six future leaves remain separate.",
     "No production promotion, release, manual AT or physical-device approval is inferred.",
     "New unexecuted patches and active simulator work earn no closure here."
-  ]
+  ],
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

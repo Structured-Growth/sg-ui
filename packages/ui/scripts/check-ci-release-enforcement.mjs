@@ -72,6 +72,9 @@ export function workflowFindings(workflows) {
  check(steps.filter(step=>step.with?.pattern==='sgui-native-*-node-24'&&step.with?.path==='/tmp/sgui-native-ci'&&step.if==="matrix.node == '24'").length===1,'CI: native proof download missing');
  for(const command of ['pnpm check:docs','pnpm build:docs','test:e2e --reporter=list,json'])requireStep(ci.jobs?.docs?.steps??[],command);
  const at=text=>commands.findIndex(s=>s.includes(text));
+ const consumerInstall='pnpm exec playwright install --with-deps chromium firefox webkit 2>&1 | tee artifacts/logs/consumer-browsers.txt';
+ check(steps.filter(step=>step.run===consumerInstall && step.if==="matrix.node == '24'" && (step['working-directory']===undefined || step['working-directory']==='packages/ui')).length===1 && ci.jobs?.validate?.defaults?.run?.['working-directory']==='packages/ui','CI: packed consumers require all browsers and OS dependencies on their own runner');
+ check(at(consumerInstall)>at('pnpm install --frozen-lockfile') && at(consumerInstall)>at('ci-artifacts.mjs begin') && at(consumerInstall)<at('test-foundation-consumer.mjs --react18'),'CI: packed browser provisioning must precede consumer execution after install/output cleanup');
  check(at('verify-native-ci.mjs')>at('pnpm pack')&&at('verify-native-ci.mjs')<at('ci-artifacts.mjs complete'),'CI: final package/native byte join ordering changed');
  check(at('ci-artifacts.mjs begin')>=0 && at('ci-artifacts.mjs begin')<at('pnpm check') && at('ci-artifacts.mjs complete')>at('pnpm pack'),'CI: fresh-output ordering changed');
  check(release.jobs?.validate?.uses==='./.github/workflows/ci.yml' && release.jobs?.validate?.if===undefined,'Release: full prerequisite can be skipped');
@@ -97,7 +100,13 @@ export function workflowFindings(workflows) {
  check(draft?.with?.draft===true && draft?.with?.token==='${{ github.token }}' && draft?.with?.base==='dev','AI: default-token draft to dev missing');
  check(!(write?.steps??[]).some(s=>/pnpm |npm |yarn |git (?:merge|push)|gh pr merge/.test(s.run??'')),'AI: write job executes package code or merge commands');
  check(write?.steps?.some(s=>s.name==='Verify original patch identity' && s.if===undefined && !s['continue-on-error'] && s.run?.includes("throw new Error('Validation artifact changed proposal bytes')")),'AI: original patch identity check missing');
+ for(const [job,name] of [['implement','Capture proposed changes'],['validate-proposal','Apply proposed changes']]) {
+  const modeCheck=(ai.jobs?.[job]?.steps??[]).filter(step=>step.name===name);
+  check(modeCheck.length===1 && modeCheck[0].if===undefined && modeCheck[0].run?.includes("'--raw', '--no-abbrev', '--no-renames', '-z'") && modeCheck[0].run?.includes("!['100644', '000000'].includes(match[1])"),`AI: ${job} must reject nonregular/executable proposal files`);
+ }
  const full=ai.jobs?.['validate-draft'];
+ const identity=(write?.steps??[]).filter(step=>step.name==='Require a resulting draft head');
+ check(write?.outputs?.head==='${{ steps.draft.outputs.pull-request-head-sha }}' && identity.length===1 && identity[0].if===undefined && !identity[0]['continue-on-error'] && identity[0].env?.PROPOSAL_HEAD==='${{ steps.draft.outputs.pull-request-head-sha }}' && identity[0].env?.PROPOSAL_NUMBER==='${{ steps.draft.outputs.pull-request-number }}' && identity[0].run?.includes("/^[0-9a-f]{40}$/") && identity[0].run?.includes("/^[1-9][0-9]*$/") && identity[0].run?.includes("throw new Error('No resulting draft identity; full validation cannot be inferred')"),'AI: resulting draft identity must fail closed before full validation');
  check(full?.needs==='propose' && full.uses==='./.github/workflows/ci.yml' && full.with?.ref==='${{ needs.propose.outputs.head }}' && full.if===undefined && !full.secrets,'AI: explicit full validation at returned draft head missing');
  return failures;
 }

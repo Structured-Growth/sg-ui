@@ -36,7 +36,7 @@ No remaining deliverable for this named documentation/contract leaf. Broader imp
 
 ### A-W-02 — complete
 
-Original requirement: Retain valid learner-platform principles: shared components first, props/variants before custom styles, tokenized typography, neutral split actions, consistent grid alignment/filtering, and stories with behavior changes.
+Original requirement: Retain valid host application principles: shared components first, props/variants before custom styles, tokenized typography, neutral split actions, consistent grid alignment/filtering, and stories with behavior changes.
 
 All named valid principles remain: component reuse, variants before native style, owned typography tokens, neutral outlined split groups, grid alignment/filter rules and behavior example updates. Stories are deliberately replaced by ordinary docs examples/native fixtures under the approved host migration. This closes retained guidance, not every implementation or test matrix.
 
@@ -218,7 +218,7 @@ No remaining deliverable for this named documentation/contract leaf. Broader imp
 
 ### A-W-15 — complete
 
-Original requirement: Provide a read-only learner-platform adoption checklist; modifying that application remains a separate implementation task.
+Original requirement: Provide a read-only host application adoption checklist; modifying that application remains a separate implementation task.
 
 Checklist explicitly remains read-only planning, with separate authorized host rollout/source deletion. It includes license/version, public imports/props, CSS/scopes, routing/accounts/translations, controlled/persisted grid state, upload/save, forms/dates, accessibility/device parity and retained originals. No application checkout was accessed or changed.
 

@@ -162,7 +162,7 @@ export const HierarchicalMenu = forwardRef<HTMLDivElement, HierarchicalMenuProps
           <span className={styles.arrow} aria-hidden="true"><KeyboardArrowLeftIcon /></span>
           <span className={styles.itemLabel} data-sgui-part="hierarchical-back-label">{parent.label}</span>
         </Button>}
-        <div ref={scroll} className={styles.scroll}>{navigationLevel(resolved.level, resolved.path, new Set(resolved.levels))}</div>
+        <div ref={scroll} className={styles.scroll} data-sgui-part="hierarchical-scroll">{navigationLevel(resolved.level, resolved.path, new Set(resolved.levels))}</div>
       </nav>}
     </div>
   </div>;

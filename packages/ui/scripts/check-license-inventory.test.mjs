@@ -68,6 +68,25 @@ async function fixture(t) {
 }
 const codes = report => report.issues.map(issue => issue.code);
 
+test('empty dependency legal files remain findings even beside nonempty evidence',async t=>{
+ const root=await fixture(t);
+ const base='node_modules/.pnpm/runtime@1.0.0/node_modules/runtime';
+ await put(root,`${base}/LICENSE`,' \n\t');
+ await put(root,`${base}/NOTICE`,'Some notice; not a replacement for the empty license.');
+ const report=await inventory(root);
+ assert(report.issues.some(issue=>issue.code==='empty-license-file'&&issue.subject==='runtime@1.0.0'));
+ assert.equal(report.packages.find(pkg=>pkg.name==='runtime').metadata[0].evidence.length,2);
+});
+
+test('duplicate exact notice identities are reported while retaining both sections',async t=>{
+ const root=await fixture(t);
+ await put(root,'THIRD_PARTY_NOTICES.md','## runtime 1.0.0 (MIT)\nOriginal attribution\n## runtime 1.0.0 (BSD)\nOther attribution\n## peer 2.0.0 (MIT)\n');
+ const report=await inventory(root);
+ assert(codes(report).includes('duplicate-notice-reference'));
+ assert.equal(report.notices.filter(item=>item.id==='runtime@1.0.0').length,2);
+ assert((await readFile(join(root,'THIRD_PARTY_NOTICES.md'),'utf8')).includes('Other attribution'));
+});
+
 test('resolved scopes distinguish direct, shared transitive, peers and development', async t => {
   const report = await inventory(await fixture(t));
   assert.deepEqual(report.issues, []);

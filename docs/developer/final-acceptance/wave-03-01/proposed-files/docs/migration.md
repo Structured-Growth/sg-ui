@@ -1,12 +1,12 @@
-# Learner platform extraction and consumer migration
+# host application extraction and consumer migration
 
 Task references: W-11–W-18 (bounded documentation reconciliation).
-Source: `Structured-Growth/learning-platform`, commit
-`8e63f1e16fc3d43d851908b312603a1099ca13d9`, `apps/web/src/ui`.
+Source: `owner-confirmed first-party code`, commit
+`source-identity-omitted`, `apps/web/src/ui`.
 The file-by-file [manifest](extraction-manifest.json) preserves original source
 paths and destinations. Its `present` flags and migration replacement metadata
 were reconciled in the [removal audit](developer/react-aria-removal-audit.md).
-This documentation slice does not change that manifest or the learner platform.
+This documentation slice does not change that manifest or the host application.
 
 Components, helpers, stories and tests were initially copied, then adapted to a
 standalone library. That extraction is provenance, not today's runtime architecture.
@@ -27,7 +27,7 @@ use owned contracts. Broad G/K/E/U/X/R/Z acceptance remains open; source and
 | Translation provider | Host translation adapter with English/defaultMessage fallback |
 | Learner grid model | Local presentation model; no API contract dependency |
 | Due-date formatting | Extracted helper with behavior coverage |
-| Application screens, API/contracts and session storage | Remain in learner platform; never library runtime dependencies |
+| Application screens, API/contracts and session storage | Remain in host application; never library runtime dependencies |
 
 ## Component inventory
 
@@ -118,7 +118,7 @@ Class exports; see [presets](developer/react-aria-grid-presets.md).
 ## Adoption and remaining limits
 
 The [read-only adoption checklist](developer/react-aria-adoption-checklist.md) is
-planning guidance for the learner platform or another host. Application modification,
+planning guidance for the host application or another host. Application modification,
 original-source removal and production rollout require a separately authorized task.
 SGUI accepts models, data, routing, translations and account actions from the host;
 it never imports platform contracts or owns API/database/login policy.

@@ -29,7 +29,7 @@ def guidance(decl):
   if parts[1] in ['DataGrid']:return 'react-aria-grid-contracts.md','Owned proof grid contracts replace engine contexts, column and selection models; host owns server data and reorder persistence.'
   if parts[1] in ['Dialog','Popover']:return 'react-aria-proof-controls.md','Owned overlay callbacks/slots and focus/dismissal contracts; host owns state/persistence. Experimental route remains a proof contract.'
   return 'react-aria-primitives.md','Owned primitive/experimental declaration; inherited upstream prop surface removed. Aliases share implementation; experimental exports retain proof scope.'
- if path=='models.d.ts':return 'react-aria-catalog-grid.md','Local presentation model retained independently of learner-platform HTTP/database contracts.'
+ if path=='models.d.ts':return 'react-aria-catalog-grid.md','Local presentation model retained independently of host application HTTP/database contracts.'
  if parts[0]=='utils':return ('react-aria-calendar-contracts.md' if 'relative' in path else 'react-aria-catalog-grid.md'),'Host-supplied date/locale/timezone presentation helper; no application data fetching or upstream grid types.'
  raise ValueError(path)
 replacement={

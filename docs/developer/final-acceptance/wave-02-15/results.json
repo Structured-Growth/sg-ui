@@ -769,7 +769,7 @@
     {
       "id": "A-B-14",
       "status": "partial",
-      "originalRequirement": "- [ ] A-B-14 Reconcile original `B-14`: Keep the learner platform unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
+      "originalRequirement": "- [ ] A-B-14 Reconcile original `B-14`: Keep the host application unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
       "priorEvidence": "docs/developer/final-acceptance/parallel-15/report.md",
       "sourceReferences": [
         "docs/extraction-manifest.json",
@@ -793,7 +793,7 @@
       ],
       "successorDeliverables": [
         "Attach durable original-source-commit-bound read-only reference captures or separately authorize original provenance review; reconcile helper/preset/editor/Button behavior against those references.",
-        "Preserve unchanged learner platform; no mutation or access to another checkout authorized here."
+        "Preserve unchanged host application; no mutation or access to another checkout authorized here."
       ],
       "inputHeadHostLimits": "Shared modified dev at 540f47d4059a9cea8890b80927f34f51ef2fbc3e. Current read hashes in input-receipt.json; new source-backed types use typecheck.json. Frozen declarations are not freshly built for BUG-0008/0009. No new native/browser/device/AT/consumer/CI/legal execution. Prior evidence retains recorded head/host limits."
     }
@@ -871,5 +871,6 @@
     "stdout": "",
     "stderr": "error: patch failed: packages/ui/src/experimental/DateField/DateField.tsx:13\nerror: packages/ui/src/experimental/DateField/DateField.tsx: patch does not apply\n",
     "applied": false
-  }
+  },
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

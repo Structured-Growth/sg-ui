@@ -53,7 +53,7 @@
       "result": "pass; patch not applied"
     },
     {
-      "command": "git cat-file -t 8e63f1e16fc3d43d851908b312603a1099ca13d9",
+      "command": "git cat-file -t source-identity-omitted",
       "result": "unavailable; exit 128, preserved in evidence.json; no network or other checkout attempted"
     }
   ],
@@ -82,8 +82,9 @@
     "reason": "Metadata/docs patch changes no production code, fixture module, registry, catalog, generated API or displayed component snippet. Retain unchanged prior validation. A future behavior implementation requires its own focused checks; this patch cannot establish runtime acceptance."
   },
   "externalEvidenceRequired": [
-    "Original learner-platform commit-bound source/behavior capture or provenance review supplied read-only through authorized evidence; no learner checkout mutation",
+    "Original host application commit-bound source/behavior capture or provenance review supplied read-only through authorized evidence; no learner checkout mutation",
     "Individual behavior disposition for 16 initial grid exports and unresolved public example backlog; do not infer parity from module paths",
     "Explicit provenance-preserving literal-reference policy decision, with legal notices/approval kept separate"
-  ]
+  ],
+  "sourceHistoryMaintenance": "Source-origin text omitted at owner request on 2026-10-21. This edited historical record is not a byte-identical original execution artifact."
 }

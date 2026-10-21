@@ -1,18 +1,12 @@
-/** Read-only extraction/story/command guard. Run from any cwd:
- * node packages/ui/scripts/check-docs-provenance-wave04.mjs [--strict-history] [--json]
- * Structural success preserves explicit unresolved early scenarios; --strict-history
- * fails while any such scenario lacks an explicit source-backed semantic disposition. No Git/network writes.
- * Local extraction Git objects authenticate local bytes only, never upstream behavior.
+/** Current inventory, fixture-host and documentation-command checks.
+ * First-party source-origin records are not required by this audit.
  */
 import {readFileSync,existsSync} from 'node:fs';
-import {execFileSync} from 'node:child_process';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
-import {createHash} from 'node:crypto';
 import ts from 'typescript';
+import {checkDocsHost} from './check-docs-host.mjs';
 const initial='21adebd61bedfc6a1ed395fe664ff4be83896821';
-const beforeDocs='530bbc00465d9dbf1e9948f8a2c01b2e51b1a479^';
-const hash=text=>createHash('sha256').update(text).digest('hex');
 const workspacePath=p=>p.startsWith('src/')?`packages/ui/${p}`:p;
 export function exportsIn(text,path='fixture.tsx') {
   const source=ts.createSourceFile(path,text,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
@@ -25,19 +19,17 @@ export function exportsIn(text,path='fixture.tsx') {
   }
   return result.sort();
 }
-export function checkManifest(manifest,baseline,exists) {
-  const issues=[];const rows=[];
-  for(const key of ['sourceRepository','sourceCommit','sourceRoot'])if(manifest[key]!==baseline[key])issues.push(`Changed original provenance: ${key}`);
-  if(JSON.stringify(manifest.files.map(r=>[r.source,r.destination]))!==JSON.stringify(baseline.files.map(r=>[r.source,r.destination])))issues.push('Original ordered extraction source/destination identities differ');
-  const seen=new Set();
-  for(const r of manifest.files) {
-    if(seen.has(r.source))issues.push(`Duplicate source identity: ${r.source}`);seen.add(r.source);
-    const path=workspacePath(r.destination);const present=exists(path);
-    if(present!==r.present)issues.push(`Presence mismatch: ${path}`);
-    const replacements=(r.migration?.replacements??[]).map(workspacePath);
+export function checkManifest(manifest,exists) {
+  const issues=[],rows=[],seen=new Set();
+  for(const row of manifest.files) {
+    const path=workspacePath(row.destination);
+    if(seen.has(path))issues.push(`Duplicate current path: ${path}`);seen.add(path);
+    const present=exists(path);
+    if(present!==row.present)issues.push(`Presence mismatch: ${path}`);
+    const replacements=(row.migration?.replacements??[]).map(workspacePath);
     for(const replacement of replacements)if(!exists(replacement))issues.push(`Missing replacement: ${replacement}`);
-    if(!present&&replacements.length===0)issues.push(`Removed extraction has no explicit replacement: ${r.source}`);
-    rows.push({source:r.source,path,present,replacements});
+    if(!present&&!replacements.length)issues.push(`Removed component has no explicit replacement: ${path}`);
+    rows.push({path,present,replacements});
   }
   return {issues,rows};
 }
@@ -98,58 +90,19 @@ export function checkScenarioDispositions(early,manifest,read) {
   }
   return {issues,rows,unresolved:early.filter(row=>!rows.some(r=>r.original===row.original&&r.name===row.name&&r.resolved))};
 }
-export function audit(root,{strictHistory=false}={}) {
+export function audit(root) {
   const read=p=>readFileSync(resolve(root,p),'utf8');
-  const git=(ref,path)=>execFileSync('git',['show',`${ref}:${path}`],{cwd:root,encoding:'utf8',maxBuffer:8*1024*1024});
   const manifest=JSON.parse(read('docs/extraction-manifest.json'));
-  const baseline=JSON.parse(git(initial,'docs/extraction-manifest.json'));
-  const extraction=checkManifest(manifest,baseline,p=>existsSync(resolve(root,p)));
-  const issues=[...extraction.issues], transfers=[],early=[],deliberate=[];
-  const modules=JSON.parse(read('apps/docs/native-fixtures/migration-manifest.json')).modules;
-  const stories=manifest.files.filter(r=>r.destination.endsWith('.stories.tsx'));
-  for(const story of stories) {
-    const original=workspacePath(story.destination);
-    const localPath=story.destination;
-    const before=git(beforeDocs,localPath),first=git(initial,localPath);
-    const mapping=modules.filter(r=>r.original===original);
-    if(story.source==='components/AppButton/AppButton.stories.tsx') {
-      const successors=['apps/docs/examples/ButtonDocumentation.tsx','apps/docs/native-fixtures/scenarios/experimental/Button/Button.fixture.tsx'];
-      const documented=read('docs/developer/extraction-lineage.md');
-      for(const name of exportsIn(before,localPath))if(!documented.includes(`| ${name} |`))issues.push(`Button export missing explicit lineage row: ${name}`);
-      for(const target of successors)if(!story.migration?.replacements?.includes(target))issues.push(`Button successor absent from extraction mapping: ${target}`);
-      deliberate.push({original,exports:exportsIn(before),successors,firstSha256:hash(first),beforeDocsSha256:hash(before),limit:'Documented deliberate replacement; no semantic-parity or runtime assertion inferred.'});
-      continue;
-    }
-    if(mapping.length!==1){issues.push(`Expected one native migration mapping for ${original}; found ${mapping.length}`);continue;}
-    if(!existsSync(resolve(root,mapping[0].fixture))){issues.push(`Missing native fixture: ${mapping[0].fixture}`);continue;}
-    const current=read(mapping[0].fixture);
-    const transfer=checkScenarioTransfer(before,current,mapping[0]);
-    transfer.sourceSha256=hash(before);transfer.fixtureSha256=hash(current);
-    transfers.push(transfer);
-    for(const missing of transfer.missingExports)issues.push(`Lost pre-docs scenario: ${original}#${missing}`);
-    const beforeNames=exportsIn(before);
-    for(const name of exportsIn(first).filter(name=>!beforeNames.includes(name)))early.push({original,name,initialSha256:hash(first),fixture:mapping[0].fixture,status:'semantic-disposition-required'});
-  }
-  const dispositionPath='apps/docs/native-fixtures/scenario-dispositions.json';
-  const dispositions=existsSync(resolve(root,dispositionPath))?checkScenarioDispositions(early,JSON.parse(read(dispositionPath)),read):{issues:[],rows:[],unresolved:early};
-  issues.push(...dispositions.issues);
-  if(strictHistory)for(const e of dispositions.unresolved)issues.push(`Unresolved early extracted scenario: ${e.original}#${e.name}`);
+  const inventory=checkManifest(manifest,p=>existsSync(resolve(root,p)));
+  const host=checkDocsHost(root);
   const manifests=['package.json','packages/ui/package.json','apps/docs/package.json'].map(p=>JSON.parse(read(p)));
   const commandDocuments=['README.md','docs/migration.md','docs/developer/react-aria-component-recipe.md','docs/developer/react-aria-dependency-upgrades.md'];
-  const commandResults=commandDocuments.map(p=>checkCommands(commandCodeIn(read(p)),manifests,p));
-  for(const result of commandResults)issues.push(...result.issues);
-  return {status:issues.length?'failed':'structural-checks-pass',strictHistory,localBaseline:{commit:initial,preDocs:beforeDocs,originalSourceCommit:manifest.sourceCommit},
-    extractionRows:extraction.rows,originalStoryModules:stories.length,transfers,deliberateReplacements:deliberate,earlyScenarioDispositions:dispositions.rows,unresolvedEarlyScenarios:dispositions.unresolved,
-    commands:commandResults.flatMap(r=>r.commands),issues,
-    limits:['Source/metadata/command existence only; no product, browser, spoken AT, legal, release or upstream authentication result.',
-      'Command code spans/fences checked only in four named current guides; script names/package filters, not shell flags, arguments or actual execution.',
-      'Semantic dispositions bind original hashes, behavior/differences/gaps and current host/assertion anchors; they do not prove runtime parity. Strict-history fails for unresolved records.']};
+  const commands=commandDocuments.map(p=>checkCommands(commandCodeIn(read(p)),manifests,p));
+  const issues=[...inventory.issues,...host.findings.map(f=>`${f.file}: ${f.message}`),...commands.flatMap(r=>r.issues)];
+  return {status:issues.length?'failed':'current-checks-pass',inventoryRows:inventory.rows.length,fixtureModules:host.modules,scenarios:host.scenarios,commands:commands.flatMap(r=>r.commands),issues,
+    limits:['Current paths, fixture mapping and command existence only. No runtime, legal, release or manual acceptance inferred.']};
 }
 if(process.argv[1]&&pathToFileURL(resolve(process.argv[1])).href===import.meta.url) {
-  try {
-    const root=resolve(dirname(fileURLToPath(import.meta.url)),'../../..');
-    const result=audit(root,{strictHistory:process.argv.includes('--strict-history')});
-    console.log(JSON.stringify(process.argv.includes('--json')?result:{status:result.status,extractionRows:result.extractionRows.length,originalStoryModules:result.originalStoryModules,transfers:result.transfers.length,deliberateReplacements:result.deliberateReplacements.length,unresolvedEarlyScenarios:result.unresolvedEarlyScenarios,commands:result.commands.length,issues:result.issues,limits:result.limits},null,2));
-    process.exitCode=result.issues.length?1:0;
-  }catch(error){console.error(error.stack);process.exitCode=2;}
+  try {const result=audit(resolve(dirname(fileURLToPath(import.meta.url)),'../../..'));console.log(JSON.stringify(result,null,2));process.exitCode=result.issues.length?1:0;}
+  catch(error){console.error(error.stack);process.exitCode=2;}
 }
