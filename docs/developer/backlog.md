@@ -1,8 +1,8 @@
 # SGUI backlog
 
-Updated: 2026-10-21. This is the single working backlog, not a formal requirements
-specification. **14 active tasks; 6 deferred features.** The 2026-10-18 consolidation
-completed, waived or authorized no tasks; subsequent closures are recorded below.
+Updated: 2026-10-21. **14 active tasks; 6 deferred features.** This is the single
+working backlog and lists unfinished work only. Completed work and validation
+history live in the [execution archive](archive/2026-10-18-task-lists/react-aria-progress.md#backlog-completion-history-archived--2026-10-21).
 Parent rollups and historical checkbox totals are not additional tasks.
 
 Use the existing IDs when recording work. Task type describes the work, not its
@@ -43,91 +43,18 @@ not authorize implementation. Split selected scope into concrete tasks later.
 | FUT-K-14 | Scheduler UI | Evaluate a resource/week/day scheduler separately from date selection: overlapping events, time slots, capacity, drag/resize, keyboard alternatives, and virtualization. |
 | FUT-K-15 | Booking compositions | Define appointment/course-session/booking compositions through data/callbacks and generic models; availability computation, conflicts, reservations, permissions, and persistence stay host-owned. |
 
-## Status and evidence
+## Decisions and supporting guidance
 
-[Owner decisions](owner-decisions.md) resolve hosting choice, first-party rights and performance-profile selection. npm publishing is deferred. Each active row identifies any further assistance; unmet external acceptance remains open.
-
-[Owner follow-through](owner-follow-through.md) records the source-history cleanup,
-current inventory checks, hosting compatibility finding and exact-ref validation
-route. Edited historical summaries are labelled and do not replace raw evidence.
-
-On 2026-10-21, completed nine bounded corrective children: A-Z-15-a, A-R-12-b,
-A-R-21-a, A-R-23-a, A-L-01-a, A-L-04-a, A-Z-06-a, DOCS-005-l-a and DOCS-007-a.
-The [combined correction/test receipt](backlog-to-ten/nine-corrections-2026-10-21.md)
-maps each deliverable to its source and evidence: 69 JavaScript tests, six Python
-tests, nine focused Chromium cases and the fresh production docs/library build
-pass. All nine broken maintained-documentation links are repaired without
-manufacturing missing evidence. These children do not close their broader
-owner/external acceptance parents; the active parent count remains 19.
-
-HM-ADOPT-01 completed on 2026-10-21: the documentation sidebar now consumes
-HierarchicalMenu for category drilldown, controlled paths, directional motion and
-focus recovery, retaining SearchField and the Next navigation adapter. The host
-keeps route/category metadata, current markers and the sole sidebar scroll pane.
-The production library/docs build, 98-route catalog checks, seven HierarchicalMenu
-units, five focused Chromium sidebar cases, library typecheck and foundation
-guards pass. See [adoption evidence](hierarchical-menu-scope.md#documentation-sidebar-adoption--2026-10-21).
-This closes the integration leaf and reduces the active count from 20 to 19;
-broader cross-browser/device/AT and release obligations remain separate.
-
-On 2026-10-21, reconciled the completed checkpoint run 39177563118: docs, all
-three native engines and Node 22 passed; Node 24 failed before its first packed
-browser assertion because its runner lacked the Playwright executable. A-R-12-a
-adds job-local browser/OS dependency provisioning and guards its engine scope,
-condition and ordering. All 25 CI enforcement/artifact verifier tests pass locally.
-See [the repair receipt](backlog-to-ten/ci-consumer-browser-repair.md). The corrected
-workflow still needs an exact-head Actions run and artifact verification;
-A-R-12 and DOCS-005-l remain open. No active task count changes.
-
-On 2026-10-19, reconciled `codex/tooltip-viewport-debug-9ca3e666` into
-`dev`. Its tooltip lifetime and AppShell focus-outline fixes, affected tests,
-native diagnostic attachment and usage guidance already match `dev` byte for
-byte. The merge records ancestry and omits the temporary branch-only diagnostic
-workflow. Targeted Tooltip/AppShell unit validation passes 15 tests in two files.
-Existing browser evidence remains in
-[the saved stop record](backlog-to-ten/STOP-STATE.md) and
-[shell reconciliation receipt](backlog-to-ten/shell-focus-reconciliation.json).
-This completes branch reconciliation only; A-Z-11, A-R-12 and DOCS-005-l retain
-their broader outstanding acceptance obligations. No active task count changes.
-
-The last execution closed nine leaves, reducing the active count from 29 to 20.
-The saved [stop record](backlog-to-ten/STOP-STATE.md) identifies bounded passes and
-the then-pending full checkpoint. Consolidation does not relabel that run as a
-pass or claim the integrated dev head has complete acceptance.
+[Owner decisions](owner-decisions.md) record the confirmed hosting target,
+first-party source ownership and delegated performance-profile selection. npm
+publication remains deferred. Each active task above identifies the remaining
+assistance; completed technical portions do not waive unmet acceptance obligations.
 
 - [Owner evidence and decisions needed](backlog-to-ten/owner-evidence-needed.md).
-- [Final acceptance history](archive/2026-10-18-task-lists/react-aria-final-acceptance.md).
-- [Execution history](archive/2026-10-18-task-lists/react-aria-progress.md).
-- [Archived task lists and completed work](archive/2026-10-18-task-lists/README.md).
+- [Owner follow-through](owner-follow-through.md).
 - [Docs architecture and migration evidence](docs-website.md).
-- [HierarchicalMenu contract and evidence](hierarchical-menu-scope.md).
 - [Supported environment evidence](react-aria-browser-support.md).
+- [Archived task lists and completed work](archive/2026-10-18-task-lists/README.md).
 
-When a task finishes, move its result/evidence into the archive and remove its
-active row. Keep one current backlog; guides, receipts, review templates and
-historical snapshots must not become competing task queues.
-
-On 2026-10-21, A-L-02 closes after Apache runtime text preservation and restoration
-of the pinned copied-action LICENSE/NOTICE were verified. See the
-[technical reconciliation](backlog-to-ten/owner-license-reconciliation.md).
-The active count is 18; other all-license, docs-output and release gates remain open.
-
-Read-only [GitHub control observations](backlog-to-ten/github-control-observations-2026-10-21.json)
-record the default-token and main/dev enforcement blockers without changing settings.
-
-
-On 2026-10-21, A-P-08 and A-X-19 close with the owner-delegated
-[reference budgets and bounded lifecycle review](final-acceptance/owner-reference-2026-10-21/README.md):
-two full latency sessions, 210 active-update mount/dispose cycles, 14 verified
-snapshots, explicit regression ceilings and a byte-identical current benchmark
-asset join. These are finite reference observations, not universal device/INP or
-permanent plateau claims.
-
-A-R-12 and DOCS-005-l close with the successful exact-head
-[official checkpoint and verified artifact packet](backlog-to-ten/owner-final-ci-2026-10-21/README.md).
-Node 22.12.0 and 24.22.0, the complete maintained native engine collections,
-247 docs cases and required packed consumers pass. Existing protocol/device skips
-are explicitly retained. DOCS-005 closes with its final leaf and is not counted
-again. These four parent/leaf closures reduce the active count from 18 to 14.
-All remaining active rows retain their stated assistance; DOCS-007 still requires
-actual AWS/DNS/release hosting, and npm publication remains deferred.
+When a task finishes, move its result and evidence into the archive and remove its
+active row. Keep completed-task narratives out of this working backlog.
