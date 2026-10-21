@@ -1,0 +1,30 @@
+{
+  "sourceHead": "fbc08a12a501aaf6982b1d090582c23d09900095",
+  "kind": "Compact record of already completed local tool executions; not a raw log or official CI packet",
+  "checks": [
+    {
+      "command": "node --test packages/ui/tests/performance/check-reference-budgets.test.mjs",
+      "tests": 6,
+      "pass": 6,
+      "fail": 0,
+      "scope": "Complete sample/raw-summary/memory/environment guards and sparse incidental click regression"
+    },
+    {
+      "command": "node --test packages/ui/scripts/check-ci-release-enforcement.test.mjs packages/ui/scripts/verify-ci-downloads.test.mjs packages/ui/scripts/verify-native-ci.test.mjs",
+      "tests": 29,
+      "pass": 29,
+      "fail": 0,
+      "scope": "Workflow enforcement, exact shared runtime selection and downloaded/native artifact guards"
+    }
+  ],
+  "sourceSha256": {
+    "packages/ui/tests/performance/check-reference-budgets.mjs": "ba0c98ff2e59a8702e9e9fd0110efc3b9d649f2f18d579dc9fdaaf502fdd349f",
+    "packages/ui/tests/performance/check-reference-budgets.test.mjs": "76026c5843051dfabf1cde96c847c2cdd65d82d7bd3df79e58dc4ed6c70c5469",
+    "packages/ui/scripts/check-ci-release-enforcement.mjs": "0a5bc71184b1409154fa76a5b86bf4a7e61dffd212ab81cd88e2ca62b2ec3313",
+    "packages/ui/scripts/check-ci-release-enforcement.test.mjs": "dd6a873d332fcf959496af83ea938f3ae5a12f74e35d0054cbe079e444b44ba4"
+  },
+  "limits": [
+    "Tests ran on the local Node 26 host. Supported-runtime full CI is a separate packet.",
+    "The verifier correction does not alter any measured benchmark samples or deployed runtime code."
+  ]
+}

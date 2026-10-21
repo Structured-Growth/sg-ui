@@ -1,0 +1,17 @@
+{
+  "head": "7cf2db63f492ebcb143d2347c5c599d0f05bab27",
+  "profile": "Apple M5 /16GiB, Chromium 4x CPU proxy for latency; no population-percentile claim",
+  "sessions": 2,
+  "method": "3 warmup +9 recorded navigations in each of seven configurations per session; 50 updates and native input/selection overlap retained; keyboard sort activation",
+  "steps": [
+    "catalog-wide-keyboard-sort-diagnostic",
+    "session-1-processing",
+    "session-1-catalog",
+    "session-2-processing",
+    "session-2-catalog",
+    "memory-with-snapshots"
+  ],
+  "startedAt": "2026-10-21T20:56:01.142Z",
+  "status": "pass",
+  "finishedAt": "2026-10-21T22:31:51.218Z"
+}

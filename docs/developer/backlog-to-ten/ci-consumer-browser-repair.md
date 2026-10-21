@@ -102,3 +102,11 @@ contexts remain stable. The runtime equality and compiled-byte assertions are
 unchanged. The enforcement guard rejects floating pins, inconsistent selection,
 skipped setup and job/step overrides. All 29 focused enforcement/download/native
 verifier cases pass locally. A new complete exact-head run remains required.
+
+
+The exact-pin repeat [39682728117](https://github.com/Structured-Growth/sg-ui/actions/runs/39682728117)
+succeeds completely at fbc08a12a501aaf6982b1d090582c23d09900095. Both official
+runtime packets and all eleven archives pass independent verification. The
+[accepted packet](owner-final-ci-2026-10-21/README.md) closes A-R-12/DOCS-005-l;
+all 1,869 library files, including canonical CSS, match across runtimes. Earlier
+failed or superseded runs are not relabelled as passes.

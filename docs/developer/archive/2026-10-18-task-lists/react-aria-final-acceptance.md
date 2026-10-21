@@ -766,3 +766,42 @@ A-L-02 closes for the current Apache preservation scope after complete runtime
 legal-text joins and restoration of the pinned copied-action LICENSE/NOTICE.
 See [technical reconciliation](../../backlog-to-ten/owner-license-reconciliation.md).
 This does not close A-L-01/A-L-04/A-Z-06 or authorize publication.
+
+
+## Owner-delegated reference and official checkpoint — 2026-10-21
+
+A-P-08 | complete | [reference policy, measurements and budgets](../../final-acceptance/owner-reference-2026-10-21/README.md)
+| owner-delegated Apple M5 /16GiB Chromium 4× CPU latency proxy; two full sessions,
+168 navigations/8,400 updates including warmups; frozen per-action and composed
+bundle ceilings; both sessions pass. Physical device percentile/paint/INP claims
+are expressly excluded.
+
+A-X-19 | complete for bounded profiling/resource ownership scope |
+[same reference packet](../../final-acceptance/owner-reference-2026-10-21/README.md)
+| 210 active-update mount/dispose cycles, 14 size/hash-verified snapshots and
+strong-path review; fixed listener counts, zero owned late work and all predefined
+memory ceilings pass. Existing observer/frame/object-URL ownership tests pass in
+the full current unit matrix. Positive whole-page heap growth and remaining native/
+React bookkeeping are recorded, without a perpetual plateau/leak-free claim.
+
+A-R-12 | complete | [official artifact collection and verification](../../backlog-to-ten/owner-final-ci-2026-10-21/README.md)
+| Actions run 39682728117, exact head fbc08a12a501aaf6982b1d090582c23d09900095 |
+both supported-runtime packets, eleven API-digest-verified archives, exact
+receipt/tarball/native scope joins and identical 1,869-file library distributions.
+The deterministic CSS and shared exact Node 24 pin retain strict byte checks.
+
+DOCS-005-l | complete | [same exact-head production matrix](../../backlog-to-ten/owner-final-ci-2026-10-21/README.md)
+| frozen installs, package/type/import/token/CSS checks, production library/docs,
+full native collections and installed consumer gates pass; 247 docs cases and
+2,009 unit cases per runtime. Eleven existing native protocol/device skips remain
+explicitly listed. Scenario mappings/assertions remain in the native host;
+Storybook is absent from active dependencies/runtime. DOCS-005 closes without an
+additional task count.
+
+The [fresh static/normal host preparation](../../backlog-to-ten/owner-final-host-2026-10-21/README.md)
+passes independently; DOCS-007 retains actual Amplify/DNS/release/live-verification
+scope. These four closures reduce the current unified backlog from 18 to 14;
+this archive's historical counts and original checkboxes retain their dated scope.
+Manual AT/device, publisher legal evidence, npm deferral, live trust/protection
+controls and final human acceptance remain required. No main promotion, tag,
+publication or account-setting change was performed.

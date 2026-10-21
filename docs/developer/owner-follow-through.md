@@ -32,9 +32,8 @@ current app uses Next.js 16.4.0; the checked
 [AWS support guide](https://docs.aws.amazon.com/amplify/latest/userguide/ssr-amplify-support.html)
 currently documents managed SSR support through Next.js 15. Do not assume the
 current `.next` output is a supported managed-SSR deployment. The new static export and prefixed navigation have passed an initial production
-build/browser smoke. See [Amplify preparation](../deployment/amplify.md). Final
-changed-tree checks and live deployment validation remain required; no dependency
-downgrade is implied by the hosting choice.
+build/browser smoke. See [Amplify preparation](../deployment/amplify.md). Fresh current-source static/normal production builds, eleven static-host checks
+and eleven focused browser cases pass in the [final local host packet](backlog-to-ten/owner-final-host-2026-10-21/README.md). Live deployment validation remains required; no dependency downgrade is implied by the hosting choice.
 
 AWS's [monorepo configuration guide](https://docs.aws.amazon.com/amplify/latest/userguide/monorepo-configuration.html)
 documents the app root, root build path and pnpm linker requirements. The account
@@ -48,10 +47,24 @@ The connected GitHub credential can read and push this repository. The CI
 workflow now permits an explicit read-only manual checkpoint at an exact ref;
 the existing paused dev push/PR behavior and main-only release path remain.
 This supplies a validation route without a main promotion or publication.
-Actual successful run and artifact identities must be recorded before closing
-A-R-12 or DOCS-005-l.
+The [accepted exact-head checkpoint](backlog-to-ten/owner-final-ci-2026-10-21/README.md)
+now closes A-R-12 and DOCS-005-l. Both supported runtimes and all native engines
+pass, with verified official artifacts and explicit existing skips.
 
 The read-only API reports admin/maintain permissions; the owner's reported
 protection restriction remains unresolved until plan entitlement and an approved
 enforcement policy are established. No settings were changed. npm publication
 is deferred, and package scope spelling must be confirmed before resuming it.
+
+
+## Performance and lifecycle completion
+
+The [owner-delegated reference](final-acceptance/owner-reference-2026-10-21/README.md)
+closes A-P-08/A-X-19 with two full latency sessions, frozen regression budgets,
+210 active-update disposal cycles, 14 verified snapshots and a bounded strong-path
+review. The measured source remains explicit; fresh current benchmark assets are
+byte-identical. Native browser caches/whole-page heap growth and physical-device/
+INP limits remain documented. Manual AT/device acceptance is separate.
+
+The unified backlog now contains 14 active tasks, each with remaining assistance
+noted. npm publication remains deferred; no release or setting change is implied.

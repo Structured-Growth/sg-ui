@@ -1,0 +1,17 @@
+{
+  "measuredHead": "7cf2db63f492ebcb143d2347c5c599d0f05bab27",
+  "currentHead": "fbc08a12a501aaf6982b1d090582c23d09900095",
+  "expected": {
+    "index-DnBL244S.js": "e80c1f399c6ccf7080762b6d9b87a088c67390f877411ac8a3a7d98759135274",
+    "index-DpsjJf2K.css": "611977fde8d3f8ec45b398013f7f76dd863d50627d52b54c517b15dcf80bf080"
+  },
+  "current": {
+    "index-DnBL244S.js": "e80c1f399c6ccf7080762b6d9b87a088c67390f877411ac8a3a7d98759135274",
+    "index-DpsjJf2K.css": "611977fde8d3f8ec45b398013f7f76dd863d50627d52b54c517b15dcf80bf080"
+  },
+  "identical": true,
+  "limits": [
+    "Byte identity applies only to these seven benchmark configurations and emitted assets, not all changed components.",
+    "Tooltip reopening and docs adapter changes retain their separate current-head behavior tests."
+  ]
+}

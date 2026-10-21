@@ -1,5 +1,7 @@
 # Final candidate CI and publication evidence
 
+The [accepted 2026-10-21 official checkpoint](backlog-to-ten/owner-final-ci-2026-10-21/README.md) closes A-R-12 and DOCS-005-l for exact source fbc08a12a501aaf6982b1d090582c23d09900095. Live account/protection/AI trust and release approvals remain separate gates.
+
 This is a bounded collection procedure for A-R-12/17/21/23/24/25/27/28,
 A-Z-07/14. It grants no release, repository-setting or account-setting authority.
 Use the [workflow dependency policy](workflow-dependency-policy.md),

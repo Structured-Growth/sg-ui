@@ -88,9 +88,9 @@ frozen prior worktree receipts must not be rewritten or reused as current passes
 
 ## Delivery checklist
 
-Current docs tasks DOCS-005-l and DOCS-007 are tracked only in the
-[unified backlog](backlog.md). DOCS-005 is their migration rollup, not another
-active leaf. [Completed checklist and transition snapshot](archive/2026-10-18-task-lists/docs-website.md#delivery-checklist).
+DOCS-005-l and its migration parent DOCS-005 are complete against the
+[accepted official checkpoint](backlog-to-ten/owner-final-ci-2026-10-21/README.md).
+DOCS-007 remains tracked only in the [unified backlog](backlog.md). [Completed checklist and transition snapshot](archive/2026-10-18-task-lists/docs-website.md#delivery-checklist).
 
 ## Active transition plan — 2026-10-14
 
@@ -116,8 +116,9 @@ UI design token pipeline; DOCS-006/007/008 retain their independent deliverables
 
 ### DOCS-005: retire Storybook without losing behavior coverage
 
-The transferred scenario checklist is archived. DOCS-005-l remains in the
-[unified backlog](backlog.md); accepted transfer evidence follows below.
+The transferred scenario checklist is archived. DOCS-005-l and DOCS-005 close
+with the [2026-10-21 exact-head production matrix](backlog-to-ten/owner-final-ci-2026-10-21/README.md);
+earlier dated transfer evidence follows below.
 
 ### DOCS-005-b: bounded public-example parity follow-ups
 
@@ -1632,3 +1633,19 @@ This audits active manifests, lock identities, CI/source references and native
 manifest/registry mappings while retaining original story identities as data.
 It supplements the complete DOCS-005-l matrix; it does not execute native cases.
 See the [combined correction/test receipt](backlog-to-ten/nine-corrections-2026-10-21.md).
+
+
+## Production-matrix completion — 2026-10-21
+
+DOCS-005-l and its parent DOCS-005 close against [Actions run 39682728117 and the verified artifact packet](backlog-to-ten/owner-final-ci-2026-10-21/README.md).
+The complete maintained native collections, Node 22.12.0/24.22.0 checks, packed
+React/Next consumers and all 247 docs cases pass. Existing protocol/device skips
+are listed rather than converted into manual-device evidence. All 1,869 library
+distribution files match across supported runtimes. This supersedes the earlier
+dated statements that the complete final automated matrix was still pending.
+
+DOCS-007's [fresh local static/normal preparation](backlog-to-ten/owner-final-host-2026-10-21/README.md)
+also passes. Its remaining scope is actual Amplify/domain/DNS connection,
+authentic immutable release snapshots/version registration and deployed behavior.
+The owner already selected AWS Amplify and ui.structured-growth.com; no further
+hosting-choice decision is requested. No release is invented or published.

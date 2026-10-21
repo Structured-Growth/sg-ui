@@ -1,0 +1,359 @@
+RUN pnpm build
+
+> sg-ui-workspace@ build /Users/thomas_hall/Repositories/sg-ui
+> pnpm --filter @structured-growth/sg-ui build
+
+
+> @structured-growth/sg-ui@0.0.0-development build /Users/thomas_hall/Repositories/sg-ui/packages/ui
+> node scripts/build.mjs
+
+RUN pnpm --filter @structured-growth/sg-ui exec vite build --config tests/performance/vite.config.mjs
+vite v7.3.6 building client environment for production...
+transforming...
+dist/components/Button/Button.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/Button/Button.js" was ignored.
+dist/experimental/TextField/TextField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/TextField.js" was ignored.
+dist/experimental/Dialog/Dialog.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Dialog/Dialog.js" was ignored.
+dist/experimental/ComboBox/ComboBox.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/ComboBox/ComboBox.js" was ignored.
+dist/experimental/Popover/Popover.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Popover/Popover.js" was ignored.
+dist/foundation/ThemeScope.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/foundation/ThemeScope.js" was ignored.
+dist/experimental/Provider/Provider.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Provider/Provider.js" was ignored.
+dist/experimental/Tabs/Tabs.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/Tabs.js" was ignored.
+dist/experimental/AsyncMultiSelect/AsyncMultiSelect.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/AsyncMultiSelect/AsyncMultiSelect.js" was ignored.
+dist/experimental/DateField/DateField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/DateField.js" was ignored.
+dist/experimental/Checkbox/Checkbox.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Checkbox/Checkbox.js" was ignored.
+dist/experimental/TimeField/TimeField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TimeField/TimeField.js" was ignored.
+dist/experimental/DatePicker/DatePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DatePicker/DatePicker.js" was ignored.
+dist/experimental/DateRangePicker/DateRangePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangePicker/DateRangePicker.js" was ignored.
+dist/experimental/DateRangeSelector/DateRangeSelector.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/DateRangeSelector.js" was ignored.
+dist/experimental/Calendar/Calendar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/Calendar.js" was ignored.
+dist/experimental/IconButton/IconButton.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/IconButton/IconButton.js" was ignored.
+dist/experimental/DataGrid/DataGrid.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DataGrid/DataGrid.js" was ignored.
+dist/experimental/Menu/Menu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Menu/Menu.js" was ignored.
+dist/experimental/Switch/Switch.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Switch/Switch.js" was ignored.
+dist/experimental/SplitAction/SplitAction.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/SplitAction/SplitAction.js" was ignored.
+dist/experimental/RadioGroup/RadioGroup.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/RadioGroup/RadioGroup.js" was ignored.
+dist/experimental/TextArea/TextArea.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextArea/TextArea.js" was ignored.
+dist/experimental/Link/Link.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Link/Link.js" was ignored.
+dist/experimental/Breadcrumbs/Breadcrumbs.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Breadcrumbs/Breadcrumbs.js" was ignored.
+dist/experimental/Select/Select.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Select/Select.js" was ignored.
+dist/experimental/ToggleButton/ToggleButton.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/ToggleButton/ToggleButton.js" was ignored.
+dist/experimental/List/List.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/List/List.js" was ignored.
+dist/experimental/Tooltip/Tooltip.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tooltip/Tooltip.js" was ignored.
+dist/experimental/Navigation/Navigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Navigation/Navigation.js" was ignored.
+dist/experimental/Disclosure/Disclosure.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Disclosure/Disclosure.js" was ignored.
+dist/experimental/TagGroup/TagGroup.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TagGroup/TagGroup.js" was ignored.
+dist/experimental/Progress/Progress.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Progress/Progress.js" was ignored.
+dist/experimental/Avatar/Avatar.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Avatar/Avatar.js" was ignored.
+dist/experimental/Pagination/Pagination.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Pagination/Pagination.js" was ignored.
+dist/experimental/PeriodPicker/PeriodPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/PeriodPicker/PeriodPicker.js" was ignored.
+dist/experimental/FormFieldScope/FormFieldScope.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/FormFieldScope/FormFieldScope.js" was ignored.
+dist/experimental/SearchField/SearchField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/SearchField/SearchField.js" was ignored.
+dist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.js" was ignored.
+dist/experimental/DateTimeRangePicker/DateTimeRangePicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateTimeRangePicker/DateTimeRangePicker.js" was ignored.
+dist/experimental/YearPicker/YearPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/YearPicker/YearPicker.js" was ignored.
+dist/experimental/MonthPicker/MonthPicker.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/MonthPicker/MonthPicker.js" was ignored.
+dist/components/AppDataGrid/AppDataGrid.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/AppDataGrid.js" was ignored.
+dist/i18n/index.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/i18n/index.js" was ignored.
+dist/experimental/TextField/FieldMessages.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/FieldMessages.js" was ignored.
+dist/experimental/TextField/useStandaloneFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TextField/useStandaloneFormReset.js" was ignored.
+dist/experimental/useFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/useFormReset.js" was ignored.
+dist/experimental/Tabs/TabIndicator.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/TabIndicator.js" was ignored.
+dist/experimental/Tabs/useTabOverflow.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Tabs/useTabOverflow.js" was ignored.
+dist/experimental/DateField/TextDateField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/TextDateField.js" was ignored.
+dist/experimental/DateField/DateFieldControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateField/DateFieldControl.js" was ignored.
+dist/experimental/TimeField/TextTimeField.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/TimeField/TextTimeField.js" was ignored.
+dist/experimental/DateRangeSelector/CalendarFormValidity.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/CalendarFormValidity.js" was ignored.
+dist/experimental/DateRangeSelector/useCalendarFormReset.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/useCalendarFormReset.js" was ignored.
+dist/experimental/Calendar/CalendarMonthTransition.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarMonthTransition.js" was ignored.
+dist/experimental/Calendar/CalendarPeriodNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarPeriodNavigation.js" was ignored.
+dist/experimental/Calendar/CalendarNavigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Calendar/CalendarNavigation.js" was ignored.
+dist/experimental/DateRangeSelector/RangeGestures.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/RangeGestures.js" was ignored.
+dist/experimental/DateRangeSelector/RangeAdjustmentControls.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DateRangeSelector/RangeAdjustmentControls.js" was ignored.
+dist/experimental/DataGrid/GridColumnWidthControl.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/DataGrid/GridColumnWidthControl.js" was ignored.
+dist/adapters/navigation.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/navigation.js" was ignored.
+dist/adapters/Link.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/Link.js" was ignored.
+dist/experimental/Select/FramePositionedPopover.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/Select/FramePositionedPopover.js" was ignored.
+dist/experimental/HierarchicalMenu/HierarchicalMenu.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/experimental/HierarchicalMenu/HierarchicalMenu.js" was ignored.
+dist/components/AppDataGrid/ownedGridController.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridController.js" was ignored.
+dist/components/AppDataGrid/ownedGridLayoutController.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridLayoutController.js" was ignored.
+dist/components/AppDataGrid/ownedGridPersistence.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridPersistence.js" was ignored.
+dist/components/AppDataGrid/ownedGridInteraction.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridInteraction.js" was ignored.
+dist/components/AppDataGrid/ownedGridParts.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridParts.js" was ignored.
+dist/adapters/navigationContext.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/adapters/navigationContext.js" was ignored.
+dist/components/CardPaginationFooter/CardPaginationFooter.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/CardPaginationFooter/CardPaginationFooter.js" was ignored.
+dist/components/AppDataGridRowDnd/DataGridDragHandle.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGridRowDnd/DataGridDragHandle.js" was ignored.
+dist/components/AppDataGrid/ownedGridCells.js (1:0): Module level directives cause errors when bundled, "use client" in "dist/components/AppDataGrid/ownedGridCells.js" was ignored.
+../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/context.mjs (2:0): Module level directives cause errors when bundled, "use client" in "../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/context.mjs" was ignored.
+../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/Icon.mjs (2:0): Module level directives cause errors when bundled, "use client" in "../../node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/Icon.mjs" was ignored.
+✓ 3013 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.38 kB │ gzip:   0.27 kB
+dist/assets/index-DpsjJf2K.css  253.95 kB │ gzip:  23.01 kB
+dist/assets/index-DnBL244S.js   765.17 kB │ gzip: 223.87 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 5.11s
+RUN node /tmp/sgui-compare-reference-assets.mjs
+Current benchmark assets are byte-identical to the frozen measured reference.
+RUN pnpm --filter @structured-growth/docs build
+
+> @structured-growth/docs@0.0.0 build /Users/thomas_hall/Repositories/sg-ui/apps/docs
+> pnpm host:check && pnpm catalog:generate && pnpm theme:check && pnpm catalog:check && next build --webpack
+
+
+> @structured-growth/docs@0.0.0 host:check /Users/thomas_hall/Repositories/sg-ui/apps/docs
+> node ../../packages/ui/scripts/check-docs-host.mjs
+
+{
+  "files": 1158,
+  "modules": 123,
+  "scenarios": 513,
+  "findings": [],
+  "limits": "Source/dependency/CI reference and manifest/registry consistency only; no build, execution, export resolution, preserved assertion audit or production acceptance."
+}
+
+> @structured-growth/docs@0.0.0 catalog:generate /Users/thomas_hall/Repositories/sg-ui/apps/docs
+> node scripts/generate-catalog.mjs && node scripts/generate-documentation-routes.mjs
+
+98 catalog pages generated
+104 documentation routes exported
+
+> @structured-growth/docs@0.0.0 theme:check /Users/thomas_hall/Repositories/sg-ui/apps/docs
+> node --test theme/theme-graph.test.mjs
+
+✔ app semantic role inventory matches the compiled public library contract (0.559459ms)
+✔ all identity/appearance/contrast maps contain exactly42 palette-backed semantic roles (1.662584ms)
+✔ graph validation rejects missing roles/references, directsemantic colors, cycles and missing modes (1.954291ms)
+✔ standard identities preserve their established accent, surface and website neutral/error roles (0.326375ms)
+✔ standard text, primary action, border and focus pairs retain their minimum contrast (0.908375ms)
+✔ increased mode verifies named text, status, action, border and focus pairs across all identities (0.44675ms)
+✔ forcedOS palette takes precedence over explicit appearance and contrast without affecting identity geometry (0.67325ms)
+✔ None uses generated public library color defaults without website identity leakage (0.156ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 164.330791
+
+> @structured-growth/docs@0.0.0 catalog:check /Users/thomas_hall/Repositories/sg-ui/apps/docs
+> pnpm examples:check && node scripts/check-catalog.mjs && node --test scripts/component-api.test.mjs
+
+
+> @structured-growth/docs@0.0.0 examples:check /Users/thomas_hall/Repositories/sg-ui/apps/docs
+> node --test scripts/example-isolation.test.mjs
+
+173 example component owners pass the single-panel isolation guard
+✔ separate component instances may each own one panel (0.435667ms)
+✔ multiple panels cannot share one component owner (0.31275ms)
+✔ mapped panels cannot capture page state through an inline callback (0.140333ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 207.064125
+173 example component owners pass the single-panel isolation guard
+98 pages cover all 209 public component/icon export names with when/how guidance
+✔ prop reference covers every catalog export and includes required public callbacks (0.678959ms)
+✔ defaults follow transparent wrappers while preserving explicit wrapper overrides (0.063459ms)
+✔ icons share their actual contract without duplicate tables or private filesystem paths (0.50825ms)
+✔ metadata checks are identical from repository and docs working directories (1351.06575ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1389.494625
+▲ Next.js 16.4.0 (webpack)
+✓ Running next.config.mjs took 11ms
+- Experiments (use with caution):
+  · cpus: 2
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 8.7s
+  Running TypeScript ...
+  Finished TypeScript in 4.2s ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/106) ...
+  Generating static pages using 2 workers (26/106) 
+  Generating static pages using 2 workers (52/106) 
+  Generating static pages using 2 workers (79/106) 
+✓ Generating static pages using 2 workers (106/106) in 1227ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /docs/components
+├   /docs/components/[slug]
+│ ├ ● /docs/components/hierarchical-menu
+│ ├ ● /docs/components/icons
+│ ├ ● /docs/components/owned-dialog
+│ └ ● [+93 more paths]
+├ ○ /docs/components/button
+├ ○ /docs/components/dialog
+├ ○ /installation
+├ ○ /licensing
+├ ○ /releases
+└ ○ /theming
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+RUN node apps/docs/scripts/stage-static-export.mjs /tmp/sgui-owner-final-static-export-03
+Staged 104 routes under /dev
+RUN node apps/docs/scripts/smoke-static-export.mjs /tmp/sgui-owner-final-static-export-03
+{"status":"pass","checks":["prefixed hrefs","component hydration","client navigation","hard refresh","404-to-overview fallback and notice","route manifest","no demo-destination prefetch","served third-party notices","prefixed editor image","no runtime errors","no failed requests"]}
+RUN node apps/docs/scripts/assemble-static-host.mjs /tmp/sgui-owner-final-static-host-03 /tmp/sgui-owner-final-static-export-03
+Preserved 1 snapshots; latest: none
+RUN pnpm --filter @structured-growth/docs build
+
+> @structured-growth/docs@0.0.0 build /Users/thomas_hall/Repositories/sg-ui/apps/docs
+> pnpm host:check && pnpm catalog:generate && pnpm theme:check && pnpm catalog:check && next build --webpack
+
+
+> @structured-growth/docs@0.0.0 host:check /Users/thomas_hall/Repositories/sg-ui/apps/docs
+> node ../../packages/ui/scripts/check-docs-host.mjs
+
+{
+  "files": 1158,
+  "modules": 123,
+  "scenarios": 513,
+  "findings": [],
+  "limits": "Source/dependency/CI reference and manifest/registry consistency only; no build, execution, export resolution, preserved assertion audit or production acceptance."
+}
+
+> @structured-growth/docs@0.0.0 catalog:generate /Users/thomas_hall/Repositories/sg-ui/apps/docs
+> node scripts/generate-catalog.mjs && node scripts/generate-documentation-routes.mjs
+
+98 catalog pages generated
+104 documentation routes exported
+
+> @structured-growth/docs@0.0.0 theme:check /Users/thomas_hall/Repositories/sg-ui/apps/docs
+> node --test theme/theme-graph.test.mjs
+
+✔ app semantic role inventory matches the compiled public library contract (0.52925ms)
+✔ all identity/appearance/contrast maps contain exactly42 palette-backed semantic roles (1.576792ms)
+✔ graph validation rejects missing roles/references, directsemantic colors, cycles and missing modes (1.835875ms)
+✔ standard identities preserve their established accent, surface and website neutral/error roles (0.627709ms)
+✔ standard text, primary action, border and focus pairs retain their minimum contrast (0.872125ms)
+✔ increased mode verifies named text, status, action, border and focus pairs across all identities (0.478416ms)
+✔ forcedOS palette takes precedence over explicit appearance and contrast without affecting identity geometry (0.636666ms)
+✔ None uses generated public library color defaults without website identity leakage (0.123875ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 156.280083
+
+> @structured-growth/docs@0.0.0 catalog:check /Users/thomas_hall/Repositories/sg-ui/apps/docs
+> pnpm examples:check && node scripts/check-catalog.mjs && node --test scripts/component-api.test.mjs
+
+
+> @structured-growth/docs@0.0.0 examples:check /Users/thomas_hall/Repositories/sg-ui/apps/docs
+> node --test scripts/example-isolation.test.mjs
+
+173 example component owners pass the single-panel isolation guard
+✔ separate component instances may each own one panel (0.372375ms)
+✔ multiple panels cannot share one component owner (0.263625ms)
+✔ mapped panels cannot capture page state through an inline callback (0.095416ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 193.385875
+173 example component owners pass the single-panel isolation guard
+98 pages cover all 209 public component/icon export names with when/how guidance
+✔ prop reference covers every catalog export and includes required public callbacks (0.696041ms)
+✔ defaults follow transparent wrappers while preserving explicit wrapper overrides (0.064166ms)
+✔ icons share their actual contract without duplicate tables or private filesystem paths (0.532667ms)
+✔ metadata checks are identical from repository and docs working directories (1330.855625ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1370.066792
+▲ Next.js 16.4.0 (webpack)
+✓ Running next.config.mjs took 8ms
+- Experiments (use with caution):
+  · cpus: 2
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 5.3s
+  Running TypeScript ...
+  Finished TypeScript in 2.0s ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/106) ...
+  Generating static pages using 2 workers (26/106) 
+  Generating static pages using 2 workers (52/106) 
+  Generating static pages using 2 workers (79/106) 
+✓ Generating static pages using 2 workers (106/106) in 1965ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /docs/components
+├   /docs/components/[slug]
+│ ├ ● /docs/components/hierarchical-menu
+│ ├ ● /docs/components/icons
+│ ├ ● /docs/components/owned-dialog
+│ └ ● [+93 more paths]
+├ ○ /docs/components/button
+├ ○ /docs/components/dialog
+├ ○ /installation
+├ ○ /licensing
+├ ○ /releases
+└ ○ /theming
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+RUN pnpm --filter @structured-growth/docs exec playwright test tests/grouped-navigation.spec.ts tests/documentation-versioning.spec.ts tests/content-integrations.spec.ts tests/general-routes.spec.ts
+[WebServer] (node:44796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:44814) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 11 tests using 1 worker
+
+(node:44820) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/content-integrations.spec.ts:5:1 › learner due matrix uses the fixed host clock and retains missing-date fallback (1.0s)
+  ✓   2 [chromium] › tests/content-integrations.spec.ts:17:1 › saved rich documents render public JSON in independent editable and read-only panels (1.3s)
+  ✓   3 [chromium] › tests/content-integrations.spec.ts:39:1 › host image adapter preserves a rejected upload for retry and inserts a durable asset (2.8s)
+  ✓   4 [chromium] › tests/documentation-versioning.spec.ts:2:1 › a missing versioned page explains the fallback and keeps overview navigation usable (303ms)
+  ✓   5 [chromium] › tests/documentation-versioning.spec.ts:12:1 › the built route manifest includes canonical component and general pages (11ms)
+  ✓   6 [chromium] › tests/general-routes.spec.ts:10:1 › general pages use root URLs, retain navigation and redirect old docs URLs (944ms)
+  ✓   7 [chromium] › tests/grouped-navigation.spec.ts:5:1 › sidebar slides into categories, restores Back focus and derives the level from the page (1.4s)
+  ✓   8 [chromium] › tests/grouped-navigation.spec.ts:43:1 › unlabelled visual search drops down pages across categories with keyboard and direct navigation (844ms)
+  ✓   9 [chromium] › tests/grouped-navigation.spec.ts:74:1 › sidebar orders overview, search, component menus and general links between full-width dividers (311ms)
+  ✓  10 [chromium] › tests/grouped-navigation.spec.ts:96:1 › Structured Growth links and navigation use background hover feedback (742ms)
+  ✓  11 [chromium] › tests/grouped-navigation.spec.ts:133:1 › compact application navigation retains touch targets and supports enlarged labels (208ms)
+
+  11 passed (11.6s)
+FINAL DOCS VALIDATION COMPLETE

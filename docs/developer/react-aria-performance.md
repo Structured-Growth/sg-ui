@@ -1,5 +1,7 @@
 # Migration proof performance reference
 
+Current A-P-08/A-X-19 status: complete for the [2026-10-21 owner-delegated reference budgets and bounded cleanup scope](final-acceptance/owner-reference-2026-10-21/README.md). Earlier dated measurements below retain their historical scope.
+
 Task references: B-10, P-08, X-19. The checked-in
 [measurement record](migration-baseline/proof-measurements.json) contains local
 reference measurements, not a claim about universal framework performance.
@@ -302,3 +304,32 @@ input median/p95 are269.3/375.9ms versus264.7/381.9ms. Update median/p95 are
 270.7/585.7ms versus267.9/598.5ms. The nine-sample selection maximum did not recur;
 its cause remains unestablished. Required slower-hardware/budget work and stable
 repetitions remain open; this is no universal speed, INP or physical-input claim.
+
+
+## Owner-delegated reference closure — 2026-10-21
+
+A-P-08/A-X-19 close with the [two-session reference and lifecycle packet](final-acceptance/owner-reference-2026-10-21/README.md).
+The Apple M5/16GiB host uses Chromium 4× CPU throttling for latency as a conservative
+reproducible proxy; it is not assigned a population hardware percentile. Two full
+seven-configuration sessions retain 168 navigations and 8,400 updates including
+warmups. Frozen per-action median/p95 limits use the larger observation plus 25%,
+rounded upward to 10ms; composed bundle limits add 10%, rounded upward to 1KiB.
+Both sessions pass without replacing raw samples or recalculating limits during
+verification. These are regression ceilings, not universal UX/paint/INP targets.
+
+All 210 instrumented active-update mount/dispose cycles pass; fourteen snapshots
+are size/hash verified and reviewed for strong paths. Observed heap growth is
+418,400–569,524 bytes, listener-count range is zero and node-count range is at most
+two, within the predefined 1MiB/zero/eight limits. Whole-page heap still grows;
+this finite window proves neither a permanent plateau nor universal leak freedom.
+Native style/performance groups and constant React bookkeeping shapes are retained
+for review. Existing observer/frame/object-URL ownership tests pass in the full
+current unit matrix. Physical input and manual AT/device observations remain in
+their separate acceptance tasks.
+
+The original measured head is 7cf2db63f492ebcb143d2347c5c599d0f05bab27; all benchmark
+JS/CSS assets match a fresh fbc08a12a501aaf6982b1d090582c23d09900095 build byte-for-byte.
+This join covers these benchmark configurations, not every changed library module.
+Raw samples, limits, verifier results, heap review and retention paths are linked
+in the reference packet. Future checks consume the saved budget; failures require
+investigation rather than an automatic new baseline.
