@@ -299,7 +299,7 @@
         "CheckIcon",
         "ChevronRightIcon",
         "CircleIcon",
-        "ClassIcon",
+        "CourseIcon",
         "CloseIcon",
         "CodeIcon",
         "ComputerIcon",
@@ -1029,10 +1029,10 @@
         },
         {
           "name": "tone",
-          "type": "\"primary\" | \"default\" | \"muted\" | \"subtle\" | \"accent\" | \"danger\" | undefined",
+          "type": "\"default\" | \"muted\" | \"subtle\" | \"accent\" | \"danger\" | undefined",
           "required": false,
           "default": "\"default\"",
-          "description": "Text emphasis or meaning; primary is a compatibility alias for the accent color, not action priority."
+          "description": "Text emphasis or meaning."
         },
         {
           "name": "noWrap",
@@ -8621,18 +8621,11 @@
           "description": "Suggested positive safe integer sizes; invalid values and duplicates are ignored."
         },
         {
-          "name": "onPageSizeChange",
-          "type": "((pageSize: number) => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Changing page size requests page zero before calling this callback."
-        },
-        {
           "name": "onPaginationChange",
           "type": "((page: number, pageSize: number) => void) | undefined",
           "required": false,
           "default": "—",
-          "description": "When supplied, a size change requests page zero and the new size once, instead of separate callbacks."
+          "description": "A size change requests page zero and the new size together."
         },
         {
           "name": "disabled",
@@ -8692,8 +8685,7 @@
   "provider": [
     {
       "names": [
-        "Provider",
-        "AppThemeProvider"
+        "Provider"
       ],
       "from": "@structured-growth/sg-ui",
       "kind": "component",
@@ -10145,6 +10137,20 @@
           "required": false,
           "default": "true",
           "description": "Disable the dropdown when a host renders its search results elsewhere."
+        },
+        {
+          "name": "expandable",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "false",
+          "description": "Start as a search icon and animate into the same search field when activated."
+        },
+        {
+          "name": "collapseLabel",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Accessible name for the expandable field's clear-and-collapse action."
         },
         {
           "name": "value",
@@ -11807,6 +11813,13 @@
           "required": false,
           "default": "\"equal\"",
           "description": "Equal widths follow the widest option by default; content sizes each button independently."
+        },
+        {
+          "name": "iconOnly",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "false",
+          "description": "Hide visible labels for options with icons; labels remain accessible names."
         },
         {
           "name": "density",
@@ -15934,25 +15947,11 @@
           "description": "Omit, pass null or -1 for a server total that is not known."
         },
         {
-          "name": "onPageChange",
-          "type": "(nextPage: number) => void",
-          "required": true,
-          "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
-        },
-        {
-          "name": "onPageSizeChange",
-          "type": "(nextPageSize: number) => void",
-          "required": true,
-          "default": "—",
-          "description": "Requests page zero before notifying the host of the new size."
-        },
-        {
           "name": "onPaginationModelChange",
-          "type": "((model: { page: number; pageSize: number; }) => void) | undefined",
-          "required": false,
+          "type": "(model: { page: number; pageSize: number; }) => void",
+          "required": true,
           "default": "—",
-          "description": "Requests each page/size transition once; supersedes the separate legacy callbacks when supplied."
+          "description": "Requests the complete page/size state once per interaction. Size changes request page zero."
         },
         {
           "name": "hasNextPage",
@@ -15996,7 +15995,7 @@
   "card-frame": [
     {
       "names": [
-        "ClassCardFrame"
+        "CourseCardFrame"
       ],
       "from": "@structured-growth/sg-ui",
       "kind": "component",
@@ -16026,7 +16025,7 @@
           "name": "width",
           "type": "number | undefined",
           "required": false,
-          "default": "STANDARD_CLASS_CARD_WIDTH",
+          "default": "STANDARD_COURSE_CARD_WIDTH",
           "description": "See the type and source-backed examples for this option."
         },
         {
@@ -16092,17 +16091,17 @@
   "instructor-card": [
     {
       "names": [
-        "InstructorClassCard"
+        "InstructorCourseCard"
       ],
       "from": "@structured-growth/sg-ui",
       "kind": "component",
       "props": [
         {
-          "name": "className",
+          "name": "courseName",
           "type": "string",
           "required": true,
           "default": "—",
-          "description": "Displayed course name retained under its historical prop name; not a CSS class or styling hook."
+          "description": "Displayed course name."
         },
         {
           "name": "siteName",
@@ -16113,7 +16112,7 @@
         },
         {
           "name": "status",
-          "type": "InstructorClassCardStatus",
+          "type": "InstructorCourseCardStatus",
           "required": true,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
@@ -16153,7 +16152,7 @@
   "learner-card": [
     {
       "names": [
-        "LearnerClassCard"
+        "LearnerCourseCard"
       ],
       "from": "@structured-growth/sg-ui",
       "kind": "component",
@@ -16269,15 +16268,8 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
-          "name": "onPageChange",
-          "type": "(nextPage: number) => void",
-          "required": true,
-          "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
-        },
-        {
-          "name": "onPageSizeChange",
-          "type": "(nextPageSize: number) => void",
+          "name": "onPaginationModelChange",
+          "type": "(model: { page: number; pageSize: number; }) => void",
           "required": true,
           "default": "—",
           "description": "Host callback; the signature specifies its arguments."
@@ -16666,18 +16658,11 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
-          "name": "storageKey",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Optional per-view persistence key."
-        },
-        {
           "name": "persistence",
           "type": "OwnedGridPersistenceConfig | undefined",
           "required": false,
           "default": "—",
-          "description": "See the type and source-backed examples for this option."
+          "description": "Optional per-view persistence key."
         },
         {
           "name": "showResetView",
@@ -17069,18 +17054,11 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
-          "name": "storageKey",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Optional per-view persistence key."
-        },
-        {
           "name": "persistence",
           "type": "OwnedGridPersistenceConfig | undefined",
           "required": false,
           "default": "—",
-          "description": "See the type and source-backed examples for this option."
+          "description": "Optional per-view persistence key."
         },
         {
           "name": "showResetView",
@@ -17173,14 +17151,14 @@
         },
         {
           "name": "viewMode",
-          "type": "ClassesViewMode | undefined",
+          "type": "CoursesViewMode | undefined",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
         },
         {
           "name": "onViewModeChange",
-          "type": "((mode: ClassesViewMode) => void) | undefined",
+          "type": "((mode: CoursesViewMode) => void) | undefined",
           "required": false,
           "default": "—",
           "description": "Host callback; the signature specifies its arguments."
@@ -17461,361 +17439,6 @@
         "onKeyDown",
         "key"
       ]
-    }
-  ],
-  "learner-grid": [
-    {
-      "names": [
-        "LearnerClassesDataGrid"
-      ],
-      "from": "@structured-growth/sg-ui",
-      "kind": "component",
-      "props": [
-        {
-          "name": "className",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Native CSS class hook."
-        },
-        {
-          "name": "style",
-          "type": "CSSProperties | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Native styles and applicable owned CSS variables."
-        },
-        {
-          "name": "loading",
-          "type": "boolean | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Host-controlled pending presentation."
-        },
-        {
-          "name": "selection",
-          "type": "boolean | AppDataGridSelectionConfig<LearnerClass> | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "errorMessage",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "rows",
-          "type": "readonly LearnerClass[]",
-          "required": true,
-          "default": "—",
-          "description": "Rows supplied by the host; the component does not fetch them."
-        },
-        {
-          "name": "getRowId",
-          "type": "((row: LearnerClass) => string) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "mode",
-          "type": "\"client\" | \"server\" | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "rowDrag",
-          "type": "AppDataGridRowDragConfig<LearnerClass> | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "onRowAction",
-          "type": "((row: LearnerClass) => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
-        },
-        {
-          "name": "refreshing",
-          "type": "boolean | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "onRetry",
-          "type": "(() => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
-        },
-        {
-          "name": "locale",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "timeZone",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "formatDate",
-          "type": "((date: Date, context: OwnedGridDateFormatContext) => string) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "tableRef",
-          "type": "Ref<HTMLTableElement> | undefined",
-          "required": false,
-          "default": "—",
-          "description": "The forwarded ref is the native scrolling container; this is the table."
-        },
-        {
-          "name": "paginationModel",
-          "type": "OwnedGridPaginationModel | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "defaultPaginationModel",
-          "type": "OwnedGridPaginationModel | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "sortRules",
-          "type": "readonly OwnedGridSortRule[] | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "defaultSortRules",
-          "type": "readonly OwnedGridSortRule[] | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "filterRules",
-          "type": "readonly DataToolbarFilterRule[] | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "defaultFilterRules",
-          "type": "readonly DataToolbarFilterRule[] | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "searchValue",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "defaultSearchValue",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "filterFields",
-          "type": "readonly DataToolbarFilterField[] | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "pageSizeOptions",
-          "type": "readonly OwnedGridPageSizeOption[] | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "rowCount",
-          "type": "number | undefined",
-          "required": false,
-          "default": "—",
-          "description": "A known total; omission deliberately leaves server navigation to the host."
-        },
-        {
-          "name": "hasNextPage",
-          "type": "boolean | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "onPaginationModelChange",
-          "type": "((value: OwnedGridPaginationModel) => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
-        },
-        {
-          "name": "onSortRulesChange",
-          "type": "((value: OwnedGridSortRule[]) => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
-        },
-        {
-          "name": "onFilterRulesChange",
-          "type": "((value: DataToolbarFilterRule[]) => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
-        },
-        {
-          "name": "onSearchChange",
-          "type": "((value: string) => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
-        },
-        {
-          "name": "onStateChange",
-          "type": "((value: OwnedGridCriteriaState) => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
-        },
-        {
-          "name": "columnVisibilityModel",
-          "type": "Readonly<Record<string, boolean>> | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "defaultColumnVisibilityModel",
-          "type": "Readonly<Record<string, boolean>> | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "onColumnVisibilityModelChange",
-          "type": "((value: Record<string, boolean>) => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
-        },
-        {
-          "name": "columnOrder",
-          "type": "readonly string[] | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "defaultColumnOrder",
-          "type": "readonly string[] | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "onColumnOrderChange",
-          "type": "((value: string[]) => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
-        },
-        {
-          "name": "columnWidths",
-          "type": "Readonly<Record<string, number>> | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "defaultColumnWidths",
-          "type": "Readonly<Record<string, number>> | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "onColumnWidthsChange",
-          "type": "((value: Record<string, number>) => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
-        },
-        {
-          "name": "hideFooter",
-          "type": "boolean | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "storageKey",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Optional per-view persistence key."
-        },
-        {
-          "name": "persistence",
-          "type": "OwnedGridPersistenceConfig | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "showResetView",
-          "type": "boolean | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Offer an accessible reset action. Defaults to false."
-        },
-        {
-          "name": "onResetView",
-          "type": "((state: AppDataGridViewState) => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "One complete requested snapshot, including controlled concerns."
-        },
-        {
-          "name": "label",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Label supplied by the application."
-        },
-        {
-          "name": "getRowLabel",
-          "type": "((row: LearnerClass) => string) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        }
-      ],
-      "native": []
     }
   ],
   "processing-grid": [

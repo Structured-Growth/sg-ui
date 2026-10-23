@@ -1,12 +1,12 @@
 // This fixture typechecks only against built package entry points.
 import { Button, AppModal, AppDataGrid, PageRichTextEditorSection, MonthPicker, YearPicker } from '@structured-growth/sg-ui';
 import { Typography } from '@structured-growth/sg-ui/primitives';
-import { AppThemeProvider, ThemeScope as PublicThemeScope } from '@structured-growth/sg-ui/theme';
+import { Provider, ThemeScope as PublicThemeScope } from '@structured-growth/sg-ui/theme';
 // @ts-expect-error Theme objects are replaced by scoped settings and CSS tokens.
 import { darkTheme } from '@structured-growth/sg-ui/theme';
 import { SGNavigationProvider } from '@structured-growth/sg-ui/adapters';
 import type { AppDataGridColumn } from '@structured-growth/sg-ui/components';
-import { TextField, ThemeScope, Provider, Dialog, Tabs, ComboBox, Popover, AsyncMultiSelect, DateRangeSelector } from '@structured-growth/sg-ui/experimental';
+import { TextField, ThemeScope, Dialog, Tabs, ComboBox, Popover, AsyncMultiSelect, DateRangeSelector } from '@structured-growth/sg-ui/experimental';
 import { tokens } from '@structured-growth/sg-ui/tokens';
 import { DataGrid, DateField, TimeField, Checkbox } from '@structured-growth/sg-ui/experimental';
 import { AddIcon } from '@structured-growth/sg-ui/experimental/icons/AddIcon';
@@ -21,9 +21,9 @@ import { AppOperationSteps } from '@structured-growth/sg-ui/components/AppOperat
 import { EditableTitleField } from '@structured-growth/sg-ui/components/EditableTitleField';
 import { AppPaginationFooter } from '@structured-growth/sg-ui/components/CardPaginationFooter';
 import { CardCollectionWithFooter } from '@structured-growth/sg-ui/components/CardCollectionWithFooter';
-import { ClassCardFrame } from '@structured-growth/sg-ui/components/ClassCardFrame';
-import { InstructorClassCard } from '@structured-growth/sg-ui/components/InstructorClassCard';
-import { LearnerClassCard } from '@structured-growth/sg-ui/components/LearnerClassCard';
+import { CourseCardFrame } from '@structured-growth/sg-ui/components/CourseCardFrame';
+import { InstructorCourseCard } from '@structured-growth/sg-ui/components/InstructorCourseCard';
+import { LearnerCourseCard } from '@structured-growth/sg-ui/components/LearnerCourseCard';
 
 export const remainingControls = <Provider><Navigation label="Course navigation"><List><ListItem>
   <NavigationItem href="/courses" current>Courses</NavigationItem>
@@ -38,10 +38,10 @@ export const remainingControls = <Provider><Navigation label="Course navigation"
   <Pagination page={0} pageCount={3} onPageChange={page => console.log(page)} />
   <AppInlineProgress value={40} /><AppOperationSteps steps={[{id:'upload',label:'Upload',status:'in_progress'}]} />
   <EditableTitleField title="Course" onSave={async title => {console.log(title);}} />
-<AppPaginationFooter page={0} pageSize={4} pageSizeOptions={[4,8]} totalCount={12} onPageChange={()=>{}} onPageSizeChange={()=>{}} />
-  <CardCollectionWithFooter rows={[{id:'one',label:'Science'}]} getRowId={row=>row.id} page={0} pageSize={4} pageSizeOptions={[4,8]} onPageChange={()=>{}} onPageSizeChange={()=>{}} renderCard={row=><ClassCardFrame header={row.label} body="Course details" />} />
-  <InstructorClassCard className="Science" siteName="School" status="active" learnerCount={12} lastLearnerActivityLabel="Recent activity" actionLabel="Open Class" actionHref="/courses/science" />
-  <LearnerClassCard courseName="Science" instructorName="Author" progressPercent={40} nextActivity="Read" dueAt="2026-10-10" referenceNow={new Date('2026-10-06T12:00:00Z')} detailsHref="/courses/science" />
+<AppPaginationFooter page={0} pageSize={4} pageSizeOptions={[4,8]} totalCount={12} onPaginationModelChange={()=>{}} />
+  <CardCollectionWithFooter rows={[{id:'one',label:'Science'}]} getRowId={row=>row.id} page={0} pageSize={4} pageSizeOptions={[4,8]} onPaginationModelChange={()=>{}} renderCard={row=><CourseCardFrame header={row.label} body="Course details" />} />
+  <InstructorCourseCard courseName="Science" siteName="School" status="active" learnerCount={12} lastLearnerActivityLabel="Recent activity" actionLabel="Open course" actionHref="/courses/science" />
+  <LearnerCourseCard courseName="Science" instructorName="Author" progressPercent={40} nextActivity="Read" dueAt="2026-10-10" referenceNow={new Date('2026-10-06T12:00:00Z')} detailsHref="/courses/science" />
 </Provider>;
 // @ts-expect-error Progress requires a host-provided accessible name.
 export const unnamedProgress = <Progress value={40} />;
@@ -70,7 +70,7 @@ export const example = <SGNavigationProvider value={{ pathname: '/', navigate: (
   <AppDataGrid label="Courses" getRowLabel={row => row.name} rows={[{ id: 'one', name: 'Example' }]} columns={columns} />
   <PageRichTextEditorSection lexicalValue={null} editorKey="example" onLexicalChange={() => {}} />
 </SGNavigationProvider>;
-export const publicTheme = <AppThemeProvider theme="system" density="compact" dir="rtl"><PublicThemeScope theme="light" /></AppThemeProvider>;
+export const publicTheme = <Provider theme="system" density="compact" dir="rtl"><PublicThemeScope theme="light" /></Provider>;
 export const iconProof = <AddIcon label="Add course" size={20} strokeWidth={1.5} />;
 export const iconProps: IconProps = { size: '1em', color: 'currentColor' };
 export const gridProof = <DataGrid label="Courses" rows={[{ id: 'one', name: 'Science' }]}
@@ -200,20 +200,20 @@ export const retiredActivitySize = PublicActivityIcon('lesson','small');
 import { createAdminCourseGridOptions, createInstructorCourseLearnersGridOptions, adminCourseStatuses } from "@structured-growth/sg-ui/components";
 export const publicPresets = [createAdminCourseGridOptions(), createInstructorCourseLearnersGridOptions(), adminCourseStatuses];
 
-import type { LearnerClass, LearnerClassesDataGridProps as RootLearnerGridProps } from "@structured-growth/sg-ui";
-import type { LearnerClassesDataGridProps as CatalogLearnerGridProps } from "@structured-growth/sg-ui/components";
-import type { LearnerClassesDataGridProps } from "@structured-growth/sg-ui/components/LearnerClassesDataGrid";
+import type { LearnerCourse, AppDataGridShellProps as RootLearnerGridProps } from "@structured-growth/sg-ui";
+import type { AppDataGridShellProps as CatalogLearnerGridProps } from "@structured-growth/sg-ui/components";
+import type { AppDataGridShellProps } from "@structured-growth/sg-ui/components/AppDataGridShell";
 import { normalizePaginationModel, usePersistentPaginationModel, usePersistentState,
   type PaginationModel, type PersistentPaginationModelOptions } from "@structured-growth/sg-ui/hooks";
 import type { AppDataGridViewState } from "@structured-growth/sg-ui/components/AppDataGrid";
-const learner: LearnerClass = { id: "course-one", courseName: "Science", instructorName: "Author", siteName: "Campus",
+const learner: LearnerCourse = { id: "course-one", courseName: "Science", instructorName: "Author", siteName: "Campus",
   progressPercent: 40, nextActivity: "Read", dueAt: "2026-10-10" };
-export const learnerGridProps: LearnerClassesDataGridProps = { rows: [learner], showResetView: true,
+export const learnerGridProps: AppDataGridShellProps<LearnerCourse> = { label: "Courses", getRowLabel: row => row.courseName, columns: [{ field: "courseName", flex: 1 }], rows: [learner], showResetView: true,
   onResetView: (state: AppDataGridViewState) => { const page: number = state.paginationModel.page; console.log(page); } };
-export const rootLearnerGridProps: RootLearnerGridProps = learnerGridProps;
-export const catalogLearnerGridProps: CatalogLearnerGridProps = learnerGridProps;
+export const rootLearnerGridProps: RootLearnerGridProps<LearnerCourse> = learnerGridProps;
+export const catalogLearnerGridProps: CatalogLearnerGridProps<LearnerCourse> = learnerGridProps;
 const paginationOptions: PersistentPaginationModelOptions = { storage: "session", version: 2,
-  pageSizeOptions: [10, 75, 250], migrate: () => ({ page: 0, pageSize: 75 }) };
+  pageSizeOptions: [10, 75, 250] };
 export const normalizedPublicPagination: PaginationModel = normalizePaginationModel({ page: 3, pageSize: 250 });
 export function PublicHookConsumer() {
   const [pagination, setPagination] = usePersistentPaginationModel("consumer-courses", { page: 0, pageSize: 10 }, paginationOptions);

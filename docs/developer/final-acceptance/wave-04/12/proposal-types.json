@@ -1,7 +1,0 @@
-{
-  "node": "v24.19.0",
-  "typescript": "5.9.3",
-  "kind": "In-memory proposed visual/native config and native spec semantic typecheck, no emit, no browser",
-  "diagnostics": 0,
-  "details": ""
-}

@@ -1,4 +1,0 @@
-PASS latest success, stale failure discarded, confirmed rollback, explicit retry [{"rows":["B","A"],"phase":"pending"},{"rows":["B","A revised"],"phase":"pending"},{"rows":["B","A accepted"],"phase":"saved"},{"rows":["A accepted","B"],"phase":"pending"},{"rows":["B","A accepted"],"phase":"error","error":"Persistence unavailable"},{"rows":["A accepted","B"],"phase":"pending"},{"rows":["A accepted","B"],"phase":"saved"}]
-PASS cancel, replacement, unmount cleanup never announce saved [{"rows":["B","A"],"phase":"pending"},{"rows":["A","B"],"phase":"canceled"},{"rows":["B","A"],"phase":"pending"},{"rows":["Fresh"],"phase":"ready"},{"rows":["New"],"phase":"pending"},{"rows":["Fresh"],"phase":"canceled"}]
-PASS independent hosts with colliding row IDs and synchronous transport error
-Runtime v24.19.0; 3 pure host-controller cases; no DOM/native/AT execution

@@ -240,7 +240,8 @@
       "Pair selectedIds with onSelectionChange for controlled state, or use defaultSelectedIds for an initial uncontrolled selection. In single mode, keep the controlled array to at most one ID.",
       "Buttons default to equal widths based on the widest option, including icons and disabled options. Set buttonWidth to content for individual content-sized buttons. Constrained horizontal groups keep equal columns and wrap labels as needed. Set allowEmpty to false when a selected action must remain, and choose horizontal or vertical orientation. Apply density locally and disabled to make the entire group unavailable.",
       "Selected options use a double border alongside checked or pressed semantics while preserving their outer size. Connect selection to host commands or presentation state. The group is not a native form field; the host supplies any needed form serialization and reset behavior.",
-      "Selected child buttons retain their structural double borders and independent focus outlines. Forced-color selected hover keeps system colors with automatic adjustment; group selection and callbacks are unchanged."
+      "Selected child buttons retain their structural double borders and independent focus outlines. Forced-color selected hover keeps system colors with automatic adjustment; group selection and callbacks are unchanged.",
+      "Set iconOnly when each choice has an icon and the group should show compact icon buttons. Keep meaningful option labels: they become accessible names and native hover titles. Options without icons retain their visible label so the control never becomes empty."
     ],
     "related": [
       {
@@ -569,7 +570,8 @@
       "The component owns its leading search icon, optional trailing decorative icon, clear action, portaled nonmodal dropdown, count/empty/loading/error messages, retry and native keyboard navigation. Arrows move between input and results; Home/End move within results; Escape closes and restores input focus. Visible labels remain accessible names.",
       "Result hrefs use the SGUI navigation adapter and preserve modified native clicks. onResultSelect reports ordinary link activation or an action result. onSearch handles Enter in the input when supplied. Hosts decide whether selection replaces or clears the query and own navigation/persistence.",
       "Keep meaningful labels, resultsLabel and emptyMessage for the context; resultCountLabel can localize contextual counts. showClearButton defaults true. disabled/readOnly block editing and dropdown opening. Named input values and accepted native resets retain host control. Density and theme propagate to result portals.",
-      "Wrap related fields in FormFieldScope to share message-placement defaults. Explicit field props override the nearest scope; nested scopes inherit settings they omit."
+      "Wrap related fields in FormFieldScope to share message-placement defaults. Explicit field props override the nearest scope; nested scopes inherit settings they omit.",
+      "Use expandable SearchField for an animated icon-to-input search in compact headers. The expanded field shares the website search styling. Closing clears the query and returns focus; Escape first dismisses open results, then collapses. The host owns filtering and controlled query acceptance."
     ],
     "related": [
       {

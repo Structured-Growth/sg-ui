@@ -4,7 +4,7 @@ The shipped catalog uses SGUI-owned contracts, React Aria interactions, generate
 tokens, compiled CSS Modules, TanStack row processing and Lexical editing. Host applications supply no library runtime dependency.
 Public App/Class names remain where useful; new learning presentation APIs use Course.
 Implementation removal and final acceptance are separate: consult the
-[execution record](archive/2026-10-18-task-lists/react-aria-progress.md), [master list](react-aria-execution-policy.md)
+execution record, [master list](react-aria-execution-policy.md)
 and [removal audit](react-aria-removal-audit.md) for remaining gates.
 
 Library paths in this document are relative to `packages/ui`. The Next.js app
@@ -19,7 +19,7 @@ Library paths in this document are relative to `packages/ui`. The Next.js app
 | Interaction | Selected React Aria subpath imports inside implementations; map to owned props/events/refs |
 | Catalog compositions | `src/components/<Component>` composes owned controls and colocated tests; docs owns examples/native scenarios |
 | Specialist behavior | Grid uses TanStack row processing and React Aria interaction; editor uses Lexical behind owned section contracts |
-| Visual/locale scope | `src/theme` exposes Provider/ThemeScope/AppThemeProvider; foundation owns scope and tokens |
+| Visual/locale scope | `src/theme` exposes Provider/ThemeScope/Provider; foundation owns scope and tokens |
 | Host integration | `src/adapters`, `src/i18n`, hooks and presentation models; routing/accounts/translations/data policy stay host-owned |
 | Package surface | `src/index.ts`, public barrels and explicit package.json exports; compiled ESM/declarations/CSS |
 
@@ -127,9 +127,6 @@ The [sliding drilldown panel scope](hierarchical-menu-scope.md) compares the
 reference platform's level transitions and Back button with current SGUI support,
 and tracks reusable panel extraction separately from shipped APIs.
 
-
-## Field placeholders and icons (2026-10-16)
-
 Field guidance and validation now share owned placement props and a private
 renderer. See [form field message placement](form-field-message-placement.md)
 for defaults, inline choices, composed pickers and row alignment.
@@ -147,9 +144,6 @@ Each affected docs page exposes placeholder and icon-position controls plus eigh
 independent source-backed examples: empty, start, end and both at both densities.
 Search-like TextField/ComboBox/AsyncMultiSelect examples use owned icons; this does
 not add server querying to the library or make Select a searchable combobox.
-
-
-## Standard search composition (2026-10-16)
 
 SearchField is a public root/primitives/experimental component composing TextField,
 Button, Link and Typography with a React Aria nonmodal results portal. It owns query

@@ -1,1 +1,0 @@
-Zero diagnostics: virtual proposed shared exports plus actual component,3 units,3 native cases,public fixture and independent docs examples. No emit/runtime execution.

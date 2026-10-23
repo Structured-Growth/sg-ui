@@ -4,19 +4,19 @@ import { act, cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useState } from "react";
 import { renderToString } from "react-dom/server";
-import { LearnerClassCard } from "../LearnerClassCard/LearnerClassCard";
+import { LearnerCourseCard } from "../LearnerCourseCard/LearnerCourseCard";
 import { CardCollectionWithFooter } from "./CardCollectionWithFooter";
 afterEach(cleanup);
 const rows = [{ id: "1", label: "One" }, { id: "2", label: "Two" }, { id: "3", label: "Three" }];
 const defaults = { rows, getRowId: (row: typeof rows[number]) => row.id, page: 0, pageSize: 2, pageSizeOptions: [2, 4],
-  onPageChange: vi.fn(), onPageSizeChange: vi.fn(), renderCard: (row: typeof rows[number]) => <article>{row.label}</article> };
+  onPaginationModelChange: vi.fn(), renderCard: (row: typeof rows[number]) => <article>{row.label}</article> };
 describe("CardCollectionWithFooter", () => {
   it("keeps card slicing and footer on the same valid page after shrinking data", () => {
     const callback = vi.fn();
-    const { rerender } = render(<CardCollectionWithFooter {...defaults} page={99} onPageChange={callback} />);
+    const { rerender } = render(<CardCollectionWithFooter {...defaults} page={99} onPaginationModelChange={model => (callback)(model.page)} />);
     expect(screen.getAllByRole("article").map(node => node.textContent)).toEqual(["Three"]);
     expect(screen.getByText("3-3 of 3")).toBeTruthy();
-    rerender(<CardCollectionWithFooter {...defaults} rows={rows.slice(0, 1)} page={99} onPageChange={callback} />);
+    rerender(<CardCollectionWithFooter {...defaults} rows={rows.slice(0, 1)} page={99} onPaginationModelChange={model => (callback)(model.page)} />);
     expect(screen.getAllByRole("article").map(node => node.textContent)).toEqual(["One"]);
     expect(screen.getByText("1-1 of 1")).toBeTruthy();
     expect(callback).not.toHaveBeenCalled();
@@ -25,19 +25,19 @@ describe("CardCollectionWithFooter", () => {
     function Controlled() {
       const [page, setPage] = useState(0);
       const [size, setSize] = useState(2);
-      return <CardCollectionWithFooter {...defaults} page={page} pageSize={size} onPageChange={setPage} onPageSizeChange={setSize} />;
+      return <CardCollectionWithFooter {...defaults} page={page} pageSize={size} onPaginationModelChange={model => { (setPage)(model.page); (setSize)(model.pageSize); }}  />;
     }
     render(<Controlled />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Last page" }));
     expect(screen.queryByText("One")).toBeNull();
     expect(screen.getByText("Three")).toBeTruthy();
-    await user.selectOptions(screen.getByRole("combobox"), "4");
+    await user.click(screen.getByRole("button", { name: /Rows per page/ })); await user.click(screen.getByRole("option", { name: "4", exact: true }));
     expect(screen.getAllByRole("article")).toHaveLength(3);
     expect(screen.getByText("Page 1 of 1")).toBeTruthy();
   });
-  it("withholds pagination requests until the host accepts and requests page zero before size", async () => {
-    const requests: string[] = [];
+  it("withholds pagination requests until the host accepts and requests page zero and size atomically", async () => {
+    const requests: Array<{page: number; pageSize: number}> = [];
     function Host() {
       const [accept, setAccept] = useState(false);
       const [page, setPage] = useState(1);
@@ -45,22 +45,21 @@ describe("CardCollectionWithFooter", () => {
       return <>
         <button onClick={() => setAccept(value => !value)}>Toggle acceptance</button>
         <CardCollectionWithFooter {...defaults} page={page} pageSize={size}
-          onPageChange={next => { requests.push(`page:${next}`); if (accept) setPage(next); }}
-          onPageSizeChange={next => { requests.push(`size:${next}`); if (accept) setSize(next); }} />
+          onPaginationModelChange={model => { requests.push(model); if (accept) { setPage(model.page); setSize(model.pageSize); } }} />
       </>;
     }
     render(<Host />);
     const user = userEvent.setup();
     await user.click(screen.getByRole("button", { name: "Previous page" }));
-    expect(requests).toEqual(["page:0"]);
+    expect(requests).toEqual([{page:0,pageSize:2}]);
     expect(screen.getAllByRole("article").map(node => node.textContent)).toEqual(["Three"]);
-    await user.selectOptions(screen.getByRole("combobox"), "4");
-    expect(requests).toEqual(["page:0", "page:0", "size:4"]);
-    expect((screen.getByRole("combobox") as HTMLSelectElement).value).toBe("2");
+    await user.click(screen.getByRole("button", { name: /Rows per page/ })); await user.click(screen.getByRole("option", { name: "4", exact: true }));
+    expect(requests).toEqual([{page:0,pageSize:2},{page:0,pageSize:4}]);
+    expect((screen.getByRole("button", { name: /Rows per page/ })).textContent).toContain("2");
     expect(screen.getAllByRole("article").map(node => node.textContent)).toEqual(["Three"]);
     await user.click(screen.getByRole("button", { name: "Toggle acceptance" }));
-    await user.selectOptions(screen.getByRole("combobox"), "4");
-    expect(requests).toEqual(["page:0", "page:0", "size:4", "page:0", "size:4"]);
+    await user.click(screen.getByRole("button", { name: /Rows per page/ })); await user.click(screen.getByRole("option", { name: "4", exact: true }));
+    expect(requests).toEqual([{page:0,pageSize:2},{page:0,pageSize:4},{page:0,pageSize:4}]);
     expect(screen.getAllByRole("article").map(node => node.textContent)).toEqual(["One", "Two", "Three"]);
     expect(screen.getByText("1-3 of 3")).toBeTruthy();
   });
@@ -87,8 +86,8 @@ describe("CardCollectionWithFooter", () => {
     const action = vi.fn();
     const page = vi.fn();
     const submit = vi.fn(event => event.preventDefault());
-    render(<form onSubmit={submit}><CardCollectionWithFooter {...defaults} pageSize={1} onPageChange={page}
-      renderCard={row => <LearnerClassCard courseName={row.label} instructorName="Author" progressPercent={40}
+    render(<form onSubmit={submit}><CardCollectionWithFooter {...defaults} pageSize={1} onPaginationModelChange={model => (page)(model.page)}
+      renderCard={row => <LearnerCourseCard courseName={row.label} instructorName="Author" progressPercent={40}
         nextActivity="Read" dueAt="2026-10-10" referenceNow={new Date("2026-10-06T12:00:00Z")} onContinue={action} />} /></form>);
     const user = userEvent.setup();
     screen.getByRole("button", { name: "Continue" }).focus();

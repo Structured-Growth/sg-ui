@@ -1,0 +1,22 @@
+import {test,expect} from './fixtures';
+import {exampleName} from './example-name';
+import {checkSources} from './check-sources';
+test('toggle group playground supports named icon-only controls and copyable source',async({page})=>{
+ await page.goto('/docs/components/toggle-button-group');
+ const panel=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
+ await panel.getByRole('checkbox',{name:'Icons only',exact:true}).locator('xpath=ancestor::label[1]').click();
+ const preview=panel.locator('[data-docs-preview]');
+ const design=preview.getByRole('button',{name:'Design systems',exact:true});
+ await expect(design).toHaveText('');await expect(design.locator('svg')).toHaveCount(1);
+ await expect(design).toHaveAttribute('aria-pressed','true');
+ await preview.getByRole('button',{name:'Engineering',exact:true}).click();
+ await expect(preview.getByRole('button',{name:'Engineering',exact:true})).toHaveAttribute('aria-pressed','true');
+ await panel.getByRole('button',{name:'Show source: Prop playground',exact:true}).click();
+ const source=(await panel.getByLabel('Source: Prop playground',{exact:true}).textContent())!;
+ expect(source).toContain('iconOnly={true}');expect(checkSources([{slug:'icon-only-playground',source}])).toEqual([]);
+ const reference=page.getByRole('region',{name:exampleName('Icon-only view choices'),exact:true});
+ const cards=reference.getByRole('radio',{name:'Cards',exact:true});await expect(cards).toHaveText('');
+ await cards.click();await expect(cards).toHaveAttribute('aria-checked','true');
+ await reference.getByRole('button',{name:'Show source: Icon-only view choices',exact:true}).click();
+ expect(checkSources([{slug:'icon-only-reference',source:(await reference.getByLabel('Source: Icon-only view choices',{exact:true}).textContent())!}])).toEqual([]);
+});

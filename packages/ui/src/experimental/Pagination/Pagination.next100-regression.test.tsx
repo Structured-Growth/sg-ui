@@ -43,15 +43,15 @@ it("keeps translated consuming pagination instances independent across requests 
   expect(ref.current).toBe(courses);
   expect(courses.classList.contains("host-pagination")).toBe(true);
   expect(courses.style.marginTop).toBe("4px");
-  const firstSelect = within(courses).getByRole("combobox", { name: "Lignes par page" });
-  const secondSelect = within(archives).getByRole("combobox", { name: "Lignes par page" });
+  const firstSelect = within(courses).getByRole("button", { name: /Lignes par page/ });
+  const secondSelect = within(archives).getByRole("button", { name: /Lignes par page/ });
   expect(firstSelect.id).not.toBe(secondSelect.id);
-  await user.selectOptions(firstSelect, "50");
+  await user.click(firstSelect); await user.click(screen.getByRole("option", { name: "50", exact: true }));
   expect(firstRequest).toHaveBeenCalledExactlyOnceWith(0, 50);
   expect(secondRequest).not.toHaveBeenCalled();
   expect(within(courses).getByText("Page 1 sur 3")).toBeTruthy();
   expect((within(courses).getByRole("button", { name: "Précédente" }) as HTMLButtonElement).disabled).toBe(true);
-  expect((secondSelect as HTMLSelectElement).value).toBe("25");
+  expect((secondSelect).textContent).toContain("25");
   await user.click(within(archives).getByRole("button", { name: "Suivante" }));
   expect(within(archives).getByText("Page 3 sur 3")).toBeTruthy();
   expect((within(archives).getByRole("button", { name: "Dernière" }) as HTMLButtonElement).disabled).toBe(true);
@@ -60,7 +60,7 @@ it("keeps translated consuming pagination instances independent across requests 
   rerender(<Host />);
   expect(within(screen.getByRole("navigation", { name: "Archives" })).getByText("Page 2 sur 3")).toBeTruthy();
   expect(within(courses).getByText("Page 1 sur 3")).toBeTruthy();
-  expect((firstSelect as HTMLSelectElement).value).toBe("50");
+  expect((firstSelect).textContent).toContain("50");
   expect(translations).toHaveBeenCalledWith("common.ui.pageOfCount", {
     defaultMessage: "Page {page} of {count}", values: { page: 1, count: 3 },
   });

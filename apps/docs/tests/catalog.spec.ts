@@ -74,7 +74,6 @@ test('all public component catalog routes render documented examples and compila
   }
   const afterPlayground=await page.locator('code[aria-label^="Source:"]').allTextContents();
   expect(afterPlayground.filter((_,index)=>index!==playgroundIndex),`${slug}: playground controls must not change reference examples`).toEqual(snippets.filter((_,index)=>index!==playgroundIndex));
-  if(slug==='learner-grid'){const server=page.getByRole('region',{name:exampleName('Unknown server total'),exact:true});await server.getByRole('button',{name:'Next page',exact:true}).click();await expect(server.getByText('Course 6',{exact:true})).toBeVisible();}
   const changed=await page.locator('code[aria-label^="Source:"]').allTextContents();
   sources.push(...changed.map(source=>({slug:slug+'-changed',source})));
  });

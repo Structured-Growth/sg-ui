@@ -3,7 +3,7 @@
 Task references: R-01/Z-11, assignment 173. Follow the
 [development validation policy](react-aria-development-validation.md),
 [pool ownership contract](react-aria-parallel-browser-validation.md) and
-[actual abort/recovery record](parallel-batch-173/checkpoint-recovery.md).
+actual abort/recovery record.
 This tooling preparation does not authorize a checkpoint or close acceptance.
 
 ## One pool authority
@@ -19,18 +19,6 @@ reviewed resource budget, source/build integrity and queue, handles SIGINT/SIGTE
 settles its commands and releases or retains its own leases. A resource abort must
 be allowed to finish that path; killing a nested supervisor after three seconds
 prevented detached server cleanup in the October 8 attempt.
-
-The pool API has no external cancellation/attested-build resume option. Its command
-settlement bounds remain those of the deployed implementation; the runner does not
-invent a wall-clock deadline for the whole browser stage. Coordinator process
-termination before settlement remains an ownership hold. Separately detached
-servers are outside command-group evidence: every failed pool stage records a
-nested-ownership verification hold, even if the pool says its groups settled.
-The runner never signals those servers or releases pool leases itself. Coordinator
-verification must resolve exact owner/start-time/cwd/port identities before any
-cleanup; a stale receipt is not current process evidence.
-
-## Fresh checkpoint execution, only after coordinator review
 
 Use Node 24 with its bin directory first in PATH. Configuration is JSON:
 
@@ -100,17 +88,6 @@ green with no recorded hold. It does not certify manual/device/AT acceptance.
 ```sh
 node scripts/run-development-checkpoint.mjs manifest /absolute/recovery-inputs.json
 ```
-
-This prints JSON without modifying source, builds, reports, queues, processes or
-leases. It independently reads every planned shard's report, evidence and resource
-receipt; accepted greens must pass the pool's existing case attestation and match
-recorded case identities/counts with a settled zero-exit command receipt. Completed
-reports with acceptance holds remain distinct. Aborted/missing/unrun shards and
-unrun consumers remain pending. Input/per-shard SHA256 values retain provenance.
-Original build attestations must agree; current source/build digests are compared
-without freezing or changing their permissions. A mismatch sets `integrityMatches`
-false and prohibits reuse. Audit ownership holds are explicitly historical, not a
-claim about current cleanup.
 
 **Resume is unsupported.** The exported pool always builds a new Storybook tree.
 The manifest is review data, not an executable plan. `resume`, `reuse`, arbitrary

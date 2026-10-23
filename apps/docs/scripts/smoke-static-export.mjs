@@ -41,8 +41,8 @@ try{
  const image=page.getByRole('img',{name:'Learning sequence: learn, practice, reflect',exact:true}).first();
  await image.waitFor();assert.equal(await image.getAttribute('src'),'/dev/course-guide.svg');
  assert(await image.evaluate(img=>img.complete&&img.naturalWidth>0),'Prefixed editor image must load');
- await page.goto(origin+'/dev/docs/components/learner-grid/');
- await page.getByRole('heading',{level:1,name:'LearnerClassesDataGrid',exact:true}).waitFor();
+ await page.goto(origin+'/dev/docs/components/data-grid-shell/');
+ await page.getByRole('heading',{level:1,name:'AppDataGridShell',exact:true}).waitFor();
  await page.waitForTimeout(300); // Observe accidental prefetches of host-only destinations.
  await page.waitForTimeout(200);
  assert.deepEqual(errors,[],'Hydration/runtime errors');assert.deepEqual(failed,[],'Failed static asset/route requests');

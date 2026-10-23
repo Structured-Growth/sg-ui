@@ -1,8 +1,9 @@
 # Owned catalog grid presets
 
-Task: M-39. Admin and instructor option presets use owned toolbar contracts.
-Existing `adminClasses*`, `adminPeople*`, `instructorClasses*` and
-`instructorClassLearners*` exports remain English compatibility defaults.
+Use createAdminCourseGridOptions, createAdminPeopleGridOptions,
+createInstructorCourseGridOptions and createInstructorCourseLearnersGridOptions
+for fresh translated per-view defaults. Shared compatibility arrays are removed.
+Course rows use courseName as their data field.
 
 Use `createAdminCourseGridOptions`, `createAdminPeopleGridOptions`,
 `createInstructorCourseGridOptions` or `createInstructorCourseLearnersGridOptions`
@@ -10,8 +11,7 @@ with the host translation adapter's `t` function for localized labels. Every
 lookup includes an English `defaultMessage` and the `common.ui` namespace. Call
 `useNamespace("common.ui")` in the consuming view and recreate label options when
 the host locale changes. Calling a factory without a translator works in English.
-New factory names use Course terminology; preserved column identifiers such as
-`className` still match existing host datasets.
+Course preset factories use `courseName` as the course-name column identifier.
 
 Each call returns fresh `columnOptions`, `sortOptions`, `filterFields`,
 `defaultSortRules` and `defaultFilterRules`. Start each view's state from those

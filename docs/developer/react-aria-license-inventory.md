@@ -1,14 +1,5 @@
 # Read-only dependency and license inventory
 
-[The checker](../../packages/ui/scripts/check-license-inventory.mjs) reports repository
-manifest declarations, pnpm v9 locked identities/edges, available installed package
-metadata, legal-file hashes and distributed asset candidates. It supplies evidence
-for review; it does not approve licenses, change notices or decide commercial terms.
-See [L-01–L-09](backlog.md),
-[architecture policy](react-aria-architecture.md#dependency-and-license-policy),
-[commercial guidance](../commercial-licensing.md) and the
-[batch 98 gap record](https://github.com/Structured-Growth/sg-ui/blob/7335e41c35ea0af07f72b133ced92e04e1e896ca/docs/developer/parallel-batch-98/acceptance-evidence.md).
-
 ## Run and interpret
 
 From the repository root with an already installed frozen-lockfile dependency tree:
@@ -75,14 +66,6 @@ URLs, source maps, host-supplied fonts and assets outside the literal roots need
 separate provenance review. A missing `dist` is a finding; the checker never builds
 it. Root legal-file inspection does not prove packed byte preservation, which is
 the separate existing [package audit](../../packages/ui/scripts/check-package.mjs).
-
-The checker reports empty/whitespace-only installed legal files separately from
-absent files, and reports duplicate exact notice identities without removing
-either section. A sibling NOTICE cannot make an empty LICENSE complete evidence.
-The packed-evidence companion checks each installed instance for missing legal
-evidence, so one instance cannot hide another's missing files. These are evidence
-integrity checks, not determinations of legal sufficiency. See the
-[nine-correction receipt](backlog-to-ten/nine-corrections-2026-10-21.md).
 
 ## Ownership and update workflow
 
@@ -165,40 +148,12 @@ python3 packages/ui/scripts/check-lock-provenance.test.py
 python3 packages/ui/scripts/check-packed-license-evidence.test.py
 ```
 
-Capture saves before-input bytes, generated and installed locks, ordered command
-arguments, exact exit codes, stdout/stderr hashes/logs and a receipt after each
-command. Failures and timeouts retain evidence and stop subsequent work. A changed
-generated lock requires review of the retained before/after bytes before any new
-candidate is accepted; the helper never silently accepts a changed resolution.
-Check verifies those input/log identities, command order/flags and supported tool
-versions without executing commands. Exit0/1/2 means defined checks pass/findings/
-invalid inputs or failed capture. Treat captured logs as potentially sensitive
-operator evidence; the helper does not print environment variables or credentials.
-
-Local receipts cannot independently authenticate execution. Review transitive,
-optional/platform, override and patched-dependency topology against the full lock
-and compare installed selections per supported environment. One local graph does
-not establish all optional-platform behavior, vulnerability status, licensing or
-production release approval. The fixture-based tests exercise orchestration and
-receipt failure handling; they do not constitute an actual repository install.
-
-
 ## Verified attribution facts and their scope
 
 The owner confirms all rights to first-party code and requires no additional
 first-party legal review; see [owner decisions](owner-decisions.md). Source-origin
 history is omitted at the owner's request. Third-party dependency and asset
 licenses retain their separate obligations.
-
-The accepted [icon attribution receipt](final-acceptance/wave-04/coordinator/icon-vector-attribution/receipt.json)
-identifies 96 Lucide-backed wrappers. The installed lucide-react 1.52.0 legal text
-contains ISC terms plus MIT/Feather-derived notices; it must not be described as
-MIT-only. Its complete installed legal text is retained in the equal root/package
-third-party notices. The accepted archive join records notice SHA-256
-`d8451520a620b85a5ab61c4f8eebf6b68febd4f1fddd44529d8e8a5433a699fb`
-inside candidate `551f00034fe52027ce77285a517075b322d82508a4fc938ea21f4616303ce301`.
-These are facts about that retained candidate, not a fresh package or approval of
-later built output.
 
 W-20's accurate attribution and external task-data boundary are separate from
 L-01/L-02/L-04 and Z-06 rights, final-candidate and notice-removal obligations.
@@ -212,7 +167,7 @@ user-authorized scope or override agent trust boundaries.
 
 ## Current owner follow-through
 
-The [2026-10-21 technical reconciliation](backlog-to-ten/owner-license-reconciliation.md)
+The 2026-10-21 technical reconciliation
 closes A-L-02's current Apache preservation scope. The copied action review now
 includes its original pinned LICENSE and NOTICE. First-party rights are confirmed.
 The remaining `client-only@0.0.1` publisher-evidence gap is retained separately.

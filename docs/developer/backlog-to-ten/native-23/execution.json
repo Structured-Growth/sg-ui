@@ -1,5 +1,0 @@
-{
-  "failure": "Error: /Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node /Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js test --config /Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native.config.cjs batch65-side-navigation-native-flow|calendar-compact-navigation|editor-document-admission|inventory-editor-chrome|inventory-card-collection|wave03-editor-selection-acceptance failed (1/null); group settled; ; ; see /Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native-23/native.log",
-  "stable": true,
-  "completedAt": "2026-10-18T22:42:20.474Z"
-}

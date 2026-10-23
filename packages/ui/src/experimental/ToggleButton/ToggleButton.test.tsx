@@ -91,3 +91,12 @@ it("honors disabled fieldsets while preserving the first legend's enabled action
   await user.click(screen.getByRole("button", {name:"Legend action"}));
   expect(legendChange).toHaveBeenCalledExactlyOnceWith(true);
 });
+
+it("supports icon-only options with accessible names and keeps a visible fallback for missing icons",async()=>{
+ const user=userEvent.setup();render(<ToggleButtonGroup label="Layout" iconOnly allowEmpty={false} defaultSelectedIds={["list"]} options={[{id:"list",label:"List",icon:<svg aria-hidden="true"/>},{id:"cards",label:"Cards",icon:<svg aria-hidden="true"/>},{id:"other",label:"Other"}]}/>);
+ const list=screen.getByRole("radio",{name:"List"}),cards=screen.getByRole("radio",{name:"Cards"});
+ expect(list.textContent).toBe("");expect(cards.textContent).toBe("");expect(list.querySelector("svg")).not.toBeNull();
+ expect(screen.getByRole("radio",{name:"Other"}).textContent).toBe("Other");
+ cards.focus();await user.keyboard(" ");expect(cards.getAttribute("aria-checked")).toBe("true");
+ await user.click(cards);expect(cards.getAttribute("aria-checked")).toBe("true");
+});

@@ -36,7 +36,7 @@ export function ProcessingExample({ server = false }: { server?: boolean }) {
     </Table>
     <AppPaginationFooter page={state.paginationModel.page} pageSize={state.paginationModel.pageSize} pageSizeOptions={[10, 25, 250]} totalCount={result.rowCount} hasNextPage={result.canNextPage}
       onPaginationModelChange={model => apply(model.pageSize !== state.paginationModel.pageSize ? { type: "pageSize", value: model.pageSize } : { type: "page", value: model.page })}
-      onPageChange={value => apply({ type: "page", value })} onPageSizeChange={value => apply({ type: "pageSize", value })} />
+        />
     <p role="status">Notifications: {notification.join(" → ") || "No changes"}</p>
     <p>This is a processing integration proof. The catalog grid interaction and cells remain in the next M-16 batches.</p>
   </>;

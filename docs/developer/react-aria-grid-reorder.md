@@ -1,6 +1,6 @@
 # Catalog grid row reorder (M-18)
 
-`AppDataGrid`, `AppDataGridShell` list mode and `LearnerClassesDataGrid` accept
+`AppDataGrid`, `AppDataGridShell` list mode accept
 owned `rowDrag` configuration. Import `/styles.css` and provide `Provider` or
 `ThemeScope`. The granular `/components/AppDataGridRowDnd` entry exports the owned
 handle and optional native-event helper.
@@ -11,14 +11,18 @@ handle and optional native-event helper.
   rowDrag={{ onReorder: request => requestHostMove(request) }} />
 ```
 
-The callback receives `sourceRow`, `sourceRowId`, `targetRow`, `targetRowId` and
+The callback receives `sourceRow`, `sourceRowId`, `sourceRows`, `sourceRowIds`, `targetRow`, `targetRowId` and
 `position` (`before` or `after`). Identity is the grid's `getRowId`, including the
 stable string mapping for default numeric `id` values. `getRowLabel` in rowDrag
 can override the handle name; `isRowDraggable` restricts sources, and
 `handleColumnWidth` configures the fixed reorder column before the text columns.
+By default only the drag handle is shown. Set `showMoveButtons: true` to add
+Move up/down buttons; set `dragDisabled: true` to disable the handle independently
+while those buttons can still request moves. The handle supports keyboard dragging
+without requiring arrows.
 
 Reordering requires a complete client dataset on page zero fitting in one page,
-with no search, filters or sorting, at most one selected ID, and no loading,
+with no search, filters or sorting, and no loading,
 refreshing or error state. Controls remain visible but disabled outside this
 boundary. Sorting or filtering that happens to preserve the visible row order
 still disables reordering. A page-size reduction that creates multiple pages
@@ -26,17 +30,24 @@ also disables it; the grid does not interpret a move as a page-local reorder,
 clear criteria, or change the current page to make a drag possible. Clear the
 criteria and show the complete dataset on page zero to re-enable controls.
 A criteria change during a drag must not request a host move while that boundary
-is active. Start a new interaction after restoring an eligible collection. Server pages cannot define a complete host order. Only one source row
-is moved; invalid/missing/self/adjacent no-op targets emit no callback. Replacing
+is active. Start a new interaction after restoring an eligible collection. Server pages cannot define a complete host order. Dragging a selected row moves all selected rows together in host order; dragging
+an unselected row moves only that row. The singular source identifies the initiating
+row; the ordered `sourceRows` and `sourceRowIds` identify the entire move. Hosts
+remove that group and insert it before/after the target as a block. Selection remains
+unchanged. Move up/down controls move the same group past its neighboring outside row.
+A group containing a host-declared non-draggable row cannot move. Targets inside the
+group and moves leaving the full order unchanged emit no callback. Replacing
 rows or the identity function during a drag invalidates the captured order.
 
+Pointer dragging shows a chiplet with the localized row count (for example, “2 rows”).
+
 React Aria handles pointer, touch, keyboard and assistive-technology drag
-interactions and their announcements. Touch users can also tap Move up/down
+interactions and their announcements. When `showMoveButtons` is enabled, touch users can also tap Move up/down
 without dragging; this requests the same adjacent before/after move as keyboard
 or pointer activation of those controls. Touch scrolling outside the handle
 remains native; the drag handle reserves its own gesture with `touch-action: none`. Activate the handle to enter keyboard drag
 mode, navigate drop positions, confirm to request a move, or Escape to cancel.
-Move up/down controls offer equivalent non-drag requests. A request announcement
+Optional Move up/down controls offer equivalent non-drag requests. A request announcement
 does not claim the host has saved the order. Focus stays with the source control
 when the host commits row order; when a boundary disables that control, focus
 falls back to the source row's enabled control or cell.
@@ -101,7 +112,7 @@ The existing `inventory-pointer-reorder-invalidation.spec.ts` separately covers
 trusted pointer dataset/identity replacement and cancellation over a second grid
 with colliding row IDs. These pointer checks do not establish touch cancellation.
 
-The [finite G-17/M-18 reconciliation](final-acceptance/wave-04/02/grid-reorder/receipt.json)
+The finite G-17/M-18 reconciliation
 joins the behavior definition, owned helper/style contracts, accepted F/T/V-C18
 records, retained native input evidence and current focused tests. It recommends
 acceptance of those two obligations. This does not establish physical-device

@@ -4,11 +4,11 @@ import {docsHostFindings} from './check-docs-host.mjs';
 const host='apps/docs/native-fixtures';
 function fixture(){return {
  'package.json':'{}','packages/ui/package.json':'{}','apps/docs/package.json':'{}','pnpm-lock.yaml':"lockfileVersion: '9.0'",
- [`${host}/migration-manifest.json`]:JSON.stringify({modules:[{original:'old.stories.tsx',fixture:`${host}/scenarios/one.tsx`,scenarioModule:true}]}),
- [`${host}/registry.json`]:JSON.stringify({entries:{one:{id:'one',module:'./scenarios/one.tsx',importPath:'./scenarios/one.tsx',original:'old.stories.tsx'}}}),
+ [`${host}/module-manifest.json`]:JSON.stringify({modules:[{fixture:`${host}/scenarios/one.tsx`,scenarioModule:true}]}),
+ [`${host}/registry.json`]:JSON.stringify({entries:{one:{id:'one',module:'./scenarios/one.tsx',importPath:'./scenarios/one.tsx'}}}),
  [`${host}/scenarios/one.tsx`]:'export const One = {};',
 };}
-test('retains historical identities without treating them as active host dependencies',()=>assert.deepEqual(docsHostFindings(fixture()),[]));
+test('checks the current fixture inventory without requiring historical identities',()=>assert.deepEqual(docsHostFindings(fixture()),[]));
 test('rejects reintroduced dependencies, locked nodes, CI commands and all source import forms',()=>{
  for(const [path,text] of [
   ['package.json','{"devDependencies":{"@storybook/react":"1"}}'],
@@ -22,5 +22,5 @@ test('rejects reintroduced dependencies, locked nodes, CI commands and all sourc
 test('registry drift, missing fixtures and unmapped scenario content remain failures',()=>{
  const missing=fixture();delete missing[`${host}/scenarios/one.tsx`];assert(docsHostFindings(missing).some(f=>f.message.includes('Missing')));
  const registry=fixture();registry[`${host}/registry.json`]='{"entries":{}}';assert(docsHostFindings(registry).some(f=>f.message.includes('no registered')));
- const changed=fixture();changed[`${host}/registry.json`]=changed[`${host}/registry.json`].replace('old.stories.tsx','other.stories.tsx');assert(docsHostFindings(changed).some(f=>f.message.includes('does not match')));
+ const changed=fixture();changed[`${host}/registry.json`]=changed[`${host}/registry.json`].replace('./scenarios/one.tsx','./scenarios/other.tsx');assert(docsHostFindings(changed).some(f=>f.message.includes('does not match')));
 });

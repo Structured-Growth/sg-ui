@@ -26,7 +26,7 @@ export type OwnedGridPresentationColumn<Row> = OwnedGridColumn<Row> & {
   /** False wraps display text and preserves line breaks instead of ellipsizing. */
   truncate?: boolean;
   locked?: boolean;
-  /** Preferred numeric width; one data column remains flexible to fill the container. */
+  /** Preferred numeric width; menu columns keep this width fixed while a data column fills remaining space. */
   width?: number;
   minWidth?: number;
   maxWidth?: number;
@@ -42,12 +42,16 @@ export function createOwnedGridColumns<Row>(columns: readonly OwnedGridPresentat
       if (column[key] !== undefined && !finitePositive(column[key])) throw new Error(`AppDataGrid ${key} must be finite and positive: ${column.field}`);
     }
     if (column.minWidth !== undefined && column.maxWidth !== undefined && column.minWidth > column.maxWidth) throw new Error(`AppDataGrid minWidth exceeds maxWidth: ${column.field}`);
+    if (column.cellType === "menu") {
+      const width = Math.min(column.maxWidth ?? Infinity, Math.max(column.minWidth ?? 80, column.width ?? 110));
+      return { ...column, width, minWidth: width, maxWidth: width, flex: undefined };
+    }
     return { ...column };
   });
 }
 export function createOwnedGridActionMenuColumn<Row>(options: {
   headerName?: string;
-  /** Preferred numeric width; one data column remains flexible to fill the container. */
+  /** Fixed action width, defaulting to 110px and clamped to supplied bounds. */
   width?: number;
   minWidth?: number;
   maxWidth?: number;

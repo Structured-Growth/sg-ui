@@ -1,9 +1,0 @@
-{
-  "apps/docs/tests/shared-calendar-pickers.spec.ts": "3b89295906420f1efb487494befb7c0e7ad46f4b7e9b88b3c52a01bc87daa59d",
-  "apps/docs/tests/year-scroll.spec.ts": "6279326ebf9c661162ae813b77d1a3f063e00ee3bceb30e3c8b1da236b77fe83",
-  "apps/docs/examples/RangePeriodNavigationExamples.tsx": "2aaed10c76809fd475bcca880975aff5a1cdd1f9bf416c31fee6459b030aefd6",
-  "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.period-navigation.test.tsx": "521e9cc3a4f0f514d56008395fac1db9d9a8975046a9db288e687584f131ff41",
-  "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
-  "docs/developer/final-acceptance/year-scroll-independent-navigation/results.json": "5209269119a1db264a781bf421f12f3bda98df5a9106187b6b1b7f2e12c73666",
-  "docs/developer/final-acceptance/default-nearest-range/results.json": "37ac41f9cd185b099fcb3c58c2ee6d0185079116eac5a4c172d42c0fa5041ec1"
-}

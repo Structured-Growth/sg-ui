@@ -1,0 +1,33 @@
+import {test,expect} from './fixtures';
+import {exampleName} from './example-name';
+import {checkSources} from './check-sources';
+
+test('Rows per page uses the shared dropdown and resets only its own pagination',async({page})=>{
+  await page.goto('/docs/components/pagination');
+  const panel=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
+  const preview=panel.locator('[data-docs-preview]');
+  const reference=page.getByRole('region',{name:exampleName('Compact and comfortable comparison'),exact:true});
+  const before=await reference.locator('code').textContent();
+  const size=preview.getByRole('button',{name:/Rows per page/});
+  await expect(size).toContainText('25');
+  await expect(preview.getByRole('combobox')).toHaveCount(0);
+  await preview.getByRole('button',{name:'Next page',exact:true}).click();
+  await expect(preview).toContainText('Page 2 of 8');
+  await size.click();
+  const options=page.getByRole('listbox',{name:'Rows per page',exact:true});
+  await expect(options).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(options).toHaveCount(0);
+  await expect(size).toBeFocused();
+  await expect(preview).toContainText('Page 2 of 8');
+  await size.click();
+  await options.getByRole('option',{name:'50',exact:true}).click();
+  await expect(size).toContainText('50');
+  await expect(size).toBeFocused();
+  await expect(preview).toContainText('Page 1 of 8');
+  expect(await reference.locator('code').textContent()).toBe(before);
+  await panel.getByRole('button',{name:'Show source: Prop playground',exact:true}).click();
+  const source=(await panel.getByLabel('Source: Prop playground',{exact:true}).textContent())!;
+  expect(source).toContain('useState(50)');
+  expect(checkSources([{slug:'pagination',source}])).toEqual([]);
+});

@@ -3,7 +3,7 @@ import {afterEach,expect,it,vi} from 'vitest';
 import {cleanup,render,screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {DateRangeSelector} from './DateRangeSelector';
-import {getRelativeDateRange} from './relative-date-range';
+import {getRelativeDateRange} from '../../utils/relative-dates';
 afterEach(cleanup);
 it('places trailing presets after three calendars in document and keyboard order',async()=>{
  const user=userEvent.setup(),change=vi.fn();

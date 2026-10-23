@@ -13,9 +13,8 @@ export interface PersistentStateOptions<T> {
   /** Defaults to false: each hook instance owns memory-only state. */
   storage?: "local" | "session" | false;
   validate?: (value: unknown) => value is T;
-  /** Omit for the existing raw JSON format. Set for a versioned envelope. */
+  /** Omit for raw JSON values. Set to require an exact versioned envelope. */
   version?: number;
-  migrate?: (value: unknown, previousVersion: number | undefined) => T | undefined;
 }
 
 export function usePersistentState<T>(storageKey: string | undefined, initialValue: T, options: PersistentStateOptions<T> = {}) {
@@ -25,7 +24,7 @@ export function usePersistentState<T>(storageKey: string | undefined, initialVal
   const scopeKey = `${storageKind}:${key}`;
   const initial = useRef({ key: scopeKey, value: initialValue });
   const local = useRef<{ value: T } | undefined>(undefined);
-  const cache = useRef<{ key: string; raw?: string | null; source: SavedState; version?: number; migrate?: PersistentStateOptions<T>["migrate"]; candidate: unknown } | undefined>(undefined);
+  const cache = useRef<{ key: string; raw?: string | null; source: SavedState; version?: number; candidate: unknown } | undefined>(undefined);
   const settings = useRef(options);
   settings.current = options;
   if (initial.current.key !== scopeKey) {
@@ -62,18 +61,17 @@ export function usePersistentState<T>(storageKey: string | undefined, initialVal
 
   const resolveSaved = (source: SavedState, raw?: string | null): T => {
     const previous = cache.current;
-    const { version, migrate } = settings.current;
-    if (previous?.key === scopeKey && previous.source === source && previous.version === version && previous.migrate === migrate) {
+    const { version } = settings.current;
+    if (previous?.key === scopeKey && previous.source === source && previous.version === version) {
       return previous.candidate !== undefined && valid(previous.candidate) ? previous.candidate : initial.current.value;
     }
     let candidate = source.value;
-    if (!source.absent && version !== undefined && version !== source.version) {
-      try { candidate = migrate?.(candidate, source.version); } catch { candidate = undefined; }
+    if (!source.absent && version !== source.version) {
+      candidate = undefined;
     }
-    // Persisted JSON migration functions may return equivalent new objects each render.
     // Retain the previous snapshot identity so useSyncExternalStore stays stable.
     if (previous?.key === scopeKey && equivalent(previous.candidate, candidate)) candidate = previous.candidate;
-    cache.current = { key: scopeKey, raw, source, version, migrate, candidate };
+    cache.current = { key: scopeKey, raw, source, version, candidate };
     return candidate !== undefined && valid(candidate) ? candidate : initial.current.value;
   };
   const getSnapshot = useCallback((): T => {
@@ -142,7 +140,7 @@ export function usePersistentState<T>(storageKey: string | undefined, initialVal
       const previous = storage()!.getItem(key);
       if (previous !== raw) storage()!.setItem(key, raw);
       const removedFallback = fallback().delete(scopeKey);
-      cache.current = { key: scopeKey, raw, version, source: { value: resolved, version }, migrate: settings.current.migrate, candidate: resolved };
+      cache.current = { key: scopeKey, raw, version, source: { value: resolved, version }, candidate: resolved };
       // Retiring a quota fallback changes live snapshots even if saved JSON matches.
       if (previous === raw && !removedFallback) return;
     } catch {

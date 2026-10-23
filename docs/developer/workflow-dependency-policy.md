@@ -64,8 +64,7 @@ never dispatch releases or change repository settings merely to test a patch.
 
 For final-candidate retrieval, offline archive/receipt verification and the
 remaining production protection/owner evidence, use
-[CI release readiness](ci-release-readiness.md).
-
+CI release readiness.
 
 ## Maintained pin validation and reviewed identities
 
@@ -79,7 +78,7 @@ focused fixtures from the repository root:
 node --test packages/ui/scripts/check-ci-release-enforcement.test.mjs
 ```
 
-The [R-25 reconciliation](final-acceptance/wave-04/02/workflow-dependencies/receipt.json)
+The R-25 reconciliation
 records the seven current pinned commits, official action/package metadata,
 release-note and annotated-tag review, downloaded-tool boundaries and actual
 checksum-verified actionlint output for all four workflows. Action package.version

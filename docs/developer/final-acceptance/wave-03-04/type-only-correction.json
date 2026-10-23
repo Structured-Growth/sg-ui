@@ -1,6 +1,0 @@
-{
-  "scope": "After green runtime run, widened host wrapper argument type from string[] to (string | undefined)[] to accept optional account ID. Runtime JavaScript is unchanged.",
-  "proposedSha256": "9300a845cf5586a673280ea3afce093770f2709b39617a884d9a4945316b263f",
-  "emissionIdenticalToGreenRun": true,
-  "emissionSha256": "ae56e3376ca0e4fbfe37c5dc233d99a4f5b2c32b06c68ee55f1177ebbdbdb956"
-}

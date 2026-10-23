@@ -25,8 +25,3 @@ release or change third-party license obligations.
   branch protection from that policy or waive required production validation.
 - Assistance: identify missing owner actions explicitly on each affected active
   backlog row. Continue independent implementation and validation first.
-
-Read-only GitHub inspection in this session reports repository admin/maintain
-permissions for the connected credential. This alone does not establish the
-repository plan's protection entitlement, the owner's desired bypass policy or
-permission to change settings. No protection settings were changed.

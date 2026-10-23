@@ -43,17 +43,17 @@ export function SectionedRows({shell=false,utilities=false}:{shell?:boolean;util
   {field:'duration',headerName:'Duration',width:140},
   createActionMenuColumn<SectionRow>({getMenuActions:row=>[{id:'open',label:row.kind==='module'?'Open module':'Open activity',href:row.kind==='module'?`/modules/${row.moduleId}`:`/activities/${row.id}`}]}),
  ];
- const reorder=({sourceRowId,targetRowId,position}:AppDataGridRowDragReorderParams<SectionRow>)=>setRows(previous=>{
-  const source=previous.find(row=>row.id===sourceRowId);if(!source||source.kind!=='activity')return previous;
-  const next=previous.filter(row=>row.id!==sourceRowId),index=next.findIndex(row=>row.id===targetRowId);if(index<0)return previous;
-  next.splice(index+(position==='after'?1:0),0,source);return next;
+ const reorder=({sourceRowIds,targetRowId,position}:AppDataGridRowDragReorderParams<SectionRow>)=>setRows(previous=>{
+  const source=previous.filter(row=>sourceRowIds.includes(row.id));if(!source.length||source.some(row=>row.kind!=='activity'))return previous;
+  const next=previous.filter(row=>!sourceRowIds.includes(row.id)),index=next.findIndex(row=>row.id===targetRowId);if(index<0)return previous;
+  next.splice(index+(position==='after'?1:0),0,...source);return next;
  });
  // Full visible client order supports reorder. While host criteria are active,
  // pass the host-filtered section records through without filtering headers twice.
  const mode:'client'|'server'=search||filters.length?'server':'client';
  const props={label:'Sectioned courses',rows:visible,columns,getRowLabel:(row:SectionRow)=>row.name,mode,rowCount:visible.length,
   selection:utilities?{selectedRowIds:selected,onSelectedRowIdsChange:setSelected}:false,
-  rowDrag:utilities?{getRowLabel:(row:SectionRow)=>row.name,isRowDraggable:(row:SectionRow)=>row.kind==='activity',onReorder:reorder}:undefined,
+  rowDrag:utilities?{showMoveButtons:true,getRowLabel:(row:SectionRow)=>row.name,isRowDraggable:(row:SectionRow)=>row.kind==='activity',onReorder:reorder}:undefined,
   defaultPaginationModel:{page:0,pageSize:25},pageSizeOptions:[25]};
  return shell?<AppDataGridShell {...props} searchValue={search} onSearchChange={setSearch} filterRules={filters} onFilterRulesChange={setFilters}
   toolbar={{filterFields:fields,showSortButton:false,leftContentWhenSelected:<Button onPress={()=>setSelected(new Set())}>Clear selection</Button>,onRefresh:()=>{setRows(seed);setCollapsed(new Set());setSelected(new Set());setSearch('');setFilters([]);}}}/>

@@ -20,7 +20,7 @@ also documented in [layout/actions](react-aria-layout-actions.md),
 | --- | --- |
 | Box / BoxProps | Native container with bounded `as`, token `padding`, native ref; CSS/native style for layout |
 | Stack / StackProps | `gap`, `direction`, `align`, `justify`, `wrap`, `responsive`; `spacing` becomes `gap` |
-| Typography / TypographyProps | Separate semantic `as` and visual `variant`, including `bodyAlt2`; text tones `default`, `muted`, `subtle`, `accent`, `danger` and compatibility alias `primary`; `noWrap` |
+| Typography / TypographyProps | Separate semantic `as` and visual `variant`, including `bodyAlt2`; text tones `default`, `muted`, `subtle`, `accent`, `danger`; `noWrap` |
 | TextField / TextFieldProps | Naming requires `label` or `aria-label`, string `value`/`defaultValue`/`onValueChange`, native input ref; multiline uses TextArea from the owned control catalog |
 | CircularProgress / CircularProgressProps | Named Progress with fixed circular presentation; omitted value is indeterminate, numeric value is determinate |
 | Checkbox / CheckboxProps | Own `label`, `checked`/`defaultChecked`/`onCheckedChange`, mixed state, native `HTMLLabelElement` ref |
@@ -84,7 +84,7 @@ collapse state retention. Progress wrapper tests cover names, bounded values,
 indeterminate state, fixed presentation and SSR. The package fixture rejects
 retired props/types and unnamed progress. Full native accessibility/browser
 matrix acceptance remains open. The public `/theme` now exposes owned Provider,
-ThemeScope and AppThemeProvider; retired foundation runtime/peer/dev packages are
+ThemeScope and Provider; retired foundation runtime/peer/dev packages are
 removed. See [theme mappings](react-aria-theme.md) and the
 [removal audit](react-aria-removal-audit.md) for the distinction between shipped
 removal and remaining historical/legal and artifact acceptance.
@@ -97,8 +97,7 @@ policy or close the broad accessibility/compatibility gates.
 ### Text tone and action priority
 
 Typography tones describe text emphasis or meaning, not button priority. Use
-`accent` for brand-colored text; `primary` remains an equivalent compatibility
-alias backed by the existing typography primary foreground token. Use `muted`
+`accent` for brand-colored text backed by the typography accent foreground token. Use `muted`
 for supporting descriptions and `subtle` for supplementary metadata. Subtle flows
 through `textSubtle` → `typographySubtleText` → component CSS, with contrast-checked
 light/dark palette mappings. Theme overrides can converge muted and subtle in
@@ -106,7 +105,6 @@ increased contrast or forced colors. Do not use reduced emphasis to hide require
 instructions or convey disabled interaction. Content roles such as an eyebrow
 belong in composed page-header APIs; Typography's `variant` and HTML `as` remain
 independent. Existing button variant/tone APIs are unchanged.
-
 
 ## Tabs overflow menu
 

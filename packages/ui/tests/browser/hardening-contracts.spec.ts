@@ -45,7 +45,7 @@ test('table headers, pagination requests and toggle selection use public native 
   await page.goto(fixture('pagination--atomic-page-size'));
   const pagination = page.getByRole('navigation', { name: 'Pagination' });
   await expect(pagination).toContainText('Page 3 of 4');
-  await pagination.getByLabel('Rows per page').selectOption('25');
+  await pagination.getByRole('button',{name:/Rows per page/}).click(); await page.getByRole('option',{name:'25',exact:true}).click();
   await expect(pagination).toContainText('Page 1 of 4');
   await expect(pagination.getByRole('button', { name: 'Previous page' })).toBeDisabled();
   await pagination.getByRole('button', { name: 'Next page' }).click();

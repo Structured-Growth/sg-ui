@@ -1,12 +1,10 @@
 "use client";
-import { forwardRef, useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { forwardRef, type CSSProperties, type ReactNode } from "react";
 import { Button } from "../../components/Button/Button";
-import { TextField } from "../../experimental/TextField/TextField";
-import { ToggleButton } from "../../experimental/ToggleButton/ToggleButton";
+import { SearchField } from "../../experimental/SearchField/SearchField";
+import { ToggleButtonGroup } from "../../experimental/ToggleButton/ToggleButton";
 import { CachedIcon } from "../../experimental/icons/CachedIcon";
-import { CloseIcon } from "../../experimental/icons/CloseIcon";
 import { FilterListIcon } from "../../experimental/icons/FilterListIcon";
-import { SearchIcon } from "../../experimental/icons/SearchIcon";
 import { SortIcon } from "../../experimental/icons/SortIcon";
 import { ViewColumnIcon } from "../../experimental/icons/ViewColumnIcon";
 import { ViewListIcon } from "../../experimental/icons/ViewListIcon";
@@ -19,7 +17,7 @@ import styles from "./DataToolbar.module.css";
 export type { DataToolbarSelectionOption, DataToolbarSelectionState } from "./components/DataToolbarSelectionMenu";
 export type { DataToolbarSortDirection, DataToolbarSortOption, DataToolbarSortRule } from "./components/DataToolbarSortMenu";
 export type { DataToolbarFilterField, DataToolbarFilterFieldType, DataToolbarFilterOperator, DataToolbarFilterRule } from "./components/DataToolbarFilterMenu";
-export type ClassesViewMode = "cards" | "list";
+export type CoursesViewMode = "cards" | "list";
 export type DataGridInteractionMode = "client" | "server";
 
 export type DataToolbarProps = {
@@ -28,8 +26,8 @@ export type DataToolbarProps = {
   "aria-label"?: string;
   selectedCount?: number;
   mode?: DataGridInteractionMode;
-  viewMode?: ClassesViewMode;
-  onViewModeChange?: (mode: ClassesViewMode) => void;
+  viewMode?: CoursesViewMode;
+  onViewModeChange?: (mode: CoursesViewMode) => void;
   showViewModeToggle?: boolean;
   onRefresh?: () => void;
   showRefreshButton?: boolean;
@@ -60,24 +58,9 @@ export const DataToolbar = forwardRef<HTMLDivElement, DataToolbarProps>(function
  columnOptions, onColumnOptionsChange, sortOptions, sortRules, onSortRulesChange,
  filterFields, filterRules, onFilterRulesChange, selectedCount, className, style, "aria-label": accessibleName,
 }, ref) {
- const [isSearchOpen, setIsSearchOpen] = useState(false);
- const [internalSearchValue, setInternalSearchValue] = useState("");
- const searchInputRef = useRef<HTMLInputElement>(null);
- const searchTriggerRef = useRef<HTMLButtonElement>(null);
  const { t, useNamespace } = useTranslation();
  useNamespace("common.ui");
  const tr = (key: string, defaultMessage: string) => t(key, { defaultMessage, namespace: "common.ui" });
- const resolvedSearchValue = searchValue ?? internalSearchValue;
- const handleSearchChange = (value: string) => {
-   if (searchValue === undefined) setInternalSearchValue(value);
-   onSearchValueChange?.(value);
- };
- const closeSearch = () => {
-   if (resolvedSearchValue) handleSearchChange("");
-   setIsSearchOpen(false);
-   searchTriggerRef.current?.focus();
- };
- useEffect(() => { if (isSearchOpen) searchInputRef.current?.focus(); }, [isSearchOpen]);
  const canToggleViewMode = showViewModeToggle ?? Boolean(viewMode && onViewModeChange);
  return <div ref={ref} role="group" aria-label={accessibleName ?? tr("common.ui.toolbar.label", "Data toolbar")}
   className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="data-toolbar">
@@ -89,18 +72,10 @@ export const DataToolbar = forwardRef<HTMLDivElement, DataToolbarProps>(function
     {t("common.ui.toolbar.selected", { defaultMessage: "{count} selected", values: { count: selectedCount }, namespace: "common.ui" })}</span>}
   </div>
   <div className={styles.actions}>
-   {showSearchButton && <div className={styles.search}>
-    <Button ref={searchTriggerRef} variant="text" tone="neutral" density="compact" aria-label={tr("common.ui.toolbar.search", "Search")}
-     aria-expanded={isSearchOpen} onPress={() => { setIsSearchOpen(true); searchInputRef.current?.focus(); }}><SearchIcon /></Button>
-    {isSearchOpen && <div className={styles.searchField} onKeyDown={event => {
-     if (event.key === "Escape") { event.stopPropagation(); event.preventDefault(); closeSearch(); }
-    }}>
-     <TextField ref={searchInputRef} type="search" density="compact" aria-label={tr("common.ui.toolbar.search", "Search")}
-      placeholder={searchPlaceholder ?? tr("common.ui.toolbar.search", "Search")} value={resolvedSearchValue} onValueChange={handleSearchChange} />
-     <Button variant="text" tone="neutral" density="compact" aria-label={tr("common.ui.toolbar.closeSearch", "Clear and close search")}
-      onPress={closeSearch}><CloseIcon /></Button>
-    </div>}
-   </div>}
+   {showSearchButton && <SearchField className={styles.search} expandable showResults={false} density="compact"
+    aria-label={tr("common.ui.toolbar.search", "Search")} collapseLabel={tr("common.ui.toolbar.closeSearch", "Clear and close search")}
+    placeholder={searchPlaceholder ?? tr("common.ui.toolbar.search", "Search")}
+    value={searchValue} onValueChange={onSearchValueChange} />}
    {showColumnsButton && (columnOptions && onColumnOptionsChange
     ? <DataToolbarColumnsMenu options={columnOptions} onChange={onColumnOptionsChange} />
     : <Button variant="outlined" tone="neutral" density="compact" disabled startIcon={<ViewColumnIcon />}>{tr("common.ui.toolbar.columns", "Columns")}</Button>)}
@@ -110,12 +85,17 @@ export const DataToolbar = forwardRef<HTMLDivElement, DataToolbarProps>(function
    {showFilterButton && (filterFields && filterRules && onFilterRulesChange
     ? <DataToolbarFilterMenu fields={filterFields} value={filterRules} onApply={onFilterRulesChange} />
     : <Button variant="outlined" tone="neutral" density="compact" disabled startIcon={<FilterListIcon />}>{tr("common.ui.toolbar.filter", "Filter")}</Button>)}
-   {canToggleViewMode && <div className={styles.views} role="group" aria-label={tr("common.ui.toolbar.viewMode", "View mode")}>
-    <ToggleButton density="compact" selected={viewMode === "cards"} disabled={!onViewModeChange}
-     aria-label={tr("common.ui.toolbar.cards", "Cards")} onPress={() => onViewModeChange?.("cards")}><WindowIcon /></ToggleButton>
-    <ToggleButton density="compact" selected={viewMode === "list"} disabled={!onViewModeChange}
-     aria-label={tr("common.ui.toolbar.list", "List")} onPress={() => onViewModeChange?.("list")}><ViewListIcon /></ToggleButton>
-   </div>}
+   {canToggleViewMode && <ToggleButtonGroup className={styles.views} density="compact" iconOnly
+    label={tr("common.ui.toolbar.viewMode", "View mode")} selectionMode="single" allowEmpty={false}
+    selectedIds={viewMode ? [viewMode] : []} disabled={!onViewModeChange}
+    options={[
+     {id:"cards",label:tr("common.ui.toolbar.cards", "Cards"),icon:<WindowIcon />},
+     {id:"list",label:tr("common.ui.toolbar.list", "List"),icon:<ViewListIcon />},
+    ]} onSelectionChange={ids => {
+     const next = ids[0];
+     if ((next === "cards" || next === "list") && next !== viewMode) onViewModeChange?.(next);
+    }} />}
+
   </div>
  </div>;
 });

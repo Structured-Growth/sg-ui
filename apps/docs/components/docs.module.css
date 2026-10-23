@@ -50,6 +50,9 @@
 /* The inline range selector needs room for fields, presets and all six weeks. */
 .catalogPhase[data-catalog-phase="overview"][data-catalog-component="date-range-selector"] [data-docs-preview] { max-block-size: none; }
 
+/* Show the complete grid overview; the page owns its vertical scrolling. */
+.catalogPhase[data-catalog-phase="overview"]:is([data-catalog-component="data-grid-shell"], [data-catalog-component="app-data-grid"]) [data-docs-preview] { max-block-size: none; }
+
 /* The shell owns tools; pages register documentation and the section owns settings. */
 .layout[data-has-tools] { --docs-tool-rail-width: calc(max(var(--sgui-compact-navigation-item-height), var(--sgui-control-minimum-target-size)) + var(--sgui-space2)); grid-template-columns: 17rem minmax(0, 1fr) auto; }
 .tools { --docs-tool-panel-width: 20rem; position: relative; min-block-size: 0; min-inline-size: 0; max-inline-size: 48vw; border-inline-start: 1px solid var(--sgui-border); }

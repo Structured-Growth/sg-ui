@@ -17,7 +17,7 @@ const sampleItems: SideNavItem[] = [
         label: "Learner Nested",
         childBehavior: "drilldown",
         children: [
-          { id: "learner-classes", label: "Learner Classes", href: "/sections/learner" },
+          { id: "learner-courses", label: "Learner Classes", href: "/sections/learner" },
         ],
       },
     ],

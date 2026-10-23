@@ -1,12 +1,16 @@
 'use client';
 import {PersistedGridExample,ServerGridExample} from '../GridHostExamples';
+import {GridReorderExample} from '../GridReorderExamples';
+import {CourseCollectionExample} from '../CourseCollectionExample';
 import {LearnerDueExamples} from '../LearnerDueExamples';
 import { useState } from 'react';
-import { AppInlineProgress, AppOperationSteps, AppPaginationFooter, CardCollectionWithFooter, ClassCardFrame, InstructorClassCard, LearnerClassCard, AppDataGrid, AppDataGridShell, LearnerClassesDataGrid, DataToolbar, DataToolbarSelectionMenu, DataGridDragHandle, RowSubHeader, createDataGridColumns, createActionMenuColumn, createAdminCourseGridOptions, createAdminPeopleGridOptions, createInstructorCourseGridOptions, createInstructorCourseLearnersGridOptions, type AppOperationStepStatus, type AppDataGridColumn, type DataToolbarFilterRule, type DataToolbarSortRule, type InstructorClassCardStatus } from '@structured-growth/sg-ui/components';
+import { Button, AppInlineProgress, AppOperationSteps, AppPaginationFooter, CardCollectionWithFooter, CourseCardFrame, InstructorCourseCard, LearnerCourseCard, AppDataGrid, AppDataGridShell, DataToolbar, DataToolbarSelectionMenu, DataGridDragHandle, RowSubHeader, createDataGridColumns, createActionMenuColumn, createAdminCourseGridOptions, createAdminPeopleGridOptions, createInstructorCourseGridOptions, createInstructorCourseLearnersGridOptions, type AppOperationStepStatus, type AppDataGridColumn, type AppDataGridRowDragReorderParams, type DataToolbarColumnOption, type DataToolbarFilterRule, type DataToolbarSortRule, type InstructorCourseCardStatus } from '@structured-growth/sg-ui/components';
 import { Stack, Typography, Link } from '@structured-growth/sg-ui/primitives';
 import { type Density } from '@structured-growth/sg-ui/theme';
 import { Checkbox, TextField, Select, DataGrid, defaultGridState, type GridState, type GridColumn } from '@structured-growth/sg-ui/experimental';
 import { Example } from '../../components/Example';
+import {useExamplePresentation} from '../../components/ExamplePresentation';
+import styles from './catalog-data.module.css';
 import { useExampleSource } from '../useExampleSource';
 import { literal } from '../source';
 import type { CatalogEntry } from '../../content/catalog-types';
@@ -63,8 +67,8 @@ const [page,setPage]=useState(0);
 const [size,setSize]=useState(5);
 const [unknown,setUnknown]=useState(false);
 const [disabled,setDisabled]=useState(false);
-const props=`page={page} pageSize={size} pageSizeOptions={[5,10,25]} totalCount={${unknown?'undefined':'42'}} hasNextPage onPageChange={setPage} onPageSizeChange={setSize} disabled={${disabled}}`;
-return <Example title="Empty collection" source={source('EmptyFooter','<AppPaginationFooter page={0} pageSize={10} pageSizeOptions={[10]} totalCount={0} onPageChange={setPage} onPageSizeChange={setSize} />','  const [page,setPage] = useState(0);\n  const [size,setSize] = useState(10);')}><AppPaginationFooter page={0} pageSize={10} pageSizeOptions={[10]} totalCount={0} onPageChange={setPage} onPageSizeChange={setSize}/></Example>;
+const props=`page={page} pageSize={size} pageSizeOptions={[5,10,25]} totalCount={${unknown?'undefined':'42'}} hasNextPage onPaginationModelChange={model => { setPage(model.page); setSize(model.pageSize); }} disabled={${disabled}}`;
+return <Example title="Empty collection" source={source('EmptyFooter','<AppPaginationFooter page={0} pageSize={10} pageSizeOptions={[10]} totalCount={0} onPaginationModelChange={model => { setPage(model.page); setSize(model.pageSize); }} />','  const [page,setPage] = useState(0);\n  const [size,setSize] = useState(10);')}><AppPaginationFooter page={0} pageSize={10} pageSizeOptions={[10]} totalCount={0} onPaginationModelChange={model => { (setPage)(model.page); (setSize)(model.pageSize); }} /></Example>;
 }
 
 function FooterPlaygroundPanel2({reference=false}: {reference?:boolean} = {}) {
@@ -73,8 +77,8 @@ const [page,setPage]=useState(0);
 const [size,setSize]=useState(5);
 const [unknown,setUnknown]=useState(false);
 const [disabled,setDisabled]=useState(false);
-const props=`page={page} pageSize={size} pageSizeOptions={[5,10,25]} totalCount={${unknown?'undefined':'42'}} hasNextPage onPageChange={setPage} onPageSizeChange={setSize} disabled={${disabled}}`;
-return <Example title="Prop playground" controls={<Stack direction="row" wrap gap={3}><Checkbox label="Unknown total" checked={unknown} onCheckedChange={setUnknown}/><Checkbox label="Disable pagination" checked={disabled} onCheckedChange={setDisabled}/></Stack>} source={source('PaginationFooter',`<AppPaginationFooter ${props} />`,`  const [page,setPage] = useState(${page});\n  const [size,setSize] = useState(${size});`)}><AppPaginationFooter page={page} pageSize={size} pageSizeOptions={[5,10,25]} totalCount={unknown?undefined:42} hasNextPage onPageChange={setPage} onPageSizeChange={setSize} disabled={disabled}/></Example>;
+const props=`page={page} pageSize={size} pageSizeOptions={[5,10,25]} totalCount={${unknown?'undefined':'42'}} hasNextPage onPaginationModelChange={model => { setPage(model.page); setSize(model.pageSize); }} disabled={${disabled}}`;
+return <Example title="Prop playground" controls={<Stack direction="row" wrap gap={3}><Checkbox label="Unknown total" checked={unknown} onCheckedChange={setUnknown}/><Checkbox label="Disable pagination" checked={disabled} onCheckedChange={setDisabled}/></Stack>} source={source('PaginationFooter',`<AppPaginationFooter ${props} />`,`  const [page,setPage] = useState(${page});\n  const [size,setSize] = useState(${size});`)}><AppPaginationFooter page={page} pageSize={size} pageSizeOptions={[5,10,25]} totalCount={unknown?undefined:42} hasNextPage onPaginationModelChange={model => { (setPage)(model.page); (setSize)(model.pageSize); }}  disabled={disabled}/></Example>;
 }
 function FramePlayground({reference=false}: {reference?:boolean} = {}) {
 
@@ -82,21 +86,21 @@ return <Stack gap={4}>{reference ? <><FramePlaygroundPanel1 reference={reference
 }
 
 function FramePlaygroundPanel1({reference=false}: {reference?:boolean} = {}) {
-const source=useSource('ClassCardFrame');
+const source=useSource('CourseCardFrame');
 const [title,setTitle]=useState('Course basics');
 const [footer,setFooter]=useState(true);
 const [width,setWidth]=useState('420');
-const frame=(name:string,withFooter:boolean)=>`<ClassCardFrame width={${Math.max(200,Number(width)||420)}} header={<Typography as="h3" variant="h5">{${literal(name)}}</Typography>} body={<Typography>Host supplied course details and learning objectives.</Typography>}${withFooter?' footer={<Link href="#main-content">Open course</Link>}':''} />`;
-return <Example title="Long content without footer" source={source('LongFrame',frame('A much longer course title that demonstrates wrapping and readable content',false))}><ClassCardFrame width={Math.max(200,Number(width)||420)} header={<Typography as="h3" variant="h5">A much longer course title that demonstrates wrapping and readable content</Typography>} body={<Typography>Host supplied course details and learning objectives.</Typography>}/></Example>;
+const frame=(name:string,withFooter:boolean)=>`<CourseCardFrame width={${Math.max(200,Number(width)||420)}} header={<Typography as="h3" variant="h5">{${literal(name)}}</Typography>} body={<Typography>Host supplied course details and learning objectives.</Typography>}${withFooter?' footer={<Link href="#main-content">Open course</Link>}':''} />`;
+return <Example title="Long content without footer" source={source('LongFrame',frame('A much longer course title that demonstrates wrapping and readable content',false))}><CourseCardFrame width={Math.max(200,Number(width)||420)} header={<Typography as="h3" variant="h5">A much longer course title that demonstrates wrapping and readable content</Typography>} body={<Typography>Host supplied course details and learning objectives.</Typography>}/></Example>;
 }
 
 function FramePlaygroundPanel2({reference=false}: {reference?:boolean} = {}) {
-const source=useSource('ClassCardFrame');
+const source=useSource('CourseCardFrame');
 const [title,setTitle]=useState('Course basics');
 const [footer,setFooter]=useState(true);
 const [width,setWidth]=useState('420');
-const frame=(name:string,withFooter:boolean)=>`<ClassCardFrame width={${Math.max(200,Number(width)||420)}} header={<Typography as="h3" variant="h5">{${literal(name)}}</Typography>} body={<Typography>Host supplied course details and learning objectives.</Typography>}${withFooter?' footer={<Link href="#main-content">Open course</Link>}':''} />`;
-return <Example title="Prop playground" controls={<Stack direction="row" wrap gap={3}><TextField label="Card title" value={title} onValueChange={setTitle}/><TextField label="Maximum card width" value={width} onValueChange={setWidth}/><Checkbox label="Show footer" checked={footer} onCheckedChange={setFooter}/></Stack>} source={source('CardFrame',frame(title,footer))}><ClassCardFrame width={Math.max(200,Number(width)||420)} header={<Typography as="h3" variant="h5">{title}</Typography>} body={<Typography>Host supplied course details and learning objectives.</Typography>} footer={footer?<Link href="#main-content">Open course</Link>:undefined}/></Example>;
+const frame=(name:string,withFooter:boolean)=>`<CourseCardFrame width={${Math.max(200,Number(width)||420)}} header={<Typography as="h3" variant="h5">{${literal(name)}}</Typography>} body={<Typography>Host supplied course details and learning objectives.</Typography>}${withFooter?' footer={<Link href="#main-content">Open course</Link>}':''} />`;
+return <Example title="Prop playground" controls={<Stack direction="row" wrap gap={3}><TextField label="Card title" value={title} onValueChange={setTitle}/><TextField label="Maximum card width" value={width} onValueChange={setWidth}/><Checkbox label="Show footer" checked={footer} onCheckedChange={setFooter}/></Stack>} source={source('CardFrame',frame(title,footer))}><CourseCardFrame width={Math.max(200,Number(width)||420)} header={<Typography as="h3" variant="h5">{title}</Typography>} body={<Typography>Host supplied course details and learning objectives.</Typography>} footer={footer?<Link href="#main-content">Open course</Link>:undefined}/></Example>;
 }
 function InstructorPlayground({reference=false}: {reference?:boolean} = {}) {
 
@@ -104,21 +108,21 @@ return <Stack gap={4}>{reference ? <><InstructorPlaygroundPanel1 reference={refe
 }
 
 function InstructorPlaygroundPanel1({reference=false}: {reference?:boolean} = {}) {
-const source=useSource('InstructorClassCard');
+const source=useSource('InstructorCourseCard');
 const [name,setName]=useState('Course basics');
-const [status,setStatus]=useState<InstructorClassCardStatus>('active');
+const [status,setStatus]=useState<InstructorCourseCardStatus>('active');
 const [count,setCount]=useState('24');
-const code=(state:InstructorClassCardStatus,title:string)=>`<InstructorClassCard className={${literal(title)}} siteName="Learning Studio" status={${literal(state)}} learnerCount={${Number(count)||0}} lastLearnerActivityLabel="Recent activity" actionLabel="Open course" actionHref="#main-content" />`;
-return <Example title="Status matrix" source={source('InstructorStatuses',`<Stack direction="row" wrap gap={3}>${(['active','draft','closed','archived'] as const).map(s=>code(s,`${s} course`)).join('\n')}</Stack>`)}><Stack direction="row" wrap gap={3}>{(['active','draft','closed','archived'] as const).map(s=><InstructorClassCard key={s} className={`${s} course`} siteName="Learning Studio" status={s} learnerCount={Number(count)||0} lastLearnerActivityLabel="Recent activity" actionLabel="Open course" actionHref="#main-content"/>)}</Stack></Example>;
+const code=(state:InstructorCourseCardStatus,title:string)=>`<InstructorCourseCard courseName={${literal(title)}} siteName="Learning Studio" status={${literal(state)}} learnerCount={${Number(count)||0}} lastLearnerActivityLabel="Recent activity" actionLabel="Open course" actionHref="#main-content" />`;
+return <Example title="Status matrix" source={source('InstructorStatuses',`<Stack direction="row" wrap gap={3}>${(['active','draft','closed','archived'] as const).map(s=>code(s,`${s} course`)).join('\n')}</Stack>`)}><Stack direction="row" wrap gap={3}>{(['active','draft','closed','archived'] as const).map(s=><InstructorCourseCard key={s} courseName={`${s} course`} siteName="Learning Studio" status={s} learnerCount={Number(count)||0} lastLearnerActivityLabel="Recent activity" actionLabel="Open course" actionHref="#main-content"/>)}</Stack></Example>;
 }
 
 function InstructorPlaygroundPanel2({reference=false}: {reference?:boolean} = {}) {
-const source=useSource('InstructorClassCard');
+const source=useSource('InstructorCourseCard');
 const [name,setName]=useState('Course basics');
-const [status,setStatus]=useState<InstructorClassCardStatus>('active');
+const [status,setStatus]=useState<InstructorCourseCardStatus>('active');
 const [count,setCount]=useState('24');
-const code=(state:InstructorClassCardStatus,title:string)=>`<InstructorClassCard className={${literal(title)}} siteName="Learning Studio" status={${literal(state)}} learnerCount={${Number(count)||0}} lastLearnerActivityLabel="Recent activity" actionLabel="Open course" actionHref="#main-content" />`;
-return <Example title="Prop playground" controls={<Stack direction="row" wrap gap={3}><TextField label="Course name" value={name} onValueChange={setName}/><Select label="Course status" value={status} options={['active','draft','closed','archived'].map(id=>({id,label:id}))} onValueChange={v=>setStatus(v as InstructorClassCardStatus)}/><TextField label="Learner count" value={count} onValueChange={setCount}/></Stack>} source={source('InstructorCard',code(status,name))}><InstructorClassCard className={name} siteName="Learning Studio" status={status} learnerCount={Number(count)||0} lastLearnerActivityLabel="Recent activity" actionLabel="Open course" actionHref="#main-content"/></Example>;
+const code=(state:InstructorCourseCardStatus,title:string)=>`<InstructorCourseCard courseName={${literal(title)}} siteName="Learning Studio" status={${literal(state)}} learnerCount={${Number(count)||0}} lastLearnerActivityLabel="Recent activity" actionLabel="Open course" actionHref="#main-content" />`;
+return <Example title="Prop playground" controls={<Stack direction="row" wrap gap={3}><TextField label="Course name" value={name} onValueChange={setName}/><Select label="Course status" value={status} options={['active','draft','closed','archived'].map(id=>({id,label:id}))} onValueChange={v=>setStatus(v as InstructorCourseCardStatus)}/><TextField label="Learner count" value={count} onValueChange={setCount}/></Stack>} source={source('InstructorCard',code(status,name))}><InstructorCourseCard courseName={name} siteName="Learning Studio" status={status} learnerCount={Number(count)||0} lastLearnerActivityLabel="Recent activity" actionLabel="Open course" actionHref="#main-content"/></Example>;
 }
 function LearnerPlayground({reference=false}: {reference?:boolean} = {}) {
 
@@ -126,23 +130,23 @@ return <Stack gap={4}>{reference ? <><LearnerPlaygroundPanel1 reference={referen
 }
 
 function LearnerPlaygroundPanel1({reference=false}: {reference?:boolean} = {}) {
-const source=useSource('LearnerClassCard');
+const source=useSource('LearnerCourseCard');
 const [name,setName]=useState('Course basics');
 const [progress,setProgress]=useState('35');
 const [continued,setContinued]=useState(0);
-const code=(percent:number)=>`<LearnerClassCard courseName={${literal(name)}} instructorName="Morgan Reed" progressPercent={${percent}} nextActivity="Practice exercise" dueAt="2026-10-20T12:00:00Z" referenceNow={new Date("2026-10-14T12:00:00Z")} detailsHref="#main-content" onContinue={() => setContinued(value=>value+1)} />`;
+const code=(percent:number)=>`<LearnerCourseCard courseName={${literal(name)}} instructorName="Morgan Reed" progressPercent={${percent}} nextActivity="Practice exercise" dueAt="2026-10-20T12:00:00Z" referenceNow={new Date("2026-10-14T12:00:00Z")} detailsHref="#main-content" onContinue={() => setContinued(value=>value+1)} />`;
 const state=`  const [continued,setContinued] = useState(${continued});`;
-return <Example title="Completion states" source={source('LearnerProgress',`<Stack direction="row" wrap gap={3}>${[0,50,100].map(code).join('\n')}</Stack>`,state)}><Stack direction="row" wrap gap={3}>{[0,50,100].map(p=><LearnerClassCard key={p} courseName={name} instructorName="Morgan Reed" progressPercent={p} nextActivity="Practice exercise" dueAt="2026-10-20T12:00:00Z" referenceNow={new Date('2026-10-14T12:00:00Z')} detailsHref="#main-content" onContinue={()=>setContinued(v=>v+1)}/>)}</Stack></Example>;
+return <Example title="Completion states" source={source('LearnerProgress',`<Stack direction="row" wrap gap={3}>${[0,50,100].map(code).join('\n')}</Stack>`,state)}><Stack direction="row" wrap gap={3}>{[0,50,100].map(p=><LearnerCourseCard key={p} courseName={name} instructorName="Morgan Reed" progressPercent={p} nextActivity="Practice exercise" dueAt="2026-10-20T12:00:00Z" referenceNow={new Date('2026-10-14T12:00:00Z')} detailsHref="#main-content" onContinue={()=>setContinued(v=>v+1)}/>)}</Stack></Example>;
 }
 
 function LearnerPlaygroundPanel2({reference=false}: {reference?:boolean} = {}) {
-const source=useSource('LearnerClassCard');
+const source=useSource('LearnerCourseCard');
 const [name,setName]=useState('Course basics');
 const [progress,setProgress]=useState('35');
 const [continued,setContinued]=useState(0);
-const code=(percent:number)=>`<LearnerClassCard courseName={${literal(name)}} instructorName="Morgan Reed" progressPercent={${percent}} nextActivity="Practice exercise" dueAt="2026-10-20T12:00:00Z" referenceNow={new Date("2026-10-14T12:00:00Z")} detailsHref="#main-content" onContinue={() => setContinued(value=>value+1)} />`;
+const code=(percent:number)=>`<LearnerCourseCard courseName={${literal(name)}} instructorName="Morgan Reed" progressPercent={${percent}} nextActivity="Practice exercise" dueAt="2026-10-20T12:00:00Z" referenceNow={new Date("2026-10-14T12:00:00Z")} detailsHref="#main-content" onContinue={() => setContinued(value=>value+1)} />`;
 const state=`  const [continued,setContinued] = useState(${continued});`;
-return <Example title="Prop playground" controls={<Stack direction="row" wrap gap={3}><TextField label="Course name" value={name} onValueChange={setName}/><TextField label="Completion percentage" value={progress} onValueChange={setProgress}/></Stack>} source={source('LearnerCard',`<Stack gap={3}>${code(Number(progress)||0)}<Typography>Continue requests: {continued}</Typography></Stack>`,state)}><LearnerClassCard courseName={name} instructorName="Morgan Reed" progressPercent={Number(progress)||0} nextActivity="Practice exercise" dueAt="2026-10-20T12:00:00Z" referenceNow={new Date('2026-10-14T12:00:00Z')} detailsHref="#main-content" onContinue={()=>setContinued(v=>v+1)}/><Typography>Continue requests: {continued}</Typography></Example>;
+return <Example title="Prop playground" controls={<Stack direction="row" wrap gap={3}><TextField label="Course name" value={name} onValueChange={setName}/><TextField label="Completion percentage" value={progress} onValueChange={setProgress}/></Stack>} source={source('LearnerCard',`<Stack gap={3}>${code(Number(progress)||0)}<Typography>Continue requests: {continued}</Typography></Stack>`,state)}><LearnerCourseCard courseName={name} instructorName="Morgan Reed" progressPercent={Number(progress)||0} nextActivity="Practice exercise" dueAt="2026-10-20T12:00:00Z" referenceNow={new Date('2026-10-14T12:00:00Z')} detailsHref="#main-content" onContinue={()=>setContinued(v=>v+1)}/><Typography>Continue requests: {continued}</Typography></Example>;
 }
 const cards=Array.from({length:12},(_,i)=>({id:String(i+1),name:`Course ${i+1}`}));
 function CollectionPlayground({reference=false}: {reference?:boolean} = {}) {
@@ -151,25 +155,25 @@ return <Stack gap={4}>{reference ? <><CollectionPlaygroundPanel1 reference={refe
 }
 
 function CollectionPlaygroundPanel1({reference=false}: {reference?:boolean} = {}) {
-const source=useSource('CardCollectionWithFooter, ClassCardFrame');
+const source=useSource('CardCollectionWithFooter, CourseCardFrame');
 const [page,setPage]=useState(0);
 const [size,setSize]=useState(3);
 const [loading,setLoading]=useState(false);
 const [empty,setEmpty]=useState(false);
-const body=(isEmpty:boolean)=>`<CardCollectionWithFooter rows={${isEmpty?'[]':JSON.stringify(cards)}} getRowId={row=>row.id} page={page} pageSize={size} pageSizeOptions={[3,6,12]} onPageChange={setPage} onPageSizeChange={setSize} loading={${loading}} renderCard={row=><ClassCardFrame header={<Typography as="h3" variant="h5">{row.name}</Typography>} body={<Typography>Host-owned course summary</Typography>} />} />`;
+const body=(isEmpty:boolean)=>`<CardCollectionWithFooter rows={${isEmpty?'[]':JSON.stringify(cards)}} getRowId={row=>row.id} page={page} pageSize={size} pageSizeOptions={[3,6,12]} onPaginationModelChange={model => { setPage(model.page); setSize(model.pageSize); }} loading={${loading}} renderCard={row=><CourseCardFrame header={<Typography as="h3" variant="h5">{row.name}</Typography>} body={<Typography>Host-owned course summary</Typography>} />} />`;
 const state=`  const [page,setPage] = useState(${page});\n  const [size,setSize] = useState(${size});`;
-return <Example title="Empty dataset with helpful content" source={source('EmptyCards','<CardCollectionWithFooter rows={[]} getRowId={(row: {id:string})=>row.id} page={0} pageSize={3} pageSizeOptions={[3]} onPageChange={setPage} onPageSizeChange={setSize} renderCard={row=><Typography>{row.id}</Typography>} emptyContent={<Typography>Create your first course to get started.</Typography>} />',state)}><CardCollectionWithFooter rows={[]} getRowId={(row:{id:string})=>row.id} page={0} pageSize={3} pageSizeOptions={[3]} onPageChange={setPage} onPageSizeChange={setSize} renderCard={row=><Typography>{row.id}</Typography>} emptyContent={<Typography>Create your first course to get started.</Typography>}/></Example>;
+return <Example title="Empty dataset with helpful content" source={source('EmptyCards','<CardCollectionWithFooter rows={[]} getRowId={(row: {id:string})=>row.id} page={0} pageSize={3} pageSizeOptions={[3]} onPaginationModelChange={model => { setPage(model.page); setSize(model.pageSize); }} renderCard={row=><Typography>{row.id}</Typography>} emptyContent={<Typography>Create your first course to get started.</Typography>} />',state)}><CardCollectionWithFooter rows={[]} getRowId={(row:{id:string})=>row.id} page={0} pageSize={3} pageSizeOptions={[3]} onPaginationModelChange={model => { (setPage)(model.page); (setSize)(model.pageSize); }}  renderCard={row=><Typography>{row.id}</Typography>} emptyContent={<Typography>Create your first course to get started.</Typography>}/></Example>;
 }
 
 function CollectionPlaygroundPanel2({reference=false}: {reference?:boolean} = {}) {
-const source=useSource('CardCollectionWithFooter, ClassCardFrame');
+const source=useSource('CardCollectionWithFooter, CourseCardFrame');
 const [page,setPage]=useState(0);
 const [size,setSize]=useState(3);
 const [loading,setLoading]=useState(false);
 const [empty,setEmpty]=useState(false);
-const body=(isEmpty:boolean)=>`<CardCollectionWithFooter rows={${isEmpty?'[]':JSON.stringify(cards)}} getRowId={row=>row.id} page={page} pageSize={size} pageSizeOptions={[3,6,12]} onPageChange={setPage} onPageSizeChange={setSize} loading={${loading}} renderCard={row=><ClassCardFrame header={<Typography as="h3" variant="h5">{row.name}</Typography>} body={<Typography>Host-owned course summary</Typography>} />} />`;
+const body=(isEmpty:boolean)=>`<CardCollectionWithFooter rows={${isEmpty?'[]':JSON.stringify(cards)}} getRowId={row=>row.id} page={page} pageSize={size} pageSizeOptions={[3,6,12]} onPaginationModelChange={model => { setPage(model.page); setSize(model.pageSize); }} loading={${loading}} renderCard={row=><CourseCardFrame header={<Typography as="h3" variant="h5">{row.name}</Typography>} body={<Typography>Host-owned course summary</Typography>} />} />`;
 const state=`  const [page,setPage] = useState(${page});\n  const [size,setSize] = useState(${size});`;
-return <Example title="Prop playground" controls={<Stack direction="row" wrap gap={3}><Checkbox label="Loading collection" checked={loading} onCheckedChange={setLoading}/><Checkbox label="Empty dataset" checked={empty} onCheckedChange={setEmpty}/></Stack>} source={source('CardCollection',body(empty),state)}><CardCollectionWithFooter rows={empty?[]:cards} getRowId={row=>row.id} page={page} pageSize={size} pageSizeOptions={[3,6,12]} onPageChange={setPage} onPageSizeChange={setSize} loading={loading} renderCard={row=><ClassCardFrame header={<Typography as="h3" variant="h5">{row.name}</Typography>} body={<Typography>Host-owned course summary</Typography>}/>}/></Example>;
+return <Example title="Prop playground" controls={<Stack direction="row" wrap gap={3}><Checkbox label="Loading collection" checked={loading} onCheckedChange={setLoading}/><Checkbox label="Empty dataset" checked={empty} onCheckedChange={setEmpty}/></Stack>} source={source('CardCollection',body(empty),state)}><CardCollectionWithFooter rows={empty?[]:cards} getRowId={row=>row.id} page={page} pageSize={size} pageSizeOptions={[3,6,12]} onPaginationModelChange={model => { (setPage)(model.page); (setSize)(model.pageSize); }}  loading={loading} renderCard={row=><CourseCardFrame header={<Typography as="h3" variant="h5">{row.name}</Typography>} body={<Typography>Host-owned course summary</Typography>}/>}/></Example>;
 }
 type Course={id:string;name:string;status:string;score:number};
 const courses:Course[]=Array.from({length:18},(_,i)=>({id:String(i+1),name:`Course ${i+1}`,status:i%3?'active':'archived',score:100-i*3}));
@@ -180,7 +184,7 @@ return <Stack gap={4}>{reference ? <><GridPlaygroundPanel1 shell={shell} referen
 }
 
 function GridPlaygroundPanel1({shell=false, reference=false}: {shell?:boolean; reference?:boolean}) {
-const source=useSource('AppDataGrid, AppDataGridShell, ClassCardFrame, createDataGridColumns, createActionMenuColumn, type AppDataGridColumn');
+const source=useSource('AppDataGrid, AppDataGridShell, CourseCardFrame, createDataGridColumns, createActionMenuColumn, type AppDataGridColumn');
 const [view,setView]=useState<'list'|'cards'>('list');
 const [state,setState]=useState('ready');
 const [selection,setSelection]=useState(true);
@@ -190,58 +194,97 @@ const columns:AppDataGridColumn<Course>[]=createDataGridColumns([{field:'name',h
 const Component=shell?AppDataGridShell<Course>:AppDataGrid<Course>;
 const sourceState=`  type Course={id:string;name:string;status:string;score:number};\n  const rows:Course[]=${JSON.stringify(courses)};\n  const [message,setMessage]=useState(${literal(message)});\n  const [search,setSearch]=useState(${literal(search)});\n  const [view,setView]=useState<'list'|'cards'>(${literal(view)});\n  const columns:AppDataGridColumn<Course>[] = createDataGridColumns([{field:'name',headerName:'Course',flex:2,minWidth:180,locked:true},{field:'status',headerName:'Status',width:140,filterType:'enum'},{field:'score',headerName:'Score',width:120,filterType:'number'},createActionMenuColumn<Course>({getMenuActions:row=>[{id:'open',label:'Open course',onPress:()=>setMessage(\`Opened \${row.name}\`)}]})]);`;
 const name=shell?'AppDataGridShell':'AppDataGrid';
-const extra=shell?` toolbar={{showRefreshButton:true,onRefresh:()=>setMessage('Refresh requested'),filterFields:${JSON.stringify(fieldOptions)}}} view={{mode:view,onModeChange:setView,cards:{renderCard:row=><ClassCardFrame header={<Typography as="h3" variant="h5">{row.name}</Typography>} body={<Typography>{row.status}</Typography>} />}}}`:'';
-const body=`<Stack gap={3}><${name} label="Courses" rows={${state==='empty'?'[]':'rows'}} columns={columns} getRowLabel={row=>row.name} selection={${selection}} searchValue={search} onSearchChange={setSearch} pageSizeOptions={[5,10,25]} defaultPaginationModel={{page:0,pageSize:5}} filterFields={${JSON.stringify(fieldOptions)}} loading={${state==='loading'}} errorMessage={${state==='error'?literal('Unable to load courses'):'undefined'}} onRetry={()=>setMessage('Retry requested')} showResetView${extra} style={{height:420}}/></Stack>`;
-return <Example title="Multiline cells and host row action" source={source('MultilineGrid',`<AppDataGrid label="Long course names" rows={[{id:'long',name:'A long course title with an extended explanation of objectives',status:'active',score:100}]} columns={[{field:'name',headerName:'Course',flex:1,truncate:false}]} getRowLabel={row=>row.name} onRowAction={row=>setMessage(row.name)} style={{height:220}}/>`,`  const [message,setMessage]=useState(${literal(message)});`)}><AppDataGrid label="Long course names" rows={[{id:'long',name:'A long course title with an extended explanation of objectives',status:'active',score:100}]} columns={[{field:'name',headerName:'Course',flex:1,truncate:false}]} getRowLabel={row=>row.name} onRowAction={row=>setMessage(row.name)} style={{height:220}}/></Example>;
+const extra=shell?` toolbar={{showRefreshButton:true,onRefresh:()=>setMessage('Refresh requested'),filterFields:${JSON.stringify(fieldOptions)}}} view={{mode:view,onModeChange:setView,cards:{renderCard:row=><CourseCardFrame header={<Typography as="h3" variant="h5">{row.name}</Typography>} body={<Typography>{row.status}</Typography>} />}}}`:'';
+const body=`<Stack gap={3}><${name} label="Courses" rows={${state==='empty'?'[]':'rows'}} columns={columns} getRowLabel={row=>row.name} selection={${selection}} searchValue={search} onSearchChange={setSearch} pageSizeOptions={[6,10,25]} defaultPaginationModel={{page:0,pageSize:6}} filterFields={${JSON.stringify(fieldOptions)}} loading={${state==='loading'}} errorMessage={${state==='error'?literal('Unable to load courses'):'undefined'}} onRetry={()=>setMessage('Retry requested')} showResetView${extra} style={{height:1200,minHeight:1200,flex:"none"}}/></Stack>`;
+return <Example title="Multiline cells and host row action" source={source('MultilineGrid',`<AppDataGrid label="Long course names" rows={[{id:'long',name:'A long course title with an extended explanation of objectives',status:'active',score:100}]} columns={[{field:'name',headerName:'Course',flex:1,truncate:false}]} getRowLabel={row=>row.name} onRowAction={row=>setMessage(row.name)} style={{height:1200,minHeight:1200,flex:"none"}}/>`,`  const [message,setMessage]=useState(${literal(message)});`)}><AppDataGrid label="Long course names" rows={[{id:'long',name:'A long course title with an extended explanation of objectives',status:'active',score:100}]} columns={[{field:'name',headerName:'Course',flex:1,truncate:false}]} getRowLabel={row=>row.name} onRowAction={row=>setMessage(row.name)} style={{height:1200,minHeight:1200,flex:"none"}}/></Example>;
 }
 
 function GridPlaygroundPanel2({shell=false, reference=false}: {shell?:boolean; reference?:boolean}) {
-const source=useSource('AppDataGrid, AppDataGridShell, ClassCardFrame, createDataGridColumns, createActionMenuColumn, type AppDataGridColumn');
+const presentation=useExamplePresentation();
+const overview=shell&&presentation?.phase==='overview';
+const height=1200;
+const source=useSource('Button, AppDataGrid, AppDataGridShell, CourseCardFrame, createDataGridColumns, createActionMenuColumn, type AppDataGridColumn, type AppDataGridRowDragReorderParams');
+const [rowSorter,setRowSorter]=useState(false);
+const [showMoveButtons,setShowMoveButtons]=useState(false);
+const [dragDisabled,setDragDisabled]=useState(false);
+const [rows,setRows]=useState<Course[]>(()=>[...courses]);
+function reorder({sourceRowIds,targetRowId,position}:AppDataGridRowDragReorderParams<Course>){
+ setRows(current=>{
+  const source=current.filter(row=>sourceRowIds.includes(row.id));
+  if(!source.length||sourceRowIds.includes(targetRowId))return current;
+  const next=current.filter(row=>!sourceRowIds.includes(row.id));
+  const target=next.findIndex(row=>row.id===targetRowId);
+  if(target<0)return current;
+  next.splice(target+(position==='after'?1:0),0,...source);
+  return next;
+ });
+}
 const [view,setView]=useState<'list'|'cards'>('list');
 const [state,setState]=useState('ready');
 const [selection,setSelection]=useState(true);
-const [message,setMessage]=useState('Select or open a course');
+const [message,setMessage]=useState('');
+const [selectedRowIds,setSelectedRowIds]=useState<Set<string>>(()=>new Set());
 const [search,setSearch]=useState('');
+const requestExport=()=>setMessage('Export requested for all courses.');
+const defaultActions=<Stack role="group" aria-label="Course actions" direction="row" wrap gap={2}>
+  <Button density="compact" variant="outlined" tone="neutral" onPress={()=>setMessage('New course requested.')}>New course</Button>
+  <Button density="compact" variant="outlined" tone="neutral" onPress={requestExport}>Export all</Button>
+</Stack>;
+const selectedActions=<Stack role="group" aria-label="Course actions" direction="row" wrap gap={2}>
+  <Button density="compact" variant="outlined" tone="neutral" onPress={()=>setMessage('New course requested.')}>New course</Button>
+  <Button density="compact" variant="outlined" tone="neutral" onPress={()=>setMessage(`Export requested for ${selectedRowIds.size} selected course(s).`)}>Export selected</Button>
+  <Button density="compact" variant="outlined" tone="neutral" onPress={()=>setMessage(`Archive requested for ${selectedRowIds.size} selected course(s).`)}>Archive selected</Button>
+</Stack>;
+const actionState=shell?`  const [selectedRowIds,setSelectedRowIds]=useState<Set<string>>(new Set(${JSON.stringify([...selectedRowIds])}));
+  const defaultActions=<Stack role="group" aria-label="Course actions" direction="row" wrap gap={2}>
+    <Button density="compact" variant="outlined" tone="neutral" onPress={()=>setMessage('New course requested.')}>New course</Button>
+    <Button density="compact" variant="outlined" tone="neutral" onPress={()=>setMessage('Export requested for all courses.')}>Export all</Button>
+  </Stack>;
+  const selectedActions=<Stack role="group" aria-label="Course actions" direction="row" wrap gap={2}>
+    <Button density="compact" variant="outlined" tone="neutral" onPress={()=>setMessage('New course requested.')}>New course</Button>
+    <Button density="compact" variant="outlined" tone="neutral" onPress={()=>setMessage(\`Export requested for \${selectedRowIds.size} selected course(s).\`)}>Export selected</Button>
+    <Button density="compact" variant="outlined" tone="neutral" onPress={()=>setMessage(\`Archive requested for \${selectedRowIds.size} selected course(s).\`)}>Archive selected</Button>
+  </Stack>;`:'';
 const columns:AppDataGridColumn<Course>[]=createDataGridColumns([{field:'name',headerName:'Course',flex:2,minWidth:180,locked:true},{field:'status',headerName:'Status',width:140,filterType:'enum'},{field:'score',headerName:'Score',width:120,filterType:'number'},createActionMenuColumn<Course>({getMenuActions:row=>[{id:'open',label:'Open course',onPress:()=>setMessage(`Opened ${row.name}`)}]})]);
 const Component=shell?AppDataGridShell<Course>:AppDataGrid<Course>;
-const sourceState=`  type Course={id:string;name:string;status:string;score:number};\n  const rows:Course[]=${JSON.stringify(courses)};\n  const [message,setMessage]=useState(${literal(message)});\n  const [search,setSearch]=useState(${literal(search)});\n  const [view,setView]=useState<'list'|'cards'>(${literal(view)});\n  const columns:AppDataGridColumn<Course>[] = createDataGridColumns([{field:'name',headerName:'Course',flex:2,minWidth:180,locked:true},{field:'status',headerName:'Status',width:140,filterType:'enum'},{field:'score',headerName:'Score',width:120,filterType:'number'},createActionMenuColumn<Course>({getMenuActions:row=>[{id:'open',label:'Open course',onPress:()=>setMessage(\`Opened \${row.name}\`)}]})]);`;
+const sourceState=`  type Course={id:string;name:string;status:string;score:number};\n  const [rows,setRows]=useState<Course[]>(${JSON.stringify(rows)});${rowSorter?`\n  function reorder({sourceRowIds,targetRowId,position}:AppDataGridRowDragReorderParams<Course>){\n    setRows(current=>{\n      const source=current.filter(row=>sourceRowIds.includes(row.id));\n      if(!source.length||sourceRowIds.includes(targetRowId))return current;\n      const next=current.filter(row=>!sourceRowIds.includes(row.id));\n      const target=next.findIndex(row=>row.id===targetRowId);\n      if(target<0)return current;\n      next.splice(target+(position==='after'?1:0),0,...source);\n      return next;\n    });\n  }`:""}\n  const [message,setMessage]=useState(${literal(message)});\n  const [search,setSearch]=useState(${literal(search)});\n  const [view,setView]=useState<'list'|'cards'>(${literal(view)});\n${actionState}\n  const columns:AppDataGridColumn<Course>[] = createDataGridColumns([{field:'name',headerName:'Course',flex:2,minWidth:180,locked:true},{field:'status',headerName:'Status',width:140,filterType:'enum'},{field:'score',headerName:'Score',width:120,filterType:'number'},createActionMenuColumn<Course>({getMenuActions:row=>[{id:'open',label:'Open course',onPress:()=>setMessage(\`Opened \${row.name}\`)}]})]);`;
 const name=shell?'AppDataGridShell':'AppDataGrid';
-const extra=shell?` toolbar={{showRefreshButton:true,onRefresh:()=>setMessage('Refresh requested'),filterFields:${JSON.stringify(fieldOptions)}}} view={{mode:view,onModeChange:setView,cards:{renderCard:row=><ClassCardFrame header={<Typography as="h3" variant="h5">{row.name}</Typography>} body={<Typography>{row.status}</Typography>} />}}}`:'';
-const body=`<Stack gap={3}><${name} label="Courses" rows={${state==='empty'?'[]':'rows'}} columns={columns} getRowLabel={row=>row.name} selection={${selection}} searchValue={search} onSearchChange={setSearch} pageSizeOptions={[5,10,25]} defaultPaginationModel={{page:0,pageSize:5}} filterFields={${JSON.stringify(fieldOptions)}} loading={${state==='loading'}} errorMessage={${state==='error'?literal('Unable to load courses'):'undefined'}} onRetry={()=>setMessage('Retry requested')} showResetView${extra} style={{height:420}}/></Stack>`;
-return <Example title="Prop playground" controls={<Stack direction="row" wrap gap={3}><Select label="Dataset state" value={state} options={['ready','loading','error','empty'].map(id=>({id,label:id}))} onValueChange={v=>setState(v??'ready')}/><Checkbox label="Enable row selection" checked={selection} onCheckedChange={setSelection}/>{shell?<Select label="View mode" value={view} options={[{id:'list',label:'List'},{id:'cards',label:'Cards'}]} onValueChange={v=>setView(v as typeof view)}/>:<TextField label="Search dataset" value={search} onValueChange={setSearch}/>}</Stack>} source={source(shell?'GridShell':'DataGrid',body,sourceState)}><Component label="Courses" rows={state==='empty'?[]:courses} columns={columns} getRowLabel={row=>row.name} selection={selection} searchValue={search} onSearchChange={setSearch} pageSizeOptions={[5,10,25]} defaultPaginationModel={{page:0,pageSize:5}} filterFields={fieldOptions} loading={state==='loading'} errorMessage={state==='error'?'Unable to load courses':undefined} onRetry={()=>setMessage('Retry requested')} showResetView style={{height:420}} {...(shell?{toolbar:{showRefreshButton:true,onRefresh:()=>setMessage('Refresh requested'),filterFields:fieldOptions},view:{mode:view,onModeChange:setView,cards:{renderCard:(row:Course)=><ClassCardFrame header={<Typography as="h3" variant="h5">{row.name}</Typography>} body={<Typography>{row.status}</Typography>}/>}}}:{})}/></Example>;
+const extra=shell?` toolbar={{leftContent:defaultActions,leftContentWhenSelected:selectedActions,showRefreshButton:${!overview},onRefresh:()=>setMessage('Refresh requested'),filterFields:${JSON.stringify(fieldOptions)}}} view={{mode:view,onModeChange:setView,cards:{renderCard:row=><CourseCardFrame header={<Typography as="h3" variant="h5">{row.name}</Typography>} body={<Typography>{row.status}</Typography>} />}}}`:'';
+const body=`<Stack gap={3}><${name} label="Courses" rows={${state==='empty'?'[]':'rows'}} columns={columns} getRowLabel={row=>row.name} selection={${selection?(shell?'{selectedRowIds,onSelectedRowIdsChange:setSelectedRowIds}':'true'):'false'}} searchValue={search} onSearchChange={setSearch} ${rowSorter?`rowDrag={{onReorder:reorder,showMoveButtons:${showMoveButtons},dragDisabled:${dragDisabled}}} `:''}pageSizeOptions={${rowSorter?'[25]':'[6,10,25]'}} defaultPaginationModel={{page:0,pageSize:${rowSorter?25:6}}} filterFields={${JSON.stringify(fieldOptions)}} loading={${state==='loading'}} errorMessage={${state==='error'?literal('Unable to load courses'):'undefined'}} onRetry={()=>setMessage('Retry requested')} showResetView${extra} style={{height:${height},minHeight:${height},flex:"none"}}/>{message && <Typography role="status">{message}</Typography>}</Stack>`;
+return <Example title="Prop playground" description={shell?"Select rows to replace Export all with Export selected and reveal Archive selected. Enable the row sorter to show drag handles on one complete page, with or without checkboxes. Reordering requires an unsorted, unfiltered list. Dragging a selected row moves the whole selection. Actions announce local requests; the host owns creation, exports and persistence.":undefined} controls={<Stack direction="row" wrap gap={3}><Select label="Dataset state" value={state} options={['ready','loading','error','empty'].map(id=>({id,label:id}))} onValueChange={v=>setState(v??'ready')}/><Checkbox label="Enable row sorter" checked={rowSorter} onCheckedChange={setRowSorter}/>{rowSorter&&<><Checkbox label="Show row move buttons" checked={showMoveButtons} onCheckedChange={setShowMoveButtons}/><Checkbox label="Disable row dragging" checked={dragDisabled} onCheckedChange={setDragDisabled}/></>}<Checkbox label="Enable row selection" checked={selection} onCheckedChange={checked=>{setSelection(checked);if(!checked)setSelectedRowIds(new Set());}}/>{shell?<Select label="View mode" value={view} options={[{id:'list',label:'List'},{id:'cards',label:'Cards'}]} onValueChange={v=>setView(v as typeof view)}/>:<TextField label="Search dataset" value={search} onValueChange={setSearch}/>}</Stack>} source={source(shell?'GridShell':'DataGrid',body,sourceState)}><Stack gap={3}><Component key={String(rowSorter)} label="Courses" rows={state==='empty'?[]:rows} rowDrag={rowSorter?{onReorder:reorder,showMoveButtons,dragDisabled}:undefined} columns={columns} getRowLabel={row=>row.name} selection={selection?(shell?{selectedRowIds,onSelectedRowIdsChange:setSelectedRowIds}:true):false} searchValue={search} onSearchChange={setSearch} pageSizeOptions={rowSorter?[25]:[6,10,25]} defaultPaginationModel={{page:0,pageSize:rowSorter?25:6}} filterFields={fieldOptions} loading={state==='loading'} errorMessage={state==='error'?'Unable to load courses':undefined} onRetry={()=>setMessage('Retry requested')} showResetView className={overview?styles.overviewShell:undefined} style={{height:overview?undefined:height,minHeight:height,flex:"none"}} {...(shell?{toolbar:{leftContent:defaultActions,leftContentWhenSelected:selectedActions,showRefreshButton:!overview,onRefresh:()=>setMessage('Refresh requested'),filterFields:fieldOptions},view:{mode:view,onModeChange:setView,cards:{renderCard:(row:Course)=><CourseCardFrame header={<Typography as="h3" variant="h5">{row.name}</Typography>} body={<Typography>{row.status}</Typography>}/>}}}:{})}/>{message && <Typography role="status">{message}</Typography>}</Stack></Example>;
 }
-function GridShellPlayground(){return <Stack gap={4}><GridPlayground shell/><GridReferences shell/><PersistedGridExample/><ServerGridExample/></Stack>;}
+function GridShellPlayground(){return <Stack gap={4}><GridPlayground shell/><GridReferences shell/><PersistedGridExample/><ServerGridExample/><CourseCollectionExample/><GridReorderExample selection={false}/><GridReorderExample selection={true}/></Stack>;}
 function ToolbarPlayground({reference=false}: {reference?:boolean} = {}) {
 
 return <Stack gap={4}>{reference ? <><ToolbarPlaygroundPanel1 reference={reference} /></> : <><ToolbarPlaygroundPanel2 reference={reference} /><ToolbarPlayground reference/></>}</Stack>;
 }
 
 function ToolbarPlaygroundPanel1({reference=false}: {reference?:boolean} = {}) {
-const source=useSource('DataToolbar');
+const source=useSource('DataToolbar, type DataToolbarColumnOption');
 const [search,setSearch]=useState('');
 const [view,setView]=useState<'list'|'cards'>('list');
 const [filters,setFilters]=useState<DataToolbarFilterRule[]>([]);
 const [sort,setSort]=useState<DataToolbarSortRule[]>([]);
 const [selected,setSelected]=useState('0');
 const [message,setMessage]=useState('No refresh requested');
-const columns=[{id:'name',label:'Course',visible:true,locked:true},{id:'status',label:'Status',visible:true},{id:'actions',label:'Actions',visible:true,locked:true}];
-const [options,setOptions]=useState(columns);
-const state=`  const [search,setSearch]=useState(${literal(search)});\n  const [view,setView]=useState<'list'|'cards'>(${literal(view)});\n  const [filters,setFilters]=useState<DataToolbarFilterRule[]>(${JSON.stringify(filters)});\n  const [sort,setSort]=useState<DataToolbarSortRule[]>(${JSON.stringify(sort)});\n  const [options,setOptions]=useState(${JSON.stringify(options)});\n  const [message,setMessage]=useState(${literal(message)});`;
+const columns=[{id:'name',label:'Course',visible:true,locked:true},{id:'status',label:'Status',visible:true},{id:'actions',label:'Actions',visible:true,locked:true,reorderable:false}];
+const [options,setOptions]=useState<DataToolbarColumnOption[]>(columns);
+const state=`  const [search,setSearch]=useState(${literal(search)});\n  const [view,setView]=useState<'list'|'cards'>(${literal(view)});\n  const [filters,setFilters]=useState<DataToolbarFilterRule[]>(${JSON.stringify(filters)});\n  const [sort,setSort]=useState<DataToolbarSortRule[]>(${JSON.stringify(sort)});\n  const [options,setOptions]=useState<DataToolbarColumnOption[]>(${JSON.stringify(options)});\n  const [message,setMessage]=useState(${literal(message)});`;
 const body=`<DataToolbar selectedCount={${Number(selected)||0}} searchValue={search} onSearchValueChange={setSearch} viewMode={view} onViewModeChange={setView} columnOptions={options} onColumnOptionsChange={setOptions} filterFields={${JSON.stringify(fieldOptions)}} filterRules={filters} onFilterRulesChange={setFilters} sortOptions={[{id:'name',label:'Course'}]} sortRules={sort} onSortRulesChange={setSort} onRefresh={()=>setMessage('Refresh requested')} />`;
 return <Example title="Compact host toolbar with custom action" source={source('ToolbarAction','<DataToolbar showViewModeToggle={false} showColumnsButton={false} showFilterButton={false} showSortButton={false} leftContent={<Link href="#main-content">Create course</Link>} onRefresh={()=>setMessage("Refresh requested")} />',`  const [message,setMessage]=useState('No refresh requested');`)}><DataToolbar showViewModeToggle={false} showColumnsButton={false} showFilterButton={false} showSortButton={false} leftContent={<Link href="#main-content">Create course</Link>} onRefresh={()=>setMessage('Refresh requested')}/></Example>;
 }
 
 function ToolbarPlaygroundPanel2({reference=false}: {reference?:boolean} = {}) {
-const source=useSource('DataToolbar');
+const source=useSource('DataToolbar, type DataToolbarColumnOption');
 const [search,setSearch]=useState('');
 const [view,setView]=useState<'list'|'cards'>('list');
 const [filters,setFilters]=useState<DataToolbarFilterRule[]>([]);
 const [sort,setSort]=useState<DataToolbarSortRule[]>([]);
 const [selected,setSelected]=useState('0');
 const [message,setMessage]=useState('No refresh requested');
-const columns=[{id:'name',label:'Course',visible:true,locked:true},{id:'status',label:'Status',visible:true},{id:'actions',label:'Actions',visible:true,locked:true}];
-const [options,setOptions]=useState(columns);
-const state=`  const [search,setSearch]=useState(${literal(search)});\n  const [view,setView]=useState<'list'|'cards'>(${literal(view)});\n  const [filters,setFilters]=useState<DataToolbarFilterRule[]>(${JSON.stringify(filters)});\n  const [sort,setSort]=useState<DataToolbarSortRule[]>(${JSON.stringify(sort)});\n  const [options,setOptions]=useState(${JSON.stringify(options)});\n  const [message,setMessage]=useState(${literal(message)});`;
+const columns=[{id:'name',label:'Course',visible:true,locked:true},{id:'status',label:'Status',visible:true},{id:'actions',label:'Actions',visible:true,locked:true,reorderable:false}];
+const [options,setOptions]=useState<DataToolbarColumnOption[]>(columns);
+const state=`  const [search,setSearch]=useState(${literal(search)});\n  const [view,setView]=useState<'list'|'cards'>(${literal(view)});\n  const [filters,setFilters]=useState<DataToolbarFilterRule[]>(${JSON.stringify(filters)});\n  const [sort,setSort]=useState<DataToolbarSortRule[]>(${JSON.stringify(sort)});\n  const [options,setOptions]=useState<DataToolbarColumnOption[]>(${JSON.stringify(options)});\n  const [message,setMessage]=useState(${literal(message)});`;
 const body=`<DataToolbar selectedCount={${Number(selected)||0}} searchValue={search} onSearchValueChange={setSearch} viewMode={view} onViewModeChange={setView} columnOptions={options} onColumnOptionsChange={setOptions} filterFields={${JSON.stringify(fieldOptions)}} filterRules={filters} onFilterRulesChange={setFilters} sortOptions={[{id:'name',label:'Course'}]} sortRules={sort} onSortRulesChange={setSort} onRefresh={()=>setMessage('Refresh requested')} />`;
 return <Example title="Prop playground" controls={<TextField label="Selected row count" value={selected} onValueChange={setSelected}/>} source={source('DataToolbar',body,state,["import { type DataToolbarFilterRule, type DataToolbarSortRule } from '@structured-growth/sg-ui/components';"])}><DataToolbar selectedCount={Number(selected)||0} searchValue={search} onSearchValueChange={setSearch} viewMode={view} onViewModeChange={setView} columnOptions={options} onColumnOptionsChange={setOptions} filterFields={fieldOptions} filterRules={filters} onFilterRulesChange={setFilters} sortOptions={[{id:'name',label:'Course'}]} sortRules={sort} onSortRulesChange={setSort} onRefresh={()=>setMessage('Refresh requested')}/></Example>;
 }
@@ -283,9 +326,9 @@ const [dragging,setDragging]=useState(false);
 const [label,setLabel]=useState('Move Course 1');
 const [pressed,setPressed]=useState(0);
 const [rows,setRows]=useState(courses.slice(0,4));
-function reorder({sourceRowId,targetRowId,position}:{sourceRowId:string;targetRowId:string;position:'before'|'after'}){setRows(current=>{const source=current.find(row=>row.id===sourceRowId);if(!source)return current;const next=current.filter(row=>row.id!==sourceRowId);const target=next.findIndex(row=>row.id===targetRowId);if(target<0)return current;next.splice(target+(position==='after'?1:0),0,source);return next;});}
-const reorderState=`  const [rows,setRows]=useState(${JSON.stringify(rows)});\n  function reorder({sourceRowId,targetRowId,position}:AppDataGridRowDragReorderParams<(typeof rows)[number]>) {\n    setRows(current=>{const source=current.find(row=>row.id===sourceRowId);if(!source)return current;const next=current.filter(row=>row.id!==sourceRowId);const target=next.findIndex(row=>row.id===targetRowId);if(target<0)return current;next.splice(target+(position==='after'?1:0),0,source);return next;});\n  }`;
-return <Example title="Complete single-page reorder with host acceptance" source={source('GridReorder','<AppDataGrid label="Reorder courses" rows={rows} columns={[{field:"name",headerName:"Course",flex:1}]} getRowLabel={row=>row.name} defaultPaginationModel={{page:0,pageSize:10}} pageSizeOptions={[10]} rowDrag={{onReorder:reorder}} style={{height:320}}/>',reorderState)}><AppDataGrid label="Reorder courses" rows={rows} columns={[{field:'name',headerName:'Course',flex:1}]} getRowLabel={row=>row.name} defaultPaginationModel={{page:0,pageSize:10}} pageSizeOptions={[10]} rowDrag={{onReorder:reorder}} style={{height:320}}/></Example>;
+function reorder({sourceRowIds,targetRowId,position}:{sourceRowIds:readonly string[];targetRowId:string;position:'before'|'after'}){setRows(current=>{const source=current.filter(row=>sourceRowIds.includes(row.id));if(!source.length||sourceRowIds.includes(targetRowId))return current;const next=current.filter(row=>!sourceRowIds.includes(row.id));const target=next.findIndex(row=>row.id===targetRowId);if(target<0)return current;next.splice(target+(position==='after'?1:0),0,...source);return next;});}
+const reorderState=`  const [rows,setRows]=useState(${JSON.stringify(rows)});\n  function reorder({sourceRowIds,targetRowId,position}:AppDataGridRowDragReorderParams<(typeof rows)[number]>) {\n    setRows(current=>{const source=current.filter(row=>sourceRowIds.includes(row.id));if(!source.length||sourceRowIds.includes(targetRowId))return current;const next=current.filter(row=>!sourceRowIds.includes(row.id));const target=next.findIndex(row=>row.id===targetRowId);if(target<0)return current;next.splice(target+(position==='after'?1:0),0,...source);return next;});\n  }`;
+return <Example title="Complete single-page reorder with host acceptance" source={source('GridReorder','<AppDataGrid label="Reorder courses" rows={rows} columns={[{field:"name",headerName:"Course",flex:1}]} getRowLabel={row=>row.name} defaultPaginationModel={{page:0,pageSize:10}} pageSizeOptions={[10]} rowDrag={{onReorder:reorder}} style={{height:1200,minHeight:1200,flex:"none"}}/>',reorderState)}><AppDataGrid label="Reorder courses" rows={rows} columns={[{field:'name',headerName:'Course',flex:1}]} getRowLabel={row=>row.name} defaultPaginationModel={{page:0,pageSize:10}} pageSizeOptions={[10]} rowDrag={{onReorder:reorder}} style={{height:1200,minHeight:1200,flex:"none"}}/></Example>;
 }
 
 function DragPlaygroundPanel2({reference=false}: {reference?:boolean} = {}) {
@@ -295,31 +338,9 @@ const [dragging,setDragging]=useState(false);
 const [label,setLabel]=useState('Move Course 1');
 const [pressed,setPressed]=useState(0);
 const [rows,setRows]=useState(courses.slice(0,4));
-function reorder({sourceRowId,targetRowId,position}:{sourceRowId:string;targetRowId:string;position:'before'|'after'}){setRows(current=>{const source=current.find(row=>row.id===sourceRowId);if(!source)return current;const next=current.filter(row=>row.id!==sourceRowId);const target=next.findIndex(row=>row.id===targetRowId);if(target<0)return current;next.splice(target+(position==='after'?1:0),0,source);return next;});}
-const reorderState=`  const [rows,setRows]=useState(${JSON.stringify(rows)});\n  function reorder({sourceRowId,targetRowId,position}:AppDataGridRowDragReorderParams<(typeof rows)[number]>) {\n    setRows(current=>{const source=current.find(row=>row.id===sourceRowId);if(!source)return current;const next=current.filter(row=>row.id!==sourceRowId);const target=next.findIndex(row=>row.id===targetRowId);if(target<0)return current;next.splice(target+(position==='after'?1:0),0,source);return next;});\n  }`;
+function reorder({sourceRowIds,targetRowId,position}:{sourceRowIds:readonly string[];targetRowId:string;position:'before'|'after'}){setRows(current=>{const source=current.filter(row=>sourceRowIds.includes(row.id));if(!source.length||sourceRowIds.includes(targetRowId))return current;const next=current.filter(row=>!sourceRowIds.includes(row.id));const target=next.findIndex(row=>row.id===targetRowId);if(target<0)return current;next.splice(target+(position==='after'?1:0),0,...source);return next;});}
+const reorderState=`  const [rows,setRows]=useState(${JSON.stringify(rows)});\n  function reorder({sourceRowIds,targetRowId,position}:AppDataGridRowDragReorderParams<(typeof rows)[number]>) {\n    setRows(current=>{const source=current.filter(row=>sourceRowIds.includes(row.id));if(!source.length||sourceRowIds.includes(targetRowId))return current;const next=current.filter(row=>!sourceRowIds.includes(row.id));const target=next.findIndex(row=>row.id===targetRowId);if(target<0)return current;next.splice(target+(position==='after'?1:0),0,...source);return next;});\n  }`;
 return <Example title="Prop playground" controls={<Stack gap={3}><TextField label="Handle accessible name" value={label} onValueChange={setLabel}/><Checkbox label="Disabled handle" checked={disabled} onCheckedChange={setDisabled}/><Checkbox label="Dragging appearance" checked={dragging} onCheckedChange={setDragging}/></Stack>} source={source('DragHandle',`<DataGridDragHandle label={${literal(label)}} disabled={${disabled}} dragging={${dragging}} onPress={()=>setPressed(n=>n+1)} /><Typography>Move requests: {pressed}</Typography>`,`  const [pressed,setPressed]=useState(${pressed});`)}><DataGridDragHandle label={label} disabled={disabled} dragging={dragging} onPress={()=>setPressed(n=>n+1)}/><Typography>Move requests: {pressed}</Typography></Example>;
-}
-function LearnerGridPlayground({reference=false}: {reference?:boolean} = {}) {
-
-return <Stack gap={4}>{reference ? <><LearnerGridPlaygroundPanel1 reference={reference} /></> : <><LearnerGridPlaygroundPanel2 reference={reference} /><LearnerGridPlayground reference/></>}</Stack>;
-}
-
-function LearnerGridPlaygroundPanel1({reference=false}: {reference?:boolean} = {}) {
-const source=useSource('LearnerClassesDataGrid');
-const [page,setPage]=useState({page:0,pageSize:5});
-const [loading,setLoading]=useState(false);
-const [empty,setEmpty]=useState(false);
-const rows=courses.map(row=>({id:row.id,courseName:row.name,instructorName:'Morgan Reed',siteName:'Learning Studio',progressPercent:row.score,nextActivity:'Read chapter',dueAt:'2026-10-20T12:00:00Z'}));
-return <Example title="Unknown server total" source={source('LearnerServer','<LearnerClassesDataGrid mode="server" rows={rows.slice(page.page*page.pageSize,(page.page+1)*page.pageSize)} hasNextPage={(page.page+1)*page.pageSize<rows.length} paginationModel={page} pageSizeOptions={[5]} onPaginationModelChange={setPage} style={{height:360}} />',`  const rows=${JSON.stringify(rows)};\n  const [page,setPage]=useState(${JSON.stringify(page)});`)}><LearnerClassesDataGrid mode="server" rows={rows.slice(page.page*page.pageSize,(page.page+1)*page.pageSize)} hasNextPage={(page.page+1)*page.pageSize<rows.length} paginationModel={page} pageSizeOptions={[5]} onPaginationModelChange={setPage} style={{height:360}}/></Example>;
-}
-
-function LearnerGridPlaygroundPanel2({reference=false}: {reference?:boolean} = {}) {
-const source=useSource('LearnerClassesDataGrid');
-const [page,setPage]=useState({page:0,pageSize:5});
-const [loading,setLoading]=useState(false);
-const [empty,setEmpty]=useState(false);
-const rows=courses.map(row=>({id:row.id,courseName:row.name,instructorName:'Morgan Reed',siteName:'Learning Studio',progressPercent:row.score,nextActivity:'Read chapter',dueAt:'2026-10-20T12:00:00Z'}));
-return <Example title="Prop playground" controls={<Stack direction="row" wrap gap={3}><Checkbox label="Loading learner courses" checked={loading} onCheckedChange={setLoading}/><Checkbox label="Empty learner courses" checked={empty} onCheckedChange={setEmpty}/></Stack>} source={source('LearnerGrid',`<LearnerClassesDataGrid rows={${empty?'[]':JSON.stringify(rows)}} loading={${loading}} defaultPaginationModel={{page:0,pageSize:5}} pageSizeOptions={[5,10,25]} style={{height:400}} />`)}><LearnerClassesDataGrid rows={empty?[]:rows} loading={loading} defaultPaginationModel={{page:0,pageSize:5}} pageSizeOptions={[5,10,25]} style={{height:400}}/></Example>;
 }
 function ProofGridExample() {
   const source=useExampleSource();
@@ -379,16 +400,15 @@ export const dataEntries:CatalogEntry[]=[
  {slug:'inline-progress',title:'AppInlineProgress',description:'Finite progress, widths and completion states.',exports:['AppInlineProgress'],Playground:ProgressPlayground},
  {slug:'operation-steps',title:'AppOperationSteps',description:'Host-owned operation states, labels and errors.',exports:['AppOperationSteps'],Playground:StepsPlayground},
  {slug:'pagination-footer',title:'AppPaginationFooter',description:'Controlled page sizes, known and unknown totals.',exports:['AppPaginationFooter'],Playground:FooterPlayground},
- {slug:'card-frame',title:'ClassCardFrame',description:'Course-card slots, widths and long content.',exports:['ClassCardFrame'],Playground:FramePlayground},
- {slug:'instructor-card',title:'InstructorClassCard',description:'Course status, learner counts and instructor actions.',exports:['InstructorClassCard'],Playground:InstructorPlayground},
- {slug:'learner-card',title:'LearnerClassCard',description:'Progress, deadlines and host continuation callbacks.',exports:['LearnerClassCard'],Playground:LearnerPlayground},
+ {slug:'card-frame',title:'CourseCardFrame',description:'Course-card slots, widths and long content.',exports:['CourseCardFrame'],Playground:FramePlayground},
+ {slug:'instructor-card',title:'InstructorCourseCard',description:'Course status, learner counts and instructor actions.',exports:['InstructorCourseCard'],Playground:InstructorPlayground},
+ {slug:'learner-card',title:'LearnerCourseCard',description:'Progress, deadlines and host continuation callbacks.',exports:['LearnerCourseCard'],Playground:LearnerPlayground},
  {slug:'card-collection',title:'CardCollectionWithFooter',description:'One owner for card pagination and loading/empty content.',exports:['CardCollectionWithFooter'],Playground:CollectionPlayground},
  {slug:'app-data-grid',title:'AppDataGrid',description:'Owned selection, sorting, filtering, columns and paging.',exports:['AppDataGrid','createDataGridColumns','createActionMenuColumn'],Playground:GridPlayground},
  {slug:'data-grid-shell',title:'AppDataGridShell',description:'Shared toolbar state, cards/list mode and criteria.',exports:['AppDataGridShell'],Playground:GridShellPlayground},
  {slug:'data-toolbar',title:'DataToolbar',description:'Controlled search, sort/filter menus, columns and refresh.',exports:['DataToolbar'],Playground:ToolbarPlayground},
  {slug:'selection-menu',title:'DataToolbarSelectionMenu',description:'Host selection commands and mixed states.',exports:['DataToolbarSelectionMenu'],Playground:SelectionMenuPlayground},
  {slug:'row-reorder',title:'DataGridDragHandle',description:'Named drag handles and complete-dataset Move requests.',exports:['DataGridDragHandle'],Playground:DragPlayground},
- {slug:'learner-grid',title:'LearnerClassesDataGrid',description:'Course data, host page requests and built-in learner columns.',exports:['LearnerClassesDataGrid'],Playground:LearnerGridPlayground},
  {slug:'processing-grid',title:'DataGrid',description:'Search, sorting, flexible columns and pagination for host-owned course data.',exports:['DataGrid'],exampleTitle:'Course data grid',Playground:ProofGridExample},
  {slug:'row-subheader',title:'RowSubHeader',description:'Grouped-row headings and supporting content.',exports:['RowSubHeader'],Playground:SubheaderPlayground},
  {slug:'grid-presets',title:'Grid presets',description:'Admin/instructor factories, canonical statuses and host translations.',exports:['createAdminCourseGridOptions','createAdminPeopleGridOptions','createInstructorCourseGridOptions','createInstructorCourseLearnersGridOptions'],Playground:PresetsPlayground},
@@ -403,16 +423,16 @@ function GridReferences({shell=false}: {shell?:boolean}) {
   </Stack>;
 }
 function GridReference({shell,mode,density,state='ready'}: {shell:boolean;mode:'list'|'cards';density:Density;state?:'ready'|'loading'|'empty'|'error'}) {
-  const source=useSource('AppDataGrid, AppDataGridShell, ClassCardFrame, type AppDataGridColumn');
+  const source=useSource('AppDataGrid, AppDataGridShell, CourseCardFrame, type AppDataGridColumn');
   const [message,setMessage]=useState('No reference action yet');
   const title=state==='ready' ? `${mode==='list'?'List':'Cards'} · ${density}` : `${state[0].toUpperCase()+state.slice(1)} dataset · ${density}`;
   const columns:AppDataGridColumn<Course>[]=[{field:'name',headerName:'Course',flex:1,minWidth:180},{field:'status',headerName:'Status',width:100}];
   const rows=state==='empty'?[]:courses.slice(0,6);
   const Component=shell?AppDataGridShell<Course>:AppDataGrid<Course>;
   const sourceState=`  type Course={id:string;name:string;status:string;score:number};\n  const rows:Course[]=${JSON.stringify(rows)};\n  const columns:AppDataGridColumn<Course>[]=${JSON.stringify(columns)};\n  const [message,setMessage]=useState(${literal(message)});`;
-  const extra=shell?` toolbar={{showViewModeToggle:false}} view={{mode:${literal(mode)},cards:{renderCard:row=><ClassCardFrame header={<Typography as="h3" variant="subtitle1">{row.name}</Typography>} body={<Typography>{row.status}</Typography>}/>}}}`:'';
-  const body=`<ThemeScope density=${literal(density)}>\n  <Stack gap={3}>\n    <${shell?'AppDataGridShell':'AppDataGrid'} label=${literal(title)} rows={rows} columns={columns} getRowId={row=>row.id} getRowLabel={row=>row.name} defaultPaginationModel={{page:0,pageSize:5}} pageSizeOptions={[5,10]} loading={${state==='loading'}} errorMessage={${state==='error'?literal('Sample request failed.'): 'undefined'}} onRetry={()=>setMessage('Retry requested')} onRowAction={row=>setMessage('Opened '+row.name)}${extra} style={{height:340}}/>\n    \n  </Stack>\n</ThemeScope>`;
+  const extra=shell?` toolbar={{showViewModeToggle:false}} view={{mode:${literal(mode)},cards:{renderCard:row=><CourseCardFrame header={<Typography as="h3" variant="subtitle1">{row.name}</Typography>} body={<Typography>{row.status}</Typography>}/>}}}`:'';
+  const body=`<ThemeScope density=${literal(density)}>\n  <Stack gap={3}>\n    <${shell?'AppDataGridShell':'AppDataGrid'} label=${literal(title)} rows={rows} columns={columns} getRowId={row=>row.id} getRowLabel={row=>row.name} defaultPaginationModel={{page:0,pageSize:6}} pageSizeOptions={[6,10]} loading={${state==='loading'}} errorMessage={${state==='error'?literal('Sample request failed.'): 'undefined'}} onRetry={()=>setMessage('Retry requested')} onRowAction={row=>setMessage('Opened '+row.name)}${extra} style={{height:1200,minHeight:1200,flex:"none"}}/>\n    \n  </Stack>\n</ThemeScope>`;
   return <Example title={title} density={density} description="A fixed reference configuration with its own row interactions and host feedback." source={source('GridReference',body,sourceState)}>
-    <Stack gap={3}><Component label={title} rows={rows} columns={columns} getRowId={row=>row.id} getRowLabel={row=>row.name} defaultPaginationModel={{page:0,pageSize:5}} pageSizeOptions={[5,10]} loading={state==='loading'} errorMessage={state==='error'?'Sample request failed.':undefined} onRetry={()=>setMessage('Retry requested')} onRowAction={row=>setMessage('Opened '+row.name)} style={{height:340}} {...(shell?{toolbar:{showViewModeToggle:false},view:{mode,cards:{renderCard:(row:Course)=><ClassCardFrame header={<Typography as="h3" variant="subtitle1">{row.name}</Typography>} body={<Typography>{row.status}</Typography>}/>}}}:{})}/></Stack>
+    <Stack gap={3}><Component label={title} rows={rows} columns={columns} getRowId={row=>row.id} getRowLabel={row=>row.name} defaultPaginationModel={{page:0,pageSize:6}} pageSizeOptions={[6,10]} loading={state==='loading'} errorMessage={state==='error'?'Sample request failed.':undefined} onRetry={()=>setMessage('Retry requested')} onRowAction={row=>setMessage('Opened '+row.name)} style={{height:1200,minHeight:1200,flex:"none"}} {...(shell?{toolbar:{showViewModeToggle:false},view:{mode,cards:{renderCard:(row:Course)=><CourseCardFrame header={<Typography as="h3" variant="subtitle1">{row.name}</Typography>} body={<Typography>{row.status}</Typography>}/>}}}:{})}/></Stack>
   </Example>;
 }

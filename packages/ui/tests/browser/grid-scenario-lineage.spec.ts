@@ -83,14 +83,14 @@ test('debounced server search retains the old page before debounce, then accepts
 test('linked cards preserve list selection and one footer, then navigate natively once with Enter',async({page})=>{
  await page.goto(fixture('shared-list-and-cards'));
  const grid=page.getByRole('grid');
- await enterGrid(page,grid,page.getByRole('button',{name:'Cards',exact:true}));
+ await enterGrid(page,grid,page.getByRole('radio',{name:'Cards',exact:true}));
  await focusChild(page.getByRole('checkbox',{name:'Select Course 1',exact:true}));await page.keyboard.press('Space');
  await expect(page.getByRole('checkbox',{name:'Select Course 1',exact:true})).toBeChecked();
- await page.getByRole('button',{name:'Cards',exact:true}).click();
+ await page.getByRole('radio',{name:'Cards',exact:true}).click();
  const link=()=>page.getByRole('link',{name:'Open Course 1',exact:true});
  await expect(link()).toHaveAttribute('href','/courses/course-1');await expect(page.getByRole('button',{name:'Next page',exact:true})).toHaveCount(1);
- await page.getByRole('button',{name:'List',exact:true}).click();await expect(page.getByRole('checkbox',{name:'Select Course 1',exact:true})).toBeChecked();
- await page.getByRole('button',{name:'Cards',exact:true}).click();let requests=0;
+ await page.getByRole('radio',{name:'List',exact:true}).click();await expect(page.getByRole('checkbox',{name:'Select Course 1',exact:true})).toBeChecked();
+ await page.getByRole('radio',{name:'Cards',exact:true}).click();let requests=0;
  await page.route('**/courses/course-1',async route=>{requests++;await route.fulfill({status:200,contentType:'text/html',body:'<!doctype html><title>Course destination</title><h1>Course destination</h1>'});});
  await link().focus();await test.info().attach('grid-events-before-navigation',{body:JSON.stringify(await page.evaluate(()=>(window as unknown as {gridFocusEvents:unknown[]}).gridFocusEvents),null,2),contentType:'application/json'});await page.keyboard.press('Enter');await expect(page).toHaveURL(/\/courses\/course-1$/);expect(requests).toBe(1);
 });

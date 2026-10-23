@@ -1,7 +1,8 @@
 # Owned catalog grid integration
 
-M-16 public renderer/helpers/parts, M-17 shell and M-19 learner composition now
-use owned contracts. Load `@structured-growth/sg-ui/styles.css` and wrap grids in
+The public grid renderer/helpers/parts and AppDataGridShell use owned contracts.
+Course collections are host compositions of the shell, with host-owned columns,
+localized formatting and destinations. Load `@structured-growth/sg-ui/styles.css` and wrap grids in
 `Provider` or `ThemeScope`. Granular component entry points bound consumer imports
 to the requested controls. Broad G/U/X/R/Z acceptance remains
 open; this integration does not certify the complete migration.
@@ -19,6 +20,17 @@ export function Courses({ rows }) {
   </Provider>;
 }
 ```
+
+Column resize handles sit on each column’s leading edge; no trailing handle is
+rendered after the last column. The first data boundary, including the boundary
+next to fixed selection/reorder columns, is a static separator. Boundaries next
+to fixed-width data columns (`minWidth === maxWidth`) are also non-interactive
+and have no slider or keyboard resize action. In left-to-right layouts, dragging a leading
+divider left increases its column width and dragging right decreases it; the
+pointer direction mirrors in right-to-left layouts. Pointer gestures use their
+starting width snapshot, respect bounds, and restore the snapshot on cancellation.
+Native range/keyboard width adjustment remains available. Width changes preserve the full measured snapshot
+and retain one eligible fill column rather than reallocating every sibling.
 
 `label` names the table; `getRowLabel` names each row independently of identity.
 Rows have no upstream constraint. Default identity reads string/number `id`;
@@ -77,15 +89,13 @@ Widths remain bounded; pointer/keyboard resizing commits a numeric override only
 for the resized field, preserving other flex columns. Custom page sizes such as
 10 and 250 are supported. Default page sizes remain 25/50/100.
 
-Persistence is opt-in through `persistence={{key, storage?}}` or `storageKey`.
+Persistence is opt-in through `persistence={{key, storage?}}`.
 Use a distinct key per view and remount when changing identity. The version-one
 `sgui:grid:<key>:v1` envelope validates declared fields, rules, widths, layout and
 page sizes. It excludes selection, rows, errors and pending work. Controlled
 values win over restored defaults. A persistent grid initially renders a loading
 status on server and first client render, then mounts with restored defaults.
-Storage failure falls back safely. Legacy list/cards page, visibility and view
-keys are validated; list pagination takes precedence. Retired sort/filter models
-are rejected. Pass `showResetView` to offer a translated Reset view button on either the grid or
+Storage failure falls back safely. Only the current versioned key is read. Pass `showResetView` to offer a translated Reset view button on either the grid or
 shell. Reset applies the currently declared `default*` props, not the saved state:
 page zero with the default page size (25 when omitted), default sort/filter/search,
 default visibility/order/widths, and the shell's `view.defaultMode` (list when
@@ -99,7 +109,7 @@ including layout and optional shell view mode. Host-controlled values stay visib
 until accepted; use the complete reset snapshot when coordinating all concerns.
 The reset button retains focus. Reset remains available when the toolbar is hidden.
 
-Reset removes versioned and legacy keys and saves the validated requested defaults
+Reset removes the current versioned key and saves the validated requested defaults
 under the version-one envelope, so old restored values cannot revive on remount.
 Automatic persistence suppresses the unchanged pre-reset snapshot so a rejected
 controlled request cannot immediately overwrite the saved defaults. It resumes
@@ -122,5 +132,7 @@ configuration and owned handle/helper. List mode uses the same state/identity
 owner as selection and processing; cards mode has no reorder control.
 
 Cell columns support `truncate: false` for multiline wrapping; the default remains
-ellipsis with complete accessible text. See [cell and helper acceptance](react-aria-grid-cell-acceptance.md)
+ellipsis with complete accessible text. See cell and helper acceptance
 for M-40/M-41 behavior evidence and the supported public helper surface.
+
+Action menu columns use a fixed width: 110px by default, or the host-supplied `width` clamped to its bounds. They do not expose a resize handle or absorb flexible space; saved width overrides cannot change that allocation.

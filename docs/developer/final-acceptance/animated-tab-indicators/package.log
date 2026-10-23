@@ -1,7 +1,0 @@
-
-> @structured-growth/sg-ui@0.0.0-development test:package /Users/thomashall/Repositories/sg-ui/packages/ui
-> node scripts/check-package.mjs
-
-All package entry points import successfully.
-Consumer imports and owned theme/typography contracts typecheck.
-Packed JS, declarations, CSS, maps and assets match the fresh build; exports and notices are retained.

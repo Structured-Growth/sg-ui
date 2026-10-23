@@ -43,7 +43,6 @@ The native SVG ref, id, className and style are supported.
 Directional arrows and navigation symbols mirror in RTL using compiled scoped CSS.
 Use mirrorInRtl to explicitly override a symbol's default.
 
-
 ## Optical size and direction by usage
 
 All wrappers share a 24-unit viewBox, 2-unit default stroke, currentColor and
@@ -139,7 +138,7 @@ exact vector names. It does not validate rendered appearance or bundle pruning.
 | CheckIcon | Check |
 | ChevronRightIcon | ChevronRight |
 | CircleIcon | Circle |
-| ClassIcon | NotebookTabs |
+| CourseIcon | NotebookTabs |
 | CloseIcon | X |
 | CodeIcon | Code |
 | ComputerIcon | Monitor |

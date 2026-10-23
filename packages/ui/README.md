@@ -11,7 +11,7 @@ to use this library. Obtain a written agreement from Structured Growth before us
 See [LICENSE](LICENSE) and [commercial licensing](../../docs/commercial-licensing.md).
 
 Implementation migration is distinct from final acceptance. The
-[execution record](../../docs/developer/archive/2026-10-18-task-lists/react-aria-progress.md),
+execution record,
 [master task list](../../docs/developer/react-aria-execution-policy.md) and
 [removal audit](../../docs/developer/react-aria-removal-audit.md) record evidence and
 remaining browser, device, assistive-technology, packaging and legal gates.
@@ -57,8 +57,7 @@ export function Example() {
 
 `Provider` defaults to light/comfortable, bridges the host translation locale into
 interactions and propagates scope settings to overlays. `ThemeScope` supplies visual
-settings alone. `AppThemeProvider` preserves its name as an alias of Provider;
-old theme objects and typography augmentation are removed. Applications own global
+settings alone. Provider supplies the visual and interaction scope. Applications own global
 backgrounds, resets and optional Geist font loading; system fonts are the fallback.
 There is no Tailwind or runtime CSS-engine requirement.
 
@@ -70,7 +69,7 @@ paths. For example, AppPaginationFooter uses `/components/CardPaginationFooter`.
 Do not import `dist` internals. Prefer granular paths for bounded module graphs;
 root imports remain supported.
 
-For an existing host, follow the [consumer migration mappings](../../docs/migration.md#consumer-migration-mappings)
+For an existing host, follow the [consumer migration mappings](../../docs/migration.md#public-apis)
 and [read-only adoption checklist](../../docs/developer/react-aria-adoption-checklist.md).
 They cover Vite and Next.js integration, adapters, controlled grid state and CSS/client
 boundaries. See [theme contracts](../../docs/developer/react-aria-theme.md),

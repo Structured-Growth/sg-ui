@@ -1,8 +1,0 @@
-Listing tests:
-  [chromium] › icons-native.spec.ts:7:1 › 96 current icons: native SVG geometry, inherited/overridden/nested RTL and optical captures
-  [chromium] › icons-native.spec.ts:25:1 › named theme pairs and decorative/meaningful naming in native accessibility roles
-  [firefox] › icons-native.spec.ts:7:1 › 96 current icons: native SVG geometry, inherited/overridden/nested RTL and optical captures
-  [firefox] › icons-native.spec.ts:25:1 › named theme pairs and decorative/meaningful naming in native accessibility roles
-  [webkit] › icons-native.spec.ts:7:1 › 96 current icons: native SVG geometry, inherited/overridden/nested RTL and optical captures
-  [webkit] › icons-native.spec.ts:25:1 › named theme pairs and decorative/meaningful naming in native accessibility roles
-Total: 6 tests in 1 file

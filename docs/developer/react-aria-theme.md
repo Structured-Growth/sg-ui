@@ -1,19 +1,16 @@
 # Public theme and production scopes
 
-Task references: W-09, A-15 (theme mapping), Z-01–Z-03 (implementation removal;
-final historical/literal audit remains open). Public `/theme` and root exports
-now expose `Provider`, `ThemeScope`, `AppThemeProvider` and their owned types.
-`AppThemeProvider` is the same component as Provider under its preserved name.
+Public `/theme` and root exports provide Provider, ThemeScope and their owned types.
 
 ```tsx
 import "@structured-growth/sg-ui/styles.css";
-import { AppThemeProvider, ThemeScope } from "@structured-growth/sg-ui/theme";
+import { Provider, ThemeScope } from "@structured-growth/sg-ui/theme";
 
-<AppThemeProvider theme="system" density="comfortable">
+<Provider theme="system" density="comfortable">
   <ThemeScope theme="dark" density="compact" style={{ "--sgui-focus": "#a78bfa" }}>
     Content
   </ThemeScope>
-</AppThemeProvider>;
+</Provider>;
 ```
 
 The stylesheet must be loaded once. Settings default to light/comfortable/auto interaction sizing;
@@ -39,8 +36,6 @@ resolve `prefers-color-scheme` and `color-scheme`. It needs no preference read i
 render or effect to choose the initial colors. Explicit `light` and `dark` scopes
 retain their own color scheme when the system preference changes.
 
-The [installed scoped-lifecycle receipt](final-acceptance/wave-04/02/scoped-lifecycle/receipt.json) records 24 passing cases across React 18/19, Arabic/French, three engines and both system preferences. Its JavaScript gate verifies loaded CSS and computed scope colors/`color-scheme` before hydration, identical initial colors afterward, stable server IDs/nodes, subsequent system changes and a fixed nested light scope. This is evidence at the recorded tarball, not a promise that a host can defer CSS or restore a different theme after hydration without a visible change.
-
 Load `styles.css` in the document's initial stylesheet path before showing the
 interface. A late stylesheet, client-only preference restoration or a different
 server/client host locale can cause a visible change outside the scope contract.
@@ -64,7 +59,7 @@ accept a requested value before it becomes authoritative.
 | `theme`, `lightTheme`, `darkTheme`, upstream ThemeProvider/theme objects | theme setting on Provider/ThemeScope |
 | palette/typography/component override objects | generated `/tokens`, CSS variables and documented component parts |
 | upstream typography augmentation | owned Typography roles, including `bodyAlt2` |
-| global baseline installed by AppThemeProvider | host-owned global styles; scoped library normalization |
+| global baseline installed by Provider | host-owned global styles; scoped library normalization |
 
 The docs website and private native fixtures import compiled production tokens and
 use the public Provider. Native fixture globals preserve light/dark/system,
@@ -93,7 +88,6 @@ historical-reference acceptance.
 See the [classified removal audit](react-aria-removal-audit.md) for source/output
 guards, reconciled extraction destinations and remaining historical/legal text.
 
-
 ### Shared scrollbar appearance
 
 Provider/ThemeScope and overlay visual roots compose the owned Scrollbars module.
@@ -110,12 +104,11 @@ and appearance scopes supply its color. Override that alias in a scope to change
 scrollbar color consistently. Containers still own overflow, height, width and
 stable gutter allocation; the shared rule introduces no scrollports or gutters.
 
-
 ## Density, interaction sizing and responsive layout
 
 `density="compact|comfortable"` selects spacing. `interactionMode="auto|pointer|touch"`
 selects the target/icon presentation policy. Both inherit, independently, through
-Provider/ThemeScope and owned overlay portals. AppThemeProvider accepts the same
+Provider/ThemeScope and owned overlay portals. Provider accepts the same
 props. Neither setting enables/disables any input or controls whether navigation
 is expanded. Viewport breakpoints continue to own stacking and overlay placement.
 
@@ -145,7 +138,6 @@ pagination and navigation consume the target floor. This is a sizing policy,
 not certification of every specialized component or physical device. Host-provided
 custom controls and explicit geometry overrides remain host responsibilities.
 
-
 ### Shared control typography and spacing
 
 Density owns `--sgui-control-text-size` alongside height and horizontal padding.
@@ -169,14 +161,12 @@ The documentation website selects compact density at its outer Provider. Header
 controls, prop controls and right-panel controls therefore share one sizing policy,
 including their portals. Each live Example explicitly supplies its own density.
 
-
 Select triggers and TextField/ComboBox inputs share the same field control styles:
 control text size, regular content weight, line height, padding, border, radius and
 focus ring. A Select is a field rather than an action button, so its selected value
 does not inherit action weight or button radius. Content widths remain host/layout
 owned; matching field height does not require equal widths or fixed heights that
 clip enlarged text.
-
 
 Select uses invisible, accessibility-hidden option labels to establish a stable
 intrinsic trigger width from the longest option or placeholder. This requires no
@@ -185,12 +175,11 @@ client. Host CSS on the field can set a fixed width or maximum width; the select
 value truncates with an ellipsis inside that constraint, and the popup retains
 complete option labels within its viewport bounds.
 
-
 ## Foundation geometry and motion scales
 
 See [the scale contract](react-aria-foundation-scales.md) for spacing, density,
 radius, border, icon, elevation and motion decisions, including intentionally
-local indicator constants. See [state applicability](react-aria-state-applicability.md)
+local indicator constants. See state applicability
 for public parts, non-color indicators and outstanding visual-state evidence.
 
 ## Motion interruption and system indications

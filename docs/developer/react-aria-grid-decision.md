@@ -51,7 +51,7 @@ and sort reset page zero before emitting a request. Multiple independent instanc
 do not share state. Persistence will be optional and schema validated.
 
 Reordering currently requires a complete unsorted/unfiltered dataset on one page,
-with at most one selected row. Multiple-row batch moves are not part of this proof.
+with selected rows moving together in their current host order. Dragging an unselected row moves only that row.
 Buttons provide a keyboard and non-drag alternative. The host receives a request,
 not a silently mutated array. Keyboard drag/drop and cancellation announcements
 were verified in-browser; resizing required Enter activation before arrows changed
@@ -62,10 +62,3 @@ rows, persistence and refresh focus retention remain required migration work.
 Both TanStack packages use MIT licenses with no commercial feature tier in this
 integration. SGUI's commercial license remains authoritative for SGUI-owned code;
 third-party code retains its own license. No enterprise grid dependency is added.
-
-Primary API evidence: [React Aria Table](https://react-aria.adobe.com/Table),
-[React Aria drag and drop](https://react-aria.adobe.com/dnd),
-[TanStack v8 sorting](https://tanstack.com/table/v8/docs/guide/sorting), and the
-installed version's declarations and licenses. Behavioral evidence is colocated
-in `src/experimental/DataGrid/DataGrid.test.tsx`; baseline performance budgets and
-full browser/assistive-technology validation remain open.

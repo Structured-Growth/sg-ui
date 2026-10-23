@@ -1,2 +1,0 @@
-command: git apply --check docs/developer/final-acceptance/wave-03-30/foundation-and-visual.patch
-exit: 0

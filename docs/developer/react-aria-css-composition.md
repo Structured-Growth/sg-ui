@@ -98,7 +98,7 @@ focus, scroll and resize. Vertical writing mode is not certified by this analysi
 physical inline engine height and logical CSS caps need a separate validation if
 that support is promised. RTL remains a separate direction concern.
 
-The scoped acceptance fixture checks popover/dialog/drawer/auto at wide and narrow widths, resize in both directions, preserved focused draft, Escape restoration and reopen. The [current bounded execution](final-acceptance/wave-04/coordinator/css-fallback/receipt.json) passes both existing cases across Chromium, Firefox and WebKit against the hash-verified built host. It also verifies the decorated input fallback and empty-grid focus ring, including forced colors. The unsupported-`:has` branch is injected by disabling its declared enhancement guard; this establishes the fallback branch, not minimum-version support in an older engine.
+The scoped acceptance fixture checks popover/dialog/drawer/auto at wide and narrow widths, resize in both directions, preserved focused draft, Escape restoration and reopen. The current bounded execution passes both existing cases across Chromium, Firefox and WebKit against the hash-verified built host. It also verifies the decorated input fallback and empty-grid focus ring, including forced colors. The unsupported-`:has` branch is injected by disabling its declared enhancement guard; this establishes the fallback branch, not minimum-version support in an older engine.
 
 ## Enhancement and tooling boundaries
 
@@ -139,12 +139,6 @@ byte equality, loads that stylesheet and temporarily disables all applicable
 flat adornment declarations, including bundled duplicates, before exercising the
 native rule. Consumer-bundler lowering is distinct from the library's distributed
 CSS and does not demonstrate native browser parsing by itself.
-
-The [bounded native-nesting receipt](final-acceptance/wave-04/02/native-nesting/receipt.json)
-records compiler/guard evidence and actual native/fallback parity status. It does
-not update visual baselines or certify legacy devices. Other nesting migrations
-must preserve observable styling, shallow ownership and the documented browser
-boundary; native syntax alone does not prove behavior parity.
 
 Decorated TextField uses its input focus ring as the baseline. Only inside
 `@supports selector(:has(*))` may it suppress that ring and move the ring to the

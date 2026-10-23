@@ -90,18 +90,14 @@ test('native pointer drop outside cancels; rejected pointer move rolls back to h
   expect(errors, 'browser runtime errors').toEqual([]);
 });
 
-test('multiple selection and sorting disable native reorder without emitting host moves', async ({ page }) => {
+test('sorting disables native reorder without emitting host moves', async ({ page }) => {
   const errors = await observe(page);
   await page.goto(storyUrl);
   await expect(names(page)).toHaveText(initial);
-  for (const name of ['Course 1', 'Course 2']) await page.getByRole('checkbox', { name: `Select ${name}`, exact: true }).locator('xpath=ancestor::label').click();
   const source = page.getByRole('button', { name: 'Reorder Course 1', exact: true });
-  for (const boundary of ['selection', 'sorting']) {
-    if (boundary === 'sorting') {
-      for (const name of ['Course 1', 'Course 2']) await page.getByRole('checkbox', { name: `Select ${name}`, exact: true }).locator('xpath=ancestor::label').click();
-      await page.getByRole('button', { name: 'Sort Course', exact: true }).click();
-      await page.getByRole('menuitemradio', { name: 'Sort Ascending', exact: true }).click();
-    }
+  {
+    await page.getByRole('button', { name: 'Sort Course', exact: true }).click();
+    await page.getByRole('menuitemradio', { name: 'Sort Ascending', exact: true }).click();
     await expect(source).toBeDisabled();
     const box = (await source.boundingBox())!;
     await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);

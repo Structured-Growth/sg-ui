@@ -33,9 +33,9 @@ import { AppOperationSteps } from '@structured-growth/sg-ui/components/AppOperat
 import { EditableTitleField } from '@structured-growth/sg-ui/components/EditableTitleField';
 import { AppPaginationFooter } from '@structured-growth/sg-ui/components/CardPaginationFooter';
 import { CardCollectionWithFooter } from '@structured-growth/sg-ui/components/CardCollectionWithFooter';
-import { ClassCardFrame } from '@structured-growth/sg-ui/components/ClassCardFrame';
-import { InstructorClassCard } from '@structured-growth/sg-ui/components/InstructorClassCard';
-import { LearnerClassCard } from '@structured-growth/sg-ui/components/LearnerClassCard';
+import { CourseCardFrame } from '@structured-growth/sg-ui/components/CourseCardFrame';
+import { InstructorCourseCard } from '@structured-growth/sg-ui/components/InstructorCourseCard';
+import { LearnerCourseCard } from '@structured-growth/sg-ui/components/LearnerCourseCard';
 import { Button } from '@structured-growth/sg-ui/components/Button';
 import { ExperiencePageNavigator } from '@structured-growth/sg-ui/components/ExperiencePageNavigator';
 import { AppPageTabs } from '@structured-growth/sg-ui/components/AppPageTabs';
@@ -59,7 +59,6 @@ import { ContentEditorChrome } from '@structured-growth/sg-ui/components/Content
 import { AppDataGrid } from '@structured-growth/sg-ui/components/AppDataGrid';
 import { DataGridDragHandle } from '@structured-growth/sg-ui/components/AppDataGridRowDnd';
 import { AppDataGridShell } from '@structured-growth/sg-ui/components/AppDataGridShell';
-import { LearnerClassesDataGrid } from '@structured-growth/sg-ui/components/LearnerClassesDataGrid';
 import { DataToolbar, DataToolbarSelectionMenu } from '@structured-growth/sg-ui/components/DataToolbar';
 import { Provider } from '@structured-growth/sg-ui/theme';
 import { tokens } from '@structured-growth/sg-ui/tokens';
@@ -80,7 +79,6 @@ export function Proof() {
   return <Provider theme="dark" style={{background:tokens.surface,padding:tokens.space4}}>
     <AppDataGrid label="Packed courses" rows={[{id:'one',name:'Science'}]} columns={[{field:'name',headerName:'Course'}]} getRowLabel={row=>row.name} rowDrag={{onReorder:()=>{}}} />
     <AppDataGridShell label="Packed shell" rows={[{id:'two',name:'Mathematics'}]} columns={[{field:'name',headerName:'Course'}]} getRowLabel={row=>row.name} view={{cards:{renderCard:row=><article>{row.name}</article>}}} />
-    <LearnerClassesDataGrid rows={[]} />
     <DataGridDragHandle label="Packed reorder handle" />
     <PublicTypography as="h2" variant="bodyAlt2">Public primitives</PublicTypography>
     <CircularProgress aria-label="Packed circular loading" /><LinearProgress label="Packed upload" value={40} />
@@ -129,11 +127,11 @@ export function Proof() {
       </>},{id:'access',label:'Access',content:'Host settings'}]} />
     </AppModal>
   <AppPaginationFooter label="Packed atomic pagination" page={gridPagination.page} pageSize={gridPagination.pageSize} pageSizeOptions={[10,25,250]} totalCount={67}
-    onPageChange={()=>{}} onPageSizeChange={()=>{}} onPaginationModelChange={model=>{setGridPagination(model);setPaginationRequests(count=>count+1);}} />
+    onPaginationModelChange={model=>{setGridPagination(model);setPaginationRequests(count=>count+1);}} />
   <output id="packed-pagination-result">{JSON.stringify(gridPagination)} requests:{paginationRequests}</output>
-  <CardCollectionWithFooter rows={[{id:'one',label:'Science'}]} getRowId={row=>row.id} page={0} pageSize={4} pageSizeOptions={[4,8]} onPageChange={()=>{}} onPageSizeChange={()=>{}} renderCard={row=><ClassCardFrame header={row.label} body="Course details" />} />
-  <InstructorClassCard className="Science" siteName="School" status="active" learnerCount={12} lastLearnerActivityLabel="Recent activity" actionLabel="Open Class" actionHref="/courses/science" />
-  <LearnerClassCard courseName="Science" instructorName="Author" progressPercent={40} nextActivity="Read" dueAt="2026-10-10" referenceNow={new Date('2026-10-06T12:00:00Z')} detailsHref="/courses/science" />
+  <CardCollectionWithFooter rows={[{id:'one',label:'Science'}]} getRowId={row=>row.id} page={0} pageSize={4} pageSizeOptions={[4,8]} onPaginationModelChange={()=>{}} renderCard={row=><CourseCardFrame header={row.label} body="Course details" />} />
+  <InstructorCourseCard courseName="Science" siteName="School" status="active" learnerCount={12} lastLearnerActivityLabel="Recent activity" actionLabel="Open course" actionHref="/courses/science" />
+  <LearnerCourseCard courseName="Science" instructorName="Author" progressPercent={40} nextActivity="Read" dueAt="2026-10-10" referenceNow={new Date('2026-10-06T12:00:00Z')} detailsHref="/courses/science" />
 <AuthShell title="Sign in"><TextField label="Host email" /></AuthShell>
 <AppShell style={{height:300}} navigation={<SideNavigation model={{user:{initials:"AU",name:"Author",organization:"School"},rootMenu:{id:"root",sections:[{id:"courses",title:"Workspace",items:[{id:"courses",label:"Courses",href:"/courses"}]}]}}} />}><h1>Host workspace</h1></AppShell>
 </Provider>;
@@ -183,7 +181,7 @@ const entries = [
   ['tokens', 'tokens'], ['theme', 'Provider'], ['primitives', 'Typography'],
   ['icons/AddIcon', 'AddIcon'], ['hooks', 'normalizePaginationModel'],
   ['adapters', 'SGNavigationProvider'], ['i18n', 'SGTranslationProvider'],
-  ['components/Button', 'Button'], ['components/ClassCardFrame', 'ClassCardFrame'],
+  ['components/Button', 'Button'], ['components/CourseCardFrame', 'CourseCardFrame'],
   ['components/AppDataGrid', 'AppDataGrid'],
 ];
 for (const [subpath, name] of entries) {
@@ -227,7 +225,7 @@ import { renderToPipeableStream } from 'react-server-dom-webpack/server.node';
 import { tokens } from '@structured-growth/sg-ui/tokens';
 import { normalizePaginationModel } from '@structured-growth/sg-ui/hooks';
 import { Box, Typography, Table, TableBody, TableRow, TableCell } from '@structured-growth/sg-ui/primitives';
-import { ClassCardFrame } from '@structured-growth/sg-ui/components/ClassCardFrame';
+import { CourseCardFrame } from '@structured-growth/sg-ui/components/CourseCardFrame';
 import { AuthShell } from '@structured-growth/sg-ui/components/AuthShell';
 import { AppShell } from '@structured-growth/sg-ui/components/AppShell';
 import { Button } from '@structured-growth/sg-ui/components/Button';
@@ -235,7 +233,7 @@ import { Provider } from '@structured-growth/sg-ui/theme';
 assert.equal(typeof window, 'undefined');
 assert.equal(React.useState, undefined, 'Fixture must run the React server condition');
 assert.deepEqual(normalizePaginationModel({ page: 2, pageSize: 37 }), { page: 2, pageSize: 37 });
-for (const component of [Box, Typography, Table, ClassCardFrame, AppShell]) {
+for (const component of [Box, Typography, Table, CourseCardFrame, AppShell]) {
   assert.notEqual(component.$$typeof, Symbol.for('react.client.reference'), 'Presentation became a client reference');
 }
 for (const component of [Button, Provider, AuthShell]) {
@@ -253,7 +251,7 @@ const el = React.createElement;
 const tree = el(Provider, { theme: 'dark' },
   el(AppShell, { navigation: el('nav', null, 'Server navigation') },
     el(AuthShell, { title: 'Packed client authentication shell' },
-      el(ClassCardFrame, {
+      el(CourseCardFrame, {
         header: el(Typography, { as: 'h2' }, 'Server course card'),
         body: el(Box, { padding: 2, style: { color: tokens.text } },
           el(Table, null, el(TableBody, null, el(TableRow, null, el(TableCell, null, 'Server table cell'))))),
@@ -267,7 +265,7 @@ const done = new Promise((resolve, reject) => { output.on('end', resolve); outpu
 renderToPipeableStream(tree, manifest, { onError(error) { errors.push(error); } }).pipe(output);
 await done;
 assert.equal(errors.length, 0, errors.map(error => error.stack).join('\\n'));
-for (const text of ['Server course card', 'Server table cell', 'class-card-frame', 'app-shell', 'packed-app-shell-main', 'packed-auth-shell', 'packed-app-button', 'packed-provider']) {
+for (const text of ['Server course card', 'Server table cell', 'course-card-frame', 'app-shell', 'packed-app-shell-main', 'packed-auth-shell', 'packed-app-button', 'packed-provider']) {
   assert(flight.includes(text), 'Flight lost ' + text);
 }
 console.log('Packed React Server Components Flight renders presentation and preserves interaction references.');

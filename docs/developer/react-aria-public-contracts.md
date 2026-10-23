@@ -109,19 +109,19 @@ Individual descriptionPlacement/errorPlacement settings win over scope values.
 Switch, SearchField and AsyncMultiSelect expose descriptionPlacement only.
 FormFieldScope renders no DOM or native form and does not own values, validation
 or IDs. Use explicit placement to retain a previous host layout. See the
-[focused follow-up](react-aria-public-contract-acceptance.md) for naming, scope,
+focused follow-up for naming, scope,
 installed-declaration proof and remaining historical/release evidence.
 
-See the [inherited styling migration](react-aria-inherited-styling-migration.md)
+See the inherited styling migration
 for the original locked style/slot/system-prop mappings, and the
-[public boundary index](react-aria-public-boundary-index.md) for current naming,
+public boundary index for current naming,
 composition, ref and visual domains.
 
 ## Release review
 
 Removed upstream types/style props, changed callback arity and changed omitted
 behavior are consumer migration changes even when a component name survives.
-Preserved aliases (AppThemeProvider, Typography primary and Class-prefixed names)
+Preserved aliases (Provider, Typography primary and Class-prefixed names)
 are not automatically deprecated. Course preset factories and optional controls
 are additions; do not label every new export breaking.
 

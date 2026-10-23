@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type PointerEvent } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import { Button } from "../../../components/Button/Button";
 import { Badge } from "../../../experimental/Badge/Badge";
 import { IconButton } from "../../../experimental/IconButton/IconButton";
@@ -42,10 +42,12 @@ export function DataToolbarSortMenu({ options, value, onApply }: DataToolbarSort
     const timer = setTimeout(() => columnTriggers.current.get(draftId)?.focus(), 0);
     return () => clearTimeout(timer);
   }, [draftRules, open]);
+  const [dragPreview, setDragPreview] = useState<{ sourceId: number; x: number; y: number } | null>(null);
   const [dropId, setDropId] = useState<number | null>(null);
   const clearPointer = () => {
     const current = pointerMove.current;
     pointerMove.current = null;
+    setDragPreview(null);
     if (current?.handle.hasPointerCapture?.(current.pointerId)) current.handle.releasePointerCapture(current.pointerId);
   };
   useEffect(() => () => clearPointer(), []);
@@ -96,24 +98,31 @@ export function DataToolbarSortMenu({ options, value, onApply }: DataToolbarSort
     if (!current || current.pointerId !== event.pointerId) return;
     if (!current.moved && Math.hypot(event.clientX - current.x, event.clientY - current.y) < 4) return;
     current.moved = true;
+    setDragPreview({ sourceId: current.sourceId, x: event.clientX, y: event.clientY });
     event.preventDefault();
     current.targetId = null;
+    const sourceIndex = draftRules.findIndex(rule => rule.draftId === current.sourceId);
     for (const [id, row] of rows.current) {
       const rect = row.getBoundingClientRect();
       if (event.clientY >= rect.top && event.clientY <= rect.bottom && event.clientX >= rect.left && event.clientX <= rect.right) {
-        current.targetId = id; break;
+        const targetIndex = draftRules.findIndex(rule => rule.draftId === id);
+        const midpoint = rect.top + rect.height / 2;
+        if ((targetIndex < sourceIndex && event.clientY <= midpoint) ||
+          (targetIndex > sourceIndex && event.clientY >= midpoint)) current.targetId = id;
+        break;
       }
     }
     setDropId(current.targetId !== current.sourceId ? current.targetId : null);
   };
-  const trigger = <Button density="compact" variant="outlined" tone="neutral" startIcon={<SortIcon />}>
+  const draggedRule = draftRules.find(rule => rule.draftId === dragPreview?.sourceId);
+  const trigger = <Button className={styles.trigger} data-menu-open={open || undefined} density="compact" variant="outlined" tone="neutral" startIcon={<SortIcon />}>
     {sortLabel}{activeCount > 0 && <Badge content={activeCount} className={styles.badge} />}
   </Button>;
   return <Popover trigger={trigger} title={sortLabel} size="lg" open={open} onOpenChange={changeOpen}>
     <div className={styles.body} data-sgui-density="compact">
       {draftRules.map((rule, index) => <div key={rule.draftId} ref={row => {
         if (row) rows.current.set(rule.draftId, row); else rows.current.delete(rule.draftId);
-      }} className={styles.row} data-sgui-part="sort-rule" data-drop-target={dropId === rule.draftId || undefined}>
+      }} className={styles.row} data-sgui-part="sort-rule" data-drop-target={dropId === rule.draftId ? (draftRules.findIndex(current => current.draftId === pointerMove.current?.sourceId) < index ? "after" : "before") : undefined} data-dragging={dragPreview?.sourceId === rule.draftId || undefined}>
         <span className={styles.handle} aria-hidden="true" data-sgui-part="sort-rule-handle" data-reorderable={draftRules.length > 1 || undefined}
           onPointerDown={event => {
             if (draftRules.length < 2 || event.button !== 0 || pointerMove.current) return;
@@ -155,6 +164,12 @@ export function DataToolbarSortMenu({ options, value, onApply }: DataToolbarSort
             }}><CloseIcon /></IconButton>
         </div>
       </div>)}
+      {dragPreview && draggedRule && <div aria-hidden="true" data-sgui-part="sort-drag-preview" className={styles.dragPreview}
+        style={{ left: dragPreview.x + 4, top: dragPreview.y, "--drag-x": `${dragPreview.x}px`, "--drag-y": `${dragPreview.y}px` } as CSSProperties}>
+        <DragIndicatorIcon />
+        <span>{options.find(option => option.id === draggedRule.field)?.label ?? tr("common.ui.sort.selectColumn", "Select column")}</span>
+        <span className={styles.previewDirection}>{draggedRule.direction === "asc" ? tr("common.ui.sort.order.ascending", "Ascending") : draggedRule.direction === "desc" ? tr("common.ui.sort.order.descending", "Descending") : tr("common.ui.sort.selectOrder", "Select order")}</span>
+      </div>}
       <div className={styles.footer}>
         <IconButton density="compact" variant="outlined" label={tr("common.ui.sort.add", "Add sort rule")} disabled={!availableField}
           onPress={() => {

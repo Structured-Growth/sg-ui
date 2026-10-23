@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, useEffect, useMemo, useRef, useState, type ReactElement, type ReactNode, type Ref } from "react";
-import { DataToolbar, type ClassesViewMode, type DataToolbarColumnOption, type DataToolbarProps } from "../DataToolbar";
+import { DataToolbar, type CoursesViewMode, type DataToolbarColumnOption, type DataToolbarProps } from "../DataToolbar";
 import { ComposedAppDataGrid as AppDataGrid, type AppDataGridProps } from "../AppDataGrid/AppDataGrid";
 import { AppPaginationFooter } from "../CardPaginationFooter";
 import { useOwnedGridController } from "../AppDataGrid/ownedGridController";
@@ -21,7 +21,7 @@ export type AppDataGridShellToolbarConfig = Omit<DataToolbarProps,
 > & {
   show?: boolean;
   showSelectedCount?: boolean;
-  baseColumnOptions?: readonly { id: string; label: string; locked?: boolean }[];
+  baseColumnOptions?: readonly { id: string; label: string; locked?: boolean; reorderable?: boolean }[];
   onColumnOptionsChange?: (options: DataToolbarColumnOption[]) => void;
 };
 
@@ -31,9 +31,9 @@ export type AppDataGridShellCardsConfig<RowModel> = {
 };
 export type AppDataGridShellViewConfig<RowModel> = {
   enabled?: boolean;
-  mode?: ClassesViewMode;
-  defaultMode?: ClassesViewMode;
-  onModeChange?: (mode: ClassesViewMode) => void;
+  mode?: CoursesViewMode;
+  defaultMode?: CoursesViewMode;
+  onModeChange?: (mode: CoursesViewMode) => void;
   cards?: AppDataGridShellCardsConfig<RowModel>;
 };
 export type AppDataGridShellProps<RowModel> = Omit<AppDataGridProps<RowModel>, "processingResult" | "dispatchTransition"> & {
@@ -86,7 +86,7 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
       requestedDispatch({ type: "pagination", value: next.paginationModel });
     } else requestedDispatch(action);
   };
-  const [localView, setLocalView] = useState<ClassesViewMode>(() => defaults.viewMode ?? view?.defaultMode ?? "list");
+  const [localView, setLocalView] = useState<CoursesViewMode>(() => defaults.viewMode ?? view?.defaultMode ?? "list");
   const viewMode = view?.mode ?? localView;
   useEffect(() => { persistence.persist({ ...state, columnVisibilityModel: layout.visibility,
     columnOrder: layout.order, columnWidths: layout.widths, viewMode }); });
@@ -96,7 +96,8 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
     const column = columns.find(candidate => candidate.field === field)!;
     const hostOption = toolbar?.baseColumnOptions?.find(option => option.id === field);
     return { id: field, label: hostOption?.label ?? column.headerName ?? field,
-      visible: layout.visibility[field]!, locked: layout.lockedFields.includes(field) };
+      visible: layout.visibility[field]!, locked: layout.lockedFields.includes(field),
+      ...(column.cellType === "menu" || hostOption?.reorderable === false ? { reorderable: false } : {}) };
   });
   const entry = useRef<HTMLDivElement>(null);
   const [cardStatus, setCardStatus] = useState<HTMLDivElement | null>(null);
@@ -200,7 +201,8 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
         const column = columns.find(candidate => candidate.field === field)!;
         const hostOption = toolbar?.baseColumnOptions?.find(option => option.id === field);
         return { id: field, label: hostOption?.label ?? column.headerName ?? field, visible: next.columnVisibilityModel[field]!,
-          locked: layout.lockedFields.includes(field) };
+          locked: layout.lockedFields.includes(field),
+          ...(column.cellType === "menu" || hostOption?.reorderable === false ? { reorderable: false } : {}) };
       }));
       dispatch({ type: "reset", value: next });
       onResetView?.(next);
@@ -238,7 +240,7 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
           {processed.rows.map(row => <div className={styles.card} key={getOwnedGridRowId(row, getRowId)} role="listitem" tabIndex={-1}
             aria-label={getRowLabel(row)} data-grid-row={getOwnedGridRowId(row, getRowId)} data-sgui-part="grid-card">{view.cards!.renderCard(row)}</div>)}
         </div>
-      </> : <AppDataGrid {...gridProps} storageKey={undefined} persistence={undefined} label={label} getRowLabel={getRowLabel} getRowId={getRowId}
+      </> : <AppDataGrid {...gridProps} persistence={undefined} label={label} getRowLabel={getRowLabel} getRowId={getRowId}
         rows={rows} columns={columns} mode={mode} filterFields={filterFields} processingResult={processed} dispatchTransition={dispatch}
         {...state} selection={selection === false ? false : { ...selectionConfig, selectedRowIds: state.selectedRowIds,
           onSelectedRowIdsChange: value => dispatch({ type: "selection", value }) }}
@@ -251,7 +253,7 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
     </div>
     {!hideFooter && (footer ?? <AppPaginationFooter page={state.paginationModel.page} pageSize={state.paginationModel.pageSize}
       pageSizeOptions={normalizeGridPageSizeOptions(props.pageSizeOptions).map(option => option.value)} totalCount={processed.rowCount}
-      hasNextPage={processed.canNextPage} onPageChange={() => {}} onPageSizeChange={() => {}}
+      hasNextPage={processed.canNextPage}
       onPaginationModelChange={value => {
         pendingPageFocus.current = { page: value.pageSize !== state.paginationModel.pageSize ? 0 : value.page, origin: document.activeElement };
         dispatch({ type: "pagination", value });
@@ -260,7 +262,7 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
 }
 
 function Shell<RowModel>(props: AppDataGridShellProps<RowModel>, ref: Ref<HTMLDivElement>) {
-  const persisted = useOwnedGridPersistence({ persistence: props.persistence ?? (props.storageKey ? { key: props.storageKey } : undefined),
+  const persisted = useOwnedGridPersistence({ persistence: props.persistence,
     columns: props.columns, filterFields: props.filterFields ?? props.toolbar?.filterFields, pageSizeOptions: props.pageSizeOptions });
   if (!persisted.ready) return <div ref={ref} className={[styles.root, props.className].filter(Boolean).join(" ")} style={props.style}
     data-sgui-part="data-grid-shell" aria-label={props.label}><OwnedGridStatus state="loading" /></div>;

@@ -1,3 +1,13 @@
+## Current cleanup direction (2026-10-22)
+
+The owner explicitly requested removal of compatibility support and historical
+evidence from the working tree, including Class-prefixed public APIs. Use Course
+names, Provider, Typography tone="accent", preset factories, exact-version stored
+state and atomic card pagination callbacks. Do not restore deleted aliases,
+storage migrations, evidence archives or origin metadata. Retain current tests,
+regression guards and third-party notices. This direction supersedes historical
+retention and compatibility-preservation language below. Git history is unchanged.
+
 ## Development and production branches
 
 `dev` is the integration branch and holds the latest development code. Base new
@@ -227,7 +237,7 @@ must load `/styles.css` and provide `Provider` or `ThemeScope`. See the
 [remaining controls](docs/developer/react-aria-remaining-controls.md) and
 [progress/avatar contracts](docs/developer/react-aria-progress-avatar.md).
 `CardCollectionWithFooter`, `AppPaginationFooter` (CardPaginationFooter directory),
-`ClassCardFrame`, `InstructorClassCard` and `LearnerClassCard` have also migrated.
+`CourseCardFrame`, `InstructorCourseCard` and `LearnerCourseCard` have also migrated.
 Apply the same owned rules to these directories; see the [card pagination](docs/developer/react-aria-card-pagination.md)
 and [card frame mappings](docs/developer/react-aria-card-frames.md). Frame styling slots
 now use className/native style, and page-size changes request page zero first.
@@ -280,8 +290,7 @@ requirement. New dependencies must have a clear consumer benefit.
 ## Terminology
 
 In learning-domain requests, interpret "class" as "course" in new presentation
-models and API names. Keep existing Class-prefixed public exports for compatibility;
-do not rename or remove them without an explicit migration and breaking-change marker.
+models and API names. Use Course-prefixed public APIs. The owner authorized removal of Class-prefixed names and compatibility aliases on 2026-10-22; do not restore old-name exports.
 SGUI does not define application database or HTTP-contract naming.
 
 ## Styling and shared components
@@ -305,8 +314,7 @@ SGUI does not define application database or HTTP-contract naming.
 - Put reusable styles in theme tokens or shared CSS component styles first. Use native class/style
   only for a layout or context-specific adjustment.
 - Typography uses `default`, `muted`, `subtle`, `accent` and `danger` text tones.
-  `primary` remains a compatibility alias for `accent`, not an action-priority
-  label. Keep subtle text token-backed and contrast-checked; use content roles
+  `accent` is the only accent text tone; do not restore the removed `primary` alias. Keep subtle text token-backed and contrast-checked; use content roles
   such as eyebrow in compositions rather than conflating them with color tones.
 - Do not set typography directly in local style (fontSize, fontWeight, fontFamily or
   lineHeight). Use Typography variants, owned typography tokens, or shared
@@ -406,7 +414,7 @@ control; importing guidance is not an instruction to change all legacy behavior.
 ## Website examples and behavior tests
 
 - The Next.js docs website is the target for new examples and UI design. Follow
-  [the transition checklist](docs/developer/docs-website.md#active-transition-plan--2026-10-14)
+  [the transition checklist](docs/developer/docs-website.md)
   for migration evidence. Storybook is removed; new documentation belongs in the
   website and native browser scenarios in its private test host.
 - Keep library tests colocated with implementations; update the corresponding
@@ -532,8 +540,7 @@ whole-directory AppDataGrid boundary. See the internal processing, cell/presenta
 and interaction contracts in the catalog grid contracts. Earlier incremental
 migration records are historical evidence, not exceptions to current owned rules.
 
-AppDataGrid public renderer/types/helpers/parts, AppDataGridShell and
-LearnerClassesDataGrid now use the owned foundation and strict whole-directory
+AppDataGrid public renderer/types/helpers/parts and AppDataGridShell now use the owned foundation and strict whole-directory
 boundaries. See [catalog grid integration](docs/developer/react-aria-catalog-grid.md)
 for breaking mappings, one shared shell state owner and opt-in hydration-safe
 persistence. Load /styles.css and provide Provider or ThemeScope.
@@ -554,9 +561,9 @@ with whole-directory source/transitive/declaration boundaries. See
 owned props and deliberate breaking removals. Import `/styles.css` and provide
 Provider or ThemeScope. Legacy theme removal and broad acceptance remain open.
 
-The public `/theme` now exports owned Provider/ThemeScope and AppThemeProvider (the same Provider under its preserved name). Theme objects and upstream typography augmentation are removed. The docs native test host uses production scopes and theme/density/locale/direction settings. See [theme mappings](docs/developer/react-aria-theme.md). No retired runtime/peer/dev foundation packages remain. Broad acceptance and final literal-reference audits remain open.
+The public `/theme` now exports owned Provider/ThemeScope and Provider (the same Provider under its preserved name). Theme objects and upstream typography augmentation are removed. The docs native test host uses production scopes and theme/density/locale/direction settings. See [theme mappings](docs/developer/react-aria-theme.md). No retired runtime/peer/dev foundation packages remain. Broad acceptance and final literal-reference audits remain open.
 
-M-39 admin/instructor presets now expose translated Course-named factories, canonical status constants, first/action column locks and empty criteria defaults. Existing Class-named exports remain. See [preset contracts](docs/developer/react-aria-grid-presets.md).
+M-39 admin/instructor presets now expose translated Course-named factories, canonical status constants, first/action column locks and empty criteria defaults. Only factory defaults are exported; shared compatibility arrays have been removed. See [preset contracts](docs/developer/react-aria-grid-presets.md).
 
 Pagination/state hooks now use explicit opt-in local/session persistence; page sizes
 accept positive safe integers unless the host supplies choices. See
@@ -567,11 +574,11 @@ injects them into every module. See [server boundaries](docs/developer/react-ari
 AppDataGrid and AppDataGridShell offer opt-in `showResetView` with one complete
 `onResetView` snapshot. Reset uses declared defaults, page zero and empty selection;
 controlled hosts accept the request. See the [catalog grid contract](docs/developer/react-aria-catalog-grid.md)
-for callback and persisted-state behavior. LearnerClassesDataGridProps is exported
-through the root, component barrel and granular entry point.
+for callback and persisted-state behavior. Course collections compose AppDataGridShell
+with host-owned columns, localized date formatting and action destinations.
 
 Grid cell/helper migration tasks M-40/M-41 are reconciled in
-[the cell acceptance record](docs/developer/react-aria-grid-cell-acceptance.md).
+the cell acceptance record.
 Public grid columns support `truncate: false` for multiline content; default
 ellipsis preserves complete accessible text. Ordinary grids omit drag hooks;
 toggling reorder retains the outer container and repairs lost grid focus.
@@ -651,9 +658,9 @@ E-06 broader acceptance remains open.
 
 
 Batch-01 bounded calendar/focus/reorder acceptance is recorded in
-[calendar evidence](docs/developer/parallel-batch-01/calendar.md),
-[grid focus evidence](docs/developer/parallel-batch-01/grid-focus.md) and
-[reorder evidence](docs/developer/parallel-batch-01/grid-reorder.md).
+calendar evidence,
+grid focus evidence and
+reorder evidence.
 DateRangeSelector exposes keyboard range preview, blocks Apply during an unfinished
 range, cancels that preview on blur and resets the complete draft after native host
 reset prevention. Accepted grid page-size/page entry resets both scroll axes;
@@ -664,14 +671,14 @@ broad K/G/U/X/R/Z and device/assistive-technology gates remain open.
 
 Owned Menu/Popover portals preserve explicit visual direction using a stable
 native-ref bridge; interaction locale remains authoritative for keyboard/placement.
-See [direction evidence](docs/developer/parallel-batch-05/portal-direction.md).
+See direction evidence.
 Owned grid tables synchronize native aria-busy before host refs and after commits;
 DOM status sources do not establish spoken AT acceptance. See
-[busy evidence](docs/developer/parallel-batch-05/grid-busy.md). Due-label formatting
+busy evidence. Due-label formatting
 canonicalizes supported locales and explicitly falls back to en-US for malformed,
 empty or unsupported locale input. Locale does not set timezone; hosts coordinate
 reference clock and SSR/hydration timezone. See
-[due-date contract](docs/developer/react-aria-due-date-acceptance.md).
+due-date contract.
 Broad H/G/U/X/R/Z acceptance remains open.
 
 IconPanelNavigation is an owned icon rail with persistent, non-modal sliding panels.
@@ -762,8 +769,7 @@ Relative date grammar, civil validation and arithmetic are centralized in
 packages/ui/src/utils/relative-dates.ts. Keep it dependency-free (enforced by the
 foundation guard); extend its owned Gregorian rules/tests rather than adding a
 third-party natural-language/date arithmetic library or duplicating relative rules
-in components. The public getRelativeDateRange export remains a compatibility
-reexport. Native Intl is only for localized names/digits; never infer a clock or
+in components. The public getRelativeDateRange export uses the shared module directly. Native Intl is only for localized names/digits; never infer a clock or
 use local-time arithmetic. Calendar interaction/instant conversion are separate.
 
 The shared relative parser also supports bounded conversational offsets such as

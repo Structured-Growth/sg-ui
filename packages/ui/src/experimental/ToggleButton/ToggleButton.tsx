@@ -37,12 +37,14 @@ export interface ToggleButtonGroupProps extends Pick<HTMLAttributes<HTMLDivEleme
   orientation?: "horizontal" | "vertical";
   /** Equal widths follow the widest option by default; content sizes each button independently. */
   buttonWidth?: "equal" | "content";
+  /** Hide visible labels for options with icons; labels remain accessible names. */
+  iconOnly?: boolean;
   density?: Density;
 }
 /** Owns string IDs and callbacks; upstream collection and state types stay internal. */
 export const ToggleButtonGroup = forwardRef<HTMLDivElement, ToggleButtonGroupProps>(function ToggleButtonGroup(
   { label, options, selectionMode = "single", selectedIds, defaultSelectedIds, onSelectionChange,
-    allowEmpty = true, disabled, orientation = "horizontal", buttonWidth = "equal", density, className, ...props }, ref,
+    allowEmpty = true, disabled, orientation = "horizontal", buttonWidth = "equal", iconOnly = false, density, className, ...props }, ref,
 ) {
   return <AriaToggleButtonGroup {...props} ref={ref} aria-label={label} selectionMode={selectionMode}
     selectedKeys={selectedIds} defaultSelectedKeys={defaultSelectedIds}
@@ -50,8 +52,10 @@ export const ToggleButtonGroup = forwardRef<HTMLDivElement, ToggleButtonGroupPro
     disallowEmptySelection={!allowEmpty} isDisabled={disabled} orientation={orientation}
     className={[styles.group, className].filter(Boolean).join(" ")}
     data-sgui-density={density} data-button-width={buttonWidth} data-sgui-part="toggle-button-group">
-    {options.map(option => <ToggleButton key={option.id} id={option.id} disabled={option.disabled}>
-      {option.icon && <span aria-hidden="true" className={styles.icon}>{option.icon}</span>}{option.label}
+    {options.map(option => <ToggleButton key={option.id} id={option.id} disabled={option.disabled}
+      aria-label={iconOnly && option.icon ? option.label : undefined} title={iconOnly && option.icon ? option.label : undefined}
+      data-icon-only={iconOnly && option.icon ? true : undefined}>
+      {option.icon && <span aria-hidden="true" className={styles.icon}>{option.icon}</span>}{(!iconOnly || !option.icon) && option.label}
     </ToggleButton>)}
   </AriaToggleButtonGroup>;
 });

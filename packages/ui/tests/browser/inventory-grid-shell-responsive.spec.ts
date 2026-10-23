@@ -109,6 +109,18 @@ async function tabTo(page: Page, target: Locator, browserName: string, observati
     `${targetName}:${direction}:${key}`);
   for (let attempt = 0; attempt < 50; attempt++) {
     if (await target.evaluate(element => element === document.activeElement)) return;
+    const groupArrow = await target.evaluate(element => {
+      if (element.getAttribute('role') !== 'radio') return null;
+      const group = element.closest('[role="radiogroup"]');
+      const active = document.activeElement;
+      if (!group || !active || !group.contains(active)) return null;
+      return element.compareDocumentPosition(active) & Node.DOCUMENT_POSITION_FOLLOWING ? 'ArrowLeft' : 'ArrowRight';
+    });
+    if (groupArrow) {
+      await page.keyboard.press(groupArrow);
+      await expect(target).toBeFocused();
+      return;
+    }
     await page.keyboard.press(key);
     await observation.evaluate((observer, step) => observer.capture(`traversal:after-tab:${step}`),
       `${targetName}:${attempt + 1}:${direction}:${key}`);
@@ -159,8 +171,8 @@ for (const theme of ['light', 'dark']) {
       try {
         if (enlarged) await page.addStyleTag({ content: 'html { font-size: 200%; }' });
         const accepted = page.getByRole('status', { name: 'Responsive accepted state' });
-        const cards = page.getByRole('button', { name: 'Cards', exact: true });
-        const list = page.getByRole('button', { name: 'List', exact: true });
+        const cards = page.getByRole('radio', { name: 'Cards', exact: true });
+        const list = page.getByRole('radio', { name: 'List', exact: true });
         await tabTo(page, cards, browserName, observation);
         for (const width of [320, 760, 320]) {
           await page.setViewportSize({ width, height: 900 });
@@ -169,7 +181,7 @@ for (const theme of ['light', 'dark']) {
         }
         await page.keyboard.press('Enter');
         await visibleFocus(cards);
-        await expect(cards).toHaveAttribute('aria-pressed', 'true');
+        await expect(cards).toHaveAttribute('aria-checked', 'true');
         await coherentShell(page, 'cards', '1-2 of 4');
         await expect(accepted).toHaveText('Page 0; requests 0; view cards');
         // Host status changes preserve the focused view control at narrow width.
@@ -187,10 +199,12 @@ for (const theme of ['light', 'dark']) {
         await expect(page.getByText('Refreshing rows', { exact: true })).toBeVisible();
         await expect(page.getByRole('button', { name: 'Retry', exact: true })).toHaveCount(0);
         await expect(list).toBeEnabled();
-        await expect(list).toHaveAttribute('tabindex', '0');
+        await expect(cards).toHaveAttribute('tabindex', '0');
         await observation.evaluate(observer => observer.capture('retry:removed-pending-visible'));
-        // List precedes the removed Retry starting point in native sequential order.
-        await tabTo(page, list, browserName, observation, 'backward');
+        // Return to the view group, then use its internal keyboard navigation.
+        await tabTo(page, cards, browserName, observation, 'backward');
+        await page.keyboard.press('ArrowRight');
+        await expect(list).toBeFocused();
         await page.keyboard.press('Alt+r');
         await page.keyboard.press('Enter');
         await visibleFocus(list);

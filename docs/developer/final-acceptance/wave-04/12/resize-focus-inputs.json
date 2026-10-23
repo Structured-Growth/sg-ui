@@ -1,6 +1,0 @@
-{
-  "path": "packages/ui/src/experimental/Dialog/Dialog.tsx",
-  "baseSha256": "c20465eda40e26c6c501abfd5dd9d9dcc4f84f76f41b83027dcbe749089b00c7",
-  "proposedSha256": "733b86547c511be35e6603faea5eb60bf8341463622a579ee7d9b8597c2eabfb",
-  "status": "prepared; native measurement confirmation and coordinator review required; not applied"
-}

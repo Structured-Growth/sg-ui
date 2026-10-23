@@ -1,4 +1,0 @@
-Tooling/exploration failures (no product test failure):
-1. An initial summary probe assumed migration-index.json was an object and called .items(); it is a list, so Python raised AttributeError. Corrected to list handling; source/evidence unchanged.
-2. Initial build-deliverables.py exited with ValueError: missing guide docs/developer/react-aria-adapters-acceptance.md. Corrected link to existing react-aria-host-adapter-acceptance.md; subsequent generator passed and validates every guide target.
-No runtime/unit/build/browser failure was suppressed. No new product tests/builds were run.

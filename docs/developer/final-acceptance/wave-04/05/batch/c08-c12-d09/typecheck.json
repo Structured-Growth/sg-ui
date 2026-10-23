@@ -1,5 +1,0 @@
-{
-  "runtime": "v24.19.0",
-  "kind": "Two-file virtual-overlay semantic check against existing public declarations; no shared files or build outputs changed",
-  "diagnostics": []
-}

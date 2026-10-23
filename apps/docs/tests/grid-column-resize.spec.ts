@@ -1,0 +1,69 @@
+import {test,expect} from './fixtures';
+import {exampleName} from './example-name';
+
+test('leading divider resizes Status while Score keeps its width and no divider trails the grid',async({page})=>{
+ await page.goto('/docs/components/data-grid-shell');
+ const preview=page.getByRole('region',{name:exampleName('Prop playground'),exact:true}).locator('[data-docs-preview]');
+ const grid=preview.getByRole('grid');
+ const status=grid.locator('thead [data-grid-field="status"]');
+ const score=grid.locator('thead [data-grid-field="score"]');
+ const actions=grid.locator('thead [data-grid-field="actions"]');
+ await expect(actions.getByRole('slider')).toHaveCount(0);
+ expect((await actions.boundingBox())!.width).toBeCloseTo(110,0);
+ const slider=status.getByRole('slider',{name:/^Resize Status\b/});
+ const handle=status.locator('[data-resizable-direction]');
+ await handle.scrollIntoViewIfNeeded();
+ const first=grid.locator('thead [data-grid-field="name"]');
+ await expect(first.getByRole('slider')).toHaveCount(0);
+ const inactive=first.locator('[data-sgui-part="inactive-column-divider"]');
+ const inertBounds=(await inactive.boundingBox())!;
+ const initial=await grid.locator('thead th').evaluateAll(nodes=>nodes.map(node=>node.getBoundingClientRect().width));
+ await page.mouse.move(inertBounds.x+2,inertBounds.y+inertBounds.height/2);await page.mouse.down();
+ await page.mouse.move(inertBounds.x-30,inertBounds.y+inertBounds.height/2,{steps:5});await page.mouse.up();
+ expect(await grid.locator('thead th').evaluateAll(nodes=>nodes.map(node=>node.getBoundingClientRect().width))).toEqual(initial);
+ const before=(await status.boundingBox())!,scoreBefore=(await score.boundingBox())!,bounds=(await handle.boundingBox())!;
+ expect(Math.abs(bounds.x-before.x)).toBeLessThan(12);
+ await page.mouse.move(bounds.x+bounds.width/2,bounds.y+bounds.height/2);
+ await page.mouse.down();await page.mouse.move(bounds.x+bounds.width/2-40,bounds.y+bounds.height/2,{steps:8});await page.mouse.up();
+ await expect.poll(async()=>(await status.boundingBox())!.width).toBeGreaterThan(before.width+20);
+ expect((await score.boundingBox())!.width).toBeCloseTo(scoreBefore.width,0);
+ expect((await handle.boundingBox())!.x).toBeCloseTo(bounds.x-40,0);
+ // A fresh drag to the right narrows the same column and follows the pointer.
+ const next=(await handle.boundingBox())!;
+ await page.mouse.move(next.x+next.width/2,next.y+next.height/2);await page.mouse.down();
+ await page.mouse.move(next.x+next.width/2+20,next.y+next.height/2,{steps:8});await page.mouse.up();
+ expect((await status.boundingBox())!.width).toBeCloseTo(before.width+20,0);
+ expect((await handle.boundingBox())!.x).toBeCloseTo(next.x+20,0);
+ expect((await score.boundingBox())!.width).toBeCloseTo(scoreBefore.width,0);
+ const scoreHandle=score.locator('[data-resizable-direction]');
+ const scoreStart=(await scoreHandle.boundingBox())!;
+ const statusWidth=(await status.boundingBox())!.width;
+ await page.mouse.move(scoreStart.x+scoreStart.width/2,scoreStart.y+scoreStart.height/2);await page.mouse.down();
+ await page.mouse.move(scoreStart.x+scoreStart.width/2-25,scoreStart.y+scoreStart.height/2,{steps:8});await page.mouse.up();
+ expect((await score.boundingBox())!.width).toBeCloseTo(scoreBefore.width+25,0);
+ expect((await status.boundingBox())!.width).toBeCloseTo(statusWidth,0);
+ expect((await scoreHandle.boundingBox())!.x).toBeCloseTo(scoreStart.x-25,0);
+ expect((await actions.boundingBox())!.width).toBeCloseTo(110,0);
+ await page.setViewportSize({width:1600,height:1000});
+ expect((await actions.boundingBox())!.width).toBeCloseTo(110,0);
+ const trailing=await grid.locator('thead').evaluate(element=>{
+  const headers=[...element.querySelectorAll('th')],last=headers.at(-1)!.getBoundingClientRect();
+  return [...element.querySelectorAll('[data-resizable-direction]')].some(handle=>handle.getBoundingClientRect().x>=last.right-10);
+ });
+ expect(trailing).toBe(false);
+});
+
+ test('first data header has no leading divider at the table edge',async({page})=>{
+ await page.goto('/docs/components/data-grid-shell');
+ const panel=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
+ const first=panel.getByRole('grid').locator('thead [data-grid-field="name"]');
+ const divider=first.locator('[data-sgui-part="inactive-column-divider"]');
+ await expect(divider).toHaveCount(1);
+ await panel.getByRole('checkbox',{name:'Enable row selection',exact:true}).locator('xpath=ancestor::label[1]').click();
+ await expect(divider).toHaveCount(0);
+ await expect(first.getByRole('slider')).toHaveCount(0);
+ await expect(panel.getByRole('slider',{name:/^Resize Status\b/})).toHaveCount(1);
+ await panel.getByRole('checkbox',{name:'Enable row sorter',exact:true}).locator('xpath=ancestor::label[1]').click();
+ await expect(divider).toHaveCount(1);
+ await expect(first.getByRole('slider')).toHaveCount(0);
+ });

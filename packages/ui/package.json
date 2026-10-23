@@ -89,17 +89,17 @@
       "types": "./dist/components/CardCollectionWithFooter/index.d.ts",
       "import": "./dist/components/CardCollectionWithFooter/index.js"
     },
-    "./components/ClassCardFrame": {
-      "types": "./dist/components/ClassCardFrame/index.d.ts",
-      "import": "./dist/components/ClassCardFrame/index.js"
+    "./components/CourseCardFrame": {
+      "types": "./dist/components/CourseCardFrame/index.d.ts",
+      "import": "./dist/components/CourseCardFrame/index.js"
     },
-    "./components/InstructorClassCard": {
-      "types": "./dist/components/InstructorClassCard/index.d.ts",
-      "import": "./dist/components/InstructorClassCard/index.js"
+    "./components/InstructorCourseCard": {
+      "types": "./dist/components/InstructorCourseCard/index.d.ts",
+      "import": "./dist/components/InstructorCourseCard/index.js"
     },
-    "./components/LearnerClassCard": {
-      "types": "./dist/components/LearnerClassCard/index.d.ts",
-      "import": "./dist/components/LearnerClassCard/index.js"
+    "./components/LearnerCourseCard": {
+      "types": "./dist/components/LearnerCourseCard/index.d.ts",
+      "import": "./dist/components/LearnerCourseCard/index.js"
     },
     "./components/Button": {
       "types": "./dist/components/Button/index.d.ts",
@@ -196,10 +196,6 @@
     "./components/AppDataGridShell": {
       "types": "./dist/components/AppDataGridShell/index.d.ts",
       "import": "./dist/components/AppDataGridShell/index.js"
-    },
-    "./components/LearnerClassesDataGrid": {
-      "types": "./dist/components/LearnerClassesDataGrid/index.d.ts",
-      "import": "./dist/components/LearnerClassesDataGrid/index.js"
     },
     "./components/AppDataGridRowDnd": {
       "types": "./dist/components/AppDataGridRowDnd/index.d.ts",

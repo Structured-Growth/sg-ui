@@ -7,7 +7,7 @@ for (const surface of ['grid', 'list', 'cards']) {
     const id = surface === 'grid' ? 'data-appdatagrid' : 'data-display-appdatagridshell';
     await page.goto(`/fixtures/?id=${id}--client-dataset-shrink&globals=a11y.manual:!true`);
     await expect(page.getByText('Course 31', { exact: true })).toBeVisible();
-    if (surface === 'cards') await page.getByRole('button', { name: 'Cards', exact: true }).click();
+    if (surface === 'cards') await page.getByRole('radio', { name: 'Cards', exact: true }).click();
     await page.getByRole('button', { name: 'Shrink to 11 rows', exact: true }).click();
     await expect(page.getByText('Course 11', { exact: true })).toBeVisible();
     await expect(page.getByText('11-11 of 11', { exact: true })).toBeVisible();

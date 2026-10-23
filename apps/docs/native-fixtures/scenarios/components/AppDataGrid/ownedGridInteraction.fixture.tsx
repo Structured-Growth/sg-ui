@@ -51,7 +51,7 @@ export function InteractionExample({ server = false }: { server?: boolean }) {
       refreshing={refreshing} onRowAction={row => setMessage(`Open ${row.id}`)} style={{ maxHeight: 320 }} />
     <AppPaginationFooter page={state.paginationModel.page} pageSize={state.paginationModel.pageSize} pageSizeOptions={[10, 25, 250]}
       totalCount={result.rowCount} hasNextPage={result.canNextPage} onPaginationModelChange={value => dispatch({ type: "pagination", value })}
-      onPageChange={() => {}} onPageSizeChange={() => {}} />
+        />
     <Button variant="outlined" tone="neutral" onPress={() => setOrder(["score", "name", "status", "due", "actions"])}>Put score first</Button>
     <Button variant="outlined" tone="neutral" onPress={() => setReverse(value => !value)}>Reverse host rows</Button>
     <p role="status">Host action: {message}. Committed widths: {JSON.stringify(layout.widths)}</p>

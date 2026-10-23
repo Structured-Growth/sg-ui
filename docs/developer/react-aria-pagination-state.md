@@ -53,13 +53,8 @@ retain updates in browser memory; local and session scopes are isolated.
 
 `version` opts into the envelope
 `{ __sguiPersistent: true, version, value }`. Without it, raw JSON remains the
-format. Version mismatches (including legacy raw JSON) restore the initial value
-unless `migrate(value, previousVersion)` returns a valid model. The previous
-version is undefined for raw JSON. Missing keys and malformed JSON always use
-initial defaults and never run migration, including after live version changes.
-The host owns migration decisions, distinct
-keys and schema versions. A valid migration is persisted on the next setter call;
-normalization also writes back corrected pagination. The generic state hook's
+format. Missing or mismatched versions restore the initial value. There is no
+migration callback. Hosts own distinct keys and schema versions; normalization also writes back corrected pagination. The generic state hook's
 `validate` option lets hosts reject malformed stored state; the pagination hook
 always validates its owned numeric model. Live validation changes recheck both
 stored and memory-only values. Rejected stored candidates remain available if

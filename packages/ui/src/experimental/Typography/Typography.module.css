@@ -17,7 +17,7 @@
   .root[data-variant="code"] { font-size: var(--sgui-code-size); line-height: var(--sgui-code-line-height); font-weight: var(--sgui-code-weight); }
   .root[data-variant="code"] { font-family: var(--sgui-code-font-family); }
   .root[data-tone="muted"] { color: var(--sgui-typography-muted-text); }
-  .root[data-tone="accent"], .root[data-tone="primary"] { color: var(--sgui-typography-primary-foreground); }
+  .root[data-tone="accent"] { color: var(--sgui-typography-accent-foreground); }
   .root[data-tone="subtle"] { color: var(--sgui-typography-subtle-text); }
   .root[data-tone="danger"] { color: var(--sgui-typography-danger-text); }
   .root[data-no-wrap] { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

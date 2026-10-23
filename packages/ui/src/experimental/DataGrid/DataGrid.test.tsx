@@ -20,10 +20,11 @@ it("filters before sorting and pagination and preserves stable null/number/date 
 });
 it("commits numeric widths through keyboard resize activation", async () => {
   const user = userEvent.setup(); const change = vi.fn();
-  render(<DataGrid {...props} columns={columns.map(column=>({...column,width:180}))} onStateChange={change} />);
+  render(<DataGrid {...props} columns={[...columns].reverse().map(column=>({...column,width:180}))} onStateChange={change} />);
   const slider = screen.getByRole("slider", { name: /Resize Name/ });
+  const before=Number((slider as HTMLInputElement).value);
   await user.click(slider); await user.keyboard("{Enter}{ArrowRight}{Enter}");
-  expect(change.mock.calls.at(-1)?.[0].widths.name).toBe(190);
+  expect(change.mock.calls.at(-1)?.[0].widths.name).toBe(before+10);
 });
 it("cancels a keyboard drag without requesting a host reorder", async () => {
   const user = userEvent.setup(); const reorder = vi.fn();
@@ -109,4 +110,11 @@ it("isolates overlapping row keys and nested cell actions between independent gr
   expect(secondChange.mock.calls.at(-1)?.[0].selectedIds).toEqual(["b"]);
   expect((first.getByRole("checkbox", { name: "Select Science a" }) as HTMLInputElement).checked).toBe(true);
   expect((first.getByRole("checkbox", { name: "Select Mathematics b" }) as HTMLInputElement).checked).toBe(false);
+});
+
+it("omits interactive dividers beside the checkbox column and fixed data columns",()=>{
+ const {rerender}=render(<DataGrid {...props}/>);
+ expect(screen.queryByRole("slider",{name:/Resize Name/})).toBeNull();expect(screen.getByRole("slider",{name:/Resize Score/})).toBeTruthy();
+ rerender(<DataGrid {...props} columns={[{...columns[0]!,minWidth:120,maxWidth:120},columns[1]!]} />);
+ expect(screen.queryByRole("slider")).toBeNull();
 });

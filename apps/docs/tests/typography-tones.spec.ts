@@ -2,7 +2,7 @@ import {exampleName} from './example-name';
 import {test,expect} from './fixtures';
 import {checkSources} from './check-sources';
 
-test('Typography accent alias and subtle tone follow themes with isolated source-backed examples',async({page,context})=>{
+test('Typography accent and subtle tones follow themes with isolated source-backed examples',async({page,context})=>{
   await context.grantPermissions(['clipboard-read','clipboard-write']);
   await page.emulateMedia({colorScheme:'light',contrast:'no-preference',forcedColors:'none'});
   await page.goto('/docs/components/typography');
@@ -17,7 +17,7 @@ test('Typography accent alias and subtle tone follow themes with isolated source
     const values=await preview.evaluate(element=>{const style=getComputedStyle(element);return {accent:style.getPropertyValue('--sgui-action').trim(),subtle:style.getPropertyValue('--sgui-text-subtle').trim()};});
     const rgb=(hex:string)=>`rgb(${hex.slice(1).match(/../g)!.map(value=>parseInt(value,16)).join(', ')})`;
     await expect(accent).toHaveCSS('color',rgb(values.accent));
-    await expect(primary).toHaveCSS('color',rgb(values.accent));
+    await expect(primary).toHaveCount(0);
     await expect(subtle).toHaveCSS('color',rgb(values.subtle));
     expect(await subtle.evaluate(element=>getComputedStyle(element).color)).not.toBe(await preview.locator('[data-tone="muted"]').evaluate(element=>getComputedStyle(element).color));
   }

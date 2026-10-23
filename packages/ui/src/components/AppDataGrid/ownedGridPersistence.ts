@@ -34,7 +34,6 @@ export interface OwnedGridPersistenceOptions<Row> {
 }
 const record = (value: unknown): value is Record<string, unknown> => value !== null && typeof value === "object" && !Array.isArray(value);
 export const ownedGridPersistenceKey = (key: string): string => `sgui:grid:${key}:v1`;
-const legacyKeys = (key: string) => [`datagrid:${key}:paginationModel`, `page:${key}:viewMode`, `page:${key}:columnVisibilityModel`, `page:${key}:cardsPaginationModel`];
 function storageFor(config: OwnedGridPersistenceConfig | undefined): OwnedGridStorage | undefined {
   if (!config?.key.trim()) return undefined;
   if (config.storage) return config.storage;
@@ -78,14 +77,7 @@ export function readOwnedGridPersistence<Row>(options: OwnedGridPersistenceOptio
   const storage = storageFor(config);
   if (!storage || !config) return {};
   const saved = readJSON(storage, ownedGridPersistenceKey(config.key));
-  // An incompatible future schema must not revive stale legacy state.
-  if (saved !== undefined) return record(saved) && saved.version === 1 ? normalizeOwnedGridPersistedState(saved.state, options) : {};
-  const [paginationKey, viewKey, visibilityKey, cardsKey] = legacyKeys(config.key);
-  const list = normalizeOwnedGridPersistedState({ paginationModel: readJSON(storage, paginationKey!) }, options);
-  const cards = normalizeOwnedGridPersistedState({ paginationModel: readJSON(storage, cardsKey!) }, options);
-  // Retired sortModel/filterModel are deliberately not interpreted as owned rules.
-  return { ...normalizeOwnedGridPersistedState({ viewMode: readJSON(storage, viewKey!), columnVisibilityModel: readJSON(storage, visibilityKey!) }, options),
-    ...(list.paginationModel ? list : cards) };
+  return record(saved) && saved.version === 1 ? normalizeOwnedGridPersistedState(saved.state, options) : {};
 }
 /** Mount controllers only when ready so restored defaults seed once after hydration.
  * Controlled values remain authoritative. Without persistence, ready is immediate. */
@@ -121,9 +113,7 @@ export function useOwnedGridPersistence<Row>(options: OwnedGridPersistenceOption
     const config = initialOptions.persistence;
     const storage = storageFor(config);
     if (!config || !storage) return;
-    for (const key of [ownedGridPersistenceKey(config.key), ...legacyKeys(config.key)]) {
-      try { storage.removeItem(key); } catch { /* A blocked key must not prevent clearing other keys. */ }
-    }
+    try { storage.removeItem(ownedGridPersistenceKey(config.key)); } catch { /* Reset remains usable without storage. */ }
     if (normalized !== undefined) {
       try { storage.setItem(ownedGridPersistenceKey(config.key), JSON.stringify({ version: 1, state: normalized })); } catch { /* Reset remains usable without storage. */ }
     }

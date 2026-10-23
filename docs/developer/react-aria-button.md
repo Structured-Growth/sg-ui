@@ -56,19 +56,6 @@ retains its native `onKeyDown` event escape hatch for host reorder controls.
 
 ## Native form activation ordering
 
-Pending reset buttons suppress the native reset default. Submit/reset buttons
-deliver the owned `onPress` once from native click capture, before the form default
-action; ordinary buttons retain React Aria press handling. Pointer, Enter and Space
-ordering and current host callbacks are covered by [focused button evidence](parallel-batch-13/control-button.md).
-The later integrated [action-notification receipt](final-acceptance/wave-03-followup/validation-results.json)
-records pointer/Enter/Space, native submit/reset ordering and emulated-touch
-checks in Chromium, Firefox and WebKit. Exact cases are in
-`packages/ui/tests/browser/action-notifications.spec.ts`; the retained raw report
-is `packages/ui/artifacts/wave03-integration/followup-final-results.json`.
-Emulated touch is desktop automation. Physical touch and spoken
-assistive-technology acceptance remain separate.
-
-
 ## Unreleased API consolidation
 
 Before the first release, AppButton and AppButtonProps were removed. Use Button

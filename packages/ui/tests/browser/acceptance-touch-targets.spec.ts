@@ -70,26 +70,11 @@ test('auto coarse-pointer and explicit touch preserve control targets, tag spaci
   } finally { await context.close(); }
 });
 
-for (const [id, label] of [['migration-proofs-datagrid--client', 'Name'], ['migration-proofs-catalog-grid-interaction--client', 'Status']] as const) {
-  test(`${id}: single-pointer width actions request one-pixel changes without a drag`, async ({ page }, info) => {
+for (const [id, label] of [['migration-proofs-datagrid--client', 'Score'], ['migration-proofs-catalog-grid-interaction--client', 'Status']] as const) {
+  test(`${id}: column resize handles remain available without width menus`, async ({ page }, info) => {
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto(`/fixtures/?id=${id}&embed=true&globals=a11y.manual:!true`);
-    await page.evaluate(() => { (window as Window & { wave0310Drags?: number }).wave0310Drags = 0; document.addEventListener('dragstart', () => { (window as unknown as Window & { wave0310Drags: number }).wave0310Drags++; }); });
-    const trigger = page.getByRole('button', { name: `Width of ${label}`, exact: true });
-    await trigger.click();
-    const input = page.getByRole('textbox', { name: 'Width in CSS pixels', exact: true });
-    const before = Number(await input.inputValue());
-    await page.getByRole('button', { name: 'Narrower by 1 pixel', exact: true }).click();
-    await expect(page.getByRole('dialog', { name: `Width of ${label}`, exact: true })).toHaveCount(0);
-    await info.attach('width-close-focus', { body: JSON.stringify(await page.evaluate(() => ({
-      activeTag: document.activeElement?.tagName, activeRole: document.activeElement?.getAttribute('role'),
-      activeLabel: document.activeElement?.getAttribute('aria-label'), activeHTML: document.activeElement?.outerHTML.slice(0, 1200),
-    }))), contentType: 'application/json' });
-    await expect(trigger).toBeFocused();
-    await trigger.click();
-    await expect.poll(async () => Number(await input.inputValue())).toBeCloseTo(before - 1, 0);
-    await page.keyboard.press('Escape');
-    expect(await page.evaluate(() => (window as unknown as Window & { wave0310Drags: number }).wave0310Drags)).toBe(0);
-    await info.attach('non-drag-width', { body: JSON.stringify({ fixture: id, before, after: before - 1 }), contentType: 'application/json' });
+    await expect(page.getByRole('button', { name: `Width of ${label}`, exact: true })).toHaveCount(0);
+    await expect(page.getByRole('slider', { name: new RegExp(`^Resize ${label}\\b`) })).toBeVisible();
   });
 }

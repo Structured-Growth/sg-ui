@@ -1,1 +1,0 @@
-All three patches pass git apply --check; no patch applied.

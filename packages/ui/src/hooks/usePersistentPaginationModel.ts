@@ -24,7 +24,6 @@ export function usePersistentPaginationModel(
   const [value, setValue] = usePersistentState<PaginationModel>(key, normalizePaginationModel(initialValue, options), {
     storage: options.storage,
     version: options.version,
-    migrate: options.migrate,
     validate: isPaginationModel,
   });
   const normalizedValue = useMemo(

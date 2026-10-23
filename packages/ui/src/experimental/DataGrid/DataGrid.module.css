@@ -6,14 +6,16 @@
   .container { position: relative; overflow: auto; border: 1px solid var(--sgui-data-grid-border); }
   .table { border-collapse: collapse; inline-size: 100%; }
   .header, .cell { box-sizing: border-box; text-align: start; vertical-align: middle; padding: var(--sgui-space2); border-block-end: 1px solid var(--sgui-data-grid-border); }
-  .header { background: var(--sgui-data-grid-header-surface); }
+  .header { position: relative; background: var(--sgui-data-grid-header-surface); }
   .row[data-selected] { background: var(--sgui-data-grid-selected-surface); }
   .row[data-focus-visible], .cell[data-focus-visible], .header[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-data-grid-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
-  .resizer { block-size: var(--sgui-control-height); inline-size: 0.5rem; border-inline-end: 2px solid var(--sgui-data-grid-resizer-border); cursor: col-resize; touch-action: none; }
+  .resizeHandle { position: absolute; inset-inline-start: 0; inset-block-start: 50%; transform: translateY(-50%); }
+  .resizer { block-size: var(--sgui-control-height); inline-size: 0.5rem; border-inline-start: 2px solid var(--sgui-data-grid-resizer-border); cursor: col-resize; touch-action: none; }
+  .resizer[data-disabled] { display: block; cursor: default; touch-action: auto; }
   .resizer[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-data-grid-focus-color); }
   /* Keep the caption usable at the public 120px flexible-column minimum.
      Resize affordances own a second row rather than squeezing it between them. */
-  .columnHeader { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--sgui-space2); }
+  .columnHeader { padding-inline-start: var(--sgui-space3); display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--sgui-space2); }
   .columnLabel { grid-column: 1 / -1; min-inline-size: 0; overflow-wrap: anywhere; }
   .columnLabel > [data-sgui-part="button"] { inline-size: 100%; max-inline-size: 100%; }
   .actions { flex-wrap: wrap; }

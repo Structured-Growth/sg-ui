@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { relative, resolve } from 'node:path';
-import manifest from './migration-manifest.json';
+import manifest from './module-manifest.json';
 import { generateNativeRegistry } from './generate-registry.mjs';
 generateNativeRegistry();
 const root=fileURLToPath(new URL('.',import.meta.url));

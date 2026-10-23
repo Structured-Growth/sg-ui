@@ -25,7 +25,7 @@ const cases = [
   ['tokens', 'tokens'], ['theme', 'Provider'], ['primitives', 'Typography'],
   ['hooks', 'normalizePaginationModel'], ['adapters', 'SGNavigationProvider'],
   ['i18n', 'SGTranslationProvider'], ['icons/AddIcon', 'AddIcon'],
-  ['components/Button', 'Button'], ['components/ClassCardFrame', 'ClassCardFrame'],
+  ['components/Button', 'Button'], ['components/CourseCardFrame', 'CourseCardFrame'],
   ['components/SideNavigation', 'SideNavigation'], ['components/DataToolbar', 'DataToolbar'],
   ['components/AppDataGrid', 'AppDataGrid'],
   ['components/PageRichTextEditorSection', 'PageRichTextEditorSection'],
@@ -72,7 +72,7 @@ try {
       assert.equal(included.filter(x => lexical(x.id)).length, 0, 'Root Button retained editor implementation');
       assert.equal(included.filter(x => grid(x.id)).length, 0, 'Root Button retained grid implementation');
     }
-    if (['tokens', 'components/ClassCardFrame'].includes(subpath)) assert(!modules.some(id => /react-aria|react-stately|@react-aria|@react-stately/.test(id)), specifier + ' traversed interaction foundation');
+    if (['tokens', 'components/CourseCardFrame'].includes(subpath)) assert(!modules.some(id => /react-aria|react-stately|@react-aria|@react-stately/.test(id)), specifier + ' traversed interaction foundation');
     if (subpath === 'components/AppDataGrid') assert(record.resolvedGrid.some(id => id.includes('@tanstack')), 'Grid positive control missing');
     if (subpath === 'components/PageRichTextEditorSection') assert(record.resolvedLexical.length > 0, 'Editor positive control missing');
     if (subpath === 'icons/AddIcon') {

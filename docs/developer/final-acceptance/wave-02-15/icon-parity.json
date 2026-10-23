@@ -1,7 +1,0 @@
-{
-  "source": "../parallel-12/evidence.json#implementations",
-  "implementationCount": 96,
-  "currentMappingMismatches": {},
-  "proposedMappingMismatches": {},
-  "scope": "New static parity assertion for proposed metadata; no catalog/browser/bundle or legal approval."
-}

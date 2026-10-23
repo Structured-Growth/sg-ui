@@ -1,9 +1,0 @@
-
- RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
-
-
- Test Files  1 passed (1)
-      Tests  3 passed (3)
-   Start at  16:58:12
-   Duration  1.01s (transform 101ms, setup 16ms, import 274ms, tests 490ms, environment 159ms)
-

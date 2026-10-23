@@ -11,11 +11,8 @@ export type AppPaginationFooterProps = {
   pageSizeOptions: number[];
   /** Omit, pass null or -1 for a server total that is not known. */
   totalCount?: number | null;
-  onPageChange: (nextPage: number) => void;
-  /** Requests page zero before notifying the host of the new size. */
-  onPageSizeChange: (nextPageSize: number) => void;
-  /** Requests each page/size transition once; supersedes the separate legacy callbacks when supplied. */
-  onPaginationModelChange?: (model: { page: number; pageSize: number }) => void;
+  /** Requests the complete page/size state once per interaction. Size changes request page zero. */
+  onPaginationModelChange: (model: { page: number; pageSize: number }) => void;
   hasNextPage?: boolean;
   disabled?: boolean;
   label?: string;
@@ -23,8 +20,8 @@ export type AppPaginationFooterProps = {
   style?: CSSProperties;
 };
 
-export function AppPaginationFooter({ page, pageSize, pageSizeOptions, totalCount, onPageChange,
-  onPageSizeChange, onPaginationModelChange, hasNextPage, disabled, label, className, style }: AppPaginationFooterProps) {
+export function AppPaginationFooter({ page, pageSize, pageSizeOptions, totalCount,
+  onPaginationModelChange, hasNextPage, disabled, label, className, style }: AppPaginationFooterProps) {
   const { t, useNamespace } = useTranslation();
   useNamespace("common.ui");
   const normalized = normalizeCardPagination(page, pageSize, totalCount);
@@ -36,11 +33,9 @@ export function AppPaginationFooter({ page, pageSize, pageSizeOptions, totalCoun
       : t("common.ui.pagination.displayedRows", { defaultMessage: "{from}-{to} of {count}", namespace: "common.ui",
         values: { from, to, count: normalized.count } })}</span>
     <Pagination page={normalized.page} pageSize={normalized.pageSize} pageCount={normalized.pageCount}
-      pageSizeOptions={pageSizeOptions} onPageChange={nextPage => {
-        if (onPaginationModelChange) onPaginationModelChange({ page: nextPage, pageSize: normalized.pageSize });
-        else onPageChange(nextPage);
-      }} onPageSizeChange={onPageSizeChange}
-      onPaginationChange={onPaginationModelChange ? (nextPage, nextSize) => onPaginationModelChange({ page: nextPage, pageSize: nextSize }) : undefined}
+      pageSizeOptions={pageSizeOptions}
+      onPageChange={nextPage => onPaginationModelChange({ page: nextPage, pageSize: normalized.pageSize })}
+      onPaginationChange={(nextPage, nextSize) => onPaginationModelChange({ page: nextPage, pageSize: nextSize })}
       hasNextPage={hasNextPage} disabled={disabled} label={label} />
   </footer>;
 }

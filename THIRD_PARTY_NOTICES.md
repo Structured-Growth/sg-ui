@@ -1,6 +1,6 @@
 # Third-party notices
 
-SGUI's commercial license covers its original materials. Third-party materials retain their separate licenses. This file preserves current dependency notices, supplemental notices from the resolved runtime/peer dependency closure,. Retention of an attribution does not identify a current runtime dependency. Dependencies also distribute their own applicable licenses and notices.
+SGUI's commercial license covers its original materials. Third-party materials retain their separate licenses. This file preserves current dependency notices, supplemental notices from the resolved runtime/peer dependency closure. Retention of an attribution does not identify a current runtime dependency. Dependencies also distribute their own applicable licenses and notices.
 
 ## @lexical/code 0.41.0 (MIT)
 

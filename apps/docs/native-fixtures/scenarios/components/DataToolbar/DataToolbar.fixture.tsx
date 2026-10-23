@@ -22,7 +22,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 function TableOnlyPreview() {
-  const [options, setOptions] = useState([
+  const [options, setOptions] = useState<import("@structured-growth/sg-ui/components").DataToolbarColumnOption[]>([
     { id: "id", label: "ID", visible: true },
     { id: "organization", label: "Organization Title", visible: true },
     { id: "status", label: "Status", visible: true },
@@ -87,10 +87,10 @@ export function NativeCompositionPreview({ rtl = false }: { rtl?: boolean }) {
   const [count, setCount] = useState(2);
   const [search, setSearch] = useState("");
   const [events, setEvents] = useState<string[]>([]);
-  const [options, setOptions] = useState([
+  const [options, setOptions] = useState<import("@structured-growth/sg-ui/components").DataToolbarColumnOption[]>([
     { id: "course", label: "Course", visible: true, locked: true },
     { id: "status", label: "Status", visible: true },
-    { id: "actions", label: "Actions", visible: true, locked: true },
+    { id: "actions", label: "Actions", visible: true, locked: true, reorderable: false },
   ]);
   const record = (event: string) => setEvents(previous => [...previous, event]);
   const selection = <DataToolbarSelectionMenu

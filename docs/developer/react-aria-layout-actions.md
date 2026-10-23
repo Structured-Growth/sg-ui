@@ -2,7 +2,7 @@
 
 U-01–U-03 and U-05 have owned implementations; public primitive mappings and
 package routes are recorded in [primitive mappings](react-aria-primitives.md) and
-[API reconciliation](react-aria-public-api-reconciliation.md). Catalog components
+API reconciliation. Catalog components
 also use the owned foundation; implementation availability does not close the
 remaining broad acceptance gates. Import the package stylesheet once and use
 `Provider` or `ThemeScope` to provide scoped tokens.

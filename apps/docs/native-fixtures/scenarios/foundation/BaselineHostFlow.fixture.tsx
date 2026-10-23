@@ -4,7 +4,7 @@ import { Provider } from "@structured-growth/sg-ui/theme";
 import { Button } from "@structured-growth/sg-ui/components";
 import { AppPageTabs } from "@structured-growth/sg-ui/components";
 import { AppModal } from "@structured-growth/sg-ui/components";
-import { ClassCardFrame } from "@structured-growth/sg-ui/components";
+import { CourseCardFrame } from "@structured-growth/sg-ui/components";
 import { PageRichTextEditorSection } from "@structured-growth/sg-ui/components";
 import { Stack, TextField, Typography } from "@structured-growth/sg-ui/experimental";
 
@@ -31,7 +31,7 @@ export function BaselineHostFlow() {
         { id: "overview", label: "Overview", content: <Typography>Choose Courses to create a course and edit its introduction.</Typography> },
         { id: "courses", label: "Courses", content: <Stack gap={4}>
           <Button onPress={() => { setDraftTitle(""); setOpen(true); }}>Create course</Button>
-          {courseTitle ? <ClassCardFrame
+          {courseTitle ? <CourseCardFrame
             header={<Typography as="h2" variant="h5">{courseTitle}</Typography>}
             body={<Typography>Host-owned course draft</Typography>}
             footer={<Button onPress={() => { setOpenedCourse(courseTitle); navigate("editor"); }}>Edit introduction</Button>} /> :

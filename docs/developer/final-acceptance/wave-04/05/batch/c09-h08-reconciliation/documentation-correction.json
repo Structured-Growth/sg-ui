@@ -1,9 +1,0 @@
-{
-  "path": "docs/developer/react-aria-i18n-acceptance.md",
-  "beforeSha256": "749e2fc7a00d93c78deaa26caa633e0db981486df0d90ad81d5283cc2ad66391",
-  "afterSha256": "d7de6df6421512f50f48f9c04ca4896015bcef58995113fc62c1906a196b236f",
-  "change": "Replace stale not-yet-executed browser/speech wording with scoped accepted receipts; keep actual speech separate under X11 and dated Storybook/Node26 history intact.",
-  "runtimeChanged": false,
-  "testsAdded": 0,
-  "rerunsNeeded": false
-}

@@ -1,1 +1,0 @@
-PASS TypeScript 5.9.3; virtual proposed fixture; current built public declarations; noEmit. Runtime v26.5.0.

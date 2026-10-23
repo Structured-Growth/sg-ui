@@ -1,7 +1,8 @@
 "use client";
-import { forwardRef, useId, type CSSProperties } from "react";
+import { forwardRef, type CSSProperties } from "react";
 import { useTranslation } from "../../i18n";
 import { Button } from "../../components/Button/Button";
+import { Select } from "../Select/Select";
 import styles from "./Pagination.module.css";
 
 export interface PaginationProps {
@@ -15,9 +16,7 @@ export interface PaginationProps {
   pageSize?: number;
   /** Suggested positive safe integer sizes; invalid values and duplicates are ignored. */
   pageSizeOptions?: readonly number[];
-  /** Changing page size requests page zero before calling this callback. */
-  onPageSizeChange?: (pageSize: number) => void;
-  /** When supplied, a size change requests page zero and the new size once, instead of separate callbacks. */
+  /** A size change requests page zero and the new size together. */
   onPaginationChange?: (page: number, pageSize: number) => void;
   disabled?: boolean;
   showBoundaryButtons?: boolean;
@@ -28,10 +27,9 @@ export interface PaginationProps {
   style?: CSSProperties;
 }
 export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination({ page, onPageChange,
-  pageCount, hasNextPage = false, pageSize, pageSizeOptions = [25, 50, 100], onPageSizeChange, onPaginationChange,
+  pageCount, hasNextPage = false, pageSize, pageSizeOptions = [25, 50, 100], onPaginationChange,
   disabled = false, showBoundaryButtons = true, label, className, ...props }, ref) {
   const { t } = useTranslation();
-  const sizeId = useId();
   const previous = !disabled && page > 0;
   const next = !disabled && (pageCount === undefined ? hasNextPage : page + 1 < pageCount);
   const sizes = [...new Set([...pageSizeOptions, ...(pageSize === undefined ? [] : [pageSize])])]
@@ -41,14 +39,13 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagi
     <span className={styles.summary}>{pageCount === 0 ? t("common.ui.noPages", { defaultMessage: "No pages" }) :
       pageCount === undefined ? t("common.ui.pageNumber", { defaultMessage: "Page {page}", values: { page: page + 1 } }) :
       t("common.ui.pageOfCount", { defaultMessage: "Page {page} of {count}", values: { page: page + 1, count: pageCount } })}</span>
-    {pageSize !== undefined && (onPageSizeChange || onPaginationChange) && <div className={styles.size}>
-      <label htmlFor={sizeId}>{t("common.ui.pageSize", { defaultMessage: "Rows per page" })}</label>
-      <select id={sizeId} value={pageSize} disabled={disabled} className={styles.select} onChange={event => {
-        const size = Number(event.target.value);
-        if (onPaginationChange) onPaginationChange(0, size);
-        else { onPageChange(0); onPageSizeChange?.(size); }
-      }}>{sizes.map(size => <option key={size} value={size}>{size}</option>)}</select>
-    </div>}
+    {pageSize !== undefined && onPaginationChange && <Select className={styles.size}
+      label={t("common.ui.pageSize", { defaultMessage: "Rows per page" })}
+      value={String(pageSize)} disabled={disabled} placeholder=""
+      options={sizes.map(size => ({ id: String(size), label: String(size) }))}
+      onValueChange={value => {
+        if (value !== null) onPaginationChange(0, Number(value));
+      }} />}
     <div className={styles.actions}>
       {showBoundaryButtons && <Button variant="outlined" tone="neutral" disabled={!previous} onPress={() => onPageChange(0)}>{t("common.ui.firstPage", { defaultMessage: "First page" })}</Button>}
       <Button variant="outlined" tone="neutral" disabled={!previous} onPress={() => onPageChange(page - 1)}>{t("common.ui.previousPage", { defaultMessage: "Previous page" })}</Button>

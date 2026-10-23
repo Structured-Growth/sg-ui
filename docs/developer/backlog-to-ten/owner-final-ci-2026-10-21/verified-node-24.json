@@ -1,8 +1,0 @@
-{
-  "status": "consistent-downloaded-ci-evidence",
-  "head": "fbc08a12a501aaf6982b1d090582c23d09900095",
-  "runtime": "24",
-  "runURL": "https://github.com/Structured-Growth/sg-ui/actions/runs/39682728117",
-  "outputs": 2178,
-  "limitations": "Operator must independently bind extracted files/receipt to verified archives and inspect browser results/skips. This checks supplied metadata consistency, not API authenticity, behavior, effective branch protection, licensing, npm control, provenance or release approval."
-}

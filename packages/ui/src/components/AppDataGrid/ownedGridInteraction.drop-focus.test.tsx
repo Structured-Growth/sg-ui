@@ -38,7 +38,7 @@ function end() { act(() => drag.current!.onDragEnd({ dropOperation: "move" })); 
 
 it.each(["dataset", "identity"])("restores the preserved source handle after late collection focus for a stale %s drop", async replacement => {
   const onReorder = vi.fn();
-  const view = (changed: boolean) => <OwnedGridInteraction {...props} rowDrag={{ onReorder }}
+  const view = (changed: boolean) => <OwnedGridInteraction {...props} rowDrag={{ showMoveButtons: true, onReorder }}
     rows={changed && replacement === "dataset" ? rows.map(row => ({ ...row })) : rows}
     getRowId={changed && replacement === "identity" ? row => row.id : getRowId} />;
   const { rerender } = render(view(false));
@@ -58,7 +58,7 @@ it.each(["dataset", "identity"])("restores the preserved source handle after lat
 });
 
 it("preserves successful requests and cancellation while repairing late source-row focus", async () => {
-  const onReorder = vi.fn(); render(<OwnedGridInteraction {...props} rowDrag={{ onReorder }} />);
+  const onReorder = vi.fn(); render(<OwnedGridInteraction {...props} rowDrag={{ showMoveButtons: true, onReorder }} />);
   const { handle, row } = await start();
   act(() => drag.current!.onReorder({ keys: new Set(["b"]), target: { key: "c", dropPosition: "after" } }));
   end(); await settle(); act(() => row.focus()); await settle();
@@ -70,7 +70,7 @@ it("preserves successful requests and cancellation while repairing late source-r
 });
 
 it.each(["external focus", "independent grid", "pointer", "keyboard"])("ends drop focus ownership after %s even if collection focus subsequently returns", async reason => {
-  render(<><button>Host action</button><OwnedGridInteraction {...props} label="Independent courses" /><OwnedGridInteraction {...props} rowDrag={{ onReorder: vi.fn() }} /></>);
+  render(<><button>Host action</button><OwnedGridInteraction {...props} label="Independent courses" /><OwnedGridInteraction {...props} rowDrag={{ showMoveButtons: true, onReorder: vi.fn() }} /></>);
   const { row } = await start(); end(); await settle();
   if (reason === "external focus" || reason === "independent grid") {
     const outside = reason === "external focus" ? screen.getByRole("button", { name: "Host action" }) : screen.getByRole("grid", { name: "Independent courses" });
@@ -83,7 +83,7 @@ it.each(["external focus", "independent grid", "pointer", "keyboard"])("ends dro
 
 it.each(["rows", "identity", "disabled", "removed"])("does not run a stale repair after post-drop %s change", async change => {
   const onReorder = vi.fn();
-  const view = (changed: boolean) => <OwnedGridInteraction {...props} rowDrag={{ onReorder }}
+  const view = (changed: boolean) => <OwnedGridInteraction {...props} rowDrag={{ showMoveButtons: true, onReorder }}
     rows={changed && change === "removed" ? rows.filter(row => row.id !== "b") : changed && change === "rows" ? rows.map(row => ({ ...row })) : rows}
     getRowId={changed && change === "identity" ? row => row.id : getRowId} refreshing={changed && change === "disabled"} />;
   const { rerender } = render(view(false));
@@ -96,7 +96,7 @@ it.each(["rows", "identity", "disabled", "removed"])("does not run a stale repai
 });
 
 it("cancels owned pending work on Strict Mode unmount", async () => {
-  const { unmount } = render(<StrictMode><OwnedGridInteraction {...props} rowDrag={{ onReorder: vi.fn() }} /></StrictMode>);
+  const { unmount } = render(<StrictMode><OwnedGridInteraction {...props} rowDrag={{ showMoveButtons: true, onReorder: vi.fn() }} /></StrictMode>);
   const { handle } = await start(); end();
   const focusHandle = vi.spyOn(handle, "focus");
   const cancel = vi.spyOn(window, "cancelAnimationFrame");
@@ -108,7 +108,7 @@ it("cancels owned pending work on Strict Mode unmount", async () => {
 it("does not revive ownership when host focus leaves during the drag and is then removed", async () => {
   const outside = document.createElement("button"); document.body.append(outside);
   try {
-    render(<OwnedGridInteraction {...props} rowDrag={{ onReorder: vi.fn() }} />);
+    render(<OwnedGridInteraction {...props} rowDrag={{ showMoveButtons: true, onReorder: vi.fn() }} />);
     const { handle } = await start();
     act(() => { outside.focus(); outside.remove(); });
     const focusHandle = vi.spyOn(handle, "focus");
@@ -118,7 +118,7 @@ it("does not revive ownership when host focus leaves during the drag and is then
 });
 
 it.each(["checkbox", "button", "cell"])("preserves a deliberate same-grid %s focus transfer before the first drop frame", async kind => {
-  render(<OwnedGridInteraction {...props} rowDrag={{ onReorder: vi.fn() }} />);
+  render(<OwnedGridInteraction {...props} rowDrag={{ showMoveButtons: true, onReorder: vi.fn() }} />);
   const { handle } = await start(); end();
   const target = kind === "checkbox" ? screen.getByRole("checkbox", { name: "Select History" }) :
     kind === "button" ? screen.getByRole("button", { name: "Move History up" }) : screen.getByRole("rowheader", { name: "History" });
@@ -131,7 +131,7 @@ it.each(["checkbox", "button", "cell"])("preserves a deliberate same-grid %s foc
 });
 
 it("does not revive drop focus after another same-grid control is focused then removed before the first frame", async () => {
-  render(<OwnedGridInteraction {...props} rowDrag={{ onReorder: vi.fn() }} />);
+  render(<OwnedGridInteraction {...props} rowDrag={{ showMoveButtons: true, onReorder: vi.fn() }} />);
   const { handle } = await start();
   const target = screen.getByRole("button", { name: "Move History up" });
   const parent = target.parentNode!; const next = target.nextSibling;
@@ -152,7 +152,7 @@ it("does not revive drop focus after another same-grid control is focused then r
 });
 
 it.each(["row", "cell"])("retains source %s cancellation repair before the first frame", async kind => {
-  render(<OwnedGridInteraction {...props} rowDrag={{ onReorder: vi.fn() }} />);
+  render(<OwnedGridInteraction {...props} rowDrag={{ showMoveButtons: true, onReorder: vi.fn() }} />);
   const { handle, row } = await start(); end();
   const entry = kind === "row" ? row : handle.closest<HTMLElement>("[data-grid-field]")!;
   act(() => entry.focus()); await settle();
@@ -160,7 +160,7 @@ it.each(["row", "cell"])("retains source %s cancellation repair before the first
 });
 
 it("does not arm drop recovery when another same-grid control already owns focus at drag end", async () => {
-  render(<OwnedGridInteraction {...props} rowDrag={{ onReorder: vi.fn() }} />);
+  render(<OwnedGridInteraction {...props} rowDrag={{ showMoveButtons: true, onReorder: vi.fn() }} />);
   const { handle } = await start();
   const target = screen.getByRole("button", { name: "Move History up" });
   const parent = target.parentNode!; const next = target.nextSibling;
@@ -178,7 +178,7 @@ it("does not arm drop recovery when another same-grid control already owns focus
 
 it("returns Strict Mode keyboard cancellation to the source after entering through a selected checkbox", async () => {
   const onReorder = vi.fn();
-  render(<StrictMode><OwnedGridInteraction {...props} rowDrag={{ onReorder }} /></StrictMode>);
+  render(<StrictMode><OwnedGridInteraction {...props} rowDrag={{ showMoveButtons: true, onReorder }} /></StrictMode>);
   const checkbox = screen.getByRole("checkbox", { name: "Select Science" }) as HTMLInputElement;
   await userEvent.click(checkbox.closest("label")!);
   expect(checkbox.checked).toBe(true);
@@ -198,7 +198,7 @@ it("returns Strict Mode keyboard cancellation to the source after entering throu
 
 
 it.each([false, true])("keeps deliberate selected-checkbox ownership after cancellation handle replay, removed=%s", async removed => {
-  render(<OwnedGridInteraction {...props} defaultSelectedRowIds={new Set(["a"])} rowDrag={{ onReorder: vi.fn() }} />);
+  render(<OwnedGridInteraction {...props} defaultSelectedRowIds={new Set(["a"])} rowDrag={{ showMoveButtons: true, onReorder: vi.fn() }} />);
   const { handle } = await start();
   const indicator = document.createElement("div");
   indicator.tabIndex = -1; indicator.setAttribute("aria-roledescription", "drop indicator");
@@ -228,7 +228,7 @@ it.each([false, true])("keeps deliberate selected-checkbox ownership after cance
 });
 
 it("preserves a host-selected checkbox focus move during cancellation handle restoration", async () => {
-  render(<OwnedGridInteraction {...props} defaultSelectedRowIds={new Set(["a"])} rowDrag={{ onReorder: vi.fn() }} />);
+  render(<OwnedGridInteraction {...props} defaultSelectedRowIds={new Set(["a"])} rowDrag={{ showMoveButtons: true, onReorder: vi.fn() }} />);
   const { handle } = await start();
   const checkbox = screen.getByRole("checkbox", { name: "Select Science" });
   const indicator = document.createElement("div");

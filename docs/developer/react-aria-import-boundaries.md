@@ -18,7 +18,7 @@ Hosts that require bounded dependency traversal should choose individual paths.
 | Token data without React | `tokens` from `/tokens` |
 | CSS | Explicit side-effect import of `/styles.css` once in the host |
 | Primitive controls | Named exports from `/primitives`; this is an interaction barrel, not a React Aria-free presentation entry |
-| Presentation frame | `ClassCardFrame` from `/components/ClassCardFrame`; React and JSX runtime only in the current emitted SGUI graph |
+| Presentation frame | `CourseCardFrame` from `/components/CourseCardFrame`; React and JSX runtime only in the current emitted SGUI graph |
 | Individual glyph | `AddIcon` from `/icons/AddIcon`; other declared `*Icon` paths use the same rule |
 | State helpers | Named exports from `/hooks` |
 | Host routing/accounts | Named exports from `/adapters` |
@@ -26,7 +26,7 @@ Hosts that require bounded dependency traversal should choose individual paths.
 | Grid | `AppDataGrid` from `/components/AppDataGrid`; TanStack is intentional |
 | Grid composition | `AppDataGridShell` from `/components/AppDataGridShell` |
 | Editor | `PageRichTextEditorSection` from `/components/PageRichTextEditorSection`; Lexical is intentional |
-| Learning compositions | `/components/LearnerClassCard`, `/components/InstructorClassCard`, `/components/LearnerClassesDataGrid` |
+| Learning compositions | `/components/LearnerCourseCard`, `/components/InstructorCourseCard` |
 
 All paths in the table are relative to `@structured-growth/sg-ui`. Component types
 are exported alongside their component. `AppPaginationFooter` uses the preserved
@@ -71,7 +71,7 @@ logical unpacked installed bytes, including declarations, maps and legal files;
 they are not network transfer, compressed package sizes, a fresh install result
 or a core-only product footprint. The remaining package still installs TanStack,
 Lucide and React Aria. Exact manifest hashes and identities are retained in
-[the assessment](final-acceptance/wave-03-05/install-footprint.json).
+the assessment.
 
 The current compatibility choice accepts this measured installation cost and avoids adding peer setup or breaking established root editor imports. This follows the existing target architecture's instruction to keep the package and explicit subpaths before considering separate packages. No separate package is required for the migration's module-graph isolation; a dependency-light installation would require the different distribution described below. If avoiding
 mandatory editor installation is required, create a separate optional editor
@@ -111,8 +111,6 @@ assertion checks rendered modules. This is not a browser, Flight or fresh-instal
 receipt. Preserve existing packed SSR/Flight checks for server behavior; do not
 infer their success from this module audit.
 
-## Accepted packed evidence — 2026-10-17
+The retained package-contract review records a passing 14-probe installed-consumer audit against frozen archive SHA-256 `4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959`. The raw audit is unavailable here; its availability record preserves the digest and links the surviving review. That review records that all eleven basic/presentation probes avoid both Lexical and grid modules; the grid and editor positive controls retain their intended engines. The supported root Button probe resolves both engines through convenience reexports but removes them from rendered JavaScript, matching the granular Button output. Each probe explicitly loads one stylesheet; CSS remains the shared full-library stylesheet, not component-split CSS. These are historical production bundler checks, not current-source execution, installation-size or browser-performance measurements.
 
-The retained package-contract review records a passing 14-probe installed-consumer audit against frozen archive SHA-256 `4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959`. The raw audit is unavailable here; its [availability record](evidence-availability.md#packed-import-boundary-audit) preserves the digest and links the surviving review. That review records that all eleven basic/presentation probes avoid both Lexical and grid modules; the grid and editor positive controls retain their intended engines. The supported root Button probe resolves both engines through convenience reexports but removes them from rendered JavaScript, matching the granular Button output. Each probe explicitly loads one stylesheet; CSS remains the shared full-library stylesheet, not component-split CSS. These are historical production bundler checks, not current-source execution, installation-size or browser-performance measurements.
-
-The later [fresh grid-layout package audit](final-acceptance/wave-04/coordinator/current-grid-package/receipt.json) verifies the updated archive's build/exports/consumer types and byte inventory. It does not relabel the earlier fourteen probes as a new run. The grid fix changes layout only; package dependencies, public exports and import topology remain unchanged. Separate packages remain an available future product decision if avoiding mandatory editor installation becomes a requirement.
+The later fresh grid-layout package audit verifies the updated archive's build/exports/consumer types and byte inventory. It does not relabel the earlier fourteen probes as a new run. The grid fix changes layout only; package dependencies, public exports and import topology remain unchanged. Separate packages remain an available future product decision if avoiding mandatory editor installation becomes a requirement.

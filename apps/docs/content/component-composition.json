@@ -111,7 +111,7 @@
       "children": []
     },
     {
-      "name": "ClassIcon",
+      "name": "CourseIcon",
       "children": []
     },
     {
@@ -768,6 +768,10 @@
         {
           "name": "Button",
           "slug": "button"
+        },
+        {
+          "name": "Select",
+          "slug": "select"
         }
       ]
     }
@@ -775,15 +779,6 @@
   "provider": [
     {
       "name": "Provider",
-      "children": [
-        {
-          "name": "ThemeScope",
-          "slug": "theme-scope"
-        }
-      ]
-    },
-    {
-      "name": "AppThemeProvider",
       "children": [
         {
           "name": "ThemeScope",
@@ -1928,7 +1923,7 @@
   ],
   "card-frame": [
     {
-      "name": "ClassCardFrame",
+      "name": "CourseCardFrame",
       "children": [
         {
           "name": "Card",
@@ -1939,7 +1934,7 @@
   ],
   "instructor-card": [
     {
-      "name": "InstructorClassCard",
+      "name": "InstructorCourseCard",
       "children": [
         {
           "name": "AutoStoriesIcon",
@@ -1954,7 +1949,7 @@
           "slug": "icons"
         },
         {
-          "name": "ClassCardFrame",
+          "name": "CourseCardFrame",
           "slug": "card-frame"
         },
         {
@@ -1970,7 +1965,7 @@
   ],
   "learner-card": [
     {
-      "name": "LearnerClassCard",
+      "name": "LearnerCourseCard",
       "children": [
         {
           "name": "ArrowForwardIcon",
@@ -1985,7 +1980,7 @@
           "slug": "button"
         },
         {
-          "name": "ClassCardFrame",
+          "name": "CourseCardFrame",
           "slug": "card-frame"
         },
         {
@@ -2071,10 +2066,6 @@
           "slug": "icons"
         },
         {
-          "name": "Popover",
-          "slug": "popover"
-        },
-        {
           "name": "Progress",
           "slug": "progress"
         },
@@ -2085,10 +2076,6 @@
         {
           "name": "Status",
           "slug": "status"
-        },
-        {
-          "name": "TextField",
-          "slug": "text-field"
         },
         {
           "name": "Typography",
@@ -2181,8 +2168,8 @@
           "slug": "popover"
         },
         {
-          "name": "SearchIcon",
-          "slug": "icons"
+          "name": "SearchField",
+          "slug": "search-field"
         },
         {
           "name": "Select",
@@ -2197,8 +2184,8 @@
           "slug": "text-field"
         },
         {
-          "name": "ToggleButton",
-          "slug": "toggle-button"
+          "name": "ToggleButtonGroup",
+          "slug": "toggle-button-group"
         },
         {
           "name": "ViewColumnIcon",
@@ -2245,17 +2232,6 @@
         {
           "name": "DragIndicatorIcon",
           "slug": "icons"
-        }
-      ]
-    }
-  ],
-  "learner-grid": [
-    {
-      "name": "LearnerClassesDataGrid",
-      "children": [
-        {
-          "name": "AppDataGrid",
-          "slug": "app-data-grid"
         }
       ]
     }

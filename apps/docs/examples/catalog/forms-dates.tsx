@@ -8,7 +8,7 @@ import {DatePickerPeriodExamples} from '../DatePickerPeriodExamples';
 import {SearchFieldExamples} from '../SearchFieldExamples';
 import {FieldIconExamples} from '../FieldIconExamples';
 import {FieldMessageExamples} from '../FieldMessageExamples';
-import {SearchIcon,SchoolIcon} from '@structured-growth/sg-ui/icons';
+import {SearchIcon,SchoolIcon,ViewListIcon,WindowIcon} from '@structured-growth/sg-ui/icons';
 import {RelativeDateExample,RangeTextExample} from "../RelativeDateExamples";
 import {TimeTextExample} from '../TimeFieldExamples';
 import {AvailabilityParityExample,RangeBehaviorExample,BirthdayExample,DateTimePickerExample,CalendarMonthsExample,CalendarFootprintExample,CalendarDropdownExample,RangeDropdownExample,RangePresetExample} from '../CalendarCompositionExamples';
@@ -59,6 +59,7 @@ function FormScenario({kind, scenario, messagePlacement}: {kind:Kind; scenario:S
   const [checked, setChecked] = useState(false); const [mixed, setMixed] = useState(false);
   const [type, setType] = useState<'text'|'email'|'password'|'search'|'tel'|'url'>('text');
   const [rows, setRows] = useState(3); const [orientation, setOrientation] = useState<'horizontal'|'vertical'>('vertical');
+  const [iconOnly,setIconOnly]=useState(false);
   const [buttonWidth, setButtonWidth] = useState<'equal'|'content'>('equal');
   const [multiple, setMultiple] = useState(true); const [allowEmpty, setAllowEmpty] = useState(true);
   const [ids, setIds] = useState<string[]>(['design']);
@@ -71,7 +72,7 @@ function FormScenario({kind, scenario, messagePlacement}: {kind:Kind; scenario:S
   const start=hasIcons&&(iconLayout==='start'||iconLayout==='both'),end=hasIcons&&(iconLayout==='end'||iconLayout==='both');
   const icons={startIcon:start?<SearchIcon size={16}/>:undefined,endIcon:end?<SchoolIcon size={16}/>:undefined};
   const iconCode=`${start?' startIcon={<SearchIcon size={16}/>}':''}${end?' endIcon={<SchoolIcon size={16}/>}':''}`;
-  const iconImports=start||end?[`import {${[start?'SearchIcon':'',end?'SchoolIcon':''].filter(Boolean).join(',')}} from '@structured-growth/sg-ui/icons';`]:[];
+  const iconImports=kind==='ToggleButtonGroup'&&iconOnly?["import {SearchIcon,SchoolIcon} from '@structured-growth/sg-ui/icons';"]:start||end?[`import {${[start?'SearchIcon':'',end?'SchoolIcon':''].filter(Boolean).join(',')}} from '@structured-growth/sg-ui/icons';`]:[];
   const hasDescription=!['ToggleButton','ToggleButtonGroup','TagGroup'].includes(kind);
   const hasErrorPlacement=hasDescription&&!['Switch','AsyncMultiSelect'].includes(kind);
   const common = {label, disabled, readOnly, description,...(hasDescription?{descriptionPlacement}:{}),...(hasErrorPlacement?{errorPlacement}:{})};
@@ -108,8 +109,8 @@ function FormScenario({kind, scenario, messagePlacement}: {kind:Kind; scenario:S
       body = `<ToggleButton selected={selected} onSelectedChange={setSelected} density=${literal(density)} disabled={${disabled}}>{${literal(label)}}</ToggleButton>`;
       state = `  const [selected, setSelected] = useState(${checked});`; break;
     case 'ToggleButtonGroup':
-      preview = <ToggleButtonGroup label={label} options={choices} selectedIds={ids} onSelectionChange={setIds} selectionMode={multiple ? 'multiple' : 'single'} allowEmpty={allowEmpty} orientation={orientation} buttonWidth={buttonWidth} density={density} disabled={disabled} />;
-      body = `<ToggleButtonGroup ${commonCode} options={${json(choices)}} selectedIds={ids} onSelectionChange={setIds} selectionMode=${literal(multiple ? 'multiple' : 'single')} allowEmpty={${allowEmpty}} orientation=${literal(orientation)} buttonWidth=${literal(buttonWidth)} density=${literal(density)} />`;
+      preview = <ToggleButtonGroup label={label} iconOnly={iconOnly} options={iconOnly?choices.map((option,index)=>({...option,icon:index%2?<SearchIcon/>:<SchoolIcon/>})):choices} selectedIds={ids} onSelectionChange={setIds} selectionMode={multiple ? 'multiple' : 'single'} allowEmpty={allowEmpty} orientation={orientation} buttonWidth={buttonWidth} density={density} disabled={disabled} />;
+      body = `<ToggleButtonGroup ${commonCode} iconOnly={${iconOnly}} options={${json(choices)}${iconOnly?".map((option,index)=>({...option,icon:index%2?<SearchIcon/>:<SchoolIcon/>}))":""}} selectedIds={ids} onSelectionChange={setIds} selectionMode=${literal(multiple ? 'multiple' : 'single')} allowEmpty={${allowEmpty}} orientation=${literal(orientation)} buttonWidth=${literal(buttonWidth)} density=${literal(density)} />`;
       state = `  const [ids, setIds] = useState<string[]>(${json(ids)});`; break;
     case 'TagGroup':
       preview = <TagGroup label={label} items={tags} onRemove={removable ? removed => setTags(current => current.filter(tag => !removed.includes(tag.id))) : undefined} tone={tone} disabled={disabled} density={density} emptyContent="No topics selected" />;
@@ -139,7 +140,7 @@ function FormScenario({kind, scenario, messagePlacement}: {kind:Kind; scenario:S
       {!['ToggleButton','ToggleButtonGroup','TagGroup'].includes(kind) && <Checkbox label="Read only" checked={readOnly} onCheckedChange={setReadOnly} />}
       {validates && <><Checkbox label="Required" checked={required} onCheckedChange={setRequired} /><Checkbox label="Invalid" checked={invalid} onCheckedChange={setInvalid} /></>}
       {kind === 'Checkbox' && <Checkbox label="Mixed state" checked={mixed} onCheckedChange={setMixed} />}
-      {kind === 'ToggleButtonGroup' && <><Checkbox label="Multiple selection" checked={multiple} onCheckedChange={next => {setMultiple(next); if (!next) setIds(current => current.slice(0,1));}} /><Checkbox label="Allow empty selection" checked={allowEmpty} onCheckedChange={setAllowEmpty} /></>}
+      {kind === 'ToggleButtonGroup' && <><Checkbox label="Icons only" checked={iconOnly} onCheckedChange={setIconOnly}/><Checkbox label="Multiple selection" checked={multiple} onCheckedChange={next => {setMultiple(next); if (!next) setIds(current => current.slice(0,1));}} /><Checkbox label="Allow empty selection" checked={allowEmpty} onCheckedChange={setAllowEmpty} /></>}
       {kind === 'TagGroup' && <><Checkbox label="Removable" checked={removable} onCheckedChange={setRemovable} /><Button onPress={() => setTags(choices.slice(0,3))}>Restore topics</Button></>}
       {kind === 'AsyncMultiSelect' && <><Checkbox label="Mock loading" checked={loading} onCheckedChange={setLoading} /><Checkbox label="Mock request failure" checked={error} onCheckedChange={setError} /></>}
     </ControlRow>
@@ -156,6 +157,14 @@ function FormScenario({kind, scenario, messagePlacement}: {kind:Kind; scenario:S
     rendered = fieldIsNative ? <form onSubmit={event => {event.preventDefault(); setSubmits(count => count + 1);}}><Stack gap={3}>{output}{action}</Stack></form> : <Stack gap={3}>{output}{action}</Stack>;
   }
   return <Example title={messagePlacement?`Messages ${messagePlacement} input — ${density}`:titles[scenario]} density={density} description={scenario === 'playground' ? 'Adjust the public props, then interact with the preview. Source follows the current state.' : scenario === 'form' ? 'Callbacks update local host state. No backend persistence is implied.' : 'An independent scope demonstrates the inherited spacing and interaction targets.'} controls={controls} source={source({name:kind + scenario[0].toUpperCase() + scenario.slice(1), imports:[expImport(imports),primitivesImport,...iconImports], state, body:`<ThemeScope density=${literal(density)}>\n${content}\n</ThemeScope>`})}>{rendered}</Example>;
+}
+function IconViewToggleExample() {
+  const source=useExampleSource();
+  const [ids,setIds]=useState<string[]>(['list']);
+  const options=[{id:'list',label:'List',icon:<ViewListIcon/>},{id:'cards',label:'Cards',icon:<WindowIcon/>}];
+  return <Example title="Icon-only view choices" description="Labels remain available to assistive technology. One view stays selected; arrow keys move focus and activation requests the selection." source={source({name:'IconViewToggle',imports:[expImport('ToggleButtonGroup'),"import {ViewListIcon,WindowIcon} from '@structured-growth/sg-ui/icons';"],state:`  const [ids,setIds]=useState<string[]>(${JSON.stringify(ids)});`,body:'<ToggleButtonGroup label="View mode" iconOnly allowEmpty={false} selectedIds={ids} onSelectionChange={setIds} options={[{id:"list",label:"List",icon:<ViewListIcon/>},{id:"cards",label:"Cards",icon:<WindowIcon/>}]} />'})}>
+    <ToggleButtonGroup label="View mode" iconOnly allowEmpty={false} selectedIds={ids} onSelectionChange={setIds} options={options}/>
+  </Example>;
 }
 function AutocompleteAliasExample() {
   const source = useExampleSource();
@@ -207,7 +216,7 @@ function formPage(kind:Kind) {
     // Scenario components own their state at each mount: prop controls remain
     // local to the playground; density and form examples never consume it.
     const oriented = kind === 'RadioGroup' || kind === 'ToggleButtonGroup';
-    return <Stack gap={4}><FormScenario kind={kind} scenario="playground" />{oriented ? <OrientationMatrix kind={kind} /> : <><FormScenario kind={kind} scenario="compact" /><FormScenario kind={kind} scenario="comfortable" /></>}<FormScenario kind={kind} scenario="form" />{kind === 'ComboBox' && <AutocompleteAliasExample />}{(['TextField','TextArea','Select','ComboBox','AsyncMultiSelect'] as const).map(field=>kind===field?<FieldIconExamples key={field} kind={field}/>:null)}{(kind==='TextField'||kind==='TextArea')&&<FieldMessageExamples kind={kind}/>}{(['Select','ComboBox','Checkbox','Switch','RadioGroup','AsyncMultiSelect'] as Kind[]).includes(kind)&&(['compact','comfortable'] as const).flatMap(density=>(['above','below'] as const).map(placement=><FormScenario key={`${density}-${placement}`} kind={kind} scenario={density} messagePlacement={placement}/>))} {kind === 'TextField' && <><NativeResetFormExample /><GroupedContactExample /></>}{kind === 'AsyncMultiSelect' && <AsyncSearchExample />}</Stack>;
+    return <Stack gap={4}><FormScenario kind={kind} scenario="playground" />{oriented ? <OrientationMatrix kind={kind} /> : <><FormScenario kind={kind} scenario="compact" /><FormScenario kind={kind} scenario="comfortable" /></>}<FormScenario kind={kind} scenario="form" />{kind === 'ToggleButtonGroup' && <IconViewToggleExample/>}{kind === 'ComboBox' && <AutocompleteAliasExample />}{(['TextField','TextArea','Select','ComboBox','AsyncMultiSelect'] as const).map(field=>kind===field?<FieldIconExamples key={field} kind={field}/>:null)}{(kind==='TextField'||kind==='TextArea')&&<FieldMessageExamples kind={kind}/>}{(['Select','ComboBox','Checkbox','Switch','RadioGroup','AsyncMultiSelect'] as Kind[]).includes(kind)&&(['compact','comfortable'] as const).flatMap(density=>(['above','below'] as const).map(placement=><FormScenario key={`${density}-${placement}`} kind={kind} scenario={density} messagePlacement={placement}/>))} {kind === 'TextField' && <><NativeResetFormExample /><GroupedContactExample /></>}{kind === 'AsyncMultiSelect' && <AsyncSearchExample />}</Stack>;
   };
 }
 

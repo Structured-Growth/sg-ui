@@ -39,10 +39,10 @@ describe("owned pagination", () => {
   it("resets to page zero after page size changes and supports nonstandard current sizes", async () => {
     const calls: string[] = [];
     render(<Pagination page={3} pageCount={5} pageSize={10} pageSizeOptions={[25, 50]}
-      onPageSizeChange={size => calls.push(`size:${size}`)} onPageChange={page => calls.push(`page:${page}`)} />);
-    const select = screen.getByRole("combobox", { name: "Rows per page" }) as HTMLSelectElement;
-    expect(select.value).toBe("10");
-    await userEvent.setup().selectOptions(select, "25");
+      onPaginationChange={(page, size) => { calls.push(`page:${page}`); calls.push(`size:${size}`); }} onPageChange={page => calls.push(`page:${page}`)} />);
+    const select = screen.getByRole("button", { name: /Rows per page/ });
+    expect(select.textContent).toContain("10");
+    await userEvent.setup().click(select); await userEvent.setup().click(screen.getByRole("option", { name: "25", exact: true }));
     expect(calls).toEqual(["page:0", "size:25"]);
   });
   it("blocks disabled actions and represents zero pages", async () => {
@@ -57,20 +57,20 @@ describe("owned pagination", () => {
     expect(screen.getByText("No pages")).toBeTruthy();
     expect(screen.getAllByRole("button").every(button => (button as HTMLButtonElement).disabled)).toBe(true);
   });
-  it("requests a size change atomically without duplicate legacy callbacks or local state", async () => {
-    const onPageChange = vi.fn(); const onPageSizeChange = vi.fn(); const onPaginationChange = vi.fn();
+  it("requests a size change atomically without separate callbacks or local state", async () => {
+    const onPageChange = vi.fn(); const onPaginationChange = vi.fn();
     render(<Pagination page={3} pageCount={5} pageSize={10} pageSizeOptions={[10, 250]}
-      onPageChange={onPageChange} onPageSizeChange={onPageSizeChange} onPaginationChange={onPaginationChange} />);
-    await userEvent.setup().selectOptions(screen.getByRole("combobox", { name: "Rows per page" }), "250");
+      onPageChange={onPageChange} onPaginationChange={onPaginationChange} />);
+    await userEvent.setup().click(screen.getByRole("button", { name: /Rows per page/ })); await userEvent.setup().click(screen.getByRole("option", { name: "250", exact: true }));
     expect(onPaginationChange).toHaveBeenCalledExactlyOnceWith(0, 250);
-    expect(onPageChange).not.toHaveBeenCalled(); expect(onPageSizeChange).not.toHaveBeenCalled();
+    expect(onPageChange).not.toHaveBeenCalled();
     expect(screen.getByText("Page 4 of 5")).toBeTruthy();
-    expect((screen.getByRole("combobox") as HTMLSelectElement).value).toBe("10");
+    expect((screen.getByRole("button", { name: /Rows per page/ })).textContent).toContain("10");
   });
   it("shows the size selector for an atomic callback alone", async () => {
     const atomic = vi.fn();
     render(<Pagination page={2} pageCount={4} pageSize={25} onPageChange={() => {}} onPaginationChange={atomic} />);
-    await userEvent.setup().selectOptions(screen.getByRole("combobox"), "50");
+    await userEvent.setup().click(screen.getByRole("button", { name: /Rows per page/ })); await userEvent.setup().click(screen.getByRole("option", { name: "50", exact: true }));
     expect(atomic).toHaveBeenCalledExactlyOnceWith(0, 50);
   });
   it("offers only positive safe sizes and preserves rejected unknown-total requests", async () => {
@@ -78,12 +78,14 @@ describe("owned pagination", () => {
     render(<Pagination page={2} hasNextPage pageSize={10}
       pageSizeOptions={[250, Number.MAX_SAFE_INTEGER + 1, 0, -1, 1.5, Infinity, NaN, 250, Number.MAX_SAFE_INTEGER]}
       onPageChange={page => calls.push(`page:${page}`)}
-      onPageSizeChange={size => calls.push(`size:${size}`)} />);
-    const select = screen.getByRole("combobox", { name: "Rows per page" }) as HTMLSelectElement;
-    expect(Array.from(select.options, option => option.value)).toEqual(["10", "250", String(Number.MAX_SAFE_INTEGER)]);
-    await userEvent.setup().selectOptions(select, "250");
+      onPaginationChange={(page, size) => { calls.push(`page:${page}`); calls.push(`size:${size}`); }} />);
+    const select = screen.getByRole("button", { name: /Rows per page/ });
+    await userEvent.click(select);
+    expect(screen.getAllByRole("option").map(option => option.textContent)).toEqual(["10", "250", String(Number.MAX_SAFE_INTEGER)]);
+    await userEvent.keyboard("{Escape}");
+    await userEvent.setup().click(select); await userEvent.setup().click(screen.getByRole("option", { name: "250", exact: true }));
     expect(calls).toEqual(["page:0", "size:250"]);
-    expect(select.value).toBe("10");
+    expect(select.textContent).toContain("10");
     expect(screen.getByText("Page 3")).toBeTruthy();
     expect(screen.queryByRole("button", { name: "Last page" })).toBeNull();
   });

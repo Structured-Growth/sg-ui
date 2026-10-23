@@ -9,7 +9,7 @@ afterEach(cleanup);
 it("commits a custom page size as one pagination transaction with one combined request", async () => {
   const user = userEvent.setup();
   render(<Provider><ProcessingExample /></Provider>);
-  await user.selectOptions(screen.getByRole("combobox", { name: "Rows per page" }), "250");
+  await user.click(screen.getByRole("button", { name: /Rows per page/ })); await user.click(screen.getByRole("option", { name: "250", exact: true }));
   expect(within(screen.getByRole("table")).getAllByRole("row")).toHaveLength(68);
   expect(screen.getByText("1-67 of 67")).toBeTruthy();
   expect(screen.getByRole("status").textContent).toBe("Notifications: pagination → combined snapshot");

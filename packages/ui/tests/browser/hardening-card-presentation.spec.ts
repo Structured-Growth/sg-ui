@@ -18,11 +18,11 @@ for(const theme of ['light','dark'])for(const density of ['compact','comfortable
    await expect(cards.getByRole('button',{name:rtl?'متابعة':'Continue',exact:true})).toBeEnabled();
   }else await expect(cards.getByRole('link',{name:rtl?'مراجعة الدورة ومواد التعلم':'Review course and learning materials',exact:true})).toHaveAttribute('href','#review-course');
   const layout=await root.evaluate(element=>{const host=element.getBoundingClientRect();return{left:host.left,right:host.right,overflow:element.scrollWidth-element.clientWidth,
-   contained:[...element.querySelectorAll('article,h3,button,select,footer,nav,[data-sgui-part^="class-card-"]')].every(child=>{const r=child.getBoundingClientRect();return r.left>=host.left-1&&r.right<=host.right+1&&child.scrollWidth<=child.clientWidth+1;})};});
+   contained:[...element.querySelectorAll('article,h3,button,select,footer,nav,[data-sgui-part^="course-card-"]')].every(child=>{const r=child.getBoundingClientRect();return child.closest('[aria-hidden="true"]')!==null || r.left>=host.left-1&&r.right<=host.right+1&&child.scrollWidth<=child.clientWidth+1;})};});
   expect(layout.left).toBeGreaterThanOrEqual(0);expect(layout.right).toBeLessThanOrEqual(361);expect(layout.overflow).toBeLessThanOrEqual(1);expect(layout.contained).toBe(true);expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(361);
-  const size=nav.getByRole('combobox',{name:rtl?'صفوف في الصفحة':'Rows per page',exact:true});await size.selectOption('2');await expect(cards).toHaveCount(2);await expect(cards.first().getByRole('heading')).toHaveText(title(1));await expect(nav).toContainText(rtl?'الصفحة 1 من 2':'Page 1 of 2');
+  const size=nav.getByRole('button',{name:new RegExp(rtl?'صفوف في الصفحة':'Rows per page')});await size.click(); await page.getByRole('option',{name:'2',exact:true}).click();await expect(cards).toHaveCount(2);await expect(cards.first().getByRole('heading')).toHaveText(title(1));await expect(nav).toContainText(rtl?'الصفحة 1 من 2':'Page 1 of 2');
   await nav.getByRole('button',{name:rtl?'الصفحة الأولى':'First page',exact:true}).isDisabled().then(value=>expect(value).toBe(true));
   // Return to one card for a readable, complete presentation capture.
-  await size.selectOption('1');await expect(cards).toHaveCount(1);await root.scrollIntoViewIfNeeded();await waitForNativeScrollToSettle(root);await info.attach('localized-card-collection',{body:await root.screenshot(),contentType:'image/png'});
+  await size.click(); await page.getByRole('option',{name:'1',exact:true}).click();await expect(cards).toHaveCount(1);await root.scrollIntoViewIfNeeded();await waitForNativeScrollToSettle(root);await info.attach('localized-card-collection',{body:await root.screenshot(),contentType:'image/png'});
  });
 }

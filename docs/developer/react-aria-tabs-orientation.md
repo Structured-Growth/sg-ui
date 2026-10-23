@@ -30,12 +30,9 @@ import "@structured-growth/sg-ui/styles.css";
   ]} /></Provider>;
 ```
 
-[Batch170 evidence](parallel-batch-170/tabs-orientation.md) records the bounded
+Batch170 evidence records the bounded
 checks and prepared native cases. Broad U-09 and manual/device/assistive-technology
 acceptance remain open; DOM focus assertions do not establish spoken output.
-
-
-## Animated selection indicator (2026-10-17)
 
 Tabs now paints one decorative, clipped indicator per strip instead of moving
 independent selected-tab borders. Selection changes transition its position and

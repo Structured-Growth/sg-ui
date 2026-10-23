@@ -1,5 +1,0 @@
-{
-  "failure": "Error: /Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node /Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js test --config /Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native.config.cjs calendar.spec.ts|calendar-compact|calendar-native-locales|calendar-navigation-reflow|batch01-calendar|date-range-bands|hardening-control-geometry|hardening-date-presentation|batch01-grid-focus|acceptance-pack-117|wave03-grid-successors|popover-native-collision|batch08-selector-direction|hardening-contracts|functionality-clear-column-order --project=chromium failed (1/null); group settled; ; ; see /Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native-09/native.log",
-  "stable": true,
-  "completedAt": "2026-10-18T21:55:59.068Z"
-}

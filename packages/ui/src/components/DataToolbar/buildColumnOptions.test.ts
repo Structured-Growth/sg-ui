@@ -24,6 +24,7 @@ describe("buildDataToolbarColumnOptions", () => {
     expect(options.find((option) => option.id === "createdAt")).toBeUndefined();
     expect(options[options.length - 1]).toMatchObject({
       id: "actions",
+      reorderable: false,
       locked: true,
       visible: true,
     });

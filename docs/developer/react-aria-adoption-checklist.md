@@ -18,7 +18,7 @@ they are not eleven additional open project tasks.
   tarball, React/React DOM 18.3.1 or 19 peer compatibility and Node >=22.12.0.
 - Inventory host `@ui`/upstream imports, prop bags, theme objects, direct icon/primitive
   usage and private internals. Match each use to a declared public export and the
-  [consumer mapping](../migration.md#consumer-migration-mappings). Preserved names do
+  [consumer mapping](../migration.md#public-apis). Preserved names do
   not preserve removed props; do not redirect aliases without reviewing call sites.
 - Plan one global `/styles.css` import and owned Provider scopes. Identify overlays,
   nested scopes, host resets/backgrounds/font loading and CSS overrides. Keep reusable

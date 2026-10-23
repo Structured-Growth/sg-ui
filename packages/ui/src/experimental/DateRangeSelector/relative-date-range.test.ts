@@ -1,5 +1,5 @@
 import {expect,it} from 'vitest';
-import {getRelativeDateRange} from './relative-date-range';
+import {getRelativeDateRange} from '../../utils/relative-dates';
 it('resolves full month/year periods across leap years and year boundaries',()=>{
  expect(getRelativeDateRange('2024-02-29',{unit:'month'})).toEqual({start:'2024-02-01',end:'2024-02-29'});
  expect(getRelativeDateRange('2026-01-16',{unit:'month',offset:-1})).toEqual({start:'2025-12-01',end:'2025-12-31'});

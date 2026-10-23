@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const story = '/fixtures/?id=classes-learnerclasscard--native-due-actions&globals=a11y.manual:!true';
+const story = '/fixtures/?id=classes-learnercoursecard--native-due-actions&globals=a11y.manual:!true';
 test.use({ timezoneId: 'America/Chicago', locale: 'en-US' });
 test.beforeEach(async ({ page }) => {
   await page.clock.setFixedTime(new Date('2026-01-02T18:00:00Z'));

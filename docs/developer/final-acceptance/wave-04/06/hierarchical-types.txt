@@ -1,1 +1,0 @@
-Scoped source and three unit cases: zero TypeScript diagnostics. No emit or runtime execution.

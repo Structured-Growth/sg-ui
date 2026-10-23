@@ -20,6 +20,8 @@
   .button[data-selected][data-hovered] { background-color: var(--sgui-toggle-button-selected-hover-surface); }
   .button[data-focus-visible] { position: relative; outline: var(--sgui-control-focus-width) solid var(--sgui-toggle-button-focus-color); outline-offset: var(--sgui-control-focus-offset); }
   .button[data-disabled] { opacity: 0.5; cursor: default; }
+  .button[data-icon-only] { inline-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); padding-inline: 0; }
+  .button[data-icon-only] .icon > svg { inline-size: var(--sgui-space4); block-size: var(--sgui-space4); }
   .group { display: flex; flex-wrap: wrap; gap: var(--sgui-space1); }
   .group[data-orientation="vertical"] { flex-direction: column; align-items: flex-start; }
   /* Intrinsic 1fr tracks share the widest option without filling the host. */

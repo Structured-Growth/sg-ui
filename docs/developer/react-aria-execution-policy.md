@@ -21,7 +21,7 @@ Scheduling order is **functionality → regression → hardening** across the wh
 Evidence reconciliation belongs to the current phase. Reuse existing passing tests and retain required validation during functionality work. Fix a build/import or primary-flow failure as part of its functionality task, with only the minimal smoke evidence needed to establish that flow. Record other bugs for the later phases; discovering them does not promote a regression or hardening assignment ahead of functionality. Existing guards, public contracts, licensing and host boundaries remain in force.
 
 The [unified backlog](backlog.md) tracks the authorized website/repository restructuring and Storybook transition.
-The [active transition plan](docs-website.md#active-transition-plan--2026-10-14)
+The [active transition plan](docs-website.md)
 makes `apps/docs` the permanent UI design/examples environment and defines
 `DOCS-005-a`–`DOCS-005-l` for moving all existing native scenarios and removing
 Storybook. `DOCS-012-a`–`DOCS-012-f` complete palette/semantic/component theme layers.
@@ -34,7 +34,7 @@ valid within their recorded scope. This does not change F/T/V/A acceptance count
 
 Use [the unified backlog](backlog.md) for open and deferred work. The functionality
 and regression baseline inventories are complete; retain their accepted evidence
-in the [archive](archive/2026-10-18-task-lists/README.md).
+in the archive.
 
 ## Every implementation chat closes a small task
 

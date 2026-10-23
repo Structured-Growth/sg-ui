@@ -3,7 +3,7 @@
 R-02 removes the former blanket `"use client"` injection from the build.
 Directives now come from the source implementation and survive compilation.
 Barrels do not establish a client boundary. Tokens, models and presentation
-implementations such as Box, Typography, Table, ClassCardFrame and AppShell
+implementations such as Box, Typography, Table, CourseCardFrame and AppShell
 remain eligible for server rendering. Their native refs continue to
 work for client consumers with React 18.3 and 19.
 

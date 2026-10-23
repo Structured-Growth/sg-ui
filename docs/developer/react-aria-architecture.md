@@ -6,7 +6,7 @@ CSS Modules externally. Implementation began on 2026-10-05. The catalog, grid,
 editor, primitives, icons and public theme now use owned implementations; broad
 G/K/E/U/X/R/Z acceptance remains open. `/experimental` retains proof contracts
 and shared implementations without authorizing public catalog renames. See the
-[execution record](archive/2026-10-18-task-lists/react-aria-progress.md) and
+execution record and
 [master backlog](react-aria-execution-policy.md). See [CSS composition and compatibility](react-aria-css-composition.md) for layer order, consumer overrides, geometry exceptions and enhancement/CSP boundaries.
 
 Button, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
@@ -102,7 +102,7 @@ still require engineering work and may reveal API changes.
 
 Host routing, locale, translations, accounts, data loading, scheduling permissions
 and booking rules remain host-owned. Provider and ThemeScope are public owned
-scopes, also exported by `/theme`; AppThemeProvider aliases Provider. Use Provider
+scopes, also exported by `/theme`; Provider aliases Provider. Use Provider
 for locale integration alongside visual scope and portaled scope inheritance.
 It takes the host translation locale as the interaction locale; visual scope and
 explicit token overrides are copied to body portals. Owned Link and Breadcrumbs now use the existing routing adapter. See the [proof control contracts](react-aria-proof-controls.md).
@@ -150,7 +150,7 @@ for the packed Flight proof and consumer composition rules. Other R acceptance
 requirements remain separately tracked.
 
 The owned boundary additionally covers CardCollectionWithFooter, CardPaginationFooter,
-ClassCardFrame, InstructorClassCard and LearnerClassCard, with granular component
+CourseCardFrame, InstructorCourseCard and LearnerCourseCard, with granular component
 subpaths, transitive guards and declaration/packed-consumer checks. See [pagination](react-aria-card-pagination.md)
 and [frame contracts](react-aria-card-frames.md).
 
@@ -219,7 +219,7 @@ U/X/R/Z acceptance gates remain open.
 DataToolbar (M-20), including columns, sort, filter and selection menus, now uses
 the owned foundation and migrated-module boundaries. See [data toolbar contracts](react-aria-data-toolbar.md) for controlled host state, draft menus, native styling/ref and scope requirements.
 Load `/styles.css` and provide Provider or ThemeScope. AppDataGrid, AppDataGridShell,
-LearnerClassesDataGrid and row reorder also use owned implementations; broad G
+AppDataGridShell and row reorder also use owned implementations; broad G
 acceptance remains open. See [catalog grid integration](react-aria-catalog-grid.md)
 and [reorder contracts](react-aria-grid-reorder.md).
 

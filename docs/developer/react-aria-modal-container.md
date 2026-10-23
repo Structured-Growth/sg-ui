@@ -1,7 +1,7 @@
 # AppModal local surface containment
 
 Task reference: C-08, bounded batch168. See the [modal/shell contracts](react-aria-modal-shells.md)
-for dismissal, focus, sizing and style slots, and the [batch evidence](parallel-batch-168/modal-container-boundary.md)
+for dismissal, focus, sizing and style slots, and the batch evidence
 for validation limits. This slice does not close C-08 or broad acceptance.
 
 AppModal merges its owned root class with the consumer `className` on the existing

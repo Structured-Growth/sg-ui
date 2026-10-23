@@ -41,12 +41,12 @@ function HostReorder({ selection = true }: { selection?: boolean }) {
     <p role="status">{status}</p>
     <AppDataGrid rows={courses} columns={columns} label="Reorder courses" getRowLabel={row => row.name} selection={selection}
       defaultPaginationModel={{ page: 0, pageSize: 10 }} pageSizeOptions={[10]} refreshing={pending}
-      rowDrag={reorderEnabled ? { onReorder: ({ sourceRowId, targetRowId, position }) => {
+      rowDrag={reorderEnabled ? { showMoveButtons: true, onReorder: ({ sourceRowIds, targetRowId, position }) => {
         if (pending) return;
         const previous = courses;
-        const source = previous.find(row => row.id === sourceRowId)!;
-        const next = previous.filter(row => row.id !== sourceRowId);
-        next.splice(next.findIndex(row => row.id === targetRowId) + (position === "after" ? 1 : 0), 0, source);
+        const source = previous.filter(row => sourceRowIds.includes(row.id));
+        const next = previous.filter(row => !sourceRowIds.includes(row.id));
+        next.splice(next.findIndex(row => row.id === targetRowId) + (position === "after" ? 1 : 0), 0, ...source);
         setCourses(next); setPending(true); setStatus("Saving order…");
         // A real host substitutes its persistence adapter here. This fixture has
         // one outstanding request and restores its own snapshot on failure.
@@ -60,7 +60,7 @@ function HostReorder({ selection = true }: { selection?: boolean }) {
 }
 export const HostOwnedReorder: Story = { render: () => <HostReorder /> };
 export const HostOwnedReorderWithoutSelection: Story = { render: () => <HostReorder selection={false} /> };
-export const ReorderUnavailableWhileSorted: Story = { args: { rows: rows.slice(0, 5), sortRules: [{ field: "name", direction: "asc" }], rowDrag: { onReorder: () => {} } } };
+export const ReorderUnavailableWhileSorted: Story = { args: { rows: rows.slice(0, 5), sortRules: [{ field: "name", direction: "asc" }], rowDrag: { showMoveButtons: true, onReorder: () => {} } } };
 
 /** Bounded browser smoke workload; timings are recorded, not a cross-hardware SLA. */
 export const BrowserPerformance: Story = { args: {
@@ -86,7 +86,7 @@ export const ClientDatasetShrink: Story = { render: args => {
     <span role="status" aria-label="Last pagination request">{lastRequest}</span>
     <div style={{ height: 240, minHeight: 0 }}>
       <AppDataGrid {...args} rows={rows.slice(0, count)} paginationModel={paginationModel} pageSizeOptions={[10]}
-        selection={{ defaultSelectedRowIds: new Set(["course-41"]) }} 
+        selection={{ defaultSelectedRowIds: new Set(["course-41"]) }}
         onPaginationModelChange={value => { setLastRequest(`Page ${value.page}, size ${value.pageSize}`); if (accept) setPagination(value); }}
         onStateChange={() => setRequests(value => value + 1)} />
     </div>

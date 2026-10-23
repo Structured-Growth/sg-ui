@@ -18,14 +18,14 @@ const move = (name: string) => screen.getByRole("button", { name }) as HTMLButto
 describe("AppDataGrid public row reorder", () => {
   it("requests exact string IDs and host rows without mutating their order", async () => {
     const onReorder = vi.fn();
-    render(grid({ selection: false, rowDrag: { onReorder } }));
+    render(grid({ selection: false, rowDrag: { showMoveButtons: true, onReorder } }));
     expect(screen.queryByRole("checkbox")).toBeNull();
     expect(move("Move Course 1 up").disabled).toBe(true);
     expect(move("Move Course 3 down").disabled).toBe(true);
     await userEvent.click(move("Move Course 2 up"));
-    expect(onReorder).toHaveBeenLastCalledWith({ sourceRow: rows[1], sourceRowId: "2", targetRow: rows[0], targetRowId: "1", position: "before" });
+    expect(onReorder).toHaveBeenLastCalledWith({ sourceRows: [rows[1]], sourceRowIds: ["2"], sourceRow: rows[1], sourceRowId: "2", targetRow: rows[0], targetRowId: "1", position: "before" });
     await userEvent.click(move("Move Course 2 down"));
-    expect(onReorder).toHaveBeenLastCalledWith({ sourceRow: rows[1], sourceRowId: "2", targetRow: rows[2], targetRowId: "3", position: "after" });
+    expect(onReorder).toHaveBeenLastCalledWith({ sourceRows: [rows[1]], sourceRowIds: ["2"], sourceRow: rows[1], sourceRowId: "2", targetRow: rows[2], targetRowId: "3", position: "after" });
     expect(onReorder).toHaveBeenCalledTimes(2);
     expect(screen.getAllByRole("row").slice(1).map(row => row.textContent?.match(/Course \d/)?.[0])).toEqual(["Course 1", "Course 2", "Course 3"]);
   });
@@ -34,10 +34,10 @@ describe("AppDataGrid public row reorder", () => {
     const onReorder = vi.fn(); const getRowId = (row: Row) => row.key;
     const fourth = { id: 4, key: "delta", name: "Course 4" };
     const original = [...rows, fourth];
-    const props = { rows: original, getRowId, rowDrag: { onReorder } };
+    const props = { rows: original, getRowId, rowDrag: { showMoveButtons: true, onReorder } };
     const view = render(grid(props));
     await userEvent.click(move("Move Course 2 down"));
-    expect(onReorder).toHaveBeenCalledWith({ sourceRow: rows[1], sourceRowId: "beta", targetRow: rows[2], targetRowId: "gamma", position: "after" });
+    expect(onReorder).toHaveBeenCalledWith({ sourceRows: [rows[1]], sourceRowIds: ["beta"], sourceRow: rows[1], sourceRowId: "beta", targetRow: rows[2], targetRowId: "gamma", position: "after" });
     view.rerender(grid({ ...props, rows: [rows[0]!, rows[2]!, rows[1]!, fourth] }));
     await waitFor(() => expect(document.activeElement?.getAttribute("aria-label")).toBe("Move Course 2 down"));
     view.rerender(grid({ ...props, rows: original.map(row => ({ ...row })) }));
@@ -48,7 +48,7 @@ describe("AppDataGrid public row reorder", () => {
 
   it("disables a host-declared non-draggable source while allowing other sources", async () => {
     const onReorder = vi.fn();
-    render(grid({ rowDrag: { onReorder, isRowDraggable: row => row.id !== 2 } }));
+    render(grid({ rowDrag: { showMoveButtons: true, onReorder, isRowDraggable: row => row.id !== 2 } }));
     for (const name of ["Reorder Course 2", "Move Course 2 up", "Move Course 2 down"]) expect(move(name).disabled).toBe(true);
     await userEvent.click(move("Move Course 2 up"));
     expect(onReorder).not.toHaveBeenCalled();
@@ -57,7 +57,7 @@ describe("AppDataGrid public row reorder", () => {
   });
 
   it("restores focus to the source drag handle when its move control becomes disabled", async () => {
-    const onReorder = vi.fn(); const props = { rowDrag: { onReorder } };
+    const onReorder = vi.fn(); const props = { rowDrag: { showMoveButtons: true, onReorder } };
     const view = render(grid(props));
     await userEvent.click(move("Move Course 2 down"));
     view.rerender(grid({ ...props, rows: [rows[0]!, rows[2]!, rows[1]!] }));
@@ -66,7 +66,7 @@ describe("AppDataGrid public row reorder", () => {
   });
 
   it("preserves external focus when the host commits a pending reorder", async () => {
-    const onReorder = vi.fn(); const props = { rowDrag: { onReorder } };
+    const onReorder = vi.fn(); const props = { rowDrag: { showMoveButtons: true, onReorder } };
     const composition = (orderedRows: Row[]) => <>{grid({ ...props, rows: orderedRows })}<button>Outside grid</button></>;
     const view = render(composition(rows));
     await userEvent.click(move("Move Course 2 down"));
@@ -81,7 +81,7 @@ describe("AppDataGrid public row reorder", () => {
 
   it("retains the source control through a host pending phase and async commit", async () => {
     const onReorder = vi.fn(); const fourth = { id: 4, key: "delta", name: "Course 4" };
-    const original = [...rows, fourth]; const props = { rows: original, rowDrag: { onReorder } };
+    const original = [...rows, fourth]; const props = { rows: original, rowDrag: { showMoveButtons: true, onReorder } };
     const view = render(grid(props));
     await userEvent.click(move("Move Course 2 down"));
     view.rerender(grid({ ...props, refreshing: true }));
@@ -94,7 +94,7 @@ describe("AppDataGrid public row reorder", () => {
 
   it("restores the source control after a pending optimistic reorder rolls back to the exact original array", async () => {
     const onReorder = vi.fn(); const fourth = { id: 4, key: "delta", name: "Course 4" };
-    const original = [...rows, fourth]; const props = { rows: original, rowDrag: { onReorder } };
+    const original = [...rows, fourth]; const props = { rows: original, rowDrag: { showMoveButtons: true, onReorder } };
     const view = render(grid(props));
     await userEvent.click(move("Move Course 2 down"));
     view.rerender(grid({ ...props, rows: [rows[0]!, rows[2]!, rows[1]!, fourth], refreshing: true }));
@@ -106,6 +106,42 @@ describe("AppDataGrid public row reorder", () => {
     expect(onReorder).toHaveBeenCalledTimes(1);
   });
 
+  it("moves a selection in host order and leaves unselected sources independent", async () => {
+    const onReorder = vi.fn();
+    render(grid({ selection: { selectedRowIds: new Set(["2", "1"]) }, rowDrag: { showMoveButtons: true, onReorder } }));
+    expect(move("Reorder Course 1").disabled).toBe(false);
+    await userEvent.click(move("Move Course 2 down"));
+    expect(onReorder).toHaveBeenLastCalledWith({ sourceRow: rows[1], sourceRowId: "2", sourceRows: [rows[0], rows[1]], sourceRowIds: ["1", "2"], targetRow: rows[2], targetRowId: "3", position: "after" });
+    expect(screen.getByRole("status").textContent).toBe("Move requested for 2 rows");
+    await userEvent.click(move("Move Course 3 up"));
+    expect(onReorder).toHaveBeenLastCalledWith(expect.objectContaining({ sourceRowIds: ["3"], targetRowId: "2" }));
+    expect((screen.getByRole("checkbox", { name: "Select Course 1" }) as HTMLInputElement).checked).toBe(true);
+  });
+
+  it("does not move a selected group containing a non-draggable row", async () => {
+    const onReorder = vi.fn();
+    render(grid({ selection: { selectedRowIds: new Set(["1", "2"]) }, rowDrag: { showMoveButtons: true, onReorder, isRowDraggable: row => row.id !== 2 } }));
+    expect(move("Reorder Course 1").disabled).toBe(true);
+    expect(move("Move Course 1 down").disabled).toBe(true);
+    expect(move("Reorder Course 3").disabled).toBe(false);
+    await userEvent.click(move("Move Course 1 down"));
+    expect(onReorder).not.toHaveBeenCalled();
+  });
+
+  it("accepts a keyboard drag of multiple selected rows", async () => {
+    const onReorder = vi.fn();
+    render(grid({ selection: { selectedRowIds: new Set(["2", "1"]) }, rowDrag: { showMoveButtons: true, onReorder } }));
+    await userEvent.tab();
+    await act(async () => move("Reorder Course 2").focus());
+    await userEvent.keyboard("{Enter}");
+    await waitFor(() => expect(document.activeElement?.getAttribute("aria-roledescription")).toBe("drop indicator"));
+    await userEvent.keyboard("{ArrowDown}{ArrowDown}{ArrowDown}");
+    await waitFor(() => expect(document.activeElement?.getAttribute("aria-label")).toBe("Insert after Course 3"));
+    await userEvent.keyboard("{Enter}");
+    await waitFor(() => expect(onReorder).toHaveBeenCalledTimes(1));
+    expect(onReorder).toHaveBeenCalledWith(expect.objectContaining({ sourceRowIds: ["1", "2"], targetRowId: "3", position: "after" }));
+  });
+
   it.each<[string, Partial<AppDataGridProps<Row>>]>([
     ["sorted", { sortRules: [{ field: "name", direction: "asc" }] }],
     ["searched", { searchValue: "Course" }],
@@ -115,16 +151,15 @@ describe("AppDataGrid public row reorder", () => {
     ["loading", { loading: true }],
     ["refreshing", { refreshing: true }],
     ["failed", { errorMessage: "Refresh failed" }],
-    ["multiple selected rows", { selection: { selectedRowIds: new Set(["1", "2"]) } }],
   ])("disables reorder for %s collections", async (_name, extra) => {
-    const onReorder = vi.fn(); render(grid({ ...extra, rowDrag: { onReorder } }));
+    const onReorder = vi.fn(); render(grid({ ...extra, rowDrag: { showMoveButtons: true, onReorder } }));
     for (const button of screen.getAllByRole("button", { name: /^(Reorder Course|Move Course)/ })) expect((button as HTMLButtonElement).disabled).toBe(true);
     await userEvent.click(move("Move Course 1 down"));
     expect(onReorder).not.toHaveBeenCalled();
   });
 
   it("cancels a keyboard drag without requesting a host reorder", async () => {
-    const onReorder = vi.fn(); render(grid({ rowDrag: { onReorder } }));
+    const onReorder = vi.fn(); render(grid({ rowDrag: { showMoveButtons: true, onReorder } }));
     const handle = move("Reorder Course 2"); await act(async () => handle.focus());
     await userEvent.keyboard("{Enter}");
     await waitFor(() => expect(document.activeElement?.getAttribute("aria-roledescription")).toBe("drop indicator"));
@@ -135,7 +170,7 @@ describe("AppDataGrid public row reorder", () => {
 
   it("returns cancellation focus to an unselected drag source when another row is selected", async () => {
     const onReorder = vi.fn();
-    render(grid({ selection: { selectedRowIds: new Set(["1"]) }, rowDrag: { onReorder } }));
+    render(grid({ selection: { selectedRowIds: new Set(["1"]) }, rowDrag: { showMoveButtons: true, onReorder } }));
     await userEvent.tab();
     const handle = move("Reorder Course 2");
     await act(async () => handle.focus());
@@ -148,7 +183,7 @@ describe("AppDataGrid public row reorder", () => {
   });
 
   it("requests a keyboard drop using the same public row identity", async () => {
-    const onReorder = vi.fn(); render(grid({ getRowId: row => row.key, rowDrag: { onReorder } }));
+    const onReorder = vi.fn(); render(grid({ getRowId: row => row.key, rowDrag: { showMoveButtons: true, onReorder } }));
     await userEvent.tab();
     await act(async () => move("Reorder Course 2").focus());
     expect(document.activeElement).toBe(move("Reorder Course 2"));
@@ -158,12 +193,12 @@ describe("AppDataGrid public row reorder", () => {
     await waitFor(() => expect(document.activeElement?.getAttribute("aria-label")).toBe("Insert after Course 3"));
     await userEvent.keyboard("{Enter}");
     await waitFor(() => expect(onReorder).toHaveBeenCalledTimes(1));
-    expect(onReorder).toHaveBeenCalledWith({ sourceRow: rows[1], sourceRowId: "beta", targetRow: rows[2], targetRowId: "gamma", position: "after" });
+    expect(onReorder).toHaveBeenCalledWith({ sourceRows: [rows[1]], sourceRowIds: ["beta"], sourceRow: rows[1], sourceRowId: "beta", targetRow: rows[2], targetRowId: "gamma", position: "after" });
   });
 
   it("rejects a keyboard drop captured before host replacement of the dataset", async () => {
     const onReorder = vi.fn(); const getRowId = (row: Row) => row.key;
-    const props = { getRowId, rowDrag: { onReorder } }; const view = render(grid(props));
+    const props = { getRowId, rowDrag: { showMoveButtons: true, onReorder } }; const view = render(grid(props));
     await userEvent.tab();
     await act(async () => move("Reorder Course 2").focus());
     await userEvent.keyboard("{Enter}");
@@ -177,7 +212,7 @@ describe("AppDataGrid public row reorder", () => {
   });
 
   it("does not request a keyboard drop that leaves the source in its existing position", async () => {
-    const onReorder = vi.fn(); render(grid({ rowDrag: { onReorder } }));
+    const onReorder = vi.fn(); render(grid({ rowDrag: { showMoveButtons: true, onReorder } }));
     await userEvent.tab();
     await act(async () => move("Reorder Course 2").focus());
     await userEvent.keyboard("{Enter}");
@@ -186,4 +221,16 @@ describe("AppDataGrid public row reorder", () => {
     await waitFor(() => expect(document.activeElement?.getAttribute("aria-roledescription")).not.toBe("drop indicator"));
     expect(onReorder).not.toHaveBeenCalled();
   });
+});
+
+it("defaults to handle-only and allows disabled dragging with enabled move buttons", async () => {
+  const onReorder=vi.fn();
+  const view=render(grid({rowDrag:{onReorder}}));
+  expect(move("Reorder Course 2").disabled).toBe(false);
+  expect(screen.queryByRole("button",{name:"Move Course 2 down"})).toBeNull();
+  view.rerender(grid({rowDrag:{onReorder,showMoveButtons:true,dragDisabled:true}}));
+  expect(move("Reorder Course 2").disabled).toBe(true);
+  expect(move("Move Course 2 down").disabled).toBe(false);
+  await userEvent.click(move("Move Course 2 down"));
+  expect(onReorder).toHaveBeenCalledWith(expect.objectContaining({sourceRowIds:["2"],targetRowId:"3"}));
 });

@@ -131,7 +131,7 @@
     "when": "Use Typography to apply the library\u2019s text roles consistently while choosing the correct HTML semantics for the document. A heading-sized style does not automatically make text a heading.",
     "how": [
       "Choose variant for the visual role and as independently for semantics, such as as=\"h2\" with variant=\"h5\" for a section heading.",
-      "Use default for main text, muted for descriptions, subtle for supplementary metadata, accent for brand-colored text and danger for errors. Primary remains a compatibility alias for accent, not an action-priority level. Keep important instructions readable. Theme mappings may converge in increased contrast or forced colors. An eyebrow is a content role, commonly rendered with the overline variant; as independently controls HTML semantics.",
+      "Use default for main text, muted for descriptions, subtle for supplementary metadata, accent for brand-colored text and danger for errors. Keep important instructions readable. Theme mappings may converge in increased contrast or forced colors. An eyebrow is a content role, commonly rendered with the overline variant; as independently controls HTML semantics.",
       "Use noWrap only when single-line truncation is appropriate; consider ordinary wrapping for long titles, translated labels and enlarged text.",
       "Use the code variant for readable code text and the owned bodyAlt2 role where its supporting-text treatment fits. Avoid local font overrides that bypass these roles."
     ],
@@ -623,7 +623,7 @@
     "when": "Use Pagination when the host owns a paged collection and needs controls for moving between pages and changing page size. It requests state changes; it does not fetch rows or calculate server totals.",
     "how": [
       "Provide the zero-based page and onPageChange. Supply pageCount for known totals, or omit it and provide hasNextPage when the server only reports whether another page exists.",
-      "Provide pageSize and pageSizeOptions with onPageSizeChange, or use onPaginationChange to receive page zero and the new size in one request. Page-size changes reset to page zero.",
+      "Provide pageSize and pageSizeOptions with onPaginationChange to receive page zero and the new size in one request. Page buttons use onPageChange. Rows per page uses the shared Select dropdown with keyboard navigation, focus return and inherited visual scope.",
       "Use disabled while navigation cannot be accepted and showBoundaryButtons when first/last actions fit the available total. Give multiple paginated views distinct label values.",
       "Accept and apply the requested state in the host before rendering the corresponding dataset; server requests and persistence are separate host concerns."
     ],
@@ -643,7 +643,7 @@
     ]
   },
   "provider": {
-    "when": "Use Provider at an application or isolated demo boundary to establish the owned visual scope and interaction locale. AppThemeProvider is the same provider under its preserved public name, not a separate theme system.",
+    "when": "Use Provider at an application or isolated demo boundary to establish the owned visual scope and interaction locale. Provider owns the visual and interaction scope.",
     "how": [
       "Load the public styles.css once, then set theme and density as scope defaults. Supply owned CSS token overrides through style to define a visual identity.",
       "Set interactionMode to auto (default), pointer or touch independently of compact/comfortable density. Auto uses the touch sizing tokens when any available pointer is coarse, including hybrid devices. The setting changes presentation, never disables an input method, and inherits into nested scopes and overlay portals.",

@@ -40,7 +40,7 @@
       "CheckIcon",
       "ChevronRightIcon",
       "CircleIcon",
-      "ClassIcon",
+      "CourseIcon",
       "CloseIcon",
       "CodeIcon",
       "ComputerIcon",
@@ -395,8 +395,7 @@
     "title": "Provider",
     "description": "Production interaction scope with owned density and direction.",
     "exports": [
-      "Provider",
-      "AppThemeProvider"
+      "Provider"
     ]
   },
   {
@@ -882,28 +881,28 @@
   {
     "group": "data",
     "slug": "card-frame",
-    "title": "ClassCardFrame",
+    "title": "CourseCardFrame",
     "description": "Course-card slots, widths and long content.",
     "exports": [
-      "ClassCardFrame"
+      "CourseCardFrame"
     ]
   },
   {
     "group": "data",
     "slug": "instructor-card",
-    "title": "InstructorClassCard",
+    "title": "InstructorCourseCard",
     "description": "Course status, learner counts and instructor actions.",
     "exports": [
-      "InstructorClassCard"
+      "InstructorCourseCard"
     ]
   },
   {
     "group": "data",
     "slug": "learner-card",
-    "title": "LearnerClassCard",
+    "title": "LearnerCourseCard",
     "description": "Progress, deadlines and host continuation callbacks.",
     "exports": [
-      "LearnerClassCard"
+      "LearnerCourseCard"
     ]
   },
   {
@@ -960,15 +959,6 @@
     "description": "Named drag handles and complete-dataset Move requests.",
     "exports": [
       "DataGridDragHandle"
-    ]
-  },
-  {
-    "group": "data",
-    "slug": "learner-grid",
-    "title": "LearnerClassesDataGrid",
-    "description": "Course data, host page requests and built-in learner columns.",
-    "exports": [
-      "LearnerClassesDataGrid"
     ]
   },
   {

@@ -110,7 +110,7 @@ These are requirements, not shipped prop names:
 
 ## Delivery and acceptance leaves
 
-The completed checklist is [archived](archive/2026-10-18-task-lists/hierarchical-menu-scope.md#delivery-and-acceptance-leaves).
+The completed checklist is archived.
 The HM-ADOPT-01 integration result is recorded below; remaining tasks live only
 in the [unified backlog](backlog.md).
 
@@ -118,26 +118,7 @@ This plan is separate from historical F/T/V counts. Follow the
 [master execution policy](react-aria-execution-policy.md) and
 [current shell contracts](react-aria-modal-shells.md).
 
-HM-SCOPE-01 evidence: inspected the local reference SideNavigation source/stories
-and linked SGUI source/tests; verified document links and diff whitespace.
-HM-F-01–04 are complete: public build/catalog/source-copy checks pass; three
-strengthened units and nine native cases pass. Coordinator screenshot review
-found and corrected narrow Back-label wrapping; final geometry/captures pass
-across all three engines. Adoption retains its own scope.
-
-HM-T-01 evidence (2026-10-17):
-[colocated regressions](../../packages/ui/src/experimental/HierarchicalMenu/HierarchicalMenu.test.tsx)
-cover missing/disabled/leaf ancestry, inline versus command paths, footer branches
-and object cycles; controlled forward/Back requests wait for host acceptance;
-external root updates restore focus; disabling a deep local ancestor repairs once
-to the valid parent without resetting from a changed defaultPath. Two active panels
-retain independent paths, action/path callbacks and inline disclosure state.
-All seven menu tests, all 63 SideNavigation tests and library typechecking pass
-on the working tree based on `bfed38a1f867f4493049c3a38541e6b26709bad7`.
-These are DOM-emulation regressions, not new native, visual, physical-device or
-assistive-technology evidence. No production implementation or public contract changed.
-
-HM-V-01 evidence (2026-10-17): [presentation closure](backlog-to-ten/menu-presentation-closure.json)
+HM-V-01 evidence (2026-10-17): presentation closure
 joins nine effective Chromium/Firefox/WebKit cases. Real CSS animation keyframes
 reverse direction on Back in English/LTR and Arabic/RTL. Reduced-motion cases
 have zero active animations. At a 360px viewport and 200% text, forced-color
@@ -160,8 +141,6 @@ Commands use a React Aria menu collection, while navigation uses native Link and
 Button controls. Branches do not activate hrefs or leaf callbacks. The outer
 Popover or persistent host owns geometry/opening/dismissal. Reset follows remount;
 controlled paths remain authoritative. Existing SideNavigation is untouched.
-
-## Documentation sidebar adoption — 2026-10-21
 
 HM-ADOPT-01 | complete for the documentation sidebar |
 `apps/docs/components/CatalogNavigation.tsx`, `docs.module.css`,

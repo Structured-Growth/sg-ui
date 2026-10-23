@@ -50,43 +50,43 @@
     ]
   },
   "card-frame": {
-    "when": "Use ClassCardFrame to build a course card with a consistent header, body and optional footer when the instructor and learner card compositions do not match your content.",
+    "when": "Use CourseCardFrame to build a course card with a consistent header, body and optional footer when the instructor and learner card compositions do not match your content.",
     "how": [
       "Provide header and body content, and footer only when the card has actions or supporting information.",
       "Keep links, buttons and their host callbacks inside the supplied slots. The frame does not load course data or make the entire card clickable.",
-      "Use width for the maximum card width and the native styling slots for context-specific layout. Supply a shrinkable block, flex item or grid track: the frame owns the sgui-class-card inline-size container and reduces header/body padding below 20rem of card width. Keep headings and action labels meaningful."
+      "Use width for the maximum card width and the native styling slots for context-specific layout. Supply a shrinkable block, flex item or grid track: the frame owns the sgui-course-card inline-size container and reduces header/body padding below 20rem of card width. Keep headings and action labels meaningful."
     ],
     "related": [
       {
         "slug": "instructor-card",
-        "label": "InstructorClassCard for instructor summaries"
+        "label": "InstructorCourseCard for instructor summaries"
       },
       {
         "slug": "learner-card",
-        "label": "LearnerClassCard for learner progress"
+        "label": "LearnerCourseCard for learner progress"
       }
     ]
   },
   "instructor-card": {
-    "when": "Use InstructorClassCard in an instructor course overview to show course identity, lifecycle status, learner count and recent activity with one clear destination action.",
+    "when": "Use InstructorCourseCard in an instructor course overview to show course identity, lifecycle status, learner count and recent activity with one clear destination action.",
     "how": [
-      "Supply the existing className title prop, siteName, learnerCount and one of the supported active, draft, closed or archived statuses.",
+      "Supply the courseName title prop, siteName, learnerCount and one of the supported active, draft, closed or archived statuses.",
       "Provide lastLearnerActivityLabel, actionLabel and actionHref from the host. Navigation uses the host routing adapter.",
       "The component presents a summary; the host supplies data, permissions and the destination page."
     ],
     "related": [
       {
         "slug": "card-frame",
-        "label": "ClassCardFrame for a custom course card"
+        "label": "CourseCardFrame for a custom course card"
       },
       {
         "slug": "learner-card",
-        "label": "LearnerClassCard for the learner view"
+        "label": "LearnerCourseCard for the learner view"
       }
     ]
   },
   "learner-card": {
-    "when": "Use LearnerClassCard to help a learner resume a course: it combines course and instructor names, completion percentage, the next activity and a due-date summary.",
+    "when": "Use LearnerCourseCard to help a learner resume a course: it combines course and instructor names, completion percentage, the next activity and a due-date summary.",
     "how": [
       "Supply the course summary and progressPercent; the card does not calculate completion or fetch learner records.",
       "Use detailsHref and continueHref for navigation, or onContinue for a host action. A continueHref opens a separate tab.",
@@ -95,12 +95,12 @@
     ],
     "related": [
       {
-        "slug": "learner-grid",
-        "label": "LearnerClassesDataGrid for a course collection"
+        "slug": "data-grid-shell",
+        "label": "AppDataGridShell for a course collection"
       },
       {
         "slug": "card-frame",
-        "label": "ClassCardFrame for custom content"
+        "label": "CourseCardFrame for custom content"
       }
     ]
   },
@@ -152,7 +152,8 @@
       "Supply rows, columns and row identity, then add a card renderer through view.cards when people should switch presentations.",
       "Use the shell's combined state/callback contract rather than independently controlling the toolbar, grid and footer with competing state.",
       "For server mode, translate requested criteria into host requests and accept the resulting state. Opt into persistence with an isolated storage key; showResetView requests the complete declared default view.",
-      "The server example accepts the combined onStateChange transaction in one host criteria owner, processes local mock responses and guards stale success/error/pending completion. The persisted-view example uses an isolated storage key and declares complete reset defaults; selection and rows remain transient."
+      "The server example accepts the combined onStateChange transaction in one host criteria owner, processes local mock responses and guards stale success/error/pending completion. The persisted-view example uses an isolated storage key and declares complete reset defaults; selection and rows remain transient.",
+      "Compose course collections with host-owned columns, localized formatValue callbacks, link destinations and createActionMenuColumn actions. The shell already supplies selection, sorting, filtering, pagination, row actions and persistence; it does not construct application routes. Column resize handles sit on the leading edge of the column they name. Resizing preserves the other measured widths while one eligible data column fills the available space."
     ],
     "related": [
       {
@@ -170,7 +171,10 @@
     "how": [
       "Wire each enabled feature's options, controlled value and callback together. For example, filtering needs filterFields, filterRules and onFilterRulesChange.",
       "Apply requested search, sort and filter changes in the host or shared grid state, resetting pagination to page zero when criteria change.",
-      "Use selectedCount and the left-content slots for selection feedback and host actions. Hide unsupported controls with their show props rather than leaving unexplained disabled actions."
+      "Use selectedCount and the left-content slots for selection feedback and host actions. Hide unsupported controls with their show props rather than leaving unexplained disabled actions.",
+      "Use expandable SearchField for an animated icon-to-input search in compact headers. The expanded field shares the website search styling. Closing clears the query and returns focus; Escape first dismisses open results, then collapses. The host owns filtering and controlled query acceptance.",
+      "Action menu columns have a fixed width (110px by default, or a host-supplied width) and no resize handle. The list/card view switch uses a single-selection, icon-only ToggleButtonGroup. Arrow keys move focus between its labeled choices; activation requests a view change, and the active choice cannot be cleared. The host remains responsible for accepting the controlled view mode.",
+      "Column options use locked to prevent hiding and reorderable: false to fix their position. Position-fixed rows have no grabber or move arrows, and other columns cannot cross them. AppDataGridShell marks action-menu columns as position-fixed at the end; visibility-locked data columns remain reorderable."
     ],
     "related": [
       {
@@ -206,32 +210,14 @@
     "when": "Use DataGridDragHandle as the row-specific reorder control inside an owned reorder-enabled grid. A handle alone does not implement dragging or persist an order.",
     "how": [
       "Supply a label that identifies the row and action, and attach the handle to the grid's supported drag slot or a host-owned Move action.",
-      "Enable reordering only for the supported complete single-page dataset, with criteria and selection compatible with reordering.",
-      "Accept reorder requests in the host, persist the order and handle rollback on failure. Provide the keyboard Move flow as well as pointer dragging.",
+      "Enable reordering only for the supported complete single-page dataset, with no active search, filtering or sorting. Dragging a selected row moves all selected rows together in host order; accept sourceRowIds as a group in the host callback.",
+      "Accept reorder requests in the host, persist the order and handle rollback on failure. Handles support keyboard dragging by default. Set rowDrag.showMoveButtons to true for optional up/down buttons, and rowDrag.dragDisabled to true to disable handle dragging independently.",
       "Keep the handle and Move controls within the grid utility column. Enlarged text and touch targets can wrap the controls onto another line; allow row height to grow."
     ],
     "related": [
       {
         "slug": "app-data-grid",
         "label": "AppDataGrid for row-reorder integration"
-      }
-    ]
-  },
-  "learner-grid": {
-    "when": "Use LearnerClassesDataGrid for a learner's course collection when the standard learner columns, progress and course actions match the product's needs.",
-    "how": [
-      "Supply learner course presentation rows rather than application API objects. The host maps records, navigation destinations and actions into the owned props.",
-      "Use client mode for a local collection, or server mode with controlled paginationModel and onPaginationModelChange for host-paged results.",
-      "Supply loading state and known totals, or hasNextPage for unknown totals. The host owns fetching and permissions; use AppDataGridShell for a different domain or column layout."
-    ],
-    "related": [
-      {
-        "slug": "learner-card",
-        "label": "LearnerClassCard for an individual summary"
-      },
-      {
-        "slug": "data-grid-shell",
-        "label": "AppDataGridShell for a custom collection"
       }
     ]
   },

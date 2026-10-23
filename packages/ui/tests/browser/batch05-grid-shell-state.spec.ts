@@ -14,7 +14,7 @@ test.afterEach(async ({ page }) => { expect(errors.get(page), 'browser runtime e
 
 for (const mode of ['List', 'Cards']) {
   test(`${mode} retains selection and host rows across deferred, pending and failed responses`, async ({ page }) => {
-    if (mode === 'Cards') await page.getByRole('button', { name: 'Cards', exact: true }).click();
+    if (mode === 'Cards') await page.getByRole('radio', { name: 'Cards', exact: true }).click();
     await expect(page.getByText('2 selected', { exact: true })).toBeVisible();
     await expect(page.getByText('Total unknown', { exact: true })).toBeVisible();
     await page.getByRole('button', { name: 'Next page', exact: true }).click();
@@ -56,17 +56,17 @@ test('filter and page-size requests reach page zero before host acceptance', asy
   await page.getByRole('button', { name: 'Accept request', exact: true }).click();
   await expect(page.getByRole('status', { name: 'Accepted host page' })).toHaveText('Page 0, size 10');
   await expect(page.getByRole('checkbox', { name: 'Select Course 2', exact: true })).toBeVisible();
-  await page.getByRole('combobox', { name: 'Rows per page', exact: true }).selectOption('25');
+  await page.getByRole('button', { name: /Rows per page/ }).click(); await page.getByRole('option',{name:'25',exact:true}).click();
   await expect(page.getByRole('status', { name: 'Host callback order' })).toHaveText('page → state');
-  await expect(page.getByRole('combobox', { name: 'Rows per page', exact: true })).toHaveValue('10');
+  await expect(page.getByRole('button', { name: /Rows per page/ })).toContainText('10');
   await page.getByRole('button', { name: 'Accept request', exact: true }).click();
-  await expect(page.getByRole('combobox', { name: 'Rows per page', exact: true })).toHaveValue('25');
+  await expect(page.getByRole('button', { name: /Rows per page/ })).toContainText('25');
   await expect(page.getByRole('status', { name: 'Accepted host page' })).toHaveText('Page 0, size 25');
   await expect(page.getByText('2 selected', { exact: true })).toBeVisible();
 });
 
 test('a disappearing focused card repairs native focus without leaking into host actions', async ({ page }) => {
-  await page.getByRole('button', { name: 'Cards', exact: true }).click();
+  await page.getByRole('radio', { name: 'Cards', exact: true }).click();
   await page.getByRole('button', { name: 'Open Course 11', exact: true }).focus();
   await page.keyboard.press('Alt+d');
   await expect(page.getByRole('button', { name: 'Open Course 11', exact: true })).toHaveCount(0);

@@ -17,8 +17,7 @@ it("isolates identical row IDs, controlled pagination and card drafts across sib
     const props: CardCollectionWithFooterProps<typeof rows[number]> = {
       rows, getRowId: row => row.id, page, pageSize, pageSizeOptions: [1, 2],
       paginationLabel: `${name} pagination`,
-      onPageChange: next => { requests(name, "page", next); setPage(next); },
-      onPageSizeChange: next => { requests(name, "size", next); setPageSize(next); },
+      onPaginationModelChange: model => { requests(name, model); setPage(model.page); setPageSize(model.pageSize); },
       renderCard: row => <input aria-label={`${name} ${row.label}`} defaultValue={row.label} />,
     };
     return <CardCollectionWithFooter {...props} />;
@@ -39,13 +38,13 @@ it("isolates identical row IDs, controlled pagination and card drafts across sib
   expect(screen.getByRole("textbox", { name: "First Two" })).toBeTruthy();
   expect(screen.getByRole("textbox", { name: "Second One" })).toBe(draft);
   expect((draft as HTMLInputElement).value).toBe("Retained sibling draft");
-  expect(requests.mock.calls).toEqual([["First", "page", 1]]);
+  expect(requests.mock.calls).toEqual([["First", {page:1,pageSize:1}]]);
   await user.click(screen.getByRole("button", { name: "Remove first collection" }));
   expect(screen.queryByRole("navigation", { name: "First pagination" })).toBeNull();
   expect(screen.getByRole("textbox", { name: "Second One" })).toBe(draft);
   expect((draft as HTMLInputElement).value).toBe("Retained sibling draft");
-  await user.selectOptions(within(screen.getByRole("navigation", { name: "Second pagination" })).getByRole("combobox"), "2");
-  expect(requests.mock.calls).toEqual([["First", "page", 1], ["Second", "page", 0], ["Second", "size", 2]]);
+  await user.click(within(screen.getByRole("navigation", { name: "Second pagination" })).getByRole("button", { name: /Rows per page/ })); await user.click(screen.getByRole("option", { name: "2", exact: true }));
+  expect(requests.mock.calls).toEqual([["First", {page:1,pageSize:1}], ["Second", {page:0,pageSize:2}]]);
   expect(screen.getByRole("textbox", { name: "Second One" })).toBe(draft);
   expect(screen.getByRole("textbox", { name: "Second Two" })).toBeTruthy();
 });

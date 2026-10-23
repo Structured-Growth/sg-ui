@@ -77,7 +77,7 @@ test('date playground source follows datetime shape, hour cycle, density and com
 });
 
 test('public production docs omit native fixture routes, manifests and fixture runtime bundles',async({request})=>{
-  for(const route of ['/fixtures/','/fixtures/?id=migration-proofs-datefield--standalone-reset','/fixtures/index.json','/fixtures/migration-manifest.json']) {
+  for(const route of ['/fixtures/','/fixtures/?id=migration-proofs-datefield--standalone-reset','/fixtures/index.json','/fixtures/module-manifest.json']) {
     const response=await request.get(route);
     expect(response.status(),`${route} must not expose the test host`).toBe(404);
   }

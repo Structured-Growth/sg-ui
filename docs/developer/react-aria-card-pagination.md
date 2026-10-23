@@ -4,8 +4,7 @@ Task references: M-11, M-12. Public `CardCollectionWithFooter` and
 `AppPaginationFooter` names remain. They now use owned Pagination, scoped tokens
 and compiled CSS Modules. Import `@structured-growth/sg-ui/styles.css` once and
 provide `Provider` or `ThemeScope`. Granular `/components/CardCollectionWithFooter`
-and `/components/CardPaginationFooter` imports avoid the legacy catalog barrel.
-Root/catalog imports still require legacy peers while migration continues.
+and `/components/CardPaginationFooter` imports are supported alongside root/catalog imports.
 
 The host owns zero-based `page`, `pageSize`, rows, row IDs and callbacks. Rendering
 normalizes negative/non-finite pages to zero, invalid sizes to 25 and known-total
@@ -22,22 +21,15 @@ display the row range (zero total is `0-0 of 0`) and page count. Disabled/loadin
 navigation prevents both size selection and page actions. `label` on the footer
 and `paginationLabel` on the collection distinguish pagination landmarks.
 
-For atomic grid/server requests, `AppPaginationFooter.onPaginationModelChange`
-receives `{ page, pageSize }` once per page or size action. A size action includes
-page zero; this callback supersedes both separate callbacks when supplied. The
-required legacy callback props can be no-ops when adopting this optional path.
-The owned `Pagination.onPaginationChange(page, pageSize)` provides the same atomic
-size request; page buttons still use its `onPageChange`. Without these optional
-callbacks, the existing page-reset-before-size callback order is preserved.
-This compatible addition supports M-16 transactions without changing existing cards.
+Both components require `onPaginationModelChange({ page, pageSize })`.
+Every page or size interaction requests one complete state transaction. Size
+changes include page zero. Hosts accept or reject that transaction using their
+controlled page and size; separate callback fallback paths are removed.
+The owned Pagination primitive exposes `onPageChange` for page buttons and
+`onPaginationChange(page, pageSize)` for complete size requests.
 
-**Breaking integration changes:** page-size selection now calls `onPageChange(0)`
-before `onPageSizeChange(size)`, matching owned Pagination. Hosts should no longer
-rely on the old footer's size-only callback. Buttons use translated First/Previous/
-Next/Last page text in place of legacy icon buttons. The stylesheet and visual scope
-are required; MUI theme overrides and `.MuiTablePagination-*` selectors no longer
-style this footer. Use `className`, native `style`, the
-`data-sgui-part="card-pagination-footer"` hook, or scoped token overrides instead.
+Use `className`, native `style`, `data-sgui-part="card-pagination-footer"`
+or scoped tokens to customize the footer.
 
 The collection uses its available container width for columns with a 22.5rem
 preferred minimum, shrinking to one column on narrow containers. Only the grid
@@ -51,7 +43,7 @@ card actions, data retrieval, persistence and routing.
 Colocated tests cover host navigation/size ordering, form-safe keyboard activation,
 known/unknown/zero totals, invalid values, translation forwarding, stable row keys,
 shrinking data, empty/loading states, composed controlled navigation and SSR.
-Broader browser/assistive technology gates remain in the master task list.
+Broader browser and assistive technology validation remains required.
 
 ## Native focus visibility follow-up
 
@@ -61,3 +53,8 @@ enough to expose the complete focused control and its outline. Focus and the
 outer application scroll remain with their existing owners. Pending work is
 canceled on unmount and ignored if focus has moved elsewhere. The minimum grid
 height and oversized-footer root scrolling still apply.
+
+The Rows per page control composes the public Select dropdown. Its options and
+selected size remain controlled; choosing a size requests page zero and the new
+size atomically. Disabled pagination also disables the dropdown. The overlay
+inherits the pagination scope and returns focus to its trigger when dismissed.

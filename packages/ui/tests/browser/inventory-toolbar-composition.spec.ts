@@ -61,13 +61,15 @@ for (const { width, rtl } of [{ width: 360, rtl: false }, { width: 320, rtl: tru
       await page.keyboard.press('ArrowDown');
       await page.keyboard.press('Escape');
       await expect(trigger).toBeFocused();
-      const list = page.getByRole('button', { name: 'List', exact: true });
-      await tabTo(page, list);
+      const list = page.getByRole('radio', { name: 'List', exact: true });
+      await tabTo(page, page.getByRole('radio', { name: 'Cards', exact: true }));
+      // This layout fixture retains the English interaction locale in both directions.
+      await page.keyboard.press('ArrowRight');
       await page.keyboard.press('Space');
       await expect(list).toBeFocused();
       await withinViewport(page, list);
-      await expect(list).toHaveAttribute('aria-pressed', 'false');
-      await expect(page.getByRole('button', { name: 'Cards', exact: true })).toHaveAttribute('aria-pressed', 'true');
+      await expect(list).toHaveAttribute('aria-checked', 'false');
+      await expect(page.getByRole('radio', { name: 'Cards', exact: true })).toHaveAttribute('aria-checked', 'true');
       await callbacks(page, ['toggle', 'selection:none', 'view:list']);
     });
 

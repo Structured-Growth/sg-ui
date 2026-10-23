@@ -44,11 +44,6 @@ export {
   adminCourseStatuses,
   createAdminCourseGridOptions,
   createAdminPeopleGridOptions,
-  adminClassesColumnOptions,
-  adminClassesFilterFields,
-  adminClassesSortOptions,
-  adminPeopleColumnOptions,
-  adminPeopleSortOptions,
 } from "./AdminDataGridOptions";
 export {
   AppDataGrid,
@@ -87,7 +82,7 @@ export {
   buildDataToolbarColumnOptions,
   DataToolbar,
   DataToolbarSelectionMenu,
-  type ClassesViewMode,
+  type CoursesViewMode,
   type DataGridInteractionMode,
   type DataToolbarSelectionOption,
   type DataToolbarSelectionState,
@@ -96,6 +91,7 @@ export {
   type DataToolbarFilterOperator,
   type DataToolbarFilterRule,
   type DataToolbarProps,
+  type DataToolbarColumnOption,
   type DataToolbarSortDirection,
   type DataToolbarSortOption,
   type DataToolbarSortRule,
@@ -103,28 +99,21 @@ export {
   serializeFilterRuleValues,
 } from "./DataToolbar";
 export {
-  ClassCardFrame,
-  type ClassCardFrameProps,
-  STANDARD_CLASS_CARD_MIN_WIDTH,
-  STANDARD_CLASS_CARD_WIDTH,
-} from "./ClassCardFrame";
+  CourseCardFrame,
+  type CourseCardFrameProps,
+  STANDARD_COURSE_CARD_MIN_WIDTH,
+  STANDARD_COURSE_CARD_WIDTH,
+} from "./CourseCardFrame";
 export { CardCollectionWithFooter, type CardCollectionWithFooterProps } from "./CardCollectionWithFooter";
 export { AppPaginationFooter, type AppPaginationFooterProps } from "./CardPaginationFooter";
-export { InstructorClassCard, type InstructorClassCardProps, type InstructorClassCardStatus } from "./InstructorClassCard";
+export { InstructorCourseCard, type InstructorCourseCardProps, type InstructorCourseCardStatus } from "./InstructorCourseCard";
 export {
   instructorCourseStatuses,
   instructorCourseLearnerStatuses,
   createInstructorCourseGridOptions,
   createInstructorCourseLearnersGridOptions,
-  instructorClassLearnersColumnOptions,
-  instructorClassLearnersFilterFields,
-  instructorClassLearnersSortOptions,
-  instructorClassesColumnOptions,
-  instructorClassesFilterFields,
-  instructorClassesSortOptions,
 } from "./InstructorDataGridOptions";
-export { LearnerClassCard, type LearnerClassCardProps } from "./LearnerClassCard";
-export { LearnerClassesDataGrid, learnerClassesColumnOptions, learnerClassesSortOptions, type LearnerClassesDataGridProps } from "./LearnerClassesDataGrid";
+export { LearnerCourseCard, type LearnerCourseCardProps } from "./LearnerCourseCard";
 export {
   SideNavigation,
   type SideNavChildBehavior,

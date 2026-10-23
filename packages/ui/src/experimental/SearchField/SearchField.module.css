@@ -1,5 +1,11 @@
 @layer sgui.components {
   .root { display: flex; flex-direction: column; gap: var(--sgui-space1); min-inline-size: 0; }
+  .root[data-expandable] { inline-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); max-inline-size: 100%; transition: inline-size var(--sgui-motion-duration) ease; }
+  .root[data-expandable][data-field-expanded="true"] { inline-size: 15rem; }
+  .root[data-expandable] > .trigger { inline-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); }
+  .root[data-expandable][data-field-expanded="true"] > .control { animation: reveal var(--sgui-motion-duration) ease; }
+  @keyframes reveal { from { opacity: 0; } to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .root[data-expandable] { transition: none; } .root[data-expandable][data-field-expanded="true"] > .control { animation: none; } }
   .control { display: flex; align-items: center; gap: var(--sgui-space1); min-inline-size: 0; }
   .input { flex: 1; min-inline-size: 0; }
   .input input[type="search"]::-webkit-search-cancel-button { display: none; }

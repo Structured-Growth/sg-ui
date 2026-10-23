@@ -97,7 +97,7 @@ The trigger key identifies an action lifetime: change it when replacing the acti
 A new lifetime resets uncontrolled tooltip state and removes the old description;
 unmount/replacement invalidates late host notifications. Same-key content updates
 preserve trigger identity, and controlled `open` remains host-owned. See the
-[focused lifetime evidence](parallel-batch-13/control-tooltip.md).
+focused lifetime evidence.
 
 Nested command submenus remain an open part of U-07.
 
@@ -121,7 +121,6 @@ Browser checks cover representative native focus, removal, image events and sizi
 page-size reset, tooltip behavior and title editing. Full touch, zoom, screen-reader
 and cross-browser verification remains under X; these primitive task completions do
 not mark the entire accessibility or catalog migration complete.
-
 
 ### ToggleButtonGroup widths
 

@@ -1,8 +1,0 @@
-{
-  "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx": "86834d142b544c70c23a6bc789ec9863beb9b5d7166e7d84349b8711c71e0c02",
-  "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.module.css": "162cc786c27a03c0d389856ceafb3bac7a7849e1e9b936d53b6cafbb1b084a98",
-  "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.test.tsx": "7ebcab160b0f3817ee60c2f6d6f1722254ca6eca0741c5dd63b3c8e99b386cec",
-  "apps/docs/native-fixtures/scenarios/foundation/FoundationCatalogue.fixture.tsx": "9dc908146fe72faafe904b7606016b8892a19475f2bc153a04829ff5471f4949",
-  "docs/developer/react-aria-theme.md": "8ab7ca01b35473b5a11ad6efeab55f338d334f0ac762be18e0500a91b0c002de",
-  "packages/ui/tests/browser/wave03-system-indications.spec.ts": null
-}

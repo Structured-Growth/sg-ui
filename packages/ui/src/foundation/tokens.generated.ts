@@ -189,7 +189,7 @@ export const tokens = {
   "cardPaginationFooterDivider": "var(--sgui-card-pagination-footer-divider)",
   "cardPaginationFooterSubtleBackground": "var(--sgui-card-pagination-footer-subtle-background)",
   "cardPaginationFooterText": "var(--sgui-card-pagination-footer-text)",
-  "classCardFrameSubtleBackground": "var(--sgui-class-card-frame-subtle-background)",
+  "courseCardFrameSubtleBackground": "var(--sgui-course-card-frame-subtle-background)",
   "contentEditorChromeSubtleBackground": "var(--sgui-content-editor-chrome-subtle-background)",
   "contentEditorChromeText": "var(--sgui-content-editor-chrome-text)",
   "contentEditorChromeDivider": "var(--sgui-content-editor-chrome-divider)",
@@ -221,14 +221,14 @@ export const tokens = {
   "floatingTextSelectionToolbarAction": "var(--sgui-floating-text-selection-toolbar-action)",
   "imageUploadModalBorder": "var(--sgui-image-upload-modal-border)",
   "imageUploadModalMutedText": "var(--sgui-image-upload-modal-muted-text)",
-  "instructorClassCardMutedText": "var(--sgui-instructor-class-card-muted-text)",
-  "instructorClassCardText": "var(--sgui-instructor-class-card-text)",
-  "instructorClassCardAction": "var(--sgui-instructor-class-card-action)",
-  "instructorClassCardOnAction": "var(--sgui-instructor-class-card-on-action)",
-  "instructorClassCardActionHover": "var(--sgui-instructor-class-card-action-hover)",
-  "learnerClassCardMutedText": "var(--sgui-learner-class-card-muted-text)",
-  "learnerClassCardAction": "var(--sgui-learner-class-card-action)",
-  "learnerClassCardBackground": "var(--sgui-learner-class-card-background)",
+  "instructorCourseCardMutedText": "var(--sgui-instructor-course-card-muted-text)",
+  "instructorCourseCardText": "var(--sgui-instructor-course-card-text)",
+  "instructorCourseCardAction": "var(--sgui-instructor-course-card-action)",
+  "instructorCourseCardOnAction": "var(--sgui-instructor-course-card-on-action)",
+  "instructorCourseCardActionHover": "var(--sgui-instructor-course-card-action-hover)",
+  "learnerCourseCardMutedText": "var(--sgui-learner-course-card-muted-text)",
+  "learnerCourseCardAction": "var(--sgui-learner-course-card-action)",
+  "learnerCourseCardBackground": "var(--sgui-learner-course-card-background)",
   "pageRichTextEditorSectionText": "var(--sgui-page-rich-text-editor-section-text)",
   "pageRichTextEditorSectionBackground": "var(--sgui-page-rich-text-editor-section-background)",
   "pageRichTextEditorSectionMutedText": "var(--sgui-page-rich-text-editor-section-muted-text)",
@@ -411,7 +411,7 @@ export const tokens = {
   "tooltipText": "var(--sgui-tooltip-text)",
   "typographyDangerText": "var(--sgui-typography-danger-text)",
   "typographyMutedText": "var(--sgui-typography-muted-text)",
-  "typographyPrimaryForeground": "var(--sgui-typography-primary-foreground)",
+  "typographyAccentForeground": "var(--sgui-typography-accent-foreground)",
   "typographySubtleText": "var(--sgui-typography-subtle-text)",
   "scrollbarThumb": "var(--sgui-scrollbar-thumb)",
   "iconPanelNavigationBackground": "var(--sgui-icon-panel-navigation-background)",
@@ -887,7 +887,7 @@ export const tokenTiers = {
     "cardPaginationFooterDivider",
     "cardPaginationFooterSubtleBackground",
     "cardPaginationFooterText",
-    "classCardFrameSubtleBackground",
+    "courseCardFrameSubtleBackground",
     "contentEditorChromeSubtleBackground",
     "contentEditorChromeText",
     "contentEditorChromeDivider",
@@ -919,14 +919,14 @@ export const tokenTiers = {
     "floatingTextSelectionToolbarAction",
     "imageUploadModalBorder",
     "imageUploadModalMutedText",
-    "instructorClassCardMutedText",
-    "instructorClassCardText",
-    "instructorClassCardAction",
-    "instructorClassCardOnAction",
-    "instructorClassCardActionHover",
-    "learnerClassCardMutedText",
-    "learnerClassCardAction",
-    "learnerClassCardBackground",
+    "instructorCourseCardMutedText",
+    "instructorCourseCardText",
+    "instructorCourseCardAction",
+    "instructorCourseCardOnAction",
+    "instructorCourseCardActionHover",
+    "learnerCourseCardMutedText",
+    "learnerCourseCardAction",
+    "learnerCourseCardBackground",
     "pageRichTextEditorSectionText",
     "pageRichTextEditorSectionBackground",
     "pageRichTextEditorSectionMutedText",
@@ -1109,7 +1109,7 @@ export const tokenTiers = {
     "tooltipText",
     "typographyDangerText",
     "typographyMutedText",
-    "typographyPrimaryForeground",
+    "typographyAccentForeground",
     "typographySubtleText",
     "scrollbarThumb",
     "iconPanelNavigationBackground",
@@ -1383,7 +1383,7 @@ export const componentTokenReferences = {
     "tier": "semantic",
     "token": "text"
   },
-  "classCardFrameSubtleBackground": {
+  "courseCardFrameSubtleBackground": {
     "tier": "semantic",
     "token": "surfaceSubtle"
   },
@@ -1511,35 +1511,35 @@ export const componentTokenReferences = {
     "tier": "semantic",
     "token": "textMuted"
   },
-  "instructorClassCardMutedText": {
+  "instructorCourseCardMutedText": {
     "tier": "semantic",
     "token": "textMuted"
   },
-  "instructorClassCardText": {
+  "instructorCourseCardText": {
     "tier": "semantic",
     "token": "text"
   },
-  "instructorClassCardAction": {
+  "instructorCourseCardAction": {
     "tier": "semantic",
     "token": "action"
   },
-  "instructorClassCardOnAction": {
+  "instructorCourseCardOnAction": {
     "tier": "semantic",
     "token": "onAction"
   },
-  "instructorClassCardActionHover": {
+  "instructorCourseCardActionHover": {
     "tier": "semantic",
     "token": "actionHover"
   },
-  "learnerClassCardMutedText": {
+  "learnerCourseCardMutedText": {
     "tier": "semantic",
     "token": "textMuted"
   },
-  "learnerClassCardAction": {
+  "learnerCourseCardAction": {
     "tier": "semantic",
     "token": "action"
   },
-  "learnerClassCardBackground": {
+  "learnerCourseCardBackground": {
     "tier": "semantic",
     "token": "surface"
   },
@@ -2271,7 +2271,7 @@ export const componentTokenReferences = {
     "tier": "semantic",
     "token": "textMuted"
   },
-  "typographyPrimaryForeground": {
+  "typographyAccentForeground": {
     "tier": "semantic",
     "token": "action"
   },

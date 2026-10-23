@@ -8,7 +8,7 @@
  * code compilation or prose/command execution is performed.
  */
 import {execFileSync} from 'node:child_process';
-import {readFileSync,readdirSync} from 'node:fs';
+import {readFileSync,readdirSync,existsSync} from 'node:fs';
 import {resolve,relative,join} from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 import {checkDocumentLinks,markdownLinks} from './check-document-links.mjs';
@@ -46,6 +46,7 @@ export function currentSiteRoutes(root) {
 export async function checkMaintainedDocumentation({root,trackedFiles}={}) {
  root=resolve(root??resolve(fileURLToPath(new URL('../../..',import.meta.url))));
  trackedFiles??=execFileSync('git',['ls-files','-z','--','*.md','*.markdown','*.MD'],{cwd:root,encoding:'utf8'}).split('\0').filter(Boolean);
+ trackedFiles=trackedFiles.filter(file=>existsSync(resolve(root,file)));
  const files=trackedFiles.filter(maintainedDocument).sort(),site=currentSiteRoutes(root),routes=new Set(site.routes),siteLinks=[];
  const checked=await checkDocumentLinks({root,files});
  // Preserve the generic auditor's raw result. Only exact canonical routes from

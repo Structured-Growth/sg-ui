@@ -12,8 +12,7 @@ export type CardCollectionWithFooterProps<TRow> = {
   page: number;
   pageSize: number;
   pageSizeOptions: number[];
-  onPageChange: (nextPage: number) => void;
-  onPageSizeChange: (nextPageSize: number) => void;
+  onPaginationModelChange: (model: { page: number; pageSize: number }) => void;
   renderCard: (row: TRow) => ReactNode;
   loading?: boolean;
   emptyContent?: ReactNode;
@@ -24,7 +23,7 @@ export type CardCollectionWithFooterProps<TRow> = {
 };
 
 export function CardCollectionWithFooter<TRow>({ rows, getRowId, page, pageSize, pageSizeOptions,
-  onPageChange, onPageSizeChange, renderCard, loading = false, emptyContent, loadingContent,
+  onPaginationModelChange, renderCard, loading = false, emptyContent, loadingContent,
   paginationLabel, className, style }: CardCollectionWithFooterProps<TRow>) {
   const revealFrame = useRef<number | null>(null);
   useEffect(() => () => {
@@ -60,7 +59,7 @@ export function CardCollectionWithFooter<TRow>({ rows, getRowId, page, pageSize,
         : <Status>{emptyContent ?? t("common.ui.cards.empty", { defaultMessage: "No courses" })}</Status>}
     </div>
     <AppPaginationFooter page={normalized.page} pageSize={normalized.pageSize} pageSizeOptions={pageSizeOptions}
-      totalCount={rows.length} onPageChange={onPageChange} onPageSizeChange={onPageSizeChange}
+      totalCount={rows.length} onPaginationModelChange={onPaginationModelChange}
       disabled={loading} label={paginationLabel} />
   </div>;
 }

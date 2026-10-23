@@ -20,7 +20,7 @@ route and legal/notices reviewer. Use these explicit outcomes:
 | Existing release without a breaking delta | Apply the configured Conventional Commit policy; do not infer a breaking release from a checklist label. |
 | Unknown/disagreeing registry, Git tag or release history | Stop promotion until the owner reconciles history. A public 404 or empty local tag list is insufficient. |
 
-Use [consumer migration mappings](../migration.md#consumer-migration-mappings) and
+Use [consumer migration mappings](../migration.md#public-apis) and
 the normalized public API comparison to list each changed export/prop/default,
 replacement contract and release marker. The mappings cover upstream styling,
 Button actions, grids, theme, icons, modals, calendar values and editor adapters;
@@ -151,7 +151,7 @@ or select an actual release candidate. The workflow policy fixtures separately
 reject a dev release trigger, a missing main-only guard and a skipped validation
 prerequisite.
 
-The [R-15/R-28 reconciliation](../developer/final-acceptance/wave-04/02/release-marking-safety/receipt.json)
+The R-15/R-28 reconciliation
 retains the actual `339c958d` breaking-marker proof, exact configuration/tool inputs
 and scoped read-only history observations. The marker must still reach the actual
 main commit history analyzed by a future release; a maintenance-only squash can

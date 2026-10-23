@@ -1,8 +1,0 @@
-{
-  "capturedAt": "2026-10-16T22:49:35.857629+00:00",
-  "command": "git apply --check source-cycle-extraction.patch",
-  "exitCode": 1,
-  "stdout": "",
-  "stderr": "error: patch failed: packages/ui/src/experimental/DateField/DateField.tsx:13\nerror: packages/ui/src/experimental/DateField/DateField.tsx: patch does not apply\n",
-  "applied": false
-}

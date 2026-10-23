@@ -1,8 +1,18 @@
 @layer sgui.components {
   .body { display: flex; flex-direction: column; gap: var(--sgui-space3); }
-  .row { display: grid; grid-template-columns: 1.25rem minmax(0, 1fr) minmax(0, 1fr) auto; gap: var(--sgui-space3); align-items: end; border-block-start: 2px solid transparent; }
-  .row[data-drop-target] { border-block-start-color: var(--sgui-data-toolbar-action); }
+  .row { position: relative; display: grid; grid-template-columns: 1.25rem minmax(0, 1fr) minmax(0, 1fr) auto; gap: var(--sgui-space3); align-items: end; border-block-start: 2px solid transparent; }
+  .row[data-drop-target]::after { content: ""; position: absolute; inset-inline: 0; block-size: 2px; background: var(--sgui-data-toolbar-action); pointer-events: none; }
+  .row[data-drop-target="before"]::after { inset-block-start: -2px; }
+  .row[data-drop-target="after"]::after { inset-block-end: -2px; }
+  .trigger[data-menu-open] { background: var(--sgui-data-toolbar-subtle-background); border-color: var(--sgui-data-toolbar-action); }
+  .row[data-dragging] { opacity: 0.45; }
+  .row[data-dragging] .handle { cursor: grabbing; }
+  .dragPreview { position: fixed; z-index: 1; pointer-events: none; display: flex; align-items: center; gap: var(--sgui-space2); padding: var(--sgui-space3); max-inline-size: min(24rem, calc(100vw - 2rem)); box-sizing: border-box; border: 1px solid var(--sgui-data-toolbar-action); border-radius: var(--sgui-field-control-radius); background: var(--sgui-data-toolbar-background); color: var(--sgui-data-toolbar-text); box-shadow: var(--sgui-overlay-shadow); font-size: var(--sgui-control-text-size); translate: min(0px, calc(100vw - 100% - 2rem - var(--drag-x))) clamp(calc(0.5rem - var(--drag-y)), -50%, calc(100vh - 100% - 0.5rem - var(--drag-y))); }
+  .dragPreview > svg { flex-shrink: 0; }
+  .previewDirection { color: var(--sgui-data-toolbar-muted-text); }
+  @media (forced-colors: active) { .trigger[data-menu-open] { outline: 2px solid Highlight; } .dragPreview { border-color: Highlight; } }
   .field { min-inline-size: 0; }
+  .field > span[id] { position: absolute; inline-size: 1px; block-size: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .handle { color: var(--sgui-data-toolbar-muted-text); display: inline-flex; align-items: center; block-size: 2.25rem; }
   .handle[data-reorderable] { cursor: grab; touch-action: none; user-select: none; }
   .rowActions, .actions { display: flex; gap: var(--sgui-space1); flex-wrap: wrap; }

@@ -17,7 +17,7 @@ try {
   const artifact = await consumerTarball(fixture);
 await writeFile(join(fixture, 'package.json'), JSON.stringify({
     name: 'sgui-next-consumer', private: true, type: 'module', packageManager: 'pnpm@10.29.3',
-    dependencies: { '@structured-growth/sg-ui': `file:${artifact}`, next: '16.4.0', react: '19.2.3', 'react-dom': '19.2.3' },
+    dependencies: { '@structured-growth/sg-ui': `file:${artifact}`, next: '16.4.2', react: '19.2.3', 'react-dom': '19.2.3' },
   }));
   await writeFile(join(fixture, '.npmrc'), 'auto-install-peers=false\n');
   await writeFile(join(fixture, 'next.config.mjs'), 'export default { experimental: { cpus: 1 } };\n');
@@ -28,7 +28,7 @@ export default function Layout({children}) { return <html lang="en"><body>{child
 `);
   await writeFile(join(fixture, 'app/page.jsx'), `
 import { Box, Typography, Table, TableBody, TableRow, TableCell } from '@structured-growth/sg-ui/primitives';
-import { ClassCardFrame } from '@structured-growth/sg-ui/components/ClassCardFrame';
+import { CourseCardFrame } from '@structured-growth/sg-ui/components/CourseCardFrame';
 import { AuthShell } from '@structured-growth/sg-ui/components/AuthShell';
 import { AppShell } from '@structured-growth/sg-ui/components/AppShell';
 import { normalizePaginationModel } from '@structured-growth/sg-ui/hooks';
@@ -36,7 +36,7 @@ import Client from './client';
 export default function Page() {
   const model = normalizePaginationModel({page: 2, pageSize: 37});
   return <Client><AppShell navigation={<nav aria-label="Server navigation">Courses</nav>}>
-    <AuthShell title="Packed server shell"><ClassCardFrame
+    <AuthShell title="Packed server shell"><CourseCardFrame
       header={<Typography as="h1">Server course card</Typography>}
       body={<Box padding={2}><Table><TableBody><TableRow><TableCell>Server table cell</TableCell></TableRow></TableBody></Table>
         <output id="server-pagination">{JSON.stringify(model)}</output>
@@ -145,7 +145,7 @@ export default function Client({children}) {
     await expect(dialog).toBeHidden();
     await expect(trigger).toBeFocused();
   });
-  console.log('Packed Next 16.4.0 production App Router server/client boundaries passed.');
+  console.log('Packed Next 16.4.2 production App Router server/client boundaries passed.');
 } finally {
   if (server && server.exitCode === null) { const exited = once(server, 'exit'); server.kill('SIGTERM'); await exited; }
   if (!process.env.SGUI_CONSUMER_ROOT) await rm(fixture, { recursive: true, force: true });

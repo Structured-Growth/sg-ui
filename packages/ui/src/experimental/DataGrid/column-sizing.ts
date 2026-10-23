@@ -2,6 +2,12 @@
 export type GridSizingColumn = { id: string; width?: number; minWidth?: number; maxWidth?: number; flex?: number; utility?: boolean };
 const finitePositive = (value: unknown): value is number => typeof value === "number" && Number.isFinite(value) && value > 0;
 
+/** A leading divider needs resizable data on both sides; utility columns are outside this list. */
+export function canResizeLeadingColumn(columns: readonly { minWidth?: number; maxWidth?: number }[], index: number): boolean {
+  if (index <= 0 || index >= columns.length) return false;
+  return [columns[index - 1]!, columns[index]!].every(column => column.minWidth === undefined || column.minWidth !== column.maxWidth);
+}
+
 const canFill = (column: GridSizingColumn) => !column.utility && (column.minWidth === undefined || column.minWidth !== column.maxWidth);
 const fillCandidates = (columns: readonly GridSizingColumn[]) => {
   const eligible = columns.filter(canFill).reverse();

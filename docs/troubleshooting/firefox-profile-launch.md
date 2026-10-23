@@ -73,7 +73,7 @@ Node 24.21.0 and Firefox 155.0 / Playwright build 1543. Read-only logs show
 and Next.js hydrated-interaction passes. This establishes historical working
 Linux evidence; it does not validate the batch-05 head, macOS launch behavior,
 physical devices, or assistive technologies. The
-[batch-05 completion report](../developer/parallel-batch-05/firefox-runtime.md)
+batch-05 completion report
 records the current local diagnostic and its limits.
 
 ## Batch-05 local result (2026-10-07)

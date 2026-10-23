@@ -1,5 +1,0 @@
-Syntax transpile passed: literal-labels.test.tsx
-Syntax transpile passed: vitest.candidate.config.ts
-Syntax transpile passed: proposed-files/packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx
-Syntax transpile passed: proposed-files/packages/ui/src/components/InstructorClassCard/InstructorClassCard.literal-labels.test.tsx
-Node v24.21.0; TypeScript 5.9.3. Syntax/dependency resolution only, not typecheck or behavioral execution.

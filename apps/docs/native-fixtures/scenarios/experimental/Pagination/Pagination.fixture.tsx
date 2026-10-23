@@ -14,7 +14,7 @@ function Pages({ unknown = false }: { unknown?: boolean }) {
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(25);
   return <Pagination page={page} pageCount={unknown ? undefined : 4} hasNextPage={page < 3}
-    onPageChange={setPage} pageSize={pageSize} onPageSizeChange={setPageSize} />;
+    onPageChange={setPage} pageSize={pageSize} onPaginationChange={(nextPage, nextSize) => { setPage(nextPage); setPageSize(nextSize); }} />;
 }
 export const Default: Story = { render: () => <Pages /> };
 export const UnknownTotal: Story = { render: () => <Pages unknown /> };
@@ -37,5 +37,5 @@ export const NarrowAndRTL: Story = { render: () => <ThemeScope dir="rtl" style={
 export const SafeSizesWithHostRejection: Story = {
   args: { page: 2, pageCount: undefined, hasNextPage: true, pageSize: 10,
     pageSizeOptions: [250, Number.MAX_SAFE_INTEGER + 1, 0, -1, 1.5, 250, Number.MAX_SAFE_INTEGER],
-    onPageSizeChange: () => {} },
+    onPaginationChange: () => {} },
 };

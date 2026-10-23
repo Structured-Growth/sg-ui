@@ -92,14 +92,12 @@ export function checkScenarioDispositions(early,manifest,read) {
 }
 export function audit(root) {
   const read=p=>readFileSync(resolve(root,p),'utf8');
-  const manifest=JSON.parse(read('docs/extraction-manifest.json'));
-  const inventory=checkManifest(manifest,p=>existsSync(resolve(root,p)));
   const host=checkDocsHost(root);
   const manifests=['package.json','packages/ui/package.json','apps/docs/package.json'].map(p=>JSON.parse(read(p)));
   const commandDocuments=['README.md','docs/migration.md','docs/developer/react-aria-component-recipe.md','docs/developer/react-aria-dependency-upgrades.md'];
   const commands=commandDocuments.map(p=>checkCommands(commandCodeIn(read(p)),manifests,p));
-  const issues=[...inventory.issues,...host.findings.map(f=>`${f.file}: ${f.message}`),...commands.flatMap(r=>r.issues)];
-  return {status:issues.length?'failed':'current-checks-pass',inventoryRows:inventory.rows.length,fixtureModules:host.modules,scenarios:host.scenarios,commands:commands.flatMap(r=>r.commands),issues,
+  const issues=[...host.findings.map(f=>`${f.file}: ${f.message}`),...commands.flatMap(r=>r.issues)];
+  return {status:issues.length?'failed':'current-checks-pass',fixtureModules:host.modules,scenarios:host.scenarios,commands:commands.flatMap(r=>r.commands),issues,
     limits:['Current paths, fixture mapping and command existence only. No runtime, legal, release or manual acceptance inferred.']};
 }
 if(process.argv[1]&&pathToFileURL(resolve(process.argv[1])).href===import.meta.url) {

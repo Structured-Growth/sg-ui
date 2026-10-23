@@ -1,6 +1,0 @@
-apps/docs/native-fixtures/tsconfig.json: 3 proposed files; 0 diagnostics
-[91merror[0m[90m TS2688: [0mCannot find type definition file for 'node'.
-  The file is in the program because:
-    Entry point of type library 'node' specified in compilerOptions
-packages/ui/tsconfig.json: 1 proposed files; 1 diagnostics
-Runtime v26.5.0; TypeScript 5.9.3; static compiler evidence only

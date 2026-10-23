@@ -1,8 +1,0 @@
-{
-  "parent": "a6a4caefb9da88cec0c3035789cc7f759c9538d7",
-  "head": "989630d34828fd4895713758643ee9e04adf7f1d",
-  "branch": "refs/heads/codex/tooltip-viewport-debug-9ca3e666",
-  "indexUnchanged": true,
-  "productChange": "packages/ui/src/experimental/Tooltip/Tooltip.tsx",
-  "localUnits": "tooltip-focus-unit-02.log"
-}

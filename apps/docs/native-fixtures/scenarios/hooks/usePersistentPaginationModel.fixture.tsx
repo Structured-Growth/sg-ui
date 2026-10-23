@@ -9,7 +9,7 @@ function PaginationExample({ storage }: { storage?: "session" }) {
   });
   return <div>
     <AppPaginationFooter page={model.page} pageSize={model.pageSize} totalCount={1000}
-      pageSizeOptions={[10, 75, 250]} onPageChange={() => {}} onPageSizeChange={() => {}}
+      pageSizeOptions={[10, 75, 250]}
       onPaginationModelChange={setModel} />
     <Button variant="text" onPress={() => setModel({ page: 0, pageSize: 10 })}>Reset pagination</Button>
   </div>;

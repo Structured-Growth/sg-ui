@@ -1,6 +1,0 @@
-{"check":"native-fixture","runtime":"v26.5.0","typescript":"5.9.3","files":["apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx","apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.fixture.tsx"],"proposalDiagnostics":0,"dependencyDiagnostics":0}
-{"check":"browser-spec","runtime":"v26.5.0","typescript":"5.9.3","files":["packages/ui/tests/browser/wave03-editor-chrome-acceptance.spec.ts","packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts"],"proposalDiagnostics":1,"dependencyDiagnostics":1}
-Cannot find type definition file for 'node'.
-  The file is in the program because:
-    Entry point of type library 'node' specified in compilerOptions at config
-Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node` and then add 'node' to the types field in your tsconfig. at packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts:11

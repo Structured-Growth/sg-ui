@@ -21,7 +21,6 @@ export type AppDataGridProps<RowModel> = Omit<OwnedGridInteractionProps<RowModel
   selection?: boolean | AppDataGridSelectionConfig<RowModel>;
   hideFooter?: boolean;
   /** Optional per-view persistence key. */
-  storageKey?: string;
   persistence?: OwnedGridPersistenceConfig;
   /** Offer an accessible reset action. Defaults to false. */
   showResetView?: boolean;
@@ -32,7 +31,7 @@ export type AppDataGridProps<RowModel> = Omit<OwnedGridInteractionProps<RowModel
 type ComposedGridProps<RowModel> = AppDataGridProps<RowModel> & Pick<OwnedGridInteractionProps<RowModel>, "processingResult" | "dispatchTransition">;
 
 function Grid<RowModel>(props: ComposedGridProps<RowModel> & { persist?: ReturnType<typeof useOwnedGridPersistence<RowModel>>["persist"]; resetPersistence?: ReturnType<typeof useOwnedGridPersistence<RowModel>>["reset"]; resetDefaults?: AppDataGridProps<RowModel> }, ref: Ref<HTMLDivElement>) {
-  const { selection = true, hideFooter = false, processingResult, storageKey: _storageKey, persistence: _persistence, persist, resetPersistence, resetDefaults, showResetView, onResetView, ...interaction } = props;
+  const { selection = true, hideFooter = false, processingResult, persistence: _persistence, persist, resetPersistence, resetDefaults, showResetView, onResetView, ...interaction } = props;
   const { t } = useTranslation();
   const config = typeof selection === "object" ? selection : undefined;
   const { state, dispatch: localDispatch } = useOwnedGridController({ ...interaction,
@@ -84,7 +83,7 @@ function Grid<RowModel>(props: ComposedGridProps<RowModel> & { persist?: ReturnT
       onStateChange={undefined} />
     {!hideFooter && <AppPaginationFooter page={processed.paginationModel.page} pageSize={processed.paginationModel.pageSize}
       pageSizeOptions={options} totalCount={processed.rowCount} hasNextPage={processed.canNextPage}
-      onPageChange={() => {}} onPageSizeChange={() => {}}
+
       onPaginationModelChange={value => {
         pendingFocus.current = { page: value.pageSize !== state.paginationModel.pageSize ? 0 : value.page, origin: document.activeElement };
         dispatch({ type: "pagination", value });
@@ -97,7 +96,7 @@ export const ComposedAppDataGrid = forwardRef(Grid) as <RowModel>(props: Compose
   resetPersistence?: ReturnType<typeof useOwnedGridPersistence<RowModel>>["reset"]; resetDefaults?: AppDataGridProps<RowModel>;
 }) => ReactElement;
 function PersistentGrid<RowModel>(props: AppDataGridProps<RowModel>, ref: Ref<HTMLDivElement>) {
-  const persistence = useOwnedGridPersistence({ ...props, persistence: props.persistence ?? (props.storageKey ? { key: props.storageKey } : undefined) });
+  const persistence = useOwnedGridPersistence({ ...props, persistence: props.persistence });
   if (!persistence.ready) return <OwnedGridStatus state="loading" />;
   const restored = persistence.defaults;
   return <ComposedAppDataGrid {...props} ref={ref} persist={persistence.persist} resetPersistence={persistence.reset} resetDefaults={props}

@@ -4,7 +4,7 @@ import { Provider } from "../theme";
 import { Button } from "../components/Button";
 import { AppPageTabs } from "../components/AppPageTabs";
 import { AppModal } from "../components/AppModal";
-import { ClassCardFrame } from "../components/ClassCardFrame";
+import { CourseCardFrame } from "../components/CourseCardFrame";
 import { PageRichTextEditorSection } from "../components/PageRichTextEditorSection";
 import { Stack, TextField, Typography } from "../experimental";
 
@@ -31,7 +31,7 @@ export function BaselineHostFlow() {
         { id: "overview", label: "Overview", content: <Typography>Choose Courses to create a course and edit its introduction.</Typography> },
         { id: "courses", label: "Courses", content: <Stack gap={4}>
           <Button onPress={() => { setDraftTitle(""); setOpen(true); }}>Create course</Button>
-          {courseTitle ? <ClassCardFrame
+          {courseTitle ? <CourseCardFrame
             header={<Typography as="h2" variant="h5">{courseTitle}</Typography>}
             body={<Typography>Host-owned course draft</Typography>}
             footer={<Button onPress={() => { setOpenedCourse(courseTitle); navigate("editor"); }}>Edit introduction</Button>} /> :

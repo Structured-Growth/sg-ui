@@ -1,18 +1,18 @@
 // T-C19-05: source-resolved consumption of the three declared public entry routes.
-import { LearnerClassesDataGrid as RootGrid, Provider,
-  type LearnerClass, type LearnerClassesDataGridProps as RootProps } from "@structured-growth/sg-ui";
-import { LearnerClassesDataGrid as CatalogGrid,
-  type LearnerClassesDataGridProps as CatalogProps } from "@structured-growth/sg-ui/components";
-import { LearnerClassesDataGrid as GranularGrid,
-  type LearnerClassesDataGridProps as GranularProps } from "@structured-growth/sg-ui/components/LearnerClassesDataGrid";
+import { AppDataGridShell as RootGrid, Provider,
+  type LearnerCourse, type AppDataGridShellProps as RootProps } from "@structured-growth/sg-ui";
+import { AppDataGridShell as CatalogGrid,
+  type AppDataGridShellProps as CatalogProps } from "@structured-growth/sg-ui/components";
+import { AppDataGridShell as GranularGrid,
+  type AppDataGridShellProps as GranularProps } from "@structured-growth/sg-ui/components/AppDataGridShell";
 
-const learner: LearnerClass = {
+const learner: LearnerCourse = {
   id: "course-one", courseName: "Science", instructorName: "Author", siteName: "Campus",
   progressPercent: 40, nextActivity: "Read", dueAt: "2026-10-10",
 };
 
-export const granularProps: GranularProps = {
-  rows: [learner], label: "Courses", getRowLabel: row => row.courseName,
+export const granularProps: GranularProps<LearnerCourse> = {
+  rows: [learner], columns: [{ field: "courseName", headerName: "Course", flex: 1 }], label: "Courses", getRowLabel: row => row.courseName,
   showResetView: true,
   onResetView: state => {
     const page: number = state.paginationModel.page;
@@ -21,9 +21,9 @@ export const granularProps: GranularProps = {
     void selection;
   },
 };
-export const rootProps: RootProps = granularProps;
-export const catalogProps: CatalogProps = rootProps;
-export const roundTripProps: GranularProps = catalogProps;
+export const rootProps: RootProps<LearnerCourse> = granularProps;
+export const catalogProps: CatalogProps<LearnerCourse> = rootProps;
+export const roundTripProps: GranularProps<LearnerCourse> = catalogProps;
 
 // Each component must accept the public exported props in a consuming JSX context.
 export function PublicLearnerGridConsumer() {

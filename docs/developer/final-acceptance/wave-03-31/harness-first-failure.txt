@@ -1,2 +1,0 @@
-First verify-lifecycle invocation exited 1 on Node26.5.0: candidate pending timer assertion 1 !== 0 at duplicateRelease line25.
-Harness defect: TypeScript transpileModule default ES5 target without downlevelIteration does not iterate Map entries. Set target ES2022, matching supported runtime syntax; no production code changed to satisfy this failure.

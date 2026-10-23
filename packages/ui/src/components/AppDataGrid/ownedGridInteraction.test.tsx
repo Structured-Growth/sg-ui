@@ -45,14 +45,14 @@ it("keeps controlled selection authoritative and server order unchanged", async 
 });
 it("commits bounded numeric keyboard widths without freezing untouched flex columns", async () => {
   const user = userEvent.setup(); const widths = vi.fn();
-  render(<OwnedGridInteraction {...props} onColumnWidthsChange={widths} />);
+  render(<OwnedGridInteraction {...props} columns={[columns[1]!,columns[0]!]} onColumnWidthsChange={widths} />);
   const slider = screen.getByRole("slider", { name: /Resize Name/ });
   await user.click(slider); await user.keyboard("{Enter}{ArrowRight}{Enter}");
   expect(widths.mock.calls.at(-1)?.[0]).toEqual({ name: 190 });
 });
 it("accepts repeated focused native slider changes without a pointer or key event", () => {
   const widths = vi.fn();
-  render(<OwnedGridInteraction {...props} onColumnWidthsChange={widths} />);
+  render(<OwnedGridInteraction {...props} columns={[columns[1]!,columns[0]!]} onColumnWidthsChange={widths} />);
   const slider = screen.getByRole("slider", { name: /Resize Name/ });
   fireEvent.focus(slider); slider.focus();
   fireEvent.change(slider, { target: { value: "220" } });
@@ -69,11 +69,10 @@ it("forwards native container/table refs and applies locks, order and hidden fie
   expect(ref.current?.tabIndex).toBe(-1); // The native table owns the collection's Tab stop.
   expect(tableRef.current?.tabIndex).toBe(0);
   const headers = screen.getAllByRole("columnheader");
-  // Locked Name/Actions remain visible and ordered; each now includes the
-  // non-drag width action alongside its original heading content.
-  expect(headers.map(header => header.textContent)).toEqual(["Select page", "Name↔", "Actions↔"]);
-  expect(within(headers[1]!).getByRole("button", { name: "Width of Name", exact: true })).toBeTruthy();
-  expect(within(headers[2]!).getByRole("button", { name: "Width of Actions", exact: true })).toBeTruthy();
+  // Locked Name/Actions remain visible and ordered without width-menu icons.
+  expect(headers.map(header => header.textContent)).toEqual(["Select page", "Name", "Actions"]);
+  expect(within(headers[1]!).queryByRole("button", { name: "Width of Name", exact: true })).toBeNull();
+  expect(within(headers[2]!).queryByRole("button", { name: "Width of Actions", exact: true })).toBeNull();
   expect(screen.queryByRole("button", { name: "Width of Score", exact: true })).toBeNull();
 });
 it("remeasures flex allocation while preserving a committed width override", () => {
@@ -364,4 +363,17 @@ it.each([false, true])("ends Retry focus ownership on deliberate host/independen
     rerender(view(false));
     expect(document.activeElement).toBe(document.body);
   }
+});
+
+it("keeps the first divider inert beside selection/reorder columns and boundaries beside fixed columns",()=>{
+ for(const selection of [false,true]){
+  const widths=vi.fn();const {unmount}=render(<OwnedGridInteraction {...props} selection={selection} rowDrag={{onReorder:vi.fn()}} onColumnWidthsChange={widths}/>);
+  expect(screen.queryByRole("slider",{name:/Resize Name/})).toBeNull();
+  expect(screen.getByRole("slider",{name:/Resize Score/})).toBeTruthy();
+  const divider=screen.getByRole("columnheader",{name:/Name/}).querySelector('[data-sgui-part="inactive-column-divider"]')!;
+  fireEvent.pointerDown(divider,{clientX:200,pointerId:1});fireEvent.pointerMove(divider,{clientX:150,pointerId:1});fireEvent.pointerUp(divider,{clientX:150,pointerId:1});
+  expect(widths).not.toHaveBeenCalled();unmount();
+ }
+ render(<OwnedGridInteraction {...props} columns={[columns[0]!,{field:"fixed",headerName:"Fixed",minWidth:80,maxWidth:80},columns[1]!]} />);
+ expect(screen.queryByRole("slider")).toBeNull();
 });

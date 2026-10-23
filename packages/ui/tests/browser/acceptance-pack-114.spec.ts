@@ -10,7 +10,7 @@ async function tabTo(page: Page, target: ReturnType<Page['getByRole']>, recordFo
 }
 
 // G-12 evidence gap: existing deterministic fixture, no source/story changes.
-test('batch114 native column resize commits only its field and host keyboard order keeps actions last', async ({ page }, testInfo) => {
+test('batch114 native column resize commits its width snapshot and host keyboard order keeps actions last', async ({ page }, testInfo) => {
   const diagnostics: string[] = [];
   page.on('pageerror', error => diagnostics.push(error.message));
   page.on('console', message => {
@@ -61,8 +61,6 @@ test('batch114 native column resize commits only its field and host keyboard ord
   for (const target of [
     grid.getByRole('button', { name: 'Selection actions', exact: true }),
     grid.getByRole('button', { name: 'Sort Course', exact: true }),
-    grid.locator('thead [data-grid-field="name"]').getByRole('slider', { name: /^Resize Course\b/ }),
-    grid.getByRole('button', { name: 'Width of Course', exact: true }),
     scoreHeader.getByRole('button', { name: 'Sort Score', exact: true }),
     score,
   ]) {
@@ -78,7 +76,7 @@ test('batch114 native column resize commits only its field and host keyboard ord
   await expect.poll(async () => {
     const text = await committed.innerText();
     return Object.keys(JSON.parse(text.split('Committed widths: ')[1]!));
-  }).toEqual(['score']);
+  }).toEqual(['name', 'score', 'status', 'actions']);
   await expect(score).toBeFocused();
   const order = page.getByRole('button', { name: 'Put score first', exact: true });
   await tabTo(page, order);

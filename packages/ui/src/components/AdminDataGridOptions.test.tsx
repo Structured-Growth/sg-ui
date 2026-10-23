@@ -65,8 +65,8 @@ describe("owned catalog grid presets", () => {
     expect((screen.getByRole("checkbox", { name: "Section Name" }) as HTMLInputElement).disabled).toBe(true);
     expect((screen.getByRole("checkbox", { name: "Action" }) as HTMLInputElement).disabled).toBe(true);
     await user.click(screen.getByRole("checkbox", { name: "Site" }));
-    expect(screen.getByLabelText("Visible columns").textContent).toBe("className,learnerCount,leadInstructor,status,actions");
+    expect(screen.getByLabelText("Visible columns").textContent).toBe("courseName,learnerCount,leadInstructor,status,actions");
     await user.click(screen.getByRole("button", { name: "Reset" }));
-    expect(screen.getByLabelText("Visible columns").textContent).toBe("className,siteName,learnerCount,leadInstructor,status,actions");
+    expect(screen.getByLabelText("Visible columns").textContent).toBe("courseName,siteName,learnerCount,leadInstructor,status,actions");
   });
 });

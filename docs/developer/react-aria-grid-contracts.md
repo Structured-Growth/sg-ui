@@ -17,7 +17,7 @@ multi-sort and page slicing; server processing preserves host input. These are
 internal building blocks, not replacement public AppDataGrid types or helpers.
 Internal cell/presentation and registered interaction batches now compose this
 processing. Public catalog replacement, persistence and shell integration remain
-pending. See the [execution record](archive/2026-10-18-task-lists/react-aria-progress.md#catalog-grid-processing-batch).
+pending. See the execution record.
 
 ## Required capability matrix
 
@@ -46,7 +46,7 @@ be marked complete merely because the experimental grid renders catalog rows.
 
 ## Rows, columns and callbacks
 
-Retain AppDataGrid, AppDataGridShell, LearnerClassesDataGrid, RowSubHeader,
+Retain AppDataGrid, AppDataGridShell, RowSubHeader,
 createDataGridColumns, createActionMenuColumn and useful existing App-prefixed
 type names. Replace upstream aliases and broad prop inheritance with explicit
 owned declarations. New domain models use Course naming; existing Class exports
@@ -120,7 +120,7 @@ Action descriptors retain id/label/href/target/rel and a row callback; activatio
 uses one normalized callback, with unavailable/pending actions disabled. Mapping
 existing onClick(row) to owned onPress(row) is a breaking consumer change if the
 name changes. Reorder requests retain sourceRow/sourceRowId/targetRow/targetRowId
-and before/after position. Actions and reorder request host work; neither mutates
+and before/after position, adding ordered sourceRows/sourceRowIds for selected group moves. Actions and reorder request host work; neither mutates
 the input nor persists data. onReorder is never invoked on cancel or an invalid
 target. The host owns optimistic rows, rollback/error reporting and reconciliation.
 
@@ -286,17 +286,6 @@ ID is not a persistence/delete confirmation; hosts decide whether off-page or
 removed selection IDs remain selected. Copied source examples and tests use each
 owner independently, including views with colliding row IDs.
 
-Retained executable evidence: `batch01-grid-focus.spec.ts` covers refresh, hidden
-columns, disappearing/empty rows, accepted page/size changes and sibling/host
-ownership. `batch08-grid-retry-focus.spec.ts` covers empty/retained Retry removal.
-`wave03-grid-successors.spec.ts` adds native Tab/Shift+Tab entry and selected-row
-removal with exact both-axis retention, visible successor and sibling preservation;
-its three cases passed in Chromium, Firefox and WebKit in the retained wave03
-followup receipt. Colocated `ownedGridInteraction.test.tsx` separately verifies
-hidden-field scroll and both-axis page-size reset. These checks establish the
-interaction contract; they are not recordings of spoken screen-reader output,
-physical touch, universal viewport geometry or production persistence.
-
 ## Persistence, focus and implementation sequence
 
 Persistence is optional and keyed per view. Validate a versioned envelope before
@@ -322,32 +311,6 @@ learning composition. New examples belong to the docs website and its private
 native host; Storybook is removed. Follow the [development validation policy](react-aria-development-validation.md) for targeted affected checks and retain
 full production gates. Registered interaction guards and broad G/U/X/R/Z
 acceptance remain required independently of representative proofs.
-
-## Historical internal cell and presentation batch
-
-This section records the earlier preparatory batch, before public integration.
-The public renderer and helpers now use these owned implementations; see
-[catalog integration](react-aria-catalog-grid.md) for shipped migration mappings.
-Consumers use public exports rather than these private implementation paths.
-
-The column builder validates declared field IDs and positive finite sizing,
-without enumerating host row keys. Layout normalization locks the first text/link/
-copyable field and menu fields, puts menu fields last, discards stale fields, and
-clamps committed widths. Bounded weighted flex allocation preserves numeric
-width overrides and returns minimum widths when the container must scroll.
-Header sort changes promote the chosen field to priority one in the same ordered
-sort rules. Container measurement and pointer/keyboard resizing were pending at this
-historical preparatory stage; they are implemented in the integrated renderer.
-
-Cell display callbacks receive original generic rows and raw values. `formatValue`
-returns display text; `renderCustomCell` is the ReactNode escape hatch. Display
-formatting never replaces the processing accessor. Date display accepts host
-locale/time zone and a formatter; date-only input uses UTC calendar fields so it
-cannot shift day. JSON is escaped content with fallback for cyclic values. Copy
-controls announce translated success/failure; image failures show fallback; link
-and menu actions preserve native target/rel and host routing. Menu items support
-pending/disabled state and one `onPress(row)` callback. Status parts distinguish
-initial loading, retained-row refresh, empty, no results and retryable host errors.
 
 ## Public integration status
 

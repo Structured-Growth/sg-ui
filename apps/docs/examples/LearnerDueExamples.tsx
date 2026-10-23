@@ -1,6 +1,6 @@
 'use client';
 import {useState} from 'react';
-import {LearnerClassCard} from '@structured-growth/sg-ui/components';
+import {LearnerCourseCard} from '@structured-growth/sg-ui/components';
 import {Stack,Typography} from '@structured-growth/sg-ui/primitives';
 import {Example} from '../components/Example';
 import {exampleSource,literal} from './source';
@@ -15,11 +15,11 @@ export function LearnerDueExamples() {
   const [result,setResult]=useState('');
   const body=`<Stack gap={3}>
   <Stack direction="row" wrap gap={3}>
-    {${JSON.stringify(scenarios)}.map(({id,...course})=><LearnerClassCard key={id} {...course} progressPercent={35} referenceNow={new Date('2026-10-14T12:00:00Z')} detailsHref="#course-details" onContinue={()=>setResult('Continue requested for '+course.courseName+'. Host owns navigation.')} />)}
+    {${JSON.stringify(scenarios)}.map(({id,...course})=><LearnerCourseCard key={id} {...course} progressPercent={35} referenceNow={new Date('2026-10-14T12:00:00Z')} detailsHref="#course-details" onContinue={()=>setResult('Continue requested for '+course.courseName+'. Host owns navigation.')} />)}
   </Stack>
   <Typography role="status">{result}</Typography>
 </Stack>`;
-  return <Example title="Due dates and course content" description="A fixed host reference clock keeps overdue, today, tomorrow and later states reproducible. The host locale formats the date/time in its browser timezone. The current dueAt contract requires a string or Date; an empty host string demonstrates the unavailable-date fallback, not an invented optional prop. The last card also shows missing supporting strings." source={exampleSource({name:'LearnerDueDates',imports:["import {LearnerClassCard} from '@structured-growth/sg-ui/components';","import {Stack,Typography} from '@structured-growth/sg-ui/primitives';"],state:`  const [result,setResult]=useState(${literal(result)});`,body})}>
-    <Stack gap={3}><Stack direction="row" wrap gap={3}>{scenarios.map(({id,...course})=><LearnerClassCard key={id} {...course} progressPercent={35} referenceNow={new Date('2026-10-14T12:00:00Z')} detailsHref="#course-details" onContinue={()=>setResult('Continue requested for '+course.courseName+'. Host owns navigation.')}/>)}</Stack><Typography role="status">{result}</Typography></Stack>
+  return <Example title="Due dates and course content" description="A fixed host reference clock keeps overdue, today, tomorrow and later states reproducible. The host locale formats the date/time in its browser timezone. The current dueAt contract requires a string or Date; an empty host string demonstrates the unavailable-date fallback, not an invented optional prop. The last card also shows missing supporting strings." source={exampleSource({name:'LearnerDueDates',imports:["import {LearnerCourseCard} from '@structured-growth/sg-ui/components';","import {Stack,Typography} from '@structured-growth/sg-ui/primitives';"],state:`  const [result,setResult]=useState(${literal(result)});`,body})}>
+    <Stack gap={3}><Stack direction="row" wrap gap={3}>{scenarios.map(({id,...course})=><LearnerCourseCard key={id} {...course} progressPercent={35} referenceNow={new Date('2026-10-14T12:00:00Z')} detailsHref="#course-details" onContinue={()=>setResult('Continue requested for '+course.courseName+'. Host owns navigation.')}/>)}</Stack><Typography role="status">{result}</Typography></Stack>
   </Example>;
 }

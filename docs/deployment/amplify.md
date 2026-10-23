@@ -7,7 +7,7 @@ yet, so the development build does not fabricate a latest destination.
 
 ## Static hosting preparation
 
-The docs app retains Next.js 16.4.0 and supports a separate static export. This
+The docs app retains Next.js 16.4.2 and supports a separate static export. This
 avoids assuming managed SSR support for this version. The normal development and
 CI build keeps its server configuration and permanent redirects. Static output
 exports to `.next-static`; navigation uses the existing SGUI routing adapter

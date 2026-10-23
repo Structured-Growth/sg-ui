@@ -1,7 +1,16 @@
 @layer sgui.components {
   .body { inline-size: 18rem; max-inline-size: 100%; display: flex; flex-direction: column; gap: var(--sgui-space2); }
   .options { display: flex; flex-direction: column; gap: var(--sgui-space1); max-block-size: 17.5rem; overflow: auto; border-block: 1px solid var(--sgui-data-toolbar-border); padding-block: var(--sgui-space2); }
-  .option { display: flex; align-items: center; gap: var(--sgui-space1); }
+  .option { position: relative; display: flex; align-items: center; gap: var(--sgui-space1); }
+  .option[data-dragging] { opacity: 0.45; }
+  .option[data-drop-target]::after { content: ""; position: absolute; inset-inline: 0; block-size: 2px; background: var(--sgui-data-toolbar-action); pointer-events: none; }
+  .option[data-drop-target="before"]::after { inset-block-start: -2px; }
+  .option[data-drop-target="after"]::after { inset-block-end: -2px; }
+  .handle { display: inline-flex; align-items: center; align-self: stretch; flex-shrink: 0; color: var(--sgui-data-toolbar-muted-text); }
+  .handleSpace { inline-size: 1em; flex-shrink: 0; }
+  .handle[data-reorderable] { cursor: grab; touch-action: none; user-select: none; }
+  .option[data-dragging] .handle { cursor: grabbing; }
+  .dragPreview { composes: dragPreview from "./DataToolbarSortMenu.module.css"; }
   .visibility { flex: 1; min-inline-size: 0; }
   .moves { display: flex; flex-shrink: 0; }
   .empty { margin: 0; padding: var(--sgui-space2); color: var(--sgui-data-toolbar-muted-text); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }

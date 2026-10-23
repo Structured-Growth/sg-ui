@@ -70,8 +70,8 @@ for (const theme of ['light', 'dark']) for (const density of ['compact', 'comfor
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
-    await expect(footer.getByRole('combobox')).toBeFocused();
-    const selectorBounds = (await footer.getByRole('combobox').boundingBox())!;
+    await expect(footer.getByRole('button',{name:/Rows per page/})).toBeFocused();
+    const selectorBounds = (await footer.getByRole('button',{name:/Rows per page/}).boundingBox())!;
     const collectionBounds = (await container.boundingBox())!;
     expect(selectorBounds.y).toBeGreaterThanOrEqual(collectionBounds.y - 1);
     expect(selectorBounds.y + selectorBounds.height).toBeLessThanOrEqual(collectionBounds.y + collectionBounds.height + 1);
@@ -91,7 +91,7 @@ for (const theme of ['light', 'dark']) for (const density of ['compact', 'comfor
     // Reordering within the same rendered page retains the same keyed input and focus.
     await page.locator('html').evaluate(node => { node.style.fontSize = ''; });
     await page.getByRole('button', { name: 'Accept requests', exact: true }).click();
-    await page.getByRole('combobox').selectOption('8');
+    await page.getByRole('button',{name:/Rows per page/}).click(); await page.getByRole('option',{name:'8',exact:true}).click();
     // Reverse all 12 rows would legitimately remove Course 1 from the current slice;
     // use an accepted size covering the shared overlap, Course 5.
     const shared = page.getByRole('textbox', { name: 'Note for Course 5', exact: true });
@@ -123,10 +123,10 @@ test('M-11 loading/empty/ready replacement keeps one collection and footer', asy
       await expect(status).toHaveAttribute('aria-live', 'off');
       await expect(status).not.toHaveAttribute('role');
     }
-    for (const button of await footer.getByRole('button').all()) {
+    for (const button of await footer.locator('button:not([aria-haspopup="listbox"])').all()) {
       if (state !== 'ready') await expect(button).toBeDisabled();
     }
-    if (state === 'loading') await expect(footer.getByRole('combobox')).toBeDisabled();
+    if (state === 'loading') await expect(footer.getByRole('button',{name:/Rows per page/})).toBeDisabled();
     expect(await root.evaluate((node, prior) => node === prior, original)).toBe(true);
     expect(await footer.evaluate((node, prior) => node === prior, originalFooter)).toBe(true);
   }
@@ -135,13 +135,13 @@ test('M-11 loading/empty/ready replacement keeps one collection and footer', asy
   await expect(page.getByLabel('Pagination requests')).toHaveText('None');
 });
 
-test('M-11 host rejection then acceptance controls cards and page-zero-before-size requests', async ({ page }) => {
+test('M-11 host rejection then acceptance controls cards and atomic page-zero/size requests', async ({ page }) => {
   await openCollection(page);
   const requests = page.getByLabel('Pagination requests');
   const host = page.getByLabel('Host pagination');
   const next = page.getByRole('button', { name: 'Next page', exact: true });
   await next.click();
-  await expect(requests).toHaveText('page:1');
+  await expect(requests).toHaveText('page:1,size:4');
   await expect(host).toHaveText('page:0,size:4');
   await expect(page.getByRole('textbox', { name: 'Note for Course 1', exact: true })).toBeVisible();
   await expect(next).toBeFocused();
@@ -150,14 +150,14 @@ test('M-11 host rejection then acceptance controls cards and page-zero-before-si
   await expect(host).toHaveText('page:1,size:4');
   await expect(page.getByRole('textbox', { name: 'Note for Course 5', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Reject requests', exact: true }).click();
-  await page.getByRole('combobox').selectOption('8');
-  await expect(requests).toHaveText('page:1 | page:1 | page:0 | size:8');
+  await page.getByRole('button',{name:/Rows per page/}).click(); await page.getByRole('option',{name:'8',exact:true}).click();
+  await expect(requests).toHaveText('page:1,size:4 | page:1,size:4 | page:0,size:8');
   await expect(host).toHaveText('page:1,size:4');
-  await expect(page.getByRole('combobox')).toHaveValue('4');
+  await expect(page.getByRole('button',{name:/Rows per page/})).toContainText('4');
   await expect(page.getByRole('textbox', { name: 'Note for Course 5', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Accept requests', exact: true }).click();
-  await page.getByRole('combobox').selectOption('8');
-  await expect(requests).toHaveText('page:1 | page:1 | page:0 | size:8 | page:0 | size:8');
+  await page.getByRole('button',{name:/Rows per page/}).click(); await page.getByRole('option',{name:'8',exact:true}).click();
+  await expect(requests).toHaveText('page:1,size:4 | page:1,size:4 | page:0,size:8 | page:0,size:8');
   await expect(host).toHaveText('page:0,size:8');
   await expect(page.locator('[data-sgui-part="card-collection-grid"]').getByRole('textbox')).toHaveCount(8);
   await expect(page.locator('[data-sgui-part="card-pagination-footer"]')).toContainText('1-8 of 12');

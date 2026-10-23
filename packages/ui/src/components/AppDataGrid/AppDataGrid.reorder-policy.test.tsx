@@ -29,7 +29,7 @@ async function start() {
 describe("reorder processing policy transitions", () => {
   it.each(policies)("restores Move after removing %s without reordering the host rows", async (_name, policy) => {
     const onReorder = vi.fn();
-    const viewFor = (extra: Partial<AppDataGridProps<Course>>) => <Provider><AppDataGrid {...base} {...extra} rowDrag={{ onReorder }} /></Provider>;
+    const viewFor = (extra: Partial<AppDataGridProps<Course>>) => <Provider><AppDataGrid {...base} {...extra} rowDrag={{ showMoveButtons: true, onReorder }} /></Provider>;
     const view = render(viewFor(policy));
     for (const action of screen.getAllByRole("button", { name: /^(Reorder|Move) Course/ }))
       expect((action as HTMLButtonElement).disabled).toBe(true);
@@ -39,14 +39,14 @@ describe("reorder processing policy transitions", () => {
     view.rerender(viewFor({ sortRules: [], filterRules: [], paginationModel: { page: 0, pageSize: 5 } }));
     await userEvent.click(button("Move Course 2 down"));
     expect(onReorder).toHaveBeenCalledTimes(1);
-    expect(onReorder).toHaveBeenCalledWith({ sourceRow: rows[1], sourceRowId: "two", targetRow: rows[2], targetRowId: "three", position: "after" });
+    expect(onReorder).toHaveBeenCalledWith({ sourceRows: [rows[1]], sourceRowIds: ["two"], sourceRow: rows[1], sourceRowId: "two", targetRow: rows[2], targetRowId: "three", position: "after" });
     expect(names()).toEqual(["Course 1", "Course 2", "Course 3"]);
     expect(screen.getByRole("status").textContent).toBe("Move requested for Course 2");
   });
 
   it.each(policies)("rejects the in-flight keyboard request when %s becomes active", async (_name, policy) => {
     const onReorder = vi.fn();
-    const viewFor = (extra: Partial<AppDataGridProps<Course>>) => <Provider><AppDataGrid {...base} {...extra} rowDrag={{ onReorder }} /></Provider>;
+    const viewFor = (extra: Partial<AppDataGridProps<Course>>) => <Provider><AppDataGrid {...base} {...extra} rowDrag={{ showMoveButtons: true, onReorder }} /></Provider>;
     const view = render(viewFor({}));
     await start();
     await userEvent.keyboard("{ArrowDown}{ArrowDown}");
@@ -64,9 +64,9 @@ describe("reorder processing policy transitions", () => {
   it("cancels keyboard drag without affecting a sibling grid with colliding IDs", async () => {
     const onReorder = vi.fn(), siblingReorder = vi.fn();
     render(<Provider>
-      <section aria-label="Source grid"><AppDataGrid {...base} rowDrag={{ onReorder }} /></section>
+      <section aria-label="Source grid"><AppDataGrid {...base} rowDrag={{ showMoveButtons: true, onReorder }} /></section>
       <section aria-label="Sibling grid"><AppDataGrid {...base} label="Sibling courses"
-        selection={{ selectedRowIds: new Set(["three"]) }} rowDrag={{ onReorder: siblingReorder }} /></section>
+        selection={{ selectedRowIds: new Set(["three"]) }} rowDrag={{ showMoveButtons: true, onReorder: siblingReorder }} /></section>
     </Provider>);
     const source = within(screen.getByRole("region", { name: "Source grid" }));
     const sibling = within(screen.getByRole("region", { name: "Sibling grid" }));

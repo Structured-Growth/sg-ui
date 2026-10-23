@@ -1,1 +1,0 @@
-{"check":"TSX transpile syntax only; no type/runtime acceptance","errors":0}

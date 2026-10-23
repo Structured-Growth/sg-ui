@@ -4,6 +4,7 @@ type BaseColumnOption = {
   id: string;
   label: string;
   locked?: boolean;
+  reorderable?: boolean;
 };
 
 const toLabel = (id: string): string =>
@@ -53,6 +54,7 @@ export const buildDataToolbarColumnOptions = <RowModel extends object>({
     id,
     label: labelsById.get(id) ?? toLabel(id),
     locked: id === "actions" ? true : (lockedById.get(id) ?? false),
+    ...(id === "actions" || baseOptions.find(option => option.id === id)?.reorderable === false ? { reorderable: false } : {}),
     visible: id === "actions" ? true : (columnVisibilityModel[id] ?? explicitIds.has(id)),
   }));
 };

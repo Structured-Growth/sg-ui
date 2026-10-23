@@ -51,12 +51,12 @@ export function PointerReorderInvalidationFixture() {
       <AppDataGrid rows={rows} columns={columns} label="Source courses" getRowLabel={row => row.name}
         getRowId={identityChanged ? replacementIdentity : originalIdentity}
         defaultPaginationModel={{ page: 0, pageSize: 10 }} pageSizeOptions={[10]}
-        rowDrag={{ onReorder: () => setSourceRequests(current => current + 1) }} />
+        rowDrag={{ showMoveButtons: true, onReorder: () => setSourceRequests(current => current + 1) }} />
     </div>
     <div role="region" aria-label="Other grid" style={{ height: 480 }}>
       <AppDataGrid rows={otherRows} columns={columns} label="Other courses" getRowLabel={row => row.name}
         getRowId={originalIdentity} defaultPaginationModel={{ page: 0, pageSize: 10 }} pageSizeOptions={[10]}
-        rowDrag={{ onReorder: () => setOtherRequests(current => current + 1) }} />
+        rowDrag={{ showMoveButtons: true, onReorder: () => setOtherRequests(current => current + 1) }} />
     </div>
   </div>;
 }

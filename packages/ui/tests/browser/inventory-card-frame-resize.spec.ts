@@ -7,7 +7,7 @@ for (const layout of ['flex', 'grid']) {
         const errors: string[] = [];
         page.on('pageerror', error => errors.push(error.message));
         await page.setViewportSize({ width: enlarged ? 800 : 360, height: 900 });
-        await page.goto(`/fixtures/?id=components-classcardframe--${layout}-parent-resize&globals=theme:${theme};a11y.manual:!true`);
+        await page.goto(`/fixtures/?id=components-coursecardframe--${layout}-parent-resize&globals=theme:${theme};a11y.manual:!true`);
         const example = page.getByTestId('resize-example');
         await expect(example).toBeVisible();
         await expect(example.locator('xpath=ancestor::*[@data-sgui-scope][1]')).toHaveAttribute('data-sgui-theme', theme);
@@ -16,7 +16,7 @@ for (const layout of ['flex', 'grid']) {
         const action = frame.getByRole('button', { name: 'Resize course preview', exact: true });
         const originalFrame = await frame.elementHandle();
         const originalAction = await action.elementHandle();
-        const originalBody = await frame.locator('[data-sgui-part="class-card-body"]').elementHandle();
+        const originalBody = await frame.locator('[data-sgui-part="course-card-body"]').elementHandle();
         await action.focus();
         const widths: number[] = [];
         for (const [state, requests] of [['expanded', 0], ['compact', 1], ['expanded', 2]] as const) {
@@ -26,7 +26,7 @@ for (const layout of ['flex', 'grid']) {
           await expect(action).toBeFocused();
           expect(await frame.evaluate((node, prior) => node === prior, originalFrame)).toBe(true);
           expect(await action.evaluate((node, prior) => node === prior, originalAction)).toBe(true);
-          expect(await frame.locator('[data-sgui-part="class-card-body"]').evaluate((node, prior) => node === prior, originalBody)).toBe(true);
+          expect(await frame.locator('[data-sgui-part="course-card-body"]').evaluate((node, prior) => node === prior, originalBody)).toBe(true);
           const image = frame.getByRole('img', { name: state === 'compact' ? 'Footer landscape' : 'Header portrait' });
           await expect(frame.getByRole('img')).toHaveCount(1);
           await expect.poll(() => image.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0)).toBe(true);
@@ -36,7 +36,7 @@ for (const layout of ['flex', 'grid']) {
             return {
               width: bounds.width, available: element.parentElement!.getBoundingClientRect().width,
               max: getComputedStyle(element).maxInlineSize,
-              fits: Array.from(element.querySelectorAll('[data-sgui-part^="class-card-"]')).every(slot => slot.scrollWidth <= slot.clientWidth + 1),
+              fits: Array.from(element.querySelectorAll('[data-sgui-part^="course-card-"]')).every(slot => slot.scrollWidth <= slot.clientWidth + 1),
               imageWidth: media.width, ratio: media.width / media.height,
             };
           });

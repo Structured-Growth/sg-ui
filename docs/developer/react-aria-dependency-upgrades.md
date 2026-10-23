@@ -5,7 +5,7 @@ This guide defines the repository review procedure and records the
 additional operating commitments that have not been adopted. It does not appoint
 an owner, promise a response time, certify dependency security or validate an
 upgrade. The original L-09 documentary obligation is accepted in the
-[closure record](final-acceptance/wave-04/coordinator/accepted-closures.json); that
+closure record; that
 decision does not establish a service commitment or an executed future upgrade.
 
 ## Current pre-release maintenance policy
@@ -51,14 +51,14 @@ evidence that a newly resolved version preserves SGUI behavior.
 | React Aria / state / date | Library `dependencies` (not peers or dev-only): exact runtime declarations react-aria-components 1.21.1, react-aria 3.52.1, react-stately 3.50.0, @internationalized/date 3.12.4. Review their compatible dependency/peer graph together, deduplication and date identity; do not force unrelated versions into one instance. Keep upstream objects/types private to interaction implementations. |
 | Grid / icons | Exact runtime declarations: @tanstack/react-table 8.21.3 and lucide-react 1.52.0. Preserve owned grid state/column contracts, icon names, granular module graphs and notices. |
 | Editor | lexical and declared @lexical/* packages use `^0.41.0`, currently resolved to 0.41.0. Review the family together and align packed editor fixture versions deliberately. Preserve saved document nodes, rich children, editing/undo and read-only/reset/upload lifetimes. |
-| Tooling / fixtures | Node/pnpm configure the toolchain; TypeScript, Vite, Playwright/axe, PostCSS/CSS Modules and release/test tools are library development inputs and can change emitted output or evidence. React/React DOM 19.2.3 also appear in library `devDependencies` for local tests. Next.js 16.4.0 is a private docs-app dependency and a disposable packed-consumer fixture input; the Flight renderer is fixture-only. Neither is an SGUI runtime dependency or peer. Storybook runtime, dependencies and original story files have been removed. |
+| Tooling / fixtures | Node/pnpm configure the toolchain; TypeScript, Vite, Playwright/axe, PostCSS/CSS Modules and release/test tools are library development inputs and can change emitted output or evidence. React/React DOM 19.2.3 also appear in library `devDependencies` for local tests. Next.js 16.4.2 is a private docs-app dependency and a disposable packed-consumer fixture input; the Flight renderer is fixture-only. Neither is an SGUI runtime dependency or peer. Storybook runtime, dependencies and original story files have been removed. |
 
 The maintained target is the reviewed manifest/lockfile combination and owned
 consumer contracts, not every upstream release or historical SGUI version.
 No previous-release backport window is established here. Continue preserving
 React 18.3/19 support unless an explicitly reviewed breaking migration changes it.
 No wider TypeScript, bundler, framework or physical-device promise follows from
-representative fixtures; see [package acceptance](react-aria-package-acceptance.md)
+representative fixtures; see package acceptance
 and [server boundaries](react-aria-server-components.md).
 
 An upstream advisory, published end-of-support/deprecation notice, relevant regression,
@@ -104,8 +104,8 @@ require it. Prefer compatible deduplication, while retaining genuinely incompati
 versions until their owning graph is deliberately migrated; never coerce them with
 an incompatible override. Recheck the resulting graph and affected behavior.
 
-The dated [FA-02 inventory](archive/2026-10-18-task-lists/react-aria-final-acceptance.md#fa-02-dependency-source-and-generated-output-inventory)
-and [parallel-07 receipt](final-acceptance/parallel-07/input-receipt.json) retain one
+The dated FA-02 inventory
+and parallel-07 receipt retain one
 name/version observation for each direct interaction/date input and date edges
 resolving to 3.12.4. They do not certify one physical instance, identical peer
 contexts, consumer singleton behavior, security or a new frozen installation.
@@ -150,50 +150,6 @@ documentation. Commercial support terms remain in [commercial licensing](../comm
 and [LICENSE](../../LICENSE); neither they nor third-party notices are rewritten here.
 
 ## Deliberate upgrade procedure
-
-1. Bound the request: identify trigger, current/target declared and resolved versions,
-   affected modules/public exports/fixtures, upstream API/behavior/support/advisory
-   evidence and expected consumer benefit. Separate unrelated upgrades. Identify the
-   human reviewer and any pending security/legal/support decisions before acceptance.
-2. Base an isolated development branch on `dev`; change the intended manifest
-   inputs and regenerate the
-   lockfile with the repository pnpm version. Inspect the complete resolution diff,
-   integrity/peer/engine changes, duplicate interaction/date packages and transitive
-   additions/removals. Never hand-edit resolutions or use an override merely to hide
-   incompatibility. Verify reproducibility with `pnpm install --frozen-lockfile`.
-   This is a future upgrade step, not authorization to update dependencies now.
-3. Retain before/after [dependency/license inventories](react-aria-license-inventory.md)
-   at the current and candidate dependency graphs, with exact manifest/lock/legal hashes.
-   Run the bounded [source policy guard](react-aria-governance-check.md); classify
-   its findings separately from license/provenance review.
-   Review license/notice and distributed asset changes, preserving commercial terms
-   and attribution. Follow the [architecture dependency policy](react-aria-architecture.md#dependency-and-license-policy)
-   and [removal audit](react-aria-removal-audit.md). Package byte preservation is not
-   proof of license completeness; unresolved inventory/legal decisions remain explicit.
-4. Map upstream changes into owned implementations. Check emitted declarations,
-   explicit exports, source client directives, server imports, compiled CSS/token
-   output and granular dependency graphs. Do not expose upstream public types or
-   add retired foundation/runtime styling packages. Update affected docs playgrounds
-   and source-backed examples,
-   colocated source-context unit fixtures and docs-owned native scenarios, plus
-   consumer/migration docs; deliberate breaking changes need a breaking release marker.
-5. Execute and record affected checks at one frozen candidate head using the matrix
-   below. A failed or incomplete check remains visible with its cause and follow-up.
-   An upgrade labeled patch/security still needs behavioral regression evidence.
-6. Provide review evidence: exact head, manifest/lockfile identities, commands,
-   runtime/React/browser versions, outcomes/raw artifacts, resolved graph/license
-   review, remaining decisions and rollback plan. Rollback should identify the prior
-   reviewed dependency combination and assess saved document/data compatibility;
-   reverting a manifest alone is insufficient when an upgrade changes persisted data.
-   AI changes remain draft PRs; human review decides integration. Use the
-   [Actions release flow](../github-setup.md#automatic-versioning-and-release-flow),
-   with no manual version edits, local publication or automatic merge. Integrate
-   reviewed development work into `dev`. Only explicitly human-approved major/minor
-   releases may promote reviewed, fully validated work to `main`; ordinary upgrades
-   do not authorize a production push/merge, tag or publish. Conventional Commits and
-   semantic-release determine version impact. Assess owned API/behavior, peer/engine
-   minimums, styling and persisted editor content for breaking changes rather than
-   assuming the upstream version label determines the SGUI release impact.
 
 ## Validation by affected contract
 

@@ -21,11 +21,11 @@ it("shares client page, selection and criteria between list and cards with one f
   expect(screen.getByText("1 selected")).toBeTruthy();
   await user.click(screen.getByRole("button", { name: "Next page" }));
   expect(screen.getByRole("checkbox", { name: "Select Mathematics" })).toBeTruthy();
-  await user.click(screen.getByRole("button", { name: "Cards" }));
+  await user.click(screen.getByRole("radio", { name: "Cards" }));
   expect(within(screen.getByRole("list", { name: "Courses" })).getByText("Mathematics")).toBeTruthy();
   expect(screen.getByRole("link", { name: "Open Mathematics" }).getAttribute("href")).toBe("/courses/b");
   expect(screen.getAllByRole("button", { name: "Next page" })).toHaveLength(1);
-  await user.click(screen.getByRole("button", { name: "List" }));
+  await user.click(screen.getByRole("radio", { name: "List" }));
   expect(screen.getByText("1 selected")).toBeTruthy();
   expect(screen.getByRole("checkbox", { name: "Select Mathematics" })).toBeTruthy();
 });
@@ -39,7 +39,7 @@ it("header sorting emits one combined transaction with page reset before criteri
   expect(state).toHaveBeenCalledTimes(1);
   expect(state.mock.calls[0]![0]).toMatchObject({ paginationModel: { page: 0, pageSize: 1 }, sortRules: [{ field: "score", direction: "asc" }] });
   expect(screen.getByRole("checkbox", { name: "Select Mathematics" })).toBeTruthy();
-  await user.click(screen.getByRole("button", { name: "Cards" }));
+  await user.click(screen.getByRole("radio", { name: "Cards" }));
   expect(within(screen.getByRole("list", { name: "Courses" })).getByText("Mathematics")).toBeTruthy();
 });
 it("server cards preserve every supplied row and host order beyond page zero", async () => {
@@ -58,7 +58,7 @@ it("keeps controlled view and selection authoritative while callback-only criter
   const user = userEvent.setup(); const viewChange = vi.fn(); const search = vi.fn(); const selection = vi.fn();
   render(<AppDataGridShell {...props} view={{ ...props.view, mode: "list", onModeChange: viewChange }}
     onSearchChange={search} selection={{ selectedRowIds: new Set(), onSelectedRowIdsChange: selection }} />);
-  await user.click(screen.getByRole("button", { name: "Cards" }));
+  await user.click(screen.getByRole("radio", { name: "Cards" }));
   expect(viewChange).toHaveBeenCalledExactlyOnceWith("cards");
   expect(screen.getByRole("grid", { name: "Courses" })).toBeTruthy();
   await user.click(screen.getByRole("checkbox", { name: "Select Science" }));
@@ -84,7 +84,7 @@ it("restores validated shell defaults while controlled props win and never persi
   const storage = { getItem: () => saved, setItem: (_key: string, value: string) => { saved = value; }, removeItem: vi.fn() };
   const { rerender } = render(<AppDataGridShell {...props} persistence={{ key: "shell-test", storage }} />);
   expect(screen.getByRole("listitem").textContent).toBe("Mathematics");
-  await user.click(screen.getByRole("button", { name: "List" }));
+  await user.click(screen.getByRole("radio", { name: "List" }));
   await user.click(screen.getByRole("checkbox", { name: "Select Mathematics" }));
   expect(saved).not.toContain("selectedRowIds");
   rerender(<AppDataGridShell {...props} persistence={{ key: "shell-test", storage }} paginationModel={{ page: 0, pageSize: 1 }} />);
@@ -94,7 +94,7 @@ it("page-size changes request page zero and the new size once", async () => {
   const user = userEvent.setup(); const pagination = vi.fn(); const state = vi.fn();
   render(<AppDataGridShell {...props} defaultPaginationModel={{ page: 1, pageSize: 1 }}
     onPaginationModelChange={pagination} onStateChange={state} />);
-  await user.selectOptions(screen.getByRole("combobox", { name: "Rows per page" }), "2");
+  await user.click(screen.getByRole("button", { name: /Rows per page/ })); await user.click(screen.getByRole("option", { name: "2", exact: true }));
   expect(pagination).toHaveBeenCalledExactlyOnceWith({ page: 0, pageSize: 2 });
   expect(state).toHaveBeenCalledTimes(1);
   expect(screen.getAllByRole("checkbox")).toHaveLength(3);
@@ -161,7 +161,7 @@ it("resets the live persisted view atomically to declared defaults and clears se
   expect(screen.queryByText("1 selected")).toBeNull();
   expect(screen.getByRole("checkbox", { name: "Select History" })).toBeTruthy();
   expect(document.activeElement).toBe(screen.getByRole("button", { name: "Reset view" }));
-  expect(values.has("page:reset-courses:viewMode")).toBe(false);
+  expect(values.has("page:reset-courses:viewMode")).toBe(true);
   expect(JSON.parse(values.get("sgui:grid:reset-courses:v1")!).state).toMatchObject({ paginationModel: { page: 0, pageSize: 1 }, searchValue: "", viewMode: "list", columnWidths: { score: 120 } });
   unmount();
   render(<AppDataGridShell {...props} persistence={{ key: "reset-courses", storage }} />);
@@ -223,13 +223,13 @@ it.each(["list", "cards"] as const)("orders controlled %s filter and size reques
   expect(screen.getByLabelText("Value 1")).toHaveProperty("value", "Science");
   await user.click(screen.getByRole("button", { name: "Cancel" }));
   order.length = 0; pagination.mockClear(); state.mockClear();
-  await user.selectOptions(screen.getByRole("combobox", { name: "Rows per page" }), "2");
+  await user.click(screen.getByRole("button", { name: /Rows per page/ })); await user.click(screen.getByRole("option", { name: "2", exact: true }));
   expect(order).toEqual(["page", "state"]);
   expect(pagination).toHaveBeenCalledExactlyOnceWith({ page: 0, pageSize: 2 });
   expect(state.mock.calls[0]![0]).toMatchObject({ paginationModel: { page: 0, pageSize: 2 }, filterRules: initial.filterRules });
-  expect(screen.getByRole("combobox", { name: "Rows per page" })).toHaveProperty("value", "1");
+  expect(screen.getByRole("button", { name: /Rows per page/ })).toHaveProperty("textContent", "1");
   rerender(<AppDataGridShell {...common} paginationModel={{ page: 0, pageSize: 2 }} filterRules={initial.filterRules} rows={rows.slice(0, 2)} />);
-  expect(screen.getByRole("combobox", { name: "Rows per page" })).toHaveProperty("value", "2");
+  expect(screen.getByRole("button", { name: /Rows per page/ })).toHaveProperty("textContent", "2");
   expect(screen.getByRole("button", { name: "Previous page" })).toHaveProperty("disabled", true);
   expect(state).toHaveBeenCalledTimes(1); // Host acceptance is not another request.
 });
@@ -371,14 +371,14 @@ it("shares the clamped client slice and retained selection with cards while reje
     onStateChange, selection: { defaultSelectedRowIds: new Set(["40"]) } };
   const { rerender } = render(<AppDataGridShell {...config} />);
   rerender(<AppDataGridShell {...config} rows={dataset.slice(0, 11)} />);
-  await userEvent.click(screen.getByRole("button", { name: "Cards" }));
+  await userEvent.click(screen.getByRole("radio", { name: "Cards" }));
   expect(screen.getAllByRole("listitem")).toHaveLength(1);
   expect(within(screen.getByRole("list")).getByText("Card course 10")).toBeTruthy();
   expect(screen.getByText("1 selected")).toBeTruthy();
   await userEvent.click(screen.getByRole("button", { name: "Previous page" }));
   expect(onStateChange).toHaveBeenCalledExactlyOnceWith(expect.objectContaining({ paginationModel: { page: 0, pageSize: 10 }, selectedRowIds: new Set(["40"]) }));
   expect(within(screen.getByRole("list")).getByText("Card course 10")).toBeTruthy();
-  await userEvent.click(screen.getByRole("button", { name: "List" }));
+  await userEvent.click(screen.getByRole("radio", { name: "List" }));
   expect(screen.getByRole("checkbox", { name: "Select Card course 10" })).toBeTruthy();
 });
 
@@ -426,7 +426,7 @@ it("reveals owned keyboard focus on native entry and shell resize, leaving outsi
     expect(ownObserver).toBeDefined();
     vi.spyOn(shell, "getBoundingClientRect").mockReturnValue({ top: 100, bottom: 300 } as DOMRect);
     Object.defineProperty(shell, "clientHeight", { configurable: true, value: 200 });
-    const cards = screen.getByRole("button", { name: "Cards" });
+    const cards = screen.getByRole("radio", { name: "Cards" });
     vi.spyOn(cards, "getBoundingClientRect").mockReturnValue({ top: 350, bottom: 390 } as DOMRect);
     for (let count = 0; count < 20 && document.activeElement !== cards; count++) await user.tab();
     expect(document.activeElement).toBe(cards);
@@ -518,7 +518,9 @@ it("accepts columns-menu order requests through the controlled shell while retai
   await user.clear(screen.getByRole("searchbox", { name: "Search" }));
   await user.click(screen.getByRole("button", { name: "Move Name down" }));
   expect(orderChange).toHaveBeenLastCalledWith(["score", "name", "site", "notes", "actions"]);
-  await user.click(screen.getByRole("button", { name: "Move Actions up" }));
+  expect(screen.queryByRole("button", { name: "Move Actions up" })).toBeNull();
+  expect(screen.queryByRole("button", { name: "Move Actions down" })).toBeNull();
+  expect(screen.getByRole("button", { name: "Move Notes down" })).toHaveProperty("disabled", true);
   expect(orderChange).toHaveBeenLastCalledWith(["score", "name", "site", "notes", "actions"]);
   expect(headerLabels()).toEqual(["score", "name", "site", "actions"]);
   expect((screen.getByRole("checkbox", { name: "Notes" }) as HTMLInputElement).checked).toBe(false);

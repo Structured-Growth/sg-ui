@@ -1,4 +1,0 @@
-en-compact-mono-320: passed
-ar-comfortable-serif-320: failed AssertionError [ERR_ASSERTION]: focus not returned on dismissal
-en-comfortable-serif-text200: passed
-ar-compact-mono-text200: passed

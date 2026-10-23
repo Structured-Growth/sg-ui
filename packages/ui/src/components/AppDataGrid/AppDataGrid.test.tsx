@@ -48,7 +48,7 @@ describe("AppDataGrid owned public composition", () => {
   });
   it("supports custom page sizes above the retired engine limit with one size transaction", async () => {
     const onStateChange = vi.fn(); mount({ onStateChange });
-    await userEvent.selectOptions(screen.getByRole("combobox", { name: "Rows per page" }), "250");
+    await userEvent.click(screen.getByRole("button", { name: /Rows per page/ })); await userEvent.click(screen.getByRole("option", { name: "250", exact: true }));
     await waitFor(() => expect(screen.getByText("Course 12")).toBeTruthy());
     expect(onStateChange).toHaveBeenCalledTimes(1); expect(onStateChange.mock.calls[0][0].paginationModel).toEqual({ page: 0, pageSize: 250 });
   });

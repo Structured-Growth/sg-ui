@@ -11,8 +11,7 @@ const meta = {
     pageSize: 25,
     pageSizeOptions: [25, 50, 100],
     totalCount: 0,
-    onPageChange: () => undefined,
-    onPageSizeChange: () => undefined,
+    onPaginationModelChange: () => undefined,
   },
   decorators: [
     (Story) => (
@@ -33,15 +32,12 @@ function InteractivePreview() {
 
   return (
     <AppPaginationFooter
-      onPageChange={setPage}
+
       onPaginationModelChange={(model) => {
         setPage(model.page);
         setPageSize(model.pageSize);
       }}
-      onPageSizeChange={(nextSize) => {
-        setPage(0);
-        setPageSize(nextSize);
-      }}
+
       page={page}
       pageSize={pageSize}
       pageSizeOptions={[25, 50, 100]}

@@ -6,8 +6,8 @@ export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   /** Visual role; heading semantics are selected separately with as. */
   variant?: TypographyVariant;
   as?: TextElement;
-  /** Text emphasis or meaning; primary is a compatibility alias for the accent color, not action priority. */
-  tone?: "default" | "muted" | "subtle" | "accent" | "primary" | "danger";
+  /** Text emphasis or meaning. */
+  tone?: "default" | "muted" | "subtle" | "accent" | "danger";
   noWrap?: boolean;
 }
 export const Typography = forwardRef<HTMLElement, TypographyProps>(function Typography({ variant = "body1", as = "p", tone = "default", noWrap, className, ...props }, ref) {

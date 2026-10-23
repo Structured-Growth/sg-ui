@@ -25,13 +25,13 @@ function OperationHost({ view, transport }: { view: "First" | "Second"; transpor
       { id: "rename", label: "Rename course", onPress: row => { void host.request(state.rows.map(item => item.id === row.id ? { ...item, name: `${item.name} revised` } : item)); } },
     ] },
   ];
-  const reorder = ({ sourceRowId, targetRowId, position }: AppDataGridRowDragReorderParams<Course>) => {
-    const source = state.rows.find(row => row.id === sourceRowId);
-    if (!source || sourceRowId === targetRowId) return;
-    const next = state.rows.filter(row => row.id !== sourceRowId);
+  const reorder = ({ sourceRowIds, targetRowId, position }: AppDataGridRowDragReorderParams<Course>) => {
+    const source = state.rows.filter(row => sourceRowIds.includes(row.id));
+    if (!source.length || sourceRowIds.includes(targetRowId)) return;
+    const next = state.rows.filter(row => !sourceRowIds.includes(row.id));
     const target = next.findIndex(row => row.id === targetRowId);
     if (target < 0) return;
-    next.splice(target + (position === "after" ? 1 : 0), 0, source);
+    next.splice(target + (position === "after" ? 1 : 0), 0, ...source);
     void host.request(next);
   };
   return <section aria-label={`${view} operation host`}>
@@ -40,7 +40,7 @@ function OperationHost({ view, transport }: { view: "First" | "Second"; transpor
     <Button disabled={state.phase !== "error"} onPress={() => { void host.retry(); }}>Retry {view}</Button>
     <Button onPress={() => host.replace(seed)}>Replace {view} data</Button>
     <AppDataGrid label={`${view} optimistic courses`} rows={state.rows} columns={columns} getRowLabel={row => row.name}
-      rowDrag={{ onReorder: reorder }} hideFooter />
+      rowDrag={{ showMoveButtons: true, onReorder: reorder }} hideFooter />
   </section>;
 }
 function GridHostOperations() {

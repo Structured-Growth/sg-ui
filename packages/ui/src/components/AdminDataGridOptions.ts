@@ -12,7 +12,7 @@ export function createAdminCourseGridOptions(t?: SGTranslationAdapter["t"]) {
   const label = (key: string, defaultMessage: string) =>
     t?.(`common.ui.grid.${key}`, { defaultMessage, namespace: "common.ui" }) ?? defaultMessage;
   const columnOptions: DataToolbarColumnOption[] = [
-    { id: "className", label: label("sectionName", "Section Name"), visible: true, locked: true },
+    { id: "courseName", label: label("sectionName", "Section Name"), visible: true, locked: true },
     { id: "siteName", label: label("site", "Site"), visible: true },
     { id: "learnerCount", label: label("learners", "Learners"), visible: true },
     { id: "leadInstructor", label: label("leadInstructor", "Lead Instructor"), visible: true },
@@ -21,7 +21,7 @@ export function createAdminCourseGridOptions(t?: SGTranslationAdapter["t"]) {
   ];
   const sortOptions: DataToolbarSortOption[] = columnOptions.filter(option => option.id !== "actions").map(({ id, label }) => ({ id, label }));
   const filterFields: DataToolbarFilterField[] = [
-    { id: "className", label: label("sectionName", "Section Name"), type: "string" },
+    { id: "courseName", label: label("sectionName", "Section Name"), type: "string" },
     { id: "siteName", label: label("site", "Site"), type: "string" },
     { id: "learnerCount", label: label("learners", "Learners"), type: "number" },
     { id: "leadInstructor", label: label("leadInstructor", "Lead Instructor"), type: "string" },
@@ -54,12 +54,3 @@ export function createAdminPeopleGridOptions(t?: SGTranslationAdapter["t"]) {
     defaultFilterRules: [] as DataToolbarFilterRule[],
   };
 }
-
-const courseDefaults = createAdminCourseGridOptions();
-const peopleDefaults = createAdminPeopleGridOptions();
-/** English compatibility exports; use the factories for localized, per-view state. */
-export const adminClassesColumnOptions = courseDefaults.columnOptions;
-export const adminClassesSortOptions = courseDefaults.sortOptions;
-export const adminClassesFilterFields = courseDefaults.filterFields;
-export const adminPeopleColumnOptions = peopleDefaults.columnOptions;
-export const adminPeopleSortOptions = peopleDefaults.sortOptions;

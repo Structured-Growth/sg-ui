@@ -1,9 +1,9 @@
 # Migration proof performance reference
 
-Current A-P-08/A-X-19 status: complete for the [2026-10-21 owner-delegated reference budgets and bounded cleanup scope](final-acceptance/owner-reference-2026-10-21/README.md). Earlier dated measurements below retain their historical scope.
+Current A-P-08/A-X-19 status: complete for the 2026-10-21 owner-delegated reference budgets and bounded cleanup scope. Earlier dated measurements below retain their historical scope.
 
 Task references: B-10, P-08, X-19. The checked-in
-[measurement record](migration-baseline/proof-measurements.json) contains local
+measurement record contains local
 reference measurements, not a claim about universal framework performance.
 
 Run `pnpm build` followed by `node scripts/measure-migration-proofs.mjs`.
@@ -41,7 +41,6 @@ Browser initial-render/update latency, touch responsiveness, large-grid memory,
 virtualization thresholds and lifecycle cleanup remain open. Server times and
 bundle sizes do not close those tasks. CI and representative slower consumer
 hardware need their own measured reference before enforcing timing gates there.
-
 
 ## Production profiling successor (A-B-10, A-P-08, A-G-20, A-X-19)
 
@@ -110,7 +109,6 @@ requires `aria-selected=true`. This avoids repeated
 accessible-name enumeration across 2,000 results during the fixed update burst.
 All fifty updates and input/selection overlap assertions remain mandatory.
 
-
 ## Instrumented same-document disposal successor
 
 `tests/performance/measure-memory.mjs` adds a separate Chromium/CDP profiling run.
@@ -147,7 +145,6 @@ inline ListBox; its option removal alone is not portal-cleanup evidence.
 Existing ImageUploadModal URL and FloatingTextSelectionToolbar observer/queued
 command regressions remain independently attributable. Extend actual allocation
 profiling to those owners only if their broader A-X-19 successor requires it.
-
 
 ## Catalog-grid and overlapping-update protocol
 
@@ -194,7 +191,7 @@ once and sends native keyboard events, retaining per-key frame waits, all 50
 updates and both interaction-overlap assertions. Failures preserve browser samples
 as well as driver wall times. A same-candidate continuation passed 3 warmup and
 9 recorded large-page navigations plus active-update disposal. The
-[receipt](final-acceptance/wave-04/02/performance-contention/receipt.json) retains
+receipt retains
 the original failure and exact candidate/asset identity.
 
 Recorded browser input-to-frame median was about 235ms and p95 414ms; driver wall
@@ -203,33 +200,6 @@ The nominal 100ms timer target does not establish sustained 10Hz delivery under
 contention. These measurements cover the original candidate's processing large-page
 workload; they establish neither current-candidate performance, a full renderer
 matrix, approved budgets nor an old-foundation comparison.
-
-## Instrumented memory execution — 2026-10-17
-
-The [finite execution receipt](final-acceptance/wave-04/02/instrumented-memory/receipt.json) records all 210 cycles passing: seven configurations, each with five warmup and 25 recorded cycles. It used Chromium 153, Node 24.19 and an Apple M4 host against the fresh grid candidate `551f00034fe52027ce77285a517075b322d82508a4fc938ea21f4616303ce301`. Each unmount occurred during active updates; root children, scopes, options, menus, pending frames and owned timers returned to zero, and no later samples appeared. Catalog sort-menu disposal and inline selector cleanup are covered separately.
-
-| Configuration | Post-GC used-heap final minus first recorded (bytes) | Recorded DOM-node range | Recorded listener count |
-| --- | ---: | ---: | ---: |
-| processing-small | 465,332 | 32–34 | 178 |
-| processing-wide | 458,828 | 24–26 | 178 |
-| processing-largePage | 472,804 | 22–22 | 178 |
-| catalog-small | 470,080 | 28–32 | 317 |
-| catalog-wide | 574,660 | 22–24 | 317 |
-| catalog-largePage | 519,516 | 22–22 | 317 |
-| processing-selector | 441,924 | 19–19 | 178 |
-
-Listener counts remained fixed, while whole-page used heap grew in every configuration. Sampled strong paths locate native media-query groups under the document's StyleEngine, performance entries under browser buffers, and remaining React bookkeeping through the fixture's imported module context. No accumulating live SGUI callback/data path was identified in this bounded review; that is not a universal leak-free or plateau conclusion. The heap/native-cache growth remains a causal follow-up, and no numerical memory or latency budget is approved by this run.
-
-The [artifact manifest](final-acceptance/wave-04/02/instrumented-memory/artifact-manifest.json) indexes 14 local-only heap snapshots (174,219,779 bytes) and compact measurements/retaining paths. Their hashes and sizes were independently verified. Raw heaps are not committed to Git; the [retention record](final-acceptance/wave-04/02/instrumented-memory/coordinator-retention.json) also describes byte-identical compressed resource telemetry. Original fixture-build failure is retained: a broad import alias intercepted the grid's public subpath. The specific alias correction passed a fresh fixture build, three import-resolution checks, seven policy tests and the full unchanged run. No library build or dependency installation was needed.
-
-## Current production comparison — 2026-10-18
-
-A-B-10/A-G-20 close with the [measurement/phase receipt](backlog-to-ten/performance-grid-closure.json).
-The exact library source matches draft candidate `f049b215e28e4157200f99ebf5fe52a7c04cae5a`;
-the root checkout's historical HEAD is separately recorded. Fresh installed tarball
-SHA256 `238c37c0b6c0c705cb4da9000f43ae4e6ddcb023c51dde955b8ef318e746a56c`
-passes its package audit, independent React19 consumer and14 import-boundary builds.
-This is a local retained artifact, not an official Actions tarball.
 
 | Import boundary | Emitted JS bytes | gzip9 bytes |
 | --- | ---: | ---: |
@@ -274,15 +244,6 @@ these are conservative totals, not minimum route payloads, paint timings or INP.
 
 ## Package-size follow-up after native focus fixes
 
-The separately retained `backlog-to-ten/bundles-03` audit consumes archive
-`885f3fd9fa90ad80dd1871dd77feab3283c992f219c49c4b1127adc780c57d68`
-from distribution digest
-`393ebefedd7db8586ecba34b8564b52a67e91b92e7160967fefaff3fbc9b7871`.
-All fourteen installed import boundaries and the independent React19 foundation
-consumer pass. `source-input-join-03.json` joins all874 UI files to local proposed
-commit `c7b2192dbb6d51284a64135ab5ebbebb4cd8fd91` and the fresh native-27 build.
-This remains local, unmerged evidence, separate from official Actions artifacts.
-
 Compared with bundles-02 under the same Node24/React19 import method, Button and
 AppDataGrid JavaScript bytes remain identical. Shared CSS grows612 raw bytes /
 76 gzip-level9 bytes to253,767 /22,326. The editor JavaScript grows248 raw /62
@@ -305,10 +266,7 @@ input median/p95 are269.3/375.9ms versus264.7/381.9ms. Update median/p95 are
 its cause remains unestablished. Required slower-hardware/budget work and stable
 repetitions remain open; this is no universal speed, INP or physical-input claim.
 
-
-## Owner-delegated reference closure — 2026-10-21
-
-A-P-08/A-X-19 close with the [two-session reference and lifecycle packet](final-acceptance/owner-reference-2026-10-21/README.md).
+A-P-08/A-X-19 close with the two-session reference and lifecycle packet.
 The Apple M5/16GiB host uses Chromium 4× CPU throttling for latency as a conservative
 reproducible proxy; it is not assigned a population hardware percentile. Two full
 seven-configuration sessions retain 168 navigations and 8,400 updates including
@@ -326,10 +284,3 @@ Native style/performance groups and constant React bookkeeping shapes are retain
 for review. Existing observer/frame/object-URL ownership tests pass in the full
 current unit matrix. Physical input and manual AT/device observations remain in
 their separate acceptance tasks.
-
-The original measured head is 7cf2db63f492ebcb143d2347c5c599d0f05bab27; all benchmark
-JS/CSS assets match a fresh fbc08a12a501aaf6982b1d090582c23d09900095 build byte-for-byte.
-This join covers these benchmark configurations, not every changed library module.
-Raw samples, limits, verifier results, heap review and retention paths are linked
-in the reference packet. Future checks consume the saved budget; failures require
-investigation rather than an automatic new baseline.

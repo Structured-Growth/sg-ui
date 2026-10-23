@@ -1,0 +1,52 @@
+import {test,expect} from './fixtures';
+import {exampleName} from './example-name';
+import {checkSources} from './check-sources';
+
+test('grid shell search expands into the shared field, animates, filters and restores focus',async({page},info)=>{
+ await page.goto('/docs/components/data-grid-shell');
+ const panel=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
+ const preview=panel.locator('[data-docs-preview]');
+ const field=preview.locator('[data-sgui-part="search-field"]');
+ const closedWidth=(await field.boundingBox())!.width;
+ await expect(field).toHaveAttribute('data-expandable','true');
+ await expect(field).toHaveCSS('transition-property','inline-size');
+ const referenceBefore=await page.locator('[data-docs-example]').filter({hasNot:page.getByRole('heading',{name:'Prop playground',exact:true})}).locator('code').allTextContents();
+ const trigger=preview.getByRole('button',{name:'Search',exact:true});
+ await trigger.focus();await page.keyboard.press('Enter');
+ const input=preview.getByRole('searchbox',{name:'Search',exact:true});
+ await expect(input).toBeFocused();
+ await expect.poll(async()=>(await field.boundingBox())!.width).toBeGreaterThan(closedWidth+80);
+ await expect(field.locator('[data-sgui-part="field-start-icon"] svg')).toHaveCount(1);
+ await input.fill('Course 1');
+ await expect(preview.getByRole('grid')).toContainText('Course 1');
+ await expect(preview.getByRole('grid')).not.toContainText('Course 2');
+ await info.attach('expanded-grid-search',{body:await field.screenshot(),contentType:'image/png'});
+ await input.press('Escape');
+ await expect(preview.getByRole('searchbox')).toHaveCount(0);
+ await expect(trigger).toBeFocused();
+ await expect.poll(async()=>(await field.boundingBox())!.width).toBeCloseTo(closedWidth,0);
+ await expect(preview.getByRole('grid')).toContainText('Course 2');
+ const referenceAfter=await page.locator('[data-docs-example]').filter({hasNot:page.getByRole('heading',{name:'Prop playground',exact:true})}).locator('code').allTextContents();
+ expect(referenceAfter).toEqual(referenceBefore);
+ await panel.getByRole('button',{name:'Show source: Prop playground',exact:true}).click();
+ expect(checkSources([{slug:'grid-shell-search',source:(await panel.getByLabel('Source: Prop playground',{exact:true}).textContent())!}])).toEqual([]);
+});
+
+test('expandable SearchField is reusable, respects reduced motion and keeps website search expanded',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.goto('/docs/components/search-field');
+ const panel=page.getByRole('region',{name:exampleName('Expandable toolbar search'),exact:true});
+ const preview=panel.locator('[data-docs-preview]');
+ const field=preview.locator('[data-sgui-part="search-field"]');
+ await expect(field).toHaveCSS('transition-property','none');
+ await preview.getByRole('button',{name:'Search courses',exact:true}).click();
+ const input=preview.getByRole('searchbox',{name:'Search courses',exact:true});
+ await expect(input).toBeFocused();await input.fill('Design');
+ await preview.getByRole('button',{name:'Clear and close search',exact:true}).click();
+ await expect(preview.getByRole('button',{name:'Search courses',exact:true})).toBeFocused();
+ await preview.getByRole('button',{name:'Search courses',exact:true}).click();await expect(input).toHaveValue('');
+ const navigation=page.getByRole('navigation',{name:'Documentation',exact:true});
+ await expect(navigation.getByRole('searchbox',{name:'Find in navigation',exact:true})).toBeVisible();
+ await panel.getByRole('button',{name:'Show source: Expandable toolbar search',exact:true}).click();
+ expect(checkSources([{slug:'expandable-search',source:(await panel.getByLabel('Source: Expandable toolbar search',{exact:true}).textContent())!}])).toEqual([]);
+});

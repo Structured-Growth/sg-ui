@@ -6,7 +6,7 @@ for (const theme of ['light', 'dark']) {
       const errors: string[] = [];
       page.on('pageerror', error => errors.push(error.message));
       await page.setViewportSize({ width: enlarged ? 640 : 320, height: 720 });
-      await page.goto(`/fixtures/?id=components-classcardframe--responsive-slots&globals=theme:${theme};a11y.manual:!true`);
+      await page.goto(`/fixtures/?id=components-coursecardframe--responsive-slots&globals=theme:${theme};a11y.manual:!true`);
       const cases = page.getByTestId('frame-cases');
       await expect(cases).toBeVisible();
       await expect(cases.locator('xpath=ancestor::*[@data-sgui-scope][1]')).toHaveAttribute('data-sgui-theme', theme);
@@ -18,7 +18,7 @@ for (const theme of ['light', 'dark']) {
         await expect.poll(() => image.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0)).toBe(true);
         const geometry = await frame.evaluate(element => {
           const bounds = element.getBoundingClientRect();
-          const slots = Array.from(element.querySelectorAll('[data-sgui-part^="class-card-"]'));
+          const slots = Array.from(element.querySelectorAll('[data-sgui-part^="course-card-"]'));
           const img = element.querySelector('img')!.getBoundingClientRect();
           return { width: bounds.width, fits: slots.every(slot => slot.scrollWidth <= slot.clientWidth + 1), imageWidth: img.width, imageHeight: img.height, max: getComputedStyle(element).maxInlineSize, available: element.parentElement!.getBoundingClientRect().width };
         });
@@ -36,8 +36,8 @@ for (const theme of ['light', 'dark']) {
           return bounds.left >= 0 && bounds.right <= innerWidth && bounds.top >= 0 && bounds.bottom <= innerHeight && Boolean(hit && element.contains(hit));
         }), 'footer action is unobscured after native focus scrolling').toBe(true);
       }
-      await expect(page.getByTestId('case-empty').locator('[data-sgui-part="class-card-footer"]')).toHaveCount(0);
-      await expect(page.getByTestId('case-no-footer').locator('[data-sgui-part="class-card-footer"]')).toHaveCount(0);
+      await expect(page.getByTestId('case-empty').locator('[data-sgui-part="course-card-footer"]')).toHaveCount(0);
+      await expect(page.getByTestId('case-no-footer').locator('[data-sgui-part="course-card-footer"]')).toHaveCount(0);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
       expect(errors).toEqual([]);
       await info.attach('representative-frame', { body: await page.getByTestId('case-default').getByRole('article').screenshot(), contentType: 'image/png' });
@@ -47,7 +47,7 @@ for (const theme of ['light', 'dark']) {
 
 test('width changes retain native frame identity and image ratio', async ({ page }) => {
   await page.setViewportSize({ width: 900, height: 720 });
-  await page.goto('/fixtures/?id=components-classcardframe--width-states&globals=a11y.manual:!true');
+  await page.goto('/fixtures/?id=components-coursecardframe--width-states&globals=a11y.manual:!true');
   const frame = page.getByRole('article');
   await expect(frame).toBeVisible();
   const original = await frame.elementHandle();

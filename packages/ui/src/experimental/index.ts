@@ -48,7 +48,7 @@ export { Avatar, type AvatarProps } from "./Avatar/Avatar";
 export { Table, TableHead, TableBody, TableFoot, TableRow, TableCell, TableHeaderCell, TableCaption, type TableProps, type TablePartProps, type TableCellProps, type TableHeaderCellProps } from "./Table/Table";
 export { Pagination, type PaginationProps } from "./Pagination/Pagination";
 
-export { getRelativeDateRange, type RelativeDateRangeOptions } from "./DateRangeSelector/relative-date-range";
+export { getRelativeDateRange, type RelativeDateRangeOptions } from "../utils/relative-dates";
 
 export { SearchField, type SearchFieldProps, type SearchFieldItem } from "./SearchField/SearchField";
 export { PeriodPicker, type PeriodPickerProps } from "./PeriodPicker/PeriodPicker";

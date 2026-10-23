@@ -1,4 +1,0 @@
-{
-  "errors": [],
-  "scope": "Existing scoped CSS validator with declared token inventory; no generated output/build or broad foundation suite."
-}

@@ -14,9 +14,10 @@ for(const density of ['compact','comfortable'])test(`AppDataGrid keeps a fill co
   const assertFilled=async()=>{await expect.poll(async()=>{const table=(await grid.boundingBox())!;const body=await container.evaluate(element=>element.clientWidth);return Math.abs(table.width-body);}).toBeLessThanOrEqual(2);};
   await assertFilled();
   const before=await widths();
-  const handle=example.getByRole('slider',{name:/^Resize Course/});
+  await expect(example.getByRole('slider',{name:/^Resize Course/})).toHaveCount(0);
+  const handle=example.getByRole('slider',{name:/^Resize Status/});
   await handle.focus();await handle.press('Enter');
-  for(let step=0;step<6;step++)await handle.press('ArrowLeft');
+  for(let step=0;step<6;step++)await handle.press('ArrowRight');
   await handle.press('Enter');
   await expect.poll(async()=>(await widths()).course).toBeLessThan(before.course-30);
   await expect.poll(async()=>(await widths()).status).toBeGreaterThan(before.status+30);

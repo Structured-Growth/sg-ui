@@ -1,7 +1,0 @@
-{
-  "commit": "837761e5e5f2155890c287bf20efe922d7d38231",
-  "parent": "f8e97d6d4aa126ced1d0e747a65114dfd2a60565",
-  "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.sectioned-lineage.test.tsx",
-  "sha256": "f8e852812181f65dc8374eb703a1c1f1b36431ac4b688f5c745751edb8dcfa44",
-  "indexUnchanged": true
-}

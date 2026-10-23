@@ -1,5 +1,0 @@
-{
-  "failure": "Error: /Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node /Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js test --config /Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native.config.cjs calendar.spec.ts|calendar-native-locales|hardening-date-presentation|functionality-clear-column-order|editor-structured-content|select-popup-sizing|batch08-selector-direction|batch01-calendar|structural-selection-indicators|current-state-design|wave04-form-participation failed (1/null); group settled; ; ; see /Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native-13/native.log",
-  "stable": true,
-  "completedAt": "2026-10-18T22:05:37.071Z"
-}

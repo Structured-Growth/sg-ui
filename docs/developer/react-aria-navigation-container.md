@@ -47,6 +47,6 @@ renders the same landmarks, root customization and wrapper as the client.
 
 This deliberately changes responsive behavior for embedded narrow shells and
 adds an internal DOM wrapper. It does not add props or change SideNavigation.
-The [batch167 evidence](parallel-batch-167/navigation-shell-container-boundary.md)
+The batch167 evidence
 records actual targeted checks and prepared native cases. C-08 and broad
 native/device/assistive-technology acceptance remain open.

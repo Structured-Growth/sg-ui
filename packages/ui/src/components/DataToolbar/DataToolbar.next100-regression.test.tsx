@@ -29,10 +29,10 @@ it("isolates sibling search state and callbacks, and resets only the replaced to
   expect(first.getByRole("searchbox")).toHaveProperty("value", "a");
   expect(firstSearch).toHaveBeenCalledExactlyOnceWith("a");
   expect(secondSearch).toHaveBeenCalledExactlyOnceWith("b");
-  await user.click(first.getByRole("button", { name: "Cards" }));
+  await user.click(first.getByRole("radio", { name: "Cards" }));
   expect(firstView).toHaveBeenCalledExactlyOnceWith("cards");
   expect(secondView).not.toHaveBeenCalled();
-  expect(first.getByRole("button", { name: "Cards" }).getAttribute("aria-pressed")).toBe("false");
+  expect(first.getByRole("radio", { name: "Cards" }).getAttribute("aria-checked")).toBe("false");
   rerender(host("replacement"));
   const replacement = within(screen.getByRole("group", { name: "First courses" }));
   expect(replacement.queryByRole("searchbox")).toBeNull();

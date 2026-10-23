@@ -1,0 +1,13 @@
+@layer sgui.components {
+  .root { container: sgui-course-card / inline-size; inline-size: 100%; box-sizing: border-box; min-inline-size: 0; overflow: hidden; }
+  .header, .body, .footer { min-inline-size: 0; overflow-wrap: anywhere; }
+  .header img, .body img, .footer img { max-inline-size: 100%; block-size: auto; }
+  .header, .body { padding: var(--sgui-space4); }
+  .header, .footer { background: var(--sgui-course-card-frame-subtle-background); }
+  /* The allocated card width, rather than the viewport, chooses slot spacing.
+     Only owned slot padding adapts; host slot content keeps its own layout. */
+  @container sgui-course-card (inline-size < 20rem) {
+    .header, .body { padding: var(--sgui-space3); }
+  }
+  .footer { padding: var(--sgui-space2) var(--sgui-space3); }
+}

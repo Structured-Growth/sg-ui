@@ -4,42 +4,22 @@ import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useState } from "react";
 import { afterEach, describe, expect, it } from "vitest";
-import { adminClassesColumnOptions, adminClassesFilterFields, adminClassesSortOptions, adminPeopleColumnOptions, adminPeopleSortOptions, createAdminCourseGridOptions, createAdminPeopleGridOptions } from "./AdminDataGridOptions";
-import { createInstructorCourseGridOptions, createInstructorCourseLearnersGridOptions, instructorClassesColumnOptions, instructorClassesFilterFields, instructorClassesSortOptions, instructorClassLearnersColumnOptions, instructorClassLearnersFilterFields, instructorClassLearnersSortOptions } from "./InstructorDataGridOptions";
+import { createAdminCourseGridOptions, createAdminPeopleGridOptions } from "./AdminDataGridOptions";
+import { createInstructorCourseGridOptions, createInstructorCourseLearnersGridOptions } from "./InstructorDataGridOptions";
 import { DataToolbar } from "./DataToolbar";
 import { Provider } from "../theme";
 
 afterEach(cleanup);
 
-describe("public catalog preset compatibility", () => {
-  it("preserves admin Class and people English defaults through the root entry", () => {
-    const course = createAdminCourseGridOptions();
-    const people = createAdminPeopleGridOptions();
-    expect(adminClassesColumnOptions).toEqual(course.columnOptions);
-    expect(adminClassesSortOptions).toEqual(course.sortOptions);
-    expect(adminClassesFilterFields).toEqual(course.filterFields);
-    expect(adminPeopleColumnOptions).toEqual(people.columnOptions);
-    expect(adminPeopleSortOptions).toEqual(people.sortOptions);
-    const localized = createAdminCourseGridOptions((_key, { defaultMessage }) => `Host ${defaultMessage}`);
+describe("public catalog preset factories", () => {
+  it.each([createAdminCourseGridOptions, createAdminPeopleGridOptions, createInstructorCourseGridOptions, createInstructorCourseLearnersGridOptions])("returns independent translated defaults", factory => {
+    const original = factory();
+    const localized = factory((_key, { defaultMessage }) => `Host ${defaultMessage}`);
     localized.columnOptions[0].label = "Host edit";
-    expect(adminClassesColumnOptions[0]).toMatchObject({ id: "className", label: "Section Name" });
-    expect(createAdminCourseGridOptions()).toEqual(course);
-  });
-
-  it("preserves instructor Class and ClassLearners English defaults through the root entry", () => {
-    const course = createInstructorCourseGridOptions();
-    const learners = createInstructorCourseLearnersGridOptions();
-    expect(instructorClassesColumnOptions).toEqual(course.columnOptions);
-    expect(instructorClassesSortOptions).toEqual(course.sortOptions);
-    expect(instructorClassesFilterFields).toEqual(course.filterFields);
-    expect(instructorClassLearnersColumnOptions).toEqual(learners.columnOptions);
-    expect(instructorClassLearnersSortOptions).toEqual(learners.sortOptions);
-    expect(instructorClassLearnersFilterFields).toEqual(learners.filterFields);
-    const localized = createInstructorCourseLearnersGridOptions((_key, { defaultMessage }) => `Host ${defaultMessage}`);
-    localized.filterFields.find(field => field.id === "status")!.enumOptions![0].label = "Host edit";
-    expect(instructorClassLearnersFilterFields.find(field => field.id === "status")!.enumOptions![0].label).toBe("Active");
-    expect(instructorClassesColumnOptions[0]).toMatchObject({ id: "className", label: "Section Name" });
-    expect(createInstructorCourseLearnersGridOptions()).toEqual(learners);
+    expect(factory()).toEqual(original);
+    expect(factory().columnOptions).not.toBe(original.columnOptions);
+    expect(original.columnOptions[0].locked).toBe(true);
+    expect(original.columnOptions.at(-1)?.locked).toBe(true);
   });
 
   it.each([

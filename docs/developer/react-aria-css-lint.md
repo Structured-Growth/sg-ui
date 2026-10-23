@@ -42,11 +42,11 @@ node scripts/check-foundations.mjs
 
 The fixture file is registered in `packages/ui/package.json`'s explicit
 `test:foundations` command, which `check` invokes. The retained
-[FA-04 transcript](final-acceptance/fa04-original-check.txt) records all ten
+FA-04 transcript records all ten
 component-CSS fixtures passing within its 32-test foundation stage on Node 24.
 The command later failed unrelated calendar unit cases; the complete original
 command is not a green result. The
-[parallel-11 review](final-acceptance/parallel-11/report.md#a-c-18--complete-bounded-lint-contract-independently-reconciled)
+parallel-11 review
 independently reconciled registration and the bounded lint contract. Its dated
 inspection found all 85 then-existing library CSS Modules in registered directories.
 New directories still require registration; this is not automatic future coverage.
@@ -101,9 +101,9 @@ are outside this validator. Inert fixtures test the guard; the native-nesting
 component case separately checks actual rendered syntax/fallback parity. Source
 exceptions need narrow explicit review, not blanket skips.
 
-[Batch 169 evidence](parallel-batch-169/css-lint-guards.md) records the prerequisite’s
+Batch 169 evidence records the prerequisite’s
 three source-red findings under its unconditional literal policy.
-[Batch 172 corrections](parallel-batch-172/css-guard-corrections.md) records the
+Batch 172 corrections records the
 historical outcome under the then-candidate shared-semantic contract. Those
 reports preserve the original pending registration/review context; the FA-04
 execution and parallel-11 review above supersede those pending statements.

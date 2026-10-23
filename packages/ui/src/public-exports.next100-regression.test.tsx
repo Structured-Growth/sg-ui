@@ -28,6 +28,16 @@ describe("PublicExports package contract", () => {
     const manifest = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
     expect(Object.keys(manifest.exports)).toContain('./components/Button');
     expect(Object.keys(manifest.exports)).not.toContain('./components/AppButton');
+    for (const name of ['AppThemeProvider', 'ClassCardFrame', 'InstructorClassCard', 'LearnerClassCard', 'LearnerClassesDataGrid', 'ClassIcon', 'adminClassesColumnOptions', 'adminPeopleColumnOptions', 'instructorClassesColumnOptions']) {
+      expect(root).not.toHaveProperty(name);
+    }
+    for (const name of ['CourseCardFrame', 'InstructorCourseCard', 'LearnerCourseCard', 'CourseIcon']) {
+      expect(root).toHaveProperty(name);
+      expect(catalog).toHaveProperty(name);
+    }
+    for (const path of ['./components/ClassCardFrame', './components/InstructorClassCard', './components/LearnerClassCard', './components/LearnerClassesDataGrid']) {
+      expect(manifest.exports).not.toHaveProperty(path);
+    }
     expect(repeatedRoot.Provider).toBe(root.Provider);
   });
 });

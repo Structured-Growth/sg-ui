@@ -5,7 +5,7 @@ async function expectUsableFocusedAction(action: Locator) {
   // Only observe native keyboard scrolling; never reveal the control synthetically.
   await expect.poll(() => action.evaluate(element => {
     const bounds = element.getBoundingClientRect();
-    const card = element.closest('[data-sgui-part="class-card-frame"]')!.getBoundingClientRect();
+    const card = element.closest('[data-sgui-part="course-card-frame"]')!.getBoundingClientRect();
     const css = getComputedStyle(element);
     const hit = document.elementFromPoint(bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
     return {
@@ -25,11 +25,11 @@ for (const [theme, density, textSize] of [['light', 'comfortable', 16], ['dark',
     const errors: string[] = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.clock.setFixedTime(new Date('2026-01-02T18:00:00Z'));
-    await page.goto(`/fixtures/?id=components-instructorclasscard--native-presentation&globals=theme:${theme};density:${density};a11y.manual:!true`);
+    await page.goto(`/fixtures/?id=components-instructorcoursecard--native-presentation&globals=theme:${theme};density:${density};a11y.manual:!true`);
     const heading = page.getByRole('heading', { name: 'Advanced Defense and Practical Collaboration Across Multiple Learning Environments' });
     await expect(heading).toBeVisible();
     await page.evaluate(size => { document.documentElement.style.fontSize = `${size}px`; }, textSize);
-    const card = page.locator('[data-sgui-part="class-card-frame"]');
+    const card = page.locator('[data-sgui-part="course-card-frame"]');
     const action = card.getByRole('link');
     const identity = await action.elementHandle();
     // Predecessor focus is setup; the following real Tab is card keyboard entry.
@@ -50,7 +50,7 @@ for (const [theme, density, textSize] of [['light', 'comfortable', 16], ['dark',
     expect(textReflow.every(text => text.fits && !text.clipped)).toBe(true);
     expect(await heading.evaluate(element => element.getBoundingClientRect().height > parseFloat(getComputedStyle(element).lineHeight))).toBe(true);
     const requests: string[] = [];
-    for (const [status, label] of [['active', 'Open Section'], ['draft', 'Set Up Section'], ['closed', 'Host custom action'], ['archived', 'View Section']]) {
+    for (const [status, label] of [['active', 'Open course'], ['draft', 'Set Up Section'], ['closed', 'Host custom action'], ['archived', 'View course']]) {
       await expect(card.getByText(status[0].toUpperCase() + status.slice(1), { exact: true })).toBeVisible();
       await expect(action).toHaveAccessibleName(label);
       await expect(action).toHaveAttribute('href', `/host/course/${status}`);
@@ -73,8 +73,8 @@ for (const [theme, density, textSize] of [['light', 'comfortable', 16], ['dark',
 
 test('native Intl host date and host missing/invalid fallbacks remain complete text', async ({ page }) => {
   await page.clock.setFixedTime(new Date('2026-01-02T18:00:00Z'));
-  await page.goto('/fixtures/?id=components-instructorclasscard--native-presentation&globals=a11y.manual:!true');
-  const card = page.locator('[data-sgui-part="class-card-frame"]');
+  await page.goto('/fixtures/?id=components-instructorcoursecard--native-presentation&globals=a11y.manual:!true');
+  const card = page.locator('[data-sgui-part="course-card-frame"]');
   const date = await page.evaluate(() => new Intl.DateTimeFormat('de-DE', {
     timeZone: 'America/Chicago', dateStyle: 'medium', timeStyle: 'short',
   }).format(new Date('2026-01-01T15:05:00Z')));

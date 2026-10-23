@@ -29,6 +29,10 @@ interface SearchOptions extends Pick<FieldMessagePlacementProps,"descriptionPlac
   items?: readonly SearchFieldItem[];
   /** Disable the dropdown when a host renders its search results elsewhere. */
   showResults?: boolean;
+  /** Start as a search icon and animate into the same search field when activated. */
+  expandable?: boolean;
+  /** Accessible name for the expandable field's clear-and-collapse action. */
+  collapseLabel?: string;
   value?: string;
   defaultValue?: string;
   onValueChange?: (query: string) => void;
@@ -57,31 +61,39 @@ interface SearchOptions extends Pick<FieldMessagePlacementProps,"descriptionPlac
 export type SearchFieldProps = SearchOptions & ({ label: string; "aria-label"?: string } | { label?: never; "aria-label": string });
 /** Search input and nonmodal results. The host owns data, remote request freshness and routing. */
 export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(function SearchField({
-  items = [], showResults = true, value, defaultValue = "", onValueChange, onResultSelect, onSearch, filter = "contains", label,
+  items = [], showResults = true, expandable = false, collapseLabel, value, defaultValue = "", onValueChange, onResultSelect, onSearch, filter = "contains", label,
   "aria-label": ariaLabel, placeholder, description, descriptionPlacement, resultsLabel, emptyMessage, resultCountLabel,
   loading, errorMessage, onRetry, disabled, readOnly, showClearButton = true, name, density, className,
   startIcon = <SearchIcon size={16}/>, endIcon,
 }, ref) {
   const { t } = useTranslation(), { locale, direction } = useLocale();
   const scope = useOverlayScope(), directionRef = useOverlayDirectionRef(direction);
-  const root = useRef<HTMLDivElement>(null), input = useRef<HTMLInputElement>(null), results = useRef<HTMLDivElement>(null);
+  const root = useRef<HTMLDivElement>(null), input = useRef<HTMLInputElement>(null), results = useRef<HTMLDivElement>(null), trigger = useRef<HTMLButtonElement>(null);
   useImperativeHandle(ref, () => input.current!);
   const id = useId(), resultsId = `${id}-results`;
   const [internal, setInternal] = useState(defaultValue), [expanded, setExpanded] = useState(false);
+  const [fieldExpanded, setFieldExpanded] = useState(false);
   const query = value === undefined ? internal : value;
   const term = query.trim().toLocaleLowerCase(locale);
   const matches = filter === "none" ? items : items.filter(item => [item.label, ...(item.keywords ?? [])].some(text => text.toLocaleLowerCase(locale).includes(term)));
-  const open = showResults && expanded && Boolean(term) && !disabled && !readOnly;
+  const open = (!expandable || fieldExpanded) && showResults && expanded && Boolean(term) && !disabled && !readOnly;
   const resetting = useStandaloneFormReset(root, () => { if (value === undefined) setInternal(defaultValue); setExpanded(false); });
   function change(next: string) {
     if (disabled || readOnly || resetting.current) return;
     if (value === undefined) setInternal(next);
     onValueChange?.(next); setExpanded(Boolean(next.trim()));
   }
+  function closeField() {
+    if (disabled || readOnly) return;
+    if (query) change("");
+    flushSync(() => { setFieldExpanded(false); setExpanded(false); });
+    trigger.current?.focus();
+  }
   function choose(item: SearchFieldItem) { onResultSelect?.(item); input.current?.focus(); setExpanded(false); }
   function keyDown(event: KeyboardEvent<HTMLDivElement>) {
     if (event.nativeEvent.isComposing) return;
     if (event.key === "Escape" && open) { event.preventDefault(); event.stopPropagation(); input.current?.focus(); setExpanded(false); return; }
+    if (event.key === "Escape" && expandable && fieldExpanded) { event.preventDefault(); event.stopPropagation(); closeField(); return; }
     if (event.key === "Enter" && event.target === input.current && onSearch) { event.preventDefault(); onSearch(query); setExpanded(false); return; }
     if (!showResults || !term || disabled || readOnly || loading || errorMessage) return;
     const actions = Array.from(results.current?.querySelectorAll<HTMLElement>('[data-search-result]') ?? []);
@@ -100,11 +112,14 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(functi
     }
   }
   const count = resultCountLabel?.(matches.length) ?? t("common.ui.searchResultCount", { defaultMessage: "{count, plural, one {# result} other {# results}}", values: { count: matches.length } });
-  return <div ref={root} className={[styles.root, className].filter(Boolean).join(" ")} data-sgui-density={density} data-sgui-part="search-field"
+  return <div ref={root} className={[styles.root, className].filter(Boolean).join(" ")} data-sgui-density={density} data-sgui-part="search-field" data-expandable={expandable || undefined} data-field-expanded={expandable ? fieldExpanded : undefined}
     onKeyDownCapture={keyDown} onBlurCapture={event => {
       const target = event.relatedTarget as Node | null;
       if (!event.currentTarget.contains(target) && !results.current?.contains(target)) setExpanded(false);
     }}>
+    {expandable && !fieldExpanded ? <Button ref={trigger} className={styles.trigger} variant="text" tone="neutral" density={density}
+      aria-label={ariaLabel ?? label!} aria-expanded={false} disabled={disabled || readOnly}
+      onPress={() => { flushSync(() => setFieldExpanded(true)); input.current?.focus(); }}><SearchIcon size={16}/></Button> : <>
     {label && <label htmlFor={id} className={field.label}>{label}</label>}
     <FieldMessages position="above" descriptionPlacement={descriptionPlacement} description={description&&<div className={field.description} id={`${id}-description`}>{description}</div>}/>
     <div className={styles.control}>
@@ -112,7 +127,9 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(functi
         value={query} onValueChange={change} placeholder={placeholder ?? t("common.ui.searchPlaceholder", { defaultMessage: "Search…" })}
         startIcon={startIcon} endIcon={endIcon} disabled={disabled} readOnly={readOnly} density={density}
         onFocus={() => setExpanded(true)} aria-describedby={description ? `${id}-description` : undefined}/>
-      {showClearButton && query && <Button variant="text" tone="neutral" disabled={disabled || readOnly}
+      {expandable ? <Button variant="text" tone="neutral" density={density} disabled={disabled || readOnly}
+        aria-label={collapseLabel ?? t("common.ui.closeSearch", { defaultMessage: "Clear and close search" })}
+        onPress={closeField}><CloseIcon size={16}/></Button> : showClearButton && query && <Button variant="text" tone="neutral" disabled={disabled || readOnly}
         aria-label={t("common.ui.clearSearch", { defaultMessage: "Clear search" })} onPress={() => { change(""); input.current?.focus(); }}><CloseIcon size={16}/></Button>}
     </div>
     <FieldMessages position="below" descriptionPlacement={descriptionPlacement} description={description&&<div className={field.description} id={`${id}-description`}>{description}</div>}/>
@@ -129,5 +146,6 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(functi
         })}
       </div>
     </Popover>
+    </>}
   </div>;
 });

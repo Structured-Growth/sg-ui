@@ -1,7 +1,0 @@
-{
-  "full": true,
-  "files": [
-    "*.spec.ts"
-  ],
-  "scope": "Complete production docs matrix after shared hydration readiness and focused corrections"
-}

@@ -22,6 +22,9 @@ export type AppDataGridSelectionConfig<Row> = {
 export type AppDataGridRowDragDropPosition = "before" | "after";
 export type AppDataGridRowDragReorderParams<Row> = {
   sourceRow: Row; sourceRowId: string; targetRow: Row; targetRowId: string;
+  /** Rows being moved, in their current host order. */
+  sourceRows: readonly Row[];
+  sourceRowIds: readonly string[];
   position: AppDataGridRowDragDropPosition;
 };
 export type AppDataGridRowDragConfig<Row> = {
@@ -29,4 +32,8 @@ export type AppDataGridRowDragConfig<Row> = {
   getRowLabel?: (row: Row) => string;
   isRowDraggable?: (row: Row) => boolean;
   handleColumnWidth?: number;
+  /** Show adjacent Move up/down buttons. Defaults to false. */
+  showMoveButtons?: boolean;
+  /** Disable handle dragging while retaining any enabled move buttons. Defaults to false. */
+  dragDisabled?: boolean;
 };

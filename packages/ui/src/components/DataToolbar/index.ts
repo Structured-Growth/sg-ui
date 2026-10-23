@@ -1,6 +1,6 @@
 export {
   DataToolbar,
-  type ClassesViewMode,
+  type CoursesViewMode,
   type DataGridInteractionMode,
   type DataToolbarSelectionOption,
   type DataToolbarSelectionState,

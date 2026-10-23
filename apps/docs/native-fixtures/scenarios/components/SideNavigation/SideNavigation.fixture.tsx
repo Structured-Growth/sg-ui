@@ -7,7 +7,7 @@ import { ApartmentIcon } from "@structured-growth/sg-ui/experimental/icons";
 import { AssignmentTurnedInIcon } from "@structured-growth/sg-ui/experimental/icons";
 import { BookIcon } from "@structured-growth/sg-ui/experimental/icons";
 import { BuildIcon } from "@structured-growth/sg-ui/experimental/icons";
-import { ClassIcon } from "@structured-growth/sg-ui/experimental/icons";
+import { CourseIcon } from "@structured-growth/sg-ui/experimental/icons";
 import { DashboardIcon } from "@structured-growth/sg-ui/experimental/icons";
 import { DescriptionIcon } from "@structured-growth/sg-ui/experimental/icons";
 import { GroupIcon } from "@structured-growth/sg-ui/experimental/icons";
@@ -88,7 +88,7 @@ const model: SideNavigationModel = {
 const iconMap = {
   billing: <PaidIcon />,
   checklist: <AssignmentTurnedInIcon />,
-  class: <ClassIcon />,
+  class: <CourseIcon />,
   dashboard: <DashboardIcon />,
   gradebook: <BookIcon />,
   people: <GroupIcon />,

@@ -1,8 +1,0 @@
-{
-  "originalObligations": 12,
-  "uniqueIds": 12,
-  "allEvidenceHashesMatch": true,
-  "proposalBaseAndMirrorHashesMatch": true,
-  "patchApplicability": "both passed",
-  "newRuntimeValidation": false
-}

@@ -1,0 +1,51 @@
+import {test,expect} from './fixtures';
+import {exampleName} from './example-name';
+
+test('sort shows an active trigger and a moving rule card until release',async({page})=>{
+ await page.goto('/docs/components/data-grid-shell');
+ const preview=page.getByRole('region',{name:exampleName('Prop playground'),exact:true}).locator('[data-docs-preview]');
+ const sort=preview.locator('[data-sgui-part="data-toolbar"]').getByRole('button',{name:/^Sort/});
+ await sort.click();
+ await expect(sort).toHaveAttribute('data-menu-open','true');
+ const dialog=page.getByRole('dialog',{name:'Sort',exact:true});
+ await expect(dialog.getByRole('button',{name:/Column 1/})).toBeVisible();
+ await expect(dialog.getByRole('button',{name:/Order 1/})).toBeVisible();
+ for(const name of ['Column 1','Order 1']){
+  const label=dialog.getByText(name,{exact:true});
+  await expect(label).toHaveCSS('position','absolute');
+  expect((await label.boundingBox())!.height).toBeLessThanOrEqual(1);
+ }
+ await dialog.getByRole('button',{name:'Add sort rule',exact:true}).click();
+ const rows=dialog.locator('[data-sgui-part="sort-rule"]');
+ const handle=rows.nth(1).locator('[data-sgui-part="sort-rule-handle"]');
+ const box=(await handle.boundingBox())!;
+ const target=(await rows.first().boundingBox())!;
+ await page.mouse.move(box.x+box.width/2,box.y+box.height/2);
+ await page.mouse.down();
+ await page.mouse.move(target.x+40,target.y+target.height/4,{steps:5});
+ const card=dialog.locator('[data-sgui-part="sort-drag-preview"]');
+ await expect(card).toBeVisible();
+ await expect(card).toContainText('Ascending');
+ await expect(rows.nth(1)).toHaveAttribute('data-dragging','true');
+ await expect(card).toHaveCSS('pointer-events','none');
+ const bounds=(await card.boundingBox())!;
+ expect(bounds.x).toBeCloseTo(target.x+44,0);
+ expect(bounds.y+bounds.height/2).toBeCloseTo(target.y+target.height/4,0);
+ expect(bounds.x).toBeGreaterThanOrEqual(0);
+ expect(bounds.x+bounds.width).toBeLessThanOrEqual(page.viewportSize()!.width);
+ await expect(rows.first()).toHaveAttribute('data-drop-target','before');
+ await page.mouse.up();
+ await expect(card).toHaveCount(0);
+ const firstHandle=(await rows.first().locator('[data-sgui-part="sort-rule-handle"]').boundingBox())!;
+ const second=(await rows.nth(1).boundingBox())!;
+ await page.mouse.move(firstHandle.x+firstHandle.width/2,firstHandle.y+firstHandle.height/2);
+ await page.mouse.down();
+ await page.mouse.move(second.x+40,second.y+4,{steps:5});
+ await expect(dialog.locator('[data-drop-target]')).toHaveCount(0);
+ await page.mouse.move(second.x+40,second.y+second.height-4,{steps:5});
+ await expect(rows.nth(1)).toHaveAttribute('data-drop-target','after');
+ await page.mouse.up();
+ await expect(card).toHaveCount(0);
+ await dialog.getByRole('button',{name:'Cancel',exact:true}).click();
+ await expect(sort).not.toHaveAttribute('data-menu-open','true');
+});

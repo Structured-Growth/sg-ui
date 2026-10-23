@@ -16,7 +16,7 @@ export { CalendarTodayIcon } from "./CalendarTodayIcon";
 export { CheckIcon } from "./CheckIcon";
 export { ChevronRightIcon } from "./ChevronRightIcon";
 export { CircleIcon } from "./CircleIcon";
-export { ClassIcon } from "./ClassIcon";
+export { CourseIcon } from "./CourseIcon";
 export { CloseIcon } from "./CloseIcon";
 export { CodeIcon } from "./CodeIcon";
 export { ComputerIcon } from "./ComputerIcon";

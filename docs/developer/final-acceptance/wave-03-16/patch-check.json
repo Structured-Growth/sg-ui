@@ -1,8 +1,0 @@
-{
-  "command": "git apply --check docs/developer/final-acceptance/wave-03-16/routing-probes.patch",
-  "exitCode": 0,
-  "stdout": "",
-  "stderr": "",
-  "applied": false,
-  "checkedAt": "2026-10-16T23:06:41.085235+00:00"
-}

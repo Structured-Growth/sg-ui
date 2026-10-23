@@ -11,9 +11,9 @@ import { Popover } from "../Popover/Popover";
 import { useTranslation } from "../../i18n";
 import { compareGridValues, filterGridRows } from "./row-processing";
 import { defaultGridState, type DataGridProps, type GridState } from "./types";
+import { useLeadingColumnResize } from "./useLeadingColumnResize";
 import styles from "./DataGrid.module.css";
-import { GridColumnWidthControl } from "./GridColumnWidthControl";
-import { getGridFillColumn, retainGridFillColumn } from "./column-sizing";
+import { canResizeLeadingColumn, getGridFillColumn, retainGridFillColumn } from "./column-sizing";
 
 /** Migration integration proof. The host owns server requests and reorder persistence. */
 export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel, state, defaultState,
@@ -22,8 +22,7 @@ export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel
   const [internal, setInternal] = useState<GridState>(() => ({ ...defaultGridState, ...defaultState }));
   const current = state ?? internal;
   const resizing = useRef<string | null>(null);
-  const gridElement = useRef<HTMLDivElement>(null);
-  function update(patch: Partial<GridState>) {
+    function update(patch: Partial<GridState>) {
     const next = { ...current, ...patch };
     if (!state) setInternal(next);
     onStateChange?.(next);
@@ -38,6 +37,10 @@ export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel
   const visible = columns.filter((column, index) => index === 0 || column.hideable === false || !current.hiddenColumns.includes(column.id));
   const sizingColumns = visible.map(column => ({ ...column, flex: column.width === undefined ? 1 : undefined }));
   const fillColumn = getGridFillColumn(sizingColumns, current.widths);
+  const pointerWidths = useRef<Record<string, number>>({});
+  const pointerResize = useLeadingColumnResize((snapshot, width, cancelled) => {
+    update({ widths: cancelled ? pointerWidths.current : retainGridFillColumn(sizingColumns, { ...snapshot.widths, [snapshot.field]: width }, snapshot.field) });
+  });
   const pageRows = engine.getRowModel().rows;
   const count = mode === "server" ? total : data.length;
   const nextPage = count === undefined ? !!hasNextPage : (current.page + 1) * current.pageSize < count;
@@ -56,7 +59,7 @@ export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel
     const rest = current.sort.filter(rule => rule.column !== column);
     update({ page: 0, sort: previous?.direction === "desc" ? rest : [...rest, { column, direction: previous ? "desc" : "asc" }] });
   };
-  return <div ref={gridElement} className={styles.root}>
+  return <div className={styles.root}>
     <div className={styles.toolbar}>
       <TextField label={t("common.ui.search", { defaultMessage: "Search" })} type="search" value={current.search}
         onValueChange={search => update({ search, page: 0 })} disabled={loading} />
@@ -73,7 +76,7 @@ export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel
       const field = resizing.current;
       const width = field ? widths.get(field) : undefined;
       if (!field || typeof width !== "number" || !Number.isFinite(width)) return;
-      const next = retainGridFillColumn(sizingColumns, { ...current.widths, [field]: width }, field);
+      const next = retainGridFillColumn(sizingColumns, { ...current.widths, ...Object.fromEntries([...widths].filter(([id, value]) => visible.some(column => column.id === id) && typeof value === "number" && Number.isFinite(value))) } as Record<string, number>, field);
       update({ widths: next });
     }} onResizeEnd={() => { resizing.current = null; }}>
       <Table aria-label={label} aria-busy={loading || undefined} selectionMode="multiple" selectionBehavior="toggle" dragAndDropHooks={dragAndDropHooks}
@@ -86,17 +89,15 @@ export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel
             <div className={styles.columnHeader}><div className={styles.columnLabel}>{column.sortable !== false ? <Button variant="text" tone="neutral" onPress={() => toggleSort(column.id)} aria-label={t("common.ui.sortColumn", { defaultMessage: "Sort {label}", values: { label: column.label } })}>
               {column.label}{current.sort.find(rule => rule.column === column.id)?.direction === "asc" ? " ↑" : current.sort.some(rule => rule.column === column.id) ? " ↓" : ""}
               {current.sort.length > 1 && current.sort.some(rule => rule.column === column.id) && ` ${current.sort.findIndex(rule => rule.column === column.id) + 1}`}
-            </Button> : column.label}</div><span onFocusCapture={() => { resizing.current = column.id; }} onPointerDownCapture={() => { resizing.current = column.id; }} onKeyDownCapture={() => { resizing.current = column.id; }}><ColumnResizer className={styles.resizer} aria-label={t("common.ui.resizeColumn", { defaultMessage: "Resize {label}", values: { label: column.label } })} /></span><GridColumnWidthControl label={column.label}
-              width={() => {
-                const header = gridElement.current?.querySelector<HTMLElement>(`[data-width-column-index="${index}"]`);
-                // React Aria numeric column widths use the CSS width box. A
-                // bounding rectangle also includes padding for content-box
-                // headers and would add that padding again on every request.
-                const width = header && Number.parseFloat(header.ownerDocument.defaultView!.getComputedStyle(header).width);
-                return width && width > 0 ? width : current.widths[column.id] ?? column.width ?? 160;
-              }}
-              minWidth={column.minWidth ?? (column.width === undefined ? 120 : 80)} maxWidth={column.maxWidth}
-              onWidthChange={width => update({ widths: retainGridFillColumn(sizingColumns, { ...current.widths, [column.id]: width }, column.id) })} /></div>
+            </Button> : column.label}</div>{canResizeLeadingColumn(visible, index) ? <span className={styles.resizeHandle} onFocusCapture={() => { resizing.current = column.id; }} onPointerDownCapture={event => {
+              pointerWidths.current = current.widths;
+              const table = event.currentTarget.closest("table");
+              const widths = Object.fromEntries(visible.map((item, index) => {
+                const header = table?.querySelector<HTMLElement>(`[data-width-column-index="${index}"]`);
+                return [item.id, header?.getBoundingClientRect().width ?? current.widths[item.id] ?? item.width ?? 160];
+              }));
+              pointerResize.start(event, { field: column.id, widths, min: column.minWidth ?? (column.width === undefined ? 120 : 80), max: column.maxWidth });
+            }} onPointerMove={pointerResize.move} onPointerUp={pointerResize.end} onPointerCancel={pointerResize.cancel} onLostPointerCapture={pointerResize.lost} onKeyDownCapture={() => { resizing.current = column.id; }}><ColumnResizer className={styles.resizer} aria-label={t("common.ui.resizeColumn", { defaultMessage: "Resize {label}", values: { label: column.label } })} /></span> : <span className={styles.resizeHandle} aria-hidden="true" data-sgui-part="inactive-column-divider"><span className={styles.resizer} data-disabled="true" /></span>}</div>
           </Column>)}
           {(renderActions || onReorder) && <Column id="__actions" width={240} className={styles.header}>{t("common.ui.actions", { defaultMessage: "Actions" })}</Column>}
         </TableHeader>

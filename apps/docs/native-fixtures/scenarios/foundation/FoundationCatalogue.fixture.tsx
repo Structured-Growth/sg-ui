@@ -60,7 +60,7 @@ export const Palettes: Story = {
     <Stack direction="row" wrap gap={3}>
       <Typography>Default text on surface</Typography>
       <Typography tone="muted">Muted text on surface</Typography>
-      <Typography tone="primary">Primary text on surface</Typography>
+      <Typography tone="accent">Primary text on surface</Typography>
       <Typography tone="danger">Danger text on surface</Typography>
       <Button>Action / onAction</Button>
     </Stack>

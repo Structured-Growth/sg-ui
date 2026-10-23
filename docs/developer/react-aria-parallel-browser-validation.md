@@ -3,7 +3,7 @@
 This harness implements a bounded R-11/X-12 scheduling slice. Follow the
 [development validation policy](react-aria-development-validation.md) and
 [browser acceptance requirements](react-aria-browser-acceptance.md). The
-[batch-23 implementation evidence](parallel-batch-23/hardware-scaled-browser-validation.md)
+batch-23 implementation evidence
 distinguishes fixtures from an authorized live trial. Coordinator review and an
 exact-head queue window precede adoption. Existing workers keep their two-session
 scheduling until that review. This does not close broad native/device/AT gates.
@@ -27,15 +27,6 @@ Symlinked ancestors, escaped paths, dirty tracked/untracked source and incorrect
 40-character heads fail closed. Normal ignored installation/generated artifacts
 are allowed; they do not substitute for a fresh Storybook build.
 
-The supervisor reads `/tmp/sgui-browser-validation-priority.json` without writing
-it, then atomically claims `/tmp/sgui-parallel-batch-01-validation.lock` for its
-entire run. Recognized empty queues are an empty file, `[]`, or `{ "queue": [] }`.
-An authorized `--owner <exact chat ID>` must be the first existing queue entry;
-following entries stay queued. Eligibility is rechecked after bridge acquisition
-and before waves/jobs; snapshot monitoring also checks it during execution. Missing,
-invalid, substituted or ineligible queues fail. The caller removes only its own
-first entry after the run under the coordinator protocol.
-
 Each build phase additionally claims `os.tmpdir()/sgui-heavyweight-build.lock`.
 Cleanup checks exact owner tokens and removes only owned owner files/directories.
 SIGINT/SIGTERM abort owned process groups with bounded SIGKILL fallback; all sibling
@@ -58,8 +49,6 @@ Snapshot mode builds Storybook and typechecks browser sources **once** from the
 reviewed committed head. Every session serves the same read-only tree with
 `SGUI_BROWSER_IMMUTABLE=1`, which snapshots static bytes before listening. It is
 an opt-in alternative to repeated multi-worktree setup, not reuse of old artifacts.
-
-Create an external plan such as `/tmp/sgui-browser-snapshot.json`:
 
 ```json
 {
@@ -112,17 +101,10 @@ identities, skipped/flaky/unexpected outcomes and nonzero global errors fail clo
 Per-session and aggregate evidence retain `grep` (explicit `null` when omitted),
 exact `selectionArgs`, and each passed case's file, ID, project and title. Counts
 attest the reported selection; they do not certify broader spec or engine coverage.
-The [batch-58 fixture record](parallel-batch-58/snapshot-case-filters.md) records
+The batch-58 fixture record records
 validation and rollout limits.
 
 After exact-head review and queue authorization:
-
-```sh
-node scripts/browser-validation-pool.mjs \
-  --plan /tmp/sgui-browser-snapshot.json \
-  --queue-file /tmp/sgui-browser-validation-priority.json \
-  --max 4 --first-port 6273 --output artifacts/browser-pool
-```
 
 All slot/port/output claims for a wave precede browser launch. If any resource is
 occupied, none of that wave launches. Source HEAD/status/bytes and build digest
@@ -147,24 +129,6 @@ Only one job per worktree is allowed here. Each gets a fresh independent build.
 `args: []` requests the full matrix; existing focused `--grep` and `--project`
 selections remain available. Configuration/output/worker/retry overrides,
 repeat/shard/timeout/early-exit controls and weakened modes are rejected.
-
-`--build-max N` independently tunes simultaneous **distinct worktree builds**;
-default 1 preserves serialized setup. One supervisor owns the heavy lock for the
-whole wave, so it can admit several internal builders without racing unchanged
-external heavy callers. It retains the compatibility bridge throughout. Types
-stage through four internal admissions and atomic `/tmp/sgui-light-validation-slots`
-leases. Browser commands wait for all builds/types to settle, avoiding competition
-with builds within a wave. Holding the heavy lock through the browser wave is
-conservative; external callers already remain excluded by the bridge.
-Snapshot mode rejects `--build-max` other than 1 because it has exactly one build.
-
-Exported `acquireLightSlot(owner)` and `acquireInstallSlot(owner)` helpers use the
-existing four `/tmp/sgui-light-validation-slots` and two `/tmp/sgui-install-slots`
-claims. The harness never installs dependencies. Use `pnpm install --frozen-lockfile`
-under an owned installation slot when needed. These helper exports do not migrate
-other callers or expand their limits; resource occupancy fails instead of stealing
-claims. Expansion of light/install stages needs measured benefit and coordinated
-caller rollout in a separately owned scheduler task.
 
 ## Hardware evidence and resource budgets
 
@@ -220,14 +184,6 @@ Storybook/type/browser commands. It covers default two-slot admission, explicit
 mutation, selectors, budgets, queue/port/owner rejection and owned process-group
 termination. It launches no browsers or Storybook builds and does not claim the
 real heavy/browser bridge. Run it under one light slot. The
-[batch-51 supervisor cleanup record](parallel-batch-51/supervisor-cleanup.md)
+batch-51 supervisor cleanup record
 covers exit/timer/final-cleanup signal errors, descendant settlement, bounded
 SIGINT/SIGTERM handling and retained leases for unverifiable live groups.
-
-The existing native two-static-server fixture stays disabled unless
-`SGUI_POOL_SERVER_TESTS=1` and the actual queue/bridge window is authorized;
-`SGUI_POOL_OWNER` supports a first-entry authorized caller. Its ports are 6473/6474.
-Prior two-session proof is historical evidence in
-[batch 12](parallel-batch-12/browser-pool.md). Higher-cap fixtures are not live
-capacity proof. A reviewed committed implementation and authorized fresh snapshot
-trial are still required before rollout; preserve old scheduling until then.

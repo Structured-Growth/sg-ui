@@ -24,7 +24,7 @@ export function createInstructorCourseGridOptions(t?: SGTranslationAdapter["t"])
   const label = (key: string, defaultMessage: string) =>
     t?.(`common.ui.grid.${key}`, { defaultMessage, namespace: "common.ui" }) ?? defaultMessage;
   const columnOptions: DataToolbarColumnOption[] = [
-    { id: "className", label: label("sectionName", "Section Name"), visible: true, locked: true },
+    { id: "courseName", label: label("sectionName", "Section Name"), visible: true, locked: true },
     { id: "siteName", label: label("site", "Site"), visible: true },
     { id: "status", label: label("status", "Status"), visible: true },
     { id: "learnerCount", label: label("learners", "Learners"), visible: true },
@@ -33,7 +33,7 @@ export function createInstructorCourseGridOptions(t?: SGTranslationAdapter["t"])
   ];
   const sortOptions: DataToolbarSortOption[] = columnOptions.filter(option => option.id !== "actions").map(({ id, label }) => ({ id, label }));
   const filterFields: DataToolbarFilterField[] = [
-    { id: "className", label: label("sectionName", "Section Name"), type: "string" },
+    { id: "courseName", label: label("sectionName", "Section Name"), type: "string" },
     { id: "siteName", label: label("site", "Site"), type: "string" },
     { id: "status", label: label("status", "Status"), type: "enum", enumOptions: instructorCourseStatuses.map(status => ({ id: status.id, label: label(`status.${status.id}`, status.defaultMessage) })) },
     { id: "learnerCount", label: label("learners", "Learners"), type: "number" },
@@ -70,13 +70,3 @@ export function createInstructorCourseLearnersGridOptions(t?: SGTranslationAdapt
     defaultFilterRules: [] as DataToolbarFilterRule[],
   };
 }
-
-const courseDefaults = createInstructorCourseGridOptions();
-const learnerDefaults = createInstructorCourseLearnersGridOptions();
-/** English compatibility exports; use the factories for localized, per-view state. */
-export const instructorClassesColumnOptions = courseDefaults.columnOptions;
-export const instructorClassesSortOptions = courseDefaults.sortOptions;
-export const instructorClassesFilterFields = courseDefaults.filterFields;
-export const instructorClassLearnersColumnOptions = learnerDefaults.columnOptions;
-export const instructorClassLearnersSortOptions = learnerDefaults.sortOptions;
-export const instructorClassLearnersFilterFields = learnerDefaults.filterFields;

@@ -4,13 +4,13 @@ import { Button } from "@structured-growth/sg-ui/components";
 import { TextField } from "@structured-growth/sg-ui/experimental";
 import { Card } from "@structured-growth/sg-ui/experimental";
 import { Typography } from "@structured-growth/sg-ui/experimental";
-import { LearnerClassCard } from "@structured-growth/sg-ui/components";
+import { LearnerCourseCard } from "@structured-growth/sg-ui/components";
 import { CardCollectionWithFooter } from "@structured-growth/sg-ui/components";
 const rows = Array.from({ length: 12 }, (_, i) => ({ id: String(i), label: `Course ${i + 1}` }));
 const meta = {
   title: "Data Display/CardCollectionWithFooter", component: CardCollectionWithFooter,
   args: { rows, getRowId: row => (row as typeof rows[number]).id, page: 0, pageSize: 4, pageSizeOptions: [4, 8],
-    onPageChange: () => {}, onPageSizeChange: () => {},
+    onPaginationModelChange: () => {},
     renderCard: row => <Card><Typography variant="h6">{(row as typeof rows[number]).label}</Typography></Card> },
   decorators: [Story => <div style={{ height: 420, display: "flex" }}><Story /></div>], tags: ["autodocs"],
 } satisfies Meta<typeof CardCollectionWithFooter>;
@@ -19,13 +19,13 @@ type Story = StoryObj<typeof meta>;
 export const Interactive: Story = { render: args => {
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(4);
-  return <CardCollectionWithFooter {...args} page={page} pageSize={pageSize} onPageChange={setPage} onPageSizeChange={setPageSize} />;
+  return <CardCollectionWithFooter {...args} page={page} pageSize={pageSize} onPaginationModelChange={model => { (setPage)(model.page); (setPageSize)(model.pageSize); }}  />;
 } };
 export const Empty: Story = { args: { rows: [] } };
 export const Loading: Story = { args: { loading: true } };
 export const LongText: Story = { args: { rows: [{ id: "long", label: "Averylongunbrokencoursename".repeat(8) }] } };
 
-export const CourseCards: Story = { args: { renderCard: row => <LearnerClassCard courseName={(row as typeof rows[number]).label} instructorName="Course author" progressPercent={40} nextActivity="Read the introduction" dueAt="2026-10-10" referenceNow={new Date("2026-10-06T12:00:00Z")} /> } };
+export const CourseCards: Story = { args: { renderCard: row => <LearnerCourseCard courseName={(row as typeof rows[number]).label} instructorName="Course author" progressPercent={40} nextActivity="Read the introduction" dueAt="2026-10-10" referenceNow={new Date("2026-10-06T12:00:00Z")} /> } };
 
 /** M-11: one host owns rows and pagination; requests can be deliberately withheld. */
 export const NativeCollection: Story = {
@@ -51,12 +51,9 @@ export const NativeCollection: Story = {
       <CardCollectionWithFooter {...args} rows={state === "empty" ? [] : reversed ? [...rows].reverse() : rows}
         loading={state === "loading"} page={page} pageSize={pageSize}
         pageSizeOptions={[4, 8]} paginationLabel="Course collection pages"
-        onPageChange={next => {
-          setRequests(value => [...value, `page:${next}`]);
-          if (accept) setPage(next);
-        }} onPageSizeChange={next => {
-          setRequests(value => [...value, `size:${next}`]);
-          if (accept) setPageSize(next);
+        onPaginationModelChange={model => {
+          setRequests(value => [...value, `page:${model.page},size:${model.pageSize}`]);
+          if (accept) { setPage(model.page); setPageSize(model.pageSize); }
         }} renderCard={row => <Card style={{ minHeight: 160 }}>
           <Typography variant="h6">{(row as typeof rows[number]).label}</Typography>
           <TextField label={`Note for ${(row as typeof rows[number]).label}`} defaultValue="Host draft" />

@@ -77,21 +77,47 @@ describe("owned sort rule menu", () => {
     const user = userEvent.setup(); const onApply = vi.fn();
     render(menu([...initial, { field: "status", direction: "desc" }], onApply)); await open(user);
     const handles = screen.getByRole("dialog").querySelectorAll<HTMLSpanElement>('[data-sgui-part="sort-rule-handle"]');
+    expect(document.querySelector("[data-menu-open]")?.getAttribute("data-menu-open")).toBe("true");
     const rects = mockRows();
     const setCapture = vi.fn(); const releaseCapture = vi.fn();
     handles[1].setPointerCapture = setCapture; handles[1].releasePointerCapture = releaseCapture; handles[1].hasPointerCapture = () => true;
     try {
       pointer(handles[1], "pointerdown", 10, 80);
+      pointer(handles[1], "pointermove", 10, 45);
+      expect(document.querySelector("[data-drop-target]")).toBeNull();
       pointer(handles[1], "pointermove", 10, 20);
       expect(setCapture).toHaveBeenCalledWith(7);
+      expect(handles[0].closest('[data-sgui-part="sort-rule"]')?.getAttribute("data-drop-target")).toBe("before");
+      const preview = document.querySelector<HTMLElement>('[data-sgui-part="sort-drag-preview"]');
+      expect(preview?.textContent).toBe("StatusDescending");
+      expect(preview?.style.left).toBe("14px");
+      expect(preview?.style.top).toBe("20px");
+      expect(handles[1].closest('[data-dragging]')).not.toBeNull();
       expect(screen.getByRole("button", { name: /Column 1/ }).textContent).toContain("Course name");
       expect(onApply).not.toHaveBeenCalled();
       pointer(handles[1], "pointerup", 10, 20);
       expect(releaseCapture).toHaveBeenCalledWith(7);
+      expect(document.querySelector('[data-sgui-part="sort-drag-preview"]')).toBeNull();
       await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: /Column 1/ })));
       expect(screen.getByRole("button", { name: /Column 1/ }).textContent).toContain("Status");
       await user.click(screen.getByRole("button", { name: "Apply" }));
       expect(onApply).toHaveBeenCalledExactlyOnceWith([{ field: "status", direction: "desc" }, ...initial]);
+    } finally { rects.forEach(spy => spy.mockRestore()); }
+  });
+  it("requires the upper half when moving up and lower half when moving down, marking the matching edge", async () => {
+    const user = userEvent.setup();
+    render(menu([...initial, { field: "status", direction: "desc" }])); await open(user);
+    const dialog = screen.getByRole("dialog");
+    const handles = dialog.querySelectorAll<HTMLSpanElement>('[data-sgui-part="sort-rule-handle"]');
+    const rects = mockRows();
+    try {
+      pointer(handles[0], "pointerdown", 10, 20);
+      pointer(handles[0], "pointermove", 10, 65);
+      expect(dialog.querySelector('[data-drop-target]')).toBeNull();
+      pointer(handles[0], "pointermove", 10, 100);
+      expect(handles[1].closest('[data-sgui-part="sort-rule"]')?.getAttribute("data-drop-target")).toBe("after");
+      pointer(handles[0], "pointerup", 10, 100);
+      expect(screen.getByRole("button", { name: /Column 1/ }).textContent).toContain("Status");
     } finally { rects.forEach(spy => spy.mockRestore()); }
   });
   it("cancels pointer/touch movement and ignores a tap below the movement threshold", async () => {
@@ -104,6 +130,7 @@ describe("owned sort rule menu", () => {
       pointer(handles[1], "pointermove", 10, 20, "touch");
       pointer(handles[1], "pointercancel", 10, 20, "touch");
       pointer(handles[1], "pointerup", 10, 20, "touch");
+      expect(document.querySelector('[data-sgui-part="sort-drag-preview"]')).toBeNull();
       expect(screen.getByRole("dialog").querySelector('[data-drop-target]')).toBeNull();
       pointer(handles[1], "pointerdown", 10, 80);
       pointer(handles[1], "pointerup", 11, 81);

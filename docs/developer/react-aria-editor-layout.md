@@ -78,10 +78,10 @@ focus. Outside pointer and window blur dismiss it. Escape remains dismissed for
 the same selection until a new editor interaction or selection change.
 The overlay retains its existing fixed-position rendering within the visual scope;
 hosts must avoid transformed fixed-position containing blocks around it. The named desktop selection-boundary and presentation checks pass in Chromium,
-Firefox and WebKit; see the [component acceptance reconciliation](react-aria-editor-chrome-acceptance.md).
+Firefox and WebKit; see the component acceptance reconciliation.
 Physical-device and spoken assistive-technology acceptance remain separate.
 
-See the [execution evidence](archive/2026-10-18-task-lists/react-aria-progress.md#editor-layout-and-floating-selection)
+See the execution evidence
 and [formatting toolbar](react-aria-formatting-toolbar.md) for the surrounding
 owned toolbar integration. `node scripts/test-editor-consumer.mjs` (or --react18)
 validates a real packed editor-controls consumer separately from the basic fixture,

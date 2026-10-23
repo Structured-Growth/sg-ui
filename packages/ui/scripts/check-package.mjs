@@ -90,7 +90,7 @@ for (const [name, entry] of Object.entries(pkg.exports)) {
   assert(Object.keys(exports).length > 0, `${name} has no exports`);
 }
 const ui = await import('../dist/index.js');
-for (const name of ['Button', 'AppDataGrid', 'AppModal', 'SideNavigation', 'PageRichTextEditorSection', 'AppThemeProvider', 'Provider', 'ThemeScope', 'SGNavigationProvider']) {
+for (const name of ['Button', 'AppDataGrid', 'AppModal', 'SideNavigation', 'PageRichTextEditorSection', 'Provider', 'ThemeScope', 'SGNavigationProvider']) {
   assert(ui[name], `Missing ${name}`);
 }
 for (const name of ['lightTheme', 'darkTheme', 'theme']) assert(!ui[name], `Retired theme object exported: ${name}`);
@@ -120,7 +120,7 @@ for (const file of ['ownedGridModel', 'ownedGridState', 'ownedGridColumns', 'own
   const declaration = await readFile(`dist/components/AppDataGrid/${file}.d.ts`, 'utf8');
   assertOwnedDeclaration(`dist/components/AppDataGrid/${file}.d.ts`, declaration);
 }
-for (const name of ['AppInlineProgress', 'AppOperationSteps', 'EditableTitleField', 'CardPaginationFooter', 'CardCollectionWithFooter', 'ClassCardFrame', 'InstructorClassCard', 'LearnerClassCard', 'Button', 'ExperiencePageNavigator', 'AppPageTabs', 'AppPageHeader', 'AppModal', 'AuthShell', 'SideNavigation', 'AppShell', 'ColumnsLayoutModal', 'ImageUploadModal', 'LinkUrlModal', 'InsertContentMenuControl', 'TextAlignMenuControl', 'TextColorPickerControl', 'TextStyleMenuControl', 'RichTextFormattingToolbar', 'FloatingTextSelectionToolbar', 'DocumentEditorLayout', 'DocumentEditorToolbar', 'ContentEditorChrome', 'PageRichTextEditorSection', 'DataToolbar', 'AppDataGrid', 'AppDataGridShell', 'LearnerClassesDataGrid', 'AppDataGridRowDnd', 'icons', 'primitives']) await checkOwnedDeclarations(`dist/components/${name}`);
+for (const name of ['AppInlineProgress', 'AppOperationSteps', 'EditableTitleField', 'CardPaginationFooter', 'CardCollectionWithFooter', 'CourseCardFrame', 'InstructorCourseCard', 'LearnerCourseCard', 'Button', 'ExperiencePageNavigator', 'AppPageTabs', 'AppPageHeader', 'AppModal', 'AuthShell', 'SideNavigation', 'AppShell', 'ColumnsLayoutModal', 'ImageUploadModal', 'LinkUrlModal', 'InsertContentMenuControl', 'TextAlignMenuControl', 'TextColorPickerControl', 'TextStyleMenuControl', 'RichTextFormattingToolbar', 'FloatingTextSelectionToolbar', 'DocumentEditorLayout', 'DocumentEditorToolbar', 'ContentEditorChrome', 'PageRichTextEditorSection', 'DataToolbar', 'AppDataGrid', 'AppDataGridShell', 'AppDataGridRowDnd', 'icons', 'primitives']) await checkOwnedDeclarations(`dist/components/${name}`);
 
 await checkOwnedDeclarations('dist/icons');
 await checkOwnedDeclarations('dist/primitives');

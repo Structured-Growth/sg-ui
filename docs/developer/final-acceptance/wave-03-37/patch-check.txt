@@ -1,2 +1,0 @@
-git apply --check workflow-trust-and-templates.patch
-exit=0

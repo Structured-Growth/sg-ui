@@ -2,12 +2,12 @@
 import {useEffect,useState} from 'react';
 import {HierarchicalMenu,type HierarchicalMenuLevel} from '@structured-growth/sg-ui/experimental';
 import {SearchField,Link,Stack,Typography,Divider} from '@structured-growth/sg-ui/primitives';
-import {DashboardIcon,WindowIcon,CheckIcon,AssignmentTurnedInIcon,DescriptionOutlinedIcon,ViewListIcon,ClassIcon,ContentCopyIcon,MenuBookIcon,EditIcon,TaskAltIcon,TuneIcon,TerminalIcon,BrushIcon,AccessTimeFilledIcon,LockIcon,CalendarTodayIcon} from '@structured-growth/sg-ui/icons';
+import {DashboardIcon,WindowIcon,CheckIcon,AssignmentTurnedInIcon,DescriptionOutlinedIcon,ViewListIcon,CourseIcon,ContentCopyIcon,MenuBookIcon,EditIcon,TaskAltIcon,TuneIcon,TerminalIcon,BrushIcon,AccessTimeFilledIcon,LockIcon,CalendarTodayIcon} from '@structured-growth/sg-ui/icons';
 import catalog from '../content/catalog.json';
 import componentNavigationGroups from '../content/component-navigation.json';
 import {navigation} from '../content/navigation';
 import styles from './docs.module.css';
-const groupIcons={actions:CheckIcon,forms:AssignmentTurnedInIcon,calendar:CalendarTodayIcon,text:DescriptionOutlinedIcon,grids:ViewListIcon,cards:ClassIcon,overlays:ContentCopyIcon,layouts:WindowIcon,editor:EditIcon,feedback:TaskAltIcon,foundations:TuneIcon};
+const groupIcons={actions:CheckIcon,forms:AssignmentTurnedInIcon,calendar:CalendarTodayIcon,text:DescriptionOutlinedIcon,grids:ViewListIcon,cards:CourseIcon,overlays:ContentCopyIcon,layouts:WindowIcon,editor:EditIcon,feedback:TaskAltIcon,foundations:TuneIcon};
 const pageIcons:Record<string,typeof MenuBookIcon>={'/installation':TerminalIcon,'/theming':BrushIcon,'/releases':AccessTimeFilledIcon,'/licensing':LockIcon};
 const bySlug=new Map(catalog.map(entry=>[entry.slug,entry]));
 const groupForPath=(pathname:string)=>componentNavigationGroups.find(group=>group.slugs.some(slug=>pathname===`/docs/components/${slug}`));

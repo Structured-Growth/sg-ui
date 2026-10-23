@@ -1,6 +1,0 @@
-{
-  "runtime": "v26.5.0",
-  "typescript": "5.9.3",
-  "method": "strict noEmit TypeScript with proposed docs spec at its integration path; browser tests not executed",
-  "diagnostics": []
-}

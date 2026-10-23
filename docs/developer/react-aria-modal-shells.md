@@ -86,7 +86,7 @@ AppShell retains navigation/children and adds optional rightNavigation and expor
 customization. SideNavigation retains its presentation model, item selection,
 organization-change callbacks, icon resolver and routing/account/translation
 adapters. Navigation and account data remain host-supplied. See the colocated
-stories/tests and [execution evidence](archive/2026-10-18-task-lists/react-aria-progress.md) for responsive,
+stories/tests and execution evidence for responsive,
 focus and account behavior checks and outstanding browser acceptance gates.
 
 SideNavigation exposes a native nav ref, className/style and optional aria-label.
@@ -176,7 +176,6 @@ SideNavigation reserves one density-sized item plus its complete focus outline
 in the menu scrollport. When account/back/footer chrome exhausts a short host,
 the navigation root can scroll rather than shrinking that last usable row. Its
 existing focus reveal still measures and adjusts only the menu scrollport.
-
 
 AppShell's main client leaf completes native focus scrolling with an adjustment
 inside its own vertical scrollport, including the control's outward outline.

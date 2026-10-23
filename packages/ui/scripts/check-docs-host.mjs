@@ -1,4 +1,4 @@
-// Source-only audit. Historical story identities in fixture metadata are retained.
+// Source-only audit of current dependencies and native fixture registration.
 import {readFileSync,readdirSync} from 'node:fs';
 import {resolve,posix} from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
@@ -32,19 +32,19 @@ export function docsHostFindings(files) {
   visit(source);
  }
  const host='apps/docs/native-fixtures';
- const manifest=JSON.parse(files[`${host}/migration-manifest.json`]);
+ const manifest=JSON.parse(files[`${host}/module-manifest.json`]);
  const registry=JSON.parse(files[`${host}/registry.json`]).entries;
- const mapped=new Map();const originals=new Set();
+ const mapped=new Map();
  for(const item of manifest.modules) {
   if(!item.fixture.startsWith(`${host}/scenarios/`)||posix.normalize(item.fixture)!==item.fixture||!Object.hasOwn(files,item.fixture))issue(item.fixture,'Missing or unsafe mapped fixture');
-  if(mapped.has(item.fixture)||originals.has(item.original))issue(item.fixture,'Duplicate fixture/original mapping');
-  mapped.set(item.fixture,item);originals.add(item.original);
+  if(mapped.has(item.fixture))issue(item.fixture,'Duplicate fixture mapping');
+  mapped.set(item.fixture,item);
  }
  const used=new Set();
  for(const [id,entry] of Object.entries(registry)) {
   const path=typeof entry.module==='string'?posix.normalize(`${host}/${entry.module}`):'';
   const item=mapped.get(path);
-  if(entry.id!==id||!item?.scenarioModule||entry.original!==item.original||entry.importPath!==entry.module)issue(id,'Registry entry does not match its scenario mapping');
+  if(entry.id!==id||!item?.scenarioModule||entry.importPath!==entry.module)issue(id,'Registry entry does not match its scenario mapping');
   else used.add(path);
  }
  for(const [path,item] of mapped)if(item.scenarioModule&&!used.has(path))issue(path,'Mapped scenario has no registered example');
@@ -65,7 +65,7 @@ export function checkDocsHost(root) {
  for(const dir of ['packages/ui/src','apps/docs','.github/workflows'])walk(dir);
  for(const file of ['package.json','packages/ui/package.json','pnpm-lock.yaml'])files[file]=readFileSync(resolve(root,file),'utf8');
  const findings=docsHostFindings(files);
- return {files:Object.keys(files).length,modules:JSON.parse(files['apps/docs/native-fixtures/migration-manifest.json']).modules.length,scenarios:Object.keys(JSON.parse(files['apps/docs/native-fixtures/registry.json']).entries).length,findings,limits:'Source/dependency/CI reference and manifest/registry consistency only; no build, execution, export resolution, preserved assertion audit or production acceptance.'};
+ return {files:Object.keys(files).length,modules:JSON.parse(files['apps/docs/native-fixtures/module-manifest.json']).modules.length,scenarios:Object.keys(JSON.parse(files['apps/docs/native-fixtures/registry.json']).entries).length,findings,limits:'Source/dependency/CI reference and manifest/registry consistency only; no build, execution, export resolution, preserved assertion audit or production acceptance.'};
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href) {
  const result=checkDocsHost(resolve(fileURLToPath(new URL('../../..',import.meta.url))));

@@ -90,21 +90,11 @@ test('hidden and short labels expose active touch hit regions', async ({ browser
     for (const [name,label] of [['bulk',bulk],['grid-header',header],['grid-row',row]] as const) rows.push({finePointerHiddenLabel:name,spacingException:await pointerSpacing(scope,label)});
 }); });
 test('calendar quarter and inline range retain shared targets and prose exception', async ({ browser, baseURL }, info) => { await run(browser, baseURL, 'date-targets', info, async (page, scope, mode, rows) => { const calendar = scope.getByTestId('calendar'), day = calendar.getByRole('button', { name: /October 8, 2026/ }); const next = calendar.getByRole('button', { name: /October 9, 2026/ }); rows.push({ mode, days: await disjoint([day, next]) }); await day.tap(); await expect(day).toHaveAttribute('data-selected'); const form = scope.getByRole('form', { name: 'Quarter target form' }), q2 = form.getByRole('button', { name: 'Quarter 2' }), q3 = form.getByRole('button', { name: 'Quarter 3' }); await disjoint([q2, q3]); await q2.tap(); await expect(q2).toHaveAttribute('aria-pressed', 'true'); await form.getByRole('button', { name: 'Apply', exact: true }).tap(); expect(await form.evaluate(n => Object.fromEntries(new FormData(n as HTMLFormElement)))).toEqual({ 'quarter.start': '2026-04-01', 'quarter.end': '2026-06-30' }); const range = scope.getByTestId('range'), start = range.getByRole('button', { name: 'Start date', exact: true }), end = range.getByRole('button', { name: 'End date', exact: true }); await disjoint([start, end]); await start.tap(); await expect(start).toHaveAttribute('aria-pressed', 'true'); await range.getByRole('button', { name: 'Adjust dates', exact: true }).tap(); const operations = range.getByRole('group', { name: 'Adjust dates', exact: true }); await disjoint(await operations.getByRole('button').all()); await operations.getByRole('button', { name: 'Start date', exact: true }).tap(); const prose = scope.getByTestId('prose'), link = prose.getByRole('link', { name: 'note' }); rows.push({ inline: await link.evaluate(n => ({ display: getComputedStyle(n).display, height: n.getBoundingClientRect().height, context: n.parentElement!.textContent, exception: 'sentence-inline' })) }); await link.tap(); await expect(page).toHaveURL(/#target-note$/); }); });
-test('resize equivalents meet touch geometry before narrow handle exception', async ({ browser, baseURL }, info) => { await run(browser, baseURL, 'resize-targets', info, async (page, scope, mode, rows) => { for (const kind of ['proof', 'catalog']) {
-    const grid = scope.getByTestId(`grid-${kind}`), handle = grid.locator('[data-resizable-direction]').filter({ has: page.locator('input[aria-label="Resize Name"]') }), trigger = grid.getByRole('button', { name: 'Width of Name', exact: true });
+test('grid resize handles remain available and shelf actions meet touch geometry', async ({ browser, baseURL }, info) => { await run(browser, baseURL, 'resize-targets', info, async (page, scope, mode, rows) => { for (const kind of ['proof', 'catalog']) {
+    const grid = scope.getByTestId(`grid-${kind}`);
+    await expect(grid.getByRole('button', { name: /^Width of / })).toHaveCount(0);
+    const handle = grid.getByRole('slider', { name: /^Resize Score\b/ });
     await handle.scrollIntoViewIfNeeded();
-    const narrow = await handle.boundingBox();
-    const equivalent = await box(trigger);
-    await trigger.tap();
-    const dialog = page.getByRole('dialog', { name: 'Width of Name', exact: true }), input = dialog.getByRole('textbox', { name: 'Width in CSS pixels' });
-    const before = Number(await input.inputValue());
-    await box(input);
-    for (const name of ['Narrower by 1 pixel', 'Wider by 1 pixel', 'Apply'])
-        await box(dialog.getByRole('button', { name, exact: true }));
-    await dialog.getByRole('button', { name: 'Narrower by 1 pixel' }).tap();
-    await expect(trigger).toBeFocused();
-    await trigger.tap();
-    await expect(input).toHaveValue(String(before - 1));
-    await page.keyboard.press('Escape');
-    rows.push({ mode, kind, narrowHandle: narrow, equivalent, verifiedException: 'same-page equivalent width controls after measured trusted1px activation' });
+    await expect(handle).toBeVisible();
+    rows.push({ mode, kind, resizeHandle: await handle.boundingBox() });
 } const shelf = scope.getByTestId('shelf'), separator = shelf.getByRole('separator', { name: 'Resize Notes panel' }); rows.push({ shelfHandle: await box(separator) }); const narrow = shelf.getByRole('button', { name: 'Narrower', exact: true }), wide = shelf.getByRole('button', { name: 'Wider', exact: true }); await disjoint([narrow, wide]); const before = Number(await separator.getAttribute('aria-valuenow')); await narrow.tap(); await expect(separator).toHaveAttribute('aria-valuenow', String(before - 1)); await wide.tap(); await expect(separator).toHaveAttribute('aria-valuenow', String(before)); }); });

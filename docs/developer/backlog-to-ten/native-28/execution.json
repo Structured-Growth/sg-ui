@@ -1,5 +1,0 @@
-{
-  "failure": "Error: /Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node /Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js test --config /Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native.config.cjs calendar-compact-navigation --grep wide host font failed (1/null); group settled; ; ; see /Users/thomashall/Repositories/sg-ui/docs/developer/backlog-to-ten/native-28/native.log",
-  "stable": true,
-  "completedAt": "2026-10-18T23:02:25.001Z"
-}

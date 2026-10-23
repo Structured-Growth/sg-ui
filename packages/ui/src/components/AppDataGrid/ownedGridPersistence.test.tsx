@@ -28,16 +28,13 @@ describe("owned grid optional persistence", () => {
       columnOrder: ["score", "name", "actions"], columnWidths: { score: 300 }, searchValue: "saved", viewMode: "cards" });
     expect(normalizeOwnedGridPersistedState({ paginationModel: { page: -1, pageSize: 10 }, searchValue: 2, viewMode: "unknown" }, options)).toEqual({});
   });
-  it("migrates valid legacy list pagination before cards and rejects retired sort models", () => {
-    const { values, options } = fixture();
+  it("ignores retired storage keys", () => {
+    const { values, options, storage } = fixture();
     values.set("datagrid:courses:paginationModel", JSON.stringify({ page: 2, pageSize: 10 }));
-    values.set("page:courses:cardsPaginationModel", JSON.stringify({ page: 4, pageSize: 250 }));
     values.set("page:courses:viewMode", JSON.stringify("cards"));
-    values.set("page:courses:columnVisibilityModel", JSON.stringify({ score: false, ghost: false }));
-    values.set("page:courses:sortModel", JSON.stringify([{ field: "name", sort: "asc" }]));
-    expect(readOwnedGridPersistence(options)).toEqual({ paginationModel: { page: 2, pageSize: 10 }, viewMode: "cards", columnVisibilityModel: { name: true, score: false, actions: true } });
-    values.set("datagrid:courses:paginationModel", "null");
-    expect(readOwnedGridPersistence(options).paginationModel).toEqual({ page: 4, pageSize: 250 });
+    const read = vi.spyOn(storage, "getItem");
+    expect(readOwnedGridPersistence(options)).toEqual({});
+    expect(read).toHaveBeenCalledExactlyOnceWith(ownedGridPersistenceKey("courses"));
   });
   it("prefers the versioned envelope, rejects incompatible versions and survives invalid JSON/storage failures", () => {
     const { values, options } = fixture();
@@ -73,7 +70,7 @@ describe("owned grid optional persistence", () => {
     expect(persistence.result.current.defaults.searchValue).toBe("restored");
     expect(result.current.state.searchValue).toBe("next host");
   });
-  it("keeps keys independent, excludes accidental extra properties and clears legacy keys on reset", () => {
+  it("keeps keys independent, excludes accidental extra properties and resets only its owned key", () => {
     const { values, options, storage } = fixture();
     const { result } = renderHook(() => useOwnedGridPersistence(options));
     const { result: other } = renderHook(() => useOwnedGridPersistence({ ...options, persistence: { key: "other", storage } }));
@@ -83,7 +80,7 @@ describe("owned grid optional persistence", () => {
     values.set("page:courses:cardsPaginationModel", "{}");
     result.current.reset();
     expect(values.has(ownedGridPersistenceKey("courses"))).toBe(false);
-    expect(values.has("page:courses:cardsPaginationModel")).toBe(false);
+    expect(values.has("page:courses:cardsPaginationModel")).toBe(true);
     expect(JSON.parse(values.get(ownedGridPersistenceKey("other"))!).state.searchValue).toBe("two");
   });
   it("hydrates a saved view through a readiness gate without reading disk during SSR", async () => {

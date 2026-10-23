@@ -1,7 +1,0 @@
-{
-  "runtime": "v26.5.0",
-  "virtualFiles": 9,
-  "snippets": 3,
-  "diagnostics": 0,
-  "kind": "in-memory authoring typecheck against currently available declarations; no build/native/browser acceptance"
-}

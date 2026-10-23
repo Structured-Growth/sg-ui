@@ -1,5 +1,6 @@
+import { CourseGridHost } from "../../components/AppDataGridShell/CourseGridHost";
 import { ColumnsLayoutModal, ImageUploadModal, LinkUrlModal } from "@structured-growth/sg-ui/components";
-import { AppDataGrid, AppDataGridShell, LearnerClassesDataGrid, type AppDataGridColumn } from "@structured-growth/sg-ui/components";
+import { AppDataGrid, AppDataGridShell, type AppDataGridColumn } from "@structured-growth/sg-ui/components";
 import { DataGrid } from "@structured-growth/sg-ui/experimental";
 import { Table, TableCaption, TableHead, TableBody, TableFoot, TableRow, TableHeaderCell, TableCell } from "@structured-growth/sg-ui/experimental";
 import { DateField, TimeField, Calendar, DatePicker, DateRangePicker, DateRangeSelector } from "@structured-growth/sg-ui/experimental";
@@ -8,7 +9,7 @@ import { ButtonGroup, SplitAction, Popover, Tooltip } from "@structured-growth/s
 import { TextArea, RadioGroup, ComboBox, AsyncMultiSelect, TagGroup, Avatar } from "@structured-growth/sg-ui/experimental";
 import { useState } from "react";
 import type { FixtureGlobals } from "../../../types";
-import { CardCollectionWithFooter, InstructorClassCard, LearnerClassCard } from "@structured-growth/sg-ui/components";
+import { CardCollectionWithFooter, InstructorCourseCard, LearnerCourseCard } from "@structured-growth/sg-ui/components";
 import { SGTranslationProvider, formatIcuMessage } from "@structured-growth/sg-ui/i18n";
 import { Breadcrumbs, Navigation, NavigationItem, Disclosure, Link } from "@structured-growth/sg-ui/experimental";
 import type { Meta, StoryObj } from "../../../types";
@@ -102,9 +103,9 @@ function LocalizedCards({globals,instructor=false}:{globals:FixtureGlobals;instr
  const rows=Array.from({length:3},(_,index)=>({id:String(index),title:rtl?`التخطيط التعاوني ومراجعة مواد التعلم للمجموعات الدولية ${index+1}`:`Collaborative planning and learning materials review for international cohorts ${index+1}`}));
  return <SGTranslationProvider value={{locale:globals.locale,useNamespace:()=>{},t:(key,options)=>formatIcuMessage(rtl&&messages[key]?messages[key]:options.defaultMessage,globals.locale,options.values)}}>
   <Provider theme={globals.theme} density={globals.density} dir={rtl?'rtl':'ltr'} data-testid="localized-cards" style={{width:'100%',maxWidth:'100%',minWidth:0,boxSizing:'border-box'}}>
-   <CardCollectionWithFooter rows={rows} getRowId={row=>row.id} page={page} pageSize={pageSize} pageSizeOptions={[1,2]} onPageChange={setPage} onPageSizeChange={setPageSize} paginationLabel={rtl?'صفحات الدورات التدريبية':'Course collection pages'}
-    renderCard={row=>instructor?<InstructorClassCard className={row.title} siteName={rtl?'المؤسسة الدولية للتعلم والتطوير المهني':'International organization for learning and professional development'} status="active" learnerCount={28} lastLearnerActivityLabel="Recent activity" actionLabel={rtl?'مراجعة الدورة ومواد التعلم':'Review course and learning materials'} actionHref="#review-course" />:
-     <LearnerClassCard courseName={row.title} instructorName={rtl?'فريق التدريس والتعاون الدولي':'International teaching and collaboration team'} progressPercent={62} nextActivity={rtl?'مراجعة الخطط والمستندات الداعمة':'Review plans and supporting documents'} dueAt="2026-01-01T15:05:00Z" referenceNow={new Date('2026-01-02T18:00:00Z')} detailsHref="#course-details" />}
+   <CardCollectionWithFooter rows={rows} getRowId={row=>row.id} page={page} pageSize={pageSize} pageSizeOptions={[1,2]} onPaginationModelChange={model => { (setPage)(model.page); (setPageSize)(model.pageSize); }}  paginationLabel={rtl?'صفحات الدورات التدريبية':'Course collection pages'}
+    renderCard={row=>instructor?<InstructorCourseCard courseName={row.title} siteName={rtl?'المؤسسة الدولية للتعلم والتطوير المهني':'International organization for learning and professional development'} status="active" learnerCount={28} lastLearnerActivityLabel="Recent activity" actionLabel={rtl?'مراجعة الدورة ومواد التعلم':'Review course and learning materials'} actionHref="#review-course" />:
+     <LearnerCourseCard courseName={row.title} instructorName={rtl?'فريق التدريس والتعاون الدولي':'International teaching and collaboration team'} progressPercent={62} nextActivity={rtl?'مراجعة الخطط والمستندات الداعمة':'Review plans and supporting documents'} dueAt="2026-01-01T15:05:00Z" referenceNow={new Date('2026-01-02T18:00:00Z')} detailsHref="#course-details" />}
    />
   </Provider>
  </SGTranslationProvider>;
@@ -212,9 +213,9 @@ function LocalizedGridPresentation({globals,kind}:{globals:FixtureGlobals;kind:'
   <Provider theme={globals.theme} density={globals.density} interactionMode={interactionMode} dir={rtl?'rtl':'ltr'} data-testid="localized-grid" style={{width:'100%',maxWidth:'100%',minWidth:0,boxSizing:'border-box'}}>
    <Typography as="h2" variant="h4">{title}</Typography><Button onPress={()=>setInteractionMode(value=>value==='pointer'?'touch':'pointer')}>{rtl?'تبديل أهداف اللمس':'Toggle touch targets'}</Button>
    <Box data-testid="grid-host" style={{height:kind==='proof'?'auto':'44rem',minWidth:0,maxWidth:'100%'}}>
-    {kind==='owned'&&<AppDataGrid label={title} rows={rows} columns={columns} getRowLabel={row=>row.name} pageSizeOptions={[10]} defaultPaginationModel={{page:0,pageSize:10}} rowDrag={{onReorder:({sourceRowId,targetRowId,position})=>move(sourceRowId,targetRowId,position)}} />}
+    {kind==='owned'&&<AppDataGrid label={title} rows={rows} columns={columns} getRowLabel={row=>row.name} pageSizeOptions={[10]} defaultPaginationModel={{page:0,pageSize:10}} rowDrag={{onReorder:({sourceRowIds,targetRowId,position})=>setRows(previous=>{const source=previous.filter(row=>sourceRowIds.includes(row.id));const next=previous.filter(row=>!sourceRowIds.includes(row.id));next.splice(next.findIndex(row=>row.id===targetRowId)+(position==='after'?1:0),0,...source);return next;})}} />}
     {kind==='shell'&&<AppDataGridShell label={title} rows={rows} columns={columns} getRowLabel={row=>row.name} pageSizeOptions={[10]} defaultPaginationModel={{page:0,pageSize:10}} view={{cards:{renderCard:row=><Card><CardContent><Typography as="h3" variant="subtitle1">{row.name}</Typography><Link href={'#course-'+row.id}>{rtl?'مراجعة الخطة':'Review plan'}</Link></CardContent></Card>}}} />}
-    {kind==='learner'&&<LearnerClassesDataGrid label={title} rows={rows} getRowLabel={row=>row.courseName} pageSizeOptions={[10]} defaultPaginationModel={{page:0,pageSize:10}} />}
+    {kind==='learner'&&<CourseGridHost label={title} rows={rows} getRowLabel={row=>row.courseName} pageSizeOptions={[10]} defaultPaginationModel={{page:0,pageSize:10}} />}
     {kind==='proof'&&<DataGrid label={title} rows={rows} columns={[{id:'name',label:columns[0].headerName!,minWidth:230,getValue:row=>row.name,renderCell:row=><Link href={'#course-'+row.id}>{row.name}</Link>},{id:'status',label:columns[1].headerName!,minWidth:240,getValue:row=>row.status}]} getRowId={row=>row.id} getRowLabel={row=>row.name} onRefresh={()=>{}} onReorder={move} />}
    </Box>
   </Provider>

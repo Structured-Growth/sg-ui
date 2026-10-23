@@ -1,3 +1,0 @@
-import {createRequire} from 'node:module';
-const {defineConfig,devices}=createRequire(new URL('../../../../packages/ui/package.json',import.meta.url))('@playwright/test') as typeof import('../../../../packages/ui/node_modules/@playwright/test/index.js');
-export default defineConfig({testDir:'.',testMatch:'icons-native.spec.ts',workers:1,retries:0,outputDir:'./native-results',reporter:[['list'],['json',{outputFile:'./native-results/results.json'}]],projects:[{name:'chromium',use:devices['Desktop Chrome']},{name:'firefox',use:devices['Desktop Firefox']},{name:'webkit',use:devices['Desktop Safari']}]});

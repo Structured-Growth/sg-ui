@@ -5,7 +5,7 @@
     "paths": {
       "@structured-growth/sg-ui": ["../../src/index.ts"],
       "@structured-growth/sg-ui/components": ["../../src/components/index.ts"],
-      "@structured-growth/sg-ui/components/LearnerClassesDataGrid": ["../../src/components/LearnerClassesDataGrid/index.ts"]
+      "@structured-growth/sg-ui/components/AppDataGridShell": ["../../src/components/AppDataGridShell/index.ts"]
     }
   },
   "files": ["remaining-T-learner-props.tsx", "../../src/css-modules.d.ts"],

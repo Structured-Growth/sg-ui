@@ -156,7 +156,7 @@ associations attach after hydration.
 
 ### Validated availability corrections — 2026-10-16
 
-The [wave-02-11 review](final-acceptance/wave-02-11/report.md#a-k-04--partial)
+The wave-02-11 review
 reproduced DatePicker typed availability bypass and missing non-hover explanations
 for callback-only standalone Calendar restrictions. **BUG-0010 /
 K04-datepicker-entry-parity** and **BUG-0011 / K17-callback-reason-access** are now
@@ -167,57 +167,20 @@ callback/static reasons with full date names and supplies a keyboard-accessible
 disclosure for the visible interval. It does not enumerate the host's entire
 recurring or remote availability policy.
 
-[Integrated receipts](final-acceptance/coordinator-integration/evidence.json)
-retain supported Node 24 affected units, fresh library/type, package, docs and
-private-fixture builds, and focused Chromium/Firefox/WebKit checks of typed,
-segmented and datetime rejection/recovery, native form authority, dynamic host
-policy changes and keyboard disclosure. The original failures remain dated
-evidence. These targeted corrections do not close the broader K04/K07/K17
-matrices, certify spoken assistive-technology output or establish physical-device
-behavior. Calendar's private native-ref description bridge merges/removes only
-its own IDs; the integration also narrows its private date type to CalendarDate
-for the shipped cell contract without changing the public API.
-
 Native clipboard, replacement-host browser matrices and spoken AT results retain
 their actual evidence limits. Paste, autofill, touch, zoom and the full
 locale/calendar/device matrix remain separate acceptance work. Parser/source and
 DOM tests do not establish trusted clipboard outcomes or assistive-technology
 conformance. Flexible text grammar below does not imply every segmented or
 combined datetime field accepts those same paste formats. See
-[K07-paste-contract](final-acceptance/wave-02-11/report.md#a-k-07--partial) and
-[K17-native-and-AT](final-acceptance/wave-02-11/report.md#a-k-17--partial).
+K07-paste-contract and
+K17-native-and-AT.
 
 The host translation locale is supplied through `Provider`, which drives the
 calendar's locale/direction. `ThemeScope.dir` alone controls visual direction and
 does not establish an interaction locale. Examples demonstrate Arabic/German/
 English display, availability and timezone conversion without application APIs;
 these are representative scenarios, not all-locale certification.
-
-### Historical browser receipts and uncompleted matrices
-
-The [batch61 focused-endpoint evidence](parallel-batch-61/keyboard-range-preview.md)
-records source/unit coverage and a Chromium light/dark shard passing 2/2 at its
-recorded candidate/worker heads in
-[`batch61-keyboard-range-preview.spec.ts`](../../packages/ui/tests/browser/batch61-keyboard-range-preview.spec.ts).
-That dated shard covers focused association/removal, constrained unavailable
-traversal, unchanged committed form data and Cancel; it does not establish current
-changed-source browser results, spoken output or announcement timing.
-Firefox/WebKit, actual assistive-technology/manual acceptance and the broader
-locale/calendar/device/touch matrix remain pending for that slice.
-
-Native browser scenarios in
-[`batch01-calendar.spec.ts`](../../packages/ui/tests/browser/batch01-calendar.spec.ts)
-cover leap-day/month-boundary previews, unavailable interior dates,
-draft/Apply/Cancel/Clear/reset form transactions and picker Escape/focus return,
-with civil endpoints exercised in Chicago and Tokyo timezones. Their retained
-execution receipts remain dated evidence; listing the spec is not a new run.
-The [wave-02-11 reconciliation](final-acceptance/wave-02-11/report.md) distinguishes
-retained FA-04 evidence from changed inputs and its Node 26/jsdom defect probes.
-No current browser, native clipboard, physical device or spoken AT execution is
-claimed by this documentation update. K03–K10 and K17 retain their remaining
-behavioral/matrix obligations independently of this feature-limit publication.
-
-## Calendar sizing and flexible entry — 2026-10-16
 
 Calendar grids reserve six week rows without stretching shorter months' day targets.
 Day labels are centered in both directions. The website Calendar category groups
@@ -256,10 +219,7 @@ Range preview descriptions stay visually hidden, so they cannot resize the popup
 between pointerdown and pointerup. One-month range popups fit the calendar and
 endpoint fields, plus any side preset panel, bounded by the viewport;
 inline-size containment must not collapse them to the trigger title width.
-See [CAL-UX evidence](archive/2026-10-18-task-lists/backlog-execution-2026-10-15.md#cal-ux--calendar-options-and-entry-2026-10-16).
-
-
-## Configurable fixed and relative presets — 2026-10-16
+See CAL-UX evidence.
 
 `DateRangeSelector` and `DateRangePicker` accept `presetPlacement="side"` to place
 `presets` beside the calendar area at logical start. `"end"` places them after
@@ -295,9 +255,6 @@ fixed autumn launch, This week/month/year, Last year and a custom Last business
 week calculated by a Monday-Friday host policy without holiday adjustments. The
 business option is an example, not a built-in or mandatory option.
 
-
-## Connected range rows — 2026-10-16
-
 DateRangeSelector and its picker render selected/previewed dates as continuous
 bands within each week. Range grids have no horizontal cell gaps. Logical corner
 rules round both corners at each interval endpoint, week-row edge and visible
@@ -310,9 +267,6 @@ Forced colors uses connected outlined rows with Canvas/CanvasText and Highlight
 borders/focus, preserving readable native text backplates and rounded caps without
 disabling forced-color adjustment. Standard themes keep the owned filled selected
 surface/text aliases. No new public prop or callback is required.
-
-
-## Forward ranges and viewport fitting — 2026-10-16
 
 The original Southwest-inspired earlier-end restart rule is superseded by the
 owned `rangeClickBehavior` contract. Initial two-date creation with
@@ -344,8 +298,6 @@ natural height exceeds the viewport minus the positioner's 12px edge clearance.
 One position owner still handles native focus, ancestor scrolling, resize and
 visual-viewport geometry; no host/document scroll or hard-coded calendar height
 is introduced. All Popover consumers inherit this collision behavior.
-
-## Analytics reference inventory — 2026-10-16
 
 The user supplied `date-picker.avif`, `dates-1024x358.jpg` and
 `thread-131868502-7019530899921192485.png`. All three were inspected; the AVIF was
@@ -388,9 +340,6 @@ or claim completion of historical migration IDs.
 
 Calendar, DateRangeSelector, DatePicker and DateRangePicker default showTitle to false. Their required labels continue to name the accessible calendar or dialog; picker field labels remain visible. Set showTitle to true for a visible title. Pickers render that title once on the popover, leaving the nested calendar title hidden. Generic Popover retains its visible-title default and accepts showTitle=false while keeping its accessible dialog name. The month/year is aligned to logical start (left in LTR), with both previous/next controls at logical end. Linked multi-month views group both controls in the last month header; independent views retain a pair in each header.
 
-
-## Birthday entry and date/time selection research (2026-10-16)
-
 GOV.UK recommends date input for memorable dates that users already know
 ([Date input](https://design-system.service.gov.uk/components/date-input/)).
 The birthday examples therefore start empty and permit direct entry rather than
@@ -432,9 +381,6 @@ the DatePicker page, with related entry examples on DateField and Calendar.
 
 Resize correction: when responsive reflow puts a trigger outside its scroll pane, Popover bounds its virtual anchor to the visual viewport before evaluating available space. An offscreen trigger must not be mistaken for unlimited space above or below. Native focus restoration, scroll locking and position ownership remain intact.
 
-
-## Flexible time textbox and selection popup (2026-10-16)
-
 Research: [USWDS time picker](https://designsystem.digital.gov/components/time-picker/)
 combines typed entry and dropdown choices, recommends stable options and explicit
 submission, and distinguishes scheduled increments from exact-time entry.
@@ -474,12 +420,7 @@ Host ownership of dates, timezone/DST, availability and persistence is unchanged
 Source-backed 12/24-hour scenarios and a text/segments playground control are
 available on the TimeField page; DatePicker scenarios show the composition.
 
-## DatePicker flexible-entry default (2026-10-16)
-
 DatePicker date-only entry now defaults to entryMode="text", including the overview, playground and fixed scenarios. Users can type supported freehand dates and normalize on blur/Enter, or use the calendar. Explicit entryMode="segments" remains available. Combined datetime entry continues to use segments. DateField remains segmented; range selectors now default to flexible endpoint text (see presentation follow-up below). Historical segment-native DatePicker hosts opt in explicitly; default textbox behavior has separate evidence.
-
-
-## Deterministic relative text (2026-10-16)
 
 DateField, DatePicker and both range controls accept referenceDate, a host-supplied
 Gregorian YYYY-MM-DD date. This enables relative phrases in flexible date-only
@@ -511,9 +452,6 @@ examples use the disclosed fixed 2026-10-16 anchor for reproducible interaction 
 source. Production hosts must supply their actual civil today; the demo does not
 pretend that its fixed anchor is a live clock.
 
-
-## Rounded field groups (2026-10-16)
-
 DatePicker and flexible TimeField preserve the theme field radius on the outside
 of their joined input/icon controls, with square inner seams. Shared field padding
 adapts to the radius and target height; the trailing action receives matching cap
@@ -522,9 +460,6 @@ CalendarTodayIcon in Button's trailing-icon slot. Material demo fields share the
 existing 1.5rem action radius. Other identities retain their field radius. Compact
 month/year selectors use a bounded inset so full year labels remain readable.
 Logical corners, keyboard focus, forced colors and native target sizes remain.
-
-
-## Editable range trigger (2026-10-16)
 
 DateRangePicker defaults to fieldMode="text": one flexible range textbox joined
 with a calendar action. fieldMode="button" preserves a selection-only trigger;
@@ -543,9 +478,6 @@ cover the whole interval. Invalid drafts remain visible, block native textbox fo
 validation and never replace hidden accepted start/end values. The outer field
 supports description/invalid/errorMessage/onValidityChange. Calendar Apply commits;
 Cancel/Escape preserves accepted values. Controlled authority and native reset remain.
-
-
-## Owned relative-date engine (2026-10-16)
 
 All relative phrase parsing, civil-date validation, weekday offsets, month/year
 clamping and full-period range resolution live in
@@ -569,7 +501,6 @@ focused tests there. Foundation validation enforces its dependency-free boundary
 Business/fiscal/holiday rules remain explicit host policies/presets rather than
 implicit parser guesses. Existing syntax and public entry points remain compatible.
 
-
 ### Conversational civil offsets (2026-10-16)
 
 The shared single-date parser accepts "a week from today", "two weeks from today",
@@ -581,7 +512,6 @@ negative quantities, missing anchors and overflow still reject. Both endpoints
 of an explicit range use the same grammar, e.g. "today - a week from today".
 A lone offset specifies one date, not an implicit range. Complete this/last/next
 period phrases retain their existing full-range semantics.
-
 
 ### Compact time text (2026-10-16)
 
@@ -598,8 +528,6 @@ compact input mixed with colon seconds rather than guessing or rolling values.
 DateRangeSelector defaults presets to `side`; explicit `above` and `end` remain supported. Start/end fields share a row down to their usable field width. Presets reflow as wrapping choices on narrow hosts; month grids retain their density and touch targets. Preview descriptions and draft status stay available to assistive technology without duplicate visible value summaries or reserved debug-text height. DateRangePicker uses the public `Popover size="content"` so the dropdown follows the selector width (including one, two or three months and presets), capped to the viewport. Its textbox width is independent.
 
 Layout references reviewed: [Mantine presets beside the calendar](https://mantine.dev/dates/date-picker-input/#presets), [React Suite date range picker](https://www.rsuitejs.com/components/date-range-picker/), and the user-supplied Google Analytics preset-sidebar and horizontal-month examples. These inform the owned layout; no parser or UI dependency was added.
-
-## Flexible calendar family — 2026-10-16
 
 Pre-release API revision: `rangeClickBehavior` replaces `rangeSelectionBehavior`;
 `adjust-boundaries` replaces `preserve-range`. `active-endpoint` uses controlled
@@ -676,7 +604,6 @@ rounding typed values; getTimeUnavailableReason also validates segmented mode.
 All new controls have independent overview/playground/reference owners and public
 source; global theme and host persistence remain outside copied examples.
 
-
 ### Range presentation follow-up — 2026-10-16
 
 DateRangePicker defaults showFields=false: its outer editable range already provides
@@ -693,7 +620,6 @@ remain accessible through option descriptions while staying visually hidden.
 Arrow keys navigate; Enter/Space selects a draft. Disabled choices retain availability
 rules; narrow layouts reflow label rows above calendars without changing selection.
 
-
 ### Clean flexible date fields — 2026-10-16
 
 Flexible DateField and the DateRangePicker range textbox render no automatic format, two-digit-year or relative-anchor
@@ -702,21 +628,6 @@ Explicit host descriptions remain supported; blank descriptions produce no helpe
 row or dangling aria-describedby. Invalid drafts still show associated validation
 errors. Parsing, century expansion, reference-date determinism and normalization
 are unchanged; detailed entry guidance stays in documentation rather than previews.
-
-
-### Validation timing for flexible text — 2026-10-16
-
-Date, date-range and time text inputs separate live validity from error presentation.
-Incomplete prose remains editable without invalid styling, aria-invalid or error
-text. Enter, blur or native validation reveals invalid feedback; the next edit
-hides local feedback while correcting. Native validity and onValidityChange remain
-live, so partial drafts never submit or enable composed Apply. Explicit host invalid
-is immediate. Native reset and changed host values clear local presentation state.
-Range, datetime and comparison summaries defer to invalid child fields, avoiding an
-extra live error while those children are still being typed. Semantic cross-field
-errors still appear after valid individual inputs commit. Segmented entry retains
-its existing interaction.
-
 
 ### Gesture continuation: host changes and real touch — 2026-10-16
 
@@ -780,7 +691,7 @@ canonical bounds, translated reasons, availability records and callbacks.
 
 These are input/form contracts, not new trusted clipboard receipts. The focused
 wave-03-27 synthetic tests and proposed native copy/paste fixtures are recorded in
-[the acceptance handoff](final-acceptance/wave-03-27/report.md). Trusted clipboard
+the acceptance handoff. Trusted clipboard
 execution must retain actual `paste.isTrusted`, clipboard payload, accepted
 callbacks, native form result, browser version and source/build hashes per engine.
 Unavailable clipboard access is a blocked prerequisite; do not substitute
@@ -813,8 +724,6 @@ drafts cannot Apply or commit immediately. Fixed-length and whole-period selecti
 retain precedence. Bounds, length and whole-interval availability still validate
 the result; fields, presets, gestures, Cancel and host-controlled values retain
 their existing contracts. `DateRangePicker` forwards the same prop.
-
-## Month/year heading navigation (2026-10-17)
 
 Calendar, DatePicker, DateRangeSelector and DateRangePicker default to
 `navigation="period"`, using the same MonthPicker and YearPicker components. Separate month and year
@@ -895,7 +804,6 @@ field radius and prevents focus paint extending past the textbox or into its
 adjacent button. The offset derives from the owned focus-width token; theme focus
 colors, visible keyboard focus and forced-colors Highlight remain active.
 
-
 ### Four-column year scrolling (2026-10-17)
 
 YearPicker defaults to `yearNavigation="scroll"`. The grid retains four years
@@ -914,7 +822,6 @@ shared by both presentations. PeriodPicker forwards the option for inline year
 choices. Calendar, DatePicker, DateRangeSelector and DateRangePicker expose it as
 `periodPickerProps={{yearNavigation:"scroll" | "paged"}}`. Generic legacy
 `navigation="month-year"` dropdowns retain their existing native Select behavior.
-
 
 ### Independent multi-calendar navigation (2026-10-17)
 
@@ -939,7 +846,6 @@ their existing independent views. Calendar's `focusedDate` anchors the outer
 view; independent views retain local focus after initial placement, reporting
 focus through `onFocusedDateChange` without navigating sibling views.
 
-
 ### Year chooser height correction (2026-10-17)
 
 The year scroller fills its available replacement frame rather than retaining a
@@ -948,7 +854,6 @@ the replacement frame spans the full reserved selector area, including hidden
 fields/actions. The popup keeps its original dimensions, and multi-calendar
 choices remain scoped to their own calendar. Native scrolling can reveal the
 final row completely; hidden range actions return when the chooser closes.
-
 
 ### Responsive month-choice layout (2026-10-17)
 
@@ -965,7 +870,6 @@ Calendar, DatePicker, range controls and inline PeriodPicker share this behavior
 year choices retain four columns. The docs include independently stateful,
 resizable tall, medium and short/wide examples at both densities.
 
-
 ### Centered month rows (2026-10-17)
 
 MonthPicker keeps natural control heights and centers its row block vertically
@@ -975,7 +879,6 @@ body as the replacement-view anchor, including its reserved hidden Clear/time
 area. This balances spacing across the whole popup without resizing it or changing
 date/datetime commit behavior. Range selectors retain their full reserved frame;
 multi-calendar choices remain isolated to their own calendar.
-
 
 ### Nearest endpoint adjustment
 
@@ -997,15 +900,11 @@ Candidate availability receives the endpoint that candidate would edit; resultin
 ranges still validate bounds, duration and availability across the full interval.
 Typed fields, presets, dragging, Clear, Cancel and Apply keep their existing contracts.
 
-## Preset panel wrapping correction — 2026-10-18
-
 Side/end preset placement follows the actual calendar and preset widths. A compact
 one-month calendar with hidden endpoint fields can keep its preset list beside
 the calendar when both fit. Constrained hosts wrap panels in their existing DOM
 order, preserving before/after placement and keyboard order. Endpoint fields keep
 their usable width; this correction does not shrink controls or touch targets.
-
-## Compact static calendar heading checkpoint
 
 Static month headings retain a single row with their previous/next controls at
 compact pointer sizes. Their header removes surplus column gaps and uses narrow
@@ -1014,7 +913,3 @@ The heading can still wrap when the host's text or locale genuinely needs it;
 no month text is clipped or hidden. A wider host-font case reproduces the Linux
 November wrapping failure locally and retains the exact October/November height,
 button alignment, visible labels and narrow-viewport assertions.
-
-The initial cell-alignment hypothesis was disproved by the retained Linux
-screenshot: the extra height came from the heading. That unrelated cell change
-is removed. Earlier receipts retain their actual code and failure outcomes.

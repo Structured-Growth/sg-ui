@@ -1,0 +1,24 @@
+import {test,expect} from './fixtures';
+import {exampleName} from './example-name';
+test('view mode is a connected required toggle group with keyboard switching',async({page})=>{
+ await page.goto('/docs/components/data-grid-shell');
+ const preview=page.getByRole('region',{name:exampleName('Prop playground'),exact:true}).locator('[data-docs-preview]');
+ const group=preview.getByRole('radiogroup',{name:'View mode',exact:true});
+ await expect(group).toHaveAttribute('data-sgui-part','toggle-button-group');
+ const cards=group.getByRole('radio',{name:'Cards',exact:true});
+ const list=group.getByRole('radio',{name:'List',exact:true});
+ await expect(cards).toHaveText('');await expect(list).toHaveText('');
+ await expect(cards.locator('svg')).toHaveCount(1);await expect(list.locator('svg')).toHaveCount(1);
+ await group.scrollIntoViewIfNeeded();
+ const c=(await cards.boundingBox())!,l=(await list.boundingBox())!;
+ expect(Math.abs(c.x+c.width-l.x)).toBeLessThanOrEqual(1);
+ await expect(list).toHaveAttribute('aria-checked','true');
+ await list.focus();await page.keyboard.press('ArrowLeft');await expect(cards).toBeFocused();
+ await page.keyboard.press('Space');await expect(cards).toHaveAttribute('aria-checked','true');
+ await expect(list).toHaveAttribute('aria-checked','false');
+ await expect(preview.getByRole('grid')).toHaveCount(0);
+ await expect(preview.locator('[data-sgui-part="grid-card"]')).toHaveCount(5);
+ await cards.click();await expect(cards).toHaveAttribute('aria-checked','true');
+ await page.keyboard.press('ArrowRight');await expect(list).toBeFocused();await page.keyboard.press('Space');
+ await expect(list).toHaveAttribute('aria-checked','true');await expect(preview.getByRole('grid')).toBeVisible();
+});

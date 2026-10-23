@@ -24,8 +24,8 @@ describe("owned DataToolbar", () => {
    onSearchValueChange={change} viewMode="cards" onViewModeChange={view} onRefresh={refresh} /></form></Provider>);
   await user.click(screen.getByRole("button", {name:"Search"})); await user.type(screen.getByRole("searchbox"), "x");
   expect(change).toHaveBeenLastCalledWith("fixedx"); expect(screen.getByRole("searchbox")).toHaveProperty("value", "fixed");
-  const list = screen.getByRole("button", {name:"List"}); list.focus(); await user.keyboard(" ");
-  expect(view).toHaveBeenCalledExactlyOnceWith("list"); expect(list.getAttribute("aria-pressed")).toBe("false");
+  const list = screen.getByRole("radio", {name:"List"}); list.focus(); await user.keyboard(" ");
+  expect(view).toHaveBeenCalledExactlyOnceWith("list"); expect(list.getAttribute("aria-checked")).toBe("false");
   await user.click(screen.getByRole("button", {name:"Refresh"})); expect(refresh).toHaveBeenCalledTimes(1); expect(submit).not.toHaveBeenCalled();
  });
  it("labels actions, disables unavailable callbacks and preserves native ref/style and host slots", () => {
@@ -35,7 +35,7 @@ describe("owned DataToolbar", () => {
   expect(ref.current).toBe(screen.getByRole("group",{name:"Courses actions"})); expect(ref.current?.className).toContain("host");
   expect(ref.current?.style.maxWidth).toBe("500px"); expect(screen.getByRole("status").textContent).toBe("3 selected");
   expect(screen.getByText("Archive selected")).toBeTruthy(); expect(screen.queryByText("New course")).toBeNull();
-  for (const name of ["Refresh","Columns","Sort","Filter","Cards","List"]) expect(screen.getByRole("button",{name})).toHaveProperty("disabled",true);
+  for (const name of ["Refresh","Columns","Sort","Filter","Cards","List"]) expect(screen.getByRole(name === "Cards" || name === "List" ? "radio" : "button",{name})).toHaveProperty("disabled",true);
  });
  it("composes columns and filter/sort popovers with host state and restores trigger focus", async () => {
   const user = userEvent.setup();
@@ -49,4 +49,16 @@ describe("owned DataToolbar", () => {
   await user.click(screen.getByRole("button",{name:"Sort"})); expect(screen.getByRole("dialog")).toBeTruthy(); await user.keyboard("{Escape}");
   await user.click(screen.getByRole("button",{name:"Filter"})); expect(screen.getByRole("dialog")).toBeTruthy(); await user.keyboard("{Escape}");
  });
+});
+
+it("groups view choices with one required selection and keyboard navigation",async()=>{
+ const user=userEvent.setup(),view=vi.fn();
+ function Host(){const [mode,setMode]=useState<"cards"|"list">("cards");return <DataToolbar {...bare} showSearchButton={false} showRefreshButton={false} viewMode={mode} onViewModeChange={next=>{setMode(next);view(next);}}/>;}
+ render(<Provider><Host/></Provider>);
+ expect(screen.getByRole("radiogroup",{name:"View mode"}).getAttribute("data-sgui-part")).toBe("toggle-button-group");
+ const cards=screen.getByRole("radio",{name:"Cards"});const list=screen.getByRole("radio",{name:"List"});
+ cards.focus();await user.keyboard("{ArrowRight}");expect(document.activeElement).toBe(list);
+ await user.keyboard(" ");expect(view).toHaveBeenCalledExactlyOnceWith("list");
+ expect(list.getAttribute("aria-checked")).toBe("true");expect(cards.getAttribute("aria-checked")).toBe("false");
+ await user.click(list);expect(list.getAttribute("aria-checked")).toBe("true");expect(view).toHaveBeenCalledTimes(1);
 });

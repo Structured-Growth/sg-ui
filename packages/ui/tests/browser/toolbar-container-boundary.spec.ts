@@ -34,9 +34,9 @@ for (const enlarged of [false, true]) {
       await expect(toolbar.getByRole('searchbox')).toBeFocused();
     }
     // Both toolbars share a wide viewport and a wide same-name ancestor.
-    // Exact input widths distinguish adaptation from incidental flex shrinking.
-    await expect(narrowInput).toHaveCSS('width', '160px');
-    await expect(wideInput).toHaveCSS('width', '240px');
+    // Exact shared-field allocations distinguish adaptation from incidental flex shrinking.
+    await expect(narrow.locator('[data-sgui-part="search-field"]')).toHaveCSS('width', '160px');
+    await expect(wide.locator('[data-sgui-part="search-field"]')).toHaveCSS('width', '240px');
     // Verify enlargement reaches the production control typography roles.
     // Label/body overrides alone leave these controls at their ordinary size.
     const rem = await page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).fontSize));
@@ -72,16 +72,16 @@ for (const enlarged of [false, true]) {
     }
     // The fixture's host resize leaves the independently allocated sibling alone.
     await page.getByRole('button', { name: 'Resize narrow host' }).click();
-    await expect(narrowInput).toHaveCSS('width', '240px');
-    await expect(wideInput).toHaveCSS('width', '240px');
+    await expect(narrow.locator('[data-sgui-part="search-field"]')).toHaveCSS('width', '240px');
+    await expect(wide.locator('[data-sgui-part="search-field"]')).toHaveCSS('width', '240px');
     await expect(narrowInput).toHaveValue('draft'); await expect(wideInput).toHaveValue('published');
     // A host layout update while typing preserves the same native focus owner.
     await tabTo(page, narrowInput);
     await narrow.locator('..').evaluate(node => { (node as HTMLElement).style.inlineSize = '320px'; });
-    await expect(narrowInput).toHaveCSS('width', '160px');
+    await expect(narrow.locator('[data-sgui-part="search-field"]')).toHaveCSS('width', '160px');
     await expect(narrowInput).toBeFocused();
     await expect(narrowInput).toHaveAttribute('data-focus-visible', 'true');
-    expect(await narrowInput.evaluate(node => getComputedStyle(node).outlineStyle)).not.toBe('none');
+    expect(await narrowInput.evaluate(node => getComputedStyle(node.closest('[data-sgui-part="field-icon-control"]')!).outlineStyle)).not.toBe('none');
     const trigger = narrow.getByRole('button', { name: 'Narrow course actions', exact: true });
     // The trigger precedes this input. Traverse locally instead of wrapping
     // through native browser chrome, which is outside the component contract.

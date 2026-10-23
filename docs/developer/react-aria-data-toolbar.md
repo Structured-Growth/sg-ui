@@ -14,17 +14,30 @@ callback observes it. Opening search focuses its named input; Clear and close or
 Escape requests empty text, closes the field and returns trigger focus. Search
 stays open while interacting with toolbar controls. Missing action callbacks
 disable the corresponding action. View actions request cards/list and the host
-owns the selected mode. When showViewModeToggle is omitted, view controls appear
+owns the selected mode. The view switch composes a labeled, connected
+icon-only ToggleButtonGroup with required single selection and accessible
+Cards/List labels. Arrow keys move focus and
+activation requests the next mode; clicking the active choice cannot clear it.
+When showViewModeToggle is omitted, view controls appear
 only if both viewMode and onViewModeChange are supplied. An explicit false hides
 them; an explicit true shows them, while a missing callback still disables the
 view actions. This is a presence-based default, not a fixed true/false value.
 
 Column labels, filter options, sort options and selection choices are host-owned
 translated content. They render literally; the library does not invent translation
-keys for runtime labels. Columns change immediately, locked options are disabled,
-Reset shows all columns and dismissed column-search text resets. The builder uses
+keys for runtime labels. Columns change immediately, locked visibility checkboxes are disabled,
+Reset shows all columns and dismissed column-search text resets. `locked` controls
+visibility only; `reorderable: false` fixes an option in place, hides its drag and
+move controls, and prevents other options crossing it. The shell marks menu/action
+columns non-reorderable at the end. The builder uses
 owned record visibility and generic object rows, with actions last and non-hideable;
-visibility locks do not imply sticky columns.
+visibility locks do not imply sticky columns. Reorderable rows have a pointer drag handle
+and Move up/down buttons. Dragging up inserts before the target's upper half;
+dragging down inserts after its lower half. A labeled chip follows the pointer,
+and only release requests the complete reordered options array. Cancellation,
+dismissal, search changes and external option replacement abandon the gesture.
+Filtered targets retain hidden options in their existing relative order. The host
+accepts the new order and enforces structural rules such as action columns last.
 
 Sort/filter menus reload their drafts on each open. Escape, outside dismissal
 and Cancel discard edits. Reset clears the draft; Apply requests valid rules and
@@ -71,19 +84,12 @@ placement contract. Enlarged text and longer host labels may wrap actions; keep
 the allocated width sufficient for the host's controls and test visible focus,
 keyboard menu activation/dismissal and search focus through host resizing.
 
-The private docs-native ContainerBoundary and ContainerBoundaryEnlarged fixtures
-provide independent 320px/800px hosts in a fixed wider ancestor and a host resize
-action. The enlarged fixture doubles the owned compact/comfortable control-text
-tokens; label/body overrides alone do not enlarge Button and TextField controls.
-The two existing native cases verify actual computed font sizes, control content
-bounds, exact query widths, resizing, sibling drafts, callbacks, menu actions and
-keyboard focus. All six executions pass in Chromium, Firefox and WebKit on a fresh
-immutable fixture host with the library output unchanged; see the
-[current receipt](final-acceptance/wave-04/05/batch/c08-c12-d09/completion-receipt.json).
-The [batch-165 evidence](parallel-batch-165/toolbar-container-boundary.md) retains its
-original preparation scope. These are container/text stress checks, not actual
-browser zoom, physical-device or spoken assistive-technology evidence.
-
 M-16–M-19 and G integration/acceptance remain open: toolbar migration does not
 complete grid state processing, page resets, persistence, row focus/reorder,
 virtualization, performance or the full browser/assistive technology matrix.
+
+Toolbar search composes SearchField with expandable enabled and showResults disabled.
+Its icon expands into the standard decorated input and close action using owned
+motion duration, with reduced-motion support. The host owns the query and filtered
+rows. Escape or close requests an empty query, collapses, and restores the trigger.
+The website navigation uses the same SearchField in its always-expanded mode.

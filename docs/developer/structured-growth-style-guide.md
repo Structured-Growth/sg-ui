@@ -79,7 +79,6 @@ checks. The docs browser checks verify the fixed navy shell remains independent
 of demo settings, including overlays. Exact validation evidence is recorded in
 [the website execution record](docs-website.md).
 
-
 The website’s right tools rail uses the same compact navigation scale: 16px icons,
 32px buttons, a 40px rail and 12px panel headings/control labels. It has its own
 compact ThemeScope so dropdowns/tooltips inherit the same policy. Touch sizing

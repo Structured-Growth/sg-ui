@@ -70,7 +70,7 @@ ordered list, gives each step translated status text, and uses the owned circula
 loading indicator for active work. It creates no live region and no step-count
 labels. Pending/completed/error icons are decorative. The completed check uses the
 shared action token; the error icon and label use the shared danger token. Hosts
-own milestone announcements. [Focused progress/status evidence](parallel-batch-07/progress-status.md)
+own milestone announcements. Focused progress/status evidence
 records 10 Chromium/WebKit passes at the frozen commit; Firefox and spoken AT
 acceptance remain open.
 

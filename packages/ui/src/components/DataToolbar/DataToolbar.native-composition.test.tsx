@@ -39,9 +39,9 @@ it("composes mixed selection, menu requests and controlled view rejection withou
   await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: "Selection options" })));
   expect(screen.queryByText("5 selected")).toBeNull();
   expect(screen.getByRole("checkbox", { name: "Select rows" })).toHaveProperty("checked", false);
-  await user.click(screen.getByRole("button", { name: "List" }));
-  expect(screen.getByRole("button", { name: "List" }).getAttribute("aria-pressed")).toBe("false");
-  expect(screen.getByRole("button", { name: "Cards" }).getAttribute("aria-pressed")).toBe("true");
+  await user.click(screen.getByRole("radio", { name: "List" }));
+  expect(screen.getByRole("radio", { name: "List" }).getAttribute("aria-checked")).toBe("false");
+  expect(screen.getByRole("radio", { name: "Cards" }).getAttribute("aria-checked")).toBe("true");
   expect(callbacks()).toEqual(["toggle", "selection:none", "view:list"]);
 });
 

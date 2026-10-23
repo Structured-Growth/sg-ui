@@ -1,5 +1,0 @@
-PASS: original neutral-filled keyboard-only press resolves to rest; candidate resolves to subtle interaction. Six tone/variant pairs preserve hover/press parity and unchanged rest.
-PASS: 214 named catalog exports, aliases and compound parts each have all eleven state decisions and existing source/test references.
-PASS: prepared native spec/config TypeScript syntax transpiles; native execution remains unperformed.
-PASS: proposed documentation links and Button usage JSON/emphasis guidance.
-Runtime: v26.5.0; platform darwin/arm64. Source/design validation only; no native, AT or device claims.

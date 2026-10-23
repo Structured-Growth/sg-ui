@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 
-const story = '/fixtures/?id=classes-learnerclassesdatagrid-native-cells--host-transitions&globals=a11y.manual:!true';
+const story = '/fixtures/?id=components-appdatagridshell-course-collection-native-cells--host-transitions&globals=a11y.manual:!true';
 const courseId = 'course /?#% 日本';
 const detailsHref = `/sections/${encodeURIComponent(courseId)}/learner/me`;
 const dueAt = '2000-02-02T12:00:00.000Z';

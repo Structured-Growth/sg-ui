@@ -56,10 +56,9 @@ it.each(["local", "session"] as const)("synchronizes %s fallback recovery when t
   expect(second.result.current[0]).toBe(4);
   expect(store.getItem("recovered-view")).toBe("4");
 });
-it("rejects malformed stored shapes, supports explicit migration and writes versioned values", () => {
+it("rejects malformed stored shapes and writes versioned values", () => {
   window.localStorage.setItem("schema-view", '{"count":"wrong"}');
-  const { result } = renderHook(() => usePersistentState("schema-view", { count: 0 }, { storage: "local", version: 2, validate: isCount,
-    migrate: (stored, version) => version === undefined && stored !== null && typeof stored === "object" && "count" in stored ? { count: Number(stored.count) || 0 } : undefined }));
+  const { result } = renderHook(() => usePersistentState("schema-view", { count: 0 }, { storage: "local", version: 2, validate: isCount }));
   expect(result.current[0]).toEqual({ count: 0 });
   act(() => result.current[1]({ count: 4 }));
   expect(JSON.parse(window.localStorage.getItem("schema-view")!)).toEqual({ __sguiPersistent: true, version: 2, value: { count: 4 } });
@@ -92,14 +91,10 @@ it("keeps stable defaults for malformed JSON and rejected schema versions", () =
   act(() => { window.localStorage.setItem("malformed-view", JSON.stringify({ __sguiPersistent: true, version: 1, value: { count: 99 } })); window.dispatchEvent(new StorageEvent("storage", { key: "malformed-view" })); });
   expect(result.current[0]).toEqual({ count: 0 });
 });
-it("migrates valid legacy state explicitly and validates malformed legacy shapes", () => {
-  window.localStorage.setItem("valid-legacy", '{"count":7}');
-  const migrate = vi.fn((stored: unknown, previous: number | undefined) => previous === undefined && isCount(stored) ? stored : undefined);
-  const migrated = renderHook(() => usePersistentState("valid-legacy", { count: 0 }, { storage: "local", version: 2, validate: isCount, migrate }));
-  expect(migrated.result.current[0]).toEqual({ count: 7 }); expect(migrate).toHaveBeenCalledWith({ count: 7 }, undefined);
-  window.localStorage.setItem("wrong-shape", '{"count":"wrong"}');
-  const rejected = renderHook(() => usePersistentState("wrong-shape", { count: 0 }, { storage: "local", validate: isCount }));
-  expect(rejected.result.current[0]).toEqual({ count: 0 });
+it("rejects unversioned data when a schema version is required", () => {
+  window.localStorage.setItem("old-schema", '{"count":7}');
+  const { result } = renderHook(() => usePersistentState("old-schema", { count: 0 }, { storage: "local", version: 2, validate: isCount }));
+  expect(result.current[0]).toEqual({ count: 0 });
 });
 it("uses isolated memory by default without reading or writing browser storage", () => {
   const read = vi.spyOn(window.Storage.prototype, "getItem");
@@ -127,25 +122,13 @@ it("revalidates stored and memory snapshots when validators change", () => {
   memory.rerender({ validate: strict }); expect(memory.result.current[0]).toEqual({ count: 0 });
   memory.rerender({ validate: permissive }); expect(memory.result.current[0]).toEqual({ count: 8 });
 });
-it("supports adding migration after rejecting a stored legacy schema with stable inline callbacks", () => {
-  window.localStorage.setItem("live-migration", '{"count":8}');
-  const { result, rerender } = renderHook(({ migrate }) => usePersistentState("live-migration", { count: 0 }, {
-    storage: "local", version: 2, validate: (value): value is { count: number } => isCount(value),
-    migrate: migrate ? (value) => isCount(value) ? { count: value.count + 1 } : undefined : undefined,
-  }), { initialProps: { migrate: false } });
-  expect(result.current[0]).toEqual({ count: 0 });
-  rerender({ migrate: true }); expect(result.current[0]).toEqual({ count: 9 });
-  const snapshot = result.current[0]; rerender({ migrate: true }); expect(result.current[0]).toBe(snapshot);
-});
-it("migrates or rejects versioned fallback data and revalidates blocked-read caches", () => {
+it("rejects mismatched versioned fallback data and revalidates blocked-read caches", () => {
   const write = vi.spyOn(window.Storage.prototype, "setItem").mockImplementation(() => { throw new Error("Quota"); });
-  const { result, rerender } = renderHook(({ version, migrate }) => usePersistentState("fallback-version", { count: 0 }, {
+  const { result, rerender } = renderHook(({ version }) => usePersistentState("fallback-version", { count: 0 }, {
     storage: "local", version, validate: isCount,
-    migrate: migrate ? (value, previous) => previous === 1 && isCount(value) ? { count: value.count + 10 } : undefined : undefined,
-  }), { initialProps: { version: 1, migrate: false } });
+  }), { initialProps: { version: 1 } });
   act(() => result.current[1]({ count: 8 })); expect(result.current[0]).toEqual({ count: 8 });
-  rerender({ version: 2, migrate: false }); expect(result.current[0]).toEqual({ count: 0 });
-  rerender({ version: 2, migrate: true }); expect(result.current[0]).toEqual({ count: 18 });
+  rerender({ version: 2 }); expect(result.current[0]).toEqual({ count: 0 });
   write.mockRestore();
   window.localStorage.setItem("blocked-cache", '{"__sguiPersistent":true,"version":1,"value":{"count":8}}');
   const cached = renderHook(({ version, reject }) => usePersistentState("blocked-cache", { count: 0 }, { storage: "local", version,
@@ -157,10 +140,8 @@ it("migrates or rejects versioned fallback data and revalidates blocked-read cac
 });
 it("keeps initial defaults across live version changes when storage is absent or malformed", () => {
   window.localStorage.setItem("malformed-live-version", "{");
-  const migrate = vi.fn((value: unknown) => isCount(value) ? { count: value.count + 10 } : undefined);
-  const empty = renderHook(({ version }) => usePersistentState("empty-live-version", { count: 3 }, { storage: "local", version, validate: isCount, migrate }), { initialProps: { version: 1 } });
-  const malformed = renderHook(({ version }) => usePersistentState("malformed-live-version", { count: 4 }, { storage: "local", version, validate: isCount, migrate }), { initialProps: { version: 1 } });
+  const empty = renderHook(({ version }) => usePersistentState("empty-live-version", { count: 3 }, { storage: "local", version, validate: isCount }), { initialProps: { version: 1 } });
+  const malformed = renderHook(({ version }) => usePersistentState("malformed-live-version", { count: 4 }, { storage: "local", version, validate: isCount }), { initialProps: { version: 1 } });
   empty.rerender({ version: 2 }); malformed.rerender({ version: 2 });
   expect(empty.result.current[0]).toEqual({ count: 3 }); expect(malformed.result.current[0]).toEqual({ count: 4 });
-  expect(migrate).not.toHaveBeenCalled();
 });

@@ -35,8 +35,8 @@ submission/dismissal/focus, portal theme, keyboard reorder, drag validation,
 read-only mutations and last-page protection. The docs website and private native fixtures provide interactive host
 state, read-only, last-page, dark and independent-scrolling examples.
 Retained native authoring-list and translated presentation evidence is mapped in
-[the prior component reconciliation](final-acceptance/wave-02-01/report.md#a-m-10--partial)
-and HB-14 in [hardening execution](react-aria-hardening-execution.md).
+the prior component reconciliation
+and HB-14 in hardening execution.
 Optional `adjacentNavigation` contains `previous` and `next` destination records
 (`key`, `label`, optional `href`/`disabled`) and an optional navigation-region label.
 Null or absent sides render disabled boundary buttons; disabled destinations never

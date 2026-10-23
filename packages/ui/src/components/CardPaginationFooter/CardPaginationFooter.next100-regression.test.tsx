@@ -16,7 +16,7 @@ describe("CardPaginationFooter next100 public composition", () => {
     expect(CatalogFooter).toBe(AppPaginationFooter);
     const props: AppPaginationFooterProps = {
       page: 0, pageSize: 10, pageSizeOptions: [10, 20], totalCount: 30,
-      onPageChange: vi.fn(), onPageSizeChange: vi.fn(), label: "Course pages",
+      onPaginationModelChange: vi.fn(), label: "Course pages",
       className: "host-footer", style: { marginTop: 12 },
     };
     const { container } = render(<Provider><RootFooter {...props} /></Provider>);
@@ -24,8 +24,7 @@ describe("CardPaginationFooter next100 public composition", () => {
     const footer = container.querySelector("footer")!;
     expect(footer.classList.contains("host-footer")).toBe(true);
     expect(footer.style.marginTop).toBe("12px");
-    expect(props.onPageChange).not.toHaveBeenCalled();
-    expect(props.onPageSizeChange).not.toHaveBeenCalled();
+    expect(props.onPaginationModelChange).not.toHaveBeenCalled();
   });
 
   it("isolates controlled instances, guards both boundaries and remounts from host values", async () => {
@@ -34,8 +33,8 @@ describe("CardPaginationFooter next100 public composition", () => {
     function Host({ label, request }: { label: string; request: (model: { page: number; pageSize: number }) => void }) {
       const [model, setModel] = useState({ page: 0, pageSize: 10 });
       return <AppPaginationFooter {...model} label={label} pageSizeOptions={[10, 20]} totalCount={30}
-        onPageChange={() => { throw new Error("atomic callback must supersede page callback"); }}
-        onPageSizeChange={() => { throw new Error("atomic callback must supersede size callback"); }}
+
+
         onPaginationModelChange={next => { request(next); setModel(next); }} />;
     }
     const tree = (left: boolean) => <Provider>{left && <Host label="Left pages" request={leftRequest} />}
@@ -58,19 +57,19 @@ describe("CardPaginationFooter next100 public composition", () => {
       await user.click(button);
     }
     expect(leftRequest).toHaveBeenCalledTimes(1);
-    await user.selectOptions(left.getByRole("combobox"), "20");
+    await user.click(left.getByRole("button", { name: /Rows per page/ })); await user.click(screen.getByRole("option", { name: "20", exact: true }));
     expect(leftRequest).toHaveBeenLastCalledWith({ page: 0, pageSize: 20 });
     expect(leftRequest).toHaveBeenCalledTimes(2);
     expect(left.getByText("Page 1 of 2")).toBeTruthy();
     const right = within(screen.getByRole("navigation", { name: "Right pages" }));
     expect(right.getByText("Page 1 of 3")).toBeTruthy();
-    expect((right.getByRole("combobox") as HTMLSelectElement).value).toBe("10");
+    expect((right.getByRole("button", { name: /Rows per page/ })).textContent).toContain("10");
     expect(rightRequest).not.toHaveBeenCalled();
     rerender(tree(false));
     rerender(tree(true));
     const remounted = within(screen.getByRole("navigation", { name: "Left pages" }));
     expect(remounted.getByText("Page 1 of 3")).toBeTruthy();
-    expect((remounted.getByRole("combobox") as HTMLSelectElement).value).toBe("10");
+    expect((remounted.getByRole("button", { name: /Rows per page/ })).textContent).toContain("10");
     expect(leftRequest).toHaveBeenCalledTimes(2);
     expect(rightRequest).not.toHaveBeenCalled();
   });

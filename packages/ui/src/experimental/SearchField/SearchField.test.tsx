@@ -28,3 +28,19 @@ it("keeps empty announcements, full-search submission and outside focus owned by
  const input=screen.getByRole("searchbox",{name:"Find"});await user.type(input,"unknown");expect((await screen.findByRole("status")).textContent).toBe("No results found.");await user.keyboard("{Enter}");expect(submit).toHaveBeenCalledWith("unknown");
  await user.click(screen.getByRole("button",{name:"Outside"}));expect(document.activeElement).toBe(screen.getByRole("button",{name:"Outside"}));await waitFor(()=>expect(screen.queryByRole("region")).toBeNull());
 });
+
+it("expands from an icon, dismisses results before collapsing, and keeps siblings independent", async () => {
+ const user=userEvent.setup(),change=vi.fn(),submit=vi.fn();
+ render(<form onSubmit={event=>{event.preventDefault();submit();}}><SearchField aria-label="Expandable courses" expandable items={items} onValueChange={change}/><SearchField aria-label="Other courses" expandable showResults={false}/></form>);
+ expect(screen.queryByRole("searchbox")).toBeNull();
+ const trigger=screen.getByRole("button",{name:"Expandable courses"});
+ trigger.focus();await user.keyboard("{Enter}");
+ const input=screen.getByRole("searchbox",{name:"Expandable courses"});expect(document.activeElement).toBe(input);
+ expect(screen.getByRole("button",{name:"Other courses"})).toBeTruthy();
+ await user.type(input,"grid");expect(await screen.findByRole("region",{name:"Search results"})).toBeTruthy();
+ await user.keyboard("{Escape}");expect(screen.queryByRole("region")).toBeNull();expect(document.activeElement).toBe(input);
+ expect(input).toHaveProperty("value","grid");await user.keyboard("{Escape}");
+ expect(change).toHaveBeenLastCalledWith("");expect(screen.queryByRole("searchbox")).toBeNull();expect(document.activeElement).toBe(screen.getByRole("button",{name:"Expandable courses"}));
+ await user.click(screen.getByRole("button",{name:"Expandable courses"}));await user.click(screen.getByRole("button",{name:"Clear and close search"}));
+ expect(screen.queryByRole("searchbox")).toBeNull();expect(submit).not.toHaveBeenCalled();
+});

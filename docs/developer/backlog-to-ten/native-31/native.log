@@ -1,8 +1,0 @@
-
-Running 1 test using 1 worker
-
-(node:92236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
-(Use `node --trace-warnings ...` to show where the warning was created)
-  ✓  1 [firefox] › tests/browser/wave03-overlay-successors.spec.ts:38:1 › combined dialog, menu, tooltip and editor dialog preserve ownership and live portal scope (3.1s)
-
-  1 passed (4.6s)

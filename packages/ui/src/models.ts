@@ -1,4 +1,4 @@
-export type LearnerClass = {
+export type LearnerCourse = {
   id: string;
   courseName: string;
   instructorName: string;

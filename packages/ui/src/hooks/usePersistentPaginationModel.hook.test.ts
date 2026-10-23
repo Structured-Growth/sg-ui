@@ -32,13 +32,12 @@ describe("usePersistentPaginationModel", () => {
     rerender({ sizes: [10, 300] });
     expect(result.current[0].pageSize).toBe(300);
   });
-  it("forwards schema migration and rejects malformed stored models", () => {
-    window.localStorage.setItem("legacy", '{"page":2,"pageSize":250}');
-    const { result } = renderHook(() => usePersistentPaginationModel("legacy", undefined, { storage: "local", version: 2,
-      migrate: (stored, version) => version === undefined ? stored as { page: number; pageSize: number } : undefined }));
-    expect(result.current[0]).toEqual({ page: 2, pageSize: 250 });
+  it("requires matching schema versions and rejects malformed stored models", () => {
+    window.localStorage.setItem("schema", '{"page":2,"pageSize":250}');
+    const { result } = renderHook(() => usePersistentPaginationModel("schema", undefined, { storage: "local", version: 2 }));
+    expect(result.current[0]).toEqual({ page: 0, pageSize: 25 });
     act(() => result.current[1](previous => ({ ...previous, page: 3 })));
-    expect(JSON.parse(window.localStorage.getItem("legacy")!)).toEqual({ __sguiPersistent: true, version: 2, value: { page: 3, pageSize: 250 } });
+    expect(JSON.parse(window.localStorage.getItem("schema")!)).toEqual({ __sguiPersistent: true, version: 2, value: { page: 3, pageSize: 25 } });
     window.localStorage.setItem("invalid", '{"page":"bad","pageSize":250}');
     const invalid = renderHook(() => usePersistentPaginationModel("invalid", undefined, { storage: "local" }));
     expect(invalid.result.current[0]).toEqual({ page: 0, pageSize: 25 });
