@@ -22,6 +22,12 @@ interactionFiles.add("src/components/AppDataGrid/ownedGridInteraction.tsx");
 interactionFiles.add("src/components/AppDataGridRowDnd/DataGridDragHandle.tsx");
 interactionFiles.add("src/components/PageRichTextEditorSection/DocumentContentEditable.tsx");
 const componentFiles = new Set([...interactionFiles, ...['Typography', 'Box', 'Stack', 'Surface', 'Card', 'Divider', 'IconButton', 'ButtonGroup', 'SplitAction', 'Link', 'Breadcrumbs', 'List', 'Navigation', 'Disclosure', 'Collapse', 'Chip', 'Badge', 'Progress', 'Status', 'Avatar', 'Table', 'Pagination'].map(name => `src/experimental/${name}/${name}.tsx`)]);
+interactionFiles.add('src/experimental/Rating/Rating.tsx');
+componentFiles.add('src/experimental/Rating/Rating.tsx');
+interactionFiles.add('src/experimental/Slider/Slider.tsx');
+componentFiles.add('src/experimental/Slider/Slider.tsx');
+interactionFiles.add('src/experimental/SearchableSelect/SearchableSelect.tsx');
+componentFiles.add('src/experimental/SearchableSelect/SearchableSelect.tsx');
 // Catalog components enter the same strict owned boundary as they migrate.
 const migratedDirectories = ['AppInlineProgress', 'AppOperationSteps', 'EditableTitleField', 'Typefaces', 'CardPaginationFooter', 'CardCollectionWithFooter', 'CourseCardFrame', 'InstructorCourseCard', 'LearnerCourseCard', 'Button', 'ExperiencePageNavigator', 'AppPageTabs', 'AppPageHeader', 'AppModal', 'AuthShell', 'SideNavigation', 'IconPanelNavigation', 'AppShell', 'ColumnsLayoutModal', 'ImageUploadModal', 'LinkUrlModal', 'InsertContentMenuControl', 'TextAlignMenuControl', 'TextColorPickerControl', 'TextStyleMenuControl', 'RichTextFormattingToolbar', 'FloatingTextSelectionToolbar', 'DocumentEditorLayout', 'DocumentEditorToolbar', 'ContentEditorChrome', 'PageRichTextEditorSection', 'DataToolbar', 'AppDataGrid', 'AppDataGridShell', 'AppDataGridRowDnd', 'icons', 'primitives'];
 const entryOnlyDirectories = new Set(['Typefaces', 'icons', 'primitives']);

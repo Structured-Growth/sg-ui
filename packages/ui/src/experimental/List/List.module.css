@@ -2,7 +2,7 @@
   .root { list-style: none; padding: 0; margin: 0; }
   .item { min-inline-size: 0; }
   .action { border-inline-start: 3px solid transparent; inline-size: 100%; justify-content: flex-start; text-align: start; }
-  .action[aria-pressed="true"] { background: var(--sgui-list-subtle-surface); border-inline-start-color: currentColor; border-inline-start-style: double; }
+  .action[aria-pressed="true"] { background: var(--sgui-list-subtle-surface); border-inline-start-color: currentColor; border-inline-start-style: solid; }
   .text { display: flex; flex-direction: column; min-inline-size: 0; text-align: start; }
   .icon { display: inline-flex; align-items: center; flex: none; }
   @media (forced-colors: active) { .action[aria-pressed="true"] { border-inline-start-color: Highlight; } }

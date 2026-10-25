@@ -66,6 +66,8 @@ for(const title of ['Drag handles without checkboxes','Checkbox selection and dr
  await page.mouse.move(target.x+200,target.y+3);
  await page.mouse.up();
  await expect.poll(()=>grid.locator('tbody [data-grid-field="name"]').allTextContents()).toEqual(['Review the proposal','Plan the project','Research the topic','Draft the proposal']);
+ await expect.poll(()=>grid.locator('[data-sgui-part="grid-drag-handle"]:focus').count()).toBe(0);
+ await expect(grid.locator('[data-sgui-part="grid-drag-handle"][data-focus-visible]')).toHaveCount(0);
 });
 
 test('dragging a selected handle moves the whole selection and preserves selection and source order',async({page})=>{
@@ -96,4 +98,38 @@ test('dragging a selected handle moves the whole selection and preserves selecti
  const source=(await panel.getByLabel('Source: Checkbox selection and drag handles',{exact:true}).textContent())!;
  expect(source).toContain('sourceRowIds.includes(row.id)');
  expect(checkSources([{slug:'multi-row-reorder',source}])).toEqual([]);
+});
+
+test('bare grips appear beside checkboxes on row hover and focus without a reorder column',async({page})=>{
+ await page.goto('/docs/components/data-grid-shell');
+ const panel=page.getByRole('region',{name:exampleName('Checkbox selection and drag handles'),exact:true});
+ const row=panel.getByRole('row',{name:'Plan the project',exact:true});
+ const grip=row.getByRole('button',{name:'Reorder Plan the project',exact:true});
+ await row.scrollIntoViewIfNeeded();
+ await page.mouse.move(5,5);
+ await expect(grip).toHaveCSS('opacity','0');
+ await expect(panel.locator('tbody [data-grid-field="__reorder"]')).toHaveCount(0);
+ expect(await panel.locator('thead').innerText()).not.toContain('Reorder');
+ await row.hover();await expect(grip).toHaveCSS('opacity','1');
+ const checkbox=(await row.getByRole('checkbox',{name:'Select Plan the project',exact:true}).locator('xpath=ancestor::label[1]').boundingBox())!;
+ const icon=(await grip.boundingBox())!;
+ expect(icon.x-checkbox.x-checkbox.width).toBeGreaterThanOrEqual(0);
+ expect(icon.x-checkbox.x-checkbox.width).toBeLessThanOrEqual(8);
+ expect(icon.width).toBeLessThanOrEqual(32);
+ await expect(grip).toHaveCSS('border-top-width','0px');
+ await expect(grip).toHaveCSS('background-color','rgba(0, 0, 0, 0)');
+ // Pointer selection keeps the row selected without keeping the grip revealed.
+ await row.getByRole('rowheader').click();
+ await expect(row).toHaveAttribute('aria-selected','true');
+ await page.mouse.move(5,5);await expect(grip).toHaveCSS('opacity','0');
+ await expect(row.getByRole('checkbox',{name:'Select Plan the project',exact:true})).toBeChecked();
+ await row.getByRole('checkbox',{name:'Select Plan the project',exact:true}).locator('xpath=ancestor::label[1]').click();
+ await page.mouse.move(5,5);await expect(grip).toHaveCSS('opacity','0');
+ await expect(row).toHaveAttribute('aria-selected','false');
+ // Keyboard focus still reveals the grip even when the pointer is elsewhere.
+ await page.keyboard.press('Tab');await grip.focus();await page.mouse.move(5,5);await expect(grip).toHaveCSS('opacity','1');
+ const playground=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
+ for(const name of ['Enable row sorter','Show row move buttons'])await playground.getByRole('checkbox',{name,exact:true}).locator('xpath=ancestor::label[1]').click();
+ await expect(playground.locator('thead').getByText('Reorder',{exact:true})).toBeVisible();
+ await expect(playground.getByRole('button',{name:'Reorder Course 1',exact:true})).toHaveCount(1);
 });

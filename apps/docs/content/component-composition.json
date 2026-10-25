@@ -263,6 +263,10 @@
       "children": []
     },
     {
+      "name": "HeartIcon",
+      "children": []
+    },
+    {
       "name": "HorizontalRuleIcon",
       "children": []
     },
@@ -1004,6 +1008,29 @@
       ]
     }
   ],
+  "searchable-select": [
+    {
+      "name": "SearchableSelect",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "button"
+        },
+        {
+          "name": "CloseIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "KeyboardArrowDownIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "SearchIcon",
+          "slug": "icons"
+        }
+      ]
+    }
+  ],
   "async-multi-select": [
     {
       "name": "AsyncMultiSelect",
@@ -1040,6 +1067,27 @@
   "toggle-button": [
     {
       "name": "ToggleButton",
+      "children": []
+    }
+  ],
+  "rating": [
+    {
+      "name": "Rating",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "button"
+        },
+        {
+          "name": "StarIcon",
+          "slug": "icons"
+        }
+      ]
+    }
+  ],
+  "slider": [
+    {
+      "name": "Slider",
       "children": []
     }
   ],

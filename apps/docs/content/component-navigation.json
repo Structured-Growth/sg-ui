@@ -23,9 +23,12 @@
       "text-area",
       "select",
       "combo-box",
+      "searchable-select",
       "async-multi-select",
       "checkbox",
       "switch",
+      "slider",
+      "rating",
       "radio-group",
       "tag-group",
       "editable-title-field"

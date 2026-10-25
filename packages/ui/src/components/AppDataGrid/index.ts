@@ -8,6 +8,8 @@ export type {
   AppDataGridColumn,
   AppDataGridMenuAction,
   AppDataGridRowDragConfig,
+  AppDataGridRowDropTarget,
+  AppDataGridRowTransferParams,
   AppDataGridRowDragDropPosition,
   AppDataGridRowDragReorderParams,
   AppDataGridSelectionConfig,

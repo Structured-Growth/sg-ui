@@ -337,6 +337,7 @@
         "FormatUnderlinedIcon",
         "GroupIcon",
         "HighlightIcon",
+        "HeartIcon",
         "HorizontalRuleIcon",
         "ImageIcon",
         "KeyboardArrowDownIcon",
@@ -10391,6 +10392,27 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
+          "name": "prefix",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "Fixed, non-interactive text or icons before/after the editable value. Not submitted."
+        },
+        {
+          "name": "suffix",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "affixAppearance",
+          "type": "\"subtle\" | \"inline\" | undefined",
+          "required": false,
+          "default": "\"inline\"",
+          "description": "Plain content within the outline, or shaded segments with dividers."
+        },
+        {
           "name": "description",
           "type": "ReactNode",
           "required": false,
@@ -10680,6 +10702,13 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
+          "name": "prefix",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "Fixed, non-interactive text or icons before/after the editable value. Not submitted."
+        },
+        {
           "name": "onFocus",
           "type": "FocusEventHandler<HTMLInputElement> | undefined",
           "required": false,
@@ -10769,6 +10798,20 @@
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "suffix",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "affixAppearance",
+          "type": "\"subtle\" | \"inline\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Plain content within the outline, or shaded segments with dividers."
         },
         {
           "name": "rows",
@@ -11009,7 +11052,7 @@
           "type": "ReactNode",
           "required": false,
           "default": "—",
-          "description": "Decorative icons inside the input; the separate dropdown action remains available."
+          "description": "Decorative icons inside the shared field outline; the attached dropdown action remains available."
         },
         {
           "name": "endIcon",
@@ -11091,6 +11134,223 @@
         {
           "name": "ref",
           "type": "Ref<HTMLInputElement> | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Forwarded native element reference."
+        }
+      ],
+      "native": [
+        "key"
+      ]
+    }
+  ],
+  "searchable-select": [
+    {
+      "names": [
+        "SearchableSelect"
+      ],
+      "from": "@structured-growth/sg-ui",
+      "kind": "component",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "Label supplied by the application."
+        },
+        {
+          "name": "options",
+          "type": "readonly SearchableSelectOption[]",
+          "required": true,
+          "default": "—",
+          "description": "Unique stable IDs. Supply aliases explicitly, e.g. keywords: [\"TX\"]."
+        },
+        {
+          "name": "value",
+          "type": "string | null | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string | null | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: string | null) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "searchPlacement",
+          "type": "\"input\" | \"dropdown\" | undefined",
+          "required": false,
+          "default": "\"input\"",
+          "description": "Input combines editable text with a dropdown action. Dropdown keeps search inside the popup."
+        },
+        {
+          "name": "filter",
+          "type": "SearchableSelectFilter | undefined",
+          "required": false,
+          "default": "\"contains\"",
+          "description": "Contains ignores case/diacritics; fuzzy additionally tolerates bounded word typos."
+        },
+        {
+          "name": "onSearchChange",
+          "type": "((query: string) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "User search edits, separate from selected IDs. Use filter=\"none\" for host-filtered results."
+        },
+        {
+          "name": "placeholder",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "searchPlaceholder",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "searchLabel",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "description",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "clearable",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "false",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "loading",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "false",
+          "description": "Host-controlled pending presentation."
+        },
+        {
+          "name": "searchErrorMessage",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Search failures belong in the results flow, distinct from form validation."
+        },
+        {
+          "name": "onRetry",
+          "type": "(() => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "emptyMessage",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Controls availability of the interaction."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "required",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "errorMessage",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native CSS class hook."
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native styles and applicable owned CSS variables."
+        },
+        {
+          "name": "startIcon",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLDivElement> | undefined",
           "required": false,
           "default": "—",
           "description": "Forwarded native element reference."
@@ -11736,6 +11996,531 @@
       ]
     }
   ],
+  "rating": [
+    {
+      "names": [
+        "Rating"
+      ],
+      "from": "@structured-growth/sg-ui",
+      "kind": "component",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "Label supplied by the application."
+        },
+        {
+          "name": "scaleLabels",
+          "type": "{ start: string; middle?: string; end: string; } | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Independent, evenly distributed scale anchors; not tied to individual answers."
+        },
+        {
+          "name": "choiceShape",
+          "type": "\"circle\" | \"rounded\" | undefined",
+          "required": false,
+          "default": "\"rounded\"",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "value",
+          "type": "number | null | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number | null | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: number | null) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "appearance",
+          "type": "\"outlined\" | \"plain\" | undefined",
+          "required": false,
+          "default": "\"outlined\"",
+          "description": "Outlined answer frames by default; plain removes their surface and border."
+        },
+        {
+          "name": "variant",
+          "type": "\"stars\" | \"numbers\" | \"labels\" | \"icons\" | undefined",
+          "required": false,
+          "default": "\"stars\"",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "max",
+          "type": "number | undefined",
+          "required": false,
+          "default": "5",
+          "description": "Generate whole-number choices from 1 through max when options is omitted."
+        },
+        {
+          "name": "options",
+          "type": "readonly RatingOption[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Ordered, unique numeric answers, including zero if needed. Labels belong to the host."
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "Repeated custom symbol for icon mode. Per-option icons take precedence."
+        },
+        {
+          "name": "emptyIcon",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "Optional alternate symbol for an unfilled custom-icon choice."
+        },
+        {
+          "name": "highlightMode",
+          "type": "\"cumulative\" | \"selected\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Highlight through the chosen position, or only the chosen answer."
+        },
+        {
+          "name": "highlightAppearance",
+          "type": "\"icon\" | \"background\" | \"both\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Default: icon for stars/icons, background for numbers/labels."
+        },
+        {
+          "name": "showOptionLabels",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "false",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "showOptionValues",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "false",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "optionLayout",
+          "type": "\"inline\" | \"stacked\" | undefined",
+          "required": false,
+          "default": "\"inline\"",
+          "description": "Stack the value, symbol and optional label within each answer."
+        },
+        {
+          "name": "clearable",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "false",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "clearLabel",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\" | undefined",
+          "required": false,
+          "default": "\"horizontal\"",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "layout",
+          "type": "\"inline\" | \"staggered\" | undefined",
+          "required": false,
+          "default": "\"inline\"",
+          "description": "Alternate answers across two rows or columns, preserving answer order."
+        },
+        {
+          "name": "buttonWidth",
+          "type": "\"content\" | \"equal\" | undefined",
+          "required": false,
+          "default": "\"equal\"",
+          "description": "Equal widths by default; staggered layout always uses equal widths."
+        },
+        {
+          "name": "density",
+          "type": "Density | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Local density; otherwise use the surrounding scope."
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Controls availability of the interaction."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "required",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "description",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "errorMessage",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "id",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native CSS class hook."
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native styles and applicable owned CSS variables."
+        },
+        {
+          "name": "aria-describedby",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLDivElement> | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Forwarded native element reference."
+        }
+      ],
+      "native": [
+        "key"
+      ]
+    }
+  ],
+  "slider": [
+    {
+      "names": [
+        "Slider"
+      ],
+      "from": "@structured-growth/sg-ui",
+      "kind": "component",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "Label supplied by the application."
+        },
+        {
+          "name": "value",
+          "type": "T | undefined",
+          "required": false,
+          "default": "—",
+          "description": "A number renders one thumb; an ordered array renders a range or multiple thumbs."
+        },
+        {
+          "name": "defaultValue",
+          "type": "T | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: T) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "onValueCommit",
+          "type": "((value: T) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Runs when a pointer or keyboard adjustment finishes, for host-owned expensive work."
+        },
+        {
+          "name": "min",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "max",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "step",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Controls availability of the interaction."
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "description",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "errorMessage",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "thumbLabels",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Distinguish each thumb, e.g. [\"Minimum price\", \"Maximum price\"]."
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Single values submit under name; multiple values use name[0], name[1], etc."
+        },
+        {
+          "name": "thumbNames",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Override individual native input names."
+        },
+        {
+          "name": "showValue",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "showBounds",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "marks",
+          "type": "readonly SliderMark[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Display-only ticks; step controls snapping. Values outside the scale are omitted."
+        },
+        {
+          "name": "increment",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Generate evenly spaced ticks from min. At most 1001 ticks may be generated."
+        },
+        {
+          "name": "showTicks",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Show generated ticks; explicit marks are independent. Defaults to true."
+        },
+        {
+          "name": "tickAppearance",
+          "type": "\"dot\" | \"line\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "snapToIncrements",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Use increment for pointer and keyboard snapping instead of step. Requires increment."
+        },
+        {
+          "name": "formatOptions",
+          "type": "Intl.NumberFormatOptions | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "fill",
+          "type": "\"auto\" | \"none\" | \"between\" | \"before\" | \"after\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Auto fills to a single value (or from fillOffset), or between outer handles. Before/after fill outside the selection."
+        },
+        {
+          "name": "fillOffset",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Single-thumb auto-fill origin, e.g. 0 for a negative-to-positive scale."
+        },
+        {
+          "name": "density",
+          "type": "Density | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Local density; otherwise use the surrounding scope."
+        },
+        {
+          "name": "id",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native CSS class hook."
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native styles and applicable owned CSS variables."
+        },
+        {
+          "name": "aria-describedby",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLDivElement> | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Forwarded native element reference."
+        }
+      ],
+      "native": [
+        "key"
+      ]
+    }
+  ],
   "toggle-button-group": [
     {
       "names": [
@@ -11813,6 +12598,13 @@
           "required": false,
           "default": "\"equal\"",
           "description": "Equal widths follow the widest option by default; content sizes each button independently."
+        },
+        {
+          "name": "layout",
+          "type": "\"inline\" | \"staggered\" | undefined",
+          "required": false,
+          "default": "\"inline\"",
+          "description": "Stagger alternating options across two rows (horizontal) or columns (vertical), using equal widths."
         },
         {
           "name": "iconOnly",
@@ -15016,7 +15808,7 @@
         },
         {
           "name": "mode",
-          "type": "\"foreground\" | \"background\" | undefined",
+          "type": "\"background\" | \"foreground\" | undefined",
           "required": false,
           "default": "\"foreground\"",
           "description": "Chooses the accessible name and reset value. Clear emits an empty string."
@@ -17183,6 +17975,27 @@
           "required": false,
           "default": "true",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "refreshing",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "false",
+          "description": "Replace the refresh icon with pending progress; the host owns the request lifecycle."
+        },
+        {
+          "name": "errorMessage",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host-translated request failure, displayed beside its retry action."
+        },
+        {
+          "name": "onRetry",
+          "type": "(() => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
         },
         {
           "name": "showColumnsButton",

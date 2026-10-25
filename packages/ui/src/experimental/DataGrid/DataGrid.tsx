@@ -97,7 +97,7 @@ export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel
                 return [item.id, header?.getBoundingClientRect().width ?? current.widths[item.id] ?? item.width ?? 160];
               }));
               pointerResize.start(event, { field: column.id, widths, min: column.minWidth ?? (column.width === undefined ? 120 : 80), max: column.maxWidth });
-            }} onPointerMove={pointerResize.move} onPointerUp={pointerResize.end} onPointerCancel={pointerResize.cancel} onLostPointerCapture={pointerResize.lost} onKeyDownCapture={() => { resizing.current = column.id; }}><ColumnResizer className={styles.resizer} aria-label={t("common.ui.resizeColumn", { defaultMessage: "Resize {label}", values: { label: column.label } })} /></span> : <span className={styles.resizeHandle} aria-hidden="true" data-sgui-part="inactive-column-divider"><span className={styles.resizer} data-disabled="true" /></span>}</div>
+            }} onPointerMove={pointerResize.move} onPointerUp={pointerResize.end} onPointerCancel={pointerResize.cancel} onLostPointerCapture={pointerResize.lost} onKeyDownCapture={() => { resizing.current = column.id; }}><ColumnResizer className={styles.resizer} aria-label={t("common.ui.resizeColumn", { defaultMessage: "Resize {label}", values: { label: column.label } })} /></span> : index > 0 ? <span className={styles.resizeHandle} aria-hidden="true" data-sgui-part="inactive-column-divider"><span className={styles.resizer} data-disabled="true" /></span> : null}</div>
           </Column>)}
           {(renderActions || onReorder) && <Column id="__actions" width={240} className={styles.header}>{t("common.ui.actions", { defaultMessage: "Actions" })}</Column>}
         </TableHeader>

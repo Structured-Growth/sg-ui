@@ -20,6 +20,11 @@ interface FieldOptions extends Pick<InputHTMLAttributes<HTMLInputElement>,
   /** Decorative icons at the logical start/end; keep actions outside these aria-hidden slots. */
   startIcon?: ReactNode;
   endIcon?: ReactNode;
+  /** Fixed, non-interactive text or icons before/after the editable value. Not submitted. */
+  prefix?: ReactNode;
+  suffix?: ReactNode;
+  /** Plain content within the outline, or shaded segments with dividers. */
+  affixAppearance?: "inline" | "subtle";
   description?: ReactNode;
   errorMessage?: string;
   invalid?: boolean;
@@ -35,7 +40,7 @@ export type TextFieldProps = FieldOptions & (
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function TextField(
   { label, description, descriptionPlacement, errorMessage, errorPlacement, invalid, density, className, inputClassName,
-    disabled, readOnly, required, value, defaultValue, onValueChange, form, inputMode, startIcon, endIcon, ...props }, ref,
+    disabled, readOnly, required, value, defaultValue, onValueChange, form, inputMode, startIcon, endIcon, prefix, suffix, affixAppearance = "inline", ...props }, ref,
 ) {
   const input = useRef<HTMLInputElement>(null);
   useImperativeHandle(ref, () => input.current!);
@@ -50,6 +55,9 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
     const message = input.current?.getAttribute("aria-invalid") === "true" ? input.current.validationMessage : "";
     return message ? () => setPreservedError(message) : undefined;
   });
+  const hasPrefix = prefix !== undefined && prefix !== null && prefix !== false && prefix !== "";
+  const hasSuffix = suffix !== undefined && suffix !== null && suffix !== false && suffix !== "";
+  const hasAffixes = hasPrefix || hasSuffix;
   const control = <Input ref={input} form={form} inputMode={inputMode} onChange={event => {
     // Only native edits request host changes. Engine reset callbacks may
     // still originate from a previously associated form.
@@ -67,9 +75,13 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
       data-sgui-density={density} data-sgui-part="field">
       {label && <Label className={styles.label}>{label}</Label>}
       <FieldMessages position="above" {...messages}/>
-      {startIcon || endIcon ? <div className={styles.decoratedControl} data-sgui-part="field-icon-control">
+      {startIcon || endIcon || hasAffixes ? <div className={styles.decoratedControl} data-sgui-part="field-icon-control"
+        data-affixes={hasAffixes || undefined} data-affix-appearance={hasAffixes ? affixAppearance : undefined}
+        onClick={event => { if (event.target === event.currentTarget && !input.current?.matches(":disabled")) input.current?.focus(); }}>
         {startIcon && <span className={styles.adornment} data-sgui-part="field-start-icon" aria-hidden="true">{startIcon}</span>}
+        {hasPrefix && <span className={styles.affix} data-sgui-part="field-prefix" aria-hidden="true">{prefix}</span>}
         {control}
+        {hasSuffix && <span className={styles.affix} data-sgui-part="field-suffix" aria-hidden="true">{suffix}</span>}
         {endIcon && <span className={styles.adornment} data-sgui-part="field-end-icon" aria-hidden="true">{endIcon}</span>}
       </div> : control}
       <FieldMessages position="below" {...messages}/>

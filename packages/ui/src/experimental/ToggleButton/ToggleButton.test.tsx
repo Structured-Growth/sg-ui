@@ -100,3 +100,19 @@ it("supports icon-only options with accessible names and keeps a visible fallbac
  cards.focus();await user.keyboard(" ");expect(cards.getAttribute("aria-checked")).toBe("true");
  await user.click(cards);expect(cards.getAttribute("aria-checked")).toBe("true");
 });
+
+it("keeps staggered option order and controlled selection, and supports vertical staggering",async()=>{
+ const user=userEvent.setup(),change=vi.fn();
+ const {rerender}=render(<ToggleButtonGroup label="Numbers" options={options} layout="staggered" buttonWidth="content" selectedIds={["grid"]} onSelectionChange={change}/>);
+ const group=screen.getByRole("radiogroup",{name:"Numbers"});
+ expect(group.getAttribute("data-layout")).toBe("staggered");
+ expect(group.getAttribute("data-button-width")).toBe("equal");
+ const buttons=within(group).getAllByRole("radio");
+ await user.tab();await user.keyboard("{ArrowRight}{ArrowRight} ");
+ expect(change).toHaveBeenCalledExactlyOnceWith(["cards"]);
+ expect(buttons[0].getAttribute("aria-checked")).toBe("true");
+ rerender(<ToggleButtonGroup label="Numbers" options={options} layout="staggered" orientation="vertical" buttonWidth="content"/>);
+ expect(group.getAttribute("data-layout")).toBe("staggered");
+ expect(group.getAttribute("data-button-width")).toBe("equal");
+ expect(within(group).getAllByRole("radio")[1].style.gridRow).toBe("4 / span 4");
+});

@@ -78,6 +78,7 @@
       "FormatUnderlinedIcon",
       "GroupIcon",
       "HighlightIcon",
+      "HeartIcon",
       "HorizontalRuleIcon",
       "ImageIcon",
       "KeyboardArrowDownIcon",
@@ -509,6 +510,15 @@
   },
   {
     "group": "forms",
+    "slug": "searchable-select",
+    "title": "SearchableSelect",
+    "description": "A combined text field and select with aliases, forgiving search and an optional search field inside the dropdown.",
+    "exports": [
+      "SearchableSelect"
+    ]
+  },
+  {
+    "group": "forms",
     "slug": "async-multi-select",
     "title": "AsyncMultiSelect",
     "description": "Search and select multiple records with loading, error, retry and retained selections.",
@@ -550,6 +560,24 @@
     "description": "Pressed-state actions with host-controlled selection and local density.",
     "exports": [
       "ToggleButton"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "rating",
+    "title": "Rating",
+    "description": "Single-answer ratings with stars, numbers, labels and shared or per-answer custom icon groups.",
+    "exports": [
+      "Rating"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "slider",
+    "title": "Slider",
+    "description": "Single values, numeric ranges and multiple thresholds with accessible keyboard and pointer input.",
+    "exports": [
+      "Slider"
     ]
   },
   {

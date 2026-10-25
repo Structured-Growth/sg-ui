@@ -208,7 +208,7 @@ never becomes an interactive focus destination.
 Forced colors take priority over identity and explicit contrast preferences.
 Exceptions belong to actual color data or explicit system-color painting. Color
 picker swatches preserve only their decorative chip pixels; their interactive
-border, selected double border and outward keyboard focus ring use system colors.
+border, selected solid border and outward keyboard focus ring use system colors.
 The accessible preset name and aria-pressed state remain independent of the sample.
 Hosts own contrast validation for custom token overrides and application content.
 Browser media emulation verifies CSS preference handling; actual OS high contrast,

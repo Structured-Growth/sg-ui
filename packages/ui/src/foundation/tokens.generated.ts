@@ -80,6 +80,7 @@ export const tokens = {
   "compactControlTextSize": "var(--sgui-compact-control-text-size)",
   "comfortableControlTextSize": "var(--sgui-comfortable-control-text-size)",
   "tabMaximumWidth": "var(--sgui-tab-maximum-width)",
+  "symbolLineHeight": "var(--sgui-symbol-line-height)",
   "surface": "var(--sgui-surface)",
   "surfaceSubtle": "var(--sgui-surface-subtle)",
   "text": "var(--sgui-text)",
@@ -434,7 +435,32 @@ export const tokens = {
   "searchFieldText": "var(--sgui-search-field-text)",
   "searchFieldBorder": "var(--sgui-search-field-border)",
   "searchFieldFocusColor": "var(--sgui-search-field-focus-color)",
-  "searchFieldInteractionSurface": "var(--sgui-search-field-interaction-surface)"
+  "searchFieldInteractionSurface": "var(--sgui-search-field-interaction-surface)",
+  "searchableSelectDescriptionText": "var(--sgui-searchable-select-description-text)",
+  "searchableSelectErrorText": "var(--sgui-searchable-select-error-text)",
+  "sliderText": "var(--sgui-slider-text)",
+  "sliderDescriptionText": "var(--sgui-slider-description-text)",
+  "sliderTrackSurface": "var(--sgui-slider-track-surface)",
+  "sliderTrackBorder": "var(--sgui-slider-track-border)",
+  "sliderSelectedSurface": "var(--sgui-slider-selected-surface)",
+  "sliderHoverSurface": "var(--sgui-slider-hover-surface)",
+  "sliderFocusColor": "var(--sgui-slider-focus-color)",
+  "sliderMarkColor": "var(--sgui-slider-mark-color)",
+  "sliderErrorText": "var(--sgui-slider-error-text)",
+  "textFieldAffixText": "var(--sgui-text-field-affix-text)",
+  "textFieldAffixSurface": "var(--sgui-text-field-affix-surface)",
+  "ratingText": "var(--sgui-rating-text)",
+  "ratingBorder": "var(--sgui-rating-border)",
+  "ratingSurface": "var(--sgui-rating-surface)",
+  "ratingSymbolColor": "var(--sgui-rating-symbol-color)",
+  "ratingSelectedSurface": "var(--sgui-rating-selected-surface)",
+  "ratingSelectedText": "var(--sgui-rating-selected-text)",
+  "ratingFocusColor": "var(--sgui-rating-focus-color)",
+  "ratingDescriptionText": "var(--sgui-rating-description-text)",
+  "ratingErrorText": "var(--sgui-rating-error-text)",
+  "ratingSymbolSize": "var(--sgui-rating-symbol-size)",
+  "ratingSymbolLineHeight": "var(--sgui-rating-symbol-line-height)",
+  "sliderTickOnFillColor": "var(--sgui-slider-tick-on-fill-color)"
 } as const;
 export type TokenName = keyof typeof tokens;
 /** Resolved built-in shared and color defaults; density and component aliases stay scope-owned. */
@@ -520,6 +546,7 @@ export const defaultThemeTokens = {
     "--sgui-compact-control-text-size": "0.75rem",
     "--sgui-comfortable-control-text-size": "0.875rem",
     "--sgui-tab-maximum-width": "16rem",
+    "--sgui-symbol-line-height": 1,
     "--sgui-surface": "#ffffff",
     "--sgui-surface-subtle": "#f8fafc",
     "--sgui-text": "#0f172a",
@@ -644,6 +671,7 @@ export const defaultThemeTokens = {
     "--sgui-compact-control-text-size": "0.75rem",
     "--sgui-comfortable-control-text-size": "0.875rem",
     "--sgui-tab-maximum-width": "16rem",
+    "--sgui-symbol-line-height": 1,
     "--sgui-surface": "#0f172a",
     "--sgui-surface-subtle": "#1e293b",
     "--sgui-text": "#e2e8f0",
@@ -769,7 +797,8 @@ export const tokenTiers = {
     "comfortableNavigationItemHeight",
     "compactControlTextSize",
     "comfortableControlTextSize",
-    "tabMaximumWidth"
+    "tabMaximumWidth",
+    "symbolLineHeight"
   ],
   "semantic": [
     "surface",
@@ -1132,7 +1161,32 @@ export const tokenTiers = {
     "searchFieldText",
     "searchFieldBorder",
     "searchFieldFocusColor",
-    "searchFieldInteractionSurface"
+    "searchFieldInteractionSurface",
+    "searchableSelectDescriptionText",
+    "searchableSelectErrorText",
+    "sliderText",
+    "sliderDescriptionText",
+    "sliderTrackSurface",
+    "sliderTrackBorder",
+    "sliderSelectedSurface",
+    "sliderHoverSurface",
+    "sliderFocusColor",
+    "sliderMarkColor",
+    "sliderErrorText",
+    "textFieldAffixText",
+    "textFieldAffixSurface",
+    "ratingText",
+    "ratingBorder",
+    "ratingSurface",
+    "ratingSymbolColor",
+    "ratingSelectedSurface",
+    "ratingSelectedText",
+    "ratingFocusColor",
+    "ratingDescriptionText",
+    "ratingErrorText",
+    "ratingSymbolSize",
+    "ratingSymbolLineHeight",
+    "sliderTickOnFillColor"
   ]
 } as const;
 export type SemanticTokenName = typeof tokenTiers.semantic[number];
@@ -2366,5 +2420,105 @@ export const componentTokenReferences = {
   "searchFieldInteractionSurface": {
     "tier": "semantic",
     "token": "surfaceSubtle"
+  },
+  "searchableSelectDescriptionText": {
+    "tier": "semantic",
+    "token": "textMuted"
+  },
+  "searchableSelectErrorText": {
+    "tier": "semantic",
+    "token": "danger"
+  },
+  "sliderText": {
+    "tier": "semantic",
+    "token": "text"
+  },
+  "sliderDescriptionText": {
+    "tier": "semantic",
+    "token": "textMuted"
+  },
+  "sliderTrackSurface": {
+    "tier": "semantic",
+    "token": "surfaceSubtle"
+  },
+  "sliderTrackBorder": {
+    "tier": "semantic",
+    "token": "border"
+  },
+  "sliderSelectedSurface": {
+    "tier": "semantic",
+    "token": "action"
+  },
+  "sliderHoverSurface": {
+    "tier": "semantic",
+    "token": "actionHover"
+  },
+  "sliderFocusColor": {
+    "tier": "semantic",
+    "token": "focus"
+  },
+  "sliderMarkColor": {
+    "tier": "semantic",
+    "token": "textMuted"
+  },
+  "sliderErrorText": {
+    "tier": "semantic",
+    "token": "danger"
+  },
+  "textFieldAffixText": {
+    "tier": "semantic",
+    "token": "textMuted"
+  },
+  "textFieldAffixSurface": {
+    "tier": "semantic",
+    "token": "surfaceSubtle"
+  },
+  "ratingText": {
+    "tier": "semantic",
+    "token": "text"
+  },
+  "ratingBorder": {
+    "tier": "semantic",
+    "token": "border"
+  },
+  "ratingSurface": {
+    "tier": "semantic",
+    "token": "surface"
+  },
+  "ratingSymbolColor": {
+    "tier": "semantic",
+    "token": "textMuted"
+  },
+  "ratingSelectedSurface": {
+    "tier": "semantic",
+    "token": "action"
+  },
+  "ratingSelectedText": {
+    "tier": "semantic",
+    "token": "onAction"
+  },
+  "ratingFocusColor": {
+    "tier": "semantic",
+    "token": "focus"
+  },
+  "ratingDescriptionText": {
+    "tier": "semantic",
+    "token": "textMuted"
+  },
+  "ratingErrorText": {
+    "tier": "semantic",
+    "token": "danger"
+  },
+  "ratingSymbolSize": {
+    "tier": "shared",
+    "token": "h5Size"
+  },
+  "ratingSymbolLineHeight": {
+    "tier": "shared",
+    "token": "symbolLineHeight"
+  },
+  "sliderTickOnFillColor": {
+    "tier": "semantic",
+    "token": "onAction"
   }
 } as const;

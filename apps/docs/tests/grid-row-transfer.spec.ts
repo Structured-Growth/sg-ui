@@ -1,0 +1,57 @@
+import {test,expect} from './fixtures';
+import {exampleName} from './example-name';
+import {checkSources} from './check-sources';
+
+test('keyboard transfers tag a group in place and move the final page into a folder',async({page})=>{
+ await page.goto('/docs/components/data-grid-shell');
+ const panel=page.getByRole('region',{name:exampleName('Drag to tag or move to a folder'),exact:true});
+ const grid=panel.getByRole('grid',{name:'Inbox courses',exact:true});
+ for(const id of [1,2])await grid.getByRole('checkbox',{name:`Select Course ${id}`,exact:true}).locator('xpath=ancestor::label[1]').click();
+ await grid.getByRole('button',{name:'Drag Course 1',exact:true}).focus();await page.keyboard.press('Enter');
+ await expect(page.getByRole('button',{name:'Drop rows: Tag as priority',exact:true})).toBeFocused();
+ await page.keyboard.press('Enter');
+ await expect(panel.getByRole('status').filter({hasText:'Tagged 2 course(s) as Priority.'})).toBeVisible();
+ await expect(grid.getByRole('row',{name:'Course 1',exact:true})).toContainText('Priority');
+ await expect(grid.getByRole('row',{name:'Course 2',exact:true})).toContainText('Priority');
+ expect(await grid.locator('tbody tr').evaluateAll(rows=>rows.map(row=>row.getAttribute('data-grid-row')))).toEqual(['1','2','3']);
+ await panel.getByRole('button',{name:'Next page',exact:true}).click();
+ await expect(grid.getByRole('row',{name:'Course 4',exact:true})).toBeVisible();
+ await grid.focus();await grid.getByRole('button',{name:'Drag Course 4',exact:true}).press('Enter');
+ const folder=page.getByRole('button',{name:'Drop rows: Move to Review folder',exact:true});
+ for(let attempt=0;attempt<3&&!await folder.evaluate(el=>el===document.activeElement);attempt++)await page.keyboard.press('Tab');
+ await expect(folder).toBeFocused();
+ await page.keyboard.press('Enter');
+ await expect(grid.getByRole('row',{name:'Course 4',exact:true})).toHaveCount(0);
+ await expect(panel.getByRole('status').filter({hasText:'Moved 1 course(s) to Review.'})).toBeVisible();
+ await expect.poll(()=>panel.evaluate(el=>el.contains(document.activeElement))).toBe(true);
+ await expect(panel.getByText('Page 1 of 1',{exact:true})).toBeVisible();
+ await expect(grid.getByRole('row',{name:'Course 1',exact:true})).toBeVisible();
+ await panel.getByRole('button',{name:'Move to Review folder',exact:true}).click();
+ await expect(grid.getByRole('row',{name:'Course 1',exact:true})).toHaveCount(0);
+ await expect(grid.getByRole('row',{name:'Course 2',exact:true})).toHaveCount(0);
+ await expect(grid.getByRole('row',{name:'Course 3',exact:true})).toBeVisible();
+ await grid.getByRole('checkbox',{name:'Select Course 3',exact:true}).locator('xpath=ancestor::label[1]').click();
+ await panel.getByRole('button',{name:'Move to Review folder',exact:true}).click();
+ await expect(grid.locator('tbody tr[data-grid-row]')).toHaveCount(0);
+ await expect(panel.getByRole('button',{name:'Next page',exact:true})).toBeDisabled();
+ await expect(panel.getByRole('button',{name:'Move to Review folder',exact:true})).toBeDisabled();
+ await panel.getByRole('button',{name:'Show source: Drag to tag or move to a folder',exact:true}).click();
+ const source=(await panel.getByRole('code').textContent())!;
+ expect(source).toContain("mode:'transfer'");
+ expect(checkSources([{slug:'row-transfer',source}])).toEqual([]);
+});
+
+test('pointer handle transfers an unselected row without reordering siblings',async({page})=>{
+ await page.setViewportSize({width:1440,height:1100});
+ await page.goto('/docs/components/data-grid-shell');
+ const panel=page.getByRole('region',{name:exampleName('Drag to tag or move to a folder'),exact:true});
+ const handle=panel.getByRole('button',{name:'Drag Course 2',exact:true});
+ await handle.scrollIntoViewIfNeeded();
+ const from=(await handle.boundingBox())!,target=(await panel.getByRole('button',{name:'Tag as priority',exact:true}).boundingBox())!;
+ await page.mouse.move(from.x+from.width/2,from.y+from.height/2);await page.mouse.down();
+ await page.mouse.move(from.x+from.width/2+20,from.y+from.height/2,{steps:5});
+ await page.mouse.move(target.x+target.width/2,target.y+target.height/2,{steps:10});
+ await page.mouse.move(target.x+target.width/2+1,target.y+target.height/2+1);await page.mouse.up();
+ await expect(panel.getByRole('status').filter({hasText:'Tagged 1 course(s) as Priority.'})).toBeVisible();
+ await expect(panel.getByRole('row',{name:'Course 2',exact:true})).toContainText('Priority');
+});

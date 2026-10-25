@@ -27,6 +27,17 @@
   }
   .decoratedControl { display: flex; align-items: center; gap: var(--sgui-space2); flex: 1; min-inline-size: 0; box-sizing: border-box; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); padding-inline: var(--field-edge-padding); border: 1px solid var(--sgui-field-border); border-radius: var(--sgui-field-control-radius); background: var(--sgui-field-background); }
   .decoratedControl > .input { flex: 1; inline-size: 0; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); margin-block: -1px; border: 0; border-radius: 0; padding-inline: 0; background: transparent; }
+  .affix { display: inline-flex; align-items: center; justify-content: center; gap: var(--sgui-space1); flex: 0 1 auto; min-inline-size: 0; overflow-wrap: anywhere; color: var(--sgui-text-field-affix-text); font-family: var(--sgui-font-family); font-size: var(--sgui-control-text-size); font-weight: var(--sgui-body1-weight); line-height: var(--sgui-label-line-height); pointer-events: none; user-select: none; }
+  .affix > svg { flex: none; inline-size: var(--sgui-space4); block-size: var(--sgui-space4); }
+  .decoratedControl[data-affixes] > .input { min-inline-size: min(4ch, 35%); }
+  .decoratedControl[data-affix-appearance="subtle"] { gap: 0; padding-inline: 0; }
+  .decoratedControl[data-affix-appearance="subtle"] > .input { padding-inline: var(--sgui-control-padding); }
+  .decoratedControl[data-affix-appearance="subtle"] > .adornment { margin-inline: var(--sgui-space2); }
+  .decoratedControl[data-affix-appearance="subtle"] > .affix { align-self: stretch; padding-inline: var(--sgui-control-padding); background: var(--sgui-text-field-affix-surface); }
+  .decoratedControl[data-affix-appearance="subtle"] > [data-sgui-part="field-prefix"] { border-inline-end: 1px solid var(--sgui-field-border); }
+  .decoratedControl[data-affix-appearance="subtle"] > [data-sgui-part="field-suffix"] { border-inline-start: 1px solid var(--sgui-field-border); }
+  .decoratedControl[data-affix-appearance="subtle"] > .affix:first-child { border-start-start-radius: max(0px, calc(var(--sgui-field-control-radius) - 1px)); border-end-start-radius: max(0px, calc(var(--sgui-field-control-radius) - 1px)); }
+  .decoratedControl[data-affix-appearance="subtle"] > .affix:last-child { border-start-end-radius: max(0px, calc(var(--sgui-field-control-radius) - 1px)); border-end-end-radius: max(0px, calc(var(--sgui-field-control-radius) - 1px)); }
   /* Keep the input ring unless the decorated wrapper can replace it. */
   @supports selector(:has(*)) {
     .decoratedControl > .input[data-focus-visible], .decoratedControl > .input:focus-visible { outline: none; }
@@ -45,5 +56,8 @@
   .input[readonly] { background: var(--sgui-text-field-read-only-surface); }
   .description { color: var(--sgui-text-field-description-text); }
   .error { color: var(--sgui-text-field-error-text); }
-  @media (forced-colors: active) { .input, .controlGroup, .decoratedControl { border-color: FieldText; } .decoratedControl:has(.input[data-focus-visible]), .decoratedControl:has(.input:focus-visible) { outline-color: Highlight; } .input[data-focus-visible], .input:focus-visible { outline-color: Highlight; } .root[data-disabled] { color: GrayText; opacity: 1; } }
+  @media (forced-colors: active) {
+    .affix { color: FieldText; }
+    .decoratedControl[data-affix-appearance="subtle"] > .affix { background: Field; border-color: FieldText; }
+ .input, .controlGroup, .decoratedControl { border-color: FieldText; } .decoratedControl:has(.input[data-focus-visible]), .decoratedControl:has(.input:focus-visible) { outline-color: Highlight; } .input[data-focus-visible], .input:focus-visible { outline-color: Highlight; } .root[data-disabled] { color: GrayText; opacity: 1; } }
 }

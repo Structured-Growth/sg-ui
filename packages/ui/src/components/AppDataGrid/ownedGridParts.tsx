@@ -54,7 +54,7 @@ export interface OwnedGridStatusProps extends GridPartStyle {
   onRetry?: () => void;
 }
 
-/** Render alongside retained rows during refresh, rather than replacing the grid. */
+/** Retained-row refreshing announces without taking layout space; its visible progress belongs in DataToolbar. */
 export const OwnedGridStatus = forwardRef<HTMLDivElement, OwnedGridStatusProps>(function OwnedGridStatus(
   { state, message, onRetry, className, style }, ref,
 ) {
@@ -69,10 +69,9 @@ export const OwnedGridStatus = forwardRef<HTMLDivElement, OwnedGridStatusProps>(
   } as const;
   const [key, defaultMessage] = defaults[state];
   const label = message ?? t(key, { defaultMessage, namespace: "common.ui" });
-  const pending = state === "loading" || state === "refreshing";
   return <Status ref={ref} announcement={state === "error" ? "assertive" : "polite"} tone={state === "error" ? "danger" : "neutral"}
-    className={[styles.status, className].filter(Boolean).join(" ")} style={style}>
-    {pending && <Progress variant="circular" aria-label={label} className={styles.progress} />}
+    className={[styles.status, className].filter(Boolean).join(" ")} style={style} data-grid-state={state}>
+    {state === "loading" && <Progress variant="circular" aria-label={label} className={styles.progress} />}
     <span data-sgui-part="grid-status-message">{label}</span>
     {state === "error" && onRetry && <Button variant="outlined" tone="neutral" density="compact" onPress={() => onRetry()}>
       {t("common.ui.grid.retry", { defaultMessage: "Retry", namespace: "common.ui" })}

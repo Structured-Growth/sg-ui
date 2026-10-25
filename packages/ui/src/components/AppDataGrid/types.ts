@@ -27,13 +27,38 @@ export type AppDataGridRowDragReorderParams<Row> = {
   sourceRowIds: readonly string[];
   position: AppDataGridRowDragDropPosition;
 };
-export type AppDataGridRowDragConfig<Row> = {
-  onReorder: (params: AppDataGridRowDragReorderParams<Row>) => void;
-  getRowLabel?: (row: Row) => string;
-  isRowDraggable?: (row: Row) => boolean;
-  handleColumnWidth?: number;
+export type AppDataGridRowDropTarget = {
+  id: string;
+  label: string;
+  /** Tagging usually copies; moving to a folder usually moves. Defaults to copy. */
+  operation?: "copy" | "move";
+  disabled?: boolean;
+};
+export type AppDataGridRowTransferParams<Row> = {
+  sourceRows: readonly Row[];
+  sourceRowIds: readonly string[];
+  targetId: string;
+  operation: "copy" | "move";
+};
+export type AppDataGridRowDragConfig<Row> = ({
+  mode?: "reorder";
   /** Show adjacent Move up/down buttons. Defaults to false. */
   showMoveButtons?: boolean;
+  onReorder: (params: AppDataGridRowDragReorderParams<Row>) => void;
+  dropTargets?: never;
+  onDrop?: never;
+} | {
+  /** Transfer loaded rows to named host destinations without reordering. Works with server pages and processed views. */
+  mode: "transfer";
+  showMoveButtons?: false;
+  dropTargets: readonly AppDataGridRowDropTarget[];
+  onDrop: (params: AppDataGridRowTransferParams<Row>) => void;
+  onReorder?: never;
+}) & {
+  getRowLabel?: (row: Row) => string;
+  isRowDraggable?: (row: Row) => boolean;
+  /** Width of the separate move-controls/grip column. Shared checkbox cells use their measured width. */
+  handleColumnWidth?: number;
   /** Disable handle dragging while retaining any enabled move buttons. Defaults to false. */
   dragDisabled?: boolean;
 };

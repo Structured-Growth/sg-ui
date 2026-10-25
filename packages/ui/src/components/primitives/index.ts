@@ -10,6 +10,7 @@ export { Link, type LinkProps } from "../../experimental/Link/Link";
 export { Menu, type MenuProps, type MenuItem } from "../../experimental/Menu/Menu";
 export { Select, type SelectProps, type SelectOption } from "../../experimental/Select/Select";
 export { ComboBox, ComboBox as Autocomplete, type ComboBoxProps, type ComboBoxProps as AutocompleteProps, type ComboBoxOption } from "../../experimental/ComboBox/ComboBox";
+export { SearchableSelect, type SearchableSelectProps, type SearchableSelectOption, type SearchableSelectFilter } from "../../experimental/SearchableSelect/SearchableSelect";
 export { Divider, type DividerProps } from "../../experimental/Divider/Divider";
 export { Chip, type ChipProps } from "../../experimental/Chip/Chip";
 export { Switch, type SwitchProps } from "../../experimental/Switch/Switch";
@@ -26,3 +27,7 @@ export { SearchField, type SearchFieldProps, type SearchFieldItem } from "../../
 export { FormFieldScope, type FormFieldScopeProps } from "../../experimental/FormFieldScope/FormFieldScope";
 
 export { HierarchicalMenu, type HierarchicalMenuProps, type HierarchicalMenuItem, type HierarchicalMenuLevel, type HierarchicalMenuSection } from "../../experimental/HierarchicalMenu";
+
+export { Slider, type SliderProps, type SliderMark } from "../../experimental/Slider/Slider";
+
+export {Rating, type RatingProps, type RatingOption} from "../../experimental/Rating/Rating";

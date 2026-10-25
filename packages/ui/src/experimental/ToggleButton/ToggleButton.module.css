@@ -10,10 +10,10 @@
   }
   .button[data-hovered], .button[data-pressed] { background-color: var(--sgui-toggle-button-hover-surface); }
   .button[data-selected] { color: var(--sgui-toggle-button-selected-text); background-color: var(--sgui-toggle-button-selected-surface); border-color: var(--sgui-toggle-button-selected-border); }
-  /* Double geometry exposes selection without color. Preserve the outer box:
+  /* Solid selected edges keep a continuous fill. Preserve the outer box:
      each extra 2px of border replaces 2px of existing padding. */
   .button[data-selected] {
-    border-style: double; border-width: 3px; background-clip: padding-box;
+    border-style: solid; border-width: 3px; background-clip: border-box;
     padding-block: max(0px, calc(var(--sgui-space1) - 2px));
     padding-inline: max(0px, calc(var(--sgui-control-padding) - 2px));
   }
@@ -28,6 +28,9 @@
   .group[data-button-width="equal"] { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; inline-size: max-content; max-inline-size: 100%; align-items: stretch; }
   .group[data-button-width="equal"][data-orientation="vertical"] { grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); }
   .group[data-button-width="equal"] .button { overflow-wrap: anywhere; }
+  /* Each option spans four quarter-button tracks; alternating rows retain DOM/key order. */
+  .group[data-layout="staggered"] { grid-auto-flow: row; grid-template-rows: repeat(2, auto); align-items: stretch; }
+  .group[data-layout="staggered"][data-orientation="vertical"] { grid-template-columns: repeat(2, 1fr); align-items: stretch; }
   .icon { display: inline-flex; }
   @media (forced-colors: active) {
     .button, .button[data-hovered], .button[data-pressed] { color: ButtonText; background-color: ButtonFace; }

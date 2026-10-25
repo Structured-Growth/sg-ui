@@ -35,8 +35,8 @@ for (const forcedColors of ['none', 'active'] as const) for (const kind of ['nav
           const css = getComputedStyle(node, '::after');
           return { content: css.content, width: parseFloat(css.borderTopWidth), style: css.borderTopStyle, color: css.borderTopColor, inset: css.insetInlineStart, pointerEvents: css.pointerEvents };
         });
-        expect(ring.content).toBe('""'); expect(ring.width).toBe(1); expect(ring.style).toBe('solid');
-        expect(ring.inset).toBe('3px'); expect(ring.pointerEvents).toBe('none');
+        if (active) { expect(ring.content).toBe('""'); expect(ring.width).toBe(1); expect(ring.style).toBe('solid');
+        expect(ring.inset).toBe('3px'); expect(ring.pointerEvents).toBe('none'); } else { expect(ring.content).toBe('none'); expect(ring.width).toBe(0); expect(await selected.evaluate(node => getComputedStyle(node).backgroundColor)).not.toBe(await focused.evaluate(node => getComputedStyle(node).backgroundColor)); }
         const after = await selected.boundingBox();
         expect(after!.width).toBe(before!.width); expect(after!.height).toBe(before!.height);
         expect((await border(focused)).outlineWidth).toBeGreaterThanOrEqual(2);
@@ -54,7 +54,7 @@ for (const forcedColors of ['none', 'active'] as const) for (const kind of ['nav
         const after = await border(second);
         expect(after.startWidth).toBe(3);
         expect(before.startStyle).toBe('solid');
-        expect(after.startStyle).toBe('double');
+        expect(after.startStyle).toBe('solid');
         expect(after.startColor).not.toBe('rgba(0, 0, 0, 0)');
         expect(after.outlineStyle).toBe('solid'); expect(after.outlineWidth).toBeGreaterThanOrEqual(2);
         expect(after.outlineOffset).toBeGreaterThanOrEqual(0);

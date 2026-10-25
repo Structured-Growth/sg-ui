@@ -365,13 +365,14 @@ it.each([false, true])("ends Retry focus ownership on deliberate host/independen
   }
 });
 
-it("keeps the first divider inert beside selection/reorder columns and boundaries beside fixed columns",()=>{
+it("omits the locked first divider beside selection/reorder columns and retains fixed-column boundaries",()=>{
  for(const selection of [false,true]){
   const widths=vi.fn();const {unmount}=render(<OwnedGridInteraction {...props} selection={selection} rowDrag={{onReorder:vi.fn()}} onColumnWidthsChange={widths}/>);
   expect(screen.queryByRole("slider",{name:/Resize Name/})).toBeNull();
   expect(screen.getByRole("slider",{name:/Resize Score/})).toBeTruthy();
-  const divider=screen.getByRole("columnheader",{name:/Name/}).querySelector('[data-sgui-part="inactive-column-divider"]')!;
-  fireEvent.pointerDown(divider,{clientX:200,pointerId:1});fireEvent.pointerMove(divider,{clientX:150,pointerId:1});fireEvent.pointerUp(divider,{clientX:150,pointerId:1});
+  const header=screen.getByRole("columnheader",{name:/Name/});
+  expect(header.querySelector('[data-sgui-part="inactive-column-divider"]')).toBeNull();
+  fireEvent.pointerDown(header,{clientX:200,pointerId:1});fireEvent.pointerMove(header,{clientX:150,pointerId:1});fireEvent.pointerUp(header,{clientX:150,pointerId:1});
   expect(widths).not.toHaveBeenCalled();unmount();
  }
  render(<OwnedGridInteraction {...props} columns={[columns[0]!,{field:"fixed",headerName:"Fixed",minWidth:80,maxWidth:80},columns[1]!]} />);

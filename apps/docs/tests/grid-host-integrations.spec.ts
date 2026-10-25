@@ -29,6 +29,15 @@ test('server criteria accept results, discard late responses and recover from re
  await expect(grid.getByRole('row',{name:/Course 01/})).toBeVisible();
  await panel.getByRole('button',{name:'Search',exact:true}).click();
  const search=panel.getByRole('searchbox',{name:'Search',exact:true});
+ // Search must reach records outside every page loaded so far and reset pagination.
+ await panel.getByRole('button',{name:'Next page',exact:true}).click();
+ await expect(grid.getByRole('row',{name:/Course 07/})).toBeVisible();
+ await expect(panel.getByText('Page 2 of 3',{exact:true})).toBeVisible();
+ await expect(grid.getByRole('row',{name:/Course 18/})).toHaveCount(0);
+ await search.fill('Course 18');
+ await expect(grid.getByRole('row',{name:/Course 18/})).toBeVisible();
+ await expect(panel.getByText('Page 1 of 1',{exact:true})).toBeVisible();
+ await expect(panel.getByRole('button',{name:'Next page',exact:true})).toBeDisabled();
  await search.fill('Course 01');await search.fill('Course 02');
  await expect(grid.getByRole('row',{name:/Course 02/})).toBeVisible();
  // The deliberately slower prior request must not replace the accepted result.

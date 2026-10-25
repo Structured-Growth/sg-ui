@@ -65,6 +65,9 @@ Use that snapshot for a server request. `mode="server"` passes host rows unchang
 The host owns cancellation, stale responses, refresh, errors and persistence of data.
 
 The shell owns criteria/layout/selection for toolbar, list, cards and footer.
+The view switch requires a card renderer and, for controlled `view.mode`, an
+`onModeChange` callback. Set `toolbar.showViewModeToggle` to `false` for fixed-view
+examples; hiding the switch preserves the configured list or card rendering.
 Cards use the same processing result and page as the list. Per-card pagination and
 identity overrides are removed. Footer navigation enters the accepted page;
 view switching preserves the trigger's focus. Selection count includes retained IDs.
@@ -136,3 +139,18 @@ ellipsis with complete accessible text. See cell and helper acceptance
 for M-40/M-41 behavior evidence and the supported public helper surface.
 
 Action menu columns use a fixed width: 110px by default, or the host-supplied `width` clamped to its bounds. They do not expose a resize handle or absorb flexible space; saved width overrides cannot change that allocation.
+
+## Refresh progress without moving retained rows
+
+`DataToolbar.refreshing` replaces the refresh icon with pending progress in the
+same fixed-size button and suppresses repeat refresh requests. The host owns the
+request and resets the prop after success or failure. The button remains absent
+when `showRefreshButton` is false.
+
+`AppDataGridShell` derives this toolbar state from its `loading`/`refreshing` props
+for both list and card views. Retained-row refresh messages are polite,
+announcement-only status rather than an in-flow banner. Existing rows/cards,
+headers and the footer keep their layout positions. Initial loading without rows
+shows its spinner only in the body and disables the toolbar refresh action without a second spinner; shell errors place their message and retry action in DataToolbar, while standalone grids and shells with a hidden toolbar retain their inline message/retry
+flow. A standalone `AppDataGrid` host can compose `DataToolbar` for the same
+visible progress, and supplies any alternative when the toolbar is hidden.

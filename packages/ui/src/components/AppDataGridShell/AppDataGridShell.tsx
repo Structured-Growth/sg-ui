@@ -17,7 +17,7 @@ import styles from "./AppDataGridShell.module.css";
 
 /** Criteria are owned by the shell. Toolbar callbacks observe those transactions. */
 export type AppDataGridShellToolbarConfig = Omit<DataToolbarProps,
-  "mode" | "viewMode" | "onViewModeChange" | "columnOptions" | "onColumnOptionsChange" | "selectedCount"
+  "errorMessage" | "onRetry" | "refreshing" | "mode" | "viewMode" | "onViewModeChange" | "columnOptions" | "onColumnOptionsChange" | "selectedCount"
 > & {
   show?: boolean;
   showSelectedCount?: boolean;
@@ -90,14 +90,16 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
   const viewMode = view?.mode ?? localView;
   useEffect(() => { persistence.persist({ ...state, columnVisibilityModel: layout.visibility,
     columnOrder: layout.order, columnWidths: layout.widths, viewMode }); });
-  const canToggle = view?.enabled !== false && Boolean(view?.cards);
-  const cards = canToggle && viewMode === "cards";
+  const hasCardView = view?.enabled !== false && Boolean(view?.cards);
+  const canChangeView = hasCardView && (view?.mode === undefined || Boolean(view.onModeChange));
+  const showViewModeToggle = canChangeView && toolbar?.showViewModeToggle !== false;
+  const cards = hasCardView && viewMode === "cards";
   const columnOptions = layout.order.map(field => {
     const column = columns.find(candidate => candidate.field === field)!;
     const hostOption = toolbar?.baseColumnOptions?.find(option => option.id === field);
     return { id: field, label: hostOption?.label ?? column.headerName ?? field,
       visible: layout.visibility[field]!, locked: layout.lockedFields.includes(field),
-      ...(column.cellType === "menu" || hostOption?.reorderable === false ? { reorderable: false } : {}) };
+      ...(column.cellType === "menu" || (column.locked && column.field === columns[0]?.field) || hostOption?.reorderable === false ? { reorderable: false } : {}) };
   });
   const entry = useRef<HTMLDivElement>(null);
   const [cardStatus, setCardStatus] = useState<HTMLDivElement | null>(null);
@@ -202,12 +204,13 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
         const hostOption = toolbar?.baseColumnOptions?.find(option => option.id === field);
         return { id: field, label: hostOption?.label ?? column.headerName ?? field, visible: next.columnVisibilityModel[field]!,
           locked: layout.lockedFields.includes(field),
-          ...(column.cellType === "menu" || hostOption?.reorderable === false ? { reorderable: false } : {}) };
+          ...(column.cellType === "menu" || (column.locked && column.field === columns[0]?.field) || hostOption?.reorderable === false ? { reorderable: false } : {}) };
       }));
       dispatch({ type: "reset", value: next });
       onResetView?.(next);
     }}>{t("common.ui.grid.resetView", { defaultMessage: "Reset view" })}</Button>}
-    {toolbar?.show !== false && <DataToolbar {...toolbar} mode={mode}
+    {toolbar?.show !== false && <DataToolbar {...toolbar} mode={mode} refreshing={Boolean((props.loading || props.refreshing) && processed.rows.length)}
+      onRefresh={(props.loading || props.refreshing) && !processed.rows.length ? undefined : toolbar?.onRefresh} errorMessage={props.errorMessage} onRetry={props.onRetry}
       selectedCount={toolbar?.showSelectedCount === false ? undefined : state.selectedRowIds.size}
       leftContentWhenSelected={state.selectedRowIds.size ? toolbar?.leftContentWhenSelected : undefined}
       columnOptions={columnOptions} onColumnOptionsChange={options => {
@@ -221,8 +224,8 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
       filterFields={filterFields ? [...filterFields] : undefined} filterRules={state.filterRules}
       onFilterRulesChange={value => dispatch({ type: "filter", value })}
       searchValue={state.searchValue} onSearchValueChange={value => dispatch({ type: "search", value })}
-      showViewModeToggle={canToggle} viewMode={canToggle ? viewMode : undefined}
-      onViewModeChange={canToggle ? next => { if (view?.mode === undefined) setLocalView(next); view?.onModeChange?.(next); } : undefined} />}
+      showViewModeToggle={showViewModeToggle} viewMode={viewMode}
+      onViewModeChange={canChangeView ? next => { if (view?.mode === undefined) setLocalView(next); view?.onModeChange?.(next); } : undefined} />}
     <div ref={entry} className={styles.content}
       style={cards ? { minBlockSize: `calc(4 * var(--sgui-control-height) + ${cardStatusHeight}px)` } : undefined} tabIndex={-1} aria-label={label} onFocusCapture={event => {
       if (!cards || !event.currentTarget.contains(event.target)) return;
@@ -233,14 +236,14 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
       cardFocus.current = { id: card.dataset.gridRow, index: controls.indexOf(element), element };
     }}>
       {cards && view?.cards ? <>
-        {props.errorMessage ? <OwnedGridStatus ref={setCardStatus} state="error" message={props.errorMessage} onRetry={props.onRetry} />
-          : props.loading || props.refreshing ? <OwnedGridStatus ref={setCardStatus} state={processed.rows.length ? "refreshing" : "loading"} />
+        {props.errorMessage !== undefined ? toolbar?.show !== false ? null : <OwnedGridStatus ref={setCardStatus} state="error" message={props.errorMessage} onRetry={props.onRetry} />
+          : props.loading || props.refreshing ? <OwnedGridStatus ref={processed.rows.length ? undefined : setCardStatus} state={processed.rows.length ? "refreshing" : "loading"} />
           : !processed.rows.length ? <OwnedGridStatus ref={setCardStatus} state={hasCriteria ? "noResults" : "empty"} /> : null}
         <div className={styles.cards} data-sgui-part="grid-cards" aria-label={label} role="list" aria-busy={props.loading || props.refreshing || undefined}>
           {processed.rows.map(row => <div className={styles.card} key={getOwnedGridRowId(row, getRowId)} role="listitem" tabIndex={-1}
             aria-label={getRowLabel(row)} data-grid-row={getOwnedGridRowId(row, getRowId)} data-sgui-part="grid-card">{view.cards!.renderCard(row)}</div>)}
         </div>
-      </> : <AppDataGrid {...gridProps} persistence={undefined} label={label} getRowLabel={getRowLabel} getRowId={getRowId}
+      </> : <AppDataGrid {...gridProps} errorInToolbar={toolbar?.show !== false} persistence={undefined} label={label} getRowLabel={getRowLabel} getRowId={getRowId}
         rows={rows} columns={columns} mode={mode} filterFields={filterFields} processingResult={processed} dispatchTransition={dispatch}
         {...state} selection={selection === false ? false : { ...selectionConfig, selectedRowIds: state.selectedRowIds,
           onSelectedRowIdsChange: value => dispatch({ type: "selection", value }) }}

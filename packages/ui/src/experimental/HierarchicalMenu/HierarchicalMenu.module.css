@@ -16,7 +16,7 @@
   button.item > span:not([aria-hidden="true"]) { display: flex; align-items: center; gap: var(--sgui-space2); inline-size: 100%; min-inline-size: 0; }
   .itemLabel { flex: 1; overflow-wrap: anywhere; }
   .item:hover, .item[aria-current="page"] { background: var(--sgui-menu-selected-surface); }
-  .item[aria-current="page"]::before { content: ""; position: absolute; pointer-events: none; inset-block: var(--sgui-space1); inset-inline-start: 1px; border-inline-start: 3px double var(--sgui-menu-text); }
+  .item[aria-current="page"]::before { content: ""; position: absolute; pointer-events: none; inset-block: var(--sgui-space1); inset-inline-start: 1px; border-inline-start: 3px solid var(--sgui-menu-text); }
   .root:focus-visible, .item[data-focused], .item:focus-visible { background: var(--sgui-menu-focused-surface); outline: var(--sgui-control-focus-width) solid var(--sgui-menu-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
   .item[data-disabled], .item:disabled { opacity: 0.5; cursor: default; }
   .icon, .arrow { display: inline-flex; flex: none; inline-size: var(--sgui-side-navigation-icon-size); block-size: var(--sgui-side-navigation-icon-size); }

@@ -310,6 +310,7 @@ SGUI does not define application database or HTTP-contract naming.
   compiled public token inventory, graph validation and copyable consumer scopes.
   See [the token pipeline checklist](docs/developer/theme-token-pipeline.md).
 
+- Selected controls use continuous solid fills and solid borders; avoid decorative double borders or pale inset selection rings in normal appearance. Keep keyboard focus distinct and preserve system-painted structural selection cues in forced colors.
 - Prefer built-in props, variants and sizes before adding custom styling.
 - Put reusable styles in theme tokens or shared CSS component styles first. Use native class/style
   only for a layout or context-specific adjustment.
@@ -429,6 +430,17 @@ control; importing guidance is not an instruction to change all legacy behavior.
 - Use representative data and host adapters in examples. Keep reusable example
   code independent of Next.js, authentication endpoints, the host application and
   external databases; the website owns its framework routing integration.
+
+## Searchable selection
+
+SearchableSelect is the single-record picker for alias/typo matching and search
+inside a dropdown. Its input layout is a joined editable field and options action;
+the alternate dropdown layout keeps search above the listbox. Keep stable selected
+IDs separate from draft queries, explicit host keywords separate from fuzzy typo
+matching, and request errors separate from form errors. Hosts own remote filtering,
+cancellation and selected-record retention. See
+[searchable selection](docs/developer/searchable-select.md); do not replace the
+basic Select/ComboBox or multi-record AsyncMultiSelect contracts.
 
 ## Translations
 
@@ -860,3 +872,9 @@ its viewport/boundary. A multi-line selection whose first line is offscreen is
 still actionable when another selected line is visible. Fully offscreen selections
 hide the toolbar and return its focused action to the editor without changing
 host scroll offsets. Preserve native Alt+F10 access and Escape return focus.
+
+Slider uses the owned foundation and internal React Aria interactions. See [Slider contracts](docs/developer/slider.md) for scalar/array values, form names/reset, marks and host-owned numeric parsing. Keep its docs playground and source-backed horizontal/vertical examples aligned with the public API.
+
+TextField prefix/suffix slots accept fixed non-interactive text or icons; see [affix contracts](docs/developer/text-field-affixes.md). Keep units in labels/guidance and decorations outside native values. Use affixAppearance for shared styling rather than host overlays or per-example input padding.
+
+Rating is a discrete single-answer form field using owned props and internal React Aria radio interaction. See [Rating contracts](docs/developer/rating.md). Preserve null as unanswered, native names/required/reset, decorative custom icon groups and independent source-backed docs examples. Multiple rendered icons do not imply multi-selection.

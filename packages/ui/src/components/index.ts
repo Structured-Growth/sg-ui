@@ -55,6 +55,8 @@ export {
   type AppDataGridMenuAction,
   type AppDataGridProps,
   type AppDataGridRowDragConfig,
+  type AppDataGridRowDropTarget,
+  type AppDataGridRowTransferParams,
   type AppDataGridRowDragDropPosition,
   type AppDataGridRowDragReorderParams,
   type AppDataGridSelectionConfig,

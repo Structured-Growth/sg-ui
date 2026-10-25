@@ -451,7 +451,7 @@ it("reveals owned keyboard focus on native entry and shell resize, leaving outsi
   } finally { vi.unstubAllGlobals(); }
 });
 
-it("reserves card space alongside live wrapped status and reveals focus when content resizes", async () => {
+it("reserves card space for inline errors when toolbar is hidden and keeps toolbar errors out of layout", async () => {
   const observers: { callback: ResizeObserverCallback; observe: ReturnType<typeof vi.fn>; disconnect: ReturnType<typeof vi.fn> }[] = [];
   vi.stubGlobal("ResizeObserver", class {
     observe = vi.fn(); disconnect = vi.fn(); unobserve = vi.fn();
@@ -471,17 +471,22 @@ it("reserves card space alongside live wrapped status and reveals focus when con
     const shellObserver = observers.find(observer => observer.observe.mock.calls.some(([target]) => target === ref.current))!;
     // The accepted footer-entry target is a programmatic wrapper focus stop.
     card.focus();
-    rerender(<AppDataGridShell {...config} refreshing />);
+    rerender(<AppDataGridShell {...config} toolbar={{show:false}} errorMessage="Wrapped host failure" />);
     expect(document.activeElement).toBe(card);
     expect(content.style.minBlockSize).toBe("calc(4 * var(--sgui-control-height) + 152px)");
     expect(shellObserver.observe).toHaveBeenCalledWith(content);
-    const status = screen.getByRole("status");
+    const status = screen.getByRole("alert");
     const statusObserver = observers.find(observer => observer.observe.mock.calls.some(([target]) => target === status))!;
     statusHeight = 208;
     const { act } = await import("@testing-library/react");
     act(() => statusObserver.callback([], {} as ResizeObserver));
     expect(content.style.minBlockSize).toBe("calc(4 * var(--sgui-control-height) + 208px)");
-    rerender(<AppDataGridShell {...config} />);
+    rerender(<AppDataGridShell {...config} errorMessage="Toolbar failure" onRetry={vi.fn()} />);
+    expect(screen.getByRole("alert").textContent).toBe("Toolbar failure");
+    expect(screen.getByRole("button", {name:"Retry"})).toBeTruthy();
+    expect(content.style.minBlockSize).toBe("calc(4 * var(--sgui-control-height) + 0px)");
+    rerender(<AppDataGridShell {...config} refreshing />);
+    expect(screen.getByRole("button", {name:/^Refreshing rows/})).toBeTruthy();
     expect(content.style.minBlockSize).toBe("calc(4 * var(--sgui-control-height) + 0px)");
     expect(statusObserver.disconnect).toHaveBeenCalledOnce();
     expect(document.activeElement).toBe(card);
@@ -524,4 +529,51 @@ it("accepts columns-menu order requests through the controlled shell while retai
   expect(orderChange).toHaveBeenLastCalledWith(["score", "name", "site", "notes", "actions"]);
   expect(headerLabels()).toEqual(["score", "name", "site", "actions"]);
   expect((screen.getByRole("checkbox", { name: "Notes" }) as HTMLInputElement).checked).toBe(false);
+});
+
+it("automatically fixes an explicitly locked first column in the columns menu", async () => {
+  const user = userEvent.setup(); const changed = vi.fn();
+  render(<AppDataGridShell {...props} columns={[{...columns[0]!,locked:true},columns[1]!,
+    {field:"actions",headerName:"Actions",cellType:"menu",getMenuActions:()=>[]}]} onColumnOrderChange={changed}/>);
+  await user.click(screen.getByRole("button",{name:"Columns"}));
+  const checkbox=screen.getByRole("checkbox",{name:"Name"});
+  expect(checkbox).toHaveProperty("disabled",true);
+  expect(checkbox).toHaveProperty("checked",true);
+  expect(screen.queryByRole("button",{name:"Move Name down"})).toBeNull();
+  const option=checkbox.closest('[data-sgui-part="column-option"]')!;
+  expect(option.querySelector('[data-sgui-part="column-option-handle"]')).toBeNull();
+  expect(screen.getByRole("button",{name:"Move Score up"})).toHaveProperty("disabled",true);
+  await user.click(screen.getByRole("button",{name:"Move Score up"}));
+  expect(changed).not.toHaveBeenCalled();
+  expect(screen.queryByRole("button",{name:"Move Actions up"})).toBeNull();
+});
+
+it.each(["list", "cards"] as const)("shows initial loading progress only in the %s body", mode => {
+  const refresh = vi.fn();
+  const config = {...props, toolbar:{onRefresh:refresh}, view:{...props.view,mode}};
+  const {rerender}=render(<AppDataGridShell {...config} rows={[]} loading/>);
+  const toolbar=screen.getByRole("group",{name:"Data toolbar"});
+  expect(within(toolbar).queryByRole("progressbar")).toBeNull();
+  expect(within(toolbar).getByRole("button",{name:"Refresh",exact:true})).toHaveProperty("disabled",true);
+  expect(screen.getAllByRole("progressbar")).toHaveLength(1);
+  expect(screen.getByText("Loading rows")).toBeTruthy();
+  rerender(<AppDataGridShell {...config} rows={rows} loading/>);
+  expect(within(toolbar).getByRole("button",{name:/^Refreshing rows/})).toBeTruthy();
+  expect(within(toolbar).getAllByRole("progressbar")).toHaveLength(1);
+  expect(screen.getAllByRole("progressbar")).toHaveLength(1);
+});
+
+it("hides unavailable view switches and respects fixed-view toolbar settings", () => {
+  const { rerender } = render(<AppDataGridShell {...props} view={undefined} />);
+  expect(screen.queryByRole("radiogroup", { name: "View mode" })).toBeNull();
+  rerender(<AppDataGridShell {...props} view={{ ...props.view, mode: "list" }} />);
+  expect(screen.queryByRole("radiogroup", { name: "View mode" })).toBeNull();
+  expect(screen.getByRole("grid", { name: "Courses" })).toBeTruthy();
+  rerender(<AppDataGridShell {...props} toolbar={{ showViewModeToggle: false }} />);
+  expect(screen.queryByRole("radiogroup", { name: "View mode" })).toBeNull();
+  rerender(<AppDataGridShell {...props} toolbar={{ showViewModeToggle: false }} view={{ ...props.view, mode: "cards" }} />);
+  expect(screen.queryByRole("radiogroup", { name: "View mode" })).toBeNull();
+  expect(screen.getByRole("list", { name: "Courses" })).toBeTruthy();
+  rerender(<AppDataGridShell {...props} view={{ ...props.view, mode: "list", onModeChange: vi.fn() }} />);
+  expect(screen.getByRole("radiogroup", { name: "View mode" })).toBeTruthy();
 });

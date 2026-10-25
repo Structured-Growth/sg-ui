@@ -3,7 +3,6 @@
   .root[hidden] { display: none; }
   .action { position: relative; padding-inline: var(--sgui-space1); gap: 0; }
   .action[aria-pressed="true"] { background: var(--sgui-floating-text-selection-toolbar-subtle-background); color: var(--sgui-floating-text-selection-toolbar-action); }
-  .action[aria-pressed="true"]::after { content: ""; position: absolute; pointer-events: none; inset: 3px; border: 2px solid var(--sgui-floating-text-selection-toolbar-action); border-radius: inherit; }
+  @media (forced-colors: active) { .action[aria-pressed="true"]::after { content: ""; position: absolute; pointer-events: none; inset: 3px; border: 2px solid ButtonText; border-radius: inherit; } }
   @media (forced-colors: active) { .action[aria-pressed="true"] { border-color: ButtonText; } }
-  @media (forced-colors: active) { .action[aria-pressed="true"]::after { border-color: ButtonText; } }
 }

@@ -25,15 +25,15 @@ for (const forcedColors of ['none', 'active'] as const) {
       await expect(toggle).toHaveAttribute('aria-pressed', 'true');
       await expect(toggle).toHaveAttribute('data-focus-visible');
       const selected = await read();
-      expect(selected.borderStyle).toBe('double');
+      expect(selected.borderStyle).toBe('solid');
       expect(selected.borderWidth).toBe(3);
-      expect(selected.backgroundClip).toBe('padding-box');
-      // Hover and forced-color paints must not reset the selected border gap.
+      expect(selected.backgroundClip).toBe('border-box');
+      // Hover and forced-color paints must not interrupt the continuous selected fill.
       await toggle.hover();
       await expect(toggle).toHaveAttribute('data-hovered');
       const hovered = await read();
-      expect(hovered.backgroundClip).toBe('padding-box');
-      expect(hovered.borderStyle).toBe('double');
+      expect(hovered.backgroundClip).toBe('border-box');
+      expect(hovered.borderStyle).toBe('solid');
       expect(hovered.borderWidth).toBe(3);
       expect(Math.abs(hovered.width - rest.width)).toBeLessThan(0.1);
       expect(Math.abs(hovered.height - rest.height)).toBeLessThan(0.1);
@@ -67,7 +67,7 @@ for (const forcedColors of ['none', 'active'] as const) {
       // Moving native keyboard focus leaves selection geometry visible.
       await page.keyboard.press('Tab');
       await expect(toggle).toHaveAttribute('aria-pressed', 'true');
-      expect((await read()).borderStyle).toBe('double');
+      expect((await read()).borderStyle).toBe('solid');
       await toggle.focus();
       await page.keyboard.press('Space');
       await expect(toggle).toHaveAttribute('aria-pressed', 'false');

@@ -1,8 +1,9 @@
 "use client";
 
-import { forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactElement, type Ref } from "react";
+import { forwardRef, useCallback, useEffect, useLayoutEffect, useId, useMemo, useRef, useState, type CSSProperties, type ReactElement, type Ref } from "react";
 import { Table, TableHeader, Column, TableBody, Row, Cell, ResizableTableContainer, ColumnResizer, type TableRenderProps } from "react-aria-components/Table";
 import { useDragAndDrop, DropIndicator } from "react-aria-components/useDragAndDrop";
+import { DropZone } from "react-aria-components/DropZone";
 import { DataGridDragHandle } from "../AppDataGridRowDnd/DataGridDragHandle";
 import type { AppDataGridRowDragConfig } from "./types";
 import { CheckboxContext } from "react-aria-components/Checkbox";
@@ -34,6 +35,8 @@ function syncNativeBusy(node: HTMLTableElement | null, busy: boolean) {
 /** Internal catalog interaction; public AppDataGrid integration lands separately. */
 export interface OwnedGridInteractionProps<RowModel> extends OwnedGridControllerOptions<RowModel>, OwnedGridLayoutControllerOptions<RowModel> {
   dispatchTransition?: (action: OwnedGridTransition) => void;
+  /** Internal shell placement: the toolbar owns error announcement and retry. */
+  errorInToolbar?: boolean;
   processingResult?: OwnedGridProcessingResult<RowModel>;
   label: string;
   rows: readonly RowModel[];
@@ -85,8 +88,10 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const resizing = useRef<string | null>(null);
   const selectionObserver = useRef<ResizeObserver | null>(null);
   const [selectionWidth, setSelectionWidth] = useState(80);
+  const showReorderColumn = !!props.rowDrag && (!selection || props.rowDrag.showMoveButtons === true);
+  const dragCellField = selection ? "__selection" : "__reorder";
   const reorderWidth = props.rowDrag?.handleColumnWidth ?? (props.rowDrag?.showMoveButtons ? 144 : 80);
-  const measured = measureOwnedGridWidths(visible, availableWidth - (selection ? selectionWidth : 0) - (props.rowDrag ? reorderWidth : 0), layout.widths);
+  const measured = measureOwnedGridWidths(visible, availableWidth - (selection ? selectionWidth : 0) - (showReorderColumn ? reorderWidth : 0), layout.widths);
   const pointerWidths = useRef<Record<string, number>>({});
   const pointerResize = useLeadingColumnResize((snapshot, width, cancelled) => {
     if (cancelled) { setWidths(pointerWidths.current); return; }
@@ -96,6 +101,28 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const pageRows = processed.rows.map(row => ({ id: getOwnedGridRowId(row, getRowId), original: row }));
   const selectable = pageRows.filter(row => isRowSelectable?.(row.original) !== false).map(row => row.id);
   const pageSelection = getOwnedGridPageSelection(state.selectedRowIds, selectable);
+  const selectionAnchor = useRef<{id:string; page:string} | null>(null);
+  const pendingSelectionRange = useRef<{ids:string[]; checked:boolean} | null>(null);
+  const selectionPage = JSON.stringify(pageRows.map(row => row.id));
+  function prepareRowSelection(target:EventTarget,shift:boolean) {
+    pendingSelectionRange.current = null;
+    const cell = (target as HTMLElement).closest<HTMLElement>('[data-grid-field="__selection"]');
+    const id = cell?.dataset.gridRow;
+    if (!selection || !id || !cell?.querySelector("label")?.contains(target as Node) || !selectable.includes(id)) return;
+    const anchor = selectionAnchor.current;
+    if (shift && anchor?.page === selectionPage) {
+      const start = pageRows.findIndex(row => row.id === anchor.id);
+      const end = pageRows.findIndex(row => row.id === id);
+      if (start >= 0 && end >= 0) pendingSelectionRange.current = {
+        ids: pageRows.slice(Math.min(start,end),Math.max(start,end)+1)
+          .filter(row => isRowSelectable?.(row.original) !== false).map(row => row.id),
+        checked: !state.selectedRowIds.has(id),
+      };
+    }
+    // Every activated selector becomes the next anchor, including a Shift press.
+    selectionAnchor.current = {id,page:selectionPage};
+  }
+
   const focus = useRef<{ rowId?: string; field?: string; index: number; element: HTMLElement } | null>(null);
   const previousPage = useRef(state.paginationModel);
   const previousReorderEnabled = useRef(!!props.rowDrag);
@@ -230,18 +257,26 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
       }
     }
   });
+  const transfer = props.rowDrag?.mode === "transfer";
+  const dragMime = `application/x-sgui-grid-${useId().replace(/[^a-z0-9]/gi, "")}`;
+  const canTransfer = transfer && !loading && !refreshing && errorMessage === undefined;
   // Only complete, unprocessed client collections have an unambiguous host order.
-  const canReorder = !!props.rowDrag && mode === "client" && !loading && !refreshing && errorMessage === undefined &&
+  const canReorder = !!props.rowDrag && !transfer && mode === "client" && !loading && !refreshing && errorMessage === undefined &&
     !state.sortRules.length && !state.filterRules.length && !state.searchValue && state.paginationModel.page === 0 &&
     rows.length <= state.paginationModel.pageSize && processed.rowCount === rows.length;
-  const currentReorder = useRef({ rows, canReorder, rowDrag: props.rowDrag, getRowId, selectedIds: state.selectedRowIds });
-  currentReorder.current = { rows, canReorder, rowDrag: props.rowDrag, getRowId, selectedIds: state.selectedRowIds };
+  const currentReorder = useRef({ rows, dragRows: transfer ? processed.rows : rows, canReorder, canTransfer, rowDrag: props.rowDrag, getRowId, selectedIds: state.selectedRowIds });
+  currentReorder.current = { rows, dragRows: transfer ? processed.rows : rows, canReorder, canTransfer, rowDrag: props.rowDrag, getRowId, selectedIds: state.selectedRowIds };
   const dragAnchor = useRef<string | null>(null);
-  const dragSource = useRef<{ ids: string[]; id: string; rows: readonly RowModel[]; getRowId: typeof getRowId; handle: HTMLButtonElement | null } | null>(null);
+  // Native dragstart capture identifies pointer drags; a pointer press alone
+  // must not classify a later keyboard drag as pointer input.
+  const dragModality = useRef<"pointer" | "keyboard">("keyboard");
+  const dragSource = useRef<{ ids: string[]; id: string; rows: readonly RowModel[]; getRowId: typeof getRowId; handle: HTMLButtonElement | null; pointer: boolean } | null>(null);
   const cancelDropFocus = useRef<(() => void) | null>(null);
+  const cancelPointerDropFocus = useRef<(() => void) | null>(null);
+  useBrowserLayoutEffect(() => () => cancelPointerDropFocus.current?.(), []);
   useBrowserLayoutEffect(() => () => cancelDropFocus.current?.(), [rows, getRowId, canReorder]);
   const [reorderAnnouncement, setReorderAnnouncement] = useState("");
-  const pendingReorderFocus = useRef<{ id: string; label: string | null; rows: readonly RowModel[]; changed?: boolean } | null>(null);
+  const pendingReorderFocus = useRef<{ id: string; label: string | null; field?: string; rows: readonly RowModel[]; changed?: boolean } | null>(null);
   useEffect(() => {
     const saved = pendingReorderFocus.current;
     const node = container.current;
@@ -251,21 +286,22 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
     // checking again that another view has not received focus in the meantime.
     const frame = requestAnimationFrame(() => {
       if (document.activeElement !== document.body && !node.contains(document.activeElement)) { pendingReorderFocus.current = null; return; }
-      const cell = [...node.querySelectorAll<HTMLElement>("[data-grid-field='__reorder']")].find(cell => cell.dataset.gridRow === saved.id);
+      const cell = [...node.querySelectorAll<HTMLElement>(`[data-grid-field='${saved.field ?? dragCellField}']`)].find(cell => cell.dataset.gridRow === saved.id);
       const buttons = [...(cell?.querySelectorAll<HTMLButtonElement>("button:not(:disabled)") ?? [])];
-      (buttons.find(button => button.getAttribute("aria-label") === saved.label) ?? buttons[0] ?? cell)?.focus();
+      const grip = cell?.closest("tr")?.querySelector<HTMLButtonElement>("[data-sgui-part='grid-drag-handle']:not(:disabled)");
+      (buttons.find(button => button.getAttribute("aria-label") === saved.label) ?? grip ?? buttons[0] ?? cell)?.focus();
       if (buttons.length || !cell) pendingReorderFocus.current = null;
     });
     return () => cancelAnimationFrame(frame);
   }, [rows, canReorder]);
   const moveRows = (sourceId: string) => {
     const current = currentReorder.current;
-    return current.rows.filter(row => {
+    return current.dragRows.filter(row => {
       const id = getOwnedGridRowId(row, current.getRowId);
       return current.selectedIds.has(sourceId) ? current.selectedIds.has(id) : id === sourceId;
     });
   };
-  const canMoveRow = (sourceId: string) => canReorder && moveRows(sourceId).every(row => props.rowDrag?.isRowDraggable?.(row) !== false);
+  const canMoveRow = (sourceId: string) => (canReorder || canTransfer) && moveRows(sourceId).every(row => props.rowDrag?.isRowDraggable?.(row) !== false);
   const adjacentTarget = (sourceId: string, direction: "before" | "after") => {
     const sources = moveRows(sourceId);
     const edge = direction === "before" ? sources[0] : sources.at(-1);
@@ -278,42 +314,44 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
     const targetRow = current.rows.find(row => getOwnedGridRowId(row, current.getRowId) === targetId);
     const sourceRows = moveRows(sourceId);
     const sourceRowIds = sourceRows.map(row => getOwnedGridRowId(row, current.getRowId));
-    if (!current.canReorder || !current.rowDrag || sourceRow === undefined || targetRow === undefined || !sourceRows.length ||
+    if (!current.canReorder || !current.rowDrag || current.rowDrag.mode === "transfer" || sourceRow === undefined || targetRow === undefined || !sourceRows.length ||
       sourceRowIds.includes(targetId) || sourceRows.some(row => current.rowDrag?.isRowDraggable?.(row) === false) ||
       (capturedIds && (capturedIds.length !== sourceRowIds.length || capturedIds.some((id, index) => id !== sourceRowIds[index])))) return;
     const remaining = current.rows.filter(row => !sourceRows.includes(row));
     const targetIndex = remaining.indexOf(targetRow);
     remaining.splice(targetIndex + (position === "after" ? 1 : 0), 0, ...sourceRows);
     if (remaining.every((row, index) => row === current.rows[index])) return;
-    if (container.current?.contains(document.activeElement)) {
-      pendingReorderFocus.current = { id: sourceId, label: document.activeElement?.getAttribute("aria-label") ?? null, rows: current.rows };
+    if (!dragSource.current?.pointer && container.current?.contains(document.activeElement)) {
+      pendingReorderFocus.current = { id: sourceId, label: document.activeElement?.getAttribute("aria-label") ?? null, field: document.activeElement?.closest<HTMLElement>("[data-grid-field]")?.dataset.gridField, rows: current.rows };
     }
     current.rowDrag.onReorder({ sourceRow, sourceRowId: sourceId, sourceRows, sourceRowIds, targetRow, targetRowId: targetId, position });
     setReorderAnnouncement(sourceRows.length > 1
       ? t("common.ui.grid.reorderGroupRequested", { defaultMessage: "Move requested for {count} rows", values: { count: sourceRows.length } })
       : t("common.ui.grid.reorderRequested", { defaultMessage: "Move requested for {label}", values: { label: getRowLabel(sourceRow) } }));
   };
-  const { dragAndDropHooks } = useDragAndDrop({ isDisabled: !canReorder || props.rowDrag?.dragDisabled === true,
+  const { dragAndDropHooks } = useDragAndDrop({ isDisabled: !(canReorder || canTransfer) || props.rowDrag?.dragDisabled === true,
     renderDragPreview: items => ({
       element: <span className={styles.dragPreview} data-sgui-part="grid-row-drag-preview">{t("common.ui.grid.dragRowCount", { defaultMessage: "{count, plural, one {# row} other {# rows}}", values: { count: items.length } })}</span>,
       x: -4, y: 16,
     }),
     getItems: keys => [...keys].map(key => {
       const row = rows.find(row => getOwnedGridRowId(row, getRowId) === String(key));
-      return { "text/plain": row === undefined ? "" : props.rowDrag?.getRowLabel?.(row) ?? getRowLabel(row) };
+      return { "text/plain": row === undefined ? "" : props.rowDrag?.getRowLabel?.(row) ?? getRowLabel(row), ...(transfer ? {[dragMime]: String(key)} : {}) };
     }),
-    getAllowedDropOperations: () => ["move"],
-    getDropOperation: target => target.type === "item" && target.dropPosition !== "on" ? "move" : "cancel",
+    getAllowedDropOperations: () => transfer ? ["copy", "move"] : ["move"],
+    getDropOperation: target => !transfer && target.type === "item" && target.dropPosition !== "on" ? "move" : "cancel",
     onDragStart: event => {
       cancelDropFocus.current?.();
+      cancelPointerDropFocus.current?.();
+      if (dragModality.current === "pointer") pendingReorderFocus.current = null;
       const id = dragAnchor.current && event.keys.has(dragAnchor.current) ? dragAnchor.current : String([...event.keys][0] ?? "");
-      const ids = rows.filter(row => event.keys.has(getOwnedGridRowId(row, getRowId))).map(row => getOwnedGridRowId(row, getRowId));
+      const ids = (transfer ? processed.rows : rows).filter(row => event.keys.has(getOwnedGridRowId(row, getRowId))).map(row => getOwnedGridRowId(row, getRowId));
       const source = rows.find(row => getOwnedGridRowId(row, getRowId) === id);
-      const cell = [...(container.current?.querySelectorAll<HTMLElement>("[data-grid-field='__reorder']") ?? [])].find(cell => cell.dataset.gridRow === id);
+      const cell = [...(container.current?.querySelectorAll<HTMLElement>(`[data-grid-field='${dragCellField}']`) ?? [])].find(cell => cell.dataset.gridRow === id);
       const handle = cell?.querySelector<HTMLButtonElement>("[data-sgui-part='grid-drag-handle']") ?? null;
-      dragSource.current = canMoveRow(id) && !props.rowDrag?.dragDisabled && source !== undefined ? { ids, id, rows, getRowId, handle } : null;
+      dragSource.current = canMoveRow(id) && !props.rowDrag?.dragDisabled && source !== undefined ? { ids, id, rows, getRowId, handle, pointer: dragModality.current === "pointer" } : null;
     },
-    onReorder: event => {
+    onReorder: transfer ? undefined : event => {
       const saved = dragSource.current;
       // A response/replacement during a drag invalidates its captured order.
       if (saved && !currentReorder.current.rowDrag?.dragDisabled && saved.rows === currentReorder.current.rows && saved.getRowId === currentReorder.current.getRowId && event.keys.size === saved.ids.length && saved.ids.every(id => event.keys.has(id)) && event.target.dropPosition !== "on")
@@ -322,8 +360,44 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
     onDragEnd: event => {
       const saved = dragSource.current;
       dragSource.current = null;
+      dragModality.current = "keyboard";
       cancelDropFocus.current?.();
+      cancelPointerDropFocus.current?.();
       const node = container.current;
+      if (saved?.pointer && node) {
+        // Native drag completion may replay collection focus onto any grip.
+        // Pointer drops do not own keyboard focus; release only that replay,
+        // and stop observing as soon as the user makes another input choice.
+        let frame: number | null = null;
+        const cancel = () => {
+          if (frame !== null) cancelAnimationFrame(frame);
+          frame = null;
+          document.removeEventListener("focusin", onFocus, true);
+          document.removeEventListener("pointerdown", cancel, true);
+          document.removeEventListener("keydown", cancel, true);
+          if (cancelPointerDropFocus.current === cancel) cancelPointerDropFocus.current = null;
+        };
+        const schedule = () => {
+          if (frame !== null) cancelAnimationFrame(frame);
+          frame = requestAnimationFrame(() => {
+            frame = null;
+            if (!node.isConnected) { cancel(); return; }
+            const active = document.activeElement;
+            if (active instanceof HTMLElement && node.contains(active) && active.matches("[data-sgui-part='grid-drag-handle']")) active.blur();
+          });
+        };
+        const onFocus = (event: FocusEvent) => {
+          if (!(event.target instanceof HTMLElement)) return;
+          if (node.contains(event.target) && event.target.matches("[data-sgui-part='grid-drag-handle']")) schedule();
+          else if (!node.contains(event.target) && event.target !== document.body) cancel();
+        };
+        cancelPointerDropFocus.current = cancel;
+        document.addEventListener("focusin", onFocus, true);
+        document.addEventListener("pointerdown", cancel, true);
+        document.addEventListener("keydown", cancel, true);
+        schedule();
+        return;
+      }
       const handle = saved?.handle;
       const sourceRow = handle?.closest<HTMLElement>("tr[data-grid-row]");
       if (!saved || !node || !handle?.isConnected || handle.disabled || !sourceRow || sourceRow.dataset.gridRow !== saved.id || !node.contains(handle) ||
@@ -345,7 +419,7 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
         // key. Align that internal key before DragManager restores/replays the
         // source handle, without focusing a cell or changing selected rows.
         const interaction = tableState.current;
-        const column = interaction?.collection.columns.find(column => column.key === "__reorder");
+        const column = interaction?.collection.columns.find(column => column.key === dragCellField);
         const cell = column ? [...(interaction?.collection.getChildren?.(saved.id) ?? [])].find(cell => cell.index === column.index) : undefined;
         if (cell) interaction?.selectionManager.setFocusedKey(cell.key);
       }
@@ -362,7 +436,7 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
         frame = requestAnimationFrame(() => {
           frame = null;
           const current = currentReorder.current;
-          if (!node.isConnected || !handle.isConnected || handle.disabled || !current.canReorder ||
+          if (!node.isConnected || !handle.isConnected || handle.disabled || !(current.canReorder || current.canTransfer) ||
             current.rows !== snapshot.rows || current.getRowId !== snapshot.getRowId || !sourceRow.contains(handle) || sourceRow.dataset.gridRow !== saved.id) { cancel(); return; }
           // Restore only our source entry. A host/other control owns any other
           // focus, including a deliberate move followed by removal to body.
@@ -392,7 +466,21 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const noRows = pageRows.length === 0;
   const status = errorMessage !== undefined ? "error" : loading && noRows ? "loading" : refreshing || loading ? "refreshing" :
     noRows ? (state.searchValue || state.filterRules.length ? "noResults" : "empty") : undefined;
-  return <div ref={root} className={styles.root} onBlurCapture={event => {
+  const renderGrip = (row: {id:string; original:RowModel}) => props.rowDrag && <span className={styles.gripOwner}
+    onPointerDownCapture={() => { dragAnchor.current = row.id; }} onFocusCapture={() => { dragAnchor.current = row.id; }}>
+    <DataGridDragHandle className={styles.inlineGrip} slot="drag"
+      label={transfer ? t("common.ui.grid.transferRow", {defaultMessage:"Drag {label}",values:{label:props.rowDrag.getRowLabel?.(row.original) ?? getRowLabel(row.original)}}) : t("common.ui.dragRow", {defaultMessage:"Reorder {label}",values:{label:props.rowDrag.getRowLabel?.(row.original) ?? getRowLabel(row.original)}})}
+      disabled={!canMoveRow(row.id) || props.rowDrag.dragDisabled}/>
+  </span>;
+  return <div ref={root} className={styles.root}
+    onDragStartCapture={() => { dragModality.current = "pointer"; }}
+    onPointerDownCapture={event => { dragModality.current = "keyboard"; prepareRowSelection(event.target,event.shiftKey); }}
+    onPointerCancelCapture={() => { pendingSelectionRange.current = null; }}
+    onKeyDownCapture={event => {
+      dragModality.current = "keyboard";
+      if (event.key === " " || event.key === "Enter") prepareRowSelection(event.target,event.shiftKey);
+      else pendingSelectionRange.current = null;
+    }} onBlurCapture={event => {
       // A deliberate move to a host control or another grid ends our ownership.
       // A removed focused node has no related target and still needs repair.
       if (event.relatedTarget instanceof Node && !root.current?.contains(event.relatedTarget)) {
@@ -411,7 +499,33 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
       const cell = element.closest<HTMLElement>("[data-grid-field]");
       focus.current = { rowId: cell?.dataset.gridRow, field: cell?.dataset.gridField, element,
         index: cell ? [...cell.querySelectorAll("button, a, input, [role='slider']")].indexOf(element) : -1 };
-    }}>{status && !noRows && <OwnedGridStatus ref={statusNode} state={status} message={errorMessage} onRetry={onRetry} />}
+    }}>{status && !noRows && !(status === "error" && props.errorInToolbar) && <OwnedGridStatus ref={statusNode} state={status} message={errorMessage} onRetry={onRetry} />}
+    {props.rowDrag?.mode === "transfer" && <div className={styles.transferTargets}>
+      {props.rowDrag.dropTargets.map(target => <DropZone key={target.id} aria-label={t("common.ui.grid.dropRows",{defaultMessage:"Drop rows: {label}",values:{label:target.label}})}
+        className={styles.transferTarget} isDisabled={target.disabled || !canTransfer || props.rowDrag?.dragDisabled}
+        getDropOperation={types => types.has(dragMime) ? target.operation ?? "copy" : "cancel"}
+        onDrop={async event => {
+          const saved = dragSource.current;
+          if (!saved) return;
+          const ids = await Promise.all(event.items.map(item => item.kind === "text" && item.types.has(dragMime) ? item.getText(dragMime).catch(() => null) : Promise.resolve(null)));
+          const current = currentReorder.current;
+          const config = current.rowDrag;
+          if (config?.mode !== "transfer" || !current.canTransfer || config.dragDisabled || current.rows !== saved.rows || current.getRowId !== saved.getRowId || ids.length !== saved.ids.length || new Set(ids).size !== saved.ids.length || ids.some(id => id === null || !saved.ids.includes(id))) return;
+          const destination = config.dropTargets.find(item => item.id === target.id);
+          const sources = moveRows(saved.id);
+          if (!destination || destination.disabled || event.dropOperation !== (destination.operation ?? "copy") || sources.length !== saved.ids.length || sources.some(row => !saved.ids.includes(getOwnedGridRowId(row,current.getRowId)) || config.isRowDraggable?.(row) === false)) return;
+          config.onDrop({sourceRows:sources,sourceRowIds:saved.ids,targetId:target.id,operation:destination.operation ?? "copy"});
+        }}>
+        <Button variant="outlined" tone="neutral" disabled={target.disabled || !canTransfer || props.rowDrag?.dragDisabled || !processed.rows.some(row => state.selectedRowIds.has(getOwnedGridRowId(row,getRowId))) || processed.rows.some(row => state.selectedRowIds.has(getOwnedGridRowId(row,getRowId)) && props.rowDrag?.isRowDraggable?.(row) === false)}
+          onPress={() => {
+            const config = currentReorder.current.rowDrag;
+            if (config?.mode !== "transfer") return;
+            const sources = processed.rows.filter(row => state.selectedRowIds.has(getOwnedGridRowId(row,getRowId)));
+            if (!sources.length || sources.some(row => config.isRowDraggable?.(row) === false)) return;
+            config.onDrop({sourceRows:sources,sourceRowIds:sources.map(row => getOwnedGridRowId(row,getRowId)),targetId:target.id,operation:target.operation ?? "copy"});
+          }}>{target.label}</Button>
+      </DropZone>)}
+    </div>}
     {/* Firefox otherwise inserts an implicit Tab stop on the native scroll pane.
         The table owns collection entry; the pane remains programmatically focusable. */}
     <ResizableTableContainer ref={setContainer} className={[styles.container, className].filter(Boolean).join(" ")} style={style}
@@ -427,12 +541,20 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
     {/* React Aria requires a stable hook surface within each Table instance.
         Recreate only when the host enables/disables reorder, retaining the outer
         container and repairing its focused cell in the layout effect above. */}
-    <Table key={props.rowDrag ? "reorder" : "ordinary"} ref={setTable} dragAndDropHooks={props.rowDrag ? dragAndDropHooks : undefined} aria-label={label} className={({ state: interaction }) => { tableState.current = interaction; return styles.table; }}
+    <Table key={props.rowDrag ? (transfer ? "transfer" : "reorder") : "ordinary"} ref={setTable} dragAndDropHooks={props.rowDrag ? dragAndDropHooks : undefined} aria-label={label} className={({ state: interaction }) => { tableState.current = interaction; return styles.table; }}
       sortDescriptor={state.sortRules[0] ? { column: state.sortRules[0].field, direction: state.sortRules[0].direction === "asc" ? "ascending" : "descending" } : undefined}
       onSortChange={sort => dispatch({ type: "sort", value: changeOwnedGridHeaderSort(state.sortRules, String(sort.column), sort.direction === "ascending" ? "asc" : "desc") })}
       selectionMode={selection ? "multiple" : "none"} selectionBehavior="toggle"
       selectedKeys={state.selectedRowIds} disabledKeys={pageRows.filter(row => isRowSelectable?.(row.original) === false).map(row => row.id)} disabledBehavior="selection"
       onSelectionChange={keys => {
+        // Apply the destination checkbox's next state to the inclusive interval.
+        // Other selections remain intact; the last Shift destination is the next anchor.
+        const range = pendingSelectionRange.current;
+        pendingSelectionRange.current = null;
+        if (range) {
+          dispatch({ type: "selection", value: selectOwnedGridPage(state.selectedRowIds,range.ids,range.checked) });
+          return;
+        }
         // React Aria operates on the loaded collection; retained IDs belong to SGUI.
         const selected = keys === "all" ? new Set(selectable) : new Set([...keys].map(String));
         const next = selectOwnedGridPage(state.selectedRowIds, selectable, false);
@@ -452,7 +574,7 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
               { id: "none", label: props.selectNoneLabel ?? t("common.ui.selectNone", { defaultMessage: "None" }) }]}
             onAction={id => dispatch({ type: "selection", value: id === "page" ? selectOwnedGridPage(state.selectedRowIds, selectable, true) : new Set() })} /></div>
         </Column>}
-        {props.rowDrag && <Column id="__reorder" width={reorderWidth} minWidth={reorderWidth} maxWidth={reorderWidth} className={styles.header} textValue={t("common.ui.grid.reorder", { defaultMessage: "Reorder" })}>{t("common.ui.grid.reorder", { defaultMessage: "Reorder" })}</Column>}
+        {showReorderColumn && <Column id="__reorder" width={reorderWidth} minWidth={reorderWidth} maxWidth={reorderWidth} className={styles.header} textValue={t("common.ui.grid.reorder", { defaultMessage: "Reorder" })}>{props.rowDrag?.showMoveButtons ? t("common.ui.grid.reorder", { defaultMessage: "Reorder" }) : null}</Column>}
         {visible.map((column, index) => {
           const direction = state.sortRules.find(rule => rule.field === column.field)?.direction;
           return <Column key={column.field} id={column.field} isRowHeader={index === 0} textValue={column.headerName ?? column.field}
@@ -466,21 +588,21 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
                 pointerWidths.current = layout.widths;
                 pointerResize.start(event, { field: column.field, widths: measured, min: column.minWidth ?? 80, max: column.maxWidth });
               }} onPointerMove={pointerResize.move} onPointerUp={pointerResize.end} onPointerCancel={pointerResize.cancel} onLostPointerCapture={pointerResize.lost} onKeyDownCapture={() => { resizing.current = column.field; }}><ColumnResizer className={styles.resizer} aria-label={t("common.ui.resizeColumn", { defaultMessage: "Resize {label}", values: { label: column.headerName ?? column.field } })}
-                /></span> : (index > 0 || selection || props.rowDrag) ? <span className={styles.resizeHandle} aria-hidden="true" data-sgui-part="inactive-column-divider"><span className={styles.resizer} data-disabled="true" /></span> : null}
+                /></span> : (index > 0 || (!layout.lockedFields.includes(column.field) && (selection || showReorderColumn))) ? <span className={styles.resizeHandle} aria-hidden="true" data-sgui-part="inactive-column-divider"><span className={styles.resizer} data-disabled="true" /></span> : null}
             </div>
           </Column>;
         })}
 
       </TableHeader>
-      <TableBody items={pageRows} dependencies={[visible, state.selectedRowIds, locale, timeZone, formatDate, getRowLabel, props.rowDrag, canReorder]} renderEmptyState={() => <OwnedGridStatus ref={statusNode} state={status ?? "empty"} message={errorMessage} onRetry={onRetry} />}>
+      <TableBody items={pageRows} dependencies={[visible, state.selectedRowIds, locale, timeZone, formatDate, getRowLabel, props.rowDrag, canReorder, canTransfer]} renderEmptyState={() => status === "error" && props.errorInToolbar ? null : <OwnedGridStatus ref={statusNode} state={status ?? "empty"} message={errorMessage} onRetry={onRetry} />}>
         {row => <Row id={row.id} textValue={getRowLabel(row.original)} className={styles.row} data-sgui-part="grid-row" data-grid-row={row.id}>
           {selection && <Cell className={[styles.cell, styles.selection].join(" ")} data-grid-field="__selection" data-grid-row={row.id}>
-            <Checkbox slot="selection" label={t("common.ui.selectRow", { defaultMessage: "Select {label}", values: { label: getRowLabel(row.original) } })} />
+            <div className={styles.selectionControls}>{renderGrip(row)}<Checkbox slot="selection" label={t("common.ui.selectRow", { defaultMessage: "Select {label}", values: { label: getRowLabel(row.original) } })} /></div>
           </Cell>}
-          {props.rowDrag && <Cell className={styles.cell} data-grid-field="__reorder" data-grid-row={row.id}>
+          {props.rowDrag && showReorderColumn && <Cell className={styles.cell} data-grid-field="__reorder" data-grid-row={row.id}>
             <div className={styles.reorderControls} onPointerDownCapture={() => { dragAnchor.current = row.id; }} onFocusCapture={() => { dragAnchor.current = row.id; }}>
-              <DataGridDragHandle slot="drag" label={t("common.ui.dragRow", { defaultMessage: "Reorder {label}", values: { label: props.rowDrag.getRowLabel?.(row.original) ?? getRowLabel(row.original) } })} disabled={!canMoveRow(row.id) || props.rowDrag.dragDisabled} />
-              {props.rowDrag.showMoveButtons && <><Button variant="text" tone="neutral" density="compact" disabled={!canMoveRow(row.id) || !adjacentTarget(row.id, "before")}
+              {!selection && renderGrip(row)}
+              {!transfer && props.rowDrag.showMoveButtons && <><Button variant="text" tone="neutral" density="compact" disabled={!canMoveRow(row.id) || !adjacentTarget(row.id, "before")}
                 aria-label={t("common.ui.moveUp", { defaultMessage: "Move {label} up", values: { label: getRowLabel(row.original) } })}
                 onPress={() => requestReorder(row.id, getOwnedGridRowId(adjacentTarget(row.id, "before")!, getRowId), "before")}>↑</Button>
               <Button variant="text" tone="neutral" density="compact" disabled={!canMoveRow(row.id) || !adjacentTarget(row.id, "after")}

@@ -6,6 +6,7 @@ export { Dialog, type DialogProps, type DialogDismissReason } from "./Dialog/Dia
 export { Popover, type PopoverProps } from "./Popover/Popover";
 export { Tabs, type TabsProps, type TabItem } from "./Tabs/Tabs";
 export { ComboBox, type ComboBoxProps, type ComboBoxOption } from "./ComboBox/ComboBox";
+export { SearchableSelect, type SearchableSelectProps, type SearchableSelectOption, type SearchableSelectFilter } from "./SearchableSelect/SearchableSelect";
 export { AsyncMultiSelect, type AsyncMultiSelectProps, type MultiSelectOption } from "./AsyncMultiSelect/AsyncMultiSelect";
 export { DateRangeSelector, type DateRangeSelectorProps } from "./DateRangeSelector/DateRangeSelector";
 export { getDateRangeLength, isDateOnly, isDateRangeAllowed, dateTimeToInstant, type DateOnly, type DateRange, type DateAvailability, type DateRangePreset, type DateRangePresetGroup, type DateRangeLength, type DateRangeConstraints, type DateAvailabilityRule, type DateAvailabilityContext } from "./DateRangeSelector/date-contract";
@@ -63,3 +64,7 @@ export {MonthPicker,type MonthPickerProps} from "./MonthPicker/MonthPicker";
 export {YearPicker,type YearPickerProps} from "./YearPicker/YearPicker";
 
 export { HierarchicalMenu, type HierarchicalMenuProps, type HierarchicalMenuItem, type HierarchicalMenuLevel, type HierarchicalMenuSection } from "./HierarchicalMenu";
+
+export { Slider, type SliderProps, type SliderMark } from "./Slider/Slider";
+
+export {Rating, type RatingProps, type RatingOption} from "./Rating/Rating";

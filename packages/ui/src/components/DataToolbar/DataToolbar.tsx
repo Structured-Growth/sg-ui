@@ -31,6 +31,11 @@ export type DataToolbarProps = {
   showViewModeToggle?: boolean;
   onRefresh?: () => void;
   showRefreshButton?: boolean;
+  /** Replace the refresh icon with pending progress; the host owns the request lifecycle. */
+  refreshing?: boolean;
+  /** Host-translated request failure, displayed beside its retry action. */
+  errorMessage?: string;
+  onRetry?: () => void;
   showColumnsButton?: boolean;
   showSortButton?: boolean;
   showFilterButton?: boolean;
@@ -52,7 +57,7 @@ export type DataToolbarProps = {
 
 
 export const DataToolbar = forwardRef<HTMLDivElement, DataToolbarProps>(function DataToolbar({
- viewMode, onViewModeChange, showViewModeToggle, onRefresh, showRefreshButton = true,
+ viewMode, onViewModeChange, showViewModeToggle, onRefresh, showRefreshButton = true, refreshing = false, errorMessage, onRetry,
  showColumnsButton = true, showSortButton = true, showFilterButton = true, showSearchButton = true,
  leftContent, leftContentWhenSelected, searchPlaceholder, searchValue, onSearchValueChange,
  columnOptions, onColumnOptionsChange, sortOptions, sortRules, onSortRulesChange,
@@ -61,12 +66,14 @@ export const DataToolbar = forwardRef<HTMLDivElement, DataToolbarProps>(function
  const { t, useNamespace } = useTranslation();
  useNamespace("common.ui");
  const tr = (key: string, defaultMessage: string) => t(key, { defaultMessage, namespace: "common.ui" });
- const canToggleViewMode = showViewModeToggle ?? Boolean(viewMode && onViewModeChange);
+ const canToggleViewMode = showViewModeToggle !== false && Boolean(viewMode && onViewModeChange);
  return <div ref={ref} role="group" aria-label={accessibleName ?? tr("common.ui.toolbar.label", "Data toolbar")}
   className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="data-toolbar">
   <div className={styles.actions}>
-   {showRefreshButton && <Button variant="text" tone="neutral" density="compact" aria-label={tr("common.ui.toolbar.refresh", "Refresh")}
-    disabled={!onRefresh} onPress={onRefresh}><CachedIcon /></Button>}
+   {(showRefreshButton || (errorMessage !== undefined && onRetry)) && <Button className={styles.refresh} variant="text" tone="neutral" density="compact"
+    aria-label={refreshing ? tr("common.ui.toolbar.refreshing", "Refreshing rows") : errorMessage !== undefined ? tr("common.ui.grid.retry", "Retry") : tr("common.ui.toolbar.refresh", "Refresh")}
+    loading={refreshing} disabled={!(errorMessage !== undefined ? onRetry : onRefresh) && !refreshing} onPress={errorMessage !== undefined ? onRetry : onRefresh}>{refreshing ? null : <CachedIcon />}</Button>}
+   {errorMessage !== undefined && <span role="alert" className={styles.error} title={errorMessage}>{errorMessage}</span>}
    {leftContentWhenSelected ?? leftContent}
    {selectedCount !== undefined && selectedCount > 0 && <span role="status" className={styles.selected}>
     {t("common.ui.toolbar.selected", { defaultMessage: "{count} selected", values: { count: selectedCount }, namespace: "common.ui" })}</span>}

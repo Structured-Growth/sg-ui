@@ -172,3 +172,31 @@ it("keeps placeholder, native edits and reset with decorative icons outside the 
  await user.tab();expect(document.activeElement).toBe(screen.getByRole("button",{name:"Reset"}));
  await user.click(screen.getByRole("button",{name:"Reset"}));await waitFor(()=>expect(input.value).toBe(""));
 });
+
+it("keeps fixed currency affixes outside edits, accessible naming, native data and reset",async()=>{
+ const user=userEvent.setup(),change=vi.fn();
+ render(<form data-testid="affixes"><TextField label="Amount in whole US dollars" name="amount" prefix="$" suffix=".00" affixAppearance="subtle" inputMode="numeric" pattern="[0-9]+" description="Enter whole dollars, without cents." defaultValue="25" onValueChange={change}/><button type="reset">Reset amount</button></form>);
+ const input=screen.getByRole('textbox',{name:'Amount in whole US dollars'}) as HTMLInputElement;
+ expect(input.value).toBe('25');expect(input.inputMode).toBe('numeric');
+ expect(screen.getByText('$').getAttribute('aria-hidden')).toBe('true');
+ expect(screen.getByText('.00').getAttribute('aria-hidden')).toBe('true');
+ await user.type(input,'0');expect(change).toHaveBeenLastCalledWith('250');
+ expect(new FormData(screen.getByTestId('affixes') as HTMLFormElement).get('amount')).toBe('250');
+ await user.tab();expect(document.activeElement).toBe(screen.getByRole('button'));
+ change.mockClear();await user.click(screen.getByRole('button'));
+ await waitFor(()=>expect(input.value).toBe('25'));expect(change).not.toHaveBeenCalled();
+});
+it("accepts icon affixes and zero text while preserving controlled values and blocked states",async()=>{
+ const user=userEvent.setup(),change=vi.fn();
+ const {rerender}=render(<TextField label="Distance in km" prefix={<svg role="img" aria-label="Location"/>} suffix="km" value="40" onValueChange={change} invalid errorMessage="Review the distance"/>);
+ const input=screen.getByRole('textbox',{name:'Distance in km'}) as HTMLInputElement;
+ expect(screen.queryByRole('img')).toBeNull();
+ expect(input.getAttribute('aria-invalid')).toBe('true');
+ expect(document.getElementById(input.getAttribute('aria-describedby')!)?.textContent).toContain('Review the distance');
+ await user.type(input,'5');expect(change).toHaveBeenLastCalledWith('405');expect(input.value).toBe('40');change.mockClear();
+ rerender(<TextField label="Distance in km" prefix={0} suffix="km" value="40" onValueChange={change} readOnly/>);
+ expect(screen.getByText('0').getAttribute('aria-hidden')).toBe('true');
+ await user.type(input,'1');expect(change).not.toHaveBeenCalled();
+ rerender(<TextField label="Distance in km" prefix="$" suffix=".00" value="40" onValueChange={change} disabled/>);
+ await user.click(input);expect(change).not.toHaveBeenCalled();expect(input.disabled).toBe(true);
+});

@@ -40,7 +40,7 @@ test('range field playground: week policy, bounds, native submission and button 
  await input.fill('last week');await input.press('Enter');await expect(input).toHaveValue('10/04/2026 – 10/10/2026');
  await panel.getByRole('textbox',{name:'Relative reference date',exact:true}).fill('2026-10-23');await expect(input).toHaveValue('10/04/2026 – 10/10/2026');
  await input.fill('last week');await input.press('Enter');await expect(input).toHaveValue('10/11/2026 – 10/17/2026');
- const bounds=panel.getByRole('checkbox',{name:'Limit to October 2026',exact:true});await bounds.focus();await bounds.press('Space');await expect(bounds).toBeChecked();await input.fill('last year');await input.press('Tab');await expect(input).toHaveAttribute('aria-invalid','true');
+ await panel.getByRole('button',{name:/Earliest selectable date/}).click();await page.getByRole('option',{name:'Today',exact:true}).click();await input.fill('last year');await input.press('Tab');await expect(input).toHaveAttribute('aria-invalid','true');
  await panel.getByRole('button',{name:/Range field/}).click();await page.getByRole('option',{name:'Selection button',exact:true}).click();await expect(input).toHaveCount(0);
  await expect(preview.getByRole('button',{name:'Choose Course schedule',exact:true})).toContainText('10/11/2026 – 10/17/2026');
  await panel.getByRole('button',{name:'Show source: Prop playground',exact:true}).click();const source=(await panel.getByRole('code').textContent())!;expect(source).toContain('fieldMode="button"');expect(checkSources([{slug:'range-button',source}])).toEqual([]);

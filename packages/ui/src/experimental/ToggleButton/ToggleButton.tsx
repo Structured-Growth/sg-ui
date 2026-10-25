@@ -37,6 +37,8 @@ export interface ToggleButtonGroupProps extends Pick<HTMLAttributes<HTMLDivEleme
   orientation?: "horizontal" | "vertical";
   /** Equal widths follow the widest option by default; content sizes each button independently. */
   buttonWidth?: "equal" | "content";
+  /** Stagger alternating options across two rows (horizontal) or columns (vertical), using equal widths. */
+  layout?: "inline" | "staggered";
   /** Hide visible labels for options with icons; labels remain accessible names. */
   iconOnly?: boolean;
   density?: Density;
@@ -44,15 +46,16 @@ export interface ToggleButtonGroupProps extends Pick<HTMLAttributes<HTMLDivEleme
 /** Owns string IDs and callbacks; upstream collection and state types stay internal. */
 export const ToggleButtonGroup = forwardRef<HTMLDivElement, ToggleButtonGroupProps>(function ToggleButtonGroup(
   { label, options, selectionMode = "single", selectedIds, defaultSelectedIds, onSelectionChange,
-    allowEmpty = true, disabled, orientation = "horizontal", buttonWidth = "equal", iconOnly = false, density, className, ...props }, ref,
+    allowEmpty = true, disabled, orientation = "horizontal", buttonWidth = "equal", layout = "inline", iconOnly = false, density, className, ...props }, ref,
 ) {
+  const staggered = layout === "staggered";
   return <AriaToggleButtonGroup {...props} ref={ref} aria-label={label} selectionMode={selectionMode}
     selectedKeys={selectedIds} defaultSelectedKeys={defaultSelectedIds}
     onSelectionChange={keys => onSelectionChange?.([...keys].map(String))}
     disallowEmptySelection={!allowEmpty} isDisabled={disabled} orientation={orientation}
     className={[styles.group, className].filter(Boolean).join(" ")}
-    data-sgui-density={density} data-button-width={buttonWidth} data-sgui-part="toggle-button-group">
-    {options.map(option => <ToggleButton key={option.id} id={option.id} disabled={option.disabled}
+    data-sgui-density={density} data-layout={staggered ? "staggered" : "inline"} style={{...props.style, ...(staggered ? orientation === "horizontal" ? {gridTemplateColumns: `repeat(${Math.max(4, options.length * 3 + 1)}, 1fr)`} : {gridTemplateRows: `repeat(${Math.max(4, options.length * 3 + 1)}, 1fr)`} : {})}} data-button-width={staggered ? "equal" : buttonWidth} data-sgui-part="toggle-button-group">
+    {options.map((option, index) => <ToggleButton key={option.id} id={option.id} style={staggered ? orientation === "horizontal" ? {gridColumn: `${index * 3 + 1} / span 4`, gridRow: index % 2 + 1} : {gridRow: `${index * 3 + 1} / span 4`, gridColumn: index % 2 + 1} : undefined} disabled={option.disabled}
       aria-label={iconOnly && option.icon ? option.label : undefined} title={iconOnly && option.icon ? option.label : undefined}
       data-icon-only={iconOnly && option.icon ? true : undefined}>
       {option.icon && <span aria-hidden="true" className={styles.icon}>{option.icon}</span>}{(!iconOnly || !option.icon) && option.label}

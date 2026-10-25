@@ -34,7 +34,6 @@ test('first shell header replaces its second action and reveals a third for sele
  expect(await overview.evaluate(element=>element.scrollTop)).toBe(0);
  for(const width of [1440,390,320]){
   await page.setViewportSize({width,height:1000});
-  await expect(overview.locator('[data-sgui-part="data-grid-shell"]')).toHaveCSS('min-height','1200px');
   const previews=await page.locator('[data-sgui-part="data-grid-shell"]').evaluateAll(shells=>shells.filter(shell=>shell.getBoundingClientRect().height>0).map(shell=>{
    const pane=shell.querySelector('[data-sgui-part="grid-container"]');
    const rows=pane?.querySelectorAll('tbody tr[data-grid-row]');
@@ -49,11 +48,11 @@ test('first shell header replaces its second action and reveals a third for sele
      ancestor=ancestor.parentElement;
     }
    }
-   return {ancestorsFit,label:shell.querySelector('[role="grid"]')?.getAttribute("aria-label"),height:shell.getBoundingClientRect().height,sixthFits:!sixth||!bounds||sixth.bottom<=bounds.bottom+1};
+   return {ancestorsFit,label:shell.querySelector('[role="grid"]')?.getAttribute("aria-label"),height:shell.getBoundingClientRect().height,blankSpace:sixth&&bounds?bounds.bottom-sixth.bottom:0,sixthFits:!sixth||!bounds||sixth.bottom<=bounds.bottom+1};
   }));
   expect(previews.length).toBeGreaterThan(0);
   expect(previews.every(preview=>preview.ancestorsFit),`${width}px sixth row is not clipped by any preview ancestor`).toBe(true);
-  expect(previews.filter(preview=>preview.height<1199.9),`${width}px samples retain their requested height`).toEqual([]);
+  expect(previews.filter(preview=>preview.blankSpace>2),`${width}px grid ends immediately after its rows`).toEqual([]);
   expect(previews.every(preview=>preview.sixthFits),`${width}px first six rows fit in every sample`).toBe(true);
   for(const selected of [false,true]){
    if(selected)await select('Select Course 1');

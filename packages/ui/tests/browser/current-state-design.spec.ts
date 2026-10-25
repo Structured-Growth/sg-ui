@@ -16,7 +16,7 @@ async function snapshot(element:Locator,marker:Marker){
   const css=getComputedStyle(node),mark=marker==='border'?css:getComputedStyle(node,marker==='start'?'::before':'::after'),box=node.getBoundingClientRect();
   let surface='';for(let ancestor:Element|null=node;ancestor;ancestor=ancestor.parentElement){const value=getComputedStyle(ancestor).backgroundColor;if(value!=='transparent'&&value!=='rgba(0, 0, 0, 0)'){surface=value;break;}}
   if(!surface){const probe=node.ownerDocument.createElement('span');probe.style.backgroundColor='Canvas';node.ownerDocument.body.append(probe);surface=getComputedStyle(probe).backgroundColor;probe.remove();}
-  return {width:box.width,height:box.height,direction:css.direction,controlMinHeight:css.minBlockSize,outlineWidth:parseFloat(css.outlineWidth),outlineStyle:css.outlineStyle,outlineOffset:css.outlineOffset,markerWidth:parseFloat(mark.borderInlineStartWidth),markerStyle:mark.borderInlineStartStyle,markerColor:mark.borderInlineStartColor,content:mark.content,inset:mark.insetInlineStart,pointerEvents:mark.pointerEvents,position:mark.position,surface,background:css.backgroundColor,color:css.color,forcedColorAdjust:css.forcedColorAdjust};
+  return {forced:matchMedia('(forced-colors: active)').matches,width:box.width,height:box.height,direction:css.direction,controlMinHeight:css.minBlockSize,outlineWidth:parseFloat(css.outlineWidth),outlineStyle:css.outlineStyle,outlineOffset:css.outlineOffset,markerWidth:parseFloat(mark.borderInlineStartWidth),markerStyle:mark.borderInlineStartStyle,markerColor:mark.borderInlineStartColor,content:mark.content,inset:mark.insetInlineStart,pointerEvents:mark.pointerEvents,position:mark.position,surface,background:css.backgroundColor,color:css.color,forcedColorAdjust:css.forcedColorAdjust};
  },marker);
 }
 function contrast(first:string,second:string){
@@ -24,14 +24,15 @@ function contrast(first:string,second:string){
  const values=[luminance(first),luminance(second)].sort((a,b)=>b-a);return (values[0]+.05)/(values[1]+.05);
 }
 async function pair(page:Page,selected:Locator,peer:Locator,marker:Marker,key='Tab'){
+ await page.mouse.move(0,0); await selected.evaluate(node => Promise.all(node.getAnimations().map(animation => animation.finished)));
  const before=await snapshot(selected,marker),peerBefore=await snapshot(peer,marker);
  await selected.focus();const nativeKey=test.info().project.name==='webkit'&&process.platform==='darwin'&&/^(Shift\+)?Tab$/.test(key)?'Alt+'+key:key;await page.keyboard.press(nativeKey);await expect(peer).toBeFocused();
  const after=await snapshot(selected,marker),focus=await snapshot(peer,marker);
  expect(after.width).toBe(before.width);expect(after.height).toBe(before.height);
  expect(focus.width).toBe(peerBefore.width);expect(focus.height).toBe(peerBefore.height);
- expect(after.markerWidth).toBe(marker==='inset'?2:3);expect(after.markerStyle).toBe(marker==='inset'?'solid':'double');
+ if(marker==='inset'&&!after.forced){expect(after.content).toBe('none');expect(after.markerWidth).toBe(0);if(await peer.getAttribute('aria-pressed')==='mixed'){expect((await snapshot(peer,'border')).markerStyle).toBe('dashed');}else{expect(after.background).not.toBe(focus.background);}}else{expect(after.markerWidth).toBe(marker==='inset'?2:3);expect(after.markerStyle).toBe('solid');
  if(marker!=='border'){expect(after.content).toBe('""');expect(after.position).toBe('absolute');expect(after.pointerEvents).toBe('none');expect(after.inset).toBe(marker==='start'?'1px':'3px');expect(focus.content).not.toBe('""');}
- else{expect(focus.markerWidth).toBe(1);expect(focus.markerStyle).toBe('solid');}
+ else{expect(focus.markerWidth).toBe(1);expect(focus.markerStyle).toBe('solid');}}
  expect(focus.outlineWidth).toBeGreaterThanOrEqual(2);expect(focus.outlineStyle).toBe('solid');
  return {before,after,focus,contrast:contrast(after.markerColor,after.surface)};
 }
@@ -142,7 +143,7 @@ test('toggle selected hover retains system colors and geometry (active)',async({
   const active=await page.evaluate(()=>matchMedia('(forced-colors: active)').matches);test.skip(!active,'No forced-color substitution.');const scope=page.getByTestId('current-state-scope'),context=await actualContext(scope,theme,density,direction);
   const selected=scope.getByRole('radio',{name:'Selected option'}),peer=scope.getByRole('radio',{name:'Other option'}),before=await snapshot(selected,'border');
   await selected.hover();await expect(selected).toHaveAttribute('data-hovered');await selected.focus();await page.keyboard.press('Tab');await peer.focus();await expect(peer).toBeFocused();
-  const after=await snapshot(selected,'border'),focus=await snapshot(peer,'border');expect(after.markerWidth).toBe(3);expect(after.markerStyle).toBe('double');if(await page.evaluate(()=>CSS.supports('forced-color-adjust','auto')))expect(after.forcedColorAdjust).toBe('auto');else{expect(after.forcedColorAdjust).toBeUndefined();info.annotations.push({type:'unsupported-css-branch',description:'forced-color-adjust is unsupported; system color, glyph paint, hover, selection and geometry remain checked.'});}expect(after.width).toBe(before.width);expect(after.height).toBe(before.height);expect(focus.outlineWidth).toBeGreaterThanOrEqual(2);await expect(selected).toHaveAttribute('aria-checked','true');
+  const after=await snapshot(selected,'border'),focus=await snapshot(peer,'border');expect(after.markerWidth).toBe(3);expect(after.markerStyle).toBe('solid');if(await page.evaluate(()=>CSS.supports('forced-color-adjust','auto')))expect(after.forcedColorAdjust).toBe('auto');else{expect(after.forcedColorAdjust).toBeUndefined();info.annotations.push({type:'unsupported-css-branch',description:'forced-color-adjust is unsupported; system color, glyph paint, hover, selection and geometry remain checked.'});}expect(after.width).toBe(before.width);expect(after.height).toBe(before.height);expect(focus.outlineWidth).toBeGreaterThanOrEqual(2);await expect(selected).toHaveAttribute('aria-checked','true');
   // System text/backplate colors may be translucent. Screenshot pixels include
   // that compositing; comparing raw RGBA RGB channels would incorrectly report 1:1.
   const paintedLabel=await labelPaint(page,selected,scope),actualContrast=paintedLabel.contrast;expect(actualContrast).toBeGreaterThanOrEqual(3);expect(after.color).toBe(focus.color);expect(after.background).toBe(focus.background);

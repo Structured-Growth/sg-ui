@@ -96,3 +96,5 @@ export { VpnKeyIcon } from "./VpnKeyIcon";
 export { WindowIcon } from "./WindowIcon";
 export { WorkOutlineOutlinedIcon } from "./WorkOutlineOutlinedIcon";
 export { BrushIcon } from "./BrushIcon";
+
+export { HeartIcon } from "./HeartIcon";

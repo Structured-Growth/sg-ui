@@ -5,13 +5,17 @@
   .header, .cell { text-align: start; vertical-align: middle; padding: var(--sgui-space2); border-block-end: 1px solid var(--sgui-owned-grid-border); box-sizing: border-box; }
   .selectionControls { display: flex; align-items: center; gap: var(--sgui-space1); }
   .selection label [data-sgui-part="choice-label"] { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  /* The container owns the final edge; avoid stacking the last row border. */
+  .table > tbody > tr:last-child > .cell { border-block-end: 0; }
   .header { position: relative; background: var(--sgui-owned-grid-subtle-background); }
   .headerContent { padding-inline-start: var(--sgui-space3); display: flex; align-items: center; justify-content: space-between; gap: var(--sgui-space2); }
   .headerContent > :first-child { min-inline-size: 0; flex: 1; }
   .row[data-selected] { background: var(--sgui-owned-grid-subtle-background); }
   .row[data-focus-visible], .cell[data-focus-visible], .header[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-control-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
   .resizeHandle { position: absolute; inset-inline-start: 0; inset-block-start: 50%; transform: translateY(-50%); }
-  .resizer { block-size: var(--sgui-control-height); inline-size: 0.5rem; flex-shrink: 0; border-inline-start: 2px solid var(--sgui-owned-grid-border); cursor: col-resize; touch-action: none; }
+  .resizer { position: relative; block-size: var(--sgui-control-height); inline-size: 0.5rem; flex-shrink: 0; border-inline-start: 1px solid transparent; cursor: col-resize; touch-action: none; }
+  /* A rounded stroke is separate from the full resize hit area. */
+  .resizer::before { content: ""; position: absolute; inset-inline-start: -1px; inset-block: 0; inline-size: 1px; border-radius: 999px; background: var(--sgui-owned-grid-border); pointer-events: none; }
   .resizer[data-disabled] { display: block; cursor: default; touch-action: auto; }
   .resizer[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-control-focus-color); }
   .reorderControls { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sgui-space1); }
@@ -19,5 +23,27 @@
   .announcement { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); }
   .dropIndicator[data-drop-target] { outline: var(--sgui-control-focus-width) solid var(--sgui-control-focus-color); }
   .row[data-dragging] { opacity: 0.5; }
-  @media (forced-colors: active) { .row[data-selected] { border: 1px solid Highlight; } }
+  @media (forced-colors: active) { .resizer::before { background: CanvasText; } .row[data-selected] { border: 1px solid Highlight; } }
+}
+@layer sgui.components {
+  .transferTargets { display: flex; flex-wrap: wrap; gap: var(--sgui-space2); padding: var(--sgui-space2); }
+  .transferTarget { border: 1px dashed var(--sgui-owned-grid-border); padding: var(--sgui-space2); }
+  .transferTarget[data-drop-target], .transferTarget[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-control-focus-color); outline-offset: var(--sgui-control-focus-offset); }
+}
+@layer sgui.components {
+  .gripOwner { display: inline-flex; align-items: center; flex: none; order: 1; }
+  /* A bare grip shares the checkbox column; retain a semantic keyboard drag target. */
+  .inlineGrip[data-sgui-part="grid-drag-handle"] {
+    min-inline-size: max(var(--sgui-space4), var(--sgui-control-minimum-target-size));
+    min-block-size: max(var(--sgui-space4), var(--sgui-control-minimum-target-size));
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    opacity: 0;
+  }
+  .inlineGrip[data-sgui-part="grid-drag-handle"] svg { inline-size: var(--sgui-space4); block-size: var(--sgui-space4); }
+  .row:hover .inlineGrip[data-sgui-part="grid-drag-handle"],
+  .row[data-focus-visible-within] .inlineGrip[data-sgui-part="grid-drag-handle"],
+  .row[data-dragging] .inlineGrip[data-sgui-part="grid-drag-handle"] { opacity: 1; }
 }

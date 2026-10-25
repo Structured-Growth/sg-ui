@@ -1,0 +1,62 @@
+@layer sgui.components {
+  .root { --slider-target: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); display: flex; flex-direction: column; gap: var(--sgui-space1); min-inline-size: 0; inline-size: 100%; color: var(--sgui-slider-text); font-family: var(--sgui-font-family); font-size: var(--sgui-control-text-size); line-height: var(--sgui-label-line-height); }
+  .header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sgui-space2); }
+  .label { font-weight: var(--sgui-label-weight); }
+  .output { font-variant-numeric: tabular-nums; }
+  .scale { display: flex; flex-direction: column; gap: var(--sgui-space1); min-inline-size: 0; }
+  .body { padding-inline: calc(var(--slider-target) / 2); }
+  .body[data-marks] { padding-block-end: calc(var(--sgui-label-line-height) * 1em + var(--sgui-space1)); }
+  .track { position: relative; block-size: var(--slider-target); touch-action: pan-y; }
+  .rail, .fill { position: absolute; top: 50%; block-size: var(--sgui-space1); transform: translateY(-50%); border-radius: var(--sgui-field-control-radius); pointer-events: none; }
+  .rail { inset-inline: 0; background: var(--sgui-slider-track-surface); border: 1px solid var(--sgui-slider-track-border); box-sizing: border-box; }
+  .fill { background: var(--sgui-slider-selected-surface); }
+  .thumb { top: 50%; inline-size: var(--slider-target); block-size: var(--slider-target); display: flex; align-items: center; justify-content: center; cursor: grab; }
+  .thumb::before { content: ""; inline-size: var(--sgui-space4); block-size: var(--sgui-space4); border: 1px solid var(--sgui-slider-selected-surface); border-radius: 50%; background: var(--sgui-slider-selected-surface); box-sizing: border-box; }
+  .thumb[data-hovered]::before, .thumb[data-dragging]::before { background: var(--sgui-slider-hover-surface); border-color: var(--sgui-slider-hover-surface); }
+  .thumb[data-dragging] { cursor: grabbing; }
+  .thumb[data-focus-visible]::before { outline: var(--sgui-control-focus-width) solid var(--sgui-slider-focus-color); outline-offset: var(--sgui-control-focus-offset); }
+  .tick { position: absolute; top: 50%; inline-size: 3px; block-size: 3px; border-radius: 50%; transform: translate(-50%, -50%); background: var(--sgui-slider-mark-color); pointer-events: none; }
+  .tick[data-filled] { background: var(--sgui-slider-tick-on-fill-color); }
+  .tick:dir(rtl) { transform: translate(50%, -50%); }
+  .tick[data-appearance="line"] { inline-size: 1px; block-size: var(--sgui-space2); border-radius: 0; }
+  .root[data-orientation="vertical"] .tick { top: auto; left: 50%; transform: translate(-50%, 50%); }
+  .root[data-orientation="vertical"] .tick[data-appearance="line"] { inline-size: var(--sgui-space2); block-size: 1px; }
+  .mark { position: absolute; top: 50%; inline-size: 1px; block-size: var(--sgui-space2); transform: translateY(-50%); background: var(--sgui-slider-mark-color); pointer-events: none; }
+  .mark > span { position: absolute; top: calc(var(--slider-target) / 2); inset-inline-start: 0; transform: translateX(-50%); white-space: nowrap; color: var(--sgui-slider-description-text); }
+  .mark[data-edge="start"] > span { transform: none; }
+  .mark[data-edge="end"] > span { transform: translateX(-100%); }
+  .mark:dir(rtl) > span { transform: translateX(50%); }
+  .mark[data-edge="start"]:dir(rtl) > span { transform: none; }
+  .mark[data-edge="end"]:dir(rtl) > span { transform: translateX(100%); }
+  .bounds { display: flex; justify-content: space-between; gap: var(--sgui-space2); color: var(--sgui-slider-description-text); }
+  .description { color: var(--sgui-slider-description-text); }
+  .error { color: var(--sgui-slider-error-text); }
+  .root[data-invalid] .rail { border-color: var(--sgui-slider-error-text); }
+  .root[data-disabled] { opacity: 0.5; }
+  .root[data-disabled] .thumb { cursor: default; }
+  .root[data-orientation="vertical"] { inline-size: max-content; max-inline-size: 100%; }
+  .root[data-orientation="vertical"] .scale { flex-direction: row; align-items: start; gap: var(--sgui-space2); }
+  .root[data-orientation="vertical"] .bounds { flex-direction: column-reverse; align-items: start; box-sizing: border-box; block-size: calc(12rem + var(--slider-target)); padding-block: calc(var(--slider-target) / 2); }
+  .root[data-orientation="vertical"] .body { padding-inline: 0; padding-block: calc(var(--slider-target) / 2); align-self: center; }
+  .root[data-orientation="vertical"] .body[data-marks] { padding-inline-end: 4rem; }
+  .root[data-orientation="vertical"] .track { inline-size: var(--slider-target); block-size: 12rem; touch-action: pan-x; }
+  .root[data-orientation="vertical"] .rail, .root[data-orientation="vertical"] .fill { top: auto; left: 50%; inline-size: var(--sgui-space1); transform: translateX(-50%); }
+  .root[data-orientation="vertical"] .rail { inset-block: 0; block-size: auto; left: 50%; right: auto; }
+  .root[data-orientation="vertical"] .thumb { top: auto; left: 50%; }
+  .root[data-orientation="vertical"] .mark { top: auto; inset-inline-start: 50%; inline-size: var(--sgui-space2); block-size: 1px; transform: translateX(-50%); }
+  .root[data-orientation="vertical"] .mark > span { top: 0; inset-inline-start: calc(var(--slider-target) / 2); transform: translateY(-50%); }
+  @media (forced-colors: active) {
+    .rail { background: Canvas; border-color: ButtonText; }
+    .fill, .thumb::before, .thumb[data-hovered]::before, .thumb[data-dragging]::before { background: Highlight; border-color: Highlight; }
+    .tick { position: absolute; top: 50%; inline-size: 3px; block-size: 3px; border-radius: 50%; transform: translate(-50%, -50%); background: var(--sgui-slider-mark-color); pointer-events: none; }
+  .tick[data-filled] { background: var(--sgui-slider-tick-on-fill-color); }
+  .tick:dir(rtl) { transform: translate(50%, -50%); }
+  .tick[data-appearance="line"] { inline-size: 1px; block-size: var(--sgui-space2); border-radius: 0; }
+  .root[data-orientation="vertical"] .tick { top: auto; left: 50%; transform: translate(-50%, 50%); }
+  .root[data-orientation="vertical"] .tick[data-appearance="line"] { inline-size: var(--sgui-space2); block-size: 1px; }
+  .mark { background: ButtonText; }
+    .thumb[data-focus-visible]::before { outline-color: Highlight; }
+    .root[data-disabled] { opacity: 1; color: GrayText; }
+    .root[data-disabled] .thumb::before { background: GrayText; border-color: GrayText; }
+  }
+}

@@ -323,7 +323,7 @@
   "split-action": {
     "when": "Use SplitAction when there is one obvious primary command and a short list of alternatives, such as saving normally or saving a copy. It provides the neutral outlined split-button pattern used for left-side toolbar actions.",
     "how": [
-      "Provide label for the primary action and items with stable ids and readable labels for the secondary Menu. Use menuLabel when a more specific dropdown name is needed.",
+      "SplitAction fits its contents by default, including inside a vertical Stack. Provide label for the primary action and items with stable ids and readable labels for the secondary Menu. Use menuLabel when a more specific dropdown name is needed.",
       "Handle the primary command with onPress and alternatives with onAction(id). The host owns persistence and any result messages.",
       "Use loading or disabled to block both action paths while work is pending or unavailable; changing to a blocked state also closes the secondary menu."
     ],

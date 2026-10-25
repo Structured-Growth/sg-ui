@@ -1,6 +1,6 @@
 # SGUI backlog
 
-Updated: 2026-10-22. **14 active tasks; 6 deferred features.** This is the single
+Updated: 2026-10-24. **32 active tasks; 6 deferred features.** This is the single
 working backlog and lists unfinished work only. Historical validation captures are not retained in the working tree.
 Parent rollups are not additional tasks.
 
@@ -26,6 +26,218 @@ priority. Preserve functionality → regression → hardening execution order; s
 | A-Z-15 | Acceptance / documentation | Record final dependency/feature decisions, accepted evidence, completed PRs and explicitly deferred future tasks. |Reconcile required work without reclassifying unfinished obligations as optional; retains ACCEPT-001 rollup intent. **Assistance:** final acceptance of the completed evidence and explicitly recorded limitations after independent reconciliation. |
 | A-Z-16 | Final acceptance | Mark migration complete only after every required acceptance obligation is satisfied. |Depends on all required work above; retains ACCEPT-002 rollup intent. Publishing remains a separate authorized release action. **Assistance:** final human acceptance after all required obligations are satisfied; no release authorization is implied. |
 | DOCS-007 | Docs / deployment | Complete immutable release documentation deployments and host-level missing-page version fallback. |DOCS-007-a implements/tests manifest-based route preservation and overview fallback; static export, snapshot assembly and latest rules are prepared in [Amplify guidance](../deployment/amplify.md). Build, deploy and validate actual host behavior. AWS Amplify/domain/URL convention confirmed; **assistance:** connect/configure the Amplify application and DNS, then make a deployed target available for verification. |
+| AUD-001 | CSS / build cleanup | Emit shared composed CSS without redundant dependency blocks. |P3, high. See actionable scope below; preserve deterministic cascade order. |
+| AUD-002 | CSS / architecture guards | Close color-policy and inline-style validation gaps. |P3, high. Named-color bypass reproduced; distinguish owned runtime values from visual constants. |
+| AUD-003 | CSS / ownership cleanup | Separate website shell, preview and control styling; remove structural component overrides. |P3, medium. Keep website identity separate and retain the minimal host reset. |
+| AUD-004 | Overlay / maintainability | Give each Popover presentation one positioning owner. |P3, medium. Replace CSS/inline placement conflicts without changing dismissal or native scroll locking. |
+| AUD-005 | Forms / lifecycle regression | Reconcile reset helpers and form-association lifetime. |P2, high. Source shows inconsistent rebinding; reproduce reassociation before claiming a runtime defect. |
+| AUD-006 | DOM / host hardening | Bind editor and panel geometry/listeners to the owning document. |P3, medium. Replace ambient document/window assumptions in the named implementations. |
+| AUD-007 | Docs / rendering cleanup | Render catalog phases explicitly instead of mounting full families and hiding unrelated output. |P3, medium. Preserve one state owner per Example and the processing-grid exception. |
+| AUD-008 | Editor / code organization | Extract editor selection/formatting bridge responsibilities from the main editor implementation. |P3, medium. Keep public contracts, document admission and host persistence ownership intact. |
+| AUD-009 | Source / readability | Expand compressed navigation geometry and range-gesture code into reviewable functions. |P3, low. Bounded formatting/naming change; no repository-wide formatting churn. |
+| AUD-010 | Theme / geometry consistency | Make the tab indicator thickness an owned shared value. |P3, low. Remove repeated geometry literals while preserving orientation, RTL and animation behavior. |
+| AUD-011 | Docs / source regression | Serialize edited grid labels as JSX string expressions. |P2, high. In [catalog-data.tsx](../../apps/docs/examples/catalog/catalog-data.tsx), edit the AppDataGrid/AppDataGridShell playground label to `Edited "<Course>" {draft}`. Preview text renders, but copied source embeds JSON escapes inside a quoted JSX attribute and fails compilation. Wrap the serialized string literal in JSX expression braces (`label={"..."}`), preserving literal content. Done when the existing production catalog changed-source check passes for both routes, including quotes, angle brackets and braces. Reproduced in the current in-progress grid/docs checkout; do not overwrite that work. |
+| AUD-012 | Forms / validation regression | Prevent error-message removal during blur from canceling the first corrected-value submit click. |P2, high. Reproduced in existing TextField “Native form reset” and new whole-dollar form: clear required Learner name, click Prepare registration, enter Taylor and click Prepare registration again. Native validity is now valid, but blur removes the error and shifts the pressed button between pointer down/up; only a second click submits. Keyboard blur followed by activation succeeds. Fix shared validation/layout timing without duplicate submits, permanent empty error rows or disabling native validity; add a focused pointer regression preserving source, density and enlarged-text behavior. Affix rendering is not the cause. |
+| SS-T-01 | SearchableSelect / regression | Expand the bounded baseline into focused canceled-reset, duplicate-label alias, changing-options/selected-record, controlled rejection and nested-overlay regressions for both layouts. |P2. Reuse the baseline selection/form/status cases and [contract](searchable-select.md). Done when each transition preserves stable IDs, current labels and host authority without sibling state changes; split independent fixes if a case fails. Do not infer remote fetching or custom-value creation. |
+| SS-V-01 | SearchableSelect / environment hardening | Verify both search locations with RTL/non-English locale, IME, zoom, touch keyboard, screen readers and supported browser engines. |P3, after SS-T-01. Retain focused Chromium keyboard/form/source checks and collect actual Firefox/WebKit and manual device/AT results; verify sticky popup search, viewport fit, contrast/forced colors and focus return. Shares broad environment obligations with A-P-07/A-X-11/A-Z-11 without replacing them. |
+
+| SL-T-01 | Slider / regression | Expand baseline coverage for canceled/reset reassociation, controlled rejection during dragging, changing bounds/step/thumb count and increment/snap grids, decimal snapping and overlapping thumb activation. |P2. Preserve the three baseline cases and [Slider contract](slider.md); verify native data, stable thumb identity, focus and host authority without decorative debug outputs. |
+| SL-V-01 | Slider / environment hardening | Verify physical touch/pen, touch screen readers, zoom, forced colors/contrast and supported Firefox/WebKit engines for scalar, range and vertical sliders. |P3, after SL-T-01. Retain bounded production Chromium pointer/keyboard/form/source observations. Collect actual device/AT results; do not claim these from emulation or automated roles alone. |
+
+| RT-T-01 | Rating / regression | Expand baseline coverage for canceled/reassociated resets, option/disabled/name changes, controlled rejection during hover/clear and repeated group IDs. |P2. Preserve the three baseline cases and [Rating contract](rating.md). Verify enabled Tab entry, numeric zero, native data/validation and no implicit answer or extra callbacks; isolate any reproduced fix. |
+| RT-V-01 | Rating / environment hardening | Verify manual screen readers, physical touch, zoom, contrast and supported Firefox/WebKit engines for every presentation and custom icon group. |P3, after RT-T-01. Keep bounded Chromium keyboard/pointer/form/RTL/source observations separate from actual device/AT evidence; include read-only, disabled and forced-color interpretation. |
+
+## Audit cleanup and fix scopes
+
+These are open implementation tasks, not completed audit history. Priorities above
+are relative within their phase: finish required P2 work before P3 cleanup, and
+honor the execution policy if new baseline functionality is discovered. No release,
+dependency replacement or compatibility layer is authorized by these tasks.
+
+Review scope: foundation/token generation, CSS compilation and guards, shared
+primitives, overlays/forms, navigation, editor organization, persistence, grid
+boundaries and docs rendering/theme ownership. This is a source review with focused
+guard checks, not a complete runtime, accessibility, security or performance audit.
+The current checkout contains in-progress grid/docs edits; reconcile them before
+implementation and do not treat uncommitted work as a missing feature.
+
+### AUD-001 — Shared CSS emission
+
+- **Finding:** [compileStyles](../../packages/ui/scripts/css-modules.mjs) creates a
+  fresh CSS Modules processor/loader for each file and concatenates every output.
+  Composed dependencies are therefore included repeatedly. The existing
+  `packages/ui/dist/styles.css` contains 11 copies of the shared
+  `scrollbar-width: thin` rule from
+  [Scrollbars.module.css](../../packages/ui/src/foundation/Scrollbars.module.css).
+  That count describes the existing build, not a fresh release artifact.
+- **Change:** resolve shared dependencies as a build graph and emit their rules
+  once where cascade semantics permit. Do not blindly delete repeated text;
+  preserve ordering-sensitive compositions, layers and exported class mappings.
+- **Done when:** a fresh stylesheet contains no redundant copies of this shared
+  block, repeat builds are byte-stable, and diamond-composition ordering tests,
+  CSS pipeline tests and the packed consumer proof pass. Report the actual byte
+  reduction without inferring a runtime performance improvement.
+
+### AUD-002 — Enforce visual ownership beyond current CSS checks
+
+- **Finding:** [validateComponentCss](../../packages/ui/scripts/check-component-css.mjs)
+  rejects hex/function colors but accepts `color: red` and arbitrary non-SGUI
+  custom properties in color declarations. A direct validator invocation with
+  semantic color checking enabled returned no diagnostics for either `color: red`
+  or `color: var(--arbitrary-accent)`. The
+  [foundation guard](../../packages/ui/scripts/check-foundations.mjs) validates
+  module declarations but does not apply equivalent visual ownership checks to
+  JSX style objects. Passing it alone does not establish complete style ownership.
+- **Change:** validate color syntax/property use with explicit handling for
+  currentColor, inheritance, transparent, forced-color system values and documented
+  local variables. Add AST checks for static component color/typography in inline
+  styles; allow host styles, measured geometry, generated theme maps and editor
+  document content through explicit ownership rules. This is a guard gap, not
+  evidence that every supported local custom property is invalid.
+- **Done when:** focused positive/negative guard fixtures cover these bypasses,
+  shipped source passes, and normal dynamic geometry/theme scopes remain valid.
+  Preserve all current layer/token/selector checks rather than replacing them.
+
+### AUD-003 — Website CSS ownership and component boundaries
+
+- **Finding:** [docs.module.css](../../apps/docs/components/docs.module.css) mixes
+  shell layout, navigation, preview framing, catalog phase filtering, tool panels,
+  source presentation and playground controls. Selectors such as
+  `.versionPicker > :first-child`, `.componentMenu :where(a,button)` and
+  `.playgroundControls [data-direction="row"]` depend on child markup or affect
+  all matching descendants. [DocsShell](../../apps/docs/components/DocsShell.tsx)
+  also keeps static content padding in JSX.
+- **Change:** colocate shell, Example and catalog-specific rules with their owners;
+  move static shell padding into its module. Prefer supported props, explicit
+  docs-owned classes or deliberate component part contracts over positional and
+  broad descendant overrides. Keep site layout in docs, palette/semantic maps in
+  `apps/docs/theme`, shared component behavior in library modules and generated
+  aliases in the library token source. Do not move the docs global host reset into
+  reusable library CSS or introduce a blanket library reset.
+- **Done when:** shell widths, independent scrolling, overlay resize/scroll locking,
+  compact navigation, focus and narrow-screen tools retain their current behavior;
+  changing demo identity does not restyle the shell. Run focused docs shell/theme
+  checks and catalog source checks after a fresh library/docs build.
+
+### AUD-004 — Popover presentation and positioning ownership
+
+- **Finding:** [Popover.tsx](../../packages/ui/src/experimental/Popover/Popover.tsx)
+  installs anchored positioning for all presentations, while
+  [Popover.module.css](../../packages/ui/src/experimental/Popover/Popover.module.css)
+  uses repeated `!important` position/inset/height declarations to override the
+  engine's inline geometry for dialog/drawer/auto modes. Static underlay/group
+  styling also lives in JSX. This is an explicit implementation conflict, not a
+  newly reproduced overlay failure.
+- **Change:** separate anchored placement from viewport presentation so one owner
+  supplies geometry for the active mode; keep static presentation in the module
+  and measured values in JS. Preserve React Aria modality, focus and dismissal.
+  Reuse only genuinely shared scheduling logic from
+  [FramePositionedPopover](../../packages/ui/src/experimental/Select/FramePositionedPopover.tsx);
+  retain its ResizeObserver feedback-loop protection.
+- **Done when:** supported presentations open/dismiss and survive viewport resize,
+  ancestor scrolling and enlarged content without positioning overrides fighting.
+  Retain existing overlay/browser assertions and verify docs shell width stability.
+
+### AUD-005 — Native form reset lifetime and duplication
+
+- **Finding:** [useFormReset](../../packages/ui/src/experimental/useFormReset.ts)
+  and [useCalendarFormReset](../../packages/ui/src/experimental/DateRangeSelector/useCalendarFormReset.ts)
+  duplicate deferred cancellation-aware reset logic and bind the closest form only
+  in an effect depending on the ref object. By contrast,
+  [useStandaloneFormReset](../../packages/ui/src/experimental/TextField/useStandaloneFormReset.ts)
+  rechecks native form association after each commit. [Switch](../../packages/ui/src/experimental/Switch/Switch.tsx)
+  has another independent implementation. A stable ref can outlive a changed form
+  association; stale subscriptions in those scenarios need a focused reproduction.
+- **Change:** reproduce by moving a still-mounted control between native forms,
+  rerendering, editing it and resetting each form. Expected: only its current form
+  resets it; canceled reset preserves it; reset does not emit edit callbacks.
+  Consolidate shared subscription/task cleanup mechanics while preserving each
+  control's draft restoration and controlled/uncontrolled rules. Do not collapse
+  intentionally different reset semantics merely because the code looks similar.
+- **Done when:** a targeted regression establishes current-form ownership and
+  cleanup, existing canceled/native reset tests pass, and calendar composites,
+  choice controls and standalone fields retain their documented behavior.
+
+### AUD-006 — Owning-document DOM operations
+
+- **Finding:** [FloatingTextSelectionToolbar](../../packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx)
+  reads selection, active element and viewport bounds and subscribes through ambient
+  `window`/`document`. [PanelResizeHandle](../../packages/ui/src/components/IconPanelNavigation/PanelResizeHandle.tsx)
+  uses ambient `getComputedStyle`, `ResizeObserver` and window resize despite
+  measuring a panel's ownerDocument. Other overlay implementations already obtain
+  the owning view explicitly. Cross-document failure has not been browser-reproduced.
+- **Change:** derive document/view and constructors from the active editor/panel
+  root, handle missing views, and rebind/dispose when that root changes. Inspect
+  cross-realm `instanceof Node`/element checks in the affected paths as well.
+- **Done when:** focused alternate-document tests confirm selection/listeners and
+  resize observations target the correct document and clean up; existing SSR,
+  floating toolbar focus/selection and panel keyboard/pointer tests remain green.
+  Do not claim general iframe support beyond the behavior actually verified.
+
+### AUD-007 — Explicit catalog phase rendering
+
+- **Finding:** [ComponentCatalogPage](../../apps/docs/components/ComponentCatalogPage.tsx)
+  mounts the same family through separate overview/playground/examples
+  [CatalogPlayground](../../apps/docs/components/CatalogPlayground.tsx) instances.
+  [Example](../../apps/docs/components/Example.tsx) returns null for excluded panels
+  only after their state-owning parent runs; the broad `.catalogPhase` CSS selector
+  hides unrelated wrappers/headings. Invisible owners can still allocate state,
+  subscriptions and compute source. No measured performance regression is claimed.
+- **Change:** select explicit phase entry components before mounting their owners;
+  retain the shared Example panel, source behavior and independent state. Remove
+  CSS-based structural suppression once the render tree expresses the template.
+  Keep overview, playground and references separate rather than sharing setters.
+- **Done when:** only requested owners mount, sibling interaction/source isolation
+  still passes, and every route retains its intended overview, playground or
+  processing-grid exception, named examples and bottom relationship lists. Run
+  catalog checks and production browser/source compilation checks.
+
+### AUD-008 — Extract editor bridge responsibilities
+
+- **Finding:** [PageRichTextEditorSection.impl.tsx](../../packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx)
+  combines style parsing, selection reads, formatting resets, history/toolbar
+  bridges, dialog state and the main editor composition in one 1,261-line file.
+  Responsibility overlap, rather than length alone, makes selection changes hard
+  to review independently from document lifecycle and dialog behavior.
+- **Change:** extract the selection/formatting helpers and ToolbarBridge into
+  private modules with explicit inputs/callbacks. Keep document admission and
+  serialization in their existing lexical boundary. Preserve public exports;
+  avoid a new generic controller or public API solely for internal organization.
+- **Done when:** existing document-admission, selection, formatting, history and
+  dialog assertions pass with public types unchanged. Run editor source-graph
+  checks and affected docs/source validation; preserve document typography/color
+  data rather than mistaking it for hard-coded UI theme styling.
+
+### AUD-009 — Readable interaction algorithms
+
+- **Finding:** [TabIndicator](../../packages/ui/src/experimental/Tabs/TabIndicator.tsx),
+  [PanelResizeHandle](../../packages/ui/src/components/IconPanelNavigation/PanelResizeHandle.tsx)
+  and [RangeGestures](../../packages/ui/src/experimental/DateRangeSelector/RangeGestures.tsx)
+  compress geometry, guards and event registration into long multi-statement lines.
+  This obscures cleanup symmetry and coordinate/duration rules during review.
+- **Change:** expand these three files using existing readable source conventions,
+  name geometry/boundary calculations and use explicit internal prop types. Keep
+  formatting separate from behavior changes; reconcile AUD-006/AUD-010 first if
+  they touch the same code. Do not reformat unrelated files or generated output.
+- **Done when:** a reviewer can trace registration/disposal and coordinate rules
+  without unpacking chained statements; targeted existing tests and typecheck pass
+  with no changed callbacks, DOM semantics or public declarations.
+
+### AUD-010 — Tab indicator geometry ownership
+
+- **Finding:** [TabIndicator](../../packages/ui/src/experimental/Tabs/TabIndicator.tsx)
+  repeats the literal `2` for line thickness and endpoint offsets across horizontal,
+  vertical and RTL calculations. Its
+  [CSS module](../../packages/ui/src/experimental/Tabs/TabIndicator.module.css)
+  owns the line color and motion, leaving the shared visual thickness embedded in
+  runtime geometry. This is cleanup, not a confirmed incorrect current rendering.
+- **Change:** define one owned thickness value at the appropriate shared component
+  boundary; if it becomes a theme token, define/regenerate it through the token
+  source and use the resolved value consistently for CSS and measured offsets.
+  Leave genuinely measured tab coordinates in JS; do not tokenize every number.
+- **Done when:** tab strips and page-tab consumers align correctly in both
+  orientations, RTL, both densities, scroll/resize and reduced-motion modes, with
+  no duplicate thickness constants or hand-edited generated tokens.
 
 ## Deferred features
 

@@ -15,7 +15,7 @@ The callback receives `sourceRow`, `sourceRowId`, `sourceRows`, `sourceRowIds`, 
 `position` (`before` or `after`). Identity is the grid's `getRowId`, including the
 stable string mapping for default numeric `id` values. `getRowLabel` in rowDrag
 can override the handle name; `isRowDraggable` restricts sources, and
-`handleColumnWidth` configures the fixed reorder column before the text columns.
+`handleColumnWidth` configures a separate utility column when move buttons are shown or row selection is disabled. With selection enabled, the bare grip shares the checkbox cell and uses its measured width. It appears on row hover, keyboard focus or dragging, without button chrome. The visible Reorder heading is shown only with `showMoveButtons: true`.
 By default only the drag handle is shown. Set `showMoveButtons: true` to add
 Move up/down buttons; set `dragDisabled: true` to disable the handle independently
 while those buttons can still request moves. The handle supports keyboard dragging
@@ -48,9 +48,12 @@ or pointer activation of those controls. Touch scrolling outside the handle
 remains native; the drag handle reserves its own gesture with `touch-action: none`. Activate the handle to enter keyboard drag
 mode, navigate drop positions, confirm to request a move, or Escape to cancel.
 Optional Move up/down controls offer equivalent non-drag requests. A request announcement
-does not claim the host has saved the order. Focus stays with the source control
-when the host commits row order; when a boundary disables that control, focus
-falls back to the source row's enabled control or cell.
+does not claim the host has saved the order. Keyboard dragging and Move up/down
+actions retain source-control focus when the host commits row order; when a
+boundary disables that control, focus falls back to the source row's enabled
+control or cell. Native pointer drops release grip focus instead of replaying a
+keyboard focus ring. Late collection focus replay is released only for grips in
+that grid, and observation ends on the next user input or an external focus move.
 
 SGUI never mutates host rows or persists the move. Hosts own async cancellation,
 latest-response guards, pending feedback and errors. An optimistic host retains
@@ -120,3 +123,30 @@ long-press dragging or spoken screen-reader output; those observations remain
 separate from the defined touch alternative and DOM announcement contract.
 Production network abort, stale-response handling and persistence remain host
 responsibilities. Other G/U/X/R/Z obligations retain their own acceptance scopes.
+
+## Transfer handles for tags and folders
+
+`AppDataGrid` and `AppDataGridShell` also accept
+`rowDrag={{mode: "transfer", dropTargets, onDrop}}`. This is separate from reorder:
+no insertion indicators or Move up/down actions are offered, and sorted, filtered,
+searched and server-paginated views remain draggable. Destinations have an `id`,
+`label`, optional `disabled`, and `operation: "copy" | "move"` (default `copy`).
+
+`onDrop` receives `sourceRows`, `sourceRowIds`, `targetId`, and `operation`.
+Dragging a selected row includes the selected rows on the loaded page; an
+unselected source includes only itself. Unloaded selections are not inferred or
+fetched. Restricted groups, busy grids, disabled targets, foreign-grid payloads
+and stale source snapshots cannot commit a transfer. The grid does not reorder,
+remove rows, or clear selection in response to a drop.
+
+The host accepts the operation: tagging updates row data in place; moving to a
+folder may remove those rows from the current view and clear their selected IDs.
+Client pagination repairs a shrinking final page. Server hosts must refresh or
+backfill rows, update the result count and accept any required page correction.
+Hosts own permissions, persistence, pending/error announcements and rollback.
+
+Keyboard users can activate a drag handle, Tab between named destinations,
+Enter to drop, or Escape to cancel. Destination buttons apply the same request
+to the selected loaded rows without dragging. The source-backed **Drag to tag or
+move to a folder** docs example demonstrates both additive tags and removal from
+an Inbox after a move, without a backend persistence claim.

@@ -1,6 +1,8 @@
 @layer sgui.components {
  .root { container: sgui-data-toolbar / inline-size; min-inline-size: 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--sgui-space2); padding: var(--sgui-space2) var(--sgui-space3); min-block-size: 3.375rem; box-sizing: border-box; color: var(--sgui-data-toolbar-text); background: var(--sgui-data-toolbar-subtle-background); border-block-end: 1px solid var(--sgui-data-toolbar-border); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
  .actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sgui-space2); min-inline-size: 0; max-inline-size: 100%; }
+ .refresh { inline-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); padding-inline: 0; gap: 0; flex-shrink: 0; }
+ .error { max-inline-size: 18rem; min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
  .search { min-inline-size: 0; max-inline-size: 100%; }
  .views[data-sgui-part="toggle-button-group"] { gap: 0; }
  .views > button { border-radius: 0; }

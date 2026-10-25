@@ -19,7 +19,7 @@
   .root .item:hover { background: var(--sgui-side-navigation-subtle-background); }
   .root li[data-selected] > .item { background: var(--sgui-side-navigation-selected-background); color: var(--sgui-side-navigation-selected-text); }
   .root li[data-selected] > .item { position: relative; }
-  .root li[data-selected] > .item::before { content: ""; position: absolute; pointer-events: none; inset-block: var(--sgui-space1); inset-inline-start: 1px; border-inline-start: 3px double var(--sgui-side-navigation-selected-text); }
+  .root li[data-selected] > .item::before { content: ""; position: absolute; pointer-events: none; inset-block: var(--sgui-space1); inset-inline-start: 1px; border-inline-start: 3px solid var(--sgui-side-navigation-selected-text); }
   .itemLabel { flex: 1; overflow-wrap: anywhere; }
   .icon { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; inline-size: var(--sgui-side-navigation-icon-size); block-size: var(--sgui-side-navigation-icon-size); color: inherit; }
   .icon > svg { inline-size: 100%; block-size: 100%; }

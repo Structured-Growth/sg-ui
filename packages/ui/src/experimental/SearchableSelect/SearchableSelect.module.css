@@ -1,0 +1,23 @@
+@layer sgui.components {
+  .root { min-inline-size: 0; max-inline-size: 100%; }
+  .control { display: flex; align-items: stretch; min-inline-size: 0; }
+  .trigger { display: flex; align-items: center; gap: var(--sgui-space2); flex: 1; min-inline-size: 0; text-align: start; cursor: pointer; }
+  .value { flex: 1; min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .value[data-placeholder] { color: var(--sgui-text-field-placeholder-text); }
+  .clear { flex: none; }
+  .popover { display: flex; flex-direction: column; overflow: hidden; }
+  .search { flex: none; display: flex; align-items: center; gap: var(--sgui-space1); padding: var(--sgui-space2); border-block-end: 1px solid var(--sgui-combo-box-border); }
+  .searchInput { flex: 1; inline-size: 0; }
+  .results { overflow: auto; min-block-size: 0; }
+  .option { gap: var(--sgui-space2); }
+  .optionContent { display: flex; flex: 1; min-inline-size: 0; flex-direction: column; padding-block: var(--sgui-space1); }
+  .optionDescription { color: var(--sgui-searchable-select-description-text); font-weight: var(--sgui-body1-weight); }
+  .check { flex: none; inline-size: var(--sgui-space4); }
+  .status { flex: none; padding: var(--sgui-space2); overflow-wrap: anywhere; }
+  .error { color: var(--sgui-searchable-select-error-text); }
+  @media (forced-colors: active) {
+    .root[data-disabled] .frame { color: GrayText; opacity: 1; }
+    .optionDescription { color: CanvasText; }
+    .error { color: CanvasText; }
+  }
+}

@@ -57,10 +57,10 @@ for(const forcedColors of ['none','active'] as const)for(const kind of ['menu','
       await expect(other).toBeFocused();
       const after=await appearance(selected,pseudo),focus=await appearance(other,pseudo);
       expect(after.width).toBe(before.width);expect(after.height).toBe(before.height);
-      expect(after.content).toBe('""');expect(after.markPosition).toBe('absolute');expect(after.pointerEvents).toBe('none');
-      expect(after.markWidth).toBe(kind==='menu'?3:2);expect(after.markStyle).toBe(kind==='menu'?'double':'solid');
+      if (kind==='menu'||forced) { expect(after.content).toBe('""');expect(after.markPosition).toBe('absolute');expect(after.pointerEvents).toBe('none');
+      expect(after.markWidth).toBe(kind==='menu'?3:2);expect(after.markStyle).toBe('solid');
       expect(after.inset).toBe(kind==='menu'?'1px':'3px');
-      expect(after.color).not.toBe('rgba(0, 0, 0, 0)');
+      expect(after.color).not.toBe('rgba(0, 0, 0, 0)'); } else { expect(after.content).toBe('none'); expect(after.markWidth).toBe(0); expect(after.surface).not.toBe(focus.surface); }
       expect(focus.content).not.toBe('""');
       expect(focus.outlineWidth).toBeGreaterThanOrEqual(kind==='menu'&&forced?1:2);
       expect(focus.outlineStyle).toBe('solid');
@@ -72,7 +72,7 @@ for(const forcedColors of ['none','active'] as const)for(const kind of ['menu','
         await expect(group.getByRole('button',{name:kind==='month'?'February':'2027',exact:true})).toBeDisabled();
         await other.click();
         await expect(other).toHaveAttribute('aria-pressed','true');await expect(selected).toHaveAttribute('aria-pressed','false');
-        const next=await appearance(other,pseudo);expect(next.width).toBe(focus.width);expect(next.height).toBe(focus.height);expect(next.content).toBe('""');expect(next.markWidth).toBe(2);
+        const next=await appearance(other,pseudo);expect(next.width).toBe(focus.width);expect(next.height).toBe(focus.height);expect(next.content).toBe(forced?'""':'none');expect(next.markWidth).toBe(forced?2:0);
       }
       evidence.push({theme,density,direction,forcedColors,supportsAdjustment,branch,measuredScope,before,after,focus,ringContrast});
       }

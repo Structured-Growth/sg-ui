@@ -59,10 +59,12 @@
   .cell { position:relative; display: flex; align-items: center; justify-content: center; box-sizing: border-box; text-align: center; border-radius: var(--sgui-field-control-radius); min-inline-size: var(--calendar-day-size); block-size: var(--calendar-day-size); cursor: pointer; }
   .cell[data-outside-month] { visibility: hidden; }
   .cell[data-selected] { color: var(--sgui-date-range-selector-selected-text); background: var(--sgui-date-range-selector-selected-surface); }
-  /* Persistent selected-date geometry stays separate from keyboard focus. */
-  .grid:not(.rangeGrid) .cell[data-selected]::after {
-    content: ""; position: absolute; inset: 3px; border: 1px solid currentColor;
-    border-radius: inherit; pointer-events: none;
+  /* Forced colors retain selected-date geometry separate from keyboard focus. */
+  @media (forced-colors: active) {
+    .grid:not(.rangeGrid) .cell[data-selected]::after {
+      content: ""; position: absolute; inset: 3px; border: 1px solid currentColor;
+      border-radius: inherit; pointer-events: none;
+    }
   }
   /* Only ranges join across columns; independent Calendar dates keep their boxes. */
   .rangeGrid { border-spacing: 0 var(--sgui-space1); min-inline-size: calc(7 * var(--calendar-day-size)); }

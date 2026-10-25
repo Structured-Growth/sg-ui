@@ -6,6 +6,7 @@ import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
 import { Menu, type MenuItem } from "../Menu/Menu";
 import { KeyboardArrowDownIcon } from "../icons/KeyboardArrowDownIcon";
 import { useTranslation } from "../../i18n";
+import styles from "./SplitAction.module.css";
 export interface SplitActionProps {
   label: string;
   menuLabel?: string;
@@ -24,7 +25,7 @@ export function SplitAction({ label, menuLabel, items, onPress, onAction, disabl
     if (blocked) setMenuOpen(false);
   }, [blocked]);
   const actionsLabel = menuLabel ?? t("common.ui.moreActions", { defaultMessage: "More actions" });
-  return <ButtonGroup joined label={label} className={className}>
+  return <ButtonGroup joined label={label} className={[styles.root, className].filter(Boolean).join(" ")}>
     <Button variant="text" tone="neutral" onPress={onPress} disabled={disabled} loading={loading}>{label}</Button>
     <Menu label={actionsLabel} items={items} open={menuOpen && !blocked} onOpenChange={open => setMenuOpen(open && !blocked)} onAction={id => { if (!blocked) onAction(id); }} trigger={<IconButton label={actionsLabel} disabled={blocked}><KeyboardArrowDownIcon /></IconButton>} />
   </ButtonGroup>;

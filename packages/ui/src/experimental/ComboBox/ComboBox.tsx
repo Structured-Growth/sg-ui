@@ -15,6 +15,7 @@ import { useTranslation } from "../../i18n";
 import { useLocale } from "react-aria-components/I18nProvider";
 import { useOverlayScope, useOverlayDirectionRef } from "../../foundation/ThemeScope";
 import field from "../TextField/TextField.module.css";
+import attached from "../TextField/AttachedField.module.css";
 import styles from "./ComboBox.module.css";
 
 export interface ComboBoxOption { id: string; label: string; disabled?: boolean }
@@ -29,7 +30,7 @@ export interface ComboBoxProps extends FieldMessagePlacementProps {
   onValueChange?: (value: string | null) => void;
   name?: string;
   placeholder?: string;
-  /** Decorative icons inside the input; the separate dropdown action remains available. */
+  /** Decorative icons inside the shared field outline; the attached dropdown action remains available. */
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   description?: string;
@@ -67,7 +68,7 @@ export const ComboBox = forwardRef<HTMLInputElement, ComboBoxProps>(function Com
   const scope = useOverlayScope();
   const { direction } = useLocale();
   const directionRef = useOverlayDirectionRef(direction);
-  const control = <Input ref={ref} placeholder={placeholder} className={field.input}
+  const control = <Input ref={ref} placeholder={placeholder} className={[field.input, attached.input].join(" ")}
     onChangeCapture={() => {
       // A real edit can follow a canceled reset before its deferred cleanup.
       // Engine reset callbacks do not dispatch input changes, so this new edit
@@ -96,13 +97,11 @@ export const ComboBox = forwardRef<HTMLInputElement, ComboBoxProps>(function Com
     isInvalid={invalid} validationBehavior="native" autoFocus={autoFocus}
     className={[field.root, className].filter(Boolean).join(" ")}>
     <Label className={field.label}>{label}</Label><FieldMessages position="above" {...messages}/>
-    <div className={styles.control}>
-      {startIcon || endIcon ? <div className={field.decoratedControl} data-sgui-part="field-icon-control">
-        {startIcon && <span className={field.adornment} data-sgui-part="field-start-icon" aria-hidden="true">{startIcon}</span>}
-        {control}
-        {endIcon && <span className={field.adornment} data-sgui-part="field-end-icon" aria-hidden="true">{endIcon}</span>}
-      </div> : control}
-      <Button variant="outlined" tone="neutral" aria-label={t("common.ui.showOptions", { defaultMessage: "Show options" })}>
+    <div className={attached.frame} data-sgui-part="combo-box-control" data-invalid={invalid || undefined} data-readonly={readOnly || undefined}>
+      {startIcon && <span className={[field.adornment, attached.adornment].join(" ")} data-sgui-part="field-start-icon" aria-hidden="true">{startIcon}</span>}
+      {control}
+      {endIcon && <span className={[field.adornment, attached.adornment].join(" ")} data-sgui-part="field-end-icon" aria-hidden="true">{endIcon}</span>}
+      <Button className={attached.action} variant="text" tone="neutral" aria-label={t("common.ui.showOptions", { defaultMessage: "Show options" })}>
         <KeyboardArrowDownIcon size={16} />
       </Button>
     </div>

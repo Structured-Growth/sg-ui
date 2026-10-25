@@ -17,7 +17,7 @@ import styles from "./AppDataGrid.module.css";
 
 /** Owned catalog grid. Host rows and server work remain outside this component. */
 export type AppDataGridProps<RowModel> = Omit<OwnedGridInteractionProps<RowModel>,
-  "selection" | "selectedRowIds" | "defaultSelectedRowIds" | "onSelectedRowIdsChange" | "isRowSelectable" | "processingResult" | "dispatchTransition" | "selectPageLabel" | "selectNoneLabel"> & {
+  "errorInToolbar" | "selection" | "selectedRowIds" | "defaultSelectedRowIds" | "onSelectedRowIdsChange" | "isRowSelectable" | "processingResult" | "dispatchTransition" | "selectPageLabel" | "selectNoneLabel"> & {
   selection?: boolean | AppDataGridSelectionConfig<RowModel>;
   hideFooter?: boolean;
   /** Optional per-view persistence key. */
@@ -28,7 +28,7 @@ export type AppDataGridProps<RowModel> = Omit<OwnedGridInteractionProps<RowModel
   onResetView?: (state: AppDataGridViewState) => void;
 };
 
-type ComposedGridProps<RowModel> = AppDataGridProps<RowModel> & Pick<OwnedGridInteractionProps<RowModel>, "processingResult" | "dispatchTransition">;
+type ComposedGridProps<RowModel> = AppDataGridProps<RowModel> & Pick<OwnedGridInteractionProps<RowModel>, "processingResult" | "dispatchTransition" | "errorInToolbar">;
 
 function Grid<RowModel>(props: ComposedGridProps<RowModel> & { persist?: ReturnType<typeof useOwnedGridPersistence<RowModel>>["persist"]; resetPersistence?: ReturnType<typeof useOwnedGridPersistence<RowModel>>["reset"]; resetDefaults?: AppDataGridProps<RowModel> }, ref: Ref<HTMLDivElement>) {
   const { selection = true, hideFooter = false, processingResult, persistence: _persistence, persist, resetPersistence, resetDefaults, showResetView, onResetView, ...interaction } = props;

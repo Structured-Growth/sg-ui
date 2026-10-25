@@ -1,0 +1,3 @@
+@layer sgui.components {
+  .root { inline-size: fit-content; max-inline-size: 100%; }
+}

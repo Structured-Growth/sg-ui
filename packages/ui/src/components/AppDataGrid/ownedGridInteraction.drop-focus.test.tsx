@@ -245,3 +245,24 @@ it("preserves a host-selected checkbox focus move during cancellation handle res
     expect(document.activeElement).toBe(checkbox);
   } finally { handle.removeEventListener("focus", hostFocus); indicator.remove(); }
 });
+
+it.each(['move','cancel'] as const)('releases pointer-drag grip focus after %s without blocking the next keyboard choice',async dropOperation=>{
+ render(<OwnedGridInteraction {...props} rowDrag={{onReorder:vi.fn()}}/>);
+ const handle=screen.getByRole('button',{name:'Reorder Mathematics'});
+ fireEvent.pointerDown(handle,{pointerType:'mouse',button:0});
+ fireEvent.dragStart(handle.closest('[data-sgui-part="grid-container"]')!.parentElement!);
+ act(()=>{handle.focus();drag.current!.onDragStart({keys:new Set(['b'])});});
+ act(()=>drag.current!.onDragEnd({dropOperation}));
+ await settle();
+ expect(document.activeElement).not.toBe(handle);
+ // Reproduce a late collection focus replay onto a different grip as well.
+ const other=screen.getByRole('button',{name:'Reorder History'});
+ act(()=>other.focus());await settle();
+ expect(document.activeElement).not.toBe(other);
+ const nextControl=document.createElement('button');document.body.append(nextControl);
+ try {
+  fireEvent.keyDown(document.body,{key:'Tab'});
+  act(()=>nextControl.focus());await settle();
+  expect(document.activeElement).toBe(nextControl);
+ } finally {nextControl.remove();}
+});

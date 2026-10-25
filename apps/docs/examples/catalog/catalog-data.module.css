@@ -1,1 +1,1 @@
-.overviewShell { height: 1200px; min-height: 1200px; flex: none; }
+.overviewShell { height: max-content; min-height: 0; flex: none; }

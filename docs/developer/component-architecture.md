@@ -94,6 +94,10 @@ and token modules remain server-importable. Host Client Components own event han
 and function props; Server Components may pass presentation children through scopes.
 See [server packaging](react-aria-server-components.md).
 
+SearchableSelect combines editable and popup-search single selection with owned
+alias/typo matching. See [searchable selection](searchable-select.md) for the
+research, layout choices, native form contract and host search responsibilities.
+
 ## Implementation and validation
 
 Use the [canonical component recipe](react-aria-component-recipe.md) for new controls
@@ -161,3 +165,9 @@ consume this public component. Do not recreate their search markup, icon positio
 result dropdown or keyboard handlers in site files. The site supplies catalog data,
 contextual labels, page-grid filtering and routing. SearchField is for search/navigation;
 ComboBox selects a form option ID and AsyncMultiSelect retains multiple records.
+
+Numeric inputs: see the [Slider contract and reference research](slider.md) for scalar and multi-thumb fields, formatting, form ownership and validation scope.
+
+Text inputs: see [prefix/suffix contracts and references](text-field-affixes.md) for fixed currency/unit content, styling, accessibility and native value ownership.
+
+Survey ratings: see [Rating contracts and references](rating.md) for unanswered single-answer semantics and numbered, labeled or custom-symbol scales.

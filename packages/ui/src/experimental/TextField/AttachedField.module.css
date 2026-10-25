@@ -1,0 +1,16 @@
+@layer sgui.components {
+  /* Shared editable field frame for an attached dropdown action. */
+  .frame { box-sizing: border-box; display: flex; align-items: stretch; gap: var(--sgui-space2); min-inline-size: 0; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); padding-inline-start: var(--field-edge-padding, var(--sgui-control-padding)); border: 1px solid var(--sgui-field-border); border-radius: var(--sgui-field-control-radius); background: var(--sgui-field-background); }
+  .frame > .input { flex: 1; inline-size: 0; min-inline-size: 0; padding-inline: 0; margin-block: -1px; border: 0; border-radius: 0; background: transparent; }
+  .frame > .input[data-focus-visible], .frame > .input:focus-visible { outline: none; }
+  .frame:focus-within { outline: var(--sgui-control-focus-width) solid var(--sgui-text-field-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
+  .frame[data-invalid], .frame:has(> .input[aria-invalid="true"]) { border-color: var(--sgui-text-field-invalid-border); }
+  .frame[data-readonly] { background: var(--sgui-text-field-read-only-surface); }
+  .frame > .action { flex: none; align-self: stretch; margin-block: -1px; border-radius: 0; border-inline-start: 1px solid var(--sgui-field-border); border-start-end-radius: max(0px, calc(var(--sgui-field-control-radius) - 1px)); border-end-end-radius: max(0px, calc(var(--sgui-field-control-radius) - 1px)); }
+  .frame > .action[data-focus-visible], .frame > .action:focus-visible { outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
+  .frame > .adornment { align-self: center; }
+  @media (forced-colors: active) {
+    .frame, .frame > .action { border-color: FieldText; }
+    .frame:focus-within { outline-color: Highlight; }
+  }
+}

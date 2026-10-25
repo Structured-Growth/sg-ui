@@ -31,3 +31,19 @@ it("suppresses disabled activation and exposes drag slot and state", async () =>
   expect(onPress).not.toHaveBeenCalled(); expect((handle as HTMLButtonElement).disabled).toBe(true);
   expect(handle.getAttribute("slot")).toBe("drag"); expect(handle.getAttribute("data-dragging")).toBe("true");
 });
+it('shares the checkbox cell and shows a Reorder heading only for move buttons',()=>{
+ const props={rows:[{id:'science',name:'Science'}],columns:[{field:'name',headerName:'Course'}],label:'Courses',getRowLabel:(row:{id:string;name:string})=>row.name};
+ const onReorder=vi.fn();
+ const {container,rerender}=render(<AppDataGrid {...props} rowDrag={{onReorder}}/>);
+ expect(screen.getByRole('button',{name:'Reorder Science'}).closest('[data-grid-field]')?.getAttribute('data-grid-field')).toBe('__selection');
+ expect(container.querySelector('tbody [data-grid-field="__reorder"]')).toBeNull();
+ expect(screen.queryByText('Reorder',{exact:true})).toBeNull();
+ rerender(<AppDataGrid {...props} rowDrag={{onReorder,showMoveButtons:true}}/>);
+ expect(screen.getByText('Reorder',{exact:true}).closest('th')).toBeTruthy();
+ expect(screen.getByRole('button',{name:'Reorder Science'}).closest('[data-grid-field]')?.getAttribute('data-grid-field')).toBe('__selection');
+ expect(container.querySelector('tbody [data-grid-field="__reorder"]')?.querySelector('[data-sgui-part="grid-drag-handle"]')).toBeNull();
+ rerender(<AppDataGrid {...props} selection={false} rowDrag={{onReorder}}/>);
+ expect(screen.queryByText('Reorder',{exact:true})).toBeNull();
+ expect(screen.getByRole('button',{name:'Reorder Science'}).closest('[data-grid-field]')?.getAttribute('data-grid-field')).toBe('__reorder');
+ expect(onReorder).not.toHaveBeenCalled();
+});

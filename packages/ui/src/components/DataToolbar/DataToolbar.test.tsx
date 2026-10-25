@@ -2,7 +2,7 @@
 
 import { createRef, useState } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { cleanup, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "../../experimental/Provider/Provider";
 import { DataToolbar } from "./DataToolbar";
@@ -35,7 +35,8 @@ describe("owned DataToolbar", () => {
   expect(ref.current).toBe(screen.getByRole("group",{name:"Courses actions"})); expect(ref.current?.className).toContain("host");
   expect(ref.current?.style.maxWidth).toBe("500px"); expect(screen.getByRole("status").textContent).toBe("3 selected");
   expect(screen.getByText("Archive selected")).toBeTruthy(); expect(screen.queryByText("New course")).toBeNull();
-  for (const name of ["Refresh","Columns","Sort","Filter","Cards","List"]) expect(screen.getByRole(name === "Cards" || name === "List" ? "radio" : "button",{name})).toHaveProperty("disabled",true);
+  for (const name of ["Refresh","Columns","Sort","Filter"]) expect(screen.getByRole("button",{name})).toHaveProperty("disabled",true);
+  expect(screen.queryByRole("radiogroup", {name:"View mode"})).toBeNull();
  });
  it("composes columns and filter/sort popovers with host state and restores trigger focus", async () => {
   const user = userEvent.setup();
@@ -61,4 +62,46 @@ it("groups view choices with one required selection and keyboard navigation",asy
  await user.keyboard(" ");expect(view).toHaveBeenCalledExactlyOnceWith("list");
  expect(list.getAttribute("aria-checked")).toBe("true");expect(cards.getAttribute("aria-checked")).toBe("false");
  await user.click(list);expect(list.getAttribute("aria-checked")).toBe("true");expect(view).toHaveBeenCalledTimes(1);
+});
+it('replaces the refresh icon with progress and blocks repeat requests until completion',async()=>{
+ const user=userEvent.setup(),refresh=vi.fn();
+ const {rerender}=render(<DataToolbar {...bare} onRefresh={refresh}/>);
+ const button=screen.getByRole('button',{name:'Refresh',exact:true});
+ await user.click(button);expect(refresh).toHaveBeenCalledTimes(1);
+ rerender(<DataToolbar {...bare} onRefresh={refresh} refreshing/>);
+ expect(screen.getByRole('button',{name:/^Refreshing rows/})).toBe(button);
+ expect(button.getAttribute('aria-disabled')).toBe('true');
+ expect(within(button).getByRole('progressbar')).toBeTruthy();
+ expect(button.querySelector('svg')).toBeNull();
+ await user.click(button);await user.keyboard('{Enter}');expect(refresh).toHaveBeenCalledTimes(1);
+ rerender(<DataToolbar {...bare} onRefresh={refresh}/>);
+ expect(screen.getByRole('button',{name:'Refresh',exact:true})).toBe(button);
+ expect(within(button).queryByRole('progressbar')).toBeNull();
+ await user.click(button);expect(refresh).toHaveBeenCalledTimes(2);
+});
+it('announces request failures and reuses the refresh control for retry and pending progress',async()=>{
+ const user=userEvent.setup(),retry=vi.fn(),refresh=vi.fn();
+ const {rerender}=render(<DataToolbar {...bare} onRefresh={refresh} errorMessage="Sample request failed." onRetry={retry}/>);
+ expect(screen.getByRole('alert').textContent).toBe('Sample request failed.');
+ const button=screen.getByRole('button',{name:'Retry',exact:true});
+ await user.click(button);expect(retry).toHaveBeenCalledTimes(1);expect(refresh).not.toHaveBeenCalled();
+ rerender(<DataToolbar {...bare} onRefresh={refresh} refreshing/>);
+ expect(screen.getByRole('button',{name:/^Refreshing rows/})).toBe(button);
+ expect(document.activeElement).toBe(button);
+ expect(screen.queryByRole('alert')).toBeNull();
+ await user.click(button);expect(retry).toHaveBeenCalledTimes(1);
+ rerender(<DataToolbar {...bare} onRefresh={refresh}/>);
+ expect(screen.getByRole('button',{name:'Refresh',exact:true})).toBe(button);
+});
+
+it("shows view controls only with current state, a change callback and host visibility", () => {
+ const change = vi.fn();
+ const {rerender} = render(<DataToolbar {...bare} showViewModeToggle viewMode="list" />);
+ expect(screen.queryByRole("radiogroup", {name:"View mode"})).toBeNull();
+ rerender(<DataToolbar {...bare} showViewModeToggle onViewModeChange={change} />);
+ expect(screen.queryByRole("radiogroup", {name:"View mode"})).toBeNull();
+ rerender(<DataToolbar {...bare} showViewModeToggle={false} viewMode="list" onViewModeChange={change} />);
+ expect(screen.queryByRole("radiogroup", {name:"View mode"})).toBeNull();
+ rerender(<DataToolbar {...bare} viewMode="list" onViewModeChange={change} />);
+ expect(screen.getByRole("radiogroup", {name:"View mode"})).toBeTruthy();
 });

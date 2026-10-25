@@ -16,7 +16,8 @@ test('leading divider resizes Status while Score keeps its width and no divider 
  const first=grid.locator('thead [data-grid-field="name"]');
  await expect(first.getByRole('slider')).toHaveCount(0);
  const inactive=first.locator('[data-sgui-part="inactive-column-divider"]');
- const inertBounds=(await inactive.boundingBox())!;
+ await expect(inactive).toHaveCount(0);
+ const inertBounds=(await first.boundingBox())!;
  const initial=await grid.locator('thead th').evaluateAll(nodes=>nodes.map(node=>node.getBoundingClientRect().width));
  await page.mouse.move(inertBounds.x+2,inertBounds.y+inertBounds.height/2);await page.mouse.down();
  await page.mouse.move(inertBounds.x-30,inertBounds.y+inertBounds.height/2,{steps:5});await page.mouse.up();
@@ -53,17 +54,17 @@ test('leading divider resizes Status while Score keeps its width and no divider 
  expect(trailing).toBe(false);
 });
 
- test('first data header has no leading divider at the table edge',async({page})=>{
+ test('locked first data header has no leading divider beside selectors or grips',async({page})=>{
  await page.goto('/docs/components/data-grid-shell');
  const panel=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
  const first=panel.getByRole('grid').locator('thead [data-grid-field="name"]');
  const divider=first.locator('[data-sgui-part="inactive-column-divider"]');
- await expect(divider).toHaveCount(1);
+ await expect(divider).toHaveCount(0);
  await panel.getByRole('checkbox',{name:'Enable row selection',exact:true}).locator('xpath=ancestor::label[1]').click();
  await expect(divider).toHaveCount(0);
  await expect(first.getByRole('slider')).toHaveCount(0);
  await expect(panel.getByRole('slider',{name:/^Resize Status\b/})).toHaveCount(1);
  await panel.getByRole('checkbox',{name:'Enable row sorter',exact:true}).locator('xpath=ancestor::label[1]').click();
- await expect(divider).toHaveCount(1);
+ await expect(divider).toHaveCount(0);
  await expect(first.getByRole('slider')).toHaveCount(0);
  });

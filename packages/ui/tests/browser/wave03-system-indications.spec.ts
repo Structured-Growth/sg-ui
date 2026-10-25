@@ -107,7 +107,7 @@ test('color-data exception preserves system selection and keyboard focus', async
   expect(observation.outlineColor).toBe(observation.colors.Highlight);
   expect(observation.outlineWidth).toBeGreaterThanOrEqual(2);
   expect(observation.outlineOffset).toBeGreaterThanOrEqual(0);
-  expect(observation.borderStyle).toBe('double');
+  expect(observation.borderStyle).toBe('solid');
   expect(observation.borderWidth).toBe(3);
   expect(observation.borderColor).toBe(observation.colors.ButtonText);
   // A non-color geometry cue distinguishes selection from keyboard focus.

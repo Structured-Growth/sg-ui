@@ -6,11 +6,15 @@
   .container { position: relative; overflow: auto; border: 1px solid var(--sgui-data-grid-border); }
   .table { border-collapse: collapse; inline-size: 100%; }
   .header, .cell { box-sizing: border-box; text-align: start; vertical-align: middle; padding: var(--sgui-space2); border-block-end: 1px solid var(--sgui-data-grid-border); }
+  /* The container owns the final edge; avoid stacking the last row border. */
+  .table > tbody > tr:last-child > .cell { border-block-end: 0; }
   .header { position: relative; background: var(--sgui-data-grid-header-surface); }
   .row[data-selected] { background: var(--sgui-data-grid-selected-surface); }
   .row[data-focus-visible], .cell[data-focus-visible], .header[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-data-grid-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
   .resizeHandle { position: absolute; inset-inline-start: 0; inset-block-start: 50%; transform: translateY(-50%); }
-  .resizer { block-size: var(--sgui-control-height); inline-size: 0.5rem; border-inline-start: 2px solid var(--sgui-data-grid-resizer-border); cursor: col-resize; touch-action: none; }
+  .resizer { position: relative; block-size: var(--sgui-control-height); inline-size: 0.5rem; border-inline-start: 1px solid transparent; cursor: col-resize; touch-action: none; }
+  /* A rounded stroke is separate from the full resize hit area. */
+  .resizer::before { content: ""; position: absolute; inset-inline-start: -1px; inset-block: 0; inline-size: 1px; border-radius: 999px; background: var(--sgui-data-grid-resizer-border); pointer-events: none; }
   .resizer[data-disabled] { display: block; cursor: default; touch-action: auto; }
   .resizer[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-data-grid-focus-color); }
   /* Keep the caption usable at the public 120px flexible-column minimum.
@@ -20,5 +24,5 @@
   .columnLabel > [data-sgui-part="button"] { inline-size: 100%; max-inline-size: 100%; }
   .actions { flex-wrap: wrap; }
   .actions > * { max-inline-size: 100%; }
-  @media (forced-colors: active) { .row[data-selected] { border: 1px solid Highlight; } }
+  @media (forced-colors: active) { .resizer::before { background: CanvasText; } .row[data-selected] { border: 1px solid Highlight; } }
 }
