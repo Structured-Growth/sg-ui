@@ -31,9 +31,16 @@
       "rating",
       "radio-group",
       "tag-group",
-      "editable-title-field",
+      "editable-title-field"
+    ]
+  },
+  {
+    "id": "surveys",
+    "label": "Surveys",
+    "slugs": [
       "survey",
-      "survey-question"
+      "survey-question",
+      "answer-feedback"
     ]
   },
   {
@@ -153,8 +160,7 @@
       "status",
       "badge",
       "inline-progress",
-      "operation-steps",
-      "answer-feedback"
+      "operation-steps"
     ]
   },
   {
