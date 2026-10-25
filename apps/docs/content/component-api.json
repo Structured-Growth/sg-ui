@@ -174,6 +174,300 @@
       ]
     }
   ],
+  "text-conversation": [
+    {
+      "names": [
+        "TextConversation"
+      ],
+      "from": "@structured-growth/sg-ui",
+      "kind": "component",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "Title supplied by the application."
+        },
+        {
+          "name": "messages",
+          "type": "readonly ConversationMessage[]",
+          "required": true,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onSend",
+          "type": "(text: string) => void | Promise<void>",
+          "required": true,
+          "default": "—",
+          "description": "Resolve after accepting a message; reject to retain its draft and show an error."
+        },
+        {
+          "name": "draft",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "defaultDraft",
+          "type": "string | undefined",
+          "required": false,
+          "default": "\"\"",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onDraftChange",
+          "type": "((draft: string) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Controls availability of the interaction."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "sending",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "typingLabel",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "emptyMessage",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "errorMessage",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "composerLabel",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "sendLabel",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "maxLength",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native CSS class hook."
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native styles and applicable owned CSS variables."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLElement> | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Forwarded native element reference."
+        }
+      ],
+      "native": [
+        "key"
+      ]
+    }
+  ],
+  "video-player": [
+    {
+      "names": [
+        "VideoPlayer"
+      ],
+      "from": "@structured-growth/sg-ui",
+      "kind": "component",
+      "props": [
+        {
+          "name": "src",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "Label supplied by the application."
+        },
+        {
+          "name": "poster",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "tracks",
+          "type": "readonly VideoTrack[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "transcript",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "seekPolicy",
+          "type": "\"free\" | \"watched\" | \"none\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "requiredWatchPercent",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Coverage threshold, 0–100. Completion also requires minimumViewingSeconds."
+        },
+        {
+          "name": "minimumViewingSeconds",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "defaultWatchedRanges",
+          "type": "readonly WatchedRange[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "defaultPosition",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "playbackRates",
+          "type": "readonly number[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "pauseWhenHidden",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "showProgress",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onProgress",
+          "type": "((progress: VideoProgress) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "onComplete",
+          "type": "((progress: VideoProgress) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "onPlaybackError",
+          "type": "(() => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "crossOrigin",
+          "type": "\"anonymous\" | \"use-credentials\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native CSS class hook."
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native styles and applicable owned CSS variables."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLVideoElement> | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Forwarded native element reference."
+        }
+      ],
+      "native": [
+        "key"
+      ]
+    }
+  ],
   "hierarchical-menu": [
     {
       "names": [
@@ -9380,6 +9674,335 @@
       ]
     }
   ],
+  "survey": [
+    {
+      "names": [
+        "Survey"
+      ],
+      "from": "@structured-growth/sg-ui",
+      "kind": "component",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "Title supplied by the application."
+        },
+        {
+          "name": "description",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "children",
+          "type": "ReactElement<SurveyQuestionProps, string | JSXElementConstructor<any>> | readonly ReactElement<SurveyQuestionProps, string | JSXElementConstructor<any>>[]",
+          "required": true,
+          "default": "—",
+          "description": "Content supplied by the application."
+        },
+        {
+          "name": "mode",
+          "type": "\"all\" | \"one\" | undefined",
+          "required": false,
+          "default": "\"one\"",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "allowBack",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "true",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "currentQuestionId",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "defaultQuestionId",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onQuestionChange",
+          "type": "((id: string) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "onSubmit",
+          "type": "() => void",
+          "required": true,
+          "default": "—",
+          "description": "Validate all questions before invoking. Answers and persistence remain host-owned."
+        },
+        {
+          "name": "submitting",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Controls availability of the interaction."
+        },
+        {
+          "name": "showProgress",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "true",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "submitLabel",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "errorMessage",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native CSS class hook."
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native styles and applicable owned CSS variables."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLFormElement> | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Forwarded native element reference."
+        }
+      ],
+      "native": [
+        "key"
+      ]
+    }
+  ],
+  "survey-question": [
+    {
+      "names": [
+        "SurveyQuestion"
+      ],
+      "from": "@structured-growth/sg-ui",
+      "kind": "component",
+      "props": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "Stable question ID, also used as its native form name unless name is supplied."
+        },
+        {
+          "name": "prompt",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "description",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "kind",
+          "type": "\"text\" | \"single\" | \"multiple\" | \"rating\" | \"custom\" | undefined",
+          "required": false,
+          "default": "\"single\"",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "options",
+          "type": "readonly SurveyQuestionOption[] | undefined",
+          "required": false,
+          "default": "[]",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "value",
+          "type": "SurveyAnswer | undefined",
+          "required": false,
+          "default": "null",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: SurveyAnswer) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "required",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Controls availability of the interaction."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "errorMessage",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "feedback",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "Optional host-revealed AnswerFeedback, distinct from validation errors."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "Custom answer controls. Supply their own labels and native validation."
+        },
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native CSS class hook."
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native styles and applicable owned CSS variables."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLFieldSetElement> | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Forwarded native element reference."
+        }
+      ],
+      "native": [
+        "key"
+      ]
+    }
+  ],
+  "answer-feedback": [
+    {
+      "names": [
+        "AnswerFeedback"
+      ],
+      "from": "@structured-growth/sg-ui",
+      "kind": "component",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "Title supplied by the application."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "Content supplied by the application."
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"positive\" | \"negative\" | undefined",
+          "required": false,
+          "default": "\"neutral\"",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native CSS class hook."
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native styles and applicable owned CSS variables."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLElement> | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Forwarded native element reference."
+        }
+      ],
+      "native": [
+        "key"
+      ]
+    }
+  ],
   "form-field-scope": [
     {
       "names": [
@@ -13189,7 +13812,7 @@
         },
         {
           "name": "months",
-          "type": "1 | 2 | 3 | undefined",
+          "type": "2 | 1 | 3 | undefined",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
@@ -13815,7 +14438,7 @@
         },
         {
           "name": "months",
-          "type": "1 | 2 | 3 | undefined",
+          "type": "2 | 1 | 3 | undefined",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
@@ -14121,7 +14744,7 @@
         },
         {
           "name": "months",
-          "type": "1 | 2 | 3 | undefined",
+          "type": "2 | 1 | 3 | undefined",
           "required": false,
           "default": "2",
           "description": "See the type and source-backed examples for this option."
@@ -14538,7 +15161,7 @@
         },
         {
           "name": "headingLevel",
-          "type": "1 | 2 | 3 | 4 | 5 | 6 | undefined",
+          "type": "2 | 1 | 3 | 4 | 5 | 6 | undefined",
           "required": false,
           "default": "1",
           "description": "See the type and source-backed examples for this option."

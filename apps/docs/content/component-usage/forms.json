@@ -844,5 +844,72 @@
         "label": "Independent selected answers"
       }
     ]
+  },
+  "survey": {
+    "when": "Use Survey for a sequence of questions or an all-at-once form. It contains SurveyQuestion children and provides navigation, required-answer checks and submission presentation. It does not require a course, assessment score or learning management system.",
+    "how": [
+      "Load the public stylesheet and provide Provider or ThemeScope. Supply title, direct SurveyQuestion children with unique stable IDs, and onSubmit. Survey renders a form: do not place it inside another form or add nested forms to questions.",
+      "Use mode=\"one\" for one question at a time or mode=\"all\" for all questions. allowBack defaults to true; false omits Back. Progress reports position rather than completed answers. Keep separate state owners for separate surveys.",
+      "Question answer state is controlled by the host. Keep each value with onValueChange so answers survive navigation. Hidden questions remain mounted; required fields are checked before Next and all questions before submission. Invalid hidden answers return to their question before native focus/reporting. Custom fields must provide their own native validation; invalid blocks progression for host validation.",
+      "Use currentQuestionId with onQuestionChange for host-controlled navigation or defaultQuestionId for an initial position. Hosts may reject navigation. Internal navigation focuses the new question panel after acceptance. A changed/removed ID falls back to the first question; keep children IDs stable.",
+      "onSubmit requests an operation; it does not persist responses or imply success. The host owns answers, branching through the supplied question list, saving, submission errors and completion presentation. submitting disables question editing and navigation; errorMessage displays a host operation error. Do not disable native controls solely to bypass required validation.",
+      "Native question inputs have stable names and remain mounted in sequential mode, but submission uses the host callback. Controlled answer reset is host-owned. Keep required choices available and label custom answers. No built-in arbitrary jump menu, randomization, grading, timers or durable storage is provided."
+    ],
+    "related": [
+      {
+        "slug": "survey-question",
+        "label": "Question and answer shell"
+      },
+      {
+        "slug": "answer-feedback",
+        "label": "Optional answer explanations"
+      }
+    ]
+  },
+  "survey-question": {
+    "when": "Use SurveyQuestion for one prompt with single-choice, multiple-choice, written, rating or custom answer content. Compose it inside Survey for navigation or inside a host form. Prefer the basic field alone when a question shell adds no useful structure.",
+    "how": [
+      "Load the stylesheet and provide a scope. Supply a stable id, prompt and a kind. Single choice is the default. options use stable unique IDs with translated labels. A semantic fieldset and legend group the prompt, guidance, answers and feedback.",
+      "Pair value and onValueChange: single/text use strings, multiple uses a string array, rating uses a number and null represents unanswered. SurveyQuestion is a controlled composition; it does not keep answers when hosts ignore callbacks. Native name defaults to id. Only enabled selected inputs submit native values; repeated names collect multiple IDs.",
+      "required uses native constraints: multiple requires at least one available choice, not every checkbox. Keep at least one enabled option for required choice questions. invalid/errorMessage represent host validation independently of feedback. disabled blocks editing and form submission; readOnly prevents built-in edits while keeping answers inspectable.",
+      "Use feedback={<AnswerFeedback ... />} when the host decides to reveal an explanation. This does not calculate correctness. Use kind=\"custom\" with children for existing SGUI fields or richer layouts; custom controls own their labels, required/error associations and read-only behavior.",
+      "The built-in rating uses the standard five-star Rating contract. Use a custom Rating for alternate scales, a Slider for numeric position or TextField for structured text. The host owns scoring, translations of supplied content, answer clearing when kind changes, survey branching and persistence."
+    ],
+    "related": [
+      {
+        "slug": "survey",
+        "label": "Question navigation"
+      },
+      {
+        "slug": "radio-group",
+        "label": "Single-choice input"
+      },
+      {
+        "slug": "rating",
+        "label": "Custom rating scales"
+      },
+      {
+        "slug": "answer-feedback",
+        "label": "Answer explanations"
+      }
+    ]
+  },
+  "answer-feedback": {
+    "when": "Use AnswerFeedback for optional explanatory feedback after a response or action. It is independent of correctness calculation and validation. Keep field errors associated with their input rather than replacing them with this panel.",
+    "how": [
+      "Provide title with an explicit meaning and optional children. tone is neutral, positive or negative; the text must communicate the meaning without relying on color. The panel uses the current scope and shared Surface and Typography components.",
+      "The host decides when to reveal, replace or remove feedback. The status region uses polite announcements; keep messages brief and test dynamic insertion with target assistive technology. No answer checking, grading or automatic focus movement occurs.",
+      "Use it inside SurveyQuestion.feedback or independently after a host operation. Hosts own explanation content, translations and remediation actions. Feedback does not imply responses were saved or a server operation succeeded."
+    ],
+    "related": [
+      {
+        "slug": "survey-question",
+        "label": "Question feedback slot"
+      },
+      {
+        "slug": "status",
+        "label": "General status presentation"
+      }
+    ]
   }
 }

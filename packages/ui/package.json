@@ -204,6 +204,26 @@
     "./icons/*Icon": {
       "types": "./dist/icons/*Icon.d.ts",
       "import": "./dist/icons/*Icon.js"
+    },
+    "./components/Survey": {
+      "types": "./dist/components/Survey/index.d.ts",
+      "import": "./dist/components/Survey/index.js"
+    },
+    "./components/SurveyQuestion": {
+      "types": "./dist/components/SurveyQuestion/index.d.ts",
+      "import": "./dist/components/SurveyQuestion/index.js"
+    },
+    "./components/AnswerFeedback": {
+      "types": "./dist/components/AnswerFeedback/index.d.ts",
+      "import": "./dist/components/AnswerFeedback/index.js"
+    },
+    "./components/TextConversation": {
+      "types": "./dist/components/TextConversation/index.d.ts",
+      "import": "./dist/components/TextConversation/index.js"
+    },
+    "./components/VideoPlayer": {
+      "types": "./dist/components/VideoPlayer/index.d.ts",
+      "import": "./dist/components/VideoPlayer/index.js"
     }
   },
   "repository": {

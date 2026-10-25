@@ -10,6 +10,24 @@
   },
   {
     "group": "presentation",
+    "slug": "text-conversation",
+    "title": "TextConversation",
+    "description": "Message history, a multiline composer, pending delivery and recoverable drafts.",
+    "exports": [
+      "TextConversation"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "video-player",
+    "title": "VideoPlayer",
+    "description": "Native accessible media controls with optional seek restrictions and observed viewing coverage.",
+    "exports": [
+      "VideoPlayer"
+    ]
+  },
+  {
+    "group": "presentation",
     "slug": "hierarchical-menu",
     "title": "Hierarchical menu",
     "description": "Sliding drilldown and Back navigation with native links or command menu semantics.",
@@ -406,6 +424,33 @@
     "description": "Nested visual scopes preserve the selected demo identity while changing density.",
     "exports": [
       "ThemeScope"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "survey",
+    "title": "Survey",
+    "description": "All-at-once or sequential questions with optional Back navigation and host-owned responses.",
+    "exports": [
+      "Survey"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "survey-question",
+    "title": "SurveyQuestion",
+    "description": "Question shells with choice, text, rating or custom answers and optional feedback.",
+    "exports": [
+      "SurveyQuestion"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "answer-feedback",
+    "title": "AnswerFeedback",
+    "description": "Optional host-revealed answer explanations, independent of field validation.",
+    "exports": [
+      "AnswerFeedback"
     ]
   },
   {

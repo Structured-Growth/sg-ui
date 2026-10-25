@@ -878,3 +878,14 @@ Slider uses the owned foundation and internal React Aria interactions. See [Slid
 TextField prefix/suffix slots accept fixed non-interactive text or icons; see [affix contracts](docs/developer/text-field-affixes.md). Keep units in labels/guidance and decorations outside native values. Use affixAppearance for shared styling rather than host overlays or per-example input padding.
 
 Rating is a discrete single-answer form field using owned props and internal React Aria radio interaction. See [Rating contracts](docs/developer/rating.md). Preserve null as unanswered, native names/required/reset, decorative custom icon groups and independent source-backed docs examples. Multiple rendered icons do not imply multi-selection.
+
+## General interactive content
+
+Survey, SurveyQuestion, AnswerFeedback, TextConversation and VideoPlayer use the
+owned composition boundary. See [interactive content](docs/developer/interactive-content.md).
+Keep them independent of courses, assessments, phishing and application services.
+Surveys own navigation; hosts own answer state, branching and submission. Conversation
+hosts own messages and delivery; rejected sends retain drafts. Video viewing/seek
+policies provide client interaction controls, never proof of attention. Hosts own
+media, accessible alternatives and durable validated progress. Keep their source-backed
+catalog playgrounds and primary-flow smoke cases current.

@@ -1,0 +1,11 @@
+@layer sgui.components {
+  .root { display: grid; gap: var(--sgui-space3); min-inline-size: 0; }
+  .log { display: flex; flex-direction: column; gap: var(--sgui-space3); max-block-size: 28rem; overflow: auto; padding: var(--sgui-space2); }
+  .log:focus-visible { outline: var(--sgui-focus-width) solid var(--sgui-surface-text); outline-offset: var(--sgui-focus-offset); }
+  .message { max-inline-size: 85%; align-self: start; overflow-wrap: anywhere; }
+  .message[data-direction="outgoing"] { align-self: end; }
+  .message[data-direction="system"] { align-self: center; max-inline-size: 100%; }
+  .text { white-space: pre-wrap; }
+  .composer { display: grid; gap: var(--sgui-space2); }
+  .composer > button { justify-self: end; }
+}

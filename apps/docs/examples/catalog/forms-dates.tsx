@@ -1,4 +1,5 @@
 'use client';
+import {SurveyExamples, SurveyQuestionExamples, AnswerFeedbackExamples} from '../SurveyExamples';
 
 import {RatingExamples} from '../RatingExamples';
 
@@ -401,6 +402,9 @@ function PeriodPage(){return <AdvancedCalendarExamples kind="PeriodPicker"/>;}
 function DateTimeRangePage(){return <AdvancedCalendarExamples kind="DateTimeRangePicker"/>;}
 function ComparisonPage(){return <AdvancedCalendarExamples kind="DateRangeComparisonPicker"/>;}
 export const formsDateEntries: CatalogEntry[] = [
+  {slug:'survey',title:'Survey',description:'All-at-once or sequential questions with optional Back navigation and host-owned responses.',exports:['Survey'],Playground:SurveyExamples},
+  {slug:'survey-question',title:'SurveyQuestion',description:'Question shells with choice, text, rating or custom answers and optional feedback.',exports:['SurveyQuestion'],Playground:SurveyQuestionExamples},
+  {slug:'answer-feedback',title:'AnswerFeedback',description:'Optional host-revealed answer explanations, independent of field validation.',exports:['AnswerFeedback'],Playground:AnswerFeedbackExamples},
   {slug:'form-field-scope',title:'FormFieldScope',description:'Shared message placement defaults with nested scopes and individual field overrides.',exports:['FormFieldScope'],Playground:FormFieldScopeExamples},
   {slug:'month-picker',title:'MonthPicker',description:'Inline month choices shared by calendar navigation and period selection.',exports:['MonthPicker'],Playground:MonthPage},
   {slug:'year-picker',title:'YearPicker',description:'Four-column scrolling year choices, with optional pagination or typed entry.',exports:['YearPicker'],Playground:YearPage},

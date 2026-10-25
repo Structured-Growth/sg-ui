@@ -1,6 +1,6 @@
 # SGUI backlog
 
-Updated: 2026-10-24. **32 active tasks; 6 deferred features.** This is the single
+Updated: 2026-10-25. **34 active tasks; 6 deferred features.** This is the single
 working backlog and lists unfinished work only. Historical validation captures are not retained in the working tree.
 Parent rollups are not additional tasks.
 
@@ -36,7 +36,6 @@ priority. Preserve functionality → regression → hardening execution order; s
 | AUD-008 | Editor / code organization | Extract editor selection/formatting bridge responsibilities from the main editor implementation. |P3, medium. Keep public contracts, document admission and host persistence ownership intact. |
 | AUD-009 | Source / readability | Expand compressed navigation geometry and range-gesture code into reviewable functions. |P3, low. Bounded formatting/naming change; no repository-wide formatting churn. |
 | AUD-010 | Theme / geometry consistency | Make the tab indicator thickness an owned shared value. |P3, low. Remove repeated geometry literals while preserving orientation, RTL and animation behavior. |
-| AUD-011 | Docs / source regression | Serialize edited grid labels as JSX string expressions. |P2, high. In [catalog-data.tsx](../../apps/docs/examples/catalog/catalog-data.tsx), edit the AppDataGrid/AppDataGridShell playground label to `Edited "<Course>" {draft}`. Preview text renders, but copied source embeds JSON escapes inside a quoted JSX attribute and fails compilation. Wrap the serialized string literal in JSX expression braces (`label={"..."}`), preserving literal content. Done when the existing production catalog changed-source check passes for both routes, including quotes, angle brackets and braces. Reproduced in the current in-progress grid/docs checkout; do not overwrite that work. |
 | AUD-012 | Forms / validation regression | Prevent error-message removal during blur from canceling the first corrected-value submit click. |P2, high. Reproduced in existing TextField “Native form reset” and new whole-dollar form: clear required Learner name, click Prepare registration, enter Taylor and click Prepare registration again. Native validity is now valid, but blur removes the error and shifts the pressed button between pointer down/up; only a second click submits. Keyboard blur followed by activation succeeds. Fix shared validation/layout timing without duplicate submits, permanent empty error rows or disabling native validity; add a focused pointer regression preserving source, density and enlarged-text behavior. Affix rendering is not the cause. |
 | SS-T-01 | SearchableSelect / regression | Expand the bounded baseline into focused canceled-reset, duplicate-label alias, changing-options/selected-record, controlled rejection and nested-overlay regressions for both layouts. |P2. Reuse the baseline selection/form/status cases and [contract](searchable-select.md). Done when each transition preserves stable IDs, current labels and host authority without sibling state changes; split independent fixes if a case fails. Do not infer remote fetching or custom-value creation. |
 | SS-V-01 | SearchableSelect / environment hardening | Verify both search locations with RTL/non-English locale, IME, zoom, touch keyboard, screen readers and supported browser engines. |P3, after SS-T-01. Retain focused Chromium keyboard/form/source checks and collect actual Firefox/WebKit and manual device/AT results; verify sticky popup search, viewport fit, contrast/forced colors and focus return. Shares broad environment obligations with A-P-07/A-X-11/A-Z-11 without replacing them. |
@@ -267,3 +266,20 @@ assistance; completed technical portions do not waive unmet acceptance obligatio
 
 When a task finishes, remove its active row. Keep completed-task narratives and
 historical evidence out of this working backlog.
+
+## General interactive content follow-up
+
+User-requested functionality baseline: Survey, SurveyQuestion, AnswerFeedback,
+TextConversation and VideoPlayer. See [contracts](interactive-content.md). These
+follow-ups are separate from baseline functionality and existing acceptance gates.
+
+- **IC-T-01 — Regression:** expand canceled/reset form behavior, dynamic question
+  removal/branching, asynchronous controlled rejection and conversation draft edits
+  during delivery; preserve the minimal primary-flow baseline cases.
+- **IC-T-02 — Video regression:** expand buffering/rate/seek event ordering,
+  malformed persisted ranges, changed policies, fractional-duration coverage and
+  saved progress reconciliation in real media playback.
+- **IC-V-01 — Environment hardening:** after regression, verify native video controls,
+  captions/described alternatives/fullscreen/PiP in supported browser engines;
+  physical mobile controls, screen-reader question/log announcements, enlarged text,
+  RTL and forced colors require actual device/manual evidence.

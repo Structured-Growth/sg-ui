@@ -128,7 +128,7 @@
     ]
   },
   "typography": {
-    "when": "Use Typography to apply the library\u2019s text roles consistently while choosing the correct HTML semantics for the document. A heading-sized style does not automatically make text a heading.",
+    "when": "Use Typography to apply the library’s text roles consistently while choosing the correct HTML semantics for the document. A heading-sized style does not automatically make text a heading.",
     "how": [
       "Choose variant for the visual role and as independently for semantics, such as as=\"h2\" with variant=\"h5\" for a section heading.",
       "Use default for main text, muted for descriptions, subtle for supplementary metadata, accent for brand-colored text and danger for errors. Keep important instructions readable. Theme mappings may converge in increased contrast or forced colors. An eyebrow is a content role, commonly rendered with the overline variant; as independently controls HTML semantics.",
@@ -194,7 +194,7 @@
     "when": "Use Surface when a section needs an owned background, subtle tone, border or elevation. Choose Card when the section represents a distinct item such as a course summary rather than a general page region.",
     "how": [
       "Choose flat, outlined or raised variant and default or subtle tone; these treatments follow the active theme tokens.",
-      "Use padding and as to fit the region\u2019s layout and document semantics. Compose text and actions inside with Typography and the appropriate controls.",
+      "Use padding and as to fit the region’s layout and document semantics. Compose text and actions inside with Typography and the appropriate controls.",
       "A surface is not an interactive control. Add a separately named Button or Link for actions and navigation instead of attaching click behavior to the whole wrapper."
     ],
     "related": [
@@ -256,8 +256,8 @@
     "when": "Use IconButton for a compact, familiar action whose visible content is an icon, such as adding a lesson or opening more actions. Prefer a text button when the action would be hard to recognize without words.",
     "how": [
       "Provide label describing the action and pass an owned icon as children. The containing button supplies the accessible name and the icon is decorative.",
-      "Use onPress for the action, and explore variant, tone, density, disabled and loading without changing the action\u2019s meaning.",
-      "If a short explanation is useful, add Tooltip as supplementary text while retaining the button\u2019s label."
+      "Use onPress for the action, and explore variant, tone, density, disabled and loading without changing the action’s meaning.",
+      "If a short explanation is useful, add Tooltip as supplementary text while retaining the button’s label."
     ],
     "related": [
       {
@@ -366,7 +366,7 @@
     ]
   },
   "breadcrumbs": {
-    "when": "Use Breadcrumbs to show a location\u2019s ancestry and let people return to parent locations. They describe a route hierarchy rather than the currently selected panel in a single view.",
+    "when": "Use Breadcrumbs to show a location’s ancestry and let people return to parent locations. They describe a route hierarchy rather than the currently selected panel in a single view.",
     "how": [
       "Provide items in ancestor-to-current order with stable id and readable label values. Add href to ancestors that can be visited.",
       "The final item is displayed as the current page rather than a link, even if a destination is supplied. Let the host determine that hierarchy.",
@@ -433,7 +433,7 @@
     ]
   },
   "navigation": {
-    "when": "Use Navigation and NavigationItem for a named group of destinations, such as a course workspace\u2019s local routes. The host determines which route is current; the components do not perform route matching.",
+    "when": "Use Navigation and NavigationItem for a named group of destinations, such as a course workspace’s local routes. The host determines which route is current; the components do not perform route matching.",
     "how": [
       "Provide a distinct label for the navigation landmark and compose NavigationItem links, usually inside List and ListItem.",
       "Supply href and readable text for each destination, then set current only on the host-selected route to expose the current-page state.",
@@ -475,7 +475,7 @@
   "collapse": {
     "when": "Use Collapse when the host already owns an expansion trigger and needs to show or hide a block while controlling its lifetime. Choose Disclosure when the component should also provide the named trigger and associated region.",
     "how": [
-      "Pass expanded from host state and provide the control that changes it. Connect that control\u2019s aria-expanded and aria-controls to the content where appropriate.",
+      "Pass expanded from host state and provide the control that changes it. Connect that control’s aria-expanded and aria-controls to the content where appropriate.",
       "By default, hidden children remain mounted so their local state survives. Use unmountOnCollapse when disposing that state is intended.",
       "Keep focus ownership in the surrounding composition when hiding interactive content; Collapse does not create a trigger or a dialog focus scope."
     ],
@@ -517,7 +517,7 @@
     "how": [
       "Provide content as a string or number; zero and values such as \"99+\" are displayed as supplied. Choose primary or neutral tone.",
       "Pass children when the badge should be attached to an anchor. Name an icon-only anchor independently rather than relying on its count.",
-      "Use aria-label or aria-labelledby when the badge and anchor need a combined group name. Keep changes and any announcements in the host\u2019s state design."
+      "Use aria-label or aria-labelledby when the badge and anchor need a combined group name. Keep changes and any announcements in the host’s state design."
     ],
     "related": [
       {
@@ -560,7 +560,7 @@
   "status": {
     "when": "Use Status for a result or state message, such as a saved draft or a recoverable error. Enable announcements deliberately for meaningful changes rather than every render or progress tick.",
     "how": [
-      "Provide readable children and choose neutral or danger tone according to the message\u2019s meaning.",
+      "Provide readable children and choose neutral or danger tone according to the message’s meaning.",
       "Leave announcement=\"off\" for static presentation, choose polite for ordinary updates, and reserve assertive for updates that warrant interrupting other announcements.",
       "Keep the message and state transitions in the host application. Use Progress for continuously changing completion values."
     ],
@@ -672,7 +672,7 @@
       "Set theme and density only for the local region, and pass owned token overrides through style when demonstrating a different visual identity.",
       "Set interactionMode to auto (default), pointer or touch independently of compact/comfortable density. Auto uses the touch sizing tokens when any available pointer is coarse, including hybrid devices. The setting changes presentation, never disables an input method, and inherits into nested scopes and overlay portals.",
       "Unspecified scope values inherit from the parent. Nested scopes also retain owned CSS variables, including the variables that portaled overlays need.",
-      "Keep interaction locale in Provider and the translation adapter. A visual dir override does not replace the host\u2019s locale for keyboard or overlay placement behavior.",
+      "Keep interaction locale in Provider and the translation adapter. A visual dir override does not replace the host’s locale for keyboard or overlay placement behavior.",
       "Wrap the trigger and demonstrated controls together so dialogs, menus and tooltips opened from that region receive the intended visual scope."
     ],
     "related": [
@@ -712,6 +712,56 @@
       {
         "slug": "popover",
         "label": "Anchored host surface"
+      }
+    ]
+  },
+  "text-conversation": {
+    "when": "Use TextConversation for support messages, guided conversations or simulations with host-supplied messages. It is an inline conversation region, not a modal Dialog or AppModal.",
+    "how": [
+      "Load the public stylesheet and provide a scope. Supply title, messages with unique stable IDs, author labels, text and incoming/outgoing/system directions, and onSend. Text is rendered as text; the component does not execute HTML messages. Optional timeLabel and status are host-formatted strings.",
+      "The message log supports keyboard scrolling and polite additions. New content scrolls to the bottom only while the reader is already near it. Reading older messages does not steal focus or force scrolling. The current bounded history is not virtualized; hosts own pagination and large-history loading.",
+      "The multiline composer sends using its Send button or native form submission; Enter in the textarea adds a newline. Empty/whitespace drafts cannot send. Internal pending delivery blocks duplicate requests. Resolve onSend after accepting the message; reject to show a recoverable error and retain the draft. A resolved send clears an unchanged draft.",
+      "Use draft/onDraftChange for controlled draft ownership or defaultDraft for an initial local draft. Controlled hosts accept draft-change requests. sending can expose a host operation in progress, disabled blocks the composer, and readOnly removes the composer for transcript viewing. typingLabel and errorMessage are host-supplied status content.",
+      "The host owns message insertion, delivery state, retries, reply generation, transport, authentication, phone/SMS integrations, consent and persistence. The component neither calls a phone nor contacts a service. The docs scripted reply stays local. Do not nest the conversation composer inside a form."
+    ],
+    "related": [
+      {
+        "slug": "text-area",
+        "label": "Multiline message input"
+      },
+      {
+        "slug": "owned-dialog",
+        "label": "Modal interaction"
+      },
+      {
+        "slug": "dialog",
+        "label": "Structured modal forms"
+      }
+    ]
+  },
+  "video-player": {
+    "when": "Use VideoPlayer for native HTML video with accessible controls, captions and transcript content. Optional seek restrictions and observed viewing requirements support general guided experiences without course concepts.",
+    "how": [
+      "Load the stylesheet and provide a scope. Supply a media src and accessible label. The forwarded ref targets the video element. The player uses native controls, inline playback and metadata preload; playback begins through user interaction. Supply poster, crossOrigin and tracks as appropriate. Demo media URLs belong to the docs app; replace them in your host.",
+      "Provide accurate captions and translated track labels; description tracks require target-browser verification and may need a separately described media source. transcript accepts host content in an expandable Disclosure. A transcript alone is not a substitute for every caption/audio-description requirement. Hosts own equivalent access and any alternative completion route.",
+      "seekPolicy=\"free\" permits normal seeking; \"watched\" permits replay within recorded watched intervals and the start; \"none\" rejects seeks. Native controls remain available; forbidden seeks restore the last accepted position and announce the limitation. This is browser UX enforcement, not tamper-proof evidence of attention.",
+      "onProgress reports duration, currentTime, merged watchedRanges, unique watchedSeconds/Percent, session viewingSeconds and complete. Plausible advancing playback adds coverage; seeking, buffering, duplicate timestamps and replay do not add unique coverage. Playback speed changes affect elapsed viewing time independently of media coverage.",
+      "requiredWatchPercent defaults to 100 and combines with minimumViewingSeconds (default 0). onComplete fires at most once per source session after both thresholds are met. showProgress exposes coverage. defaultWatchedRanges and defaultPosition initialize a session; the host must validate saved ranges before supplying them. Changing src creates a new session. To restart the same src with new defaults, remount with a new React key.",
+      "playbackRates lists permitted positive speeds up to 16; the default list is 0.75, 1, 1.25, 1.5 and 2. Native rate changes are reconciled with the list. pauseWhenHidden optionally pauses on document visibility changes and never automatically resumes. Native media restrictions vary across browsers, fullscreen and device controls; verify target platforms.",
+      "The host owns media delivery, authorized URLs, caption assets, saved progress, content versions, server validation and policy decisions. minimumViewingSeconds measures only the current mounted session; persisted watched coverage does not restore elapsed viewing time. No remote storage, checkpoint quizzes, DRM, streaming-provider SDK or attention verification is included. onPlaybackError lets the host observe media failure; the player also shows an error."
+    ],
+    "related": [
+      {
+        "slug": "survey-question",
+        "label": "Separate knowledge or feedback questions"
+      },
+      {
+        "slug": "progress",
+        "label": "General progress display"
+      },
+      {
+        "slug": "disclosure",
+        "label": "Expandable transcript content"
       }
     ]
   }

@@ -1,0 +1,5 @@
+@layer sgui.components {
+  .root { display: grid; gap: var(--sgui-space3); min-inline-size: 0; margin: 0; padding: var(--sgui-space4); border: 1px solid var(--sgui-surface-divider); border-radius: var(--sgui-control-radius); }
+  .legend { max-inline-size: 100%; padding-inline: var(--sgui-space1); overflow-wrap: anywhere; }
+  .options { display: grid; gap: var(--sgui-space2); }
+}

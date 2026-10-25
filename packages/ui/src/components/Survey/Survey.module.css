@@ -1,0 +1,5 @@
+@layer sgui.components {
+  .root { display: grid; gap: var(--sgui-space4); min-inline-size: 0; }
+  .questions { display: grid; gap: var(--sgui-space4); border: 0; padding: 0; margin: 0; min-inline-size: 0; }
+  .actions { display: flex; flex-wrap: wrap; gap: var(--sgui-space2); justify-content: end; }
+}

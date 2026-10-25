@@ -14,6 +14,52 @@
       ]
     }
   ],
+  "text-conversation": [
+    {
+      "name": "TextConversation",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "button"
+        },
+        {
+          "name": "Surface",
+          "slug": "surface"
+        },
+        {
+          "name": "TextArea",
+          "slug": "text-area"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "video-player": [
+    {
+      "name": "VideoPlayer",
+      "children": [
+        {
+          "name": "Disclosure",
+          "slug": "disclosure"
+        },
+        {
+          "name": "Progress",
+          "slug": "progress"
+        },
+        {
+          "name": "Select",
+          "slug": "select"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
   "hierarchical-menu": [
     {
       "name": "HierarchicalMenu",
@@ -795,6 +841,67 @@
     {
       "name": "ThemeScope",
       "children": []
+    }
+  ],
+  "survey": [
+    {
+      "name": "Survey",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "button"
+        },
+        {
+          "name": "Progress",
+          "slug": "progress"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "survey-question": [
+    {
+      "name": "SurveyQuestion",
+      "children": [
+        {
+          "name": "Checkbox",
+          "slug": "checkbox"
+        },
+        {
+          "name": "RadioGroup",
+          "slug": "radio-group"
+        },
+        {
+          "name": "Rating",
+          "slug": "rating"
+        },
+        {
+          "name": "TextArea",
+          "slug": "text-area"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "answer-feedback": [
+    {
+      "name": "AnswerFeedback",
+      "children": [
+        {
+          "name": "Surface",
+          "slug": "surface"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
     }
   ],
   "form-field-scope": [

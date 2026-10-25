@@ -1,0 +1,4 @@
+@layer sgui.components {
+  .root { display: grid; gap: var(--sgui-space3); min-inline-size: 0; }
+  .video { display: block; inline-size: 100%; max-block-size: 70vh; border-radius: var(--sgui-control-radius); }
+}

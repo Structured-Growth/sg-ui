@@ -131,3 +131,8 @@ export { IconPanelNavigation, type IconPanelNavigationProps, type IconPanelNavig
 
 export {MonthPicker,type MonthPickerProps} from "../experimental/MonthPicker/MonthPicker";
 export {YearPicker,type YearPickerProps} from "../experimental/YearPicker/YearPicker";
+export { Survey, type SurveyProps } from "./Survey";
+export { SurveyQuestion, type SurveyQuestionProps, type SurveyQuestionOption, type SurveyAnswer } from "./SurveyQuestion";
+export { AnswerFeedback, type AnswerFeedbackProps } from "./AnswerFeedback";
+export { TextConversation, type TextConversationProps, type ConversationMessage } from "./TextConversation";
+export { VideoPlayer, type VideoPlayerProps, type VideoTrack, type VideoProgress, type WatchedRange } from "./VideoPlayer";

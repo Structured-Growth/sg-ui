@@ -31,7 +31,9 @@
       "rating",
       "radio-group",
       "tag-group",
-      "editable-title-field"
+      "editable-title-field",
+      "survey",
+      "survey-question"
     ]
   },
   {
@@ -59,7 +61,9 @@
       "link",
       "list",
       "chip",
-      "avatar"
+      "avatar",
+      "text-conversation",
+      "video-player"
     ]
   },
   {
@@ -149,7 +153,8 @@
       "status",
       "badge",
       "inline-progress",
-      "operation-steps"
+      "operation-steps",
+      "answer-feedback"
     ]
   },
   {
