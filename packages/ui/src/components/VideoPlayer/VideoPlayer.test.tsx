@@ -33,3 +33,33 @@ it("resets progress on source change and exposes captions, transcript and failur
 });
 
 afterEach(cleanup);
+
+it("does not accept scrub timestamps from progress or pause events before seeking", () => {
+  const progress = vi.fn();
+  const {container} = render(<VideoPlayer src="/clip.mp4" label="No seeking" seekPolicy="none" onProgress={progress}/>);
+  const media = container.querySelector("video")!;
+  Object.defineProperty(media, "duration", {value: 10});
+  Object.defineProperty(media, "seeking", {value: false, configurable: true});
+  fireEvent.loadedMetadata(media);
+  const initialUpdates = progress.mock.calls.length;
+  for (const event of ["timeUpdate", "pause"] as const) {
+    media.currentTime = 8;
+    Object.defineProperty(media, "seeking", {value: true, configurable: true});
+    fireEvent[event](media);
+    fireEvent.seeking(media);
+    expect(media.currentTime).toBe(0);
+    Object.defineProperty(media, "seeking", {value: false, configurable: true});
+    fireEvent.seeked(media);
+  }
+  expect(progress.mock.calls.length).toBe(initialUpdates);
+  // Some native controls publish the destination before marking seeking.
+  media.currentTime = 9;
+  fireEvent.pause(media);
+  expect(media.currentTime).toBe(0);
+  Object.defineProperty(media, "seeking", {value: false, configurable: true});
+  fireEvent.seeked(media);
+  // A delayed seeked event must also validate the destination, not adopt it.
+  media.currentTime = 7;
+  fireEvent.seeked(media);
+  expect(media.currentTime).toBe(0);
+});

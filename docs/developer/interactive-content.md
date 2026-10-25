@@ -54,7 +54,9 @@ requested. Accessible media assets and equivalent access remain host obligations
 Native description-track and device behavior require target-platform verification.
 
 seekPolicy is free, watched (replay recorded ranges) or none. Restricted seeks
-restore the last accepted position and announce the limit. Merged watched intervals
+restore the last accepted position and announce the limit. Pending seek events
+cannot update accepted playback or viewing progress; destinations are checked again
+on seek completion, including overlapping native timeline drags. Merged watched intervals
 prevent replay from inflating coverage; implausible timestamp jumps are excluded.
 Viewing seconds measure observed active playback in the mounted session, separately
 from media coverage. Completion combines requiredWatchPercent (default 100) with

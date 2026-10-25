@@ -91,3 +91,35 @@ test('top-level Surveys navigation loads the site and opens its own category',as
  await expect(page.getByRole('heading',{name:'Survey',level:1,exact:true})).toBeVisible();
  expect(errors).toEqual([]);
 });
+
+
+test('seeking-disabled video rejects native timeline dragging while paused and playing',async({page})=>{
+ await page.goto('/docs/components/video-player');
+ const panel=page.getByRole('region',{name:exampleName('Seeking disabled'),exact:true});
+ const video=panel.locator('video');
+ await expect.poll(()=>video.evaluate(node=>(node as HTMLVideoElement).readyState)).toBeGreaterThanOrEqual(1);
+ await video.evaluate(node=>{
+  node.setAttribute('data-native-seeks','0');
+  node.addEventListener('seeking',()=>node.setAttribute('data-native-seeks',String(Number(node.getAttribute('data-native-seeks'))+1)));
+ });
+ async function scrub(){
+  await video.scrollIntoViewIfNeeded();await video.hover();const box=(await video.boundingBox())!;
+  // Chromium's native timeline sits above the bottom edge of the video.
+  await page.mouse.move(box.x+box.width*0.15,box.y+box.height-20);
+  await page.mouse.down();await page.mouse.move(box.x+box.width*0.85,box.y+box.height-20,{steps:20});await page.mouse.up();
+ }
+ await scrub();
+ await expect.poll(()=>video.evaluate(node=>(node as HTMLVideoElement).seeking)).toBe(false);
+ expect(Number(await video.getAttribute('data-native-seeks'))).toBeGreaterThan(0);
+ expect(await video.evaluate(node=>(node as HTMLVideoElement).currentTime)).toBeLessThan(0.2);
+ await video.evaluate(node=>(node as HTMLVideoElement).play());
+ await expect.poll(()=>video.evaluate(node=>(node as HTMLVideoElement).currentTime)).toBeGreaterThan(0.6);
+ await scrub();await video.evaluate(node=>(node as HTMLVideoElement).pause());
+ await expect.poll(()=>video.evaluate(node=>(node as HTMLVideoElement).seeking)).toBe(false);
+ expect(await video.evaluate(node=>(node as HTMLVideoElement).currentTime)).toBeLessThan(2.5);
+ await expect(panel.getByRole('status').filter({hasText:'Seeking is limited'})).toBeVisible();
+ await expect(panel.getByRole('status').filter({hasText:'Viewing requirement met'})).toHaveCount(0);
+ const free=page.getByRole('region',{name:exampleName('Prop playground'),exact:true}).locator('video');
+ await free.evaluate(node=>{(node as HTMLVideoElement).currentTime=4;});
+ await expect.poll(()=>free.evaluate(node=>(node as HTMLVideoElement).currentTime)).toBeGreaterThan(3.8);
+});

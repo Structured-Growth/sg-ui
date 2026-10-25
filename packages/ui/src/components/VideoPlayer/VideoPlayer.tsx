@@ -53,6 +53,7 @@ function VideoSession({src, label, poster, tracks = [], transcript, seekPolicy =
   const viewing = useRef(0);
   const anchor = useRef<{position: number; time: number} | null>(null);
   const lastPosition = useRef(0);
+  const seekPending = useRef(false);
   const completed = useRef(false);
   const initialized = useRef(false);
   const [percent, setPercent] = useState(0);
@@ -72,12 +73,19 @@ function VideoSession({src, label, poster, tracks = [], transcript, seekPolicy =
   }, [ratesKey]);
   const capture = () => {
     const media = video.current;
-    if (!media || !Number.isFinite(media.duration) || media.duration <= 0) return;
+    // Browsers can dispatch pause/timeupdate for the scrub destination before
+    // seeking. Never let an in-flight seek replace the accepted playback position.
+    if (!media || media.seeking || seekPending.current || !Number.isFinite(media.duration) || media.duration <= 0) return;
     const now = performance.now();
     const previous = anchor.current;
-    if (previous && !media.seeking) {
-      const elapsed = Math.max(0, (now - previous.time) / 1000);
-      const delta = media.currentTime - previous.position;
+    const elapsed = previous ? Math.max(0, (now - previous.time) / 1000) : 0;
+    const delta = previous ? media.currentTime - previous.position : 0;
+    if (seekPolicy !== "free" && Math.abs(media.currentTime - lastPosition.current) > 0.05
+      && (!previous || delta < 0 || delta > elapsed * media.playbackRate + 0.35)) {
+      restoreRestrictedSeek();
+      return;
+    }
+    if (previous) {
       if (delta > 0 && delta <= elapsed * media.playbackRate + 0.35) {
         ranges.current = mergeWatchedRanges([...ranges.current, [previous.position, media.currentTime]], media.duration);
         viewing.current += Math.min(elapsed, delta / media.playbackRate);
@@ -96,6 +104,17 @@ function VideoSession({src, label, poster, tracks = [], transcript, seekPolicy =
     setPercent(watchedPercent);
     onProgress?.(snapshot);
     if (snapshot.complete && !completed.current) { completed.current = true; onComplete?.(snapshot); }
+  };
+  const restoreRestrictedSeek = () => {
+    const media = video.current!;
+    const atAcceptedPosition = Math.abs(media.currentTime - lastPosition.current) <= 0.05;
+    const permitted = seekPolicy === "free" || atAcceptedPosition || (seekPolicy === "watched" && allowedPosition(media.currentTime, ranges.current));
+    if (permitted) return false;
+    seekPending.current = true;
+    anchor.current = null;
+    media.currentTime = lastPosition.current;
+    setNotice(t("video.seekLimited", {defaultMessage: "Seeking is limited for this video."}));
+    return true;
   };
   useEffect(() => {
     if (!pauseWhenHidden) return;
@@ -117,25 +136,28 @@ function VideoSession({src, label, poster, tracks = [], transcript, seekPolicy =
         }
         capture();
       }}
-      onPlaying={() => {anchor.current = {position: video.current!.currentTime, time: performance.now()};}}
+      onPlaying={() => {const media = video.current!; anchor.current = media.seeking || seekPending.current ? null : {position: media.currentTime, time: performance.now()};}}
       onTimeUpdate={capture} onPause={capture} onEnded={capture}
       onWaiting={() => { capture(); anchor.current = null; }}
       onSeeking={() => {
-        const media = video.current!;
+        seekPending.current = true;
         anchor.current = null;
-        const permitted = seekPolicy === "free" || (seekPolicy === "watched" && allowedPosition(media.currentTime, ranges.current));
-        if (!permitted && Math.abs(media.currentTime - lastPosition.current) > 0.05) {
-          media.currentTime = lastPosition.current;
-          setNotice(t("video.seekLimited", {defaultMessage: "Seeking is limited for this video."}));
-        }
+        restoreRestrictedSeek();
       }}
-      onSeeked={() => {lastPosition.current = video.current!.currentTime; anchor.current = video.current!.paused ? null : {position: lastPosition.current, time: performance.now()};}}
+      onSeeked={() => {
+        // Validate again: native scrubbing can issue several overlapping seeks.
+        if (restoreRestrictedSeek()) return;
+        seekPending.current = false;
+        const media = video.current!;
+        lastPosition.current = media.currentTime;
+        anchor.current = media.paused ? null : {position: media.currentTime, time: performance.now()};
+      }}
       onRateChange={() => {
         const media = video.current!;
         anchor.current = null;
         if (!rates.includes(media.playbackRate)) media.playbackRate = rates.includes(rate) ? rate : rates[0];
         else setRate(media.playbackRate);
-        if (!media.paused) anchor.current = {position: media.currentTime, time: performance.now()};
+        if (!media.paused && !media.seeking && !seekPending.current) anchor.current = {position: media.currentTime, time: performance.now()};
       }}
       onError={() => {anchor.current = null; setError(true); onPlaybackError?.();}}>
       {tracks.map(track => <track key={`${track.kind ?? "captions"}-${track.srcLang}`} {...track} kind={track.kind ?? "captions"}/>)}
