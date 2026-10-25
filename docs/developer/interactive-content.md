@@ -68,7 +68,7 @@ pauseWhenHidden optionally pauses without automatically resuming. Hosts supply
 media delivery, authorization, validated resume data and content versions. Browser
 playback evidence is not proof of attention or a server security boundary. The
 player has no network persistence, question engine or streaming-provider SDK.
-The docs include an original six-second silent WebM and WebVTT transcript/captions;
+The docs include an original 30-second silent WebM and WebVTT transcript/captions;
 consumer snippets must substitute host-owned media URLs.
 
 ## Baseline validation

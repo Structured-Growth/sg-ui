@@ -45,17 +45,19 @@ test('conversation sends local replies, preserves failed drafts and retries inde
 });
 
 test('video rejects forward seeking, completes observed playback and leaves sibling playback unchanged',async({page})=>{
+ test.setTimeout(90000);
  await page.goto('/docs/components/video-player');
  const panel=page.getByRole('region',{name:exampleName('Replay watched sections'),exact:true});
  const video=panel.locator('video');await expect.poll(()=>video.evaluate(node=>(node as HTMLVideoElement).readyState)).toBeGreaterThanOrEqual(1);
- await video.evaluate(node=>{(node as HTMLVideoElement).currentTime=4;});
+ expect(await video.evaluate(node=>(node as HTMLVideoElement).duration)).toBeCloseTo(30,0);
+ await video.evaluate(node=>{(node as HTMLVideoElement).currentTime=24;});
  await expect.poll(()=>video.evaluate(node=>(node as HTMLVideoElement).currentTime)).toBeLessThan(0.2);
  await video.evaluate(node=>(node as HTMLVideoElement).play());
- await expect(panel.getByRole('status').filter({hasText:'Viewing requirement met'})).toBeVisible({timeout:12000});
+ await expect(panel.getByRole('status').filter({hasText:'Viewing requirement met'})).toBeVisible({timeout:40000});
  const sibling=page.getByRole('region',{name:exampleName('Prop playground'),exact:true}).locator('video');
  expect(await sibling.evaluate(node=>(node as HTMLVideoElement).currentTime)).toBe(0);
  await sibling.evaluate(node=>(node as HTMLVideoElement).play());
- await expect(page.getByRole('region',{name:exampleName('Prop playground'),exact:true}).getByRole('status').filter({hasText:'Viewing requirement met'})).toBeVisible({timeout:12000});
+ await expect(page.getByRole('region',{name:exampleName('Prop playground'),exact:true}).getByRole('status').filter({hasText:'Viewing requirement met'})).toBeVisible({timeout:40000});
  await video.evaluate(node=>{(node as HTMLVideoElement).currentTime=2;});await expect.poll(()=>video.evaluate(node=>(node as HTMLVideoElement).currentTime)).toBeGreaterThanOrEqual(2);
  await panel.getByRole('button',{name:'Transcript',exact:true}).click();await expect(panel.getByRole('region',{name:'Transcript',exact:true})).toBeVisible();
  await panel.screenshot({path:'/tmp/sgui-video.png'});
