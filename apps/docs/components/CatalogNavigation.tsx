@@ -7,7 +7,7 @@ import catalog from '../content/catalog.json';
 import componentNavigationGroups from '../content/component-navigation.json';
 import {navigation} from '../content/navigation';
 import styles from './docs.module.css';
-const groupIcons={actions:CheckIcon,forms:AssignmentTurnedInIcon,calendar:CalendarTodayIcon,text:DescriptionOutlinedIcon,grids:ViewListIcon,cards:CourseIcon,overlays:ContentCopyIcon,layouts:WindowIcon,editor:EditIcon,feedback:TaskAltIcon,foundations:TuneIcon};
+const groupIcons:Record<string,typeof CheckIcon>={actions:CheckIcon,forms:AssignmentTurnedInIcon,surveys:TaskAltIcon,calendar:CalendarTodayIcon,text:DescriptionOutlinedIcon,grids:ViewListIcon,cards:CourseIcon,overlays:ContentCopyIcon,layouts:WindowIcon,editor:EditIcon,feedback:TaskAltIcon,foundations:TuneIcon};
 const pageIcons:Record<string,typeof MenuBookIcon>={'/installation':TerminalIcon,'/theming':BrushIcon,'/releases':AccessTimeFilledIcon,'/licensing':LockIcon};
 const bySlug=new Map(catalog.map(entry=>[entry.slug,entry]));
 const groupForPath=(pathname:string)=>componentNavigationGroups.find(group=>group.slugs.some(slug=>pathname===`/docs/components/${slug}`));
@@ -23,7 +23,7 @@ export function CatalogNavigation({pathname}:{pathname:string}) {
   const items:HierarchicalMenuLevel={sections:[
     {id:'overview',items:[{id:'components',label:'Components',href:'/docs/components',current:pathname==='/docs/components',icon:<WindowIcon/>}]},
     {id:'categories',items:componentNavigationGroups.map(category=>{
-      const Icon=groupIcons[category.id as keyof typeof groupIcons];
+      const Icon=groupIcons[category.id]??DescriptionOutlinedIcon;
       return {id:category.id,label:category.label,icon:<Icon/>,children:{sections:[{id:category.id,items:category.slugs.map(slug=>{
         const entry=bySlug.get(slug)!;
         const href=`/docs/components/${slug}`;

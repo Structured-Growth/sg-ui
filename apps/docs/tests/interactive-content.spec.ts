@@ -76,3 +76,18 @@ test('new catalog pages expose compiling source and reflect edited labels and an
  const edited=(await panel.locator('code').textContent())!;expect(edited).toContain('useState<SurveyAnswer>("email")');
  sources.push({slug:'edited-question',source:edited});expect(checkSources(sources)).toEqual([]);
 });
+
+
+test('top-level Surveys navigation loads the site and opens its own category',async({page})=>{
+ const errors:string[]=[];
+ page.on('pageerror',error=>errors.push(error.message));
+ const response=await page.goto('/');expect(response?.status()).toBe(200);
+ const navigation=page.getByRole('navigation',{name:'Documentation',exact:true});
+ await navigation.getByRole('button',{name:'Surveys',exact:true}).click();
+ await expect(navigation.getByRole('link',{name:'Survey',exact:true})).toBeVisible();
+ await expect(navigation.getByRole('link',{name:'SurveyQuestion',exact:true})).toBeVisible();
+ await expect(navigation.getByRole('link',{name:'AnswerFeedback',exact:true})).toBeVisible();
+ await navigation.getByRole('link',{name:'Survey',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Survey',level:1,exact:true})).toBeVisible();
+ expect(errors).toEqual([]);
+});
